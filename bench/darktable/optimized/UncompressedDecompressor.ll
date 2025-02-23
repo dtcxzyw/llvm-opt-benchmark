@@ -653,30 +653,32 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %81
   tail call void @llvm.assume(i1 %103)
   %104 = getelementptr inbounds nuw i16, ptr %80, i64 %indvars.iv
   store i16 %.0.i, ptr %104, align 2, !tbaa !114
-  %105 = add nuw nsw i32 %.026137, 2
-  %106 = icmp samesign ult i32 %105, %13
+  %105 = add nuw i32 %.026137, 2
+  %106 = icmp sgt i32 %105, -1
   tail call void @llvm.assume(i1 %106)
-  %107 = zext nneg i32 %105 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %75, i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !106
-  %110 = zext i8 %109 to i32
-  %111 = or disjoint i64 %indvars.iv, 1
-  %112 = shl nuw nsw i32 %110, 4
-  %113 = lshr i32 %99, 4
-  %114 = or disjoint i32 %112, %113
-  %.0.i39 = trunc nuw nsw i32 %114 to i16
-  %115 = icmp samesign ult i64 %111, %64
-  tail call void @llvm.assume(i1 %115)
-  %116 = getelementptr inbounds nuw i16, ptr %80, i64 %111
-  store i16 %.0.i39, ptr %116, align 2, !tbaa !114
-  %117 = trunc nuw nsw i64 %indvars.iv to i32
-  %118 = urem i32 %117, 10
-  %119 = icmp eq i32 %118, 8
-  %spec.select.v = select i1 %119, i32 4, i32 3
+  %107 = icmp samesign ult i32 %105, %13
+  tail call void @llvm.assume(i1 %107)
+  %108 = zext nneg i32 %105 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %75, i64 %108
+  %110 = load i8, ptr %109, align 1, !tbaa !106
+  %111 = zext i8 %110 to i32
+  %112 = or disjoint i64 %indvars.iv, 1
+  %113 = shl nuw nsw i32 %111, 4
+  %114 = lshr i32 %99, 4
+  %115 = or disjoint i32 %113, %114
+  %.0.i39 = trunc nuw nsw i32 %115 to i16
+  %116 = icmp samesign ult i64 %112, %64
+  tail call void @llvm.assume(i1 %116)
+  %117 = getelementptr inbounds nuw i16, ptr %80, i64 %112
+  store i16 %.0.i39, ptr %117, align 2, !tbaa !114
+  %118 = trunc nuw nsw i64 %indvars.iv to i32
+  %119 = urem i32 %118, 10
+  %120 = icmp eq i32 %119, 8
+  %spec.select.v = select i1 %120, i32 4, i32 3
   %spec.select = add nuw i32 %spec.select.v, %.026137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %120 = icmp samesign ult i64 %indvars.iv.next, %65
-  br i1 %120, label %89, label %88, !llvm.loop !121
+  %121 = icmp samesign ult i64 %indvars.iv.next, %65
+  br i1 %121, label %89, label %88, !llvm.loop !121
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -931,30 +933,32 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %81
   tail call void @llvm.assume(i1 %103)
   %104 = getelementptr inbounds nuw i16, ptr %80, i64 %indvars.iv
   store i16 %.0.i, ptr %104, align 2, !tbaa !114
-  %105 = add nuw nsw i32 %.026137, 2
-  %106 = icmp samesign ult i32 %105, %13
+  %105 = add nuw i32 %.026137, 2
+  %106 = icmp sgt i32 %105, -1
   tail call void @llvm.assume(i1 %106)
-  %107 = zext nneg i32 %105 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %75, i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !106
-  %110 = zext i8 %109 to i32
-  %111 = or disjoint i64 %indvars.iv, 1
-  %112 = shl nuw nsw i32 %99, 8
-  %113 = and i32 %112, 3840
-  %114 = or disjoint i32 %113, %110
-  %.0.i39 = trunc nuw nsw i32 %114 to i16
-  %115 = icmp samesign ult i64 %111, %64
-  tail call void @llvm.assume(i1 %115)
-  %116 = getelementptr inbounds nuw i16, ptr %80, i64 %111
-  store i16 %.0.i39, ptr %116, align 2, !tbaa !114
-  %117 = trunc nuw nsw i64 %indvars.iv to i32
-  %118 = urem i32 %117, 10
-  %119 = icmp eq i32 %118, 8
-  %spec.select.v = select i1 %119, i32 4, i32 3
+  %107 = icmp samesign ult i32 %105, %13
+  tail call void @llvm.assume(i1 %107)
+  %108 = zext nneg i32 %105 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %75, i64 %108
+  %110 = load i8, ptr %109, align 1, !tbaa !106
+  %111 = zext i8 %110 to i32
+  %112 = or disjoint i64 %indvars.iv, 1
+  %113 = shl nuw nsw i32 %99, 8
+  %114 = and i32 %113, 3840
+  %115 = or disjoint i32 %114, %111
+  %.0.i39 = trunc nuw nsw i32 %115 to i16
+  %116 = icmp samesign ult i64 %112, %64
+  tail call void @llvm.assume(i1 %116)
+  %117 = getelementptr inbounds nuw i16, ptr %80, i64 %112
+  store i16 %.0.i39, ptr %117, align 2, !tbaa !114
+  %118 = trunc nuw nsw i64 %indvars.iv to i32
+  %119 = urem i32 %118, 10
+  %120 = icmp eq i32 %119, 8
+  %spec.select.v = select i1 %120, i32 4, i32 3
   %spec.select = add nuw i32 %spec.select.v, %.026137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %120 = icmp samesign ult i64 %indvars.iv.next, %65
-  br i1 %120, label %89, label %88, !llvm.loop !126
+  %121 = icmp samesign ult i64 %indvars.iv.next, %65
+  br i1 %121, label %89, label %88, !llvm.loop !126
 }
 
 ; Function Attrs: mustprogress uwtable

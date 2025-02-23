@@ -147,15 +147,17 @@ define hidden void @_ZNK8rawspeed10FileReader8readFileEv(ptr dead_on_unwind noal
 
 "_ZNSt10unique_ptrI8_IO_FILEZNK8rawspeed10FileReader8readFileEvE3$_0ED2Ev.exit": ; preds = %28
   %45 = load ptr, ptr %24, align 8, !tbaa !15, !nonnull !21, !noundef !21
-  %46 = trunc nuw nsw i64 %10 to i32
+  %46 = trunc nuw i64 %10 to i32
+  %47 = icmp sgt i32 %46, -1
+  tail call void @llvm.assume(i1 %47)
   %.cast = ptrtoint ptr %22 to i64
   store i64 %.cast, ptr %0, align 8, !tbaa !19
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %45, ptr %47, align 8, !tbaa !22
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %45, ptr %48, align 8, !tbaa !22
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %46, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  %48 = tail call i32 @fclose(ptr noundef nonnull %5)
+  %49 = tail call i32 @fclose(ptr noundef nonnull %5)
   ret void
 
 .body:                                            ; preds = %41, %26, %43
@@ -165,7 +167,7 @@ define hidden void @_ZNK8rawspeed10FileReader8readFileEv(ptr dead_on_unwind noal
 
 "_ZNSt10unique_ptrI8_IO_FILEZNK8rawspeed10FileReader8readFileEvE3$_0ED2Ev.exit29": ; preds = %14, %.body
   %.pn17.ph = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %15, %14 ]
-  %49 = call i32 @fclose(ptr noundef nonnull %5)
+  %50 = call i32 @fclose(ptr noundef nonnull %5)
   resume { ptr, i32 } %.pn17.ph
 }
 

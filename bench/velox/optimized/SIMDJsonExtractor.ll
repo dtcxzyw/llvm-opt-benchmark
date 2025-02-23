@@ -769,7 +769,9 @@ if.end:                                           ; preds = %if.end.i76
   store ptr %incdec.ptr.i183, ptr %_position.i249, align 8, !noalias !17
   %19 = load ptr, ptr %jsonValue, align 8, !noalias !17
   %20 = load i32, ptr %_depth.i, align 8, !noalias !17
-  %sub.i = add nsw i32 %20, -1
+  %sub.i = add i32 %20, -1
+  %or.cond = icmp ult i32 %sub.i, 2147483646
+  tail call void @llvm.assume(i1 %or.cond)
   %_depth.i210 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %21 = load i32, ptr %_depth.i210, align 4, !noalias !17
   %cmp4.i = icmp eq i32 %21, %20
@@ -1355,7 +1357,9 @@ if.then.i83:                                      ; preds = %if.end.i48
   store ptr %incdec.ptr.i.i85, ptr %_position.i88, align 8, !noalias !36
   %19 = load ptr, ptr %jsonValue, align 8, !noalias !36
   %20 = load i32, ptr %_depth.i.i, align 8, !noalias !36
-  %sub.i.i = add nsw i32 %20, -1
+  %sub.i.i = add i32 %20, -1
+  %or.cond = icmp ult i32 %sub.i.i, 2147483646
+  tail call void @llvm.assume(i1 %or.cond)
   %_depth.i43.i = getelementptr inbounds nuw i8, ptr %19, i64 36
   %21 = load i32, ptr %_depth.i43.i, align 4, !noalias !36
   %cmp4.i.i = icmp eq i32 %21, %20

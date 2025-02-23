@@ -8357,11 +8357,11 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17hbf8e6ee11ce72299E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-.lr.ph.i:
+.lr.ph.split.preheader.i:
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %5
-  %2 = phi i64 [ %.fca.1.extract6.i, %5 ], [ %1, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %5, %.lr.ph.split.preheader.i
+  %2 = phi i64 [ %.fca.1.extract6.i, %5 ], [ %1, %.lr.ph.split.preheader.i ]
   %3 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h4e11e83c62dcf10dE(i8 noundef 10, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %2), !noalias !2046
   %.fca.0.extract5.i = extractvalue { i64, i64 } %3, 0
   %4 = icmp eq i64 %.fca.0.extract5.i, 1

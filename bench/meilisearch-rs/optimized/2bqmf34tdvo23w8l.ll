@@ -38946,16 +38946,17 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i8, ptr %25, align 8, !alias.scope !7390, !noalias !7393, !noundef !9
   %27 = zext i8 %26 to i64
-  %28 = getelementptr i8, ptr %24, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 -1
-  %30 = add nsw i64 %27, -1
+  %28 = add nsw i64 %27, -1
+  %29 = icmp ult i64 %28, 4
+  tail call void @llvm.assume(i1 %29)
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %31 = icmp ugt i8 %26, 4
   br i1 %31, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %45
   %32 = phi i64 [ %39, %45 ], [ %.promoted.i, %.lr.ph.i ]
   %33 = sub nuw i64 %32, %19
-  %34 = load i8, ptr %29, align 1, !alias.scope !7390, !noalias !7393, !noundef !9
+  %34 = load i8, ptr %30, align 1, !alias.scope !7390, !noalias !7393, !noundef !9
   %35 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17hdb6ce916813eb1e7E(i8 noundef %34, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %33), !noalias !7395
   %36 = extractvalue { i64, i64 } %35, 0
   %switch.us.i = icmp eq i64 %36, 1
@@ -38964,11 +38965,11 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
 37:                                               ; preds = %.lr.ph.split.us.i
   %38 = extractvalue { i64, i64 } %35, 1
   %39 = add i64 %38, %19
-  %.not.us.i = icmp ult i64 %39, %30
+  %.not.us.i = icmp ult i64 %39, %28
   br i1 %.not.us.i, label %45, label %40
 
 40:                                               ; preds = %37
-  %41 = sub nuw i64 %39, %30
+  %41 = sub nuw i64 %39, %28
   %42 = add i64 %41, %27
   %43 = icmp ugt i64 %41, %42
   %44 = icmp ugt i64 %42, %.val11
@@ -38985,7 +38986,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %56
   %48 = phi i64 [ %55, %56 ], [ %.promoted.i, %.lr.ph.i ]
   %49 = sub nuw i64 %48, %19
-  %50 = load i8, ptr %29, align 1, !alias.scope !7390, !noalias !7393, !noundef !9
+  %50 = load i8, ptr %30, align 1, !alias.scope !7390, !noalias !7393, !noundef !9
   %51 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17hdb6ce916813eb1e7E(i8 noundef %50, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %49), !noalias !7395
   %52 = extractvalue { i64, i64 } %51, 0
   %switch.i = icmp eq i64 %52, 1
@@ -38994,7 +38995,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
 53:                                               ; preds = %.lr.ph.split.i
   %54 = extractvalue { i64, i64 } %51, 1
   %55 = add i64 %54, %19
-  %.not.i = icmp ult i64 %55, %30
+  %.not.i = icmp ult i64 %55, %28
   br i1 %.not.i, label %56, label %59
 
 56:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4dd919777ea29ee7E.exit.i", %59, %53
@@ -39005,7 +39006,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %or.cond.i.i, label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$15next_match_back17h1df380e718a412dfE.exit.thread", label %.lr.ph.split.i
 
 59:                                               ; preds = %53
-  %60 = sub nuw i64 %55, %30
+  %60 = sub nuw i64 %55, %28
   %61 = add i64 %60, %27
   %62 = icmp ugt i64 %60, %61
   %63 = icmp ugt i64 %61, %.val11
