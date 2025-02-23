@@ -381,6 +381,10 @@ def update_pr():
             return False
 
     lines = []
+    if not NO_DIFF:
+        lines.append("# Diff mode")
+    if COMPTIME_OUT:
+        lines.append("# Comptime mode")
     lines.append("runner: {}".format(RUNNER_ID))
     lines.append(
         "baseline: https://github.com/llvm/llvm-project/commit/{}".format(
