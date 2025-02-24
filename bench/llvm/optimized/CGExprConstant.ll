@@ -6208,7 +6208,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_119ReplacePlaceholders13findLocatio
   %6 = load i8, ptr %1, align 8, !tbaa !892
   %7 = add i8 %6, -12
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %7, -3
-  %spec.select.i.i = select i1 %spec.select.i.i.i.i.i.i.i.i, ptr null, ptr %1
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %.critedge.preheader, label %8
 
 8:                                                ; preds = %2
@@ -6280,7 +6279,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
   %46 = and i32 %45, 134217727
   %47 = zext nneg i32 %46 to i64
   %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i, i64 %48
+  %49 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %48
   %50 = getelementptr inbounds nuw %"class.llvm::Use", ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !820
   tail call fastcc void @_ZN12_GLOBAL__N_119ReplacePlaceholders13findLocationsEPN4llvm8ConstantE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %51)

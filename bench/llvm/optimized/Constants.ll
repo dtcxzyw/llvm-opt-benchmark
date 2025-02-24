@@ -15133,8 +15133,10 @@ _ZN4llvm5APIntC2ERKS0_.exit52:                    ; preds = %48, %50
 
 .critedge:                                        ; preds = %40, %38
   %57 = load i8, ptr %1, align 8, !tbaa !56
-  %.not = icmp eq i8 %57, 16
-  br i1 %.not, label %58, label %.critedge49
+  switch i8 %57, label %.critedge51 [
+    i8 16, label %58
+    i8 11, label %147
+  ]
 
 58:                                               ; preds = %.critedge
   tail call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %32, i1 noundef zeroext false) #29
@@ -15347,12 +15349,7 @@ _ZN4llvm5APIntD2Ev.exit57:                        ; preds = %_ZN4llvm13ConstantR
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
   br i1 %exitcond91.not, label %_ZN4llvm5APIntD2Ev.exit53, label %81, !llvm.loop !693
 
-.critedge49:                                      ; preds = %.critedge
-  %.not78 = icmp eq i8 %57, 11
-  %spec.select.i.i58 = select i1 %.not78, ptr %1, ptr null
-  br i1 %.not78, label %147, label %.critedge51
-
-147:                                              ; preds = %.critedge49
+147:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #29
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %32, i1 noundef zeroext false) #29
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -15381,7 +15378,7 @@ _ZN4llvm5APIntD2Ev.exit57:                        ; preds = %_ZN4llvm13ConstantR
   %163 = and i32 %162, 134217727
   %164 = zext nneg i32 %163 to i64
   %165 = sub nsw i64 0, %164
-  %166 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i58, i64 %165
+  %166 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %165
   %167 = getelementptr inbounds nuw %"class.llvm::Use", ptr %166, i64 %indvars.iv
   %168 = load ptr, ptr %167, align 8, !tbaa !72
   %.not46 = icmp eq ptr %168, null
@@ -15586,7 +15583,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit69:               ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #29
   br label %_ZN4llvm5APIntD2Ev.exit53
 
-.critedge51:                                      ; preds = %.critedge49
+.critedge51:                                      ; preds = %.critedge
   tail call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %32, i1 noundef zeroext true) #29
   br label %_ZN4llvm5APIntD2Ev.exit53
 

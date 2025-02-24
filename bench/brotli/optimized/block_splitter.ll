@@ -804,7 +804,7 @@ BuildBlockHistogramsLiteral.exit.i:               ; preds = %ClearHistogramsLite
   %.1365435.i.i = phi i64 [ %472, %._crit_edge434.i.i ], [ 0, %.preheader414.i.i ]
   %umin502.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i, i64 64)
   %umax503.i.i = tail call i64 @llvm.umax.i64(i64 %umin502.i.i, i64 1)
-  %387 = getelementptr i32, ptr %367, i64 %.1365435.i.i
+  %387 = getelementptr i32, ptr %366, i64 %.1365435.i.i
   br label %388
 
 388:                                              ; preds = %._crit_edge.i.i, %.lr.ph422.i.i
@@ -1988,7 +1988,7 @@ BuildBlockHistogramsCommand.exit.i:               ; preds = %ClearHistogramsComm
   %.1365435.i.i168 = phi i64 [ %1033, %._crit_edge434.i.i191 ], [ 0, %.preheader414.i.i157 ]
   %umin505.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i159, i64 64)
   %umax506.i.i = tail call i64 @llvm.umax.i64(i64 %umin505.i.i, i64 1)
-  %948 = getelementptr i32, ptr %928, i64 %.1365435.i.i168
+  %948 = getelementptr i32, ptr %927, i64 %.1365435.i.i168
   br label %949
 
 949:                                              ; preds = %964, %.lr.ph422.i.i158
@@ -3196,7 +3196,7 @@ BuildBlockHistogramsDistance.exit.i:              ; preds = %ClearHistogramsDist
   %.1365435.i.i346 = phi i64 [ %1609, %._crit_edge434.i.i375 ], [ 0, %.preheader414.i.i335 ]
   %umin505.i.i347 = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i337, i64 64)
   %umax506.i.i348 = tail call i64 @llvm.umax.i64(i64 %umin505.i.i347, i64 1)
-  %1524 = getelementptr i32, ptr %1504, i64 %.1365435.i.i346
+  %1524 = getelementptr i32, ptr %1503, i64 %.1365435.i.i346
   br label %1525
 
 1525:                                             ; preds = %1540, %.lr.ph422.i.i336

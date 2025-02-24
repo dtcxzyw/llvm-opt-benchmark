@@ -41767,7 +41767,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_10StringTypeEv
   br i1 %68, label %.lr.ph.i, label %.loopexit99, !llvm.loop !3140
 
 .loopexit99:                                      ; preds = %.noexc52, %.noexc
-  %.0.lcssa.i = phi ptr [ %41, %.noexc ], [ %66, %.noexc52 ]
+  %.0.lcssa.i = phi ptr [ %40, %.noexc ], [ %66, %.noexc52 ]
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %70 = load i64, ptr %69, align 8, !tbaa !1081
   %71 = trunc i64 %70 to i32
@@ -43478,7 +43478,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_10BinaryTypeEv
   br i1 %68, label %.lr.ph.i, label %.loopexit99, !llvm.loop !3140
 
 .loopexit99:                                      ; preds = %.noexc52, %.noexc
-  %.0.lcssa.i = phi ptr [ %41, %.noexc ], [ %66, %.noexc52 ]
+  %.0.lcssa.i = phi ptr [ %40, %.noexc ], [ %66, %.noexc52 ]
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %70 = load i64, ptr %69, align 8, !tbaa !1081
   %71 = trunc i64 %70 to i32
@@ -44756,7 +44756,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_15LargeStringT
   br i1 %68, label %.lr.ph.i, label %.loopexit99, !llvm.loop !3234
 
 .loopexit99:                                      ; preds = %.noexc52, %.noexc
-  %.0.lcssa.i = phi ptr [ %41, %.noexc ], [ %66, %.noexc52 ]
+  %.0.lcssa.i = phi ptr [ %40, %.noexc ], [ %66, %.noexc52 ]
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %70 = load i64, ptr %69, align 8, !tbaa !1081
   %71 = sub nsw i64 %70, %53
@@ -45757,7 +45757,7 @@ define linkonce_odr void @_ZN5arrow8internal16DictionaryTraitsINS_15LargeBinaryT
   br i1 %68, label %.lr.ph.i, label %.loopexit99, !llvm.loop !3234
 
 .loopexit99:                                      ; preds = %.noexc52, %.noexc
-  %.0.lcssa.i = phi ptr [ %41, %.noexc ], [ %66, %.noexc52 ]
+  %.0.lcssa.i = phi ptr [ %40, %.noexc ], [ %66, %.noexc52 ]
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %70 = load i64, ptr %69, align 8, !tbaa !1081
   %71 = sub nsw i64 %70, %53

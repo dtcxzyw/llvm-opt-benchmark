@@ -278,11 +278,11 @@ malloc_mutex_lock.exit:                           ; preds = %72, %78
   br label %88
 
 88:                                               ; preds = %.preheader148.us, %88
-  %indvars.iv165 = phi i64 [ 0, %.preheader148.us ], [ %indvars.iv.next166, %88 ]
+  %indvars.iv166 = phi i64 [ 0, %.preheader148.us ], [ %indvars.iv.next167, %88 ]
   %89 = phi i64 [ %.promoted151.us156, %.preheader148.us ], [ %111, %88 ]
   %90 = phi i64 [ %.promoted.us154, %.preheader148.us ], [ %107, %88 ]
-  %91 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %87, i64 %indvars.iv165
-  %92 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %85, i64 %indvars.iv165
+  %91 = getelementptr inbounds nuw %struct.cache_bin_s, ptr %87, i64 %indvars.iv166
+  %92 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %85, i64 %indvars.iv166
   %.val.i.us = load ptr, ptr %91, align 8, !tbaa !82
   %93 = getelementptr i8, ptr %91, i64 20
   %.val6.i.us = load i16, ptr %93, align 4, !tbaa !86
@@ -298,7 +298,7 @@ malloc_mutex_lock.exit:                           ; preds = %72, %78
   %101 = add i16 %.neg.i.us, %100
   %102 = lshr i16 %101, 3
   %103 = zext nneg i16 %97 to i64
-  %104 = getelementptr inbounds nuw [235 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %indvars.iv165
+  %104 = getelementptr inbounds nuw [235 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %indvars.iv166
   %105 = load i64, ptr %104, align 8, !tbaa !11
   %106 = mul i64 %105, %103
   %107 = add i64 %106, %90
@@ -308,15 +308,15 @@ malloc_mutex_lock.exit:                           ; preds = %72, %78
   %110 = mul i64 %109, %108
   %111 = add i64 %89, %110
   store i64 %111, ptr %66, align 8, !tbaa !77
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %exitcond168.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
-  br i1 %exitcond168.not, label %._crit_edge.us, label %88, !llvm.loop !90
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %exitcond169.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count
+  br i1 %exitcond169.not, label %._crit_edge.us, label %88, !llvm.loop !90
 
 ._crit_edge.us:                                   ; preds = %88
   %112 = load ptr, ptr %.0134153.us, align 8, !tbaa !92
   %.not138.us = icmp eq ptr %112, %83
-  %.not.us178 = icmp eq ptr %112, null
-  %.not.us = or i1 %.not138.us, %.not.us178
+  %.not.us179 = icmp eq ptr %112, null
+  %.not.us = or i1 %.not138.us, %.not.us179
   br i1 %.not.us, label %select.unfold._crit_edge, label %.preheader148.us
 
 113:                                              ; preds = %atomic_load_zu.exit, %113
@@ -385,8 +385,8 @@ malloc_mutex_lock.exit:                           ; preds = %72, %78
   %.0134153 = phi ptr [ %158, %.preheader148 ], [ %83, %.preheader148.lr.ph ]
   %158 = load ptr, ptr %.0134153, align 8, !tbaa !92
   %.not138 = icmp eq ptr %158, %83
-  %.not179 = icmp eq ptr %158, null
-  %.not = or i1 %.not138, %.not179
+  %.not161 = icmp eq ptr %158, null
+  %.not = or i1 %.not138, %.not161
   br i1 %.not, label %select.unfold._crit_edge, label %.preheader148
 
 select.unfold._crit_edge:                         ; preds = %._crit_edge.us, %.preheader148, %malloc_mutex_lock.exit
@@ -489,15 +489,15 @@ malloc_mutex_lock.exit145:                        ; preds = %188, %194
   br label %.preheader
 
 .preheader:                                       ; preds = %malloc_mutex_lock.exit145, %._crit_edge
-  %indvars.iv172 = phi i64 [ 0, %malloc_mutex_lock.exit145 ], [ %indvars.iv.next173, %._crit_edge ]
-  %210 = getelementptr inbounds nuw [39 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %indvars.iv172, i32 3
+  %indvars.iv173 = phi i64 [ 0, %malloc_mutex_lock.exit145 ], [ %indvars.iv.next174, %._crit_edge ]
+  %210 = getelementptr inbounds nuw [39 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %indvars.iv173, i32 3
   %211 = load i32, ptr %210, align 4, !tbaa !105
-  %.not161 = icmp eq i32 %211, 0
-  br i1 %.not161, label %._crit_edge, label %.lr.ph
+  %.not162 = icmp eq i32 %211, 0
+  br i1 %.not162, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %212 = getelementptr inbounds nuw %struct.bin_stats_data_s, ptr %10, i64 %indvars.iv172
-  %213 = getelementptr inbounds nuw [39 x i32], ptr @je_arena_bin_offsets, i64 0, i64 %indvars.iv172
+  %212 = getelementptr inbounds nuw %struct.bin_stats_data_s, ptr %10, i64 %indvars.iv173
+  %213 = getelementptr inbounds nuw [39 x i32], ptr @je_arena_bin_offsets, i64 0, i64 %indvars.iv173
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 80
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 88
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 96
@@ -525,17 +525,17 @@ malloc_mutex_lock.exit145:                        ; preds = %188, %194
   ret void
 
 ._crit_edge:                                      ; preds = %bin_stats_merge.exit, %.preheader
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next173, 39
-  br i1 %exitcond175.not, label %231, label %.preheader, !llvm.loop !108
+  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
+  %exitcond176.not = icmp eq i64 %indvars.iv.next174, 39
+  br i1 %exitcond176.not, label %231, label %.preheader, !llvm.loop !108
 
 232:                                              ; preds = %.lr.ph, %bin_stats_merge.exit
-  %indvars.iv169 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next170, %bin_stats_merge.exit ]
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next171, %bin_stats_merge.exit ]
   %233 = load i32, ptr %213, align 4, !tbaa !4
   %234 = zext i32 %233 to i64
   %235 = add i64 %234, %209
   %236 = inttoptr i64 %235 to ptr
-  %237 = getelementptr inbounds nuw %struct.bin_s, ptr %236, i64 %indvars.iv169
+  %237 = getelementptr inbounds nuw %struct.bin_s, ptr %236, i64 %indvars.iv170
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 64
   %239 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %238) #16
   %.not.i.i146 = icmp eq i32 %239, 0
@@ -661,10 +661,10 @@ bin_stats_merge.exit:                             ; preds = %256, %269
   %317 = getelementptr inbounds nuw i8, ptr %237, i64 104
   store atomic i8 0, ptr %317 monotonic, align 1
   %318 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %238) #16
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %319 = load i32, ptr %210, align 4, !tbaa !105
   %320 = zext i32 %319 to i64
-  %321 = icmp samesign ult i64 %indvars.iv.next170, %320
+  %321 = icmp samesign ult i64 %indvars.iv.next171, %320
   br i1 %321, label %232, label %._crit_edge, !llvm.loop !134
 }
 

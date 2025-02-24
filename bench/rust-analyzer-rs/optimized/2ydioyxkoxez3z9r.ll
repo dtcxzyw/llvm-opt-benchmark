@@ -57149,7 +57149,6 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hdd1bd60f68e2941dE.exit.thread3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12815)
   %28 = load i8, ptr %27, align 8, !range !12818, !alias.scope !12819, !noalias !12822, !noundef !4
   %29 = icmp eq i8 %28, 29
-  %..i.i.i = select i1 %29, ptr null, ptr %27
   br i1 %29, label %.sink.split, label %30
 
 30:                                               ; preds = %26
@@ -57281,7 +57280,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hedead067f6d1d88fE.exit.i.i.i.i
   br label %61
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha1f71aa1c9453f7bE.exit.i.i.i.i": ; preds = %59, %56
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %..i.i.i, %59 ], [ %.sroa.01.i.i.i.i, %56 ]
+  %.sink.i.i.i.i.i.i.i = phi ptr [ %27, %59 ], [ %.sroa.01.i.i.i.i, %56 ]
   store i8 27, ptr %.sink.i.i.i.i.i.i.i, align 8, !alias.scope !12907, !noalias !12905
   %.sroa.01.i.i.i.i.0..sroa.01.i.i.i.i.0..sroa.01.i.i.i.i.0..sroa.01.i.i.i.0..sroa.01.i.i.i.0..sroa.01.i.i.0..sroa.01.i.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..pr.i.i.i.i = load i8, ptr %.sroa.01.i.i.i.i, align 8, !noalias !12908
   %60 = icmp eq i8 %.sroa.01.i.i.i.i.0..sroa.01.i.i.i.i.0..sroa.01.i.i.i.i.0..sroa.01.i.i.i.0..sroa.01.i.i.i.0..sroa.01.i.i.0..sroa.01.i.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..pr.i.i.i.i, 27
@@ -57630,7 +57629,6 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hdd1bd60f68e2941dE.exit.thread3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13003)
   %28 = load i8, ptr %27, align 8, !range !12818, !alias.scope !13006, !noalias !13009, !noundef !4
   %29 = icmp eq i8 %28, 29
-  %..i.i.i = select i1 %29, ptr null, ptr %27
   br i1 %29, label %.sink.split, label %30
 
 30:                                               ; preds = %26
@@ -57762,7 +57760,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h8726c8e076641776E.exit.i.i.i.i
   br label %61
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb15659adb950445E.exit.i.i.i.i": ; preds = %59, %56
-  %.sink.i.i.i.i.i.i.i = phi ptr [ %..i.i.i, %59 ], [ %.sroa.01.i.i.i.i, %56 ]
+  %.sink.i.i.i.i.i.i.i = phi ptr [ %27, %59 ], [ %.sroa.01.i.i.i.i, %56 ]
   store i8 27, ptr %.sink.i.i.i.i.i.i.i, align 8, !alias.scope !13094, !noalias !13092
   %.sroa.01.i.i.i.i.0..sroa.01.i.i.i.i.0..sroa.01.i.i.i.i.0..sroa.01.i.i.i.0..sroa.01.i.i.i.0..sroa.01.i.i.0..sroa.01.i.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..pr.i.i.i.i = load i8, ptr %.sroa.01.i.i.i.i, align 8, !noalias !13095
   %60 = icmp eq i8 %.sroa.01.i.i.i.i.0..sroa.01.i.i.i.i.0..sroa.01.i.i.i.i.0..sroa.01.i.i.i.0..sroa.01.i.i.i.0..sroa.01.i.i.0..sroa.01.i.i.0..sroa.01.i.0..sroa.01.i.0..sroa.01.0..sroa.01.0..sroa.01.0..pr.i.i.i.i, 27

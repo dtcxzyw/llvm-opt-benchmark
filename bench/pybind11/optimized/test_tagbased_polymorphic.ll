@@ -2376,68 +2376,63 @@ define hidden void @_ZN6Animal12name_of_kindB5cxx11ENS_4KindE(ptr dead_on_unwind
 6:                                                ; preds = %2
   %7 = add i32 %1, -100
   %or.cond.i = icmp ult i32 %7, 100
-  br i1 %or.cond.i, label %_ZN6Animal12type_of_kindENS_4KindE.exit, label %8
-
-8:                                                ; preds = %6
-  %9 = add i32 %1, -200
-  %or.cond3.i = icmp ult i32 %9, 100
-  %_ZTI3Cat..i = select i1 %or.cond3.i, ptr @_ZTI3Cat, ptr null
+  %spec.select = select i1 %or.cond.i, ptr @_ZTI3Dog, ptr @_ZTI3Cat
   br label %_ZN6Animal12type_of_kindENS_4KindE.exit
 
-_ZN6Animal12type_of_kindENS_4KindE.exit:          ; preds = %2, %4, %5, %6, %8
-  %.0.i = phi ptr [ @_ZTI9Chihuahua, %4 ], [ @_ZTI7Panther, %5 ], [ @_ZTI8Labrador, %2 ], [ @_ZTI3Dog, %6 ], [ %_ZTI3Cat..i, %8 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = load i8, ptr %11, align 1
-  %13 = icmp eq i8 %12, 42
-  %.idx.i = zext i1 %13 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
+_ZN6Animal12type_of_kindENS_4KindE.exit:          ; preds = %6, %2, %4, %5
+  %.0.i = phi ptr [ @_ZTI9Chihuahua, %4 ], [ @_ZTI7Panther, %5 ], [ @_ZTI8Labrador, %2 ], [ %spec.select, %6 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i8, ptr %9, align 1
+  %11 = icmp eq i8 %10, 42
+  %.idx.i = zext i1 %11 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  %15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %20
+  %13 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %_ZN6Animal12type_of_kindENS_4KindE.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %.noexc5 unwind label %20
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %.noexc5 unwind label %18
 
-16:                                               ; preds = %.noexc5
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %.noexc5
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   br label %.body
 
 .noexc5:                                          ; preds = %.noexc
-  %18 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #26
-  %19 = getelementptr inbounds i8, ptr %14, i64 %18
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, ptr noundef nonnull %19)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %16
+  %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #26
+  %17 = getelementptr inbounds i8, ptr %12, i64 %16
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, ptr noundef nonnull %17)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
   invoke void @_ZN8pybind116detail13clean_type_idERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %24 unwind label %22
+          to label %22 unwind label %20
 
-20:                                               ; preds = %.noexc, %_ZN6Animal12type_of_kindENS_4KindE.exit
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %.noexc, %_ZN6Animal12type_of_kindENS_4KindE.exit
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %16, %20
-  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %17, %16 ]
+.body:                                            ; preds = %14, %18
+  %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %15, %14 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  br label %25
+  br label %23
 
-22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %23 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
-  br label %25
+  br label %23
 
-24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   ret void
 
-25:                                               ; preds = %22, %.body
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %eh.lpad-body, %.body ]
+23:                                               ; preds = %20, %.body
+  %.pn = phi { ptr, i32 } [ %21, %20 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 }
 

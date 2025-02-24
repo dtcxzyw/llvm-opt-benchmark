@@ -1649,8 +1649,8 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 for.cond.preheader:                               ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i117
   %size_.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %size_.i, align 8
-  %cmp30556.not = icmp eq i64 %42, 0
-  br i1 %cmp30556.not, label %nrvo.skipdtor, label %for.body.lr.ph
+  %cmp30558.not = icmp eq i64 %42, 0
+  br i1 %cmp30558.not, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %add.ptr.i.i.i173 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -1667,8 +1667,8 @@ if.then.i167:                                     ; preds = %_ZSt11lower_boundIP
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc61
   %43 = phi i64 [ %42, %for.body.lr.ph ], [ %153, %for.inc61 ]
-  %i.0557 = phi i64 [ 0, %for.body.lr.ph ], [ %inc62, %for.inc61 ]
-  %arrayidx.i174 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i173, i64 %i.0557
+  %i.0559 = phi i64 [ 0, %for.body.lr.ph ], [ %inc62, %for.inc61 ]
+  %arrayidx.i174 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i173, i64 %i.0559
   %44 = load ptr, ptr %arrayidx.i174, align 8
   %45 = load i32, ptr %44, align 4
   %cmp.i.i.i.i.i.i.i175.not = icmp eq i32 %45, 0
@@ -1837,8 +1837,8 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 for.cond40.preheader:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i250
   %size_.i306 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i64, ptr %size_.i306, align 8
-  %cmp42554.not = icmp eq i64 %64, 0
-  br i1 %cmp42554.not, label %for.inc61, label %for.body43.lr.ph
+  %cmp42556.not = icmp eq i64 %64, 0
+  br i1 %cmp42556.not, label %for.inc61, label %for.body43.lr.ph
 
 for.body43.lr.ph:                                 ; preds = %for.cond40.preheader
   %add.ptr.i.i.i307 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -1854,8 +1854,8 @@ if.then.i300:                                     ; preds = %_ZSt11lower_boundIP
   unreachable
 
 for.body43:                                       ; preds = %for.body43.lr.ph, %_ZNSt8__detail9_Map_baseItSt4pairIKtmESaIS3_ENS_10_Select1stESt8equal_toItESt4hashItENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOt.exit
-  %i39.0555 = phi i64 [ 0, %for.body43.lr.ph ], [ %inc, %_ZNSt8__detail9_Map_baseItSt4pairIKtmESaIS3_ENS_10_Select1stESt8equal_toItESt4hashItENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOt.exit ]
-  %arrayidx.i308 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i307, i64 %i39.0555
+  %i39.0557 = phi i64 [ 0, %for.body43.lr.ph ], [ %inc, %_ZNSt8__detail9_Map_baseItSt4pairIKtmESaIS3_ENS_10_Select1stESt8equal_toItESt4hashItENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOt.exit ]
+  %arrayidx.i308 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i307, i64 %i39.0557
   %65 = load ptr, ptr %arrayidx.i308, align 8
   %66 = load i32, ptr %65, align 4
   %cmp.i.i.i.i.i.i.i309.not = icmp eq i32 %66, 0
@@ -2483,7 +2483,7 @@ _ZNSt8__detail9_Map_baseItSt4pairIKtmESaIS3_ENS_10_Select1stESt8equal_toItESt4ha
   %retval.0.i470 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store i64 %conv53, ptr %retval.0.i470, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #20
-  %inc = add nuw i64 %i39.0555, 1
+  %inc = add nuw i64 %i39.0557, 1
   %152 = load i64, ptr %size_.i306, align 8
   %cmp42 = icmp ult i64 %inc, %152
   br i1 %cmp42, label %for.body43, label %for.inc61.loopexit, !llvm.loop !40
@@ -2494,7 +2494,7 @@ for.inc61.loopexit:                               ; preds = %_ZNSt8__detail9_Map
 
 for.inc61:                                        ; preds = %for.inc61.loopexit, %for.cond40.preheader
   %153 = phi i64 [ %.pre564, %for.inc61.loopexit ], [ %43, %for.cond40.preheader ]
-  %inc62 = add nuw i64 %i.0557, 1
+  %inc62 = add nuw i64 %i.0559, 1
   %cmp30 = icmp ult i64 %inc62, %153
   br i1 %cmp30, label %for.body, label %nrvo.skipdtor, !llvm.loop !41
 
