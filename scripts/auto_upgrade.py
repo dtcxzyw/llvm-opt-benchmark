@@ -102,6 +102,7 @@ supported_project = [
     "libphonenumber",
     "libzmq",
     "lief",
+    "lightgbm",
 ]
 
 modify_only = [
