@@ -92,6 +92,7 @@ supported_project = [
     "gromacs",
     "grpc",
     "ms-gsl",
+    "harfbuzz",
 ]
 
 modify_only = [
