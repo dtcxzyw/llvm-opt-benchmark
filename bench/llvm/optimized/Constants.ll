@@ -15349,7 +15349,7 @@ _ZN4llvm5APIntD2Ev.exit57:                        ; preds = %_ZN4llvm13ConstantR
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
   br i1 %exitcond91.not, label %_ZN4llvm5APIntD2Ev.exit53, label %81, !llvm.loop !693
 
-147:                                              ; preds = %.critedge
+.critedge49:                                      ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #29
   call void @_ZN4llvm13ConstantRangeC1Ejb(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %32, i1 noundef zeroext false) #29
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 4

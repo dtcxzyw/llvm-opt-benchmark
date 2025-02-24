@@ -610,27 +610,27 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
 
 38:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit ]
-  %39 = icmp eq i64 %indvars.iv, 0
-  br i1 %39, label %40, label %42
+  %38 = icmp eq i64 %indvars.iv, 0
+  br i1 %38, label %39, label %41
 
-40:                                               ; preds = %38
-  %41 = load float, ptr %19, align 4
-  br label %50
+39:                                               ; preds = %38
+  %40 = load float, ptr %19, align 4
+  br label %49
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %16, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 120
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr double, ptr %45, i64 %indvars.iv
-  %47 = getelementptr i8, ptr %46, i64 -8
-  %48 = load double, ptr %47, align 8
-  %49 = fptrunc double %48 to float
-  br label %50
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %16, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 120
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr double, ptr %44, i64 %indvars.iv
+  %46 = getelementptr i8, ptr %45, i64 -8
+  %47 = load double, ptr %46, align 8
+  %48 = fptrunc double %47 to float
+  br label %49
 
-50:                                               ; preds = %42, %40
-  %51 = phi float [ %41, %40 ], [ %49, %42 ]
-  %52 = load ptr, ptr %21, align 8
-  %53 = load ptr, ptr %20, align 8
+49:                                               ; preds = %41, %39
+  %50 = phi float [ %40, %39 ], [ %48, %41 ]
+  %51 = load ptr, ptr %21, align 8
+  %52 = load ptr, ptr %20, align 8
   %54 = ptrtoint ptr %52 to i64
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
@@ -645,22 +645,22 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
-  %64 = call noundef i32 @_Z16numPbcDimensions7PbcType(i32 noundef %60)
-  %65 = icmp eq i32 %63, 2
-  br i1 %65, label %66, label %.loopexit1.i
+  %63 = call noundef i32 @_Z16numPbcDimensions7PbcType(i32 noundef %60)
+  %64 = icmp eq i32 %63, 2
+  br i1 %64, label %65, label %.loopexit1.i
 
-66:                                               ; preds = %50
+65:                                               ; preds = %49
   store float 0.000000e+00, ptr %10, align 4
   store float 0.000000e+00, ptr %27, align 4
   store float 0.000000e+00, ptr %28, align 4
   store float 0.000000e+00, ptr %11, align 4
   store float 0.000000e+00, ptr %29, align 4
   store float 0.000000e+00, ptr %30, align 4
-  %67 = icmp sgt i32 %64, 0
-  br i1 %67, label %.preheader.lr.ph.i, label %.loopexit1.i
+  %66 = icmp sgt i32 %63, 0
+  br i1 %66, label %.preheader.lr.ph.i, label %.loopexit1.i
 
-.preheader.lr.ph.i:                               ; preds = %66
-  %wide.trip.count17.i = zext nneg i32 %64 to i64
+.preheader.lr.ph.i:                               ; preds = %65
+  %67 = zext nneg i32 %64 to i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %81, %.preheader.lr.ph.i
@@ -694,14 +694,14 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count17.i
   br i1 %exitcond18.not.i, label %.loopexit1.i, label %.preheader.i, !llvm.loop !14
 
-.loopexit1.i:                                     ; preds = %81, %66, %50
-  %82 = fsub float 1.000000e+00, %51
+.loopexit1.i:                                     ; preds = %81, %65, %49
+  %82 = fsub float 1.000000e+00, %50
   %83 = icmp sgt i32 %58, 0
   br i1 %83, label %.lr.ph.i.preheader, label %_ZN12_GLOBAL__N_16posresILb0EEEfiPKiPK9t_iparamsPA3_KfPN3gmx15ForceWithVirialEPK5t_pbcfPf15RefCoordScaling7PbcTypePS6_SI_.exit
 
 .lr.ph.i.preheader:                               ; preds = %.loopexit1.i
   %84 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %85 = sext i32 %64 to i64
+  %85 = sext i32 %63 to i64
   %86 = call i64 @llvm.smin.i64(i64 %85, i64 3)
   %invariant.smin119.i = add nsw i64 %86, -1
   %.not.i = icmp eq ptr %62, null
@@ -718,9 +718,9 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.loopexit.i ], [ 0, %.lr.ph.i.preheader ]
   %.010.i = phi float [ %187, %.loopexit.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
   %89 = or disjoint i64 %indvars.iv23.i, 1
-  %90 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv23.i
+  %90 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv23.i
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds nuw i32, ptr %53, i64 %89
+  %92 = getelementptr inbounds nuw i32, ptr %52, i64 %89
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %91 to i64
   %95 = getelementptr inbounds %union.t_iparams, ptr %59, i64 %94
@@ -749,7 +749,7 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   ]
 
 106:                                              ; preds = %105
-  %107 = fmul float %51, %103
+  %107 = fmul float %50, %103
   %108 = call float @llvm.fmuladd.f32(float %82, float %101, float %107)
   %109 = fsub float %103, %101
   br label %148
@@ -780,7 +780,7 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
 ._crit_edge.i:                                    ; preds = %.lr.ph.i25, %110
   %.099.lcssa.i = phi float [ %114, %110 ], [ %123, %.lr.ph.i25 ]
   %.098.lcssa.i = phi float [ %113, %110 ], [ %120, %.lr.ph.i25 ]
-  %125 = fmul float %51, %.099.lcssa.i
+  %125 = fmul float %50, %.099.lcssa.i
   %126 = call float @llvm.fmuladd.f32(float %82, float %.098.lcssa.i, float %125)
   %127 = fsub float %.099.lcssa.i, %.098.lcssa.i
   br label %148
@@ -790,9 +790,9 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   %130 = load float, ptr %129, align 4
   %131 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv112.i
   %132 = load float, ptr %131, align 4
-  %133 = fmul float %51, %132
+  %133 = fmul float %50, %132
   %134 = call float @llvm.fmuladd.f32(float %82, float %130, float %133)
-  %135 = fmul float %51, %103
+  %135 = fmul float %50, %103
   %136 = call float @llvm.fmuladd.f32(float %82, float %101, float %135)
   %137 = fsub float %132, %130
   %138 = fadd float %103, %137
@@ -814,7 +814,7 @@ define void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitions
   resume { ptr, i32 } %143
 
 144:                                              ; preds = %99
-  %145 = fmul float %51, %103
+  %145 = fmul float %50, %103
   %146 = call float @llvm.fmuladd.f32(float %82, float %101, float %145)
   %147 = fsub float %103, %101
   br label %148
@@ -872,7 +872,7 @@ _ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_.e
   %172 = load float, ptr %171, align 4
   %173 = getelementptr inbounds nuw [3 x float], ptr %168, i64 0, i64 %indvars.iv19.i
   %174 = load float, ptr %173, align 4
-  %175 = fmul float %51, %174
+  %175 = fmul float %50, %174
   %176 = call float @llvm.fmuladd.f32(float %82, float %172, float %175)
   %177 = fneg float %176
   %178 = getelementptr inbounds nuw [3 x float], ptr %13, i64 0, i64 %indvars.iv19.i

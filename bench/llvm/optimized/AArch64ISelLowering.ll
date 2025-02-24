@@ -65916,7 +65916,7 @@ define dso_local noundef zeroext i1 @_Z26shouldUseFormStridedPseudoRN4llvm12Mach
   %wide.trip.count = zext i24 %4 to i64
   br label %14
 
-13:                                               ; preds = %72
+13:                                               ; preds = %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !1298
@@ -66021,29 +66021,29 @@ _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i40: ; preds = %60, 
   br label %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit48
 
 _ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit48: ; preds = %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i40, %68
-  %69 = phi i32 [ %65, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i40 ], [ %.pre, %68 ]
-  %70 = and i32 %69, 255
-  %71 = icmp eq i32 %70, 0
+  %71 = phi i32 [ %65, %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i40 ], [ %.pre, %68 ]
+  %.0.i45 = and i32 %69, 255
+  %72 = icmp eq i32 %70, 0
   %.not3371 = icmp eq i32 %.sroa.049.055, %48
   %.not33 = select i1 %49, i1 true, i1 %.not3371
   %or.cond53 = select i1 %71, i1 %.not33, i1 false
-  br i1 %or.cond53, label %72, label %.critedge
+  br i1 %or.cond53, label %74, label %.critedge
 
-72:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit48
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i41, i64 4
-  %74 = load i32, ptr %73, align 4, !tbaa !254
-  %75 = and i32 %74, 2147483647
-  %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %10, i64 %76
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %77, align 8
-  %78 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %79 = icmp ne i64 %78, ptrtoint (ptr @_ZN4llvm7AArch6431ZPR2StridedOrContiguousRegClassE to i64)
-  %80 = icmp ne i64 %78, ptrtoint (ptr @_ZN4llvm7AArch6431ZPR4StridedOrContiguousRegClassE to i64)
-  %or.cond = and i1 %79, %80
+74:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit48
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i41, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !254
+  %77 = and i32 %76, 2147483647
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds nuw %"struct.std::pair.422", ptr %10, i64 %78
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %79, align 8
+  %80 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %81 = icmp ne i64 %80, ptrtoint (ptr @_ZN4llvm7AArch6431ZPR2StridedOrContiguousRegClassE to i64)
+  %82 = icmp ne i64 %80, ptrtoint (ptr @_ZN4llvm7AArch6431ZPR4StridedOrContiguousRegClassE to i64)
+  %or.cond = and i1 %81, %82
   br i1 %or.cond, label %.critedge, label %13
 
-.critedge:                                        ; preds = %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit, %72, %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit48, %13, %14, %26, %29, %34, %1
-  %.not34.lcssa = phi i1 [ true, %1 ], [ false, %34 ], [ false, %29 ], [ false, %26 ], [ false, %14 ], [ true, %13 ], [ false, %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit48 ], [ false, %72 ], [ false, %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit ]
+.critedge:                                        ; preds = %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit, %74, %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit48, %13, %14, %26, %29, %34, %1
+  %.not34.lcssa = phi i1 [ true, %1 ], [ false, %34 ], [ false, %29 ], [ false, %26 ], [ false, %14 ], [ true, %13 ], [ false, %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit48 ], [ false, %74 ], [ false, %_ZNK4llvm19MachineRegisterInfo9getOneDefENS_8RegisterE.exit ]
   ret i1 %.not34.lcssa
 }
 

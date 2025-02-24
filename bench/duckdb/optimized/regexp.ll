@@ -1413,12 +1413,12 @@ _ZNSt15__new_allocatorIPN10duckdb_re26RegexpEE8allocateEmPKv.exit.i: ; preds = %
 
 .thread:                                          ; preds = %26
   %28 = load ptr, ptr %24, align 8, !tbaa !41
-  br label %98
+  br label %99
 
 .body.thread113:                                  ; preds = %_ZNSt15__new_allocatorIPN10duckdb_re26RegexpEE8allocateEmPKv.exit.i
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %100
 
 30:                                               ; preds = %18, %26
   %.sroa.596.0 = phi ptr [ null, %18 ], [ %24, %26 ]
@@ -1521,7 +1521,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88: ; preds = %60
 
 73:                                               ; preds = %30
   %74 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
-          to label %75 unwind label %93
+          to label %75 unwind label %94
 
 75:                                               ; preds = %73
   %76 = trunc i32 %0 to i8
@@ -1542,7 +1542,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88: ; preds = %60
   %84 = zext nneg i32 %.060 to i64
   %85 = shl nuw nsw i64 %84, 3
   %86 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %85) #31
-          to label %.thread131 unwind label %93
+          to label %.thread131 unwind label %94
 
 .thread131:                                       ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -1563,17 +1563,17 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88: ; preds = %60
   %wide.trip.count = zext nneg i32 %.060 to i64
   br label %.lr.ph
 
-93:                                               ; preds = %83, %73
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %83, %73
+  %95 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %95 = getelementptr inbounds nuw ptr, ptr %.058, i64 %indvars.iv
-  %96 = load ptr, ptr %95, align 8, !tbaa !41
-  %97 = getelementptr inbounds nuw ptr, ptr %.0.i80133, i64 %indvars.iv
-  store ptr %96, ptr %97, align 8, !tbaa !41
+  %96 = getelementptr inbounds nuw ptr, ptr %.058, i64 %indvars.iv
+  %97 = load ptr, ptr %96, align 8, !tbaa !41
+  %98 = getelementptr inbounds nuw ptr, ptr %.0.i80133, i64 %indvars.iv
+  store ptr %97, ptr %98, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
@@ -1581,31 +1581,31 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88: ; preds = %60
 .loopexit:                                        ; preds = %.lr.ph, %89, %70
   %.1 = phi ptr [ %35, %70 ], [ %74, %89 ], [ %74, %.lr.ph ]
   %.not.i.i81 = icmp eq ptr %.sroa.596.0, null
-  br i1 %.not.i.i81, label %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit82, label %98
+  br i1 %.not.i.i81, label %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit82, label %99
 
-98:                                               ; preds = %.thread, %.loopexit
+99:                                               ; preds = %.thread, %.loopexit
   %.1107 = phi ptr [ %28, %.thread ], [ %.1, %.loopexit ]
   %.sroa.596.1106 = phi ptr [ %24, %.thread ], [ %.sroa.596.0, %.loopexit ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.596.1106) #28
   br label %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit82
 
-.body:                                            ; preds = %68, %54, %56, %93
-  %.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %55, %54 ], [ %57, %56 ], [ %69, %68 ]
+.body:                                            ; preds = %68, %54, %56, %94
+  %.pn.pn.pn = phi { ptr, i32 } [ %95, %94 ], [ %55, %54 ], [ %57, %56 ], [ %69, %68 ]
   %.not.i.i83 = icmp eq ptr %.sroa.596.0, null
-  br i1 %.not.i.i83, label %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit84, label %99
+  br i1 %.not.i.i83, label %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit84, label %100
 
-99:                                               ; preds = %.body.thread113, %.body
+100:                                              ; preds = %.body.thread113, %.body
   %.pn.pn.pn118 = phi { ptr, i32 } [ %29, %.body.thread113 ], [ %.pn.pn.pn, %.body ]
   %.sroa.596.2117 = phi ptr [ %24, %.body.thread113 ], [ %.sroa.596.0, %.body ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.596.2117) #28
   br label %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit84
 
-_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit84: ; preds = %.body, %99
-  %.pn.pn.pn112 = phi { ptr, i32 } [ %.pn.pn.pn, %.body ], [ %.pn.pn.pn118, %99 ]
+_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit84: ; preds = %.body, %100
+  %.pn.pn.pn112 = phi { ptr, i32 } [ %.pn.pn.pn, %.body ], [ %.pn.pn.pn118, %100 ]
   resume { ptr, i32 } %.pn.pn.pn112
 
-_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit82: ; preds = %98, %.loopexit, %17, %16, %6
-  %.057 = phi ptr [ %7, %6 ], [ %10, %16 ], [ %10, %17 ], [ %.1, %.loopexit ], [ %.1107, %98 ]
+_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit82: ; preds = %99, %.loopexit, %17, %16, %6
+  %.057 = phi ptr [ %7, %6 ], [ %10, %16 ], [ %10, %17 ], [ %.1, %.loopexit ], [ %.1107, %99 ]
   ret ptr %.057
 }
 

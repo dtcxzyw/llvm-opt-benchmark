@@ -12861,8 +12861,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
-  %.fr9 = freeze i64 %6
-  %7 = icmp eq i64 %.fr9, 0
+  %.fr8 = freeze i64 %6
+  %7 = icmp eq i64 %.fr8, 0
   br i1 %7, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2
@@ -12877,8 +12877,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   store i64 %12, ptr %4, align 8, !alias.scope !4519
   %13 = icmp ne ptr %10, null
   %14 = getelementptr i8, ptr %10, i64 -24
-  %.not6.us = icmp ne ptr %14, null
-  %.not.us = and i1 %13, %.not6.us
+  %.not.us10 = icmp ne ptr %14, null
+  %.not.us = and i1 %13, %.not.us10
   br i1 %.not.us, label %15, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf7b5031e0e2b3b26E.exit.thread"
 
 15:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49b92be87409623E.exit.us"
@@ -12899,9 +12899,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   store i64 %20, ptr %4, align 8, !alias.scope !4519
   %21 = icmp ne ptr %18, null
   %22 = getelementptr i8, ptr %18, i64 -24
-  %.not6 = icmp ne ptr %22, null
-  %.not = and i1 %21, %.not6
-  br i1 %.not, label %23, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf7b5031e0e2b3b26E.exit.thread"
+  %.not.not9 = icmp ne ptr %22, null
+  %.not.not.not = and i1 %21, %.not.not9
+  br i1 %.not.not.not, label %23, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf7b5031e0e2b3b26E.exit.thread"
 
 23:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49b92be87409623E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !4528)
@@ -12957,8 +12957,8 @@ default.unreachable:                              ; preds = %23
   %43 = mul i64 %42, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !4540
   %44 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hfbac9a3c8a460880E.llvm.15956212377945586164"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
-  %.not7 = icmp eq ptr %44, null
-  br i1 %.not7, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf7b5031e0e2b3b26E.exit.thread", label %.split
+  %.not6 = icmp eq ptr %44, null
+  br i1 %.not6, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf7b5031e0e2b3b26E.exit.thread", label %.split
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf7b5031e0e2b3b26E.exit.thread": ; preds = %.split, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf7b5031e0e2b3b26E.exit", %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49b92be87409623E.exit", %.split.us, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49b92be87409623E.exit.us", %15
   %.us-phi = phi i1 [ true, %15 ], [ false, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49b92be87409623E.exit.us" ], [ false, %.split.us ], [ false, %.split ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hf7b5031e0e2b3b26E.exit" ], [ false, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd49b92be87409623E.exit" ]

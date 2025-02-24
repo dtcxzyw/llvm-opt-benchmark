@@ -970,13 +970,13 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit:             ; preds = %_ZNSt6vectorIiSaIiE
   br label %55
 
 55:                                               ; preds = %.lr.ph, %"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IiEEZNS0_22WholeMoleculeTransform15updateAtomOrderENS0_8ArrayRefIS2_EERK11gmx_ga2la_tE3$_0ET0_T_SD_SC_T1_.exit"
-  %.sroa.023.030 = phi ptr [ %1, %.lr.ph ], [ %110, %"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IiEEZNS0_22WholeMoleculeTransform15updateAtomOrderENS0_8ArrayRefIS2_EERK11gmx_ga2la_tE3$_0ET0_T_SD_SC_T1_.exit" ]
+  %.sroa.023.030 = phi ptr [ %1, %.lr.ph ], [ %113, %"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IiEEZNS0_22WholeMoleculeTransform15updateAtomOrderENS0_8ArrayRefIS2_EERK11gmx_ga2la_tE3$_0ET0_T_SD_SC_T1_.exit" ]
   %56 = load i32, ptr %.sroa.023.030, align 4
   %57 = load i32, ptr %25, align 8
   %.not = icmp sge i32 %56, %57
   %58 = icmp slt i32 %56, %30
   %or.cond = select i1 %.not, i1 %58, i1 false
-  br i1 %or.cond, label %59, label %109
+  br i1 %or.cond, label %59, label %112
 
 59:                                               ; preds = %55
   %60 = sub nsw i32 %56, %57
@@ -1010,12 +1010,12 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit:             ; preds = %_ZNSt6vectorIiSaIiE
   br label %80
 
 80:                                               ; preds = %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i", %.lr.ph.i
-  %.sroa.06.010.i = phi ptr [ %73, %.lr.ph.i ], [ %107, %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i" ]
-  %.sroa.04.09.i = phi ptr [ %79, %.lr.ph.i ], [ %108, %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i" ]
+  %.sroa.06.010.i = phi ptr [ %73, %.lr.ph.i ], [ %110, %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i" ]
+  %.sroa.04.09.i = phi ptr [ %79, %.lr.ph.i ], [ %111, %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i" ]
   %81 = load i32, ptr %.sroa.06.010.i, align 4
   %82 = load i8, ptr %53, align 8
   %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %88
+  br i1 %83, label %84, label %91
 
 84:                                               ; preds = %80
   %85 = sext i32 %81 to i64
@@ -1023,69 +1023,69 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit:             ; preds = %_ZNSt6vectorIiSaIiE
   %87 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %86, i64 %85
   br label %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i"
 
-88:                                               ; preds = %80
-  %89 = load i32, ptr %54, align 8
-  %90 = and i32 %89, %81
-  %91 = load ptr, ptr %3, align 8
-  %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %91, i64 %92
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %94, %81
-  br i1 %95, label %._crit_edge.i.i, label %.lr.ph.i.i
+91:                                               ; preds = %80
+  %92 = load i32, ptr %54, align 8
+  %93 = and i32 %92, %81
+  %94 = load ptr, ptr %3, align 8
+  %95 = sext i32 %93 to i64
+  %96 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %94, i64 %95
+  %97 = load i32, ptr %96, align 4
+  %98 = icmp eq i32 %97, %81
+  br i1 %98, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %88
-  %96 = phi i64 [ %92, %88 ], [ %102, %.lr.ph.i.i ]
-  %97 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %91, i64 %96, i32 1
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %91
+  %99 = phi i64 [ %95, %91 ], [ %105, %.lr.ph.i.i ]
+  %100 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %94, i64 %99, i32 1
   br label %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i"
 
-.lr.ph.i.i:                                       ; preds = %88, %.lr.ph.i.i
-  %98 = phi i64 [ %102, %.lr.ph.i.i ], [ %92, %88 ]
-  %99 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %91, i64 %98, i32 2
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp sgt i32 %100, -1
-  tail call void @llvm.assume(i1 %101)
-  %102 = zext nneg i32 %100 to i64
-  %103 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %91, i64 %102
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp eq i32 %104, %81
-  br i1 %105, label %._crit_edge.i.i, label %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %91, %.lr.ph.i.i
+  %101 = phi i64 [ %105, %.lr.ph.i.i ], [ %95, %91 ]
+  %102 = getelementptr inbounds %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %94, i64 %101, i32 2
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp sgt i32 %103, -1
+  tail call void @llvm.assume(i1 %104)
+  %105 = zext nneg i32 %103 to i64
+  %106 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %94, i64 %105
+  %107 = load i32, ptr %106, align 4
+  %108 = icmp eq i32 %107, %81
+  br i1 %108, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 "_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i": ; preds = %._crit_edge.i.i, %84
-  %.0.i.i.i = phi ptr [ %97, %._crit_edge.i.i ], [ %87, %84 ]
-  %106 = load i32, ptr %.0.i.i.i, align 4
-  store i32 %106, ptr %.sroa.04.09.i, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 4
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i, i64 4
-  %.not.i = icmp eq ptr %107, %70
+  %.0.i.i.i = phi ptr [ %100, %._crit_edge.i.i ], [ %87, %84 ]
+  %109 = load i32, ptr %.0.i.i.i, align 4
+  store i32 %109, ptr %.sroa.04.09.i, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i, i64 4
+  %.not.i = icmp eq ptr %110, %70
   br i1 %.not.i, label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IiEEZNS0_22WholeMoleculeTransform15updateAtomOrderENS0_8ArrayRefIS2_EERK11gmx_ga2la_tE3$_0ET0_T_SD_SC_T1_.exit", label %80, !llvm.loop !12
 
-109:                                              ; preds = %55
+112:                                              ; preds = %55
   tail call void @_ZN3gmx11ListOfListsIiE18pushBackListOfSizeEi(ptr noundef nonnull align 8 dereferenceable(48) %31, i32 noundef 0)
   br label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IiEEZNS0_22WholeMoleculeTransform15updateAtomOrderENS0_8ArrayRefIS2_EERK11gmx_ga2la_tE3$_0ET0_T_SD_SC_T1_.exit"
 
-"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IiEEZNS0_22WholeMoleculeTransform15updateAtomOrderENS0_8ArrayRefIS2_EERK11gmx_ga2la_tE3$_0ET0_T_SD_SC_T1_.exit": ; preds = %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i", %59, %109
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.023.030, i64 4
-  %.not27 = icmp eq ptr %110, %2
+"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IiEEZNS0_22WholeMoleculeTransform15updateAtomOrderENS0_8ArrayRefIS2_EERK11gmx_ga2la_tE3$_0ET0_T_SD_SC_T1_.exit": ; preds = %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i", %59, %112
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.023.030, i64 4
+  %.not27 = icmp eq ptr %113, %2
   br i1 %.not27, label %._crit_edge, label %55
 
 ._crit_edge:                                      ; preds = %"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IiEEZNS0_22WholeMoleculeTransform15updateAtomOrderENS0_8ArrayRefIS2_EERK11gmx_ga2la_tE3$_0ET0_T_SD_SC_T1_.exit", %_ZN3gmx11ListOfListsIiE5clearEv.exit
-  %111 = load ptr, ptr %32, align 8
-  %112 = load ptr, ptr %31, align 8
-  %113 = ptrtoint ptr %111 to i64
-  %114 = ptrtoint ptr %112 to i64
-  %115 = sub i64 %113, %114
-  %116 = lshr exact i64 %115, 2
-  %117 = trunc i64 %116 to i32
-  %118 = add i32 %117, -1
-  %119 = load i32, ptr %19, align 8
-  %120 = icmp eq i32 %119, %118
-  br i1 %120, label %122, label %121
+  %114 = load ptr, ptr %32, align 8
+  %115 = load ptr, ptr %31, align 8
+  %116 = ptrtoint ptr %114 to i64
+  %117 = ptrtoint ptr %115 to i64
+  %118 = sub i64 %116, %117
+  %119 = lshr exact i64 %118, 2
+  %120 = trunc i64 %119 to i32
+  %121 = add i32 %120, -1
+  %122 = load i32, ptr %19, align 8
+  %123 = icmp eq i32 %122, %121
+  br i1 %123, label %125, label %124
 
-121:                                              ; preds = %._crit_edge
+124:                                              ; preds = %._crit_edge
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_1clEv", ptr noundef nonnull @.str.4, i32 noundef 104) #13
   unreachable
 
-122:                                              ; preds = %._crit_edge
+125:                                              ; preds = %._crit_edge
   ret void
 }
 

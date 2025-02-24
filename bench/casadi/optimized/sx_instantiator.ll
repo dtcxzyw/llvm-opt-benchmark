@@ -54552,98 +54552,98 @@ define linkonce_odr hidden void @_ZN6casadi13einstein_evalINS_6SXElemEEEvxRKSt6v
   %51 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.pre262, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %.pre263, i64 8
-  %54 = load i64, ptr %.pre, align 8, !tbaa !58
-  %55 = getelementptr inbounds %"class.casadi::SXElem", ptr %5, i64 %54
-  %56 = load i64, ptr %.pre262, align 8, !tbaa !58
-  %57 = getelementptr inbounds %"class.casadi::SXElem", ptr %6, i64 %56
-  %58 = load i64, ptr %.pre263, align 8, !tbaa !58
-  %59 = getelementptr inbounds %"class.casadi::SXElem", ptr %7, i64 %58
-  %60 = mul i64 %.0128150160, %.0127167
-  %61 = mul i64 %60, %.0126
-  %62 = sdiv i64 %0, %61
-  %63 = icmp sgt i64 %62, 0
-  br i1 %63, label %.preheader171.lr.ph, label %.loopexit
+  %spec.select.i140 = load i64, ptr %.pre, align 8, !tbaa !58
+  %54 = getelementptr inbounds %"class.casadi::SXElem", ptr %5, i64 %spec.select.i140
+  %55 = load i64, ptr %.pre262, align 8, !tbaa !58
+  %56 = getelementptr inbounds %"class.casadi::SXElem", ptr %6, i64 %56
+  %57 = load i64, ptr %.pre263, align 8, !tbaa !58
+  %spec.select.i141 = getelementptr inbounds %"class.casadi::SXElem", ptr %7, i64 %58
+  %58 = mul i64 %.0128150160, %.0127167
+  %59 = mul i64 %58, %.0126
+  %60 = sdiv i64 %0, %61
+  %61 = icmp sgt i64 %62, 0
+  br i1 %61, label %.preheader171.lr.ph, label %.loopexit
 
 .preheader171.lr.ph:                              ; preds = %.thread151
-  %64 = icmp sgt i64 %18, 3
-  %65 = icmp sgt i64 %.0126, 0
-  %66 = icmp sgt i64 %.0128150160, 0
-  %67 = icmp sgt i64 %.0127167, 0
-  %or.cond = and i1 %65, %67
+  %73 = icmp sgt i64 %18, 3
+  %74 = icmp sgt i64 %.0126, 0
+  %75 = icmp sgt i64 %.0128150160, 0
+  %76 = icmp sgt i64 %.0127167, 0
+  %or.cond = and i1 %74, %76
   br i1 %or.cond, label %.preheader171.us.us.preheader, label %.loopexit
 
 .preheader171.us.us.preheader:                    ; preds = %.preheader171.lr.ph
-  %68 = add nsw i64 %18, -4
+  %77 = add nsw i64 %18, -4
   br label %.preheader171.us.us
 
 .preheader171.us.us:                              ; preds = %.preheader171.us.us.preheader, %._crit_edge.split.us.us.us
-  %.0125208.us.us = phi i64 [ %86, %._crit_edge.split.us.us.us ], [ 0, %.preheader171.us.us.preheader ]
-  br i1 %64, label %.lr.ph.us.us, label %.preheader170.us.us
+  %.0125208.us.us = phi i64 [ %95, %._crit_edge.split.us.us.us ], [ 0, %.preheader171.us.us.preheader ]
+  br i1 %73, label %.lr.ph.us.us, label %.preheader170.us.us
 
 .lr.ph.us.us:                                     ; preds = %.preheader171.us.us, %.lr.ph.us.us
-  %.0120176.us.us = phi i64 [ %85, %.lr.ph.us.us ], [ 0, %.preheader171.us.us ]
-  %.0121175.us.us = phi i64 [ %84, %.lr.ph.us.us ], [ %.0125208.us.us, %.preheader171.us.us ]
-  %.0122174.us.us = phi ptr [ %83, %.lr.ph.us.us ], [ %59, %.preheader171.us.us ]
-  %.0123173.us.us = phi ptr [ %79, %.lr.ph.us.us ], [ %57, %.preheader171.us.us ]
-  %.0124172.us.us = phi ptr [ %75, %.lr.ph.us.us ], [ %55, %.preheader171.us.us ]
-  %69 = getelementptr inbounds nuw i64, ptr %14, i64 %.0120176.us.us
-  %70 = load i64, ptr %69, align 8, !tbaa !58
-  %71 = srem i64 %.0121175.us.us, %70
-  %72 = getelementptr inbounds nuw i64, ptr %51, i64 %.0120176.us.us
-  %73 = load i64, ptr %72, align 8, !tbaa !58
-  %74 = mul nsw i64 %73, %71
-  %75 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0124172.us.us, i64 %74
-  %76 = getelementptr inbounds nuw i64, ptr %52, i64 %.0120176.us.us
-  %77 = load i64, ptr %76, align 8, !tbaa !58
-  %78 = mul nsw i64 %77, %71
-  %79 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0123173.us.us, i64 %78
-  %80 = getelementptr inbounds nuw i64, ptr %53, i64 %.0120176.us.us
-  %81 = load i64, ptr %80, align 8, !tbaa !58
-  %82 = mul nsw i64 %81, %71
-  %83 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0122174.us.us, i64 %82
-  %84 = sdiv i64 %.0121175.us.us, %70
-  %85 = add nuw nsw i64 %.0120176.us.us, 1
-  %exitcond.not = icmp eq i64 %.0120176.us.us, %68
+  %.0120176.us.us = phi i64 [ %94, %.lr.ph.us.us ], [ 0, %.preheader171.us.us ]
+  %.0121175.us.us = phi i64 [ %93, %.lr.ph.us.us ], [ %.0125208.us.us, %.preheader171.us.us ]
+  %.0122174.us.us = phi ptr [ %92, %.lr.ph.us.us ], [ %59, %.preheader171.us.us ]
+  %.0123173.us.us = phi ptr [ %88, %.lr.ph.us.us ], [ %56, %.preheader171.us.us ]
+  %.0124172.us.us = phi ptr [ %84, %.lr.ph.us.us ], [ %54, %.preheader171.us.us ]
+  %78 = getelementptr inbounds nuw i64, ptr %14, i64 %.0120176.us.us
+  %79 = load i64, ptr %78, align 8, !tbaa !58
+  %80 = srem i64 %.0121175.us.us, %79
+  %81 = getelementptr inbounds nuw i64, ptr %51, i64 %.0120176.us.us
+  %82 = load i64, ptr %81, align 8, !tbaa !58
+  %83 = mul nsw i64 %82, %80
+  %84 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0124172.us.us, i64 %83
+  %85 = getelementptr inbounds nuw i64, ptr %52, i64 %.0120176.us.us
+  %86 = load i64, ptr %85, align 8, !tbaa !58
+  %87 = mul nsw i64 %86, %80
+  %88 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0123173.us.us, i64 %87
+  %89 = getelementptr inbounds nuw i64, ptr %53, i64 %.0120176.us.us
+  %90 = load i64, ptr %89, align 8, !tbaa !58
+  %91 = mul nsw i64 %90, %80
+  %92 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0122174.us.us, i64 %91
+  %93 = sdiv i64 %.0121175.us.us, %79
+  %94 = add nuw nsw i64 %.0120176.us.us, 1
+  %exitcond.not = icmp eq i64 %.0120176.us.us, %77
   br i1 %exitcond.not, label %.preheader170.us.us, label %.lr.ph.us.us, !llvm.loop !638
 
 .preheader170.us.us:                              ; preds = %.lr.ph.us.us, %.preheader171.us.us
-  %.0124.lcssa.us.us = phi ptr [ %55, %.preheader171.us.us ], [ %75, %.lr.ph.us.us ]
-  %.0123.lcssa.us.us = phi ptr [ %57, %.preheader171.us.us ], [ %79, %.lr.ph.us.us ]
-  %.0122.lcssa.us.us = phi ptr [ %59, %.preheader171.us.us ], [ %83, %.lr.ph.us.us ]
-  br i1 %66, label %.preheader169.us.us.us.us, label %._crit_edge.split.us.us.us
+  %.0124.lcssa.us.us = phi ptr [ %54, %.preheader171.us.us ], [ %84, %.lr.ph.us.us ]
+  %.0123.lcssa.us.us = phi ptr [ %56, %.preheader171.us.us ], [ %88, %.lr.ph.us.us ]
+  %.0122.lcssa.us.us = phi ptr [ %59, %.preheader171.us.us ], [ %92, %.lr.ph.us.us ]
+  br i1 %75, label %.preheader169.us.us.us.us, label %._crit_edge.split.us.us.us
 
 ._crit_edge.split.us.us.us:                       ; preds = %._crit_edge188.split.us.us.us.us.us, %.preheader170.us.us
-  %86 = add nuw nsw i64 %.0125208.us.us, 1
-  %exitcond261.not = icmp eq i64 %86, %62
+  %95 = add nuw nsw i64 %.0125208.us.us, 1
+  %exitcond261.not = icmp eq i64 %95, %62
   br i1 %exitcond261.not, label %.loopexit, label %.preheader171.us.us, !llvm.loop !639
 
 .preheader169.us.us.us.us:                        ; preds = %.preheader170.us.us, %._crit_edge188.split.us.us.us.us.us
-  %.0116198.us.us.us.us = phi i64 [ %100, %._crit_edge188.split.us.us.us.us.us ], [ 0, %.preheader170.us.us ]
-  %.0117196.us.us.us.us = phi ptr [ %99, %._crit_edge188.split.us.us.us.us.us ], [ %.0122.lcssa.us.us, %.preheader170.us.us ]
-  %.0118194.us.us.us.us = phi ptr [ %98, %._crit_edge188.split.us.us.us.us.us ], [ %.0123.lcssa.us.us, %.preheader170.us.us ]
-  %.0119192.us.us.us.us = phi ptr [ %97, %._crit_edge188.split.us.us.us.us.us ], [ %.0124.lcssa.us.us, %.preheader170.us.us ]
+  %.0116198.us.us.us.us = phi i64 [ %109, %._crit_edge188.split.us.us.us.us.us ], [ 0, %.preheader170.us.us ]
+  %.0117196.us.us.us.us = phi ptr [ %108, %._crit_edge188.split.us.us.us.us.us ], [ %.0122.lcssa.us.us, %.preheader170.us.us ]
+  %.0118194.us.us.us.us = phi ptr [ %107, %._crit_edge188.split.us.us.us.us.us ], [ %.0123.lcssa.us.us, %.preheader170.us.us ]
+  %.0119192.us.us.us.us = phi ptr [ %106, %._crit_edge188.split.us.us.us.us.us ], [ %.0124.lcssa.us.us, %.preheader170.us.us ]
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge.us.us.us.us.us, %.preheader169.us.us.us.us
-  %.0112187.us.us.us.us.us = phi i64 [ 0, %.preheader169.us.us.us.us ], [ %96, %._crit_edge.us.us.us.us.us ]
-  %.0113186.us.us.us.us.us = phi ptr [ %.0117196.us.us.us.us, %.preheader169.us.us.us.us ], [ %95, %._crit_edge.us.us.us.us.us ]
-  %.0114185.us.us.us.us.us = phi ptr [ %.0118194.us.us.us.us, %.preheader169.us.us.us.us ], [ %94, %._crit_edge.us.us.us.us.us ]
-  %.0115184.us.us.us.us.us = phi ptr [ %.0119192.us.us.us.us, %.preheader169.us.us.us.us ], [ %93, %._crit_edge.us.us.us.us.us ]
-  br label %87
+  %.0112187.us.us.us.us.us = phi i64 [ 0, %.preheader169.us.us.us.us ], [ %105, %._crit_edge.us.us.us.us.us ]
+  %.0113186.us.us.us.us.us = phi ptr [ %.0117196.us.us.us.us, %.preheader169.us.us.us.us ], [ %104, %._crit_edge.us.us.us.us.us ]
+  %.0114185.us.us.us.us.us = phi ptr [ %.0118194.us.us.us.us, %.preheader169.us.us.us.us ], [ %103, %._crit_edge.us.us.us.us.us ]
+  %.0115184.us.us.us.us.us = phi ptr [ %.0119192.us.us.us.us, %.preheader169.us.us.us.us ], [ %102, %._crit_edge.us.us.us.us.us ]
+  br label %96
 
-87:                                               ; preds = %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us, %.preheader.us.us.us.us.us
-  %.0182.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us ], [ %92, %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us ]
-  %.0109181.us.us.us.us.us = phi ptr [ %.0113186.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %91, %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us ]
-  %.0110180.us.us.us.us.us = phi ptr [ %.0114185.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %90, %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us ]
-  %.0111179.us.us.us.us.us = phi ptr [ %.0115184.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %89, %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us ]
+96:                                               ; preds = %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us, %.preheader.us.us.us.us.us
+  %.0182.us.us.us.us.us = phi i64 [ 0, %.preheader.us.us.us.us.us ], [ %101, %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us ]
+  %.0109181.us.us.us.us.us = phi ptr [ %.0113186.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %100, %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us ]
+  %.0110180.us.us.us.us.us = phi ptr [ %.0114185.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %99, %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us ]
+  %.0111179.us.us.us.us.us = phi ptr [ %.0115184.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %98, %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #33
   call void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %10, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %.0111179.us.us.us.us.us, ptr noundef nonnull align 8 dereferenceable(8) %.0110180.us.us.us.us.us)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33
   invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %9, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %.0109181.us.us.us.us.us, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %.noexc.i.us.us.us.us.us unwind label %.split.us.split.us.split.us.split.us.split.us
 
-.noexc.i.us.us.us.us.us:                          ; preds = %87
-  %88 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.0109181.us.us.us.us.us, ptr noundef nonnull align 8 dereferenceable(8) %9)
+.noexc.i.us.us.us.us.us:                          ; preds = %96
+  %97 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.0109181.us.us.us.us.us, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us unwind label %.split190.us.split.us.split.us.split.us.split.us
 
 _ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us: ; preds = %.noexc.i.us.us.us.us.us
@@ -54651,43 +54651,43 @@ _ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us: ; preds =
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #33
-  %89 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0111179.us.us.us.us.us, i64 %.0135147163
-  %90 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0110180.us.us.us.us.us, i64 %.0134148162
-  %91 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0109181.us.us.us.us.us, i64 %.0133149161
-  %92 = add nuw nsw i64 %.0182.us.us.us.us.us, 1
-  %exitcond258.not = icmp eq i64 %92, %.0128150160
-  br i1 %exitcond258.not, label %._crit_edge.us.us.us.us.us, label %87, !llvm.loop !640
+  %98 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0111179.us.us.us.us.us, i64 %.0135147163
+  %99 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0110180.us.us.us.us.us, i64 %.0134148162
+  %100 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0109181.us.us.us.us.us, i64 %.0133149161
+  %101 = add nuw nsw i64 %.0182.us.us.us.us.us, 1
+  %exitcond258.not = icmp eq i64 %101, %.0128150160
+  br i1 %exitcond258.not, label %._crit_edge.us.us.us.us.us, label %96, !llvm.loop !640
 
 ._crit_edge.us.us.us.us.us:                       ; preds = %_ZN6casadi11ContractionINS_6SXElemEEEvRKT_S4_RS2_.exit.us.us.us.us.us
-  %93 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0115184.us.us.us.us.us, i64 %.0132166
-  %94 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0114185.us.us.us.us.us, i64 %.0137164
-  %95 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0113186.us.us.us.us.us, i64 %.0136165
-  %96 = add nuw nsw i64 %.0112187.us.us.us.us.us, 1
-  %exitcond259.not = icmp eq i64 %96, %.0127167
+  %102 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0115184.us.us.us.us.us, i64 %.0132166
+  %103 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0114185.us.us.us.us.us, i64 %.0137164
+  %104 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0113186.us.us.us.us.us, i64 %.0136165
+  %105 = add nuw nsw i64 %.0112187.us.us.us.us.us, 1
+  %exitcond259.not = icmp eq i64 %105, %.0127167
   br i1 %exitcond259.not, label %._crit_edge188.split.us.us.us.us.us, label %.preheader.us.us.us.us.us, !llvm.loop !641
 
 ._crit_edge188.split.us.us.us.us.us:              ; preds = %._crit_edge.us.us.us.us.us
-  %97 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0119192.us.us.us.us, i64 %.0129
-  %98 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0118194.us.us.us.us, i64 %.0130
-  %99 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0117196.us.us.us.us, i64 %.0131
-  %100 = add nuw nsw i64 %.0116198.us.us.us.us, 1
-  %exitcond260.not = icmp eq i64 %100, %.0126
+  %106 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0119192.us.us.us.us, i64 %.0129
+  %107 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0118194.us.us.us.us, i64 %.0130
+  %108 = getelementptr inbounds %"class.casadi::SXElem", ptr %.0117196.us.us.us.us, i64 %.0131
+  %109 = add nuw nsw i64 %.0116198.us.us.us.us, 1
+  %exitcond260.not = icmp eq i64 %109, %.0126
   br i1 %exitcond260.not, label %._crit_edge.split.us.us.us, label %.preheader169.us.us.us.us, !llvm.loop !642
 
-.split.us.split.us.split.us.split.us.split.us:    ; preds = %87
-  %101 = landingpad { ptr, i32 }
+.split.us.split.us.split.us.split.us.split.us:    ; preds = %96
+  %110 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .split190.us.split.us.split.us.split.us.split.us: ; preds = %.noexc.i.us.us.us.us.us
-  %102 = landingpad { ptr, i32 }
+  %111 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
   br label %.body.i
 
 .body.i:                                          ; preds = %.split.us.split.us.split.us.split.us.split.us, %.split190.us.split.us.split.us.split.us.split.us
-  %eh.lpad-body.i = phi { ptr, i32 } [ %101, %.split.us.split.us.split.us.split.us.split.us ], [ %102, %.split190.us.split.us.split.us.split.us.split.us ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %110, %.split.us.split.us.split.us.split.us.split.us ], [ %111, %.split190.us.split.us.split.us.split.us.split.us ]
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #33
   resume { ptr, i32 } %eh.lpad-body.i
