@@ -3,118 +3,12 @@ source_filename = "bench/luau/original/Location.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8PositioneqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %4, %6
-  %8 = load i32, ptr %0, align 4
-  %9 = load i32, ptr %1, align 4
-  %10 = icmp eq i32 %8, %9
-  %11 = select i1 %7, i1 %10, i1 false
-  ret i1 %11
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8PositionneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp ne i32 %4, %6
-  %8 = load i32, ptr %0, align 4
-  %9 = load i32, ptr %1, align 4
-  %10 = icmp ne i32 %8, %9
-  %.not3 = select i1 %7, i1 true, i1 %10
-  ret i1 %.not3
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8PositionltERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = load i32, ptr %0, align 4
-  %4 = load i32, ptr %1, align 4
-  %5 = icmp eq i32 %3, %4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp ult i32 %7, %9
-  %11 = icmp ult i32 %3, %4
-  %.0 = select i1 %5, i1 %10, i1 %11
-  ret i1 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8PositiongtERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = load i32, ptr %0, align 4
-  %4 = load i32, ptr %1, align 4
-  %5 = icmp eq i32 %3, %4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4
-  %10 = icmp ugt i32 %7, %9
-  %11 = icmp ugt i32 %3, %4
-  %.0 = select i1 %5, i1 %10, i1 %11
-  ret i1 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8PositionleERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %4, %6
-  %8 = load i32, ptr %0, align 4
-  %9 = load i32, ptr %1, align 4
-  %10 = icmp eq i32 %8, %9
-  %11 = select i1 %7, i1 %10, i1 false
-  br i1 %11, label %15, label %12
-
-12:                                               ; preds = %2
-  %13 = icmp ult i32 %4, %6
-  %14 = icmp ult i32 %8, %9
-  %.0.i = select i1 %10, i1 %13, i1 %14
-  br label %15
-
-15:                                               ; preds = %12, %2
-  %16 = phi i1 [ true, %2 ], [ %.0.i, %12 ]
-  ret i1 %16
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8PositiongeERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %4, %6
-  %8 = load i32, ptr %0, align 4
-  %9 = load i32, ptr %1, align 4
-  %10 = icmp eq i32 %8, %9
-  %11 = select i1 %7, i1 %10, i1 false
-  br i1 %11, label %15, label %12
-
-12:                                               ; preds = %2
-  %13 = icmp ugt i32 %4, %6
-  %14 = icmp ugt i32 %8, %9
-  %.0.i = select i1 %10, i1 %13, i1 %14
-  br label %15
-
-15:                                               ; preds = %12, %2
-  %16 = phi i1 [ true, %2 ], [ %.0.i, %12 ]
-  ret i1 %16
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau8Position5shiftERKS0_S2_S2_(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau8Position5shiftERKS0_S2_S2_(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = icmp eq i32 %6, %8
   %10 = load i32, ptr %0, align 4
   %11 = load i32, ptr %1, align 4
@@ -129,26 +23,26 @@ _ZNK4Luau8PositiongeERKS0_.exit:                  ; preds = %4
   br i1 %.0.i.i, label %_ZNK4Luau8PositiongeERKS0_.exit.thread, label %29
 
 _ZNK4Luau8PositiongeERKS0_.exit.thread:           ; preds = %4, %_ZNK4Luau8PositiongeERKS0_.exit
-  %16 = load i32, ptr %2, align 4
+  %16 = load i32, ptr %2, align 4, !tbaa !9
   %17 = icmp ugt i32 %10, %16
-  %18 = load i32, ptr %3, align 4
+  %18 = load i32, ptr %3, align 4, !tbaa !9
   br i1 %17, label %19, label %22
 
 19:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.thread
   %20 = sub nuw i32 %10, %16
   %21 = add i32 %20, %18
-  store i32 %21, ptr %0, align 4
+  store i32 %21, ptr %0, align 4, !tbaa !9
   br label %29
 
 22:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.thread
-  store i32 %18, ptr %0, align 4
+  store i32 %18, ptr %0, align 4, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %26 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = add i32 %24, %6
   %28 = sub i32 %27, %26
-  store i32 %28, ptr %5, align 4
+  store i32 %28, ptr %5, align 4, !tbaa !4
   br label %29
 
 29:                                               ; preds = %19, %22, %_ZNK4Luau8PositiongeERKS0_.exit
@@ -156,75 +50,11 @@ _ZNK4Luau8PositiongeERKS0_.exit.thread:           ; preds = %4, %_ZNK4Luau8Posit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Luau8Location8enclosesERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %4, %6
-  %8 = load i32, ptr %0, align 4
-  %9 = load i32, ptr %1, align 4
-  %10 = icmp eq i32 %8, %9
-  %11 = select i1 %7, i1 %10, i1 false
-  br i1 %11, label %12, label %24
-
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %16, %18
-  %20 = load i32, ptr %13, align 4
-  %21 = load i32, ptr %14, align 4
-  %22 = icmp eq i32 %20, %21
-  %23 = select i1 %19, i1 %22, i1 false
-  br label %24
-
-24:                                               ; preds = %12, %2
-  %25 = phi i1 [ false, %2 ], [ %23, %12 ]
-  ret i1 %25
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8LocationneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
-  %7 = icmp eq i32 %4, %6
-  %8 = load i32, ptr %0, align 4
-  %9 = load i32, ptr %1, align 4
-  %10 = icmp eq i32 %8, %9
-  %11 = select i1 %7, i1 %10, i1 false
-  br i1 %11, label %12, label %_ZNK4Luau8LocationeqERKS0_.exit
-
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp ne i32 %16, %18
-  %20 = load i32, ptr %13, align 4
-  %21 = load i32, ptr %14, align 4
-  %22 = icmp ne i32 %20, %21
-  %.not3 = select i1 %19, i1 true, i1 %22
-  br label %_ZNK4Luau8LocationeqERKS0_.exit
-
-_ZNK4Luau8LocationeqERKS0_.exit:                  ; preds = %2, %12
-  %23 = phi i1 [ true, %2 ], [ %.not3, %12 ]
-  ret i1 %23
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8Location8enclosesERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = icmp eq i32 %4, %6
   %8 = load i32, ptr %0, align 4
   %9 = load i32, ptr %1, align 4
@@ -242,9 +72,9 @@ _ZNK4Luau8PositionleERKS0_.exit.thread:           ; preds = %2, %_ZNK4Luau8Posit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %19 = load i32, ptr %18, align 4
+  %19 = load i32, ptr %18, align 4, !tbaa !4
   %20 = icmp eq i32 %17, %19
   %21 = load i32, ptr %14, align 4
   %22 = load i32, ptr %15, align 4
@@ -264,11 +94,11 @@ _ZNK4Luau8PositiongeERKS0_.exit:                  ; preds = %25, %_ZNK4Luau8Posi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8Location8overlapsERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Luau8Location8overlapsERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = icmp eq i32 %4, %6
   %8 = load i32, ptr %0, align 4
   %9 = load i32, ptr %1, align 4
@@ -285,7 +115,7 @@ _ZNK4Luau8PositionleERKS0_.exit:                  ; preds = %2
 _ZNK4Luau8PositionleERKS0_.exit.thread:           ; preds = %2, %_ZNK4Luau8PositionleERKS0_.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = icmp eq i32 %16, %6
   %18 = load i32, ptr %14, align 4
   %19 = icmp eq i32 %18, %9
@@ -301,7 +131,7 @@ _ZNK4Luau8PositiongeERKS0_.exit:                  ; preds = %_ZNK4Luau8Positionl
 23:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit, %_ZNK4Luau8PositionleERKS0_.exit
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %26 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = icmp eq i32 %4, %26
   %28 = load i32, ptr %24, align 4
   %29 = icmp eq i32 %8, %28
@@ -317,7 +147,7 @@ _ZNK4Luau8PositionleERKS0_.exit9:                 ; preds = %23
 _ZNK4Luau8PositionleERKS0_.exit9.thread:          ; preds = %23, %_ZNK4Luau8PositionleERKS0_.exit9
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %35 = load i32, ptr %34, align 4
+  %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = icmp eq i32 %35, %26
   %37 = load i32, ptr %33, align 4
   %38 = icmp eq i32 %37, %28
@@ -342,7 +172,7 @@ _ZNK4Luau8PositiongeERKS0_.exit13:                ; preds = %42
 _ZNK4Luau8PositiongeERKS0_.exit13.thread:         ; preds = %42, %_ZNK4Luau8PositiongeERKS0_.exit13
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %47 = load i32, ptr %46, align 4
+  %47 = load i32, ptr %46, align 4, !tbaa !4
   %48 = icmp eq i32 %47, %26
   %49 = load i32, ptr %45, align 4
   %50 = icmp eq i32 %49, %28
@@ -361,11 +191,11 @@ _ZNK4Luau8PositionleERKS0_.exit15:                ; preds = %_ZNK4Luau8Positionl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = icmp eq i32 %4, %6
   %8 = load i32, ptr %0, align 4
   %9 = load i32, ptr %1, align 4
@@ -381,7 +211,7 @@ _ZNK4Luau8PositionleERKS0_.exit:                  ; preds = %2
 
 _ZNK4Luau8PositionleERKS0_.exit.thread:           ; preds = %2, %_ZNK4Luau8PositionleERKS0_.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !9
   %16 = icmp eq i32 %9, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
@@ -396,11 +226,11 @@ _ZNK4Luau8PositionleERKS0_.exit.thread:           ; preds = %2, %_ZNK4Luau8Posit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8Location14containsClosedERKNS_8PositionE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Luau8Location14containsClosedERKNS_8PositionE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = icmp eq i32 %4, %6
   %8 = load i32, ptr %0, align 4
   %9 = load i32, ptr %1, align 4
@@ -417,7 +247,7 @@ _ZNK4Luau8PositionleERKS0_.exit:                  ; preds = %2
 _ZNK4Luau8PositionleERKS0_.exit.thread:           ; preds = %2, %_ZNK4Luau8PositionleERKS0_.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = icmp eq i32 %6, %16
   %18 = load i32, ptr %14, align 4
   %19 = icmp eq i32 %9, %18
@@ -436,9 +266,9 @@ _ZNK4Luau8PositionleERKS0_.exit4:                 ; preds = %21, %_ZNK4Luau8Posi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau8Location6extendERKS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
-  %3 = load i32, ptr %1, align 4
-  %4 = load i32, ptr %0, align 4
+define dso_local void @_ZN4Luau8Location6extendERKS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+  %3 = load i32, ptr %1, align 4, !tbaa !9
+  %4 = load i32, ptr %0, align 4, !tbaa !9
   %5 = icmp eq i32 %3, %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -457,8 +287,8 @@ define dso_local void @_ZN4Luau8Location6extendERKS0_(ptr noundef nonnull align 
 14:                                               ; preds = %12, %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i32, ptr %15, align 4
-  %18 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %15, align 4, !tbaa !9
+  %18 = load i32, ptr %16, align 4, !tbaa !9
   %19 = icmp eq i32 %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load i32, ptr %20, align 4
@@ -479,11 +309,11 @@ define dso_local void @_ZN4Luau8Location6extendERKS0_(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau8Location5shiftERKNS_8PositionES3_S3_(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau8Location5shiftERKNS_8PositionES3_S3_(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = icmp eq i32 %6, %8
   %10 = load i32, ptr %0, align 4
   %11 = load i32, ptr %1, align 4
@@ -498,80 +328,86 @@ _ZNK4Luau8PositiongeERKS0_.exit.i:                ; preds = %4
   br i1 %.0.i.i.i, label %_ZNK4Luau8PositiongeERKS0_.exit.thread.i, label %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit
 
 _ZNK4Luau8PositiongeERKS0_.exit.thread.i:         ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.i, %4
-  %16 = load i32, ptr %2, align 4
+  %16 = load i32, ptr %2, align 4, !tbaa !9
   %17 = icmp ugt i32 %10, %16
-  %18 = load i32, ptr %3, align 4
+  %18 = load i32, ptr %3, align 4, !tbaa !9
   br i1 %17, label %19, label %22
 
 19:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.thread.i
   %20 = sub nuw i32 %10, %16
   %21 = add i32 %20, %18
-  store i32 %21, ptr %0, align 4
+  store i32 %21, ptr %0, align 4, !tbaa !9
   br label %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit
 
 22:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.thread.i
-  store i32 %18, ptr %0, align 4
+  store i32 %18, ptr %0, align 4, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %26 = load i32, ptr %25, align 4
+  %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = add i32 %24, %6
   %28 = sub i32 %27, %26
-  store i32 %28, ptr %5, align 4
+  store i32 %28, ptr %5, align 4, !tbaa !4
+  %.pre = load i32, ptr %7, align 4, !tbaa !4
   br label %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit
 
 _ZN4Luau8Position5shiftERKS0_S2_S2_.exit:         ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.i, %19, %22
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %31 = load i32, ptr %30, align 4
-  %32 = load i32, ptr %7, align 4
-  %33 = icmp eq i32 %31, %32
-  %34 = load i32, ptr %29, align 4
+  %29 = phi i32 [ %8, %_ZNK4Luau8PositiongeERKS0_.exit.i ], [ %8, %19 ], [ %.pre, %22 ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !4
+  %33 = icmp eq i32 %32, %29
+  %34 = load i32, ptr %30, align 4
   %35 = load i32, ptr %1, align 4
   %36 = icmp eq i32 %34, %35
   %37 = select i1 %33, i1 %36, i1 false
   br i1 %37, label %_ZNK4Luau8PositiongeERKS0_.exit.thread.i9, label %_ZNK4Luau8PositiongeERKS0_.exit.i7
 
 _ZNK4Luau8PositiongeERKS0_.exit.i7:               ; preds = %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit
-  %38 = icmp ugt i32 %31, %32
+  %38 = icmp ugt i32 %32, %29
   %39 = icmp ugt i32 %34, %35
   %.0.i.i.i8 = select i1 %36, i1 %38, i1 %39
   br i1 %.0.i.i.i8, label %_ZNK4Luau8PositiongeERKS0_.exit.thread.i9, label %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit10
 
 _ZNK4Luau8PositiongeERKS0_.exit.thread.i9:        ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.i7, %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit
-  %40 = load i32, ptr %2, align 4
+  %40 = load i32, ptr %2, align 4, !tbaa !9
   %41 = icmp ugt i32 %34, %40
-  %42 = load i32, ptr %3, align 4
+  %42 = load i32, ptr %3, align 4, !tbaa !9
   br i1 %41, label %43, label %46
 
 43:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.thread.i9
   %44 = sub nuw i32 %34, %40
   %45 = add i32 %44, %42
-  store i32 %45, ptr %29, align 4
+  store i32 %45, ptr %30, align 4, !tbaa !9
   br label %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit10
 
 46:                                               ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.thread.i9
-  store i32 %42, ptr %29, align 4
+  store i32 %42, ptr %30, align 4, !tbaa !9
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %48 = load i32, ptr %47, align 4
+  %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %48, %31
+  %50 = load i32, ptr %49, align 4, !tbaa !4
+  %51 = add i32 %48, %32
   %52 = sub i32 %51, %50
-  store i32 %52, ptr %30, align 4
+  store i32 %52, ptr %31, align 4, !tbaa !4
   br label %_ZN4Luau8Position5shiftERKS0_S2_S2_.exit10
 
 _ZN4Luau8Position5shiftERKS0_S2_S2_.exit10:       ; preds = %_ZNK4Luau8PositiongeERKS0_.exit.i7, %43, %46
   ret void
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !6, i64 4}
+!5 = !{!"_ZTSN4Luau8PositionE", !6, i64 0, !6, i64 4}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!5, !6, i64 0}

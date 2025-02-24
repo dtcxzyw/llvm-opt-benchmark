@@ -88,7 +88,7 @@ define internal noundef i32 @_ZL5b_andP9lua_State(ptr noundef %0) #0 {
   %4 = and i32 %3, %.010.i
   %5 = add nuw i32 %.079.i, 1
   %exitcond.not.i = icmp eq i32 %.079.i, %2
-  br i1 %exitcond.not.i, label %_ZL6andauxP9lua_State.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %_ZL6andauxP9lua_State.exit, label %.lr.ph.i, !llvm.loop !4
 
 _ZL6andauxP9lua_State.exit:                       ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i32 [ -1, %1 ], [ %4, %.lr.ph.i ]
@@ -117,7 +117,7 @@ define internal noundef i32 @_ZL4b_orP9lua_State(ptr noundef %0) #0 {
   %4 = or i32 %3, %.011
   %5 = add nuw i32 %.0810, 1
   %exitcond.not = icmp eq i32 %.0810, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %4, %.lr.ph ]
@@ -138,7 +138,7 @@ define internal noundef i32 @_ZL5b_xorP9lua_State(ptr noundef %0) #0 {
   %4 = xor i32 %3, %.011
   %5 = add nuw i32 %.0810, 1
   %exitcond.not = icmp eq i32 %.0810, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %4, %.lr.ph ]
@@ -159,7 +159,7 @@ define internal noundef i32 @_ZL6b_testP9lua_State(ptr noundef %0) #0 {
   %4 = and i32 %3, %.010.i
   %5 = add nuw i32 %.079.i, 1
   %exitcond.not.i = icmp eq i32 %.079.i, %2
-  br i1 %exitcond.not.i, label %_ZL6andauxP9lua_State.exit.loopexit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %_ZL6andauxP9lua_State.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 _ZL6andauxP9lua_State.exit.loopexit:              ; preds = %.lr.ph.i
   %6 = icmp ne i32 %4, 0
@@ -349,7 +349,7 @@ define internal noundef i32 @_ZL9b_countlzP9lua_State(ptr noundef %0) #0 {
 6:                                                ; preds = %3
   %7 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %7, 32
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3, %6
   %.07 = phi i32 [ 32, %6 ], [ %.08, %3 ]
@@ -372,7 +372,7 @@ define internal noundef i32 @_ZL9b_countrzP9lua_State(ptr noundef %0) #0 {
 6:                                                ; preds = %3
   %7 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %7, 32
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !10
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !9
 
 8:                                                ; preds = %3, %6
   %.07 = phi i32 [ 32, %6 ], [ %.08, %3 ]
@@ -412,22 +412,21 @@ declare i32 @llvm.bswap.i32(i32) #3
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

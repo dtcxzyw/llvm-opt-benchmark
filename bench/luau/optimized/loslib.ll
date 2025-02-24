@@ -50,12 +50,13 @@ define internal noundef i32 @_ZL7os_dateP9lua_State(ptr noundef %0) #0 {
   %5 = alloca %struct.luaL_Strbuf, align 8
   %6 = alloca [200 x i8], align 16
   %7 = tail call noundef ptr @_Z15luaL_optlstringP9lua_StateiPKcPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   %8 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef 2)
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %1
-  %11 = tail call i64 @time(ptr noundef null) #7
+  %11 = tail call i64 @time(ptr noundef null) #8
   br label %15
 
 12:                                               ; preds = %1
@@ -65,13 +66,14 @@ define internal noundef i32 @_ZL7os_dateP9lua_State(ptr noundef %0) #0 {
 
 15:                                               ; preds = %12, %10
   %16 = phi i64 [ %11, %10 ], [ %14, %12 ]
-  store i64 %16, ptr %2, align 8
-  %17 = load i8, ptr %7, align 1
+  store i64 %16, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #8
+  %17 = load i8, ptr %7, align 1, !tbaa !8
   %18 = icmp eq i8 %17, 33
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
-  %20 = call ptr @gmtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
+  %20 = call ptr @gmtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %26
 
@@ -80,7 +82,7 @@ define internal noundef i32 @_ZL7os_dateP9lua_State(ptr noundef %0) #0 {
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %22
-  %25 = call ptr @localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
+  %25 = call ptr @localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   br label %26
 
 26:                                               ; preds = %24, %19
@@ -112,43 +114,43 @@ sub_1:                                            ; preds = %sub_0
 
 34:                                               ; preds = %.tail
   call void @_Z15lua_createtableP9lua_Stateii(ptr noundef %0, i32 noundef 0, i32 noundef 9)
-  %35 = load i32, ptr %.037, align 8
+  %35 = load i32, ptr %.037, align 8, !tbaa !9
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %35)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.7)
   %36 = getelementptr inbounds nuw i8, ptr %.037, i64 4
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 4, !tbaa !14
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %37)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.8)
   %38 = getelementptr inbounds nuw i8, ptr %.037, i64 8
-  %39 = load i32, ptr %38, align 8
+  %39 = load i32, ptr %38, align 8, !tbaa !15
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %39)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.9)
   %40 = getelementptr inbounds nuw i8, ptr %.037, i64 12
-  %41 = load i32, ptr %40, align 4
+  %41 = load i32, ptr %40, align 4, !tbaa !16
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %41)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.10)
   %42 = getelementptr inbounds nuw i8, ptr %.037, i64 16
-  %43 = load i32, ptr %42, align 8
+  %43 = load i32, ptr %42, align 8, !tbaa !17
   %44 = add nsw i32 %43, 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %44)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.11)
   %45 = getelementptr inbounds nuw i8, ptr %.037, i64 20
-  %46 = load i32, ptr %45, align 4
+  %46 = load i32, ptr %45, align 4, !tbaa !18
   %47 = add nsw i32 %46, 1900
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %47)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.12)
   %48 = getelementptr inbounds nuw i8, ptr %.037, i64 24
-  %49 = load i32, ptr %48, align 8
+  %49 = load i32, ptr %48, align 8, !tbaa !19
   %50 = add nsw i32 %49, 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %50)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.13)
   %51 = getelementptr inbounds nuw i8, ptr %.037, i64 28
-  %52 = load i32, ptr %51, align 4
+  %52 = load i32, ptr %51, align 4, !tbaa !20
   %53 = add nsw i32 %52, 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %53)
   call void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.14)
   %54 = getelementptr inbounds nuw i8, ptr %.037, i64 32
-  %55 = load i32, ptr %54, align 8
+  %55 = load i32, ptr %54, align 8, !tbaa !21
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %_ZL12setboolfieldP9lua_StatePKci.exit, label %57
 
@@ -158,9 +160,11 @@ sub_1:                                            ; preds = %sub_0
   br label %_ZL12setboolfieldP9lua_StatePKci.exit
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  store i8 37, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #8
+  store i8 37, ptr %4, align 1, !tbaa !8
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 0, ptr %58, align 1
+  store i8 0, ptr %58, align 1, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 544, ptr nonnull %5) #8
   call void @_Z13luaL_buffinitP9lua_StateP11luaL_Strbuf(ptr noundef %0, ptr noundef nonnull %5)
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -168,7 +172,7 @@ sub_1:                                            ; preds = %sub_0
 
 61:                                               ; preds = %83, %.tail.thread
   %.1 = phi ptr [ %.0, %.tail.thread ], [ %84, %83 ]
-  %62 = load i8, ptr %.1, align 1
+  %62 = load i8, ptr %.1, align 1, !tbaa !8
   switch i8 %62, label %67 [
     i8 0, label %85
     i8 37, label %63
@@ -176,28 +180,28 @@ sub_1:                                            ; preds = %sub_0
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %65 = load i8, ptr %64, align 1
+  %65 = load i8, ptr %64, align 1, !tbaa !8
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %67, label %77
 
 67:                                               ; preds = %61, %63
-  %68 = load ptr, ptr %5, align 8
-  %69 = load ptr, ptr %60, align 8
+  %68 = load ptr, ptr %5, align 8, !tbaa !22
+  %69 = load ptr, ptr %60, align 8, !tbaa !26
   %70 = icmp ult ptr %68, %69
   br i1 %70, label %73, label %71
 
 71:                                               ; preds = %67
   %72 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %5, i64 noundef 1)
-  %.pre = load i8, ptr %.1, align 1
-  %.pre44 = load ptr, ptr %5, align 8
+  %.pre = load i8, ptr %.1, align 1, !tbaa !8
+  %.pre44 = load ptr, ptr %5, align 8, !tbaa !22
   br label %73
 
 73:                                               ; preds = %71, %67
   %74 = phi ptr [ %.pre44, %71 ], [ %68, %67 ]
   %75 = phi i8 [ %.pre, %71 ], [ %62, %67 ]
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  store ptr %76, ptr %5, align 8
-  store i8 %75, ptr %74, align 1
+  store ptr %76, ptr %5, align 8, !tbaa !22
+  store i8 %75, ptr %74, align 1, !tbaa !8
   br label %83
 
 77:                                               ; preds = %63
@@ -207,25 +211,31 @@ sub_1:                                            ; preds = %sub_0
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %77
-  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.17) #8
+  call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.17) #9
   unreachable
 
 81:                                               ; preds = %77
-  store i8 %65, ptr %59, align 1
-  %82 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull %4, ptr noundef nonnull %.037) #7
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #8
+  store i8 %65, ptr %59, align 1, !tbaa !8
+  %82 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull %4, ptr noundef nonnull %.037) #8
   call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %82)
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #8
   br label %83
 
 83:                                               ; preds = %73, %81
   %.2 = phi ptr [ %.1, %73 ], [ %64, %81 ]
   %84 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br label %61, !llvm.loop !5
+  br label %61, !llvm.loop !27
 
 85:                                               ; preds = %61
   call void @_Z15luaL_pushresultP11luaL_Strbuf(ptr noundef nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #8
   br label %_ZL12setboolfieldP9lua_StatePKci.exit
 
 _ZL12setboolfieldP9lua_StatePKci.exit:            ; preds = %57, %34, %85, %.thread
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   ret i32 1
 }
 
@@ -235,7 +245,7 @@ define internal noundef i32 @_ZL11os_difftimeP9lua_State(ptr noundef %0) #0 {
   %3 = fptosi double %2 to i64
   %4 = tail call noundef double @_Z14luaL_optnumberP9lua_Stateid(ptr noundef %0, i32 noundef 2, double noundef 0.000000e+00)
   %5 = fptosi double %4 to i64
-  %6 = tail call double @difftime(i64 noundef %3, i64 noundef %5) #9
+  %6 = tail call double @difftime(i64 noundef %3, i64 noundef %5) #10
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %6)
   ret i32 1
 }
@@ -247,7 +257,7 @@ define internal noundef i32 @_ZL7os_timeP9lua_State(ptr noundef %0) #0 {
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @time(ptr noundef null) #7
+  %5 = tail call i64 @time(ptr noundef null) #8
   br label %_ZL9os_timegmP2tm.exit
 
 6:                                                ; preds = %1
@@ -300,7 +310,7 @@ _ZL8getfieldP9lua_StatePKci.exit18:               ; preds = %_ZL8getfieldP9lua_S
   br i1 %.not.i19, label %26, label %_ZL8getfieldP9lua_StatePKci.exit21
 
 26:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit18
-  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10) #8
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10) #9
   unreachable
 
 _ZL8getfieldP9lua_StatePKci.exit21:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit18
@@ -312,7 +322,7 @@ _ZL8getfieldP9lua_StatePKci.exit21:               ; preds = %_ZL8getfieldP9lua_S
   br i1 %.not.i22, label %30, label %_ZL8getfieldP9lua_StatePKci.exit24
 
 30:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit21
-  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11) #8
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11) #9
   unreachable
 
 _ZL8getfieldP9lua_StatePKci.exit24:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit21
@@ -325,7 +335,7 @@ _ZL8getfieldP9lua_StatePKci.exit24:               ; preds = %_ZL8getfieldP9lua_S
   br i1 %.not.i25, label %35, label %_ZL8getfieldP9lua_StatePKci.exit27
 
 35:                                               ; preds = %_ZL8getfieldP9lua_StatePKci.exit24
-  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.12) #8
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.12) #9
   unreachable
 
 _ZL8getfieldP9lua_StatePKci.exit27:               ; preds = %_ZL8getfieldP9lua_StatePKci.exit24
@@ -374,11 +384,11 @@ _ZL12getboolfieldP9lua_StatePKc.exit:             ; preds = %_ZL8getfieldP9lua_S
   %66 = add nsw i64 %65, %.0.i17
   %67 = add nsw i64 %66, %64
   %68 = tail call i64 @llvm.smax.i64(i64 %67, i64 210866803199)
-  %spec.select.i = add nsw i64 %68, -210866803200
+  %.1.i = add nsw i64 %68, -210866803200
   br label %_ZL9os_timegmP2tm.exit
 
 _ZL9os_timegmP2tm.exit:                           ; preds = %61, %4
-  %.0 = phi i64 [ %5, %4 ], [ %spec.select.i, %61 ]
+  %.0 = phi i64 [ %5, %4 ], [ %.1.i, %61 ]
   %69 = icmp eq i64 %.0, -1
   br i1 %69, label %_ZL9os_timegmP2tm.exit.thread, label %70
 
@@ -399,20 +409,23 @@ declare void @_Z14lua_pushnumberP9lua_Stated(ptr noundef, double noundef) local_
 
 declare noundef double @_Z9lua_clockv() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 declare noundef ptr @_Z15luaL_optlstringP9lua_StateiPKcPm(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #2
+declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 declare noundef double @_Z16luaL_checknumberP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @_Z11lua_pushnilP9lua_State(ptr noundef) local_unnamed_addr #1
 
@@ -423,12 +436,15 @@ declare void @_Z13luaL_buffinitP9lua_StateP11luaL_Strbuf(ptr noundef, ptr nounde
 declare noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @_Z15luaL_pushresultP11luaL_Strbuf(ptr noundef) local_unnamed_addr #1
 
@@ -439,7 +455,7 @@ declare void @_Z12lua_setfieldP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noun
 declare void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare double @difftime(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare double @difftime(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare noundef double @_Z14luaL_optnumberP9lua_Stateid(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
@@ -454,33 +470,56 @@ declare noundef i32 @_Z12lua_isnumberP9lua_Statei(ptr noundef, i32 noundef) loca
 declare noundef i32 @_Z14lua_tointegerxP9lua_StateiPi(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 declare noundef i32 @_Z13lua_tobooleanP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #5
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #6
+declare i64 @llvm.smax.i64(i64, i64) #7
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn }
-attributes #9 = { nounwind willreturn memory(none) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn }
+attributes #10 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"_ZTS2tm", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !5, i64 40, !12, i64 48}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !6, i64 0}
+!14 = !{!10, !11, i64 4}
+!15 = !{!10, !11, i64 8}
+!16 = !{!10, !11, i64 12}
+!17 = !{!10, !11, i64 16}
+!18 = !{!10, !11, i64 20}
+!19 = !{!10, !11, i64 24}
+!20 = !{!10, !11, i64 28}
+!21 = !{!10, !11, i64 32}
+!22 = !{!23, !12, i64 0}
+!23 = !{!"_ZTS11luaL_Strbuf", !12, i64 0, !12, i64 8, !24, i64 16, !25, i64 24, !6, i64 32}
+!24 = !{!"p1 _ZTS9lua_State", !13, i64 0}
+!25 = !{!"p1 _ZTS7TString", !13, i64 0}
+!26 = !{!23, !12, i64 8}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}

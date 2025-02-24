@@ -33,30 +33,30 @@ define linkonce_odr dso_local void @_ZN4Luau6FValueIbEC2EPKcbb(ptr noundef nonnu
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !9
   %9 = zext i1 %2 to i8
-  store i8 %9, ptr %7, align 1
+  store i8 %9, ptr %7, align 1, !tbaa !11
   %10 = zext i1 %3 to i8
-  store i8 %10, ptr %8, align 1
+  store i8 %10, ptr %8, align 1, !tbaa !11
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %"struct.Luau::FValue", ptr %11, i32 0, i32 0
-  %13 = load i8, ptr %7, align 1
+  %12 = getelementptr inbounds nuw %"struct.Luau::FValue", ptr %11, i32 0, i32 0
+  %13 = load i8, ptr %7, align 1, !tbaa !11, !range !13, !noundef !14
   %14 = trunc i8 %13 to i1
   %15 = zext i1 %14 to i8
-  store i8 %15, ptr %12, align 8
-  %16 = getelementptr inbounds %"struct.Luau::FValue", ptr %11, i32 0, i32 1
-  %17 = load i8, ptr %8, align 1
+  store i8 %15, ptr %12, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw %"struct.Luau::FValue", ptr %11, i32 0, i32 1
+  %17 = load i8, ptr %8, align 1, !tbaa !11, !range !13, !noundef !14
   %18 = trunc i8 %17 to i1
   %19 = zext i1 %18 to i8
-  store i8 %19, ptr %16, align 1
-  %20 = getelementptr inbounds %"struct.Luau::FValue", ptr %11, i32 0, i32 2
-  %21 = load ptr, ptr %6, align 8
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.Luau::FValue", ptr %11, i32 0, i32 3
-  %23 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8
-  store ptr %23, ptr %22, align 8
-  store ptr %11, ptr @_ZN4Luau6FValueIbE4listE, align 8
+  store i8 %19, ptr %16, align 1, !tbaa !17
+  %20 = getelementptr inbounds nuw %"struct.Luau::FValue", ptr %11, i32 0, i32 2
+  %21 = load ptr, ptr %6, align 8, !tbaa !9
+  store ptr %21, ptr %20, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw %"struct.Luau::FValue", ptr %11, i32 0, i32 3
+  %23 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !4
+  store ptr %23, ptr %22, align 8, !tbaa !19
+  store ptr %11, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !4
   ret void
 }
 
@@ -66,7 +66,7 @@ define dso_local noundef double @_ZN4Luau9TimeTrace8getClockEv() #2 personality 
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZN4Luau9TimeTrace8getClockEvE6period acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %11, !prof !5
+  br i1 %4, label %5, label %11, !prof !20
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4Luau9TimeTrace8getClockEvE6period) #3
@@ -78,14 +78,14 @@ define dso_local noundef double @_ZN4Luau9TimeTrace8getClockEv() #2 personality 
           to label %10 unwind label %26
 
 10:                                               ; preds = %8
-  store double %9, ptr @_ZZN4Luau9TimeTrace8getClockEvE6period, align 8
+  store double %9, ptr @_ZZN4Luau9TimeTrace8getClockEvE6period, align 8, !tbaa !21
   call void @__cxa_guard_release(ptr @_ZGVZN4Luau9TimeTrace8getClockEvE6period) #3
   br label %11
 
 11:                                               ; preds = %10, %5, %0
   %12 = load atomic i8, ptr @_ZGVZN4Luau9TimeTrace8getClockEvE5start acquire, align 8
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %14, label %20, !prof !5
+  br i1 %13, label %14, label %20, !prof !20
 
 14:                                               ; preds = %11
   %15 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4Luau9TimeTrace8getClockEvE5start) #3
@@ -97,15 +97,15 @@ define dso_local noundef double @_ZN4Luau9TimeTrace8getClockEv() #2 personality 
           to label %19 unwind label %30
 
 19:                                               ; preds = %17
-  store double %18, ptr @_ZZN4Luau9TimeTrace8getClockEvE5start, align 8
+  store double %18, ptr @_ZZN4Luau9TimeTrace8getClockEvE5start, align 8, !tbaa !21
   call void @__cxa_guard_release(ptr @_ZGVZN4Luau9TimeTrace8getClockEvE5start) #3
   br label %20
 
 20:                                               ; preds = %19, %14, %11
   %21 = call noundef double @_ZN4Luau9TimeTraceL17getClockTimestampEv()
-  %22 = load double, ptr @_ZZN4Luau9TimeTrace8getClockEvE5start, align 8
+  %22 = load double, ptr @_ZZN4Luau9TimeTrace8getClockEvE5start, align 8, !tbaa !21
   %23 = fsub double %21, %22
-  %24 = load double, ptr @_ZZN4Luau9TimeTrace8getClockEvE6period, align 8
+  %24 = load double, ptr @_ZZN4Luau9TimeTrace8getClockEvE6period, align 8, !tbaa !21
   %25 = fmul double %23, %24
   ret double %25
 
@@ -156,14 +156,16 @@ declare void @__cxa_guard_release(ptr) #3
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef double @_ZN4Luau9TimeTraceL17getClockTimestampEv() #1 {
   %1 = alloca %struct.timespec, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %1) #3
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %1) #3
-  %3 = getelementptr inbounds %struct.timespec, ptr %1, i32 0, i32 0
-  %4 = load i64, ptr %3, align 8
+  %3 = getelementptr inbounds nuw %struct.timespec, ptr %1, i32 0, i32 0
+  %4 = load i64, ptr %3, align 8, !tbaa !23
   %5 = sitofp i64 %4 to double
-  %6 = getelementptr inbounds %struct.timespec, ptr %1, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %struct.timespec, ptr %1, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8, !tbaa !26
   %8 = sitofp i64 %7 to double
   %9 = call double @llvm.fmuladd.f64(double %5, double 1.000000e+09, double %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %1) #3
   ret double %9
 }
 
@@ -173,7 +175,7 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() #2 pe
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZN4Luau9TimeTrace20getClockMicrosecondsEvE6period acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %12, !prof !5
+  br i1 %4, label %5, label %12, !prof !20
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4Luau9TimeTrace20getClockMicrosecondsEvE6period) #3
@@ -186,14 +188,14 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() #2 pe
 
 10:                                               ; preds = %8
   %11 = fmul double %9, 1.000000e+06
-  store double %11, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE6period, align 8
+  store double %11, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE6period, align 8, !tbaa !21
   call void @__cxa_guard_release(ptr @_ZGVZN4Luau9TimeTrace20getClockMicrosecondsEvE6period) #3
   br label %12
 
 12:                                               ; preds = %10, %5, %0
   %13 = load atomic i8, ptr @_ZGVZN4Luau9TimeTrace20getClockMicrosecondsEvE5start acquire, align 8
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %15, label %21, !prof !5
+  br i1 %14, label %15, label %21, !prof !20
 
 15:                                               ; preds = %12
   %16 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4Luau9TimeTrace20getClockMicrosecondsEvE5start) #3
@@ -205,15 +207,15 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() #2 pe
           to label %20 unwind label %32
 
 20:                                               ; preds = %18
-  store double %19, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE5start, align 8
+  store double %19, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE5start, align 8, !tbaa !21
   call void @__cxa_guard_release(ptr @_ZGVZN4Luau9TimeTrace20getClockMicrosecondsEvE5start) #3
   br label %21
 
 21:                                               ; preds = %20, %15, %12
   %22 = call noundef double @_ZN4Luau9TimeTraceL17getClockTimestampEv()
-  %23 = load double, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE5start, align 8
+  %23 = load double, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE5start, align 8, !tbaa !21
   %24 = fsub double %22, %23
-  %25 = load double, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE6period, align 8
+  %25 = load double, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE6period, align 8, !tbaa !21
   %26 = fmul double %24, %25
   %27 = fptoui double %26 to i32
   ret i32 %27
@@ -246,11 +248,17 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() #2 pe
   resume { ptr, i32 } %40
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) #4
+declare i32 @clock_gettime(i32 noundef, ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_TimeTrace.cpp() #0 section ".text.startup" {
@@ -258,18 +266,40 @@ define internal void @_GLOBAL__sub_I_TimeTrace.cpp() #0 section ".text.startup" 
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"branch_weights", i32 1, i32 1048575}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN4Luau6FValueIbEE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"bool", !7, i64 0}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = !{!16, !12, i64 0}
+!16 = !{!"_ZTSN4Luau6FValueIbEE", !12, i64 0, !12, i64 1, !10, i64 8, !5, i64 16}
+!17 = !{!16, !12, i64 1}
+!18 = !{!16, !10, i64 8}
+!19 = !{!16, !5, i64 16}
+!20 = !{!"branch_weights", i32 1, i32 1048575}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"double", !7, i64 0}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTS8timespec", !25, i64 0, !25, i64 8}
+!25 = !{!"long", !7, i64 0}
+!26 = !{!24, !25, i64 8}

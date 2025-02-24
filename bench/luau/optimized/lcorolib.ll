@@ -4,6 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.luaL_Reg = type { ptr, ptr }
+%"struct.Luau::FValue" = type { i8, i8, ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"coroutine\00", align 1
 @_ZL8co_funcs = internal constant [8 x %struct.luaL_Reg] [%struct.luaL_Reg { ptr @.str.2, ptr @_ZL8cocreateP9lua_State }, %struct.luaL_Reg { ptr @.str.3, ptr @_ZL9corunningP9lua_State }, %struct.luaL_Reg { ptr @.str.4, ptr @_ZL8costatusP9lua_State }, %struct.luaL_Reg { ptr @.str.5, ptr @_ZL6cowrapP9lua_State }, %struct.luaL_Reg { ptr @.str.6, ptr @_ZL7coyieldP9lua_State }, %struct.luaL_Reg { ptr @.str.7, ptr @_ZL11coyieldableP9lua_State }, %struct.luaL_Reg { ptr @.str.8, ptr @_ZL7cocloseP9lua_State }, %struct.luaL_Reg zeroinitializer], align 16
@@ -24,6 +25,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [29 x i8] c"too many arguments to resume\00", align 1
 @.str.15 = private unnamed_addr constant [27 x i8] c"too many results to resume\00", align 1
 @.str.16 = private unnamed_addr constant [26 x i8] c"cannot close %s coroutine\00", align 1
+@_ZN6DFFlag14LuauStackLimitE = external local_unnamed_addr global %"struct.Luau::FValue", align 8
+@.str.17 = private unnamed_addr constant [18 x i8] c"not enough memory\00", align 1
+@.str.18 = private unnamed_addr constant [24 x i8] c"error in error handling\00", align 1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_Z17luaopen_coroutineP9lua_State(ptr noundef %0) local_unnamed_addr #0 {
@@ -49,9 +53,9 @@ define internal noundef i32 @_ZL9coresumeyP9lua_State(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -64,9 +68,9 @@ define internal noundef i32 @_ZL9coresumeyP9lua_State(ptr noundef %0) #0 {
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 3344
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZL15interruptThreadP9lua_StateS0_.exit, label %22
 
@@ -115,15 +119,15 @@ define internal noundef i32 @_ZL12coresumecontP9lua_Statei(ptr noundef %0, i32 %
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %7 = load i8, ptr %6, align 1
+  %7 = load i8, ptr %6, align 1, !tbaa !36
   %8 = icmp eq i8 %7, 6
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3344
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZL15interruptThreadP9lua_StateS0_.exit, label %14
 
@@ -141,9 +145,9 @@ _ZL15interruptThreadP9lua_StateS0_.exit:          ; preds = %9, %14
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = ptrtoint ptr %19 to i64
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
@@ -226,7 +230,7 @@ define internal noundef i32 @_ZL8costatusP9lua_State(ptr noundef %0) #0 {
   %5 = tail call noundef i32 @_Z12lua_costatusP9lua_StateS0_(ptr noundef %0, ptr noundef nonnull %2)
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [5 x ptr], ptr @_ZL9statnames, i64 0, i64 %6
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
   tail call void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %0, ptr noundef %8)
   ret i32 1
 }
@@ -243,9 +247,9 @@ define internal noundef i32 @_ZL6cowrapP9lua_State(ptr noundef %0) #0 {
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL7coyieldP9lua_State(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -283,32 +287,61 @@ define internal noundef range(i32 1, 3) i32 @_ZL7cocloseP9lua_State(ptr noundef 
 6:                                                ; preds = %4
   %7 = sext i32 %5 to i64
   %8 = getelementptr inbounds [5 x ptr], ptr @_ZL9statnames, i64 0, i64 %7
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !37
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %9) #3
   unreachable
 
 10:                                               ; preds = %4, %4, %4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %12 = load i8, ptr %11, align 1
+  %12 = load i8, ptr %11, align 1, !tbaa !36
   %switch = icmp ult i8 %12, 2
   br i1 %switch, label %13, label %14
 
 13:                                               ; preds = %10
   tail call void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  br label %17
+  br label %27
 
 14:                                               ; preds = %10
   tail call void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef %0, i32 noundef 0)
-  %15 = tail call noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef nonnull %2)
-  %.not25 = icmp eq i32 %15, 0
-  br i1 %.not25, label %17, label %16
+  %15 = load i8, ptr @_ZN6DFFlag14LuauStackLimitE, align 8, !tbaa !39, !range !42, !noundef !43
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %24
 
-16:                                               ; preds = %14
+17:                                               ; preds = %14
+  %18 = load i8, ptr %11, align 1, !tbaa !36
+  switch i8 %18, label %21 [
+    i8 4, label %19
+    i8 5, label %20
+  ]
+
+19:                                               ; preds = %17
+  tail call void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %0, ptr noundef nonnull @.str.17)
+  br label %27
+
+20:                                               ; preds = %17
+  tail call void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %0, ptr noundef nonnull @.str.18)
+  br label %27
+
+21:                                               ; preds = %17
+  %22 = tail call noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef nonnull %2)
+  %.not34 = icmp eq i32 %22, 0
+  br i1 %.not34, label %27, label %23
+
+23:                                               ; preds = %21
   tail call void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 1)
-  br label %17
+  br label %27
 
-17:                                               ; preds = %14, %16, %13
-  %.0 = phi i32 [ 1, %13 ], [ 2, %16 ], [ 2, %14 ]
+24:                                               ; preds = %14
+  %25 = tail call noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef nonnull %2)
+  %.not33 = icmp eq i32 %25, 0
+  br i1 %.not33, label %27, label %26
+
+26:                                               ; preds = %24
+  tail call void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 1)
+  br label %27
+
+27:                                               ; preds = %20, %23, %21, %19, %26, %24, %13
+  %.0 = phi i32 [ 1, %13 ], [ 2, %24 ], [ 2, %26 ], [ 2, %19 ], [ 2, %21 ], [ 2, %23 ], [ 2, %20 ]
   tail call void @_Z15lua_resetthreadP9lua_State(ptr noundef nonnull %2)
   ret i32 %.0
 }
@@ -336,9 +369,9 @@ declare noundef i32 @_Z12lua_costatusP9lua_StateS0_(ptr noundef, ptr noundef) lo
 define internal noundef i32 @_ZL8auxwrapyP9lua_State(ptr noundef %0) #0 {
   %2 = tail call noundef ptr @_Z12lua_tothreadP9lua_Statei(ptr noundef %0, i32 noundef -10003)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -350,9 +383,9 @@ define internal noundef i32 @_ZL8auxwrapyP9lua_State(ptr noundef %0) #0 {
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 3344
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !21
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZL15interruptThreadP9lua_StateS0_.exit, label %19
 
@@ -392,15 +425,15 @@ _ZL13auxwrapfinishP9lua_Statei.exit:              ; preds = %21, %_ZL15interrupt
 define internal noundef i32 @_ZL11auxwrapcontP9lua_Statei(ptr noundef %0, i32 %1) #0 {
   %3 = tail call noundef ptr @_Z12lua_tothreadP9lua_Statei(ptr noundef %0, i32 noundef -10003)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %5 = load i8, ptr %4, align 1
+  %5 = load i8, ptr %4, align 1, !tbaa !36
   %6 = icmp eq i8 %5, 6
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 3344
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZL15interruptThreadP9lua_StateS0_.exit, label %12
 
@@ -418,9 +451,9 @@ _ZL15interruptThreadP9lua_StateS0_.exit:          ; preds = %7, %12
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
   %20 = ptrtoint ptr %17 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
@@ -468,91 +501,105 @@ _ZL13auxwrapfinishP9lua_Statei.exit:              ; preds = %_ZL13auxresumecontP
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %5 = load i8, ptr %4, align 1
+  %5 = load i8, ptr %4, align 1, !tbaa !36
   %.not = icmp eq i8 %5, 1
-  br i1 %.not, label %13, label %6
+  br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %3
   %7 = tail call noundef i32 @_Z12lua_costatusP9lua_StateS0_(ptr noundef %0, ptr noundef nonnull %1)
-  %.not40 = icmp eq i32 %7, 1
-  br i1 %.not40, label %13, label %8
+  %.not44.not = icmp eq i32 %7, 1
+  br i1 %.not44.not, label %.thread, label %8
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds [5 x ptr], ptr @_ZL9statnames, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = tail call noundef ptr (ptr, ptr, ...) @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %11)
-  br label %44
+  br label %52
 
-13:                                               ; preds = %6, %3
-  %.not41 = icmp eq i32 %2, 0
-  br i1 %.not41, label %18, label %14
+.thread:                                          ; preds = %6, %3
+  %.not45 = icmp eq i32 %2, 0
+  br i1 %.not45, label %17, label %13
 
-14:                                               ; preds = %13
-  %15 = tail call noundef i32 @_Z14lua_checkstackP9lua_Statei(ptr noundef nonnull %1, i32 noundef %2)
-  %.not42 = icmp eq i32 %15, 0
-  br i1 %.not42, label %16, label %17
+13:                                               ; preds = %.thread
+  %14 = tail call noundef i32 @_Z14lua_checkstackP9lua_Statei(ptr noundef nonnull %1, i32 noundef %2)
+  %.not46 = icmp eq i32 %14, 0
+  br i1 %.not46, label %15, label %16
 
-16:                                               ; preds = %14
+15:                                               ; preds = %13
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.14) #3
   unreachable
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   tail call void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2)
-  br label %18
+  br label %27
 
-18:                                               ; preds = %17, %13
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %20 = load i8, ptr %19, align 2
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %22 = and i8 %20, 1
-  store i8 %22, ptr %21, align 2
-  %23 = tail call noundef i32 @_Z10lua_resumeP9lua_StateS0_i(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2)
-  %or.cond = icmp ult i32 %23, 2
-  br i1 %or.cond, label %24, label %41
+17:                                               ; preds = %.thread
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !19
+  %22 = ptrtoint ptr %19 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = icmp sgt i64 %24, 128000
+  br i1 %25, label %26, label %27
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = lshr exact i64 %31, 4
-  %33 = trunc i64 %32 to i32
-  %.not43 = icmp eq i32 %33, 0
-  br i1 %.not43, label %44, label %34
+26:                                               ; preds = %17
+  tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.14) #3
+  unreachable
 
-34:                                               ; preds = %24
-  %35 = icmp sgt i32 %33, 19
-  br i1 %35, label %36, label %40
+27:                                               ; preds = %17, %16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %29 = load i8, ptr %28, align 2, !tbaa !44, !range !42, !noundef !43
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  store i8 %29, ptr %30, align 2, !tbaa !44
+  %31 = tail call noundef i32 @_Z10lua_resumeP9lua_StateS0_i(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2)
+  %or.cond = icmp ult i32 %31, 2
+  br i1 %or.cond, label %32, label %49
 
-36:                                               ; preds = %34
-  %37 = add nuw nsw i32 %33, 1
-  %38 = tail call noundef i32 @_Z14lua_checkstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef %37)
-  %.not44 = icmp eq i32 %38, 0
-  br i1 %.not44, label %39, label %40
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !19
+  %37 = ptrtoint ptr %34 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = lshr exact i64 %39, 4
+  %41 = trunc i64 %40 to i32
+  %.not47 = icmp eq i32 %41, 0
+  br i1 %.not47, label %52, label %42
 
-39:                                               ; preds = %36
+42:                                               ; preds = %32
+  %43 = icmp sgt i32 %41, 19
+  br i1 %43, label %44, label %48
+
+44:                                               ; preds = %42
+  %45 = add nuw nsw i32 %41, 1
+  %46 = tail call noundef i32 @_Z14lua_checkstackP9lua_Statei(ptr noundef nonnull %0, i32 noundef %45)
+  %.not48 = icmp eq i32 %46, 0
+  br i1 %.not48, label %47, label %48
+
+47:                                               ; preds = %44
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #3
   unreachable
 
-40:                                               ; preds = %36, %34
-  tail call void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %33)
-  br label %44
+48:                                               ; preds = %44, %42
+  tail call void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef %41)
+  br label %52
 
-41:                                               ; preds = %18
-  %42 = icmp eq i32 %23, 6
-  br i1 %42, label %44, label %43
+49:                                               ; preds = %27
+  %50 = icmp eq i32 %31, 6
+  br i1 %50, label %52, label %51
 
-43:                                               ; preds = %41
+51:                                               ; preds = %49
   tail call void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 1)
-  br label %44
+  br label %52
 
-44:                                               ; preds = %41, %24, %40, %43, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %43 ], [ %33, %40 ], [ 0, %24 ], [ -2, %41 ]
-  ret i32 %.0
+52:                                               ; preds = %8, %51, %48, %32, %49
+  %.1 = phi i32 [ -1, %8 ], [ -1, %51 ], [ %41, %48 ], [ 0, %32 ], [ -2, %49 ]
+  ret i32 %.1
 }
 
 declare noundef ptr @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -593,15 +640,55 @@ declare void @_Z15lua_resetthreadP9lua_State(ptr noundef) local_unnamed_addr #1
 
 declare noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !9, i64 8}
+!5 = !{!"_ZTS9lua_State", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !8, i64 5, !8, i64 6, !9, i64 8, !9, i64 16, !11, i64 24, !12, i64 32, !9, i64 40, !9, i64 48, !12, i64 56, !12, i64 64, !13, i64 72, !13, i64 76, !14, i64 80, !14, i64 82, !13, i64 84, !15, i64 88, !16, i64 96, !17, i64 104, !18, i64 112, !10, i64 120}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!"bool", !6, i64 0}
+!9 = !{!"p1 _ZTS10lua_TValue", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!"p1 _ZTS12global_State", !10, i64 0}
+!12 = !{!"p1 _ZTS8CallInfo", !10, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!"short", !6, i64 0}
+!15 = !{!"p1 _ZTS8LuaTable", !10, i64 0}
+!16 = !{!"p1 _ZTS5UpVal", !10, i64 0}
+!17 = !{!"p1 _ZTS8GCObject", !10, i64 0}
+!18 = !{!"p1 _ZTS7TString", !10, i64 0}
+!19 = !{!5, !9, i64 16}
+!20 = !{!5, !11, i64 24}
+!21 = !{!22, !10, i64 3344}
+!22 = !{!"_ZTS12global_State", !23, i64 0, !10, i64 16, !10, i64 24, !6, i64 32, !6, i64 33, !17, i64 40, !17, i64 48, !17, i64 56, !26, i64 64, !26, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !6, i64 96, !6, i64 416, !27, i64 736, !27, i64 744, !27, i64 752, !6, i64 760, !28, i64 2808, !29, i64 2816, !6, i64 2856, !6, i64 2944, !6, i64 3032, !30, i64 3200, !30, i64 3216, !13, i64 3232, !31, i64 3240, !26, i64 3248, !6, i64 3256, !32, i64 3288, !33, i64 3368, !6, i64 3424, !6, i64 4448, !6, i64 5472, !34, i64 6496}
+!23 = !{!"_ZTS11stringtable", !24, i64 0, !13, i64 8, !13, i64 12}
+!24 = !{!"p2 _ZTS7TString", !25, i64 0}
+!25 = !{!"any p2 pointer", !10, i64 0}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!"p1 _ZTS8lua_Page", !10, i64 0}
+!28 = !{!"p1 _ZTS9lua_State", !10, i64 0}
+!29 = !{!"_ZTS5UpVal", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !9, i64 8, !6, i64 16}
+!30 = !{!"_ZTS10lua_TValue", !6, i64 0, !6, i64 8, !13, i64 12}
+!31 = !{!"p1 _ZTS10lua_jmpbuf", !10, i64 0}
+!32 = !{!"_ZTS13lua_Callbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72}
+!33 = !{!"_ZTS22lua_ExecutionCallbacks", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48}
+!34 = !{!"_ZTS7GCStats", !6, i64 0, !13, i64 128, !13, i64 132, !26, i64 136, !26, i64 144, !26, i64 152, !35, i64 160, !35, i64 168, !35, i64 176}
+!35 = !{!"double", !6, i64 0}
+!36 = !{!5, !6, i64 3}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 omnipotent char", !10, i64 0}
+!39 = !{!40, !8, i64 0}
+!40 = !{!"_ZTSN4Luau6FValueIbEE", !8, i64 0, !8, i64 1, !38, i64 8, !41, i64 16}
+!41 = !{!"p1 _ZTSN4Luau6FValueIbEE", !10, i64 0}
+!42 = !{i8 0, i8 2}
+!43 = !{}
+!44 = !{!5, !8, i64 6}

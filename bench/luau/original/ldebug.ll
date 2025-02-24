@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.UpVal = type { i8, i8, i8, i8, ptr, %union.anon.3 }
 %union.anon.3 = type { %struct.anon.4 }
 %struct.anon.4 = type { ptr, ptr, ptr }
-%struct.lua_Callbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.lua_Callbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.lua_ExecutionCallbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.GCStats = type { [32 x i32], i32, i32, i64, i64, i64, double, double, double }
 
@@ -57,207 +57,222 @@ define dso_local noundef i32 @_Z15lua_getargumentP9lua_Stateii(ptr noundef %0, i
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %11 = load i32, ptr %6, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.lua_State, ptr %12, i32 0, i32 10
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.lua_State, ptr %15, i32 0, i32 14
-  %17 = load ptr, ptr %16, align 8
-  %18 = ptrtoint ptr %14 to i64
-  %19 = ptrtoint ptr %17 to i64
-  %20 = sub i64 %18, %19
-  %21 = sdiv exact i64 %20, 40
-  %22 = trunc i64 %21 to i32
-  %23 = icmp uge i32 %11, %22
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %122
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  %12 = load i32, ptr %6, align 4, !tbaa !9
+  %13 = load ptr, ptr %5, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.lua_State, ptr %13, i32 0, i32 10
+  %15 = load ptr, ptr %14, align 8, !tbaa !11
+  %16 = load ptr, ptr %5, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.lua_State, ptr %16, i32 0, i32 14
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %19 = ptrtoint ptr %15 to i64
+  %20 = ptrtoint ptr %18 to i64
+  %21 = sub i64 %19, %20
+  %22 = sdiv exact i64 %21, 40
+  %23 = trunc i64 %22 to i32
+  %24 = icmp uge i32 %12, %23
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %3
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.lua_State, ptr %26, i32 0, i32 10
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %6, align 4
-  %30 = sext i32 %29 to i64
-  %31 = sub i64 0, %30
-  %32 = getelementptr inbounds %struct.CallInfo, ptr %28, i64 %31
-  store ptr %32, ptr %8, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.CallInfo, ptr %33, i32 0, i32 5
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %25
   store i32 0, ptr %4, align 4
-  br label %122
+  br label %124
 
-39:                                               ; preds = %25
-  %40 = load ptr, ptr %8, align 8
-  %41 = call noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %40)
-  store ptr %41, ptr %9, align 8
-  store i32 0, ptr %10, align 4
-  %42 = load ptr, ptr %9, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %120
+26:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %27 = load ptr, ptr %5, align 8, !tbaa !4
+  %28 = getelementptr inbounds nuw %struct.lua_State, ptr %27, i32 0, i32 10
+  %29 = load ptr, ptr %28, align 8, !tbaa !11
+  %30 = load i32, ptr %6, align 4, !tbaa !9
+  %31 = sext i32 %30 to i64
+  %32 = sub i64 0, %31
+  %33 = getelementptr inbounds %struct.CallInfo, ptr %29, i64 %32
+  store ptr %33, ptr %8, align 8, !tbaa !23
+  %34 = load ptr, ptr %8, align 8, !tbaa !23
+  %35 = getelementptr inbounds nuw %struct.CallInfo, ptr %34, i32 0, i32 5
+  %36 = load i32, ptr %35, align 4, !tbaa !24
+  %37 = and i32 %36, 4
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
 
-44:                                               ; preds = %39
-  %45 = load i32, ptr %7, align 4
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %120
+39:                                               ; preds = %26
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %123
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %7, align 4
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct.Proto, ptr %49, i32 0, i32 4
-  %51 = load i8, ptr %50, align 4
-  %52 = zext i8 %51 to i32
-  %53 = icmp sle i32 %48, %52
-  br i1 %53, label %54, label %77
+40:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %41 = load ptr, ptr %8, align 8, !tbaa !23
+  %42 = call noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %41)
+  store ptr %42, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  store i32 0, ptr %11, align 4, !tbaa !9
+  %43 = load ptr, ptr %10, align 8, !tbaa !27
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %121
 
-54:                                               ; preds = %47
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.lua_State, ptr %55, i64 0
-  %57 = getelementptr inbounds %struct.GCheader, ptr %56, i32 0, i32 1
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = and i32 %59, 4
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %68
+45:                                               ; preds = %40
+  %46 = load i32, ptr %7, align 4, !tbaa !9
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %48, label %121
 
-62:                                               ; preds = %54
-  %63 = load ptr, ptr %5, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.lua_State, ptr %64, i64 0
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.lua_State, ptr %66, i32 0, i32 22
-  call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef %63, ptr noundef %65, ptr noundef %67)
-  br label %68
+48:                                               ; preds = %45
+  %49 = load i32, ptr %7, align 4, !tbaa !9
+  %50 = load ptr, ptr %10, align 8, !tbaa !27
+  %51 = getelementptr inbounds nuw %struct.Proto, ptr %50, i32 0, i32 4
+  %52 = load i8, ptr %51, align 4, !tbaa !29
+  %53 = zext i8 %52 to i32
+  %54 = icmp sle i32 %49, %53
+  br i1 %54, label %55, label %78
 
-68:                                               ; preds = %62, %54
-  %69 = load ptr, ptr %5, align 8
-  %70 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds %struct.CallInfo, ptr %70, i32 0, i32 0
-  %72 = load ptr, ptr %71, align 8
-  %73 = load i32, ptr %7, align 4
-  %74 = sub nsw i32 %73, 1
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.lua_TValue, ptr %72, i64 %75
-  call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef %69, ptr noundef %76)
-  store i32 1, ptr %10, align 4
-  br label %119
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %5, align 8, !tbaa !4
+  %57 = getelementptr inbounds %struct.lua_State, ptr %56, i64 0
+  %58 = getelementptr inbounds nuw %struct.GCheader, ptr %57, i32 0, i32 1
+  %59 = load i8, ptr %58, align 1, !tbaa !37
+  %60 = zext i8 %59 to i32
+  %61 = and i32 %60, 4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %69
 
-77:                                               ; preds = %47
-  %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds %struct.Proto, ptr %78, i32 0, i32 5
-  %80 = load i8, ptr %79, align 1
-  %81 = icmp ne i8 %80, 0
-  br i1 %81, label %82, label %118
+63:                                               ; preds = %55
+  %64 = load ptr, ptr %5, align 8, !tbaa !4
+  %65 = load ptr, ptr %5, align 8, !tbaa !4
+  %66 = getelementptr inbounds %struct.lua_State, ptr %65, i64 0
+  %67 = load ptr, ptr %5, align 8, !tbaa !4
+  %68 = getelementptr inbounds nuw %struct.lua_State, ptr %67, i32 0, i32 22
+  call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef %64, ptr noundef %66, ptr noundef %68)
+  br label %69
 
-82:                                               ; preds = %77
-  %83 = load i32, ptr %7, align 4
-  %84 = sext i32 %83 to i64
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %struct.CallInfo, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds %struct.CallInfo, ptr %88, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  %91 = ptrtoint ptr %87 to i64
-  %92 = ptrtoint ptr %90 to i64
-  %93 = sub i64 %91, %92
-  %94 = sdiv exact i64 %93, 16
-  %95 = icmp slt i64 %84, %94
-  br i1 %95, label %96, label %118
-
-96:                                               ; preds = %82
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds %struct.lua_State, ptr %97, i64 0
-  %99 = getelementptr inbounds %struct.GCheader, ptr %98, i32 0, i32 1
-  %100 = load i8, ptr %99, align 1
-  %101 = zext i8 %100 to i32
-  %102 = and i32 %101, 4
-  %103 = icmp ne i32 %102, 0
-  br i1 %103, label %104, label %110
-
-104:                                              ; preds = %96
-  %105 = load ptr, ptr %5, align 8
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %struct.lua_State, ptr %106, i64 0
-  %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds %struct.lua_State, ptr %108, i32 0, i32 22
-  call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef %105, ptr noundef %107, ptr noundef %109)
-  br label %110
-
-110:                                              ; preds = %104, %96
-  %111 = load ptr, ptr %5, align 8
-  %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds %struct.CallInfo, ptr %112, i32 0, i32 1
-  %114 = load ptr, ptr %113, align 8
-  %115 = load i32, ptr %7, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %struct.lua_TValue, ptr %114, i64 %116
-  call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef %111, ptr noundef %117)
-  store i32 1, ptr %10, align 4
-  br label %118
-
-118:                                              ; preds = %110, %82, %77
-  br label %119
-
-119:                                              ; preds = %118, %68
+69:                                               ; preds = %63, %55
+  %70 = load ptr, ptr %5, align 8, !tbaa !4
+  %71 = load ptr, ptr %8, align 8, !tbaa !23
+  %72 = getelementptr inbounds nuw %struct.CallInfo, ptr %71, i32 0, i32 0
+  %73 = load ptr, ptr %72, align 8, !tbaa !38
+  %74 = load i32, ptr %7, align 4, !tbaa !9
+  %75 = sub nsw i32 %74, 1
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %struct.lua_TValue, ptr %73, i64 %76
+  call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef %70, ptr noundef %77)
+  store i32 1, ptr %11, align 4, !tbaa !9
   br label %120
 
-120:                                              ; preds = %119, %44, %39
-  %121 = load i32, ptr %10, align 4
-  store i32 %121, ptr %4, align 4
-  br label %122
+78:                                               ; preds = %48
+  %79 = load ptr, ptr %10, align 8, !tbaa !27
+  %80 = getelementptr inbounds nuw %struct.Proto, ptr %79, i32 0, i32 5
+  %81 = load i8, ptr %80, align 1, !tbaa !39
+  %82 = icmp ne i8 %81, 0
+  br i1 %82, label %83, label %119
 
-122:                                              ; preds = %120, %38, %24
-  %123 = load i32, ptr %4, align 4
-  ret i32 %123
+83:                                               ; preds = %78
+  %84 = load i32, ptr %7, align 4, !tbaa !9
+  %85 = sext i32 %84 to i64
+  %86 = load ptr, ptr %8, align 8, !tbaa !23
+  %87 = getelementptr inbounds nuw %struct.CallInfo, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8, !tbaa !38
+  %89 = load ptr, ptr %8, align 8, !tbaa !23
+  %90 = getelementptr inbounds nuw %struct.CallInfo, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8, !tbaa !40
+  %92 = ptrtoint ptr %88 to i64
+  %93 = ptrtoint ptr %91 to i64
+  %94 = sub i64 %92, %93
+  %95 = sdiv exact i64 %94, 16
+  %96 = icmp slt i64 %85, %95
+  br i1 %96, label %97, label %119
+
+97:                                               ; preds = %83
+  %98 = load ptr, ptr %5, align 8, !tbaa !4
+  %99 = getelementptr inbounds %struct.lua_State, ptr %98, i64 0
+  %100 = getelementptr inbounds nuw %struct.GCheader, ptr %99, i32 0, i32 1
+  %101 = load i8, ptr %100, align 1, !tbaa !37
+  %102 = zext i8 %101 to i32
+  %103 = and i32 %102, 4
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %111
+
+105:                                              ; preds = %97
+  %106 = load ptr, ptr %5, align 8, !tbaa !4
+  %107 = load ptr, ptr %5, align 8, !tbaa !4
+  %108 = getelementptr inbounds %struct.lua_State, ptr %107, i64 0
+  %109 = load ptr, ptr %5, align 8, !tbaa !4
+  %110 = getelementptr inbounds nuw %struct.lua_State, ptr %109, i32 0, i32 22
+  call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef %106, ptr noundef %108, ptr noundef %110)
+  br label %111
+
+111:                                              ; preds = %105, %97
+  %112 = load ptr, ptr %5, align 8, !tbaa !4
+  %113 = load ptr, ptr %8, align 8, !tbaa !23
+  %114 = getelementptr inbounds nuw %struct.CallInfo, ptr %113, i32 0, i32 1
+  %115 = load ptr, ptr %114, align 8, !tbaa !40
+  %116 = load i32, ptr %7, align 4, !tbaa !9
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds %struct.lua_TValue, ptr %115, i64 %117
+  call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef %112, ptr noundef %118)
+  store i32 1, ptr %11, align 4, !tbaa !9
+  br label %119
+
+119:                                              ; preds = %111, %83, %78
+  br label %120
+
+120:                                              ; preds = %119, %69
+  br label %121
+
+121:                                              ; preds = %120, %45, %40
+  %122 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %122, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %123
+
+123:                                              ; preds = %121, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %124
+
+124:                                              ; preds = %123, %25
+  %125 = load i32, ptr %4, align 4
+  ret i32 %125
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %0) #1 {
+define internal noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.CallInfo, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.lua_TValue, ptr %5, i32 0, i32 2
-  %7 = load i32, ptr %6, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %4 = getelementptr inbounds nuw %struct.CallInfo, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %6 = getelementptr inbounds nuw %struct.lua_TValue, ptr %5, i32 0, i32 2
+  %7 = load i32, ptr %6, align 4, !tbaa !41
   %8 = icmp eq i32 %7, 7
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.CallInfo, ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.lua_TValue, ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.Closure, ptr %14, i32 0, i32 3
-  %16 = load i8, ptr %15, align 1
+  %10 = load ptr, ptr %2, align 8, !tbaa !23
+  %11 = getelementptr inbounds nuw %struct.CallInfo, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !40
+  %13 = getelementptr inbounds nuw %struct.lua_TValue, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %15 = getelementptr inbounds nuw %struct.Closure, ptr %14, i32 0, i32 3
+  %16 = load i8, ptr %15, align 1, !tbaa !43
   %17 = icmp ne i8 %16, 0
   br i1 %17, label %27, label %18
 
 18:                                               ; preds = %9
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.CallInfo, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.lua_TValue, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct.Closure, ptr %23, i32 0, i32 9
-  %25 = getelementptr inbounds %struct.anon.1, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
+  %19 = load ptr, ptr %2, align 8, !tbaa !23
+  %20 = getelementptr inbounds nuw %struct.CallInfo, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !40
+  %22 = getelementptr inbounds nuw %struct.lua_TValue, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !37
+  %24 = getelementptr inbounds nuw %struct.Closure, ptr %23, i32 0, i32 9
+  %25 = getelementptr inbounds nuw %struct.anon.1, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !37
   br label %28
 
 27:                                               ; preds = %9, %1
@@ -268,9 +283,12 @@ define internal noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %0) #1 {
   ret ptr %29
 }
 
-declare hidden void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef, ptr noundef, ptr noundef) #2
+declare hidden void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare hidden void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef, ptr noundef) #2
+declare hidden void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z12lua_getlocalP9lua_Stateii(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -279,167 +297,181 @@ define dso_local noundef ptr @_Z12lua_getlocalP9lua_Stateii(ptr noundef %0, i32 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
+  %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %12 = load i32, ptr %6, align 4
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.lua_State, ptr %13, i32 0, i32 10
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.lua_State, ptr %16, i32 0, i32 14
-  %18 = load ptr, ptr %17, align 8
-  %19 = ptrtoint ptr %15 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = sub i64 %19, %20
-  %22 = sdiv exact i64 %21, 40
-  %23 = trunc i64 %22 to i32
-  %24 = icmp uge i32 %12, %23
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %3
-  store ptr null, ptr %4, align 8
-  br label %95
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  %13 = load i32, ptr %6, align 4, !tbaa !9
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.lua_State, ptr %14, i32 0, i32 10
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = load ptr, ptr %5, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.lua_State, ptr %17, i32 0, i32 14
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
+  %20 = ptrtoint ptr %16 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = sdiv exact i64 %22, 40
+  %24 = trunc i64 %23 to i32
+  %25 = icmp uge i32 %13, %24
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %3
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.lua_State, ptr %27, i32 0, i32 10
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %6, align 4
-  %31 = sext i32 %30 to i64
-  %32 = sub i64 0, %31
-  %33 = getelementptr inbounds %struct.CallInfo, ptr %29, i64 %32
-  store ptr %33, ptr %8, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.CallInfo, ptr %34, i32 0, i32 5
-  %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %26
   store ptr null, ptr %4, align 8
-  br label %95
+  br label %97
 
-40:                                               ; preds = %26
-  %41 = load ptr, ptr %8, align 8
-  %42 = call noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %41)
-  store ptr %42, ptr %9, align 8
-  %43 = load ptr, ptr %9, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %52
+27:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %28 = load ptr, ptr %5, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.lua_State, ptr %28, i32 0, i32 10
+  %30 = load ptr, ptr %29, align 8, !tbaa !11
+  %31 = load i32, ptr %6, align 4, !tbaa !9
+  %32 = sext i32 %31 to i64
+  %33 = sub i64 0, %32
+  %34 = getelementptr inbounds %struct.CallInfo, ptr %30, i64 %33
+  store ptr %34, ptr %8, align 8, !tbaa !23
+  %35 = load ptr, ptr %8, align 8, !tbaa !23
+  %36 = getelementptr inbounds nuw %struct.CallInfo, ptr %35, i32 0, i32 5
+  %37 = load i32, ptr %36, align 4, !tbaa !24
+  %38 = and i32 %37, 4
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %9, align 8
-  %47 = load i32, ptr %7, align 4
-  %48 = load ptr, ptr %5, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = call noundef i32 @_ZL9currentpcP9lua_StateP8CallInfo(ptr noundef %48, ptr noundef %49)
-  %51 = call noundef ptr @_Z13luaF_getlocalPK5Protoii(ptr noundef %46, i32 noundef %47, i32 noundef %50)
-  br label %53
+40:                                               ; preds = %27
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %96
 
-52:                                               ; preds = %40
-  br label %53
+41:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %42 = load ptr, ptr %8, align 8, !tbaa !23
+  %43 = call noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %42)
+  store ptr %43, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %44 = load ptr, ptr %10, align 8, !tbaa !27
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %53
 
-53:                                               ; preds = %52, %45
-  %54 = phi ptr [ %51, %45 ], [ null, %52 ]
-  store ptr %54, ptr %10, align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %82
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %10, align 8, !tbaa !27
+  %48 = load i32, ptr %7, align 4, !tbaa !9
+  %49 = load ptr, ptr %5, align 8, !tbaa !4
+  %50 = load ptr, ptr %8, align 8, !tbaa !23
+  %51 = call noundef i32 @_ZL9currentpcP9lua_StateP8CallInfo(ptr noundef %49, ptr noundef %50)
+  %52 = call noundef ptr @_Z13luaF_getlocalPK5Protoii(ptr noundef %47, i32 noundef %48, i32 noundef %51)
+  br label %54
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.lua_State, ptr %58, i64 0
-  %60 = getelementptr inbounds %struct.GCheader, ptr %59, i32 0, i32 1
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  %63 = and i32 %62, 4
-  %64 = icmp ne i32 %63, 0
-  br i1 %64, label %65, label %71
+53:                                               ; preds = %41
+  br label %54
 
-65:                                               ; preds = %57
-  %66 = load ptr, ptr %5, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.lua_State, ptr %67, i64 0
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.lua_State, ptr %69, i32 0, i32 22
-  call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef %66, ptr noundef %68, ptr noundef %70)
-  br label %71
+54:                                               ; preds = %53, %46
+  %55 = phi ptr [ %52, %46 ], [ null, %53 ]
+  store ptr %55, ptr %11, align 8, !tbaa !45
+  %56 = load ptr, ptr %11, align 8, !tbaa !45
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %83
 
-71:                                               ; preds = %65, %57
-  %72 = load ptr, ptr %5, align 8
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct.CallInfo, ptr %73, i32 0, i32 0
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds %struct.LocVar, ptr %76, i32 0, i32 3
-  %78 = load i8, ptr %77, align 8
-  %79 = zext i8 %78 to i32
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %struct.lua_TValue, ptr %75, i64 %80
-  call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef %72, ptr noundef %81)
-  br label %82
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %5, align 8, !tbaa !4
+  %60 = getelementptr inbounds %struct.lua_State, ptr %59, i64 0
+  %61 = getelementptr inbounds nuw %struct.GCheader, ptr %60, i32 0, i32 1
+  %62 = load i8, ptr %61, align 1, !tbaa !37
+  %63 = zext i8 %62 to i32
+  %64 = and i32 %63, 4
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %72
 
-82:                                               ; preds = %71, %53
-  %83 = load ptr, ptr %10, align 8
-  %84 = icmp ne ptr %83, null
-  br i1 %84, label %85, label %91
+66:                                               ; preds = %58
+  %67 = load ptr, ptr %5, align 8, !tbaa !4
+  %68 = load ptr, ptr %5, align 8, !tbaa !4
+  %69 = getelementptr inbounds %struct.lua_State, ptr %68, i64 0
+  %70 = load ptr, ptr %5, align 8, !tbaa !4
+  %71 = getelementptr inbounds nuw %struct.lua_State, ptr %70, i32 0, i32 22
+  call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef %67, ptr noundef %69, ptr noundef %71)
+  br label %72
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %10, align 8
-  %87 = getelementptr inbounds %struct.LocVar, ptr %86, i32 0, i32 0
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct.TString, ptr %88, i32 0, i32 7
-  %90 = getelementptr inbounds [1 x i8], ptr %89, i64 0, i64 0
-  br label %92
+72:                                               ; preds = %66, %58
+  %73 = load ptr, ptr %5, align 8, !tbaa !4
+  %74 = load ptr, ptr %8, align 8, !tbaa !23
+  %75 = getelementptr inbounds nuw %struct.CallInfo, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !38
+  %77 = load ptr, ptr %11, align 8, !tbaa !45
+  %78 = getelementptr inbounds nuw %struct.LocVar, ptr %77, i32 0, i32 3
+  %79 = load i8, ptr %78, align 8, !tbaa !46
+  %80 = zext i8 %79 to i32
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds %struct.lua_TValue, ptr %76, i64 %81
+  call void @_Z15luaA_pushobjectP9lua_StatePK10lua_TValue(ptr noundef %73, ptr noundef %82)
+  br label %83
 
-91:                                               ; preds = %82
-  br label %92
+83:                                               ; preds = %72, %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %84 = load ptr, ptr %11, align 8, !tbaa !45
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %92
 
-92:                                               ; preds = %91, %85
-  %93 = phi ptr [ %90, %85 ], [ null, %91 ]
-  store ptr %93, ptr %11, align 8
-  %94 = load ptr, ptr %11, align 8
-  store ptr %94, ptr %4, align 8
-  br label %95
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %11, align 8, !tbaa !45
+  %88 = getelementptr inbounds nuw %struct.LocVar, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8, !tbaa !48
+  %90 = getelementptr inbounds nuw %struct.TString, ptr %89, i32 0, i32 7
+  %91 = getelementptr inbounds [1 x i8], ptr %90, i64 0, i64 0
+  br label %93
 
-95:                                               ; preds = %92, %39, %25
-  %96 = load ptr, ptr %4, align 8
-  ret ptr %96
+92:                                               ; preds = %83
+  br label %93
+
+93:                                               ; preds = %92, %86
+  %94 = phi ptr [ %91, %86 ], [ null, %92 ]
+  store ptr %94, ptr %12, align 8, !tbaa !49
+  %95 = load ptr, ptr %12, align 8, !tbaa !49
+  store ptr %95, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %96
+
+96:                                               ; preds = %93, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %97
+
+97:                                               ; preds = %96, %26
+  %98 = load ptr, ptr %4, align 8
+  ret ptr %98
 }
 
-declare hidden noundef ptr @_Z13luaF_getlocalPK5Protoii(ptr noundef, i32 noundef, i32 noundef) #2
+declare hidden noundef ptr @_Z13luaF_getlocalPK5Protoii(ptr noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL9currentpcP9lua_StateP8CallInfo(ptr noundef %0, ptr noundef %1) #1 {
+define internal noundef i32 @_ZL9currentpcP9lua_StateP8CallInfo(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.CallInfo, ptr %5, i32 0, i32 3
-  %7 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %6 = getelementptr inbounds nuw %struct.CallInfo, ptr %5, i32 0, i32 3
+  %7 = load ptr, ptr %6, align 8, !tbaa !50
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %29
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.CallInfo, ptr %10, i32 0, i32 3
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.CallInfo, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.lua_TValue, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.Closure, ptr %17, i32 0, i32 9
-  %19 = getelementptr inbounds %struct.anon.1, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.Proto, ptr %20, i32 0, i32 9
-  %22 = load ptr, ptr %21, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !23
+  %11 = getelementptr inbounds nuw %struct.CallInfo, ptr %10, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8, !tbaa !50
+  %13 = load ptr, ptr %4, align 8, !tbaa !23
+  %14 = getelementptr inbounds nuw %struct.CallInfo, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !40
+  %16 = getelementptr inbounds nuw %struct.lua_TValue, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !37
+  %18 = getelementptr inbounds nuw %struct.Closure, ptr %17, i32 0, i32 9
+  %19 = getelementptr inbounds nuw %struct.anon.1, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
+  %21 = getelementptr inbounds nuw %struct.Proto, ptr %20, i32 0, i32 9
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
   %23 = ptrtoint ptr %12 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -463,147 +495,165 @@ define dso_local noundef ptr @_Z12lua_setlocalP9lua_Stateii(ptr noundef %0, i32 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
+  %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  %14 = load i32, ptr %6, align 4
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.lua_State, ptr %15, i32 0, i32 10
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.lua_State, ptr %18, i32 0, i32 14
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %17 to i64
-  %22 = ptrtoint ptr %20 to i64
-  %23 = sub i64 %21, %22
-  %24 = sdiv exact i64 %23, 40
-  %25 = trunc i64 %24 to i32
-  %26 = icmp uge i32 %14, %25
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %3
-  store ptr null, ptr %4, align 8
-  br label %92
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  %15 = load i32, ptr %6, align 4, !tbaa !9
+  %16 = load ptr, ptr %5, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.lua_State, ptr %16, i32 0, i32 10
+  %18 = load ptr, ptr %17, align 8, !tbaa !11
+  %19 = load ptr, ptr %5, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.lua_State, ptr %19, i32 0, i32 14
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
+  %22 = ptrtoint ptr %18 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = sdiv exact i64 %24, 40
+  %26 = trunc i64 %25 to i32
+  %27 = icmp uge i32 %15, %26
+  br i1 %27, label %28, label %29
 
 28:                                               ; preds = %3
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.lua_State, ptr %29, i32 0, i32 10
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i32, ptr %6, align 4
-  %33 = sext i32 %32 to i64
-  %34 = sub i64 0, %33
-  %35 = getelementptr inbounds %struct.CallInfo, ptr %31, i64 %34
-  store ptr %35, ptr %8, align 8
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.CallInfo, ptr %36, i32 0, i32 5
-  %38 = load i32, ptr %37, align 4
-  %39 = and i32 %38, 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %28
   store ptr null, ptr %4, align 8
-  br label %92
+  br label %94
 
-42:                                               ; preds = %28
-  %43 = load ptr, ptr %8, align 8
-  %44 = call noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %43)
-  store ptr %44, ptr %9, align 8
-  %45 = load ptr, ptr %9, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %54
+29:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %30 = load ptr, ptr %5, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw %struct.lua_State, ptr %30, i32 0, i32 10
+  %32 = load ptr, ptr %31, align 8, !tbaa !11
+  %33 = load i32, ptr %6, align 4, !tbaa !9
+  %34 = sext i32 %33 to i64
+  %35 = sub i64 0, %34
+  %36 = getelementptr inbounds %struct.CallInfo, ptr %32, i64 %35
+  store ptr %36, ptr %8, align 8, !tbaa !23
+  %37 = load ptr, ptr %8, align 8, !tbaa !23
+  %38 = getelementptr inbounds nuw %struct.CallInfo, ptr %37, i32 0, i32 5
+  %39 = load i32, ptr %38, align 4, !tbaa !24
+  %40 = and i32 %39, 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %43
 
-47:                                               ; preds = %42
-  %48 = load ptr, ptr %9, align 8
-  %49 = load i32, ptr %7, align 4
-  %50 = load ptr, ptr %5, align 8
-  %51 = load ptr, ptr %8, align 8
-  %52 = call noundef i32 @_ZL9currentpcP9lua_StateP8CallInfo(ptr noundef %50, ptr noundef %51)
-  %53 = call noundef ptr @_Z13luaF_getlocalPK5Protoii(ptr noundef %48, i32 noundef %49, i32 noundef %52)
-  br label %55
+42:                                               ; preds = %29
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %93
 
-54:                                               ; preds = %42
-  br label %55
+43:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %44 = load ptr, ptr %8, align 8, !tbaa !23
+  %45 = call noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %44)
+  store ptr %45, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %46 = load ptr, ptr %10, align 8, !tbaa !27
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %55
 
-55:                                               ; preds = %54, %47
-  %56 = phi ptr [ %53, %47 ], [ null, %54 ]
-  store ptr %56, ptr %10, align 8
-  %57 = load ptr, ptr %10, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %75
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %10, align 8, !tbaa !27
+  %50 = load i32, ptr %7, align 4, !tbaa !9
+  %51 = load ptr, ptr %5, align 8, !tbaa !4
+  %52 = load ptr, ptr %8, align 8, !tbaa !23
+  %53 = call noundef i32 @_ZL9currentpcP9lua_StateP8CallInfo(ptr noundef %51, ptr noundef %52)
+  %54 = call noundef ptr @_Z13luaF_getlocalPK5Protoii(ptr noundef %49, i32 noundef %50, i32 noundef %53)
+  br label %56
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.lua_State, ptr %60, i32 0, i32 7
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.lua_TValue, ptr %62, i64 -1
-  store ptr %63, ptr %11, align 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct.CallInfo, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %10, align 8
-  %68 = getelementptr inbounds %struct.LocVar, ptr %67, i32 0, i32 3
-  %69 = load i8, ptr %68, align 8
-  %70 = zext i8 %69 to i32
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds %struct.lua_TValue, ptr %66, i64 %71
-  store ptr %72, ptr %12, align 8
-  %73 = load ptr, ptr %11, align 8
-  %74 = load ptr, ptr %12, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %74, ptr align 8 %73, i64 16, i1 false)
-  br label %75
+55:                                               ; preds = %43
+  br label %56
 
-75:                                               ; preds = %59, %55
-  %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds %struct.lua_State, ptr %76, i32 0, i32 7
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.lua_TValue, ptr %78, i32 -1
-  store ptr %79, ptr %77, align 8
-  %80 = load ptr, ptr %10, align 8
-  %81 = icmp ne ptr %80, null
-  br i1 %81, label %82, label %88
+56:                                               ; preds = %55, %48
+  %57 = phi ptr [ %54, %48 ], [ null, %55 ]
+  store ptr %57, ptr %11, align 8, !tbaa !45
+  %58 = load ptr, ptr %11, align 8, !tbaa !45
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %60, label %76
 
-82:                                               ; preds = %75
-  %83 = load ptr, ptr %10, align 8
-  %84 = getelementptr inbounds %struct.LocVar, ptr %83, i32 0, i32 0
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds %struct.TString, ptr %85, i32 0, i32 7
-  %87 = getelementptr inbounds [1 x i8], ptr %86, i64 0, i64 0
-  br label %89
+60:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %61 = load ptr, ptr %5, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw %struct.lua_State, ptr %61, i32 0, i32 7
+  %63 = load ptr, ptr %62, align 8, !tbaa !52
+  %64 = getelementptr inbounds %struct.lua_TValue, ptr %63, i64 -1
+  store ptr %64, ptr %12, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %65 = load ptr, ptr %8, align 8, !tbaa !23
+  %66 = getelementptr inbounds nuw %struct.CallInfo, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8, !tbaa !38
+  %68 = load ptr, ptr %11, align 8, !tbaa !45
+  %69 = getelementptr inbounds nuw %struct.LocVar, ptr %68, i32 0, i32 3
+  %70 = load i8, ptr %69, align 8, !tbaa !46
+  %71 = zext i8 %70 to i32
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds %struct.lua_TValue, ptr %67, i64 %72
+  store ptr %73, ptr %13, align 8, !tbaa !53
+  %74 = load ptr, ptr %12, align 8, !tbaa !53
+  %75 = load ptr, ptr %13, align 8, !tbaa !53
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %74, i64 16, i1 false), !tbaa.struct !54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  br label %76
 
-88:                                               ; preds = %75
-  br label %89
+76:                                               ; preds = %60, %56
+  %77 = load ptr, ptr %5, align 8, !tbaa !4
+  %78 = getelementptr inbounds nuw %struct.lua_State, ptr %77, i32 0, i32 7
+  %79 = load ptr, ptr %78, align 8, !tbaa !52
+  %80 = getelementptr inbounds %struct.lua_TValue, ptr %79, i32 -1
+  store ptr %80, ptr %78, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %81 = load ptr, ptr %11, align 8, !tbaa !45
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %89
 
-89:                                               ; preds = %88, %82
-  %90 = phi ptr [ %87, %82 ], [ null, %88 ]
-  store ptr %90, ptr %13, align 8
-  %91 = load ptr, ptr %13, align 8
-  store ptr %91, ptr %4, align 8
-  br label %92
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %11, align 8, !tbaa !45
+  %85 = getelementptr inbounds nuw %struct.LocVar, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8, !tbaa !48
+  %87 = getelementptr inbounds nuw %struct.TString, ptr %86, i32 0, i32 7
+  %88 = getelementptr inbounds [1 x i8], ptr %87, i64 0, i64 0
+  br label %90
 
-92:                                               ; preds = %89, %41, %27
-  %93 = load ptr, ptr %4, align 8
-  ret ptr %93
+89:                                               ; preds = %76
+  br label %90
+
+90:                                               ; preds = %89, %83
+  %91 = phi ptr [ %88, %83 ], [ null, %89 ]
+  store ptr %91, ptr %14, align 8, !tbaa !49
+  %92 = load ptr, ptr %14, align 8, !tbaa !49
+  store ptr %92, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %93
+
+93:                                               ; preds = %90, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %94
+
+94:                                               ; preds = %93, %28
+  %95 = load ptr, ptr %4, align 8
+  ret ptr %95
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_Z14lua_stackdepthP9lua_State(ptr noundef %0) #1 {
+define dso_local noundef i32 @_Z14lua_stackdepthP9lua_State(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.lua_State, ptr %3, i32 0, i32 10
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.lua_State, ptr %6, i32 0, i32 14
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.lua_State, ptr %3, i32 0, i32 10
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.lua_State, ptr %6, i32 0, i32 14
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = ptrtoint ptr %5 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -621,190 +671,214 @@ define dso_local noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noun
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  store ptr null, ptr %11, align 8
-  %15 = load i32, ptr %7, align 4
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %49
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store i32 %1, ptr %7, align 4, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !49
+  store ptr %3, ptr %9, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  store ptr null, ptr %10, align 8, !tbaa !57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  store ptr null, ptr %11, align 8, !tbaa !23
+  %16 = load i32, ptr %7, align 4, !tbaa !9
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %18, label %53
 
-17:                                               ; preds = %4
-  %18 = load i32, ptr %7, align 4
-  %19 = sub nsw i32 0, %18
-  %20 = sext i32 %19 to i64
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.lua_State, ptr %21, i32 0, i32 7
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.lua_State, ptr %24, i32 0, i32 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = ptrtoint ptr %23 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = sdiv exact i64 %29, 16
-  %31 = icmp sgt i64 %20, %30
-  br i1 %31, label %32, label %33
+18:                                               ; preds = %4
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = sub nsw i32 0, %19
+  %21 = sext i32 %20 to i64
+  %22 = load ptr, ptr %6, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.lua_State, ptr %22, i32 0, i32 7
+  %24 = load ptr, ptr %23, align 8, !tbaa !52
+  %25 = load ptr, ptr %6, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.lua_State, ptr %25, i32 0, i32 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !59
+  %28 = ptrtoint ptr %24 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = sdiv exact i64 %30, 16
+  %32 = icmp sgt i64 %21, %31
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %17
+33:                                               ; preds = %18
   store i32 0, ptr %5, align 4
-  br label %135
+  store i32 1, ptr %12, align 4
+  br label %139
 
-33:                                               ; preds = %17
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.lua_State, ptr %34, i32 0, i32 7
-  %36 = load ptr, ptr %35, align 8
-  %37 = load i32, ptr %7, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.lua_TValue, ptr %36, i64 %38
-  store ptr %39, ptr %12, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds %struct.lua_TValue, ptr %40, i32 0, i32 2
-  %42 = load i32, ptr %41, align 4
-  %43 = icmp eq i32 %42, 7
-  br i1 %43, label %45, label %44
+34:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %35 = load ptr, ptr %6, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.lua_State, ptr %35, i32 0, i32 7
+  %37 = load ptr, ptr %36, align 8, !tbaa !52
+  %38 = load i32, ptr %7, align 4, !tbaa !9
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %struct.lua_TValue, ptr %37, i64 %39
+  store ptr %40, ptr %13, align 8, !tbaa !53
+  %41 = load ptr, ptr %13, align 8, !tbaa !53
+  %42 = getelementptr inbounds nuw %struct.lua_TValue, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 4, !tbaa !41
+  %44 = icmp eq i32 %43, 7
+  br i1 %44, label %46, label %45
 
-44:                                               ; preds = %33
+45:                                               ; preds = %34
   store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %50
+
+46:                                               ; preds = %34
+  %47 = load ptr, ptr %13, align 8, !tbaa !53
+  %48 = getelementptr inbounds nuw %struct.lua_TValue, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !37
+  store ptr %49, ptr %10, align 8, !tbaa !57
+  store i32 0, ptr %12, align 4
+  br label %50
+
+50:                                               ; preds = %46, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  %51 = load i32, ptr %12, align 4
+  switch i32 %51, label %139 [
+    i32 0, label %52
+  ]
+
+52:                                               ; preds = %50
+  br label %81
+
+53:                                               ; preds = %4
+  %54 = load i32, ptr %7, align 4, !tbaa !9
+  %55 = load ptr, ptr %6, align 8, !tbaa !4
+  %56 = getelementptr inbounds nuw %struct.lua_State, ptr %55, i32 0, i32 10
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  %58 = load ptr, ptr %6, align 8, !tbaa !4
+  %59 = getelementptr inbounds nuw %struct.lua_State, ptr %58, i32 0, i32 14
+  %60 = load ptr, ptr %59, align 8, !tbaa !22
+  %61 = ptrtoint ptr %57 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %64 = sdiv exact i64 %63, 40
+  %65 = trunc i64 %64 to i32
+  %66 = icmp ult i32 %54, %65
+  br i1 %66, label %67, label %80
+
+67:                                               ; preds = %53
+  %68 = load ptr, ptr %6, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw %struct.lua_State, ptr %68, i32 0, i32 10
+  %70 = load ptr, ptr %69, align 8, !tbaa !11
+  %71 = load i32, ptr %7, align 4, !tbaa !9
+  %72 = sext i32 %71 to i64
+  %73 = sub i64 0, %72
+  %74 = getelementptr inbounds %struct.CallInfo, ptr %70, i64 %73
+  store ptr %74, ptr %11, align 8, !tbaa !23
+  %75 = load ptr, ptr %11, align 8, !tbaa !23
+  %76 = getelementptr inbounds nuw %struct.CallInfo, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !40
+  %78 = getelementptr inbounds nuw %struct.lua_TValue, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8, !tbaa !37
+  store ptr %79, ptr %10, align 8, !tbaa !57
+  br label %80
+
+80:                                               ; preds = %67, %53
+  br label %81
+
+81:                                               ; preds = %80, %52
+  %82 = load ptr, ptr %10, align 8, !tbaa !57
+  %83 = icmp ne ptr %82, null
+  br i1 %83, label %84, label %135
+
+84:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %85 = load ptr, ptr %6, align 8, !tbaa !4
+  %86 = load ptr, ptr %8, align 8, !tbaa !49
+  %87 = load ptr, ptr %9, align 8, !tbaa !55
+  %88 = load ptr, ptr %10, align 8, !tbaa !57
+  %89 = load ptr, ptr %11, align 8, !tbaa !23
+  %90 = call noundef ptr @_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef %89)
+  store ptr %90, ptr %14, align 8, !tbaa !57
+  %91 = load ptr, ptr %14, align 8, !tbaa !57
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %93, label %134
+
+93:                                               ; preds = %84
+  %94 = load ptr, ptr %6, align 8, !tbaa !4
+  %95 = getelementptr inbounds %struct.lua_State, ptr %94, i64 0
+  %96 = getelementptr inbounds nuw %struct.GCheader, ptr %95, i32 0, i32 1
+  %97 = load i8, ptr %96, align 1, !tbaa !37
+  %98 = zext i8 %97 to i32
+  %99 = and i32 %98, 4
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %107
+
+101:                                              ; preds = %93
+  %102 = load ptr, ptr %6, align 8, !tbaa !4
+  %103 = load ptr, ptr %6, align 8, !tbaa !4
+  %104 = getelementptr inbounds %struct.lua_State, ptr %103, i64 0
+  %105 = load ptr, ptr %6, align 8, !tbaa !4
+  %106 = getelementptr inbounds nuw %struct.lua_State, ptr %105, i32 0, i32 22
+  call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef %102, ptr noundef %104, ptr noundef %106)
+  br label %107
+
+107:                                              ; preds = %101, %93
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %108 = load ptr, ptr %6, align 8, !tbaa !4
+  %109 = getelementptr inbounds nuw %struct.lua_State, ptr %108, i32 0, i32 7
+  %110 = load ptr, ptr %109, align 8, !tbaa !52
+  store ptr %110, ptr %15, align 8, !tbaa !53
+  %111 = load ptr, ptr %14, align 8, !tbaa !57
+  %112 = load ptr, ptr %15, align 8, !tbaa !53
+  %113 = getelementptr inbounds nuw %struct.lua_TValue, ptr %112, i32 0, i32 0
+  store ptr %111, ptr %113, align 8, !tbaa !37
+  %114 = load ptr, ptr %15, align 8, !tbaa !53
+  %115 = getelementptr inbounds nuw %struct.lua_TValue, ptr %114, i32 0, i32 2
+  store i32 7, ptr %115, align 4, !tbaa !41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  %116 = load ptr, ptr %6, align 8, !tbaa !4
+  %117 = getelementptr inbounds nuw %struct.lua_State, ptr %116, i32 0, i32 11
+  %118 = load ptr, ptr %117, align 8, !tbaa !60
+  %119 = load ptr, ptr %6, align 8, !tbaa !4
+  %120 = getelementptr inbounds nuw %struct.lua_State, ptr %119, i32 0, i32 7
+  %121 = load ptr, ptr %120, align 8, !tbaa !52
+  %122 = ptrtoint ptr %118 to i64
+  %123 = ptrtoint ptr %121 to i64
+  %124 = sub i64 %122, %123
+  %125 = icmp sle i64 %124, 16
+  br i1 %125, label %126, label %128
+
+126:                                              ; preds = %107
+  %127 = load ptr, ptr %6, align 8, !tbaa !4
+  call void @_Z14luaD_growstackP9lua_Statei(ptr noundef %127, i32 noundef 1)
+  br label %129
+
+128:                                              ; preds = %107
+  br label %129
+
+129:                                              ; preds = %128, %126
+  %130 = load ptr, ptr %6, align 8, !tbaa !4
+  %131 = getelementptr inbounds nuw %struct.lua_State, ptr %130, i32 0, i32 7
+  %132 = load ptr, ptr %131, align 8, !tbaa !52
+  %133 = getelementptr inbounds nuw %struct.lua_TValue, ptr %132, i32 1
+  store ptr %133, ptr %131, align 8, !tbaa !52
+  br label %134
+
+134:                                              ; preds = %129, %84
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
   br label %135
 
-45:                                               ; preds = %33
-  %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds %struct.lua_TValue, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %10, align 8
-  br label %77
+135:                                              ; preds = %134, %81
+  %136 = load ptr, ptr %10, align 8, !tbaa !57
+  %137 = icmp ne ptr %136, null
+  %138 = select i1 %137, i32 1, i32 0
+  store i32 %138, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %139
 
-49:                                               ; preds = %4
-  %50 = load i32, ptr %7, align 4
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct.lua_State, ptr %51, i32 0, i32 10
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct.lua_State, ptr %54, i32 0, i32 14
-  %56 = load ptr, ptr %55, align 8
-  %57 = ptrtoint ptr %53 to i64
-  %58 = ptrtoint ptr %56 to i64
-  %59 = sub i64 %57, %58
-  %60 = sdiv exact i64 %59, 40
-  %61 = trunc i64 %60 to i32
-  %62 = icmp ult i32 %50, %61
-  br i1 %62, label %63, label %76
-
-63:                                               ; preds = %49
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.lua_State, ptr %64, i32 0, i32 10
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %7, align 4
-  %68 = sext i32 %67 to i64
-  %69 = sub i64 0, %68
-  %70 = getelementptr inbounds %struct.CallInfo, ptr %66, i64 %69
-  store ptr %70, ptr %11, align 8
-  %71 = load ptr, ptr %11, align 8
-  %72 = getelementptr inbounds %struct.CallInfo, ptr %71, i32 0, i32 1
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %struct.lua_TValue, ptr %73, i32 0, i32 0
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %10, align 8
-  br label %76
-
-76:                                               ; preds = %63, %49
-  br label %77
-
-77:                                               ; preds = %76, %45
-  %78 = load ptr, ptr %10, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %131
-
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %6, align 8
-  %82 = load ptr, ptr %8, align 8
-  %83 = load ptr, ptr %9, align 8
-  %84 = load ptr, ptr %10, align 8
-  %85 = load ptr, ptr %11, align 8
-  %86 = call noundef ptr @_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8CallInfo(ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef %85)
-  store ptr %86, ptr %13, align 8
-  %87 = load ptr, ptr %13, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %89, label %130
-
-89:                                               ; preds = %80
-  %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds %struct.lua_State, ptr %90, i64 0
-  %92 = getelementptr inbounds %struct.GCheader, ptr %91, i32 0, i32 1
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i32
-  %95 = and i32 %94, 4
-  %96 = icmp ne i32 %95, 0
-  br i1 %96, label %97, label %103
-
-97:                                               ; preds = %89
-  %98 = load ptr, ptr %6, align 8
-  %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %struct.lua_State, ptr %99, i64 0
-  %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr inbounds %struct.lua_State, ptr %101, i32 0, i32 22
-  call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef %98, ptr noundef %100, ptr noundef %102)
-  br label %103
-
-103:                                              ; preds = %97, %89
-  %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds %struct.lua_State, ptr %104, i32 0, i32 7
-  %106 = load ptr, ptr %105, align 8
-  store ptr %106, ptr %14, align 8
-  %107 = load ptr, ptr %13, align 8
-  %108 = load ptr, ptr %14, align 8
-  %109 = getelementptr inbounds %struct.lua_TValue, ptr %108, i32 0, i32 0
-  store ptr %107, ptr %109, align 8
-  %110 = load ptr, ptr %14, align 8
-  %111 = getelementptr inbounds %struct.lua_TValue, ptr %110, i32 0, i32 2
-  store i32 7, ptr %111, align 4
-  %112 = load ptr, ptr %6, align 8
-  %113 = getelementptr inbounds %struct.lua_State, ptr %112, i32 0, i32 11
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds %struct.lua_State, ptr %115, i32 0, i32 7
-  %117 = load ptr, ptr %116, align 8
-  %118 = ptrtoint ptr %114 to i64
-  %119 = ptrtoint ptr %117 to i64
-  %120 = sub i64 %118, %119
-  %121 = icmp sle i64 %120, 16
-  br i1 %121, label %122, label %124
-
-122:                                              ; preds = %103
-  %123 = load ptr, ptr %6, align 8
-  call void @_Z14luaD_growstackP9lua_Statei(ptr noundef %123, i32 noundef 1)
-  br label %125
-
-124:                                              ; preds = %103
-  br label %125
-
-125:                                              ; preds = %124, %122
-  %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds %struct.lua_State, ptr %126, i32 0, i32 7
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds %struct.lua_TValue, ptr %128, i32 1
-  store ptr %129, ptr %127, align 8
-  br label %130
-
-130:                                              ; preds = %125, %80
-  br label %131
-
-131:                                              ; preds = %130, %77
-  %132 = load ptr, ptr %10, align 8
-  %133 = icmp ne ptr %132, null
-  %134 = select i1 %133, i32 1, i32 0
-  store i32 %134, ptr %5, align 4
-  br label %135
-
-135:                                              ; preds = %131, %44, %32
-  %136 = load i32, ptr %5, align 4
-  ret i32 %136
+139:                                              ; preds = %135, %50, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  %140 = load i32, ptr %5, align 4
+  ret i32 %140
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -816,23 +890,24 @@ define internal noundef ptr @_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
-  store ptr null, ptr %11, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !49
+  store ptr %2, ptr %8, align 8, !tbaa !55
+  store ptr %3, ptr %9, align 8, !tbaa !57
+  store ptr %4, ptr %10, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  store ptr null, ptr %11, align 8, !tbaa !57
   br label %13
 
 13:                                               ; preds = %172, %5
-  %14 = load ptr, ptr %7, align 8
-  %15 = load i8, ptr %14, align 1
+  %14 = load ptr, ptr %7, align 8, !tbaa !49
+  %15 = load i8, ptr %14, align 1, !tbaa !37
   %16 = icmp ne i8 %15, 0
   br i1 %16, label %17, label %175
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i8, ptr %18, align 1
+  %18 = load ptr, ptr %7, align 8, !tbaa !49
+  %19 = load i8, ptr %18, align 1, !tbaa !37
   %20 = sext i8 %19 to i32
   switch i32 %20, label %170 [
     i32 115, label %21
@@ -844,100 +919,102 @@ define internal noundef ptr @_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8
   ]
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %struct.Closure, ptr %22, i32 0, i32 3
-  %24 = load i8, ptr %23, align 1
+  %22 = load ptr, ptr %9, align 8, !tbaa !57
+  %23 = getelementptr inbounds nuw %struct.Closure, ptr %22, i32 0, i32 3
+  %24 = load i8, ptr %23, align 1, !tbaa !43
   %25 = icmp ne i8 %24, 0
   br i1 %25, label %26, label %35
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.lua_Debug, ptr %27, i32 0, i32 2
-  store ptr @.str.18, ptr %28, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.lua_Debug, ptr %29, i32 0, i32 1
-  store ptr @.str.19, ptr %30, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.lua_Debug, ptr %31, i32 0, i32 4
-  store i32 -1, ptr %32, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.lua_Debug, ptr %33, i32 0, i32 3
-  store ptr @.str.20, ptr %34, align 8
+  %27 = load ptr, ptr %8, align 8, !tbaa !55
+  %28 = getelementptr inbounds nuw %struct.lua_Debug, ptr %27, i32 0, i32 2
+  store ptr @.str.18, ptr %28, align 8, !tbaa !61
+  %29 = load ptr, ptr %8, align 8, !tbaa !55
+  %30 = getelementptr inbounds nuw %struct.lua_Debug, ptr %29, i32 0, i32 1
+  store ptr @.str.19, ptr %30, align 8, !tbaa !63
+  %31 = load ptr, ptr %8, align 8, !tbaa !55
+  %32 = getelementptr inbounds nuw %struct.lua_Debug, ptr %31, i32 0, i32 4
+  store i32 -1, ptr %32, align 8, !tbaa !64
+  %33 = load ptr, ptr %8, align 8, !tbaa !55
+  %34 = getelementptr inbounds nuw %struct.lua_Debug, ptr %33, i32 0, i32 3
+  store ptr @.str.20, ptr %34, align 8, !tbaa !65
   br label %70
 
 35:                                               ; preds = %21
-  %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds %struct.Closure, ptr %36, i32 0, i32 9
-  %38 = getelementptr inbounds %struct.anon.1, ptr %37, i32 0, i32 0
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct.Proto, ptr %39, i32 0, i32 18
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %12, align 8
-  %42 = load ptr, ptr %12, align 8
-  %43 = getelementptr inbounds %struct.TString, ptr %42, i32 0, i32 7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %36 = load ptr, ptr %9, align 8, !tbaa !57
+  %37 = getelementptr inbounds nuw %struct.Closure, ptr %36, i32 0, i32 9
+  %38 = getelementptr inbounds nuw %struct.anon.1, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !37
+  %40 = getelementptr inbounds nuw %struct.Proto, ptr %39, i32 0, i32 18
+  %41 = load ptr, ptr %40, align 8, !tbaa !66
+  store ptr %41, ptr %12, align 8, !tbaa !67
+  %42 = load ptr, ptr %12, align 8, !tbaa !67
+  %43 = getelementptr inbounds nuw %struct.TString, ptr %42, i32 0, i32 7
   %44 = getelementptr inbounds [1 x i8], ptr %43, i64 0, i64 0
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.lua_Debug, ptr %45, i32 0, i32 2
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.lua_Debug, ptr %47, i32 0, i32 1
-  store ptr @.str.21, ptr %48, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds %struct.Closure, ptr %49, i32 0, i32 9
-  %51 = getelementptr inbounds %struct.anon.1, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.Proto, ptr %52, i32 0, i32 31
-  %54 = load i32, ptr %53, align 4
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.lua_Debug, ptr %55, i32 0, i32 4
-  store i32 %54, ptr %56, align 8
-  %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds %struct.lua_Debug, ptr %57, i32 0, i32 10
+  %45 = load ptr, ptr %8, align 8, !tbaa !55
+  %46 = getelementptr inbounds nuw %struct.lua_Debug, ptr %45, i32 0, i32 2
+  store ptr %44, ptr %46, align 8, !tbaa !61
+  %47 = load ptr, ptr %8, align 8, !tbaa !55
+  %48 = getelementptr inbounds nuw %struct.lua_Debug, ptr %47, i32 0, i32 1
+  store ptr @.str.21, ptr %48, align 8, !tbaa !63
+  %49 = load ptr, ptr %9, align 8, !tbaa !57
+  %50 = getelementptr inbounds nuw %struct.Closure, ptr %49, i32 0, i32 9
+  %51 = getelementptr inbounds nuw %struct.anon.1, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !37
+  %53 = getelementptr inbounds nuw %struct.Proto, ptr %52, i32 0, i32 31
+  %54 = load i32, ptr %53, align 4, !tbaa !68
+  %55 = load ptr, ptr %8, align 8, !tbaa !55
+  %56 = getelementptr inbounds nuw %struct.lua_Debug, ptr %55, i32 0, i32 4
+  store i32 %54, ptr %56, align 8, !tbaa !64
+  %57 = load ptr, ptr %8, align 8, !tbaa !55
+  %58 = getelementptr inbounds nuw %struct.lua_Debug, ptr %57, i32 0, i32 10
   %59 = getelementptr inbounds [256 x i8], ptr %58, i64 0, i64 0
-  %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds %struct.TString, ptr %60, i32 0, i32 7
+  %60 = load ptr, ptr %12, align 8, !tbaa !67
+  %61 = getelementptr inbounds nuw %struct.TString, ptr %60, i32 0, i32 7
   %62 = getelementptr inbounds [1 x i8], ptr %61, i64 0, i64 0
-  %63 = load ptr, ptr %12, align 8
-  %64 = getelementptr inbounds %struct.TString, ptr %63, i32 0, i32 6
-  %65 = load i32, ptr %64, align 4
+  %63 = load ptr, ptr %12, align 8, !tbaa !67
+  %64 = getelementptr inbounds nuw %struct.TString, ptr %63, i32 0, i32 6
+  %65 = load i32, ptr %64, align 4, !tbaa !69
   %66 = zext i32 %65 to i64
   %67 = call noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef %59, i64 noundef 256, ptr noundef %62, i64 noundef %66)
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds %struct.lua_Debug, ptr %68, i32 0, i32 3
-  store ptr %67, ptr %69, align 8
+  %68 = load ptr, ptr %8, align 8, !tbaa !55
+  %69 = getelementptr inbounds nuw %struct.lua_Debug, ptr %68, i32 0, i32 3
+  store ptr %67, ptr %69, align 8, !tbaa !65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
   br label %70
 
 70:                                               ; preds = %35, %26
   br label %171
 
 71:                                               ; preds = %17
-  %72 = load ptr, ptr %10, align 8
+  %72 = load ptr, ptr %10, align 8, !tbaa !23
   %73 = icmp ne ptr %72, null
   br i1 %73, label %74, label %99
 
 74:                                               ; preds = %71
-  %75 = load ptr, ptr %10, align 8
-  %76 = getelementptr inbounds %struct.CallInfo, ptr %75, i32 0, i32 1
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct.lua_TValue, ptr %77, i32 0, i32 2
-  %79 = load i32, ptr %78, align 4
+  %75 = load ptr, ptr %10, align 8, !tbaa !23
+  %76 = getelementptr inbounds nuw %struct.CallInfo, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !40
+  %78 = getelementptr inbounds nuw %struct.lua_TValue, ptr %77, i32 0, i32 2
+  %79 = load i32, ptr %78, align 4, !tbaa !41
   %80 = icmp eq i32 %79, 7
   br i1 %80, label %81, label %94
 
 81:                                               ; preds = %74
-  %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr inbounds %struct.CallInfo, ptr %82, i32 0, i32 1
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds %struct.lua_TValue, ptr %84, i32 0, i32 0
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct.Closure, ptr %86, i32 0, i32 3
-  %88 = load i8, ptr %87, align 1
+  %82 = load ptr, ptr %10, align 8, !tbaa !23
+  %83 = getelementptr inbounds nuw %struct.CallInfo, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8, !tbaa !40
+  %85 = getelementptr inbounds nuw %struct.lua_TValue, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8, !tbaa !37
+  %87 = getelementptr inbounds nuw %struct.Closure, ptr %86, i32 0, i32 3
+  %88 = load i8, ptr %87, align 1, !tbaa !43
   %89 = icmp ne i8 %88, 0
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %81
-  %91 = load ptr, ptr %6, align 8
-  %92 = load ptr, ptr %10, align 8
+  %91 = load ptr, ptr %6, align 8, !tbaa !4
+  %92 = load ptr, ptr %10, align 8, !tbaa !23
   %93 = call noundef i32 @_ZL11currentlineP9lua_StateP8CallInfo(ptr noundef %91, ptr noundef %92)
   br label %95
 
@@ -946,15 +1023,15 @@ define internal noundef ptr @_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8
 
 95:                                               ; preds = %94, %90
   %96 = phi i32 [ %93, %90 ], [ -1, %94 ]
-  %97 = load ptr, ptr %8, align 8
-  %98 = getelementptr inbounds %struct.lua_Debug, ptr %97, i32 0, i32 5
-  store i32 %96, ptr %98, align 4
+  %97 = load ptr, ptr %8, align 8, !tbaa !55
+  %98 = getelementptr inbounds nuw %struct.lua_Debug, ptr %97, i32 0, i32 5
+  store i32 %96, ptr %98, align 4, !tbaa !71
   br label %116
 
 99:                                               ; preds = %71
-  %100 = load ptr, ptr %9, align 8
-  %101 = getelementptr inbounds %struct.Closure, ptr %100, i32 0, i32 3
-  %102 = load i8, ptr %101, align 1
+  %100 = load ptr, ptr %9, align 8, !tbaa !57
+  %101 = getelementptr inbounds nuw %struct.Closure, ptr %100, i32 0, i32 3
+  %102 = load i8, ptr %101, align 1, !tbaa !43
   %103 = icmp ne i8 %102, 0
   br i1 %103, label %104, label %105
 
@@ -962,102 +1039,102 @@ define internal noundef ptr @_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8
   br label %112
 
 105:                                              ; preds = %99
-  %106 = load ptr, ptr %9, align 8
-  %107 = getelementptr inbounds %struct.Closure, ptr %106, i32 0, i32 9
-  %108 = getelementptr inbounds %struct.anon.1, ptr %107, i32 0, i32 0
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds %struct.Proto, ptr %109, i32 0, i32 31
-  %111 = load i32, ptr %110, align 4
+  %106 = load ptr, ptr %9, align 8, !tbaa !57
+  %107 = getelementptr inbounds nuw %struct.Closure, ptr %106, i32 0, i32 9
+  %108 = getelementptr inbounds nuw %struct.anon.1, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8, !tbaa !37
+  %110 = getelementptr inbounds nuw %struct.Proto, ptr %109, i32 0, i32 31
+  %111 = load i32, ptr %110, align 4, !tbaa !68
   br label %112
 
 112:                                              ; preds = %105, %104
   %113 = phi i32 [ -1, %104 ], [ %111, %105 ]
-  %114 = load ptr, ptr %8, align 8
-  %115 = getelementptr inbounds %struct.lua_Debug, ptr %114, i32 0, i32 5
-  store i32 %113, ptr %115, align 4
+  %114 = load ptr, ptr %8, align 8, !tbaa !55
+  %115 = getelementptr inbounds nuw %struct.lua_Debug, ptr %114, i32 0, i32 5
+  store i32 %113, ptr %115, align 4, !tbaa !71
   br label %116
 
 116:                                              ; preds = %112, %95
   br label %171
 
 117:                                              ; preds = %17
-  %118 = load ptr, ptr %9, align 8
-  %119 = getelementptr inbounds %struct.Closure, ptr %118, i32 0, i32 4
-  %120 = load i8, ptr %119, align 4
-  %121 = load ptr, ptr %8, align 8
-  %122 = getelementptr inbounds %struct.lua_Debug, ptr %121, i32 0, i32 6
-  store i8 %120, ptr %122, align 8
+  %118 = load ptr, ptr %9, align 8, !tbaa !57
+  %119 = getelementptr inbounds nuw %struct.Closure, ptr %118, i32 0, i32 4
+  %120 = load i8, ptr %119, align 4, !tbaa !72
+  %121 = load ptr, ptr %8, align 8, !tbaa !55
+  %122 = getelementptr inbounds nuw %struct.lua_Debug, ptr %121, i32 0, i32 6
+  store i8 %120, ptr %122, align 8, !tbaa !73
   br label %171
 
 123:                                              ; preds = %17
-  %124 = load ptr, ptr %9, align 8
-  %125 = getelementptr inbounds %struct.Closure, ptr %124, i32 0, i32 3
-  %126 = load i8, ptr %125, align 1
+  %124 = load ptr, ptr %9, align 8, !tbaa !57
+  %125 = getelementptr inbounds nuw %struct.Closure, ptr %124, i32 0, i32 3
+  %126 = load i8, ptr %125, align 1, !tbaa !43
   %127 = icmp ne i8 %126, 0
   br i1 %127, label %128, label %133
 
 128:                                              ; preds = %123
-  %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr inbounds %struct.lua_Debug, ptr %129, i32 0, i32 8
-  store i8 1, ptr %130, align 2
-  %131 = load ptr, ptr %8, align 8
-  %132 = getelementptr inbounds %struct.lua_Debug, ptr %131, i32 0, i32 7
-  store i8 0, ptr %132, align 1
+  %129 = load ptr, ptr %8, align 8, !tbaa !55
+  %130 = getelementptr inbounds nuw %struct.lua_Debug, ptr %129, i32 0, i32 8
+  store i8 1, ptr %130, align 2, !tbaa !74
+  %131 = load ptr, ptr %8, align 8, !tbaa !55
+  %132 = getelementptr inbounds nuw %struct.lua_Debug, ptr %131, i32 0, i32 7
+  store i8 0, ptr %132, align 1, !tbaa !75
   br label %150
 
 133:                                              ; preds = %123
-  %134 = load ptr, ptr %9, align 8
-  %135 = getelementptr inbounds %struct.Closure, ptr %134, i32 0, i32 9
-  %136 = getelementptr inbounds %struct.anon.1, ptr %135, i32 0, i32 0
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds %struct.Proto, ptr %137, i32 0, i32 5
-  %139 = load i8, ptr %138, align 1
-  %140 = load ptr, ptr %8, align 8
-  %141 = getelementptr inbounds %struct.lua_Debug, ptr %140, i32 0, i32 8
-  store i8 %139, ptr %141, align 2
-  %142 = load ptr, ptr %9, align 8
-  %143 = getelementptr inbounds %struct.Closure, ptr %142, i32 0, i32 9
-  %144 = getelementptr inbounds %struct.anon.1, ptr %143, i32 0, i32 0
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %struct.Proto, ptr %145, i32 0, i32 4
-  %147 = load i8, ptr %146, align 4
-  %148 = load ptr, ptr %8, align 8
-  %149 = getelementptr inbounds %struct.lua_Debug, ptr %148, i32 0, i32 7
-  store i8 %147, ptr %149, align 1
+  %134 = load ptr, ptr %9, align 8, !tbaa !57
+  %135 = getelementptr inbounds nuw %struct.Closure, ptr %134, i32 0, i32 9
+  %136 = getelementptr inbounds nuw %struct.anon.1, ptr %135, i32 0, i32 0
+  %137 = load ptr, ptr %136, align 8, !tbaa !37
+  %138 = getelementptr inbounds nuw %struct.Proto, ptr %137, i32 0, i32 5
+  %139 = load i8, ptr %138, align 1, !tbaa !39
+  %140 = load ptr, ptr %8, align 8, !tbaa !55
+  %141 = getelementptr inbounds nuw %struct.lua_Debug, ptr %140, i32 0, i32 8
+  store i8 %139, ptr %141, align 2, !tbaa !74
+  %142 = load ptr, ptr %9, align 8, !tbaa !57
+  %143 = getelementptr inbounds nuw %struct.Closure, ptr %142, i32 0, i32 9
+  %144 = getelementptr inbounds nuw %struct.anon.1, ptr %143, i32 0, i32 0
+  %145 = load ptr, ptr %144, align 8, !tbaa !37
+  %146 = getelementptr inbounds nuw %struct.Proto, ptr %145, i32 0, i32 4
+  %147 = load i8, ptr %146, align 4, !tbaa !29
+  %148 = load ptr, ptr %8, align 8, !tbaa !55
+  %149 = getelementptr inbounds nuw %struct.lua_Debug, ptr %148, i32 0, i32 7
+  store i8 %147, ptr %149, align 1, !tbaa !75
   br label %150
 
 150:                                              ; preds = %133, %128
   br label %171
 
 151:                                              ; preds = %17
-  %152 = load ptr, ptr %10, align 8
+  %152 = load ptr, ptr %10, align 8, !tbaa !23
   %153 = icmp ne ptr %152, null
   br i1 %153, label %154, label %161
 
 154:                                              ; preds = %151
-  %155 = load ptr, ptr %10, align 8
-  %156 = getelementptr inbounds %struct.CallInfo, ptr %155, i32 0, i32 1
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds %struct.lua_TValue, ptr %157, i32 0, i32 0
-  %159 = load ptr, ptr %158, align 8
+  %155 = load ptr, ptr %10, align 8, !tbaa !23
+  %156 = getelementptr inbounds nuw %struct.CallInfo, ptr %155, i32 0, i32 1
+  %157 = load ptr, ptr %156, align 8, !tbaa !40
+  %158 = getelementptr inbounds nuw %struct.lua_TValue, ptr %157, i32 0, i32 0
+  %159 = load ptr, ptr %158, align 8, !tbaa !37
   %160 = call noundef ptr @_ZL11getfuncnameP7Closure(ptr noundef %159)
   br label %164
 
 161:                                              ; preds = %151
-  %162 = load ptr, ptr %9, align 8
+  %162 = load ptr, ptr %9, align 8, !tbaa !57
   %163 = call noundef ptr @_ZL11getfuncnameP7Closure(ptr noundef %162)
   br label %164
 
 164:                                              ; preds = %161, %154
   %165 = phi ptr [ %160, %154 ], [ %163, %161 ]
-  %166 = load ptr, ptr %8, align 8
-  %167 = getelementptr inbounds %struct.lua_Debug, ptr %166, i32 0, i32 0
-  store ptr %165, ptr %167, align 8
+  %166 = load ptr, ptr %8, align 8, !tbaa !55
+  %167 = getelementptr inbounds nuw %struct.lua_Debug, ptr %166, i32 0, i32 0
+  store ptr %165, ptr %167, align 8, !tbaa !76
   br label %171
 
 168:                                              ; preds = %17
-  %169 = load ptr, ptr %9, align 8
-  store ptr %169, ptr %11, align 8
+  %169 = load ptr, ptr %9, align 8, !tbaa !57
+  store ptr %169, ptr %11, align 8, !tbaa !57
   br label %171
 
 170:                                              ; preds = %17
@@ -1067,113 +1144,120 @@ define internal noundef ptr @_ZL10auxgetinfoP9lua_StatePKcP9lua_DebugP7ClosureP8
   br label %172
 
 172:                                              ; preds = %171
-  %173 = load ptr, ptr %7, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i32 1
-  store ptr %174, ptr %7, align 8
-  br label %13, !llvm.loop !5
+  %173 = load ptr, ptr %7, align 8, !tbaa !49
+  %174 = getelementptr inbounds nuw i8, ptr %173, i32 1
+  store ptr %174, ptr %7, align 8, !tbaa !49
+  br label %13, !llvm.loop !77
 
 175:                                              ; preds = %13
-  %176 = load ptr, ptr %11, align 8
+  %176 = load ptr, ptr %11, align 8, !tbaa !57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
   ret ptr %176
 }
 
-declare hidden void @_Z14luaD_growstackP9lua_Statei(ptr noundef, i32 noundef) #2
+declare hidden void @_Z14luaD_growstackP9lua_Statei(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z15luaG_typeerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
+define hidden void @_Z15luaG_typeerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
   %10 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %8, ptr noundef %9)
-  store ptr %10, ptr %7, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %11, ptr noundef @.str, ptr noundef %12, ptr noundef %13) #10
+  store ptr %10, ptr %7, align 8, !tbaa !49
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = load ptr, ptr %6, align 8, !tbaa !49
+  %13 = load ptr, ptr %7, align 8, !tbaa !49
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %11, ptr noundef @.str, ptr noundef %12, ptr noundef %13) #12
   unreachable
 }
 
-declare hidden noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef, ptr noundef) #2
+declare hidden noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef %1, ...) #4 {
+define hidden void @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef %1, ...) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca [512 x i8], align 16
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #11
   %7 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @llvm.va_start.p0(ptr %7)
+  call void @llvm.lifetime.start.p0(i64 512, ptr %6) #11
   %8 = getelementptr inbounds [512 x i8], ptr %6, i64 0, i64 0
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !49
   %10 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   %11 = call i32 @vsnprintf(ptr noundef %8, i64 noundef 512, ptr noundef %9, ptr noundef %10) #11
   %12 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
   call void @llvm.va_end.p0(ptr %12)
-  %13 = load ptr, ptr %3, align 8
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
   call void @_Z17lua_rawcheckstackP9lua_Statei(ptr noundef %13, i32 noundef 1)
-  %14 = load ptr, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
   %15 = getelementptr inbounds [512 x i8], ptr %6, i64 0, i64 0
   call void @_ZL9pusherrorP9lua_StatePKc(ptr noundef %14, ptr noundef %15)
-  %16 = load ptr, ptr %3, align 8
-  call void @_Z10luaD_throwP9lua_Statei(ptr noundef %16, i32 noundef 2) #10
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @_Z10luaD_throwP9lua_Statei(ptr noundef %16, i32 noundef 2) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
+define hidden void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
   %10 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %8, ptr noundef %9)
-  store ptr %10, ptr %7, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %11, ptr noundef @.str.1, ptr noundef %12, ptr noundef %13) #10
+  store ptr %10, ptr %7, align 8, !tbaa !49
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = load ptr, ptr %6, align 8, !tbaa !49
+  %13 = load ptr, ptr %7, align 8, !tbaa !49
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %11, ptr noundef @.str.1, ptr noundef %12, ptr noundef %13) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z16luaG_concaterrorP9lua_StateP10lua_TValueS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
+define hidden void @_Z16luaG_concaterrorP9lua_StateP10lua_TValueS2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %9 = load ptr, ptr %4, align 8, !tbaa !4
+  %10 = load ptr, ptr %5, align 8, !tbaa !53
   %11 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %9, ptr noundef %10)
-  store ptr %11, ptr %7, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %7, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = load ptr, ptr %6, align 8, !tbaa !53
   %14 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %12, ptr noundef %13)
-  store ptr %14, ptr %8, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %15, ptr noundef @.str.2, ptr noundef %16, ptr noundef %17) #10
+  store ptr %14, ptr %8, align 8, !tbaa !49
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  %16 = load ptr, ptr %7, align 8, !tbaa !49
+  %17 = load ptr, ptr %8, align 8, !tbaa !49
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %15, ptr noundef @.str.2, ptr noundef %16, ptr noundef %17) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #4 {
+define hidden void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #5 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1181,47 +1265,50 @@ define hidden void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noun
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store i32 %3, ptr %8, align 4, !tbaa !79
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %12 = load ptr, ptr %5, align 8, !tbaa !4
+  %13 = load ptr, ptr %6, align 8, !tbaa !53
   %14 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %12, ptr noundef %13)
-  store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %9, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = load ptr, ptr %7, align 8, !tbaa !53
   %17 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %15, ptr noundef %16)
-  store ptr %17, ptr %10, align 8
-  %18 = load i32, ptr %8, align 4
+  store ptr %17, ptr %10, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %18 = load i32, ptr %8, align 4, !tbaa !79
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds [0 x ptr], ptr @luaT_eventname, i64 0, i64 %19
-  %21 = load ptr, ptr %20, align 8
+  %20 = getelementptr inbounds nuw [0 x ptr], ptr @luaT_eventname, i64 0, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !49
   %22 = getelementptr inbounds i8, ptr %21, i64 2
-  store ptr %22, ptr %11, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = load ptr, ptr %10, align 8
+  store ptr %22, ptr %11, align 8, !tbaa !49
+  %23 = load ptr, ptr %9, align 8, !tbaa !49
+  %24 = load ptr, ptr %10, align 8, !tbaa !49
   %25 = icmp eq ptr %23, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %4
-  %27 = load ptr, ptr %5, align 8
-  %28 = load ptr, ptr %11, align 8
-  %29 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %27, ptr noundef @.str.3, ptr noundef %28, ptr noundef %29) #10
+  %27 = load ptr, ptr %5, align 8, !tbaa !4
+  %28 = load ptr, ptr %11, align 8, !tbaa !49
+  %29 = load ptr, ptr %9, align 8, !tbaa !49
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %27, ptr noundef @.str.3, ptr noundef %28, ptr noundef %29) #12
   unreachable
 
 30:                                               ; preds = %4
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %31, ptr noundef @.str.4, ptr noundef %32, ptr noundef %33, ptr noundef %34) #10
+  %31 = load ptr, ptr %5, align 8, !tbaa !4
+  %32 = load ptr, ptr %11, align 8, !tbaa !49
+  %33 = load ptr, ptr %9, align 8, !tbaa !49
+  %34 = load ptr, ptr %10, align 8, !tbaa !49
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %31, ptr noundef @.str.4, ptr noundef %32, ptr noundef %33, ptr noundef %34) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #4 {
+define hidden void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #5 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1229,19 +1316,22 @@ define hidden void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noun
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store i32 %3, ptr %8, align 4, !tbaa !79
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %12 = load ptr, ptr %5, align 8, !tbaa !4
+  %13 = load ptr, ptr %6, align 8, !tbaa !53
   %14 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %12, ptr noundef %13)
-  store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %7, align 8
+  store ptr %14, ptr %9, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = load ptr, ptr %7, align 8, !tbaa !53
   %17 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %15, ptr noundef %16)
-  store ptr %17, ptr %10, align 8
-  %18 = load i32, ptr %8, align 4
+  store ptr %17, ptr %10, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %18 = load i32, ptr %8, align 4, !tbaa !79
   %19 = icmp eq i32 %18, 16
   br i1 %19, label %20, label %21
 
@@ -1249,7 +1339,7 @@ define hidden void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noun
   br label %29
 
 21:                                               ; preds = %4
-  %22 = load i32, ptr %8, align 4
+  %22 = load i32, ptr %8, align 4, !tbaa !79
   %23 = icmp eq i32 %22, 17
   br i1 %23, label %24, label %25
 
@@ -1266,44 +1356,47 @@ define hidden void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noun
 
 29:                                               ; preds = %26, %20
   %30 = phi ptr [ @.str.5, %20 ], [ %28, %26 ]
-  store ptr %30, ptr %11, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %9, align 8
-  %33 = load ptr, ptr %11, align 8
-  %34 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %31, ptr noundef @.str.8, ptr noundef %32, ptr noundef %33, ptr noundef %34) #10
+  store ptr %30, ptr %11, align 8, !tbaa !49
+  %31 = load ptr, ptr %5, align 8, !tbaa !4
+  %32 = load ptr, ptr %9, align 8, !tbaa !49
+  %33 = load ptr, ptr %11, align 8, !tbaa !49
+  %34 = load ptr, ptr %10, align 8, !tbaa !49
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %31, ptr noundef @.str.8, ptr noundef %32, ptr noundef %33, ptr noundef %34) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
+define hidden void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = load ptr, ptr %5, align 8, !tbaa !53
   %12 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %10, ptr noundef %11)
-  store ptr %12, ptr %7, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %7, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = load ptr, ptr %6, align 8, !tbaa !53
   %15 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %13, ptr noundef %14)
-  store ptr %15, ptr %8, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.lua_TValue, ptr %16, i32 0, i32 2
-  %18 = load i32, ptr %17, align 4
+  store ptr %15, ptr %8, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %16 = load ptr, ptr %6, align 8, !tbaa !53
+  %17 = getelementptr inbounds nuw %struct.lua_TValue, ptr %16, i32 0, i32 2
+  %18 = load i32, ptr %17, align 4, !tbaa !41
   %19 = icmp eq i32 %18, 5
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %3
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.lua_TValue, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
+  %21 = load ptr, ptr %6, align 8, !tbaa !53
+  %22 = getelementptr inbounds nuw %struct.lua_TValue, ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !37
   br label %25
 
 24:                                               ; preds = %3
@@ -1311,76 +1404,77 @@ define hidden void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef 
 
 25:                                               ; preds = %24, %20
   %26 = phi ptr [ %23, %20 ], [ null, %24 ]
-  store ptr %26, ptr %9, align 8
-  %27 = load ptr, ptr %9, align 8
+  store ptr %26, ptr %9, align 8, !tbaa !67
+  %27 = load ptr, ptr %9, align 8, !tbaa !67
   %28 = icmp ne ptr %27, null
   br i1 %28, label %29, label %40
 
 29:                                               ; preds = %25
-  %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds %struct.TString, ptr %30, i32 0, i32 6
-  %32 = load i32, ptr %31, align 4
+  %30 = load ptr, ptr %9, align 8, !tbaa !67
+  %31 = getelementptr inbounds nuw %struct.TString, ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4, !tbaa !69
   %33 = icmp ule i32 %32, 64
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.TString, ptr %37, i32 0, i32 7
+  %35 = load ptr, ptr %4, align 8, !tbaa !4
+  %36 = load ptr, ptr %7, align 8, !tbaa !49
+  %37 = load ptr, ptr %9, align 8, !tbaa !67
+  %38 = getelementptr inbounds nuw %struct.TString, ptr %37, i32 0, i32 7
   %39 = getelementptr inbounds [1 x i8], ptr %38, i64 0, i64 0
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %35, ptr noundef @.str.9, ptr noundef %36, ptr noundef %39) #10
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %35, ptr noundef @.str.9, ptr noundef %36, ptr noundef %39) #12
   unreachable
 
 40:                                               ; preds = %29, %25
-  %41 = load ptr, ptr %4, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %41, ptr noundef @.str.10, ptr noundef %42, ptr noundef %43) #10
+  %41 = load ptr, ptr %4, align 8, !tbaa !4
+  %42 = load ptr, ptr %7, align 8, !tbaa !49
+  %43 = load ptr, ptr %8, align 8, !tbaa !49
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %41, ptr noundef @.str.10, ptr noundef %42, ptr noundef %43) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z16luaG_methoderrorP9lua_StatePK10lua_TValuePK7TString(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 {
+define hidden void @_Z16luaG_methoderrorP9lua_StatePK10lua_TValuePK7TString(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
   %10 = call noundef ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef %8, ptr noundef %9)
-  store ptr %10, ptr %7, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct.TString, ptr %12, i32 0, i32 7
+  store ptr %10, ptr %7, align 8, !tbaa !49
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = load ptr, ptr %6, align 8, !tbaa !67
+  %13 = getelementptr inbounds nuw %struct.TString, ptr %12, i32 0, i32 7
   %14 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 0
-  %15 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %11, ptr noundef @.str.11, ptr noundef %14, ptr noundef %15) #10
+  %15 = load ptr, ptr %7, align 8, !tbaa !49
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %11, ptr noundef @.str.11, ptr noundef %14, ptr noundef %15) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_Z18luaG_readonlyerrorP9lua_State(ptr noundef %0) #4 {
+define hidden void @_Z18luaG_readonlyerrorP9lua_State(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %3, ptr noundef @.str.12) #10
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %3, ptr noundef @.str.12) #12
   unreachable
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #5
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: nounwind
-declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #6
+declare i32 @vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #5
+declare void @llvm.va_end.p0(ptr) #6
 
-declare void @_Z17lua_rawcheckstackP9lua_Statei(ptr noundef, i32 noundef) #2
+declare void @_Z17lua_rawcheckstackP9lua_Statei(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL9pusherrorP9lua_StatePKc(ptr noundef %0, ptr noundef %1) #0 {
@@ -1391,81 +1485,91 @@ define internal void @_ZL9pusherrorP9lua_StatePKc(ptr noundef %0, ptr noundef %1
   %7 = alloca [256 x i8], align 16
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.lua_State, ptr %10, i32 0, i32 10
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %5, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.CallInfo, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.lua_TValue, ptr %15, i32 0, i32 2
-  %17 = load i32, ptr %16, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.lua_State, ptr %10, i32 0, i32 10
+  %12 = load ptr, ptr %11, align 8, !tbaa !11
+  store ptr %12, ptr %5, align 8, !tbaa !23
+  %13 = load ptr, ptr %5, align 8, !tbaa !23
+  %14 = getelementptr inbounds nuw %struct.CallInfo, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !40
+  %16 = getelementptr inbounds nuw %struct.lua_TValue, ptr %15, i32 0, i32 2
+  %17 = load i32, ptr %16, align 4, !tbaa !41
   %18 = icmp eq i32 %17, 7
   br i1 %18, label %19, label %50
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.CallInfo, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.lua_TValue, ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.Closure, ptr %24, i32 0, i32 3
-  %26 = load i8, ptr %25, align 1
+  %20 = load ptr, ptr %5, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw %struct.CallInfo, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !40
+  %23 = getelementptr inbounds nuw %struct.lua_TValue, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !37
+  %25 = getelementptr inbounds nuw %struct.Closure, ptr %24, i32 0, i32 3
+  %26 = load i8, ptr %25, align 1, !tbaa !43
   %27 = icmp ne i8 %26, 0
   br i1 %27, label %50, label %28
 
 28:                                               ; preds = %19
-  %29 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %29 = load ptr, ptr %5, align 8, !tbaa !23
   %30 = call noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %29)
-  %31 = getelementptr inbounds %struct.Proto, ptr %30, i32 0, i32 18
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %6, align 8
+  %31 = getelementptr inbounds nuw %struct.Proto, ptr %30, i32 0, i32 18
+  %32 = load ptr, ptr %31, align 8, !tbaa !66
+  store ptr %32, ptr %6, align 8, !tbaa !67
+  call void @llvm.lifetime.start.p0(i64 256, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
   %33 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 0
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.TString, ptr %34, i32 0, i32 7
+  %34 = load ptr, ptr %6, align 8, !tbaa !67
+  %35 = getelementptr inbounds nuw %struct.TString, ptr %34, i32 0, i32 7
   %36 = getelementptr inbounds [1 x i8], ptr %35, i64 0, i64 0
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.TString, ptr %37, i32 0, i32 6
-  %39 = load i32, ptr %38, align 4
+  %37 = load ptr, ptr %6, align 8, !tbaa !67
+  %38 = getelementptr inbounds nuw %struct.TString, ptr %37, i32 0, i32 6
+  %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = zext i32 %39 to i64
   %41 = call noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef %33, i64 noundef 256, ptr noundef %36, i64 noundef %40)
-  store ptr %41, ptr %8, align 8
-  %42 = load ptr, ptr %3, align 8
-  %43 = load ptr, ptr %5, align 8
+  store ptr %41, ptr %8, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = load ptr, ptr %5, align 8, !tbaa !23
   %44 = call noundef i32 @_ZL11currentlineP9lua_StateP8CallInfo(ptr noundef %42, ptr noundef %43)
-  store i32 %44, ptr %9, align 4
-  %45 = load ptr, ptr %3, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = load i32, ptr %9, align 4
-  %48 = load ptr, ptr %4, align 8
+  store i32 %44, ptr %9, align 4, !tbaa !9
+  %45 = load ptr, ptr %3, align 8, !tbaa !4
+  %46 = load ptr, ptr %8, align 8, !tbaa !49
+  %47 = load i32, ptr %9, align 4, !tbaa !9
+  %48 = load ptr, ptr %4, align 8, !tbaa !49
   %49 = call noundef ptr (ptr, ptr, ...) @_Z16luaO_pushfstringP9lua_StatePKcz(ptr noundef %45, ptr noundef @.str.22, ptr noundef %46, i32 noundef %47, ptr noundef %48)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 256, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
   br label %53
 
 50:                                               ; preds = %19, %2
-  %51 = load ptr, ptr %3, align 8
-  %52 = load ptr, ptr %4, align 8
+  %51 = load ptr, ptr %3, align 8, !tbaa !4
+  %52 = load ptr, ptr %4, align 8, !tbaa !49
   call void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %51, ptr noundef %52)
   br label %53
 
 53:                                               ; preds = %50, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
 ; Function Attrs: noreturn
-declare hidden void @_Z10luaD_throwP9lua_Statei(ptr noundef, i32 noundef) #7
+declare hidden void @_Z10luaD_throwP9lua_Statei(ptr noundef, i32 noundef) #8
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z14luaG_pusherrorP9lua_StatePKc(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
   call void @_Z17lua_rawcheckstackP9lua_Statei(ptr noundef %5, i32 noundef 1)
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = load ptr, ptr %4, align 8, !tbaa !49
   call void @_ZL9pusherrorP9lua_StatePKc(ptr noundef %6, ptr noundef %7)
   ret void
 }
@@ -1479,282 +1583,309 @@ define hidden void @_Z15luaG_breakpointP9lua_StateP5Protoib(ptr noundef %0, ptr 
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = alloca i8, align 1
-  %13 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %14 = zext i1 %3 to i8
-  store i8 %14, ptr %8, align 1
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.lua_State, ptr %15, i32 0, i32 9
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.global_State, ptr %17, i32 0, i32 31
-  %19 = getelementptr inbounds %struct.lua_ExecutionCallbacks, ptr %18, i32 0, i32 4
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %9, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.Proto, ptr %21, i32 0, i32 14
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %167
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !27
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  %15 = zext i1 %3 to i8
+  store i8 %15, ptr %8, align 1, !tbaa !81
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %16 = load ptr, ptr %5, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.lua_State, ptr %16, i32 0, i32 9
+  %18 = load ptr, ptr %17, align 8, !tbaa !82
+  %19 = getelementptr inbounds nuw %struct.global_State, ptr %18, i32 0, i32 31
+  %20 = getelementptr inbounds nuw %struct.lua_ExecutionCallbacks, ptr %19, i32 0, i32 4
+  %21 = load ptr, ptr %20, align 8, !tbaa !83
+  store ptr %21, ptr %9, align 8, !tbaa !93
+  %22 = load ptr, ptr %6, align 8, !tbaa !27
+  %23 = getelementptr inbounds nuw %struct.Proto, ptr %22, i32 0, i32 14
+  %24 = load ptr, ptr %23, align 8, !tbaa !94
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %171
 
-25:                                               ; preds = %4
-  %26 = load ptr, ptr %9, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %33, label %28
+26:                                               ; preds = %4
+  %27 = load ptr, ptr %9, align 8, !tbaa !93
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %34, label %29
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.Proto, ptr %29, i32 0, i32 12
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %167, label %33
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %6, align 8, !tbaa !27
+  %31 = getelementptr inbounds nuw %struct.Proto, ptr %30, i32 0, i32 12
+  %32 = load ptr, ptr %31, align 8, !tbaa !95
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %171, label %34
 
-33:                                               ; preds = %28, %25
-  store i32 0, ptr %10, align 4
-  br label %34
+34:                                               ; preds = %29, %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 0, ptr %10, align 4, !tbaa !9
+  br label %35
 
-34:                                               ; preds = %163, %33
-  %35 = load i32, ptr %10, align 4
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.Proto, ptr %36, i32 0, i32 24
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp slt i32 %35, %38
-  br i1 %39, label %40, label %166
+35:                                               ; preds = %166, %34
+  %36 = load i32, ptr %10, align 4, !tbaa !9
+  %37 = load ptr, ptr %6, align 8, !tbaa !27
+  %38 = getelementptr inbounds nuw %struct.Proto, ptr %37, i32 0, i32 24
+  %39 = load i32, ptr %38, align 8, !tbaa !96
+  %40 = icmp slt i32 %36, %39
+  br i1 %40, label %42, label %41
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct.Proto, ptr %41, i32 0, i32 9
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %10, align 4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %43, i64 %45
-  %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, 255
-  %49 = icmp eq i32 %48, 65
-  br i1 %49, label %50, label %51
+41:                                               ; preds = %35
+  store i32 2, ptr %11, align 4
+  br label %169
 
-50:                                               ; preds = %40
-  br label %163
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %6, align 8, !tbaa !27
+  %44 = getelementptr inbounds nuw %struct.Proto, ptr %43, i32 0, i32 9
+  %45 = load ptr, ptr %44, align 8, !tbaa !51
+  %46 = load i32, ptr %10, align 4, !tbaa !9
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %45, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !9
+  %50 = and i32 %49, 255
+  %51 = icmp eq i32 %50, 65
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %40
-  %52 = load ptr, ptr %6, align 8
-  %53 = load i32, ptr %10, align 4
-  %54 = call noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %52, i32 noundef %53)
-  %55 = load i32, ptr %7, align 4
-  %56 = icmp ne i32 %54, %55
-  br i1 %56, label %57, label %58
-
-57:                                               ; preds = %51
-  br label %163
-
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.Proto, ptr %59, i32 0, i32 20
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %113, label %63
-
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %5, align 8
-  %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct.Proto, ptr %65, i32 0, i32 24
-  %67 = load i32, ptr %66, align 8
-  %68 = sext i32 %67 to i64
-  %69 = icmp ule i64 %68, -1
-  br i1 %69, label %70, label %76
-
-70:                                               ; preds = %63
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.Proto, ptr %71, i32 0, i32 24
-  %73 = load i32, ptr %72, align 8
-  %74 = sext i32 %73 to i64
-  %75 = mul i64 %74, 1
-  br label %79
-
-76:                                               ; preds = %63
-  %77 = load ptr, ptr %5, align 8
-  call void @_Z11luaM_toobigP9lua_State(ptr noundef %77) #10
-  unreachable
-
-78:                                               ; No predecessors!
-  br label %79
-
-79:                                               ; preds = %78, %70
-  %80 = phi i64 [ %75, %70 ], [ -1, %78 ]
-  %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds %struct.Proto, ptr %81, i32 0, i32 2
-  %83 = load i8, ptr %82, align 2
-  %84 = call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %64, i64 noundef %80, i8 noundef zeroext %83)
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.Proto, ptr %85, i32 0, i32 20
-  store ptr %84, ptr %86, align 8
-  store i32 0, ptr %11, align 4
-  br label %87
-
-87:                                               ; preds = %109, %79
-  %88 = load i32, ptr %11, align 4
-  %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct.Proto, ptr %89, i32 0, i32 24
-  %91 = load i32, ptr %90, align 8
-  %92 = icmp slt i32 %88, %91
-  br i1 %92, label %93, label %112
-
-93:                                               ; preds = %87
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds %struct.Proto, ptr %94, i32 0, i32 9
-  %96 = load ptr, ptr %95, align 8
-  %97 = load i32, ptr %11, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i32, ptr %96, i64 %98
-  %100 = load i32, ptr %99, align 4
-  %101 = and i32 %100, 255
-  %102 = trunc i32 %101 to i8
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds %struct.Proto, ptr %103, i32 0, i32 20
-  %105 = load ptr, ptr %104, align 8
-  %106 = load i32, ptr %11, align 4
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i8, ptr %105, i64 %107
-  store i8 %102, ptr %108, align 1
-  br label %109
-
-109:                                              ; preds = %93
-  %110 = load i32, ptr %11, align 4
-  %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %11, align 4
-  br label %87, !llvm.loop !7
-
-112:                                              ; preds = %87
-  br label %113
-
-113:                                              ; preds = %112, %58
-  %114 = load i8, ptr %8, align 1
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %116, label %117
-
-116:                                              ; preds = %113
-  br label %127
-
-117:                                              ; preds = %113
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds %struct.Proto, ptr %118, i32 0, i32 20
-  %120 = load ptr, ptr %119, align 8
-  %121 = load i32, ptr %10, align 4
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr %120, i64 %122
-  %124 = load i8, ptr %123, align 1
-  %125 = zext i8 %124 to i32
-  %126 = and i32 %125, 255
-  br label %127
-
-127:                                              ; preds = %117, %116
-  %128 = phi i32 [ 1, %116 ], [ %126, %117 ]
-  %129 = trunc i32 %128 to i8
-  store i8 %129, ptr %12, align 1
-  %130 = load ptr, ptr %6, align 8
-  %131 = getelementptr inbounds %struct.Proto, ptr %130, i32 0, i32 9
-  %132 = load ptr, ptr %131, align 8
-  %133 = load i32, ptr %10, align 4
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i32, ptr %132, i64 %134
-  %136 = load i32, ptr %135, align 4
-  %137 = and i32 %136, -256
-  store i32 %137, ptr %135, align 4
-  %138 = load i8, ptr %12, align 1
-  %139 = zext i8 %138 to i32
-  %140 = load ptr, ptr %6, align 8
-  %141 = getelementptr inbounds %struct.Proto, ptr %140, i32 0, i32 9
-  %142 = load ptr, ptr %141, align 8
-  %143 = load i32, ptr %10, align 4
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr %142, i64 %144
-  %146 = load i32, ptr %145, align 4
-  %147 = or i32 %146, %139
-  store i32 %147, ptr %145, align 4
-  %148 = load i8, ptr %8, align 1
-  %149 = trunc i8 %148 to i1
-  br i1 %149, label %150, label %162
-
-150:                                              ; preds = %127
-  %151 = load ptr, ptr %6, align 8
-  %152 = getelementptr inbounds %struct.Proto, ptr %151, i32 0, i32 12
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp ne ptr %153, null
-  br i1 %154, label %155, label %162
-
-155:                                              ; preds = %150
-  %156 = load ptr, ptr %9, align 8
-  %157 = icmp ne ptr %156, null
-  br i1 %157, label %158, label %162
-
-158:                                              ; preds = %155
-  %159 = load ptr, ptr %9, align 8
-  %160 = load ptr, ptr %5, align 8
-  %161 = load ptr, ptr %6, align 8
-  call void %159(ptr noundef %160, ptr noundef %161)
-  br label %162
-
-162:                                              ; preds = %158, %155, %150, %127
+52:                                               ; preds = %42
   br label %166
 
-163:                                              ; preds = %57, %50
-  %164 = load i32, ptr %10, align 4
-  %165 = add nsw i32 %164, 1
-  store i32 %165, ptr %10, align 4
-  br label %34, !llvm.loop !8
+53:                                               ; preds = %42
+  %54 = load ptr, ptr %6, align 8, !tbaa !27
+  %55 = load i32, ptr %10, align 4, !tbaa !9
+  %56 = call noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %54, i32 noundef %55)
+  %57 = load i32, ptr %7, align 4, !tbaa !9
+  %58 = icmp ne i32 %56, %57
+  br i1 %58, label %59, label %60
 
-166:                                              ; preds = %162, %34
-  br label %167
+59:                                               ; preds = %53
+  br label %166
 
-167:                                              ; preds = %166, %28, %4
-  store i32 0, ptr %13, align 4
-  br label %168
+60:                                               ; preds = %53
+  %61 = load ptr, ptr %6, align 8, !tbaa !27
+  %62 = getelementptr inbounds nuw %struct.Proto, ptr %61, i32 0, i32 20
+  %63 = load ptr, ptr %62, align 8, !tbaa !97
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %116, label %65
 
-168:                                              ; preds = %186, %167
-  %169 = load i32, ptr %13, align 4
-  %170 = load ptr, ptr %6, align 8
-  %171 = getelementptr inbounds %struct.Proto, ptr %170, i32 0, i32 25
-  %172 = load i32, ptr %171, align 4
-  %173 = icmp slt i32 %169, %172
-  br i1 %173, label %174, label %189
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %5, align 8, !tbaa !4
+  %67 = load ptr, ptr %6, align 8, !tbaa !27
+  %68 = getelementptr inbounds nuw %struct.Proto, ptr %67, i32 0, i32 24
+  %69 = load i32, ptr %68, align 8, !tbaa !96
+  %70 = sext i32 %69 to i64
+  %71 = icmp ule i64 %70, -1
+  br i1 %71, label %72, label %78
 
-174:                                              ; preds = %168
-  %175 = load ptr, ptr %5, align 8
-  %176 = load ptr, ptr %6, align 8
-  %177 = getelementptr inbounds %struct.Proto, ptr %176, i32 0, i32 10
-  %178 = load ptr, ptr %177, align 8
-  %179 = load i32, ptr %13, align 4
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds ptr, ptr %178, i64 %180
-  %182 = load ptr, ptr %181, align 8
-  %183 = load i32, ptr %7, align 4
-  %184 = load i8, ptr %8, align 1
-  %185 = trunc i8 %184 to i1
-  call void @_Z15luaG_breakpointP9lua_StateP5Protoib(ptr noundef %175, ptr noundef %182, i32 noundef %183, i1 noundef zeroext %185)
-  br label %186
+72:                                               ; preds = %65
+  %73 = load ptr, ptr %6, align 8, !tbaa !27
+  %74 = getelementptr inbounds nuw %struct.Proto, ptr %73, i32 0, i32 24
+  %75 = load i32, ptr %74, align 8, !tbaa !96
+  %76 = sext i32 %75 to i64
+  %77 = mul i64 %76, 1
+  br label %81
 
-186:                                              ; preds = %174
-  %187 = load i32, ptr %13, align 4
-  %188 = add nsw i32 %187, 1
-  store i32 %188, ptr %13, align 4
-  br label %168, !llvm.loop !9
+78:                                               ; preds = %65
+  %79 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @_Z11luaM_toobigP9lua_State(ptr noundef %79) #12
+  unreachable
 
-189:                                              ; preds = %168
+80:                                               ; No predecessors!
+  br label %81
+
+81:                                               ; preds = %80, %72
+  %82 = phi i64 [ %77, %72 ], [ -1, %80 ]
+  %83 = load ptr, ptr %6, align 8, !tbaa !27
+  %84 = getelementptr inbounds nuw %struct.Proto, ptr %83, i32 0, i32 2
+  %85 = load i8, ptr %84, align 2, !tbaa !98
+  %86 = call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %66, i64 noundef %82, i8 noundef zeroext %85)
+  %87 = load ptr, ptr %6, align 8, !tbaa !27
+  %88 = getelementptr inbounds nuw %struct.Proto, ptr %87, i32 0, i32 20
+  store ptr %86, ptr %88, align 8, !tbaa !97
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  store i32 0, ptr %12, align 4, !tbaa !9
+  br label %89
+
+89:                                               ; preds = %112, %81
+  %90 = load i32, ptr %12, align 4, !tbaa !9
+  %91 = load ptr, ptr %6, align 8, !tbaa !27
+  %92 = getelementptr inbounds nuw %struct.Proto, ptr %91, i32 0, i32 24
+  %93 = load i32, ptr %92, align 8, !tbaa !96
+  %94 = icmp slt i32 %90, %93
+  br i1 %94, label %96, label %95
+
+95:                                               ; preds = %89
+  store i32 5, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  br label %115
+
+96:                                               ; preds = %89
+  %97 = load ptr, ptr %6, align 8, !tbaa !27
+  %98 = getelementptr inbounds nuw %struct.Proto, ptr %97, i32 0, i32 9
+  %99 = load ptr, ptr %98, align 8, !tbaa !51
+  %100 = load i32, ptr %12, align 4, !tbaa !9
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %99, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !9
+  %104 = and i32 %103, 255
+  %105 = trunc i32 %104 to i8
+  %106 = load ptr, ptr %6, align 8, !tbaa !27
+  %107 = getelementptr inbounds nuw %struct.Proto, ptr %106, i32 0, i32 20
+  %108 = load ptr, ptr %107, align 8, !tbaa !97
+  %109 = load i32, ptr %12, align 4, !tbaa !9
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr %108, i64 %110
+  store i8 %105, ptr %111, align 1, !tbaa !37
+  br label %112
+
+112:                                              ; preds = %96
+  %113 = load i32, ptr %12, align 4, !tbaa !9
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr %12, align 4, !tbaa !9
+  br label %89, !llvm.loop !99
+
+115:                                              ; preds = %95
+  br label %116
+
+116:                                              ; preds = %115, %60
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #11
+  %117 = load i8, ptr %8, align 1, !tbaa !81, !range !100, !noundef !101
+  %118 = trunc i8 %117 to i1
+  br i1 %118, label %119, label %120
+
+119:                                              ; preds = %116
+  br label %130
+
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %6, align 8, !tbaa !27
+  %122 = getelementptr inbounds nuw %struct.Proto, ptr %121, i32 0, i32 20
+  %123 = load ptr, ptr %122, align 8, !tbaa !97
+  %124 = load i32, ptr %10, align 4, !tbaa !9
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i8, ptr %123, i64 %125
+  %127 = load i8, ptr %126, align 1, !tbaa !37
+  %128 = zext i8 %127 to i32
+  %129 = and i32 %128, 255
+  br label %130
+
+130:                                              ; preds = %120, %119
+  %131 = phi i32 [ 1, %119 ], [ %129, %120 ]
+  %132 = trunc i32 %131 to i8
+  store i8 %132, ptr %13, align 1, !tbaa !37
+  %133 = load ptr, ptr %6, align 8, !tbaa !27
+  %134 = getelementptr inbounds nuw %struct.Proto, ptr %133, i32 0, i32 9
+  %135 = load ptr, ptr %134, align 8, !tbaa !51
+  %136 = load i32, ptr %10, align 4, !tbaa !9
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %135, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !9
+  %140 = and i32 %139, -256
+  store i32 %140, ptr %138, align 4, !tbaa !9
+  %141 = load i8, ptr %13, align 1, !tbaa !37
+  %142 = zext i8 %141 to i32
+  %143 = load ptr, ptr %6, align 8, !tbaa !27
+  %144 = getelementptr inbounds nuw %struct.Proto, ptr %143, i32 0, i32 9
+  %145 = load ptr, ptr %144, align 8, !tbaa !51
+  %146 = load i32, ptr %10, align 4, !tbaa !9
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds i32, ptr %145, i64 %147
+  %149 = load i32, ptr %148, align 4, !tbaa !9
+  %150 = or i32 %149, %142
+  store i32 %150, ptr %148, align 4, !tbaa !9
+  %151 = load i8, ptr %8, align 1, !tbaa !81, !range !100, !noundef !101
+  %152 = trunc i8 %151 to i1
+  br i1 %152, label %153, label %165
+
+153:                                              ; preds = %130
+  %154 = load ptr, ptr %6, align 8, !tbaa !27
+  %155 = getelementptr inbounds nuw %struct.Proto, ptr %154, i32 0, i32 12
+  %156 = load ptr, ptr %155, align 8, !tbaa !95
+  %157 = icmp ne ptr %156, null
+  br i1 %157, label %158, label %165
+
+158:                                              ; preds = %153
+  %159 = load ptr, ptr %9, align 8, !tbaa !93
+  %160 = icmp ne ptr %159, null
+  br i1 %160, label %161, label %165
+
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %9, align 8, !tbaa !93
+  %163 = load ptr, ptr %5, align 8, !tbaa !4
+  %164 = load ptr, ptr %6, align 8, !tbaa !27
+  call void %162(ptr noundef %163, ptr noundef %164)
+  br label %165
+
+165:                                              ; preds = %161, %158, %153, %130
+  store i32 2, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #11
+  br label %169
+
+166:                                              ; preds = %59, %52
+  %167 = load i32, ptr %10, align 4, !tbaa !9
+  %168 = add nsw i32 %167, 1
+  store i32 %168, ptr %10, align 4, !tbaa !9
+  br label %35, !llvm.loop !102
+
+169:                                              ; preds = %165, %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  br label %170
+
+170:                                              ; preds = %169
+  br label %171
+
+171:                                              ; preds = %170, %29, %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  store i32 0, ptr %14, align 4, !tbaa !9
+  br label %172
+
+172:                                              ; preds = %191, %171
+  %173 = load i32, ptr %14, align 4, !tbaa !9
+  %174 = load ptr, ptr %6, align 8, !tbaa !27
+  %175 = getelementptr inbounds nuw %struct.Proto, ptr %174, i32 0, i32 25
+  %176 = load i32, ptr %175, align 4, !tbaa !103
+  %177 = icmp slt i32 %173, %176
+  br i1 %177, label %179, label %178
+
+178:                                              ; preds = %172
+  store i32 8, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  br label %194
+
+179:                                              ; preds = %172
+  %180 = load ptr, ptr %5, align 8, !tbaa !4
+  %181 = load ptr, ptr %6, align 8, !tbaa !27
+  %182 = getelementptr inbounds nuw %struct.Proto, ptr %181, i32 0, i32 10
+  %183 = load ptr, ptr %182, align 8, !tbaa !104
+  %184 = load i32, ptr %14, align 4, !tbaa !9
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds ptr, ptr %183, i64 %185
+  %187 = load ptr, ptr %186, align 8, !tbaa !27
+  %188 = load i32, ptr %7, align 4, !tbaa !9
+  %189 = load i8, ptr %8, align 1, !tbaa !81, !range !100, !noundef !101
+  %190 = trunc i8 %189 to i1
+  call void @_Z15luaG_breakpointP9lua_StateP5Protoib(ptr noundef %180, ptr noundef %187, i32 noundef %188, i1 noundef zeroext %190)
+  br label %191
+
+191:                                              ; preds = %179
+  %192 = load i32, ptr %14, align 4, !tbaa !9
+  %193 = add nsw i32 %192, 1
+  store i32 %193, ptr %14, align 4, !tbaa !9
+  br label %172, !llvm.loop !105
+
+194:                                              ; preds = %178
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %0, i32 noundef %1) #1 {
+define hidden noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.Proto, ptr %6, i32 0, i32 14
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %4, align 8, !tbaa !27
+  %7 = getelementptr inbounds nuw %struct.Proto, ptr %6, i32 0, i32 14
+  %8 = load ptr, ptr %7, align 8, !tbaa !94
   %9 = icmp ne ptr %8, null
   br i1 %9, label %11, label %10
 
@@ -1763,24 +1894,24 @@ define hidden noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %0, i32 noundef 
   br label %32
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.Proto, ptr %12, i32 0, i32 15
-  %14 = load ptr, ptr %13, align 8
-  %15 = load i32, ptr %5, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.Proto, ptr %16, i32 0, i32 30
-  %18 = load i32, ptr %17, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !27
+  %13 = getelementptr inbounds nuw %struct.Proto, ptr %12, i32 0, i32 15
+  %14 = load ptr, ptr %13, align 8, !tbaa !106
+  %15 = load i32, ptr %5, align 4, !tbaa !9
+  %16 = load ptr, ptr %4, align 8, !tbaa !27
+  %17 = getelementptr inbounds nuw %struct.Proto, ptr %16, i32 0, i32 30
+  %18 = load i32, ptr %17, align 8, !tbaa !107
   %19 = ashr i32 %15, %18
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %14, i64 %20
-  %22 = load i32, ptr %21, align 4
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.Proto, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %5, align 4
+  %22 = load i32, ptr %21, align 4, !tbaa !9
+  %23 = load ptr, ptr %4, align 8, !tbaa !27
+  %24 = getelementptr inbounds nuw %struct.Proto, ptr %23, i32 0, i32 14
+  %25 = load ptr, ptr %24, align 8, !tbaa !94
+  %26 = load i32, ptr %5, align 4, !tbaa !9
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
-  %29 = load i8, ptr %28, align 1
+  %29 = load i8, ptr %28, align 1, !tbaa !37
   %30 = zext i8 %29 to i32
   %31 = add nsw i32 %22, %30
   store i32 %31, ptr %3, align 4
@@ -1791,22 +1922,22 @@ define hidden noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %0, i32 noundef 
   ret i32 %33
 }
 
-declare hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef, i64 noundef, i8 noundef zeroext) #2
+declare hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef, i64 noundef, i8 noundef zeroext) #3
 
 ; Function Attrs: noreturn
-declare hidden void @_Z11luaM_toobigP9lua_State(ptr noundef) #7
+declare hidden void @_Z11luaM_toobigP9lua_State(ptr noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_Z12luaG_onbreakP9lua_State(ptr noundef %0) #1 {
+define hidden noundef zeroext i1 @_Z12luaG_onbreakP9lua_State(ptr noundef %0) #2 {
   %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.lua_State, ptr %4, i32 0, i32 10
-  %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.lua_State, ptr %7, i32 0, i32 14
-  %9 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %4 = load ptr, ptr %3, align 8, !tbaa !4
+  %5 = getelementptr inbounds nuw %struct.lua_State, ptr %4, i32 0, i32 10
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.lua_State, ptr %7, i32 0, i32 14
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
   %10 = icmp eq ptr %6, %9
   br i1 %10, label %11, label %12
 
@@ -1815,26 +1946,26 @@ define hidden noundef zeroext i1 @_Z12luaG_onbreakP9lua_State(ptr noundef %0) #1
   br label %42
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.lua_State, ptr %13, i32 0, i32 10
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.CallInfo, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.lua_TValue, ptr %17, i32 0, i32 2
-  %19 = load i32, ptr %18, align 4
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.lua_State, ptr %13, i32 0, i32 10
+  %15 = load ptr, ptr %14, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.CallInfo, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !40
+  %18 = getelementptr inbounds nuw %struct.lua_TValue, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 4, !tbaa !41
   %20 = icmp eq i32 %19, 7
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %12
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.lua_State, ptr %22, i32 0, i32 10
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.CallInfo, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %struct.lua_TValue, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.Closure, ptr %28, i32 0, i32 3
-  %30 = load i8, ptr %29, align 1
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.lua_State, ptr %22, i32 0, i32 10
+  %24 = load ptr, ptr %23, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw %struct.CallInfo, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
+  %27 = getelementptr inbounds nuw %struct.lua_TValue, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !37
+  %29 = getelementptr inbounds nuw %struct.Closure, ptr %28, i32 0, i32 3
+  %30 = load i8, ptr %29, align 1, !tbaa !43
   %31 = icmp ne i8 %30, 0
   br i1 %31, label %32, label %33
 
@@ -1843,12 +1974,12 @@ define hidden noundef zeroext i1 @_Z12luaG_onbreakP9lua_State(ptr noundef %0) #1
   br label %42
 
 33:                                               ; preds = %21
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.lua_State, ptr %34, i32 0, i32 10
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.CallInfo, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %38, align 4
+  %34 = load ptr, ptr %3, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.lua_State, ptr %34, i32 0, i32 10
+  %36 = load ptr, ptr %35, align 8, !tbaa !11
+  %37 = getelementptr inbounds nuw %struct.CallInfo, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8, !tbaa !50
+  %39 = load i32, ptr %38, align 4, !tbaa !9
   %40 = and i32 %39, 255
   %41 = icmp eq i32 %40, 1
   store i1 %41, ptr %2, align 1
@@ -1860,20 +1991,20 @@ define hidden noundef zeroext i1 @_Z12luaG_onbreakP9lua_State(ptr noundef %0) #1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z13luaG_isnativeP9lua_Statei(ptr noundef %0, i32 noundef %1) #1 {
+define hidden noundef i32 @_Z13luaG_isnativeP9lua_Statei(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load i32, ptr %5, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.lua_State, ptr %8, i32 0, i32 10
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.lua_State, ptr %11, i32 0, i32 14
-  %13 = load ptr, ptr %12, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %7 = load i32, ptr %5, align 4, !tbaa !9
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.lua_State, ptr %8, i32 0, i32 10
+  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.lua_State, ptr %11, i32 0, i32 14
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = ptrtoint ptr %10 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -1887,21 +2018,23 @@ define hidden noundef i32 @_Z13luaG_isnativeP9lua_Statei(ptr noundef %0, i32 nou
   br label %35
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.lua_State, ptr %22, i32 0, i32 10
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %22 = load ptr, ptr %4, align 8, !tbaa !4
+  %23 = getelementptr inbounds nuw %struct.lua_State, ptr %22, i32 0, i32 10
+  %24 = load ptr, ptr %23, align 8, !tbaa !11
+  %25 = load i32, ptr %5, align 4, !tbaa !9
   %26 = sext i32 %25 to i64
   %27 = sub i64 0, %26
   %28 = getelementptr inbounds %struct.CallInfo, ptr %24, i64 %27
-  store ptr %28, ptr %6, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.CallInfo, ptr %29, i32 0, i32 5
-  %31 = load i32, ptr %30, align 4
+  store ptr %28, ptr %6, align 8, !tbaa !23
+  %29 = load ptr, ptr %6, align 8, !tbaa !23
+  %30 = getelementptr inbounds nuw %struct.CallInfo, ptr %29, i32 0, i32 5
+  %31 = load i32, ptr %30, align 4, !tbaa !24
   %32 = and i32 %31, 4
   %33 = icmp ne i32 %32, 0
   %34 = select i1 %33, i32 1, i32 0
   store i32 %34, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
   br label %35
 
 35:                                               ; preds = %21, %20
@@ -1909,18 +2042,90 @@ define hidden noundef i32 @_Z13luaG_isnativeP9lua_Statei(ptr noundef %0, i32 nou
   ret i32 %36
 }
 
+; Function Attrs: mustprogress uwtable
+define hidden noundef i32 @_Z14luaG_hasnativeP9lua_Statei(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  %9 = load i32, ptr %5, align 4, !tbaa !9
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.lua_State, ptr %10, i32 0, i32 10
+  %12 = load ptr, ptr %11, align 8, !tbaa !11
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.lua_State, ptr %13, i32 0, i32 14
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  %16 = ptrtoint ptr %12 to i64
+  %17 = ptrtoint ptr %15 to i64
+  %18 = sub i64 %16, %17
+  %19 = sdiv exact i64 %18, 40
+  %20 = trunc i64 %19 to i32
+  %21 = icmp uge i32 %9, %20
+  br i1 %21, label %22, label %23
+
+22:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %43
+
+23:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %24 = load ptr, ptr %4, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw %struct.lua_State, ptr %24, i32 0, i32 10
+  %26 = load ptr, ptr %25, align 8, !tbaa !11
+  %27 = load i32, ptr %5, align 4, !tbaa !9
+  %28 = sext i32 %27 to i64
+  %29 = sub i64 0, %28
+  %30 = getelementptr inbounds %struct.CallInfo, ptr %26, i64 %29
+  store ptr %30, ptr %6, align 8, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %31 = load ptr, ptr %6, align 8, !tbaa !23
+  %32 = call noundef ptr @_ZL11getluaprotoP8CallInfo(ptr noundef %31)
+  store ptr %32, ptr %7, align 8, !tbaa !27
+  %33 = load ptr, ptr %7, align 8, !tbaa !27
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %23
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %42
+
+36:                                               ; preds = %23
+  %37 = load ptr, ptr %7, align 8, !tbaa !27
+  %38 = getelementptr inbounds nuw %struct.Proto, ptr %37, i32 0, i32 12
+  %39 = load ptr, ptr %38, align 8, !tbaa !95
+  %40 = icmp ne ptr %39, null
+  %41 = zext i1 %40 to i32
+  store i32 %41, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %42
+
+42:                                               ; preds = %36, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %43
+
+43:                                               ; preds = %42, %22
+  %44 = load i32, ptr %3, align 4
+  ret i32 %44
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_Z14lua_singlestepP9lua_Statei(ptr noundef %0, i32 noundef %1) #1 {
+define dso_local void @_Z14lua_singlestepP9lua_Statei(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = icmp ne i32 %5, 0
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.lua_State, ptr %7, i32 0, i32 6
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.lua_State, ptr %7, i32 0, i32 6
   %9 = zext i1 %6 to i8
-  store i8 %9, ptr %8, align 2
+  store i8 %9, ptr %8, align 2, !tbaa !108
   ret void
 }
 
@@ -1933,44 +2138,50 @@ define dso_local noundef i32 @_Z14lua_breakpointP9lua_Stateiii(ptr noundef %0, i
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store i32 %3, ptr %8, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i32, ptr %6, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  store i32 %3, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %12 = load ptr, ptr %5, align 8, !tbaa !4
+  %13 = load i32, ptr %6, align 4, !tbaa !9
   %14 = call noundef ptr @_Z13luaA_toobjectP9lua_Statei(ptr noundef %12, i32 noundef %13)
-  store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds %struct.lua_TValue, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.Closure, ptr %17, i32 0, i32 9
-  %19 = getelementptr inbounds %struct.anon.1, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %10, align 8
-  %21 = load ptr, ptr %10, align 8
-  %22 = load i32, ptr %7, align 4
+  store ptr %14, ptr %9, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %15 = load ptr, ptr %9, align 8, !tbaa !53
+  %16 = getelementptr inbounds nuw %struct.lua_TValue, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !37
+  %18 = getelementptr inbounds nuw %struct.Closure, ptr %17, i32 0, i32 9
+  %19 = getelementptr inbounds nuw %struct.anon.1, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
+  store ptr %20, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %21 = load ptr, ptr %10, align 8, !tbaa !27
+  %22 = load i32, ptr %7, align 4, !tbaa !9
   %23 = call noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef %21, i32 noundef %22)
-  store i32 %23, ptr %11, align 4
-  %24 = load i32, ptr %11, align 4
+  store i32 %23, ptr %11, align 4, !tbaa !9
+  %24 = load i32, ptr %11, align 4, !tbaa !9
   %25 = icmp ne i32 %24, -1
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %4
-  %27 = load ptr, ptr %5, align 8
-  %28 = load ptr, ptr %10, align 8
-  %29 = load i32, ptr %11, align 4
-  %30 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %5, align 8, !tbaa !4
+  %28 = load ptr, ptr %10, align 8, !tbaa !27
+  %29 = load i32, ptr %11, align 4, !tbaa !9
+  %30 = load i32, ptr %8, align 4, !tbaa !9
   %31 = icmp ne i32 %30, 0
   call void @_Z15luaG_breakpointP9lua_StateP5Protoib(ptr noundef %27, ptr noundef %28, i32 noundef %29, i1 noundef zeroext %31)
   br label %32
 
 32:                                               ; preds = %26, %4
-  %33 = load i32, ptr %11, align 4
+  %33 = load i32, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   ret i32 %33
 }
 
-declare hidden noundef ptr @_Z13luaA_toobjectP9lua_Statei(ptr noundef, i32 noundef) #2
+declare hidden noundef ptr @_Z13luaA_toobjectP9lua_Statei(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef %0, i32 noundef %1) #0 {
@@ -1982,163 +2193,217 @@ define internal noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef %0, i32 nounde
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 -1, ptr %6, align 4
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.Proto, ptr %11, i32 0, i32 14
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %60
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store i32 %1, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 -1, ptr %6, align 4, !tbaa !9
+  %12 = load ptr, ptr %4, align 8, !tbaa !27
+  %13 = getelementptr inbounds nuw %struct.Proto, ptr %12, i32 0, i32 14
+  %14 = load ptr, ptr %13, align 8, !tbaa !94
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %67
 
-15:                                               ; preds = %2
-  store i32 0, ptr %7, align 4
-  br label %16
+16:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  store i32 0, ptr %7, align 4, !tbaa !9
+  br label %17
 
-16:                                               ; preds = %56, %15
-  %17 = load i32, ptr %7, align 4
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.Proto, ptr %18, i32 0, i32 24
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp slt i32 %17, %20
-  br i1 %21, label %22, label %59
+17:                                               ; preds = %61, %16
+  %18 = load i32, ptr %7, align 4, !tbaa !9
+  %19 = load ptr, ptr %4, align 8, !tbaa !27
+  %20 = getelementptr inbounds nuw %struct.Proto, ptr %19, i32 0, i32 24
+  %21 = load i32, ptr %20, align 8, !tbaa !96
+  %22 = icmp slt i32 %18, %21
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.Proto, ptr %23, i32 0, i32 9
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %7, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %25, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = and i32 %29, 255
-  %31 = icmp eq i32 %30, 65
-  br i1 %31, label %32, label %33
+23:                                               ; preds = %17
+  store i32 2, ptr %8, align 4
+  br label %64
 
-32:                                               ; preds = %22
-  br label %56
+24:                                               ; preds = %17
+  %25 = load ptr, ptr %4, align 8, !tbaa !27
+  %26 = getelementptr inbounds nuw %struct.Proto, ptr %25, i32 0, i32 9
+  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  %28 = load i32, ptr %7, align 4, !tbaa !9
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i32, ptr %27, i64 %29
+  %31 = load i32, ptr %30, align 4, !tbaa !9
+  %32 = and i32 %31, 255
+  %33 = icmp eq i32 %32, 65
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %22
-  %34 = load ptr, ptr %4, align 8
-  %35 = load i32, ptr %7, align 4
-  %36 = call noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %34, i32 noundef %35)
-  store i32 %36, ptr %8, align 4
-  %37 = load i32, ptr %8, align 4
-  %38 = load i32, ptr %5, align 4
-  %39 = icmp eq i32 %37, %38
-  br i1 %39, label %40, label %42
-
-40:                                               ; preds = %33
-  %41 = load i32, ptr %5, align 4
-  store i32 %41, ptr %3, align 4
-  br label %101
-
-42:                                               ; preds = %33
-  %43 = load i32, ptr %8, align 4
-  %44 = load i32, ptr %5, align 4
-  %45 = icmp sgt i32 %43, %44
-  br i1 %45, label %46, label %55
-
-46:                                               ; preds = %42
-  %47 = load i32, ptr %6, align 4
-  %48 = icmp eq i32 %47, -1
-  br i1 %48, label %53, label %49
-
-49:                                               ; preds = %46
-  %50 = load i32, ptr %8, align 4
-  %51 = load i32, ptr %6, align 4
-  %52 = icmp slt i32 %50, %51
-  br i1 %52, label %53, label %55
-
-53:                                               ; preds = %49, %46
-  %54 = load i32, ptr %8, align 4
-  store i32 %54, ptr %6, align 4
-  br label %55
-
-55:                                               ; preds = %53, %49, %42
-  br label %56
-
-56:                                               ; preds = %55, %32
-  %57 = load i32, ptr %7, align 4
-  %58 = add nsw i32 %57, 1
-  store i32 %58, ptr %7, align 4
-  br label %16, !llvm.loop !10
-
-59:                                               ; preds = %16
-  br label %60
-
-60:                                               ; preds = %59, %2
-  store i32 0, ptr %9, align 4
+34:                                               ; preds = %24
   br label %61
 
-61:                                               ; preds = %96, %60
-  %62 = load i32, ptr %9, align 4
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.Proto, ptr %63, i32 0, i32 25
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp slt i32 %62, %65
-  br i1 %66, label %67, label %99
+35:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %36 = load ptr, ptr %4, align 8, !tbaa !27
+  %37 = load i32, ptr %7, align 4, !tbaa !9
+  %38 = call noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %36, i32 noundef %37)
+  store i32 %38, ptr %9, align 4, !tbaa !9
+  %39 = load i32, ptr %9, align 4, !tbaa !9
+  %40 = load i32, ptr %5, align 4, !tbaa !9
+  %41 = icmp eq i32 %39, %40
+  br i1 %41, label %42, label %44
 
-67:                                               ; preds = %61
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.Proto, ptr %68, i32 0, i32 10
-  %70 = load ptr, ptr %69, align 8
-  %71 = load i32, ptr %9, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  %75 = load i32, ptr %5, align 4
-  %76 = call noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef %74, i32 noundef %75)
-  store i32 %76, ptr %10, align 4
-  %77 = load i32, ptr %10, align 4
-  %78 = load i32, ptr %5, align 4
-  %79 = icmp eq i32 %77, %78
-  br i1 %79, label %80, label %82
+42:                                               ; preds = %35
+  %43 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %43, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %58
 
-80:                                               ; preds = %67
-  %81 = load i32, ptr %5, align 4
-  store i32 %81, ptr %3, align 4
-  br label %101
+44:                                               ; preds = %35
+  %45 = load i32, ptr %9, align 4, !tbaa !9
+  %46 = load i32, ptr %5, align 4, !tbaa !9
+  %47 = icmp sgt i32 %45, %46
+  br i1 %47, label %48, label %57
 
-82:                                               ; preds = %67
-  %83 = load i32, ptr %10, align 4
-  %84 = load i32, ptr %5, align 4
-  %85 = icmp sgt i32 %83, %84
-  br i1 %85, label %86, label %95
+48:                                               ; preds = %44
+  %49 = load i32, ptr %6, align 4, !tbaa !9
+  %50 = icmp eq i32 %49, -1
+  br i1 %50, label %55, label %51
 
-86:                                               ; preds = %82
-  %87 = load i32, ptr %6, align 4
-  %88 = icmp eq i32 %87, -1
-  br i1 %88, label %93, label %89
+51:                                               ; preds = %48
+  %52 = load i32, ptr %9, align 4, !tbaa !9
+  %53 = load i32, ptr %6, align 4, !tbaa !9
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %55, label %57
 
-89:                                               ; preds = %86
-  %90 = load i32, ptr %10, align 4
-  %91 = load i32, ptr %6, align 4
-  %92 = icmp slt i32 %90, %91
-  br i1 %92, label %93, label %95
+55:                                               ; preds = %51, %48
+  %56 = load i32, ptr %9, align 4, !tbaa !9
+  store i32 %56, ptr %6, align 4, !tbaa !9
+  br label %57
 
-93:                                               ; preds = %89, %86
-  %94 = load i32, ptr %10, align 4
-  store i32 %94, ptr %6, align 4
-  br label %95
+57:                                               ; preds = %55, %51, %44
+  store i32 0, ptr %8, align 4
+  br label %58
 
-95:                                               ; preds = %93, %89, %82
-  br label %96
+58:                                               ; preds = %57, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  %59 = load i32, ptr %8, align 4
+  switch i32 %59, label %64 [
+    i32 0, label %60
+  ]
 
-96:                                               ; preds = %95
-  %97 = load i32, ptr %9, align 4
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %9, align 4
-  br label %61, !llvm.loop !11
+60:                                               ; preds = %58
+  br label %61
 
-99:                                               ; preds = %61
-  %100 = load i32, ptr %6, align 4
-  store i32 %100, ptr %3, align 4
-  br label %101
+61:                                               ; preds = %60, %34
+  %62 = load i32, ptr %7, align 4, !tbaa !9
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %7, align 4, !tbaa !9
+  br label %17, !llvm.loop !109
 
-101:                                              ; preds = %99, %80, %40
-  %102 = load i32, ptr %3, align 4
-  ret i32 %102
+64:                                               ; preds = %58, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  %65 = load i32, ptr %8, align 4
+  switch i32 %65, label %114 [
+    i32 2, label %66
+  ]
+
+66:                                               ; preds = %64
+  br label %67
+
+67:                                               ; preds = %66, %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 0, ptr %10, align 4, !tbaa !9
+  br label %68
+
+68:                                               ; preds = %107, %67
+  %69 = load i32, ptr %10, align 4, !tbaa !9
+  %70 = load ptr, ptr %4, align 8, !tbaa !27
+  %71 = getelementptr inbounds nuw %struct.Proto, ptr %70, i32 0, i32 25
+  %72 = load i32, ptr %71, align 4, !tbaa !103
+  %73 = icmp slt i32 %69, %72
+  br i1 %73, label %75, label %74
+
+74:                                               ; preds = %68
+  store i32 5, ptr %8, align 4
+  br label %110
+
+75:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %76 = load ptr, ptr %4, align 8, !tbaa !27
+  %77 = getelementptr inbounds nuw %struct.Proto, ptr %76, i32 0, i32 10
+  %78 = load ptr, ptr %77, align 8, !tbaa !104
+  %79 = load i32, ptr %10, align 4, !tbaa !9
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %82 = load ptr, ptr %81, align 8, !tbaa !27
+  %83 = load i32, ptr %5, align 4, !tbaa !9
+  %84 = call noundef i32 @_ZL11getnextlineP5Protoi(ptr noundef %82, i32 noundef %83)
+  store i32 %84, ptr %11, align 4, !tbaa !9
+  %85 = load i32, ptr %11, align 4, !tbaa !9
+  %86 = load i32, ptr %5, align 4, !tbaa !9
+  %87 = icmp eq i32 %85, %86
+  br i1 %87, label %88, label %90
+
+88:                                               ; preds = %75
+  %89 = load i32, ptr %5, align 4, !tbaa !9
+  store i32 %89, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %104
+
+90:                                               ; preds = %75
+  %91 = load i32, ptr %11, align 4, !tbaa !9
+  %92 = load i32, ptr %5, align 4, !tbaa !9
+  %93 = icmp sgt i32 %91, %92
+  br i1 %93, label %94, label %103
+
+94:                                               ; preds = %90
+  %95 = load i32, ptr %6, align 4, !tbaa !9
+  %96 = icmp eq i32 %95, -1
+  br i1 %96, label %101, label %97
+
+97:                                               ; preds = %94
+  %98 = load i32, ptr %11, align 4, !tbaa !9
+  %99 = load i32, ptr %6, align 4, !tbaa !9
+  %100 = icmp slt i32 %98, %99
+  br i1 %100, label %101, label %103
+
+101:                                              ; preds = %97, %94
+  %102 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %102, ptr %6, align 4, !tbaa !9
+  br label %103
+
+103:                                              ; preds = %101, %97, %90
+  store i32 0, ptr %8, align 4
+  br label %104
+
+104:                                              ; preds = %103, %88
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  %105 = load i32, ptr %8, align 4
+  switch i32 %105, label %110 [
+    i32 0, label %106
+  ]
+
+106:                                              ; preds = %104
+  br label %107
+
+107:                                              ; preds = %106
+  %108 = load i32, ptr %10, align 4, !tbaa !9
+  %109 = add nsw i32 %108, 1
+  store i32 %109, ptr %10, align 4, !tbaa !9
+  br label %68, !llvm.loop !110
+
+110:                                              ; preds = %104, %74
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  %111 = load i32, ptr %8, align 4
+  switch i32 %111, label %114 [
+    i32 5, label %112
+  ]
+
+112:                                              ; preds = %110
+  %113 = load i32, ptr %6, align 4, !tbaa !9
+  store i32 %113, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %114
+
+114:                                              ; preds = %112, %110, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  %115 = load i32, ptr %3, align 4
+  ret i32 %115
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2150,72 +2415,93 @@ define dso_local void @_Z15lua_getcoverageP9lua_StateiPvPFvS1_PKciiPKimE(ptr nou
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
-  %12 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = call noundef ptr @_Z13luaA_toobjectP9lua_Statei(ptr noundef %13, i32 noundef %14)
-  store ptr %15, ptr %9, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds %struct.lua_TValue, ptr %16, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.Closure, ptr %18, i32 0, i32 9
-  %20 = getelementptr inbounds %struct.anon.1, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %10, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = call noundef i32 @_ZL10getmaxlineP5Proto(ptr noundef %22)
-  %24 = add nsw i32 %23, 1
-  %25 = sext i32 %24 to i64
-  store i64 %25, ptr %11, align 8
-  %26 = load i64, ptr %11, align 8
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %4
-  br label %51
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !93
+  store ptr %3, ptr %8, align 8, !tbaa !93
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  %15 = load i32, ptr %6, align 4, !tbaa !9
+  %16 = call noundef ptr @_Z13luaA_toobjectP9lua_Statei(ptr noundef %14, i32 noundef %15)
+  store ptr %16, ptr %9, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %17 = load ptr, ptr %9, align 8, !tbaa !53
+  %18 = getelementptr inbounds nuw %struct.lua_TValue, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %20 = getelementptr inbounds nuw %struct.Closure, ptr %19, i32 0, i32 9
+  %21 = getelementptr inbounds nuw %struct.anon.1, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !37
+  store ptr %22, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %23 = load ptr, ptr %10, align 8, !tbaa !27
+  %24 = call noundef i32 @_ZL10getmaxlineP5Proto(ptr noundef %23)
+  %25 = add nsw i32 %24, 1
+  %26 = sext i32 %25 to i64
+  store i64 %26, ptr %11, align 8, !tbaa !111
+  %27 = load i64, ptr %11, align 8, !tbaa !111
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %4
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i64, ptr %11, align 8
-  %32 = icmp ule i64 %31, 4611686018427387903
-  br i1 %32, label %33, label %36
+  store i32 1, ptr %12, align 4
+  br label %52
 
-33:                                               ; preds = %29
-  %34 = load i64, ptr %11, align 8
-  %35 = mul i64 %34, 4
-  br label %39
+30:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %31 = load ptr, ptr %5, align 8, !tbaa !4
+  %32 = load i64, ptr %11, align 8, !tbaa !111
+  %33 = icmp ule i64 %32, 4611686018427387903
+  br i1 %33, label %34, label %37
 
-36:                                               ; preds = %29
-  %37 = load ptr, ptr %5, align 8
-  call void @_Z11luaM_toobigP9lua_State(ptr noundef %37) #10
+34:                                               ; preds = %30
+  %35 = load i64, ptr %11, align 8, !tbaa !111
+  %36 = mul i64 %35, 4
+  br label %40
+
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @_Z11luaM_toobigP9lua_State(ptr noundef %38) #12
   unreachable
 
-38:                                               ; No predecessors!
-  br label %39
+39:                                               ; No predecessors!
+  br label %40
 
-39:                                               ; preds = %38, %33
-  %40 = phi i64 [ %35, %33 ], [ -1, %38 ]
-  %41 = call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %30, i64 noundef %40, i8 noundef zeroext 0)
-  store ptr %41, ptr %12, align 8
-  %42 = load ptr, ptr %10, align 8
-  %43 = load ptr, ptr %12, align 8
-  %44 = load i64, ptr %11, align 8
-  %45 = load ptr, ptr %7, align 8
-  %46 = load ptr, ptr %8, align 8
-  call void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr noundef %42, i32 noundef 0, ptr noundef %43, i64 noundef %44, ptr noundef %45, ptr noundef %46)
-  %47 = load ptr, ptr %5, align 8
-  %48 = load ptr, ptr %12, align 8
-  %49 = load i64, ptr %11, align 8
-  %50 = mul i64 %49, 4
-  call void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %47, ptr noundef %48, i64 noundef %50, i8 noundef zeroext 0)
-  br label %51
+40:                                               ; preds = %39, %34
+  %41 = phi i64 [ %36, %34 ], [ -1, %39 ]
+  %42 = call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %31, i64 noundef %41, i8 noundef zeroext 0)
+  store ptr %42, ptr %13, align 8, !tbaa !112
+  %43 = load ptr, ptr %10, align 8, !tbaa !27
+  %44 = load ptr, ptr %13, align 8, !tbaa !112
+  %45 = load i64, ptr %11, align 8, !tbaa !111
+  %46 = load ptr, ptr %7, align 8, !tbaa !93
+  %47 = load ptr, ptr %8, align 8, !tbaa !93
+  call void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr noundef %43, i32 noundef 0, ptr noundef %44, i64 noundef %45, ptr noundef %46, ptr noundef %47)
+  %48 = load ptr, ptr %5, align 8, !tbaa !4
+  %49 = load ptr, ptr %13, align 8, !tbaa !112
+  %50 = load i64, ptr %11, align 8, !tbaa !111
+  %51 = mul i64 %50, 4
+  call void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %48, ptr noundef %49, i64 noundef %51, i8 noundef zeroext 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  store i32 0, ptr %12, align 4
+  br label %52
 
-51:                                               ; preds = %39, %28
+52:                                               ; preds = %40, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  %53 = load i32, ptr %12, align 4
+  switch i32 %53, label %55 [
+    i32 0, label %54
+    i32 1, label %54
+  ]
+
+54:                                               ; preds = %52, %52
   ret void
+
+55:                                               ; preds = %52
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2226,97 +2512,113 @@ define internal noundef i32 @_ZL10getmaxlineP5Proto(ptr noundef %0) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  store i32 -1, ptr %3, align 4
-  store i32 0, ptr %4, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  store i32 -1, ptr %3, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 0, ptr %4, align 4, !tbaa !9
   br label %8
 
-8:                                                ; preds = %27, %1
-  %9 = load i32, ptr %4, align 4
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.Proto, ptr %10, i32 0, i32 24
-  %12 = load i32, ptr %11, align 8
+8:                                                ; preds = %28, %1
+  %9 = load i32, ptr %4, align 4, !tbaa !9
+  %10 = load ptr, ptr %2, align 8, !tbaa !27
+  %11 = getelementptr inbounds nuw %struct.Proto, ptr %10, i32 0, i32 24
+  %12 = load i32, ptr %11, align 8, !tbaa !96
   %13 = icmp slt i32 %9, %12
-  br i1 %13, label %14, label %30
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %2, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = call noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %15, i32 noundef %16)
-  store i32 %17, ptr %5, align 4
-  %18 = load i32, ptr %3, align 4
-  %19 = load i32, ptr %5, align 4
-  %20 = icmp slt i32 %18, %19
-  br i1 %20, label %21, label %23
-
-21:                                               ; preds = %14
-  %22 = load i32, ptr %5, align 4
-  br label %25
-
-23:                                               ; preds = %14
-  %24 = load i32, ptr %3, align 4
-  br label %25
-
-25:                                               ; preds = %23, %21
-  %26 = phi i32 [ %22, %21 ], [ %24, %23 ]
-  store i32 %26, ptr %3, align 4
-  br label %27
-
-27:                                               ; preds = %25
-  %28 = load i32, ptr %4, align 4
-  %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %4, align 4
-  br label %8, !llvm.loop !12
-
-30:                                               ; preds = %8
-  store i32 0, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
   br label %31
 
-31:                                               ; preds = %55, %30
-  %32 = load i32, ptr %6, align 4
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds %struct.Proto, ptr %33, i32 0, i32 25
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp slt i32 %32, %35
-  br i1 %36, label %37, label %58
+15:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  %16 = load ptr, ptr %2, align 8, !tbaa !27
+  %17 = load i32, ptr %4, align 4, !tbaa !9
+  %18 = call noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %16, i32 noundef %17)
+  store i32 %18, ptr %5, align 4, !tbaa !9
+  %19 = load i32, ptr %3, align 4, !tbaa !9
+  %20 = load i32, ptr %5, align 4, !tbaa !9
+  %21 = icmp slt i32 %19, %20
+  br i1 %21, label %22, label %24
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds %struct.Proto, ptr %38, i32 0, i32 10
-  %40 = load ptr, ptr %39, align 8
-  %41 = load i32, ptr %6, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  %45 = call noundef i32 @_ZL10getmaxlineP5Proto(ptr noundef %44)
-  store i32 %45, ptr %7, align 4
-  %46 = load i32, ptr %3, align 4
-  %47 = load i32, ptr %7, align 4
-  %48 = icmp slt i32 %46, %47
-  br i1 %48, label %49, label %51
+22:                                               ; preds = %15
+  %23 = load i32, ptr %5, align 4, !tbaa !9
+  br label %26
 
-49:                                               ; preds = %37
-  %50 = load i32, ptr %7, align 4
-  br label %53
+24:                                               ; preds = %15
+  %25 = load i32, ptr %3, align 4, !tbaa !9
+  br label %26
 
-51:                                               ; preds = %37
-  %52 = load i32, ptr %3, align 4
-  br label %53
+26:                                               ; preds = %24, %22
+  %27 = phi i32 [ %23, %22 ], [ %25, %24 ]
+  store i32 %27, ptr %3, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  br label %28
 
-53:                                               ; preds = %51, %49
-  %54 = phi i32 [ %50, %49 ], [ %52, %51 ]
-  store i32 %54, ptr %3, align 4
+28:                                               ; preds = %26
+  %29 = load i32, ptr %4, align 4, !tbaa !9
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %4, align 4, !tbaa !9
+  br label %8, !llvm.loop !113
+
+31:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 0, ptr %6, align 4, !tbaa !9
+  br label %32
+
+32:                                               ; preds = %57, %31
+  %33 = load i32, ptr %6, align 4, !tbaa !9
+  %34 = load ptr, ptr %2, align 8, !tbaa !27
+  %35 = getelementptr inbounds nuw %struct.Proto, ptr %34, i32 0, i32 25
+  %36 = load i32, ptr %35, align 4, !tbaa !103
+  %37 = icmp slt i32 %33, %36
+  br i1 %37, label %39, label %38
+
+38:                                               ; preds = %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  br label %60
+
+39:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
+  %40 = load ptr, ptr %2, align 8, !tbaa !27
+  %41 = getelementptr inbounds nuw %struct.Proto, ptr %40, i32 0, i32 10
+  %42 = load ptr, ptr %41, align 8, !tbaa !104
+  %43 = load i32, ptr %6, align 4, !tbaa !9
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !27
+  %47 = call noundef i32 @_ZL10getmaxlineP5Proto(ptr noundef %46)
+  store i32 %47, ptr %7, align 4, !tbaa !9
+  %48 = load i32, ptr %3, align 4, !tbaa !9
+  %49 = load i32, ptr %7, align 4, !tbaa !9
+  %50 = icmp slt i32 %48, %49
+  br i1 %50, label %51, label %53
+
+51:                                               ; preds = %39
+  %52 = load i32, ptr %7, align 4, !tbaa !9
   br label %55
 
-55:                                               ; preds = %53
-  %56 = load i32, ptr %6, align 4
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %6, align 4
-  br label %31, !llvm.loop !13
+53:                                               ; preds = %39
+  %54 = load i32, ptr %3, align 4, !tbaa !9
+  br label %55
 
-58:                                               ; preds = %31
-  %59 = load i32, ptr %3, align 4
-  ret i32 %59
+55:                                               ; preds = %53, %51
+  %56 = phi i32 [ %52, %51 ], [ %54, %53 ]
+  store i32 %56, ptr %3, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  br label %57
+
+57:                                               ; preds = %55
+  %58 = load i32, ptr %6, align 4, !tbaa !9
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %6, align 4, !tbaa !9
+  br label %32, !llvm.loop !114
+
+60:                                               ; preds = %38
+  %61 = load i32, ptr %3, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
+  ret i32 %61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2331,163 +2633,201 @@ define internal void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr noundef 
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  %17 = alloca ptr, align 8
-  %18 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
   %19 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store i32 %1, ptr %8, align 4
-  store ptr %2, ptr %9, align 8
-  store i64 %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
-  %20 = load ptr, ptr %9, align 8
-  %21 = load i64, ptr %10, align 8
-  %22 = mul i64 %21, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %20, i8 -1, i64 %22, i1 false)
-  store i32 0, ptr %13, align 4
-  br label %23
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !27
+  store i32 %1, ptr %8, align 4, !tbaa !9
+  store ptr %2, ptr %9, align 8, !tbaa !112
+  store i64 %3, ptr %10, align 8, !tbaa !111
+  store ptr %4, ptr %11, align 8, !tbaa !93
+  store ptr %5, ptr %12, align 8, !tbaa !93
+  %21 = load ptr, ptr %9, align 8, !tbaa !112
+  %22 = load i64, ptr %10, align 8, !tbaa !111
+  %23 = mul i64 %22, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %21, i8 -1, i64 %23, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #11
+  store i32 0, ptr %13, align 4, !tbaa !9
+  br label %24
 
-23:                                               ; preds = %68, %6
-  %24 = load i32, ptr %13, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.Proto, ptr %25, i32 0, i32 24
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp slt i32 %24, %27
-  br i1 %28, label %29, label %71
+24:                                               ; preds = %73, %6
+  %25 = load i32, ptr %13, align 4, !tbaa !9
+  %26 = load ptr, ptr %7, align 8, !tbaa !27
+  %27 = getelementptr inbounds nuw %struct.Proto, ptr %26, i32 0, i32 24
+  %28 = load i32, ptr %27, align 8, !tbaa !96
+  %29 = icmp slt i32 %25, %28
+  br i1 %29, label %31, label %30
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.Proto, ptr %30, i32 0, i32 9
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %13, align 4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %32, i64 %34
-  %36 = load i32, ptr %35, align 4
-  store i32 %36, ptr %14, align 4
-  %37 = load i32, ptr %14, align 4
-  %38 = and i32 %37, 255
-  %39 = icmp ne i32 %38, 69
-  br i1 %39, label %40, label %41
+30:                                               ; preds = %24
+  store i32 2, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #11
+  br label %76
 
-40:                                               ; preds = %29
-  br label %68
+31:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #11
+  %32 = load ptr, ptr %7, align 8, !tbaa !27
+  %33 = getelementptr inbounds nuw %struct.Proto, ptr %32, i32 0, i32 9
+  %34 = load ptr, ptr %33, align 8, !tbaa !51
+  %35 = load i32, ptr %13, align 4, !tbaa !9
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds i32, ptr %34, i64 %36
+  %38 = load i32, ptr %37, align 4, !tbaa !9
+  store i32 %38, ptr %15, align 4, !tbaa !9
+  %39 = load i32, ptr %15, align 4, !tbaa !9
+  %40 = and i32 %39, 255
+  %41 = icmp ne i32 %40, 69
+  br i1 %41, label %42, label %43
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %13, align 4
-  %44 = call noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %42, i32 noundef %43)
-  store i32 %44, ptr %15, align 4
-  %45 = load i32, ptr %14, align 4
-  %46 = ashr i32 %45, 8
-  store i32 %46, ptr %16, align 4
-  %47 = load ptr, ptr %9, align 8
-  %48 = load i32, ptr %15, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %47, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = load i32, ptr %16, align 4
-  %53 = icmp slt i32 %51, %52
-  br i1 %53, label %54, label %56
+42:                                               ; preds = %31
+  store i32 4, ptr %14, align 4
+  br label %70
 
-54:                                               ; preds = %41
-  %55 = load i32, ptr %16, align 4
-  br label %62
+43:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #11
+  %44 = load ptr, ptr %7, align 8, !tbaa !27
+  %45 = load i32, ptr %13, align 4, !tbaa !9
+  %46 = call noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %44, i32 noundef %45)
+  store i32 %46, ptr %16, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #11
+  %47 = load i32, ptr %15, align 4, !tbaa !9
+  %48 = ashr i32 %47, 8
+  store i32 %48, ptr %17, align 4, !tbaa !9
+  %49 = load ptr, ptr %9, align 8, !tbaa !112
+  %50 = load i32, ptr %16, align 4, !tbaa !9
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i32, ptr %49, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !9
+  %54 = load i32, ptr %17, align 4, !tbaa !9
+  %55 = icmp slt i32 %53, %54
+  br i1 %55, label %56, label %58
 
-56:                                               ; preds = %41
-  %57 = load ptr, ptr %9, align 8
-  %58 = load i32, ptr %15, align 4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %57, i64 %59
-  %61 = load i32, ptr %60, align 4
-  br label %62
+56:                                               ; preds = %43
+  %57 = load i32, ptr %17, align 4, !tbaa !9
+  br label %64
 
-62:                                               ; preds = %56, %54
-  %63 = phi i32 [ %55, %54 ], [ %61, %56 ]
-  %64 = load ptr, ptr %9, align 8
-  %65 = load i32, ptr %15, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %64, i64 %66
-  store i32 %63, ptr %67, align 4
-  br label %68
+58:                                               ; preds = %43
+  %59 = load ptr, ptr %9, align 8, !tbaa !112
+  %60 = load i32, ptr %16, align 4, !tbaa !9
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i32, ptr %59, i64 %61
+  %63 = load i32, ptr %62, align 4, !tbaa !9
+  br label %64
 
-68:                                               ; preds = %62, %40
-  %69 = load i32, ptr %13, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %13, align 4
-  br label %23, !llvm.loop !14
+64:                                               ; preds = %58, %56
+  %65 = phi i32 [ %57, %56 ], [ %63, %58 ]
+  %66 = load ptr, ptr %9, align 8, !tbaa !112
+  %67 = load i32, ptr %16, align 4, !tbaa !9
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i32, ptr %66, i64 %68
+  store i32 %65, ptr %69, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #11
+  store i32 0, ptr %14, align 4
+  br label %70
 
-71:                                               ; preds = %23
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds %struct.Proto, ptr %72, i32 0, i32 19
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %82
+70:                                               ; preds = %64, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #11
+  %71 = load i32, ptr %14, align 4
+  switch i32 %71, label %125 [
+    i32 0, label %72
+    i32 4, label %73
+  ]
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds %struct.Proto, ptr %77, i32 0, i32 19
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds %struct.TString, ptr %79, i32 0, i32 7
-  %81 = getelementptr inbounds [1 x i8], ptr %80, i64 0, i64 0
-  br label %83
+72:                                               ; preds = %70
+  br label %73
 
-82:                                               ; preds = %71
-  br label %83
+73:                                               ; preds = %72, %70
+  %74 = load i32, ptr %13, align 4, !tbaa !9
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %13, align 4, !tbaa !9
+  br label %24, !llvm.loop !115
 
-83:                                               ; preds = %82, %76
-  %84 = phi ptr [ %81, %76 ], [ null, %82 ]
-  store ptr %84, ptr %17, align 8
-  %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds %struct.Proto, ptr %85, i32 0, i32 31
-  %87 = load i32, ptr %86, align 4
-  store i32 %87, ptr %18, align 4
-  %88 = load ptr, ptr %12, align 8
-  %89 = load ptr, ptr %11, align 8
-  %90 = load ptr, ptr %17, align 8
-  %91 = load i32, ptr %18, align 4
-  %92 = load i32, ptr %8, align 4
-  %93 = load ptr, ptr %9, align 8
-  %94 = load i64, ptr %10, align 8
-  call void %88(ptr noundef %89, ptr noundef %90, i32 noundef %91, i32 noundef %92, ptr noundef %93, i64 noundef %94)
-  store i32 0, ptr %19, align 4
-  br label %95
+76:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  %77 = load ptr, ptr %7, align 8, !tbaa !27
+  %78 = getelementptr inbounds nuw %struct.Proto, ptr %77, i32 0, i32 19
+  %79 = load ptr, ptr %78, align 8, !tbaa !116
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %87
 
-95:                                               ; preds = %115, %83
-  %96 = load i32, ptr %19, align 4
-  %97 = load ptr, ptr %7, align 8
-  %98 = getelementptr inbounds %struct.Proto, ptr %97, i32 0, i32 25
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp slt i32 %96, %99
-  br i1 %100, label %101, label %118
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %7, align 8, !tbaa !27
+  %83 = getelementptr inbounds nuw %struct.Proto, ptr %82, i32 0, i32 19
+  %84 = load ptr, ptr %83, align 8, !tbaa !116
+  %85 = getelementptr inbounds nuw %struct.TString, ptr %84, i32 0, i32 7
+  %86 = getelementptr inbounds [1 x i8], ptr %85, i64 0, i64 0
+  br label %88
 
-101:                                              ; preds = %95
-  %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds %struct.Proto, ptr %102, i32 0, i32 10
-  %104 = load ptr, ptr %103, align 8
-  %105 = load i32, ptr %19, align 4
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds ptr, ptr %104, i64 %106
-  %108 = load ptr, ptr %107, align 8
-  %109 = load i32, ptr %8, align 4
-  %110 = add nsw i32 %109, 1
-  %111 = load ptr, ptr %9, align 8
-  %112 = load i64, ptr %10, align 8
-  %113 = load ptr, ptr %11, align 8
-  %114 = load ptr, ptr %12, align 8
-  call void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr noundef %108, i32 noundef %110, ptr noundef %111, i64 noundef %112, ptr noundef %113, ptr noundef %114)
-  br label %115
+87:                                               ; preds = %76
+  br label %88
 
-115:                                              ; preds = %101
-  %116 = load i32, ptr %19, align 4
-  %117 = add nsw i32 %116, 1
-  store i32 %117, ptr %19, align 4
-  br label %95, !llvm.loop !15
+88:                                               ; preds = %87, %81
+  %89 = phi ptr [ %86, %81 ], [ null, %87 ]
+  store ptr %89, ptr %18, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #11
+  %90 = load ptr, ptr %7, align 8, !tbaa !27
+  %91 = getelementptr inbounds nuw %struct.Proto, ptr %90, i32 0, i32 31
+  %92 = load i32, ptr %91, align 4, !tbaa !68
+  store i32 %92, ptr %19, align 4, !tbaa !9
+  %93 = load ptr, ptr %12, align 8, !tbaa !93
+  %94 = load ptr, ptr %11, align 8, !tbaa !93
+  %95 = load ptr, ptr %18, align 8, !tbaa !49
+  %96 = load i32, ptr %19, align 4, !tbaa !9
+  %97 = load i32, ptr %8, align 4, !tbaa !9
+  %98 = load ptr, ptr %9, align 8, !tbaa !112
+  %99 = load i64, ptr %10, align 8, !tbaa !111
+  call void %93(ptr noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef %97, ptr noundef %98, i64 noundef %99)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #11
+  store i32 0, ptr %20, align 4, !tbaa !9
+  br label %100
 
-118:                                              ; preds = %95
+100:                                              ; preds = %121, %88
+  %101 = load i32, ptr %20, align 4, !tbaa !9
+  %102 = load ptr, ptr %7, align 8, !tbaa !27
+  %103 = getelementptr inbounds nuw %struct.Proto, ptr %102, i32 0, i32 25
+  %104 = load i32, ptr %103, align 4, !tbaa !103
+  %105 = icmp slt i32 %101, %104
+  br i1 %105, label %107, label %106
+
+106:                                              ; preds = %100
+  store i32 5, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #11
+  br label %124
+
+107:                                              ; preds = %100
+  %108 = load ptr, ptr %7, align 8, !tbaa !27
+  %109 = getelementptr inbounds nuw %struct.Proto, ptr %108, i32 0, i32 10
+  %110 = load ptr, ptr %109, align 8, !tbaa !104
+  %111 = load i32, ptr %20, align 4, !tbaa !9
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds ptr, ptr %110, i64 %112
+  %114 = load ptr, ptr %113, align 8, !tbaa !27
+  %115 = load i32, ptr %8, align 4, !tbaa !9
+  %116 = add nsw i32 %115, 1
+  %117 = load ptr, ptr %9, align 8, !tbaa !112
+  %118 = load i64, ptr %10, align 8, !tbaa !111
+  %119 = load ptr, ptr %11, align 8, !tbaa !93
+  %120 = load ptr, ptr %12, align 8, !tbaa !93
+  call void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr noundef %114, i32 noundef %116, ptr noundef %117, i64 noundef %118, ptr noundef %119, ptr noundef %120)
+  br label %121
+
+121:                                              ; preds = %107
+  %122 = load i32, ptr %20, align 4, !tbaa !9
+  %123 = add nsw i32 %122, 1
+  store i32 %123, ptr %20, align 4, !tbaa !9
+  br label %100, !llvm.loop !117
+
+124:                                              ; preds = %106
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
   ret void
+
+125:                                              ; preds = %70
+  unreachable
 }
 
-declare hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) #2
+declare hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z14lua_debugtraceP9lua_State(ptr noundef %0) #0 {
@@ -2500,303 +2840,447 @@ define dso_local noundef ptr @_Z14lua_debugtraceP9lua_State(ptr noundef %0) #0 {
   %8 = alloca i32, align 4
   %9 = alloca [32 x i8], align 16
   %10 = alloca [32 x i8], align 16
-  store ptr %0, ptr %2, align 8
-  store i32 10, ptr %3, align 4
-  store i32 10, ptr %4, align 4
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.lua_State, ptr %11, i32 0, i32 10
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.lua_State, ptr %14, i32 0, i32 14
-  %16 = load ptr, ptr %15, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
+  store i32 10, ptr %3, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  store i32 10, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.lua_State, ptr %11, i32 0, i32 10
+  %13 = load ptr, ptr %12, align 8, !tbaa !11
+  %14 = load ptr, ptr %2, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.lua_State, ptr %14, i32 0, i32 14
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   %17 = ptrtoint ptr %13 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 40
   %21 = trunc i64 %20 to i32
-  store i32 %21, ptr %5, align 4
-  store i64 0, ptr %6, align 8
-  store i32 0, ptr %8, align 4
+  store i32 %21, ptr %5, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  store i64 0, ptr %6, align 8, !tbaa !111
+  call void @llvm.lifetime.start.p0(i64 312, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  store i32 0, ptr %8, align 4, !tbaa !9
   br label %22
 
-22:                                               ; preds = %80, %1
-  %23 = load ptr, ptr %2, align 8
-  %24 = load i32, ptr %8, align 4
+22:                                               ; preds = %81, %1
+  %23 = load ptr, ptr %2, align 8, !tbaa !4
+  %24 = load i32, ptr %8, align 4, !tbaa !9
   %25 = call noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noundef %23, i32 noundef %24, ptr noundef @.str.13, ptr noundef %7)
   %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %83
+  br i1 %26, label %28, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds %struct.lua_Debug, ptr %7, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp ne ptr %29, null
-  br i1 %30, label %31, label %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  br label %84
 
-31:                                               ; preds = %27
-  %32 = load i64, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.lua_Debug, ptr %7, i32 0, i32 3
-  %34 = load ptr, ptr %33, align 8
-  %35 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %32, ptr noundef %34)
-  store i64 %35, ptr %6, align 8
-  br label %36
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw %struct.lua_Debug, ptr %7, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !61
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %32, label %37
 
-36:                                               ; preds = %31, %27
-  %37 = getelementptr inbounds %struct.lua_Debug, ptr %7, i32 0, i32 5
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %40, label %48
+32:                                               ; preds = %28
+  %33 = load i64, ptr %6, align 8, !tbaa !111
+  %34 = getelementptr inbounds nuw %struct.lua_Debug, ptr %7, i32 0, i32 3
+  %35 = load ptr, ptr %34, align 8, !tbaa !65
+  %36 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %33, ptr noundef %35)
+  store i64 %36, ptr %6, align 8, !tbaa !111
+  br label %37
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %42 = getelementptr inbounds %struct.lua_Debug, ptr %7, i32 0, i32 5
-  %43 = load i32, ptr %42, align 4
-  %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %41, i64 noundef 32, ptr noundef @.str.14, i32 noundef %43) #11
-  %45 = load i64, ptr %6, align 8
-  %46 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
-  %47 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %45, ptr noundef %46)
-  store i64 %47, ptr %6, align 8
-  br label %48
+37:                                               ; preds = %32, %28
+  %38 = getelementptr inbounds nuw %struct.lua_Debug, ptr %7, i32 0, i32 5
+  %39 = load i32, ptr %38, align 4, !tbaa !71
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %41, label %49
 
-48:                                               ; preds = %40, %36
-  %49 = getelementptr inbounds %struct.lua_Debug, ptr %7, i32 0, i32 0
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp ne ptr %50, null
-  br i1 %51, label %52, label %59
+41:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #11
+  %42 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %43 = getelementptr inbounds nuw %struct.lua_Debug, ptr %7, i32 0, i32 5
+  %44 = load i32, ptr %43, align 4, !tbaa !71
+  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %42, i64 noundef 32, ptr noundef @.str.14, i32 noundef %44) #11
+  %46 = load i64, ptr %6, align 8, !tbaa !111
+  %47 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
+  %48 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %46, ptr noundef %47)
+  store i64 %48, ptr %6, align 8, !tbaa !111
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #11
+  br label %49
 
-52:                                               ; preds = %48
-  %53 = load i64, ptr %6, align 8
-  %54 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %53, ptr noundef @.str.15)
-  store i64 %54, ptr %6, align 8
-  %55 = load i64, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.lua_Debug, ptr %7, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %55, ptr noundef %57)
-  store i64 %58, ptr %6, align 8
-  br label %59
+49:                                               ; preds = %41, %37
+  %50 = getelementptr inbounds nuw %struct.lua_Debug, ptr %7, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8, !tbaa !76
+  %52 = icmp ne ptr %51, null
+  br i1 %52, label %53, label %60
 
-59:                                               ; preds = %52, %48
-  %60 = load i64, ptr %6, align 8
-  %61 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %60, ptr noundef @.str.16)
-  store i64 %61, ptr %6, align 8
-  %62 = load i32, ptr %5, align 4
-  %63 = icmp sgt i32 %62, 20
-  br i1 %63, label %64, label %79
+53:                                               ; preds = %49
+  %54 = load i64, ptr %6, align 8, !tbaa !111
+  %55 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %54, ptr noundef @.str.15)
+  store i64 %55, ptr %6, align 8, !tbaa !111
+  %56 = load i64, ptr %6, align 8, !tbaa !111
+  %57 = getelementptr inbounds nuw %struct.lua_Debug, ptr %7, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8, !tbaa !76
+  %59 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %56, ptr noundef %58)
+  store i64 %59, ptr %6, align 8, !tbaa !111
+  br label %60
 
-64:                                               ; preds = %59
-  %65 = load i32, ptr %8, align 4
-  %66 = icmp eq i32 %65, 9
-  br i1 %66, label %67, label %79
+60:                                               ; preds = %53, %49
+  %61 = load i64, ptr %6, align 8, !tbaa !111
+  %62 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %61, ptr noundef @.str.16)
+  store i64 %62, ptr %6, align 8, !tbaa !111
+  %63 = load i32, ptr %5, align 4, !tbaa !9
+  %64 = icmp sgt i32 %63, 20
+  br i1 %64, label %65, label %80
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 0
-  %69 = load i32, ptr %5, align 4
-  %70 = sub nsw i32 %69, 10
+65:                                               ; preds = %60
+  %66 = load i32, ptr %8, align 4, !tbaa !9
+  %67 = icmp eq i32 %66, 9
+  br i1 %67, label %68, label %80
+
+68:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #11
+  %69 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 0
+  %70 = load i32, ptr %5, align 4, !tbaa !9
   %71 = sub nsw i32 %70, 10
-  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %68, i64 noundef 32, ptr noundef @.str.17, i32 noundef %71) #11
-  %73 = load i64, ptr %6, align 8
-  %74 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 0
-  %75 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %73, ptr noundef %74)
-  store i64 %75, ptr %6, align 8
-  %76 = load i32, ptr %5, align 4
-  %77 = sub nsw i32 %76, 10
-  %78 = sub nsw i32 %77, 1
-  store i32 %78, ptr %8, align 4
-  br label %79
-
-79:                                               ; preds = %67, %64, %59
+  %72 = sub nsw i32 %71, 10
+  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %69, i64 noundef 32, ptr noundef @.str.17, i32 noundef %72) #11
+  %74 = load i64, ptr %6, align 8, !tbaa !111
+  %75 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 0
+  %76 = call noundef i64 @_ZL6appendPcmmPKc(ptr noundef @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 noundef 4096, i64 noundef %74, ptr noundef %75)
+  store i64 %76, ptr %6, align 8, !tbaa !111
+  %77 = load i32, ptr %5, align 4, !tbaa !9
+  %78 = sub nsw i32 %77, 10
+  %79 = sub nsw i32 %78, 1
+  store i32 %79, ptr %8, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #11
   br label %80
 
-80:                                               ; preds = %79
-  %81 = load i32, ptr %8, align 4
-  %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %8, align 4
-  br label %22, !llvm.loop !16
+80:                                               ; preds = %68, %65, %60
+  br label %81
 
-83:                                               ; preds = %22
-  %84 = load i64, ptr %6, align 8
-  %85 = getelementptr inbounds [4096 x i8], ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 0, i64 %84
-  store i8 0, ptr %85, align 1
+81:                                               ; preds = %80
+  %82 = load i32, ptr %8, align 4, !tbaa !9
+  %83 = add nsw i32 %82, 1
+  store i32 %83, ptr %8, align 4, !tbaa !9
+  br label %22, !llvm.loop !118
+
+84:                                               ; preds = %27
+  %85 = load i64, ptr %6, align 8, !tbaa !111
+  %86 = getelementptr inbounds nuw [4096 x i8], ptr @_ZZ14lua_debugtraceP9lua_StateE3buf, i64 0, i64 %85
+  store i8 0, ptr %86, align 1, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 312, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
   ret ptr @_ZZ14lua_debugtraceP9lua_StateE3buf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZL6appendPcmmPKc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #1 {
+define internal noundef i64 @_ZL6appendPcmmPKc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = load ptr, ptr %8, align 8
-  %12 = call i64 @strlen(ptr noundef %11) #12
-  store i64 %12, ptr %9, align 8
-  %13 = load i64, ptr %7, align 8
-  %14 = load i64, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !49
+  store i64 %1, ptr %6, align 8, !tbaa !111
+  store i64 %2, ptr %7, align 8, !tbaa !111
+  store ptr %3, ptr %8, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %11 = load ptr, ptr %8, align 8, !tbaa !49
+  %12 = call i64 @strlen(ptr noundef %11) #13
+  store i64 %12, ptr %9, align 8, !tbaa !111
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %13 = load i64, ptr %7, align 8, !tbaa !111
+  %14 = load i64, ptr %9, align 8, !tbaa !111
   %15 = add i64 %13, %14
-  %16 = load i64, ptr %6, align 8
+  %16 = load i64, ptr %6, align 8, !tbaa !111
   %17 = icmp uge i64 %15, %16
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %4
-  %19 = load i64, ptr %6, align 8
-  %20 = load i64, ptr %7, align 8
+  %19 = load i64, ptr %6, align 8, !tbaa !111
+  %20 = load i64, ptr %7, align 8, !tbaa !111
   %21 = sub i64 %19, %20
   %22 = sub i64 %21, 1
   br label %25
 
 23:                                               ; preds = %4
-  %24 = load i64, ptr %9, align 8
+  %24 = load i64, ptr %9, align 8, !tbaa !111
   br label %25
 
 25:                                               ; preds = %23, %18
   %26 = phi i64 [ %22, %18 ], [ %24, %23 ]
-  store i64 %26, ptr %10, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i64, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 %28
-  %30 = load ptr, ptr %8, align 8
-  %31 = load i64, ptr %10, align 8
+  store i64 %26, ptr %10, align 8, !tbaa !111
+  %27 = load ptr, ptr %5, align 8, !tbaa !49
+  %28 = load i64, ptr %7, align 8, !tbaa !111
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
+  %30 = load ptr, ptr %8, align 8, !tbaa !49
+  %31 = load i64, ptr %10, align 8, !tbaa !111
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %30, i64 %31, i1 false)
-  %32 = load i64, ptr %7, align 8
-  %33 = load i64, ptr %10, align 8
+  %32 = load i64, ptr %7, align 8, !tbaa !111
+  %33 = load i64, ptr %10, align 8, !tbaa !111
   %34 = add i64 %32, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   ret i64 %34
 }
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #6
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #7
 
-declare hidden noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
+declare hidden noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef, i64 noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL11currentlineP9lua_StateP8CallInfo(ptr noundef %0, ptr noundef %1) #1 {
+define internal noundef i32 @_ZL11currentlineP9lua_StateP8CallInfo(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.CallInfo, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.lua_TValue, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.Closure, ptr %9, i32 0, i32 9
-  %11 = getelementptr inbounds %struct.anon.1, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %6 = getelementptr inbounds nuw %struct.CallInfo, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
+  %8 = getelementptr inbounds nuw %struct.lua_TValue, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !37
+  %10 = getelementptr inbounds nuw %struct.Closure, ptr %9, i32 0, i32 9
+  %11 = getelementptr inbounds nuw %struct.anon.1, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = load ptr, ptr %4, align 8, !tbaa !23
   %15 = call noundef i32 @_ZL9currentpcP9lua_StateP8CallInfo(ptr noundef %13, ptr noundef %14)
   %16 = call noundef i32 @_Z12luaG_getlineP5Protoi(ptr noundef %12, i32 noundef %15)
   ret i32 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZL11getfuncnameP7Closure(ptr noundef %0) #1 {
+define internal noundef ptr @_ZL11getfuncnameP7Closure(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.Closure, ptr %5, i32 0, i32 3
-  %7 = load i8, ptr %6, align 1
-  %8 = icmp ne i8 %7, 0
-  br i1 %8, label %9, label %21
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !57
+  %6 = load ptr, ptr %3, align 8, !tbaa !57
+  %7 = getelementptr inbounds nuw %struct.Closure, ptr %6, i32 0, i32 3
+  %8 = load i8, ptr %7, align 1, !tbaa !43
+  %9 = icmp ne i8 %8, 0
+  br i1 %9, label %10, label %22
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.Closure, ptr %10, i32 0, i32 9
-  %12 = getelementptr inbounds %struct.anon, ptr %11, i32 0, i32 2
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp ne ptr %13, null
-  br i1 %14, label %15, label %20
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !57
+  %12 = getelementptr inbounds nuw %struct.Closure, ptr %11, i32 0, i32 9
+  %13 = getelementptr inbounds nuw %struct.anon, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %21
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.Closure, ptr %16, i32 0, i32 9
-  %18 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 2
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %2, align 8
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %3, align 8, !tbaa !57
+  %18 = getelementptr inbounds nuw %struct.Closure, ptr %17, i32 0, i32 9
+  %19 = getelementptr inbounds nuw %struct.anon, ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
+  store ptr %20, ptr %2, align 8
+  br label %42
+
+21:                                               ; preds = %10
+  br label %41
+
+22:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %23 = load ptr, ptr %3, align 8, !tbaa !57
+  %24 = getelementptr inbounds nuw %struct.Closure, ptr %23, i32 0, i32 9
+  %25 = getelementptr inbounds nuw %struct.anon.1, ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !37
+  store ptr %26, ptr %4, align 8, !tbaa !27
+  %27 = load ptr, ptr %4, align 8, !tbaa !27
+  %28 = getelementptr inbounds nuw %struct.Proto, ptr %27, i32 0, i32 19
+  %29 = load ptr, ptr %28, align 8, !tbaa !116
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %37
+
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %4, align 8, !tbaa !27
+  %33 = getelementptr inbounds nuw %struct.Proto, ptr %32, i32 0, i32 19
+  %34 = load ptr, ptr %33, align 8, !tbaa !116
+  %35 = getelementptr inbounds nuw %struct.TString, ptr %34, i32 0, i32 7
+  %36 = getelementptr inbounds [1 x i8], ptr %35, i64 0, i64 0
+  store ptr %36, ptr %2, align 8
+  store i32 1, ptr %5, align 4
   br label %38
 
-20:                                               ; preds = %9
-  br label %37
-
-21:                                               ; preds = %1
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.Closure, ptr %22, i32 0, i32 9
-  %24 = getelementptr inbounds %struct.anon.1, ptr %23, i32 0, i32 0
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %4, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %struct.Proto, ptr %26, i32 0, i32 19
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %36
-
-30:                                               ; preds = %21
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.Proto, ptr %31, i32 0, i32 19
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct.TString, ptr %33, i32 0, i32 7
-  %35 = getelementptr inbounds [1 x i8], ptr %34, i64 0, i64 0
-  store ptr %35, ptr %2, align 8
+37:                                               ; preds = %22
+  store i32 0, ptr %5, align 4
   br label %38
 
-36:                                               ; preds = %21
-  br label %37
+38:                                               ; preds = %37, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %39 = load i32, ptr %5, align 4
+  switch i32 %39, label %44 [
+    i32 0, label %40
+    i32 1, label %42
+  ]
 
-37:                                               ; preds = %36, %20
+40:                                               ; preds = %38
+  br label %41
+
+41:                                               ; preds = %40, %21
   store ptr null, ptr %2, align 8
-  br label %38
+  br label %42
 
-38:                                               ; preds = %37, %30, %15
-  %39 = load ptr, ptr %2, align 8
-  ret ptr %39
+42:                                               ; preds = %41, %38, %16
+  %43 = load ptr, ptr %2, align 8
+  ret ptr %43
+
+44:                                               ; preds = %38
+  unreachable
 }
 
-declare hidden noundef ptr @_Z16luaO_pushfstringP9lua_StatePKcz(ptr noundef, ptr noundef, ...) #2
+declare hidden noundef ptr @_Z16luaO_pushfstringP9lua_StatePKcz(ptr noundef, ptr noundef, ...) #3
 
-declare void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef, ptr noundef) #2
+declare void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #9
+declare i64 @strlen(ptr noundef) #10
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #12 = { noreturn }
+attributes #13 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS9lua_State", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!12, !16, i64 32}
+!12 = !{!"_ZTS9lua_State", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !13, i64 5, !13, i64 6, !14, i64 8, !14, i64 16, !15, i64 24, !16, i64 32, !14, i64 40, !14, i64 48, !16, i64 56, !16, i64 64, !10, i64 72, !10, i64 76, !17, i64 80, !17, i64 82, !10, i64 84, !18, i64 88, !19, i64 96, !20, i64 104, !21, i64 112, !6, i64 120}
+!13 = !{!"bool", !7, i64 0}
+!14 = !{!"p1 _ZTS10lua_TValue", !6, i64 0}
+!15 = !{!"p1 _ZTS12global_State", !6, i64 0}
+!16 = !{!"p1 _ZTS8CallInfo", !6, i64 0}
+!17 = !{!"short", !7, i64 0}
+!18 = !{!"p1 _ZTS8LuaTable", !6, i64 0}
+!19 = !{!"p1 _ZTS5UpVal", !6, i64 0}
+!20 = !{!"p1 _ZTS8GCObject", !6, i64 0}
+!21 = !{!"p1 _ZTS7TString", !6, i64 0}
+!22 = !{!12, !16, i64 64}
+!23 = !{!16, !16, i64 0}
+!24 = !{!25, !10, i64 36}
+!25 = !{!"_ZTS8CallInfo", !14, i64 0, !14, i64 8, !14, i64 16, !26, i64 24, !10, i64 32, !10, i64 36}
+!26 = !{!"p1 int", !6, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS5Proto", !6, i64 0}
+!29 = !{!30, !7, i64 4}
+!30 = !{!"_ZTS5Proto", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !14, i64 8, !26, i64 16, !31, i64 24, !26, i64 32, !6, i64 40, !33, i64 48, !34, i64 56, !26, i64 64, !35, i64 72, !36, i64 80, !21, i64 88, !21, i64 96, !34, i64 104, !34, i64 112, !6, i64 120, !20, i64 128, !10, i64 136, !10, i64 140, !10, i64 144, !10, i64 148, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
+!31 = !{!"p2 _ZTS5Proto", !32, i64 0}
+!32 = !{!"any p2 pointer", !6, i64 0}
+!33 = !{!"long", !7, i64 0}
+!34 = !{!"p1 omnipotent char", !6, i64 0}
+!35 = !{!"p1 _ZTS6LocVar", !6, i64 0}
+!36 = !{!"p2 _ZTS7TString", !32, i64 0}
+!37 = !{!7, !7, i64 0}
+!38 = !{!25, !14, i64 0}
+!39 = !{!30, !7, i64 5}
+!40 = !{!25, !14, i64 8}
+!41 = !{!42, !10, i64 12}
+!42 = !{!"_ZTS10lua_TValue", !7, i64 0, !7, i64 8, !10, i64 12}
+!43 = !{!44, !7, i64 3}
+!44 = !{!"_ZTS7Closure", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !7, i64 5, !7, i64 6, !20, i64 8, !18, i64 16, !7, i64 24}
+!45 = !{!35, !35, i64 0}
+!46 = !{!47, !7, i64 16}
+!47 = !{!"_ZTS6LocVar", !21, i64 0, !10, i64 8, !10, i64 12, !7, i64 16}
+!48 = !{!47, !21, i64 0}
+!49 = !{!34, !34, i64 0}
+!50 = !{!25, !26, i64 24}
+!51 = !{!30, !26, i64 16}
+!52 = !{!12, !14, i64 8}
+!53 = !{!14, !14, i64 0}
+!54 = !{i64 0, i64 8, !37, i64 8, i64 4, !37, i64 12, i64 4, !9}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS9lua_Debug", !6, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTS7Closure", !6, i64 0}
+!59 = !{!12, !14, i64 16}
+!60 = !{!12, !14, i64 40}
+!61 = !{!62, !34, i64 16}
+!62 = !{!"_ZTS9lua_Debug", !34, i64 0, !34, i64 8, !34, i64 16, !34, i64 24, !10, i64 32, !10, i64 36, !7, i64 40, !7, i64 41, !7, i64 42, !6, i64 48, !7, i64 56}
+!63 = !{!62, !34, i64 8}
+!64 = !{!62, !10, i64 32}
+!65 = !{!62, !34, i64 24}
+!66 = !{!30, !21, i64 88}
+!67 = !{!21, !21, i64 0}
+!68 = !{!30, !10, i64 164}
+!69 = !{!70, !10, i64 20}
+!70 = !{!"_ZTS7TString", !7, i64 0, !7, i64 1, !7, i64 2, !17, i64 4, !21, i64 8, !10, i64 16, !10, i64 20, !7, i64 24}
+!71 = !{!62, !10, i64 36}
+!72 = !{!44, !7, i64 4}
+!73 = !{!62, !7, i64 40}
+!74 = !{!62, !7, i64 42}
+!75 = !{!62, !7, i64 41}
+!76 = !{!62, !34, i64 0}
+!77 = distinct !{!77, !78}
+!78 = !{!"llvm.loop.mustprogress"}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"_ZTS3TMS", !7, i64 0}
+!81 = !{!13, !13, i64 0}
+!82 = !{!12, !15, i64 24}
+!83 = !{!84, !6, i64 3400}
+!84 = !{!"_ZTS12global_State", !85, i64 0, !6, i64 16, !6, i64 24, !7, i64 32, !7, i64 33, !20, i64 40, !20, i64 48, !20, i64 56, !33, i64 64, !33, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !7, i64 96, !7, i64 416, !86, i64 736, !86, i64 744, !86, i64 752, !7, i64 760, !5, i64 2808, !87, i64 2816, !7, i64 2856, !7, i64 2944, !7, i64 3032, !42, i64 3200, !42, i64 3216, !10, i64 3232, !88, i64 3240, !33, i64 3248, !7, i64 3256, !89, i64 3288, !90, i64 3368, !7, i64 3424, !7, i64 4448, !7, i64 5472, !91, i64 6496}
+!85 = !{!"_ZTS11stringtable", !36, i64 0, !10, i64 8, !10, i64 12}
+!86 = !{!"p1 _ZTS8lua_Page", !6, i64 0}
+!87 = !{!"_ZTS5UpVal", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !14, i64 8, !7, i64 16}
+!88 = !{!"p1 _ZTS10lua_jmpbuf", !6, i64 0}
+!89 = !{!"_ZTS13lua_Callbacks", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72}
+!90 = !{!"_ZTS22lua_ExecutionCallbacks", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
+!91 = !{!"_ZTS7GCStats", !7, i64 0, !10, i64 128, !10, i64 132, !33, i64 136, !33, i64 144, !33, i64 152, !92, i64 160, !92, i64 168, !92, i64 176}
+!92 = !{!"double", !7, i64 0}
+!93 = !{!6, !6, i64 0}
+!94 = !{!30, !34, i64 56}
+!95 = !{!30, !6, i64 40}
+!96 = !{!30, !10, i64 136}
+!97 = !{!30, !34, i64 104}
+!98 = !{!30, !7, i64 2}
+!99 = distinct !{!99, !78}
+!100 = !{i8 0, i8 2}
+!101 = !{}
+!102 = distinct !{!102, !78}
+!103 = !{!30, !10, i64 140}
+!104 = !{!30, !31, i64 24}
+!105 = distinct !{!105, !78}
+!106 = !{!30, !26, i64 64}
+!107 = !{!30, !10, i64 160}
+!108 = !{!12, !13, i64 6}
+!109 = distinct !{!109, !78}
+!110 = distinct !{!110, !78}
+!111 = !{!33, !33, i64 0}
+!112 = !{!26, !26, i64 0}
+!113 = distinct !{!113, !78}
+!114 = distinct !{!114, !78}
+!115 = distinct !{!115, !78}
+!116 = !{!30, !21, i64 96}
+!117 = distinct !{!117, !78}
+!118 = distinct !{!118, !78}

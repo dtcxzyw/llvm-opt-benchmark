@@ -12,7 +12,7 @@ define dso_local noundef double @_Z9lua_clockv() #0 personality ptr @__gxx_perso
   %2 = alloca i32, align 4
   %3 = load atomic i8, ptr @_ZGVZ9lua_clockvE6period acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %11, !prof !5
+  br i1 %4, label %5, label %11, !prof !4
 
 5:                                                ; preds = %0
   %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZ9lua_clockvE6period) #1
@@ -24,13 +24,13 @@ define dso_local noundef double @_Z9lua_clockv() #0 personality ptr @__gxx_perso
           to label %10 unwind label %15
 
 10:                                               ; preds = %8
-  store double %9, ptr @_ZZ9lua_clockvE6period, align 8
+  store double %9, ptr @_ZZ9lua_clockvE6period, align 8, !tbaa !5
   call void @__cxa_guard_release(ptr @_ZGVZ9lua_clockvE6period) #1
   br label %11
 
 11:                                               ; preds = %10, %5, %0
   %12 = call noundef double @_ZL15clock_timestampv()
-  %13 = load double, ptr @_ZZ9lua_clockvE6period, align 8
+  %13 = load double, ptr @_ZZ9lua_clockvE6period, align 8, !tbaa !5
   %14 = fmul double %12, %13
   ret double %14
 
@@ -71,34 +71,50 @@ declare void @__cxa_guard_release(ptr) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef double @_ZL15clock_timestampv() #2 {
   %1 = alloca %struct.timespec, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %1) #1
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %1) #1
-  %3 = getelementptr inbounds %struct.timespec, ptr %1, i32 0, i32 0
-  %4 = load i64, ptr %3, align 8
+  %3 = getelementptr inbounds nuw %struct.timespec, ptr %1, i32 0, i32 0
+  %4 = load i64, ptr %3, align 8, !tbaa !9
   %5 = sitofp i64 %4 to double
-  %6 = getelementptr inbounds %struct.timespec, ptr %1, i32 0, i32 1
-  %7 = load i64, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %struct.timespec, ptr %1, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8, !tbaa !12
   %8 = sitofp i64 %7 to double
   %9 = call double @llvm.fmuladd.f64(double %5, double 1.000000e+09, double %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %1) #1
   ret double %9
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) #3
+declare i32 @clock_gettime(i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"branch_weights", i32 1, i32 1048575}
+!4 = !{!"branch_weights", i32 1, i32 1048575}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"double", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"_ZTS8timespec", !11, i64 0, !11, i64 8}
+!11 = !{!"long", !7, i64 0}
+!12 = !{!10, !11, i64 8}

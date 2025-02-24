@@ -25,7 +25,7 @@ _ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPK
   %.112.i.i = select i1 %5, i64 %8, i64 %2
   %.1.i.i = select i1 %5, ptr %6, ptr %.05.i.i
   %9 = icmp sgt i64 %.112.i.i, 0
-  br i1 %9, label %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit", !llvm.loop !5
+  br i1 %9, label %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit", !llvm.loop !4
 
 "_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_.exit": ; preds = %_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i
   %.not = icmp eq ptr %.1.i.i, getelementptr inbounds nuw (i8, ptr @_ZN4LuauL12kConfusablesE, i64 14288)
@@ -44,14 +44,13 @@ _ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPK
   ret ptr %16
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

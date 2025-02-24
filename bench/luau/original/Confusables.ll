@@ -2,8 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.Luau::Confusable" = type { [3 x i8], [5 x i8] }
-%"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { %class.anon }
-%class.anon = type { i8 }
+%"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { i8 }
 
 $_ZSt5beginIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_ = comdat any
 
@@ -25,27 +24,28 @@ $_ZSt9__advanceIPKN4Luau10ConfusableElEvRT_T0_St26random_access_iterator_tag = c
 define dso_local noundef ptr @_ZN4Luau14findConfusableEj(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store i32 %0, ptr %2, align 4
-  %4 = call noundef ptr @_ZSt5beginIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) @_ZN4LuauL12kConfusablesE) #3
-  %5 = call noundef ptr @_ZSt3endIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) @_ZN4LuauL12kConfusablesE) #3
+  store i32 %0, ptr %2, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
+  %4 = call noundef ptr @_ZSt5beginIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) @_ZN4LuauL12kConfusablesE) #6
+  %5 = call noundef ptr @_ZSt3endIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) @_ZN4LuauL12kConfusablesE) #6
   %6 = call noundef ptr @"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_"(ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr %6, ptr %3, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = call noundef ptr @_ZSt3endIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) @_ZN4LuauL12kConfusablesE) #3
+  store ptr %6, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = call noundef ptr @_ZSt3endIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) @_ZN4LuauL12kConfusablesE) #6
   %9 = icmp ne ptr %7, %8
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !8
   %12 = load i24, ptr %11, align 4
   %13 = zext i24 %12 to i32
-  %14 = load i32, ptr %2, align 4
+  %14 = load i32, ptr %2, align 4, !tbaa !4
   %15 = icmp eq i32 %13, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %10
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %"struct.Luau::Confusable", ptr %17, i32 0, i32 1
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %"struct.Luau::Confusable", ptr %17, i32 0, i32 1
   %19 = getelementptr inbounds [5 x i8], ptr %18, i64 0, i64 0
   br label %21
 
@@ -54,43 +54,50 @@ define dso_local noundef ptr @_ZN4Luau14findConfusableEj(i32 noundef %0) #0 {
 
 21:                                               ; preds = %20, %16
   %22 = phi ptr [ %19, %16 ], [ null, %20 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   ret ptr %22
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef ptr @"_ZSt11lower_boundIPKN4Luau10ConfusableEjZNS0_14findConfusableEjE3$_0ET_S5_S5_RKT0_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %6, align 8, !tbaa !11
   call void @"_ZN9__gnu_cxx5__ops15__iter_comp_valIZN4Luau14findConfusableEjE3$_0EENS0_14_Iter_comp_valIT_EES5_"()
   %10 = call noundef ptr @"_ZSt13__lower_boundIPKN4Luau10ConfusableEjN9__gnu_cxx5__ops14_Iter_comp_valIZNS0_14findConfusableEjE3$_0EEET_S9_S9_RKT0_T1_"(ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt5beginIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt5beginIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) %0) #3 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = getelementptr inbounds [1786 x %"struct.Luau::Confusable"], ptr %3, i64 0, i64 0
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZSt3endIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZSt3endIKN4Luau10ConfusableELm1786EEPT_RAT0__S3_(ptr noundef nonnull align 4 dereferenceable(14288) %0) #3 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
   %4 = getelementptr inbounds [1786 x %"struct.Luau::Confusable"], ptr %3, i64 0, i64 0
-  %5 = getelementptr inbounds %"struct.Luau::Confusable", ptr %4, i64 1786
+  %5 = getelementptr inbounds nuw %"struct.Luau::Confusable", ptr %4, i64 1786
   ret ptr %5
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZSt13__lower_boundIPKN4Luau10ConfusableEjN9__gnu_cxx5__ops14_Iter_comp_valIZNS0_14findConfusableEjE3$_0EEET_S9_S9_RKT0_T1_"(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 {
@@ -101,93 +108,101 @@ define internal noundef ptr @"_ZSt13__lower_boundIPKN4Luau10ConfusableEjN9__gnu_
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %6, align 8, !tbaa !8
   %13 = call noundef i64 @_ZSt8distanceIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E15difference_typeES5_S5_(ptr noundef %11, ptr noundef %12)
-  store i64 %13, ptr %8, align 8
+  store i64 %13, ptr %8, align 8, !tbaa !13
   br label %14
 
 14:                                               ; preds = %35, %3
-  %15 = load i64, ptr %8, align 8
+  %15 = load i64, ptr %8, align 8, !tbaa !13
   %16 = icmp sgt i64 %15, 0
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %14
-  %18 = load i64, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %18 = load i64, ptr %8, align 8, !tbaa !13
   %19 = ashr i64 %18, 1
-  store i64 %19, ptr %9, align 8
-  %20 = load ptr, ptr %5, align 8
-  store ptr %20, ptr %10, align 8
-  %21 = load i64, ptr %9, align 8
+  store i64 %19, ptr %9, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %20 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %20, ptr %10, align 8, !tbaa !8
+  %21 = load i64, ptr %9, align 8, !tbaa !13
   call void @_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %21)
-  %22 = load ptr, ptr %10, align 8
-  %23 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr %10, align 8, !tbaa !8
+  %23 = load ptr, ptr %7, align 8, !tbaa !11
   %24 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau14findConfusableEjE3$_0EclIPKNS2_10ConfusableEKjEEbT_RT0_"(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %22, ptr noundef nonnull align 4 dereferenceable(4) %23)
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %17
-  %26 = load ptr, ptr %10, align 8
-  store ptr %26, ptr %5, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %"struct.Luau::Confusable", ptr %27, i32 1
-  store ptr %28, ptr %5, align 8
-  %29 = load i64, ptr %8, align 8
-  %30 = load i64, ptr %9, align 8
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %26, ptr %5, align 8, !tbaa !8
+  %27 = load ptr, ptr %5, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %"struct.Luau::Confusable", ptr %27, i32 1
+  store ptr %28, ptr %5, align 8, !tbaa !8
+  %29 = load i64, ptr %8, align 8, !tbaa !13
+  %30 = load i64, ptr %9, align 8, !tbaa !13
   %31 = sub nsw i64 %29, %30
   %32 = sub nsw i64 %31, 1
-  store i64 %32, ptr %8, align 8
+  store i64 %32, ptr %8, align 8, !tbaa !13
   br label %35
 
 33:                                               ; preds = %17
-  %34 = load i64, ptr %9, align 8
-  store i64 %34, ptr %8, align 8
+  %34 = load i64, ptr %9, align 8, !tbaa !13
+  store i64 %34, ptr %8, align 8, !tbaa !13
   br label %35
 
 35:                                               ; preds = %33, %25
-  br label %14, !llvm.loop !5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  br label %14, !llvm.loop !15
 
 36:                                               ; preds = %14
-  %37 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
   ret ptr %37
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9__gnu_cxx5__ops15__iter_comp_valIZN4Luau14findConfusableEjE3$_0EENS0_14_Iter_comp_valIT_EES5_"() #0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZN9__gnu_cxx5__ops15__iter_comp_valIZN4Luau14findConfusableEjE3$_0EENS0_14_Iter_comp_valIT_EES5_"() #2 {
   %1 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val", align 1
   call void @"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau14findConfusableEjE3$_0EC2ES3_"(ptr noundef nonnull align 1 dereferenceable(1) %1)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E15difference_typeES5_S5_(ptr noundef %0, ptr noundef %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E15difference_typeES5_S5_(ptr noundef %0, ptr noundef %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
   call void @_ZSt19__iterator_categoryIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E17iterator_categoryERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %7 = call noundef i64 @_ZSt10__distanceIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E15difference_typeES5_S5_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
   ret i64 %7
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZSt7advanceIPKN4Luau10ConfusableElEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #2 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %6 = load i64, ptr %4, align 8
-  store i64 %6, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load i64, ptr %5, align 8
-  %9 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store i64 %1, ptr %4, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %6 = load i64, ptr %4, align 8, !tbaa !13
+  store i64 %6, ptr %5, align 8, !tbaa !13
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = load i64, ptr %5, align 8, !tbaa !13
+  %9 = load ptr, ptr %3, align 8, !tbaa !17
   call void @_ZSt19__iterator_categoryIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E17iterator_categoryERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @_ZSt9__advanceIPKN4Luau10ConfusableElEvRT_T0_St26random_access_iterator_tag(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
 
@@ -196,26 +211,25 @@ define internal noundef zeroext i1 @"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !20
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !11
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_val", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load i32, ptr %10, align 4
-  %12 = call noundef zeroext i1 @"_ZZN4Luau14findConfusableEjENK3$_0clERKNS_10ConfusableEj"(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(8) %9, i32 noundef %11)
-  ret i1 %12
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %6, align 8, !tbaa !11
+  %10 = load i32, ptr %9, align 4, !tbaa !4
+  %11 = call noundef zeroext i1 @"_ZZN4Luau14findConfusableEjENK3$_0clERKNS_10ConfusableEj"(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 4 dereferenceable(8) %8, i32 noundef %10)
+  ret i1 %11
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E15difference_typeES5_S5_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E15difference_typeES5_S5_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -223,58 +237,58 @@ define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKN4Luau10Confusable
   ret i64 %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E17iterator_categoryERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKN4Luau10ConfusableEENSt15iterator_traitsIT_E17iterator_categoryERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt9__advanceIPKN4Luau10ConfusableElEvRT_T0_St26random_access_iterator_tag(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #1 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt9__advanceIPKN4Luau10ConfusableElEvRT_T0_St26random_access_iterator_tag(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #3 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store i64 %1, ptr %4, align 8, !tbaa !13
+  %5 = load i64, ptr %4, align 8, !tbaa !13
   %6 = call i1 @llvm.is.constant.i64(i64 %5)
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr %4, align 8
+  %8 = load i64, ptr %4, align 8, !tbaa !13
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.Luau::Confusable", ptr %12, i32 1
-  store ptr %13, ptr %11, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !17
+  %12 = load ptr, ptr %11, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %"struct.Luau::Confusable", ptr %12, i32 1
+  store ptr %13, ptr %11, align 8, !tbaa !8
   br label %30
 
 14:                                               ; preds = %7, %2
-  %15 = load i64, ptr %4, align 8
+  %15 = load i64, ptr %4, align 8, !tbaa !13
   %16 = call i1 @llvm.is.constant.i64(i64 %15)
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %14
-  %18 = load i64, ptr %4, align 8
+  %18 = load i64, ptr %4, align 8, !tbaa !13
   %19 = icmp eq i64 %18, -1
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
-  %21 = load ptr, ptr %3, align 8
-  %22 = load ptr, ptr %21, align 8
+  %21 = load ptr, ptr %3, align 8, !tbaa !17
+  %22 = load ptr, ptr %21, align 8, !tbaa !8
   %23 = getelementptr inbounds %"struct.Luau::Confusable", ptr %22, i32 -1
-  store ptr %23, ptr %21, align 8
+  store ptr %23, ptr %21, align 8, !tbaa !8
   br label %29
 
 24:                                               ; preds = %17, %14
-  %25 = load i64, ptr %4, align 8
-  %26 = load ptr, ptr %3, align 8
-  %27 = load ptr, ptr %26, align 8
+  %25 = load i64, ptr %4, align 8, !tbaa !13
+  %26 = load ptr, ptr %3, align 8, !tbaa !17
+  %27 = load ptr, ptr %26, align 8, !tbaa !8
   %28 = getelementptr inbounds %"struct.Luau::Confusable", ptr %27, i64 %25
-  store ptr %28, ptr %26, align 8
+  store ptr %28, ptr %26, align 8, !tbaa !8
   br label %29
 
 29:                                               ; preds = %24, %20
@@ -285,42 +299,61 @@ define linkonce_odr dso_local void @_ZSt9__advanceIPKN4Luau10ConfusableElEvRT_T0
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i64(i64) #2
+declare i1 @llvm.is.constant.i64(i64) #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZZN4Luau14findConfusableEjENK3$_0clERKNS_10ConfusableEj"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2) #1 align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZZN4Luau14findConfusableEjENK3$_0clERKNS_10ConfusableEj"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !4
+  %7 = load ptr, ptr %5, align 8, !tbaa !8
   %8 = load i24, ptr %7, align 4
   %9 = zext i24 %8 to i32
-  %10 = load i32, ptr %6, align 4
+  %10 = load i32, ptr %6, align 4, !tbaa !4
   %11 = icmp ult i32 %9, %10
   ret i1 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau14findConfusableEjE3$_0EC2ES3_"(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 align 2 {
+define internal void @"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau14findConfusableEjE3$_0EC2ES3_"(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   ret void
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #3 = { nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN4Luau10ConfusableE", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 int", !10, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p2 _ZTSN4Luau10ConfusableE", !19, i64 0}
+!19 = !{!"any p2 pointer", !10, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTSN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau14findConfusableEjE3$_0EE", !10, i64 0}
+!22 = !{!10, !10, i64 0}
