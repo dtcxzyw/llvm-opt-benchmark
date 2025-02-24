@@ -107,6 +107,7 @@ supported_project = [
     "lodepng",
     "luau",
     "meshoptimizer",
+    "mixbox",
 ]
 
 modify_only = [
