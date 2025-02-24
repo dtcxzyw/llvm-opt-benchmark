@@ -3,9 +3,9 @@ source_filename = "bench/lief/original/x509_create.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.x509_attr_descriptor_t = type { ptr, i64, ptr, i32 }
+%struct.mbedtls_asn1_buf = type { i32, i64, ptr }
 
-@x509_attrs = internal unnamed_addr constant [29 x %struct.x509_attr_descriptor_t] [%struct.x509_attr_descriptor_t { ptr @.str, i64 2, ptr @.str.1, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.2, i64 10, ptr @.str.1, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.3, i64 1, ptr @.str.4, i32 19 }, %struct.x509_attr_descriptor_t { ptr @.str.5, i64 11, ptr @.str.4, i32 19 }, %struct.x509_attr_descriptor_t { ptr @.str.6, i64 1, ptr @.str.7, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.8, i64 16, ptr @.str.7, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.9, i64 1, ptr @.str.10, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.11, i64 8, ptr @.str.10, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.12, i64 1, ptr @.str.13, i32 22 }, %struct.x509_attr_descriptor_t { ptr @.str.14, i64 2, ptr @.str.15, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.16, i64 22, ptr @.str.15, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.17, i64 2, ptr @.str.18, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.19, i64 19, ptr @.str.18, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.20, i64 12, ptr @.str.13, i32 22 }, %struct.x509_attr_descriptor_t { ptr @.str.21, i64 12, ptr @.str.22, i32 19 }, %struct.x509_attr_descriptor_t { ptr @.str.23, i64 13, ptr @.str.24, i32 19 }, %struct.x509_attr_descriptor_t { ptr @.str.25, i64 10, ptr @.str.26, i32 19 }, %struct.x509_attr_descriptor_t { ptr @.str.27, i64 11, ptr @.str.28, i32 19 }, %struct.x509_attr_descriptor_t { ptr @.str.29, i64 5, ptr @.str.30, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.31, i64 7, ptr @.str.32, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.33, i64 2, ptr @.str.32, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.34, i64 9, ptr @.str.35, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.36, i64 2, ptr @.str.35, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.37, i64 8, ptr @.str.38, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.39, i64 9, ptr @.str.40, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.41, i64 19, ptr @.str.42, i32 12 }, %struct.x509_attr_descriptor_t { ptr @.str.43, i64 15, ptr @.str.44, i32 22 }, %struct.x509_attr_descriptor_t { ptr @.str.45, i64 2, ptr @.str.44, i32 22 }, %struct.x509_attr_descriptor_t { ptr null, i64 0, ptr null, i32 5 }], align 16
+@__const.mbedtls_x509_string_to_names.oid = private unnamed_addr constant { i32, [4 x i8], i64, ptr } { i32 5, [4 x i8] zeroinitializer, i64 0, ptr null }, align 8
 @.str = private unnamed_addr constant [3 x i8] c"CN\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"U\04\03\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"commonName\00", align 1
@@ -52,191 +52,542 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.43 = private unnamed_addr constant [16 x i8] c"domainComponent\00", align 1
 @.str.44 = private unnamed_addr constant [11 x i8] c"\09\92&\89\93\F2,d\01\19\00", align 1
 @.str.45 = private unnamed_addr constant [3 x i8] c"DC\00", align 1
+@x509_attrs = internal unnamed_addr constant [29 x { ptr, i64, ptr, i32, [4 x i8] }] [{ ptr, i64, ptr, i32, [4 x i8] } { ptr @.str, i64 2, ptr @.str.1, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.2, i64 10, ptr @.str.1, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.3, i64 1, ptr @.str.4, i32 19, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.5, i64 11, ptr @.str.4, i32 19, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.6, i64 1, ptr @.str.7, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.8, i64 16, ptr @.str.7, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.9, i64 1, ptr @.str.10, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.11, i64 8, ptr @.str.10, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.12, i64 1, ptr @.str.13, i32 22, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.14, i64 2, ptr @.str.15, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.16, i64 22, ptr @.str.15, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.17, i64 2, ptr @.str.18, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.19, i64 19, ptr @.str.18, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.20, i64 12, ptr @.str.13, i32 22, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.21, i64 12, ptr @.str.22, i32 19, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.23, i64 13, ptr @.str.24, i32 19, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.25, i64 10, ptr @.str.26, i32 19, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.27, i64 11, ptr @.str.28, i32 19, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.29, i64 5, ptr @.str.30, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.31, i64 7, ptr @.str.32, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.33, i64 2, ptr @.str.32, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.34, i64 9, ptr @.str.35, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.36, i64 2, ptr @.str.35, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.37, i64 8, ptr @.str.38, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.39, i64 9, ptr @.str.40, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.41, i64 19, ptr @.str.42, i32 12, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.43, i64 15, ptr @.str.44, i32 22, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr @.str.45, i64 2, ptr @.str.44, i32 22, [4 x i8] zeroinitializer }, { ptr, i64, ptr, i32, [4 x i8] } { ptr null, i64 0, ptr null, i32 5, [4 x i8] zeroinitializer }], align 16
+@.str.47 = private unnamed_addr constant [11 x i8] c" ,=+<>#;\22\\\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = alloca [256 x i8], align 16
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #4
-  %5 = getelementptr inbounds i8, ptr %1, i64 %4
-  tail call void @mbedtls_asn1_free_named_data_list(ptr noundef %0) #5
-  %.not105 = icmp slt i64 %4, 0
-  br i1 %.not105, label %x509_attr_descr_from_name.exit.thread, label %.lr.ph
+.lr.ph:
+  %2 = alloca ptr, align 8
+  %3 = alloca %struct.mbedtls_asn1_buf, align 8
+  %4 = alloca [256 x i8], align 16
+  %5 = alloca i64, align 8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.mbedtls_x509_string_to_names.oid, i64 24, i1 false)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  store i64 0, ptr %5, align 8, !tbaa !3
+  tail call void @mbedtls_asn1_free_named_data_list(ptr noundef %0) #10
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br label %10
 
-.lr.ph:                                           ; preds = %2
-  %6 = ptrtoint ptr %3 to i64
-  br label %7
+10:                                               ; preds = %.lr.ph, %204
+  %.049151 = phi i32 [ 0, %.lr.ph ], [ %.150110, %204 ]
+  %.052150 = phi i32 [ 1, %.lr.ph ], [ %.254, %204 ]
+  %.056149 = phi ptr [ null, %.lr.ph ], [ %.157108, %204 ]
+  %.058148 = phi i32 [ -9088, %.lr.ph ], [ %.159, %204 ]
+  %.061147 = phi ptr [ %1, %.lr.ph ], [ %205, %204 ]
+  %.065146 = phi ptr [ %1, %.lr.ph ], [ %.267, %204 ]
+  %.not76 = icmp eq i32 %.052150, 0
+  %.pre157 = load i8, ptr %.061147, align 1, !tbaa !7
+  br i1 %.not76, label %36, label %11
 
-7:                                                ; preds = %.lr.ph, %62
-  %.046111 = phi ptr [ %3, %.lr.ph ], [ %.2, %62 ]
-  %.047110 = phi i32 [ 1, %.lr.ph ], [ %.249102, %62 ]
-  %.050109 = phi ptr [ null, %.lr.ph ], [ %.1518499, %62 ]
-  %.052108 = phi ptr [ null, %.lr.ph ], [ %.15382100, %62 ]
-  %.055107 = phi ptr [ %1, %.lr.ph ], [ %63, %62 ]
-  %.058106 = phi ptr [ %1, %.lr.ph ], [ %.260101, %62 ]
-  %.not65 = icmp eq i32 %.047110, 0
-  %.pre122 = load i8, ptr %.055107, align 1
-  br i1 %.not65, label %28, label %8
+11:                                               ; preds = %10
+  %12 = icmp eq i8 %.pre157, 61
+  br i1 %12, label %13, label %204
 
-8:                                                ; preds = %7
-  %9 = icmp eq i8 %.pre122, 61
-  br i1 %9, label %10, label %.critedge72.thread
+13:                                               ; preds = %11
+  %14 = ptrtoint ptr %.061147 to i64
+  %15 = ptrtoint ptr %.065146 to i64
+  %16 = sub i64 %14, %15
+  br label %17
 
-10:                                               ; preds = %8
-  %11 = ptrtoint ptr %.055107 to i64
-  %12 = ptrtoint ptr %.058106 to i64
-  %13 = sub i64 %11, %12
-  br label %14
+17:                                               ; preds = %25, %13
+  %18 = phi ptr [ @.str, %13 ], [ %27, %25 ]
+  %.012.i = phi ptr [ @x509_attrs, %13 ], [ %26, %25 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !8
+  %21 = icmp eq i64 %20, %16
+  br i1 %21, label %22, label %25
 
-14:                                               ; preds = %22, %10
-  %15 = phi ptr [ @.str, %10 ], [ %24, %22 ]
-  %.012.i = phi ptr [ @x509_attrs, %10 ], [ %23, %22 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = icmp eq i64 %17, %13
-  br i1 %18, label %19, label %22
+22:                                               ; preds = %17
+  %23 = call i32 @strncmp(ptr noundef nonnull %18, ptr noundef readonly %.065146, i64 noundef %16) #9
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %x509_attr_descr_from_name.exit, label %25
 
-19:                                               ; preds = %14
-  %20 = call i32 @strncmp(ptr noundef nonnull %15, ptr noundef readonly %.058106, i64 noundef %13) #4
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %x509_attr_descr_from_name.exit, label %22
+25:                                               ; preds = %22, %17
+  %26 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
+  %27 = load ptr, ptr %26, align 8, !tbaa !13
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %28, label %17, !llvm.loop !14
 
-22:                                               ; preds = %19, %14
-  %23 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %x509_attr_descr_from_name.exit.thread, label %14, !llvm.loop !4
+28:                                               ; preds = %25
+  %29 = call i32 @mbedtls_oid_from_numeric_string(ptr noundef nonnull %3, ptr noundef %.065146, i64 noundef %16) #10
+  %.not77 = icmp eq i32 %29, 0
+  br i1 %.not77, label %34, label %.thread127
 
-x509_attr_descr_from_name.exit:                   ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %.055107, i64 1
-  br label %28
+x509_attr_descr_from_name.exit:                   ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #9
+  store i64 %32, ptr %8, align 8, !tbaa !17
+  %33 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %32) #11
+  store ptr %33, ptr %9, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %31, i64 %32, i1 false)
+  br label %34
 
-28:                                               ; preds = %x509_attr_descr_from_name.exit, %7
-  %.159.ph = phi ptr [ %.058106, %7 ], [ %27, %x509_attr_descr_from_name.exit ]
-  %.153.ph = phi ptr [ %.052108, %7 ], [ %26, %x509_attr_descr_from_name.exit ]
-  %.151.ph = phi ptr [ %.050109, %7 ], [ %.012.i, %x509_attr_descr_from_name.exit ]
-  %.1.ph = phi ptr [ %.046111, %7 ], [ %3, %x509_attr_descr_from_name.exit ]
-  %29 = icmp ne i8 %.pre122, 92
-  %.not67 = icmp eq ptr %.055107, %5
-  %or.cond = select i1 %29, i1 true, i1 %.not67
-  br i1 %or.cond, label %35, label %30
+34:                                               ; preds = %28, %x509_attr_descr_from_name.exit
+  %..0.i101 = phi ptr [ %.012.i, %x509_attr_descr_from_name.exit ], [ null, %28 ]
+  %.251 = phi i32 [ 0, %x509_attr_descr_from_name.exit ], [ 1, %28 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.061147, i64 1
+  %.pre = load i8, ptr %.061147, align 1, !tbaa !7
+  br label %36
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %.055107, i64 1
-  %32 = icmp eq ptr %31, %5
-  br i1 %32, label %x509_attr_descr_from_name.exit.thread, label %33
+36:                                               ; preds = %34, %10
+  %37 = phi i8 [ %.pre157, %10 ], [ %.pre, %34 ]
+  %.166.ph = phi ptr [ %.065146, %10 ], [ %35, %34 ]
+  %.157.ph = phi ptr [ %.056149, %10 ], [ %..0.i101, %34 ]
+  %.150.ph = phi i32 [ %.049151, %10 ], [ %.251, %34 ]
+  %38 = icmp eq i8 %37, 44
+  br i1 %38, label %39, label %43
 
-33:                                               ; preds = %30
-  %34 = load i8, ptr %31, align 1
-  %.not68 = icmp eq i8 %34, 44
-  br i1 %.not68, label %.critedge72, label %x509_attr_descr_from_name.exit.thread
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %.061147, i64 -1
+  %41 = load i8, ptr %40, align 1, !tbaa !7
+  %.not79 = icmp ne i8 %41, 92
+  %42 = icmp eq ptr %.061147, %7
+  %or.cond = select i1 %.not79, i1 true, i1 %42
+  br i1 %or.cond, label %44, label %204
 
-35:                                               ; preds = %28
-  %36 = icmp eq i8 %.pre122, 44
-  %or.cond73 = select i1 %36, i1 true, i1 %.not67
-  br i1 %or.cond73, label %37, label %.critedge72
+43:                                               ; preds = %36
+  %.old = icmp eq ptr %.061147, %7
+  br i1 %.old, label %44, label %204
 
-37:                                               ; preds = %35
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.153.ph) #4
-  %39 = ptrtoint ptr %.1.ph to i64
-  %40 = sub i64 %39, %6
-  %41 = call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef nonnull %.153.ph, i64 noundef %38, ptr noundef nonnull %3, i64 noundef %40) #5
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %x509_attr_descr_from_name.exit.thread, label %43
+44:                                               ; preds = %43, %39
+  %45 = icmp eq ptr %.166.ph, %.061147
+  br i1 %45, label %46, label %48
 
-43:                                               ; preds = %37
-  %44 = getelementptr inbounds nuw i8, ptr %.151.ph, i64 24
-  %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store i32 %45, ptr %46, align 8
-  br label %47
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %9, align 8, !tbaa !19
+  br label %.thread127.sink.split
 
-47:                                               ; preds = %49, %43
-  %.257 = phi ptr [ %.055107, %43 ], [ %50, %49 ]
-  %48 = icmp ult ptr %.257, %5
-  br i1 %48, label %49, label %.critedge
+48:                                               ; preds = %44
+  %49 = load i8, ptr %.166.ph, align 1, !tbaa !7
+  %50 = icmp eq i8 %49, 35
+  br i1 %50, label %51, label %123
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %.257, i64 1
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 32
-  br i1 %52, label %47, label %.critedge, !llvm.loop !6
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %.166.ph, i64 1
+  %53 = ptrtoint ptr %.061147 to i64
+  %54 = ptrtoint ptr %.166.ph to i64
+  %55 = xor i64 %54, -1
+  %56 = add i64 %55, %53
+  %57 = and i64 %56, 1
+  %.not.i84 = icmp eq i64 %57, 0
+  br i1 %.not.i84, label %58, label %parse_attribute_value_hex_der_encoded.exit.thread
 
-.critedge:                                        ; preds = %47, %49
-  %53 = getelementptr inbounds nuw i8, ptr %.257, i64 1
-  br label %.critedge72.thread
+58:                                               ; preds = %51
+  %59 = lshr exact i64 %56, 1
+  %60 = add i64 %56, -521
+  %or.cond.i = icmp ult i64 %60, -520
+  br i1 %or.cond.i, label %parse_attribute_value_hex_der_encoded.exit.thread, label %61
 
-.critedge72.thread:                               ; preds = %.critedge, %8
-  %.187.ph = phi ptr [ %.046111, %8 ], [ %.1.ph, %.critedge ]
-  %.15184.ph = phi ptr [ %.050109, %8 ], [ %.151.ph, %.critedge ]
-  %.15382.ph = phi ptr [ %.052108, %8 ], [ %.153.ph, %.critedge ]
-  %.260.ph = phi ptr [ %.058106, %8 ], [ %53, %.critedge ]
-  %.156.ph = phi ptr [ %.055107, %8 ], [ %.257, %.critedge ]
-  %54 = getelementptr inbounds nuw i8, ptr %.156.ph, i64 1
-  br label %62
+61:                                               ; preds = %58
+  %62 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %59) #11
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %parse_attribute_value_hex_der_encoded.exit.thread, label %.lr.ph.preheader.i
 
-.critedge72:                                      ; preds = %35, %33
-  %55 = phi i8 [ 44, %33 ], [ %.pre122, %35 ]
-  %.156 = phi ptr [ %31, %33 ], [ %.055107, %35 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.156, i64 1
-  %.not70 = icmp eq ptr %.159.ph, %56
-  br i1 %.not70, label %62, label %57
+.lr.ph.preheader.i:                               ; preds = %61
+  %umax.i = call i64 @llvm.umax.i64(i64 %59, i64 1)
+  br label %.lr.ph.i
 
-57:                                               ; preds = %.critedge72
-  %58 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 1
-  store i8 %55, ptr %.1.ph, align 1
-  %59 = ptrtoint ptr %58 to i64
-  %60 = sub i64 %59, %6
-  %61 = icmp eq i64 %60, 256
-  br i1 %61, label %x509_attr_descr_from_name.exit.thread, label %62
+.lr.ph.i:                                         ; preds = %100, %.lr.ph.preheader.i
+  %.04059.i = phi i64 [ %103, %100 ], [ 0, %.lr.ph.preheader.i ]
+  %64 = shl nuw nsw i64 %.04059.i, 1
+  %65 = getelementptr inbounds nuw i8, ptr %52, i64 %64
+  %66 = load i8, ptr %65, align 1, !tbaa !7
+  %67 = sext i8 %66 to i32
+  %68 = add i8 %66, -48
+  %or.cond.i.i.i = icmp ult i8 %68, 10
+  br i1 %or.cond.i.i.i, label %69, label %71
 
-62:                                               ; preds = %.critedge72.thread, %57, %.critedge72
-  %63 = phi ptr [ %56, %.critedge72 ], [ %56, %57 ], [ %54, %.critedge72.thread ]
-  %.249102 = phi i32 [ 0, %.critedge72 ], [ 0, %57 ], [ 1, %.critedge72.thread ]
-  %.260101 = phi ptr [ %.159.ph, %.critedge72 ], [ %.159.ph, %57 ], [ %.260.ph, %.critedge72.thread ]
-  %.15382100 = phi ptr [ %.153.ph, %.critedge72 ], [ %.153.ph, %57 ], [ %.15382.ph, %.critedge72.thread ]
-  %.1518499 = phi ptr [ %.151.ph, %.critedge72 ], [ %.151.ph, %57 ], [ %.15184.ph, %.critedge72.thread ]
-  %.2 = phi ptr [ %.1.ph, %.critedge72 ], [ %58, %57 ], [ %.187.ph, %.critedge72.thread ]
-  %.not = icmp ugt ptr %63, %5
-  br i1 %.not, label %x509_attr_descr_from_name.exit.thread, label %7, !llvm.loop !7
+69:                                               ; preds = %.lr.ph.i
+  %70 = add nsw i32 %67, -48
+  br label %hex_to_int.exit.i.i
 
-x509_attr_descr_from_name.exit.thread:            ; preds = %37, %57, %30, %33, %62, %22, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8448, %22 ], [ -10368, %37 ], [ -9088, %57 ], [ -9088, %30 ], [ -9088, %33 ], [ 0, %62 ]
-  ret i32 %.0
+71:                                               ; preds = %.lr.ph.i
+  %72 = add i8 %66, -97
+  %or.cond5.i.i.i = icmp ult i8 %72, 6
+  br i1 %or.cond5.i.i.i, label %73, label %75
+
+73:                                               ; preds = %71
+  %74 = add nsw i32 %67, -87
+  br label %hex_to_int.exit.i.i
+
+75:                                               ; preds = %71
+  %76 = add i8 %66, -65
+  %or.cond8.i.i.i = icmp ult i8 %76, 6
+  %77 = add nsw i32 %67, -55
+  %78 = select i1 %or.cond8.i.i.i, i32 %77, i32 -1
+  br label %hex_to_int.exit.i.i
+
+hex_to_int.exit.i.i:                              ; preds = %75, %73, %69
+  %79 = phi i32 [ %70, %69 ], [ %74, %73 ], [ %78, %75 ]
+  %80 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  %81 = load i8, ptr %80, align 1, !tbaa !7
+  %82 = sext i8 %81 to i32
+  %83 = add i8 %81, -48
+  %or.cond.i9.i.i = icmp ult i8 %83, 10
+  br i1 %or.cond.i9.i.i, label %84, label %86
+
+84:                                               ; preds = %hex_to_int.exit.i.i
+  %85 = add nsw i32 %82, -48
+  br label %hexpair_to_int.exit.i
+
+86:                                               ; preds = %hex_to_int.exit.i.i
+  %87 = add i8 %81, -97
+  %or.cond5.i10.i.i = icmp ult i8 %87, 6
+  br i1 %or.cond5.i10.i.i, label %88, label %90
+
+88:                                               ; preds = %86
+  %89 = add nsw i32 %82, -87
+  br label %hexpair_to_int.exit.i
+
+90:                                               ; preds = %86
+  %91 = add i8 %81, -65
+  %or.cond8.i11.i.i = icmp ult i8 %91, 6
+  %92 = add nsw i32 %82, -55
+  %93 = select i1 %or.cond8.i11.i.i, i32 %92, i32 -1
+  br label %hexpair_to_int.exit.i
+
+hexpair_to_int.exit.i:                            ; preds = %90, %88, %84
+  %94 = phi i32 [ %85, %84 ], [ %89, %88 ], [ %93, %90 ]
+  %95 = icmp ne i32 %79, -1
+  %96 = icmp ne i32 %94, -1
+  %or.cond.i.i = select i1 %95, i1 %96, i1 false
+  %97 = shl nsw i32 %79, 4
+  %98 = or i32 %94, %97
+  %.0.i.i = select i1 %or.cond.i.i, i32 %98, i32 -1
+  %99 = icmp sgt i32 %.0.i.i, -1
+  br i1 %99, label %100, label %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
+
+100:                                              ; preds = %hexpair_to_int.exit.i
+  %101 = trunc i32 %.0.i.i to i8
+  %102 = getelementptr inbounds nuw i8, ptr %62, i64 %.04059.i
+  store i8 %101, ptr %102, align 1, !tbaa !7
+  %103 = add nuw nsw i64 %.04059.i, 1
+  %exitcond.not.i = icmp eq i64 %103, %umax.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
+
+._crit_edge.i:                                    ; preds = %100
+  %.pre.i = load i8, ptr %62, align 1, !tbaa !7
+  %104 = zext i8 %.pre.i to i32
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  %105 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  store ptr %105, ptr %2, align 8, !tbaa !21
+  %106 = getelementptr inbounds nuw i8, ptr %62, i64 %59
+  %107 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %2, ptr noundef nonnull %106, ptr noundef nonnull %5) #10
+  %.not49.i = icmp eq i32 %107, 0
+  br i1 %.not49.i, label %108, label %parse_attribute_value_hex_der_encoded.exit.thread121
+
+108:                                              ; preds = %._crit_edge.i
+  %109 = load i64, ptr %5, align 8, !tbaa !3
+  %110 = icmp ugt i64 %109, 256
+  br i1 %110, label %parse_attribute_value_hex_der_encoded.exit.thread121, label %111
+
+111:                                              ; preds = %108
+  %112 = icmp ult i8 %.pre.i, 32
+  br i1 %112, label %113, label %..loopexit_crit_edge.i
+
+..loopexit_crit_edge.i:                           ; preds = %111
+  %.pre66.i = load ptr, ptr %2, align 8, !tbaa !21
+  br label %parse_attribute_value_hex_der_encoded.exit
+
+113:                                              ; preds = %111
+  %114 = shl nuw i32 1, %104
+  %115 = and i32 %114, 1347948544
+  %.not50.i = icmp ne i32 %115, 0
+  %.not5160.i = icmp ne i64 %109, 0
+  %or.cond63.i = and i1 %.not50.i, %.not5160.i
+  %.pre67.i = load ptr, ptr %2, align 8, !tbaa !21
+  br i1 %or.cond63.i, label %.lr.ph62.i, label %parse_attribute_value_hex_der_encoded.exit
+
+116:                                              ; preds = %.lr.ph62.i
+  %117 = add nuw nsw i64 %.061.i, 1
+  %exitcond65.not.i = icmp eq i64 %117, %109
+  br i1 %exitcond65.not.i, label %parse_attribute_value_hex_der_encoded.exit, label %.lr.ph62.i, !llvm.loop !22
+
+.lr.ph62.i:                                       ; preds = %113, %116
+  %.061.i = phi i64 [ %117, %116 ], [ 0, %113 ]
+  %118 = getelementptr inbounds nuw i8, ptr %.pre67.i, i64 %.061.i
+  %119 = load i8, ptr %118, align 1, !tbaa !7
+  %120 = icmp eq i8 %119, 0
+  br i1 %120, label %parse_attribute_value_hex_der_encoded.exit.thread121, label %116
+
+parse_attribute_value_hex_der_encoded.exit.thread121: ; preds = %._crit_edge.i, %108, %.lr.ph62.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  br label %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
+
+parse_attribute_value_hex_der_encoded.exit:       ; preds = %116, %..loopexit_crit_edge.i, %113
+  %121 = phi ptr [ %.pre66.i, %..loopexit_crit_edge.i ], [ %.pre67.i, %113 ], [ %.pre67.i, %116 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 1 %121, i64 %109, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @free(ptr noundef %62) #10
+  br label %188
+
+parse_attribute_value_hex_der_encoded.exit.thread.sink.split: ; preds = %hexpair_to_int.exit.i, %parse_attribute_value_hex_der_encoded.exit.thread121
+  call void @free(ptr noundef %62) #10
+  br label %parse_attribute_value_hex_der_encoded.exit.thread
+
+parse_attribute_value_hex_der_encoded.exit.thread: ; preds = %61, %58, %51, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split
+  %.039.i115 = phi i32 [ -9088, %parse_attribute_value_hex_der_encoded.exit.thread.sink.split ], [ -9088, %51 ], [ -9088, %58 ], [ -10368, %61 ]
+  %122 = load ptr, ptr %9, align 8, !tbaa !19
+  br label %.thread127.sink.split
+
+123:                                              ; preds = %48
+  %.not80 = icmp eq i32 %.150.ph, 0
+  br i1 %.not80, label %126, label %124
+
+124:                                              ; preds = %123
+  %125 = load ptr, ptr %9, align 8, !tbaa !19
+  br label %.thread127.sink.split
+
+126:                                              ; preds = %123
+  %127 = ptrtoint ptr %.061147 to i64
+  %128 = ptrtoint ptr %.166.ph to i64
+  %129 = sub i64 %127, %128
+  %130 = trunc i64 %129 to i32
+  %sext = shl i64 %129, 32
+  %131 = ashr exact i64 %sext, 32
+  %132 = getelementptr inbounds i8, ptr %.166.ph, i64 %131
+  %133 = icmp sgt i32 %130, 0
+  br i1 %133, label %.lr.ph.i87, label %.loopexit
+
+134:                                              ; preds = %183
+  %.02838.i.add = add nuw nsw i64 %.02838.i.idx, 1
+  %135 = getelementptr inbounds nuw i8, ptr %.130.i, i64 1
+  %136 = icmp ult ptr %135, %132
+  br i1 %136, label %.lr.ph.i87, label %.loopexit, !llvm.loop !23
+
+.lr.ph.i87:                                       ; preds = %126, %134
+  %.02838.i.idx = phi i64 [ %.02838.i.add, %134 ], [ 0, %126 ]
+  %.02937.i = phi ptr [ %135, %134 ], [ %.166.ph, %126 ]
+  %.02838.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.02838.i.idx
+  %137 = load i8, ptr %.02937.i, align 1, !tbaa !7
+  %138 = icmp eq i8 %137, 92
+  br i1 %138, label %139, label %183
+
+139:                                              ; preds = %.lr.ph.i87
+  %140 = getelementptr inbounds nuw i8, ptr %.02937.i, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %.02937.i, i64 2
+  %142 = icmp ult ptr %141, %132
+  br i1 %142, label %143, label %178
+
+143:                                              ; preds = %139
+  %144 = load i8, ptr %140, align 1, !tbaa !7
+  %145 = sext i8 %144 to i32
+  %146 = add i8 %144, -48
+  %or.cond.i.i.i88 = icmp ult i8 %146, 10
+  br i1 %or.cond.i.i.i88, label %147, label %149
+
+147:                                              ; preds = %143
+  %148 = add nsw i32 %145, -48
+  br label %hex_to_int.exit.i.i91
+
+149:                                              ; preds = %143
+  %150 = add i8 %144, -97
+  %or.cond5.i.i.i89 = icmp ult i8 %150, 6
+  br i1 %or.cond5.i.i.i89, label %151, label %153
+
+151:                                              ; preds = %149
+  %152 = add nsw i32 %145, -87
+  br label %hex_to_int.exit.i.i91
+
+153:                                              ; preds = %149
+  %154 = add i8 %144, -65
+  %or.cond8.i.i.i90 = icmp ult i8 %154, 6
+  %155 = add nsw i32 %145, -55
+  %156 = select i1 %or.cond8.i.i.i90, i32 %155, i32 -1
+  br label %hex_to_int.exit.i.i91
+
+hex_to_int.exit.i.i91:                            ; preds = %153, %151, %147
+  %157 = phi i32 [ %148, %147 ], [ %152, %151 ], [ %156, %153 ]
+  %158 = load i8, ptr %141, align 1, !tbaa !7
+  %159 = sext i8 %158 to i32
+  %160 = add i8 %158, -48
+  %or.cond.i9.i.i92 = icmp ult i8 %160, 10
+  br i1 %or.cond.i9.i.i92, label %161, label %163
+
+161:                                              ; preds = %hex_to_int.exit.i.i91
+  %162 = add nsw i32 %159, -48
+  br label %hexpair_to_int.exit.i95
+
+163:                                              ; preds = %hex_to_int.exit.i.i91
+  %164 = add i8 %158, -97
+  %or.cond5.i10.i.i93 = icmp ult i8 %164, 6
+  br i1 %or.cond5.i10.i.i93, label %165, label %167
+
+165:                                              ; preds = %163
+  %166 = add nsw i32 %159, -87
+  br label %hexpair_to_int.exit.i95
+
+167:                                              ; preds = %163
+  %168 = add i8 %158, -65
+  %or.cond8.i11.i.i94 = icmp ult i8 %168, 6
+  %169 = add nsw i32 %159, -55
+  %170 = select i1 %or.cond8.i11.i.i94, i32 %169, i32 -1
+  br label %hexpair_to_int.exit.i95
+
+hexpair_to_int.exit.i95:                          ; preds = %167, %165, %161
+  %171 = phi i32 [ %162, %161 ], [ %166, %165 ], [ %170, %167 ]
+  %172 = icmp ne i32 %157, -1
+  %173 = icmp ne i32 %171, -1
+  %or.cond.i.i96 = select i1 %172, i1 %173, i1 false
+  %174 = shl nsw i32 %157, 4
+  %175 = or i32 %171, %174
+  %.0.i.i97 = select i1 %or.cond.i.i96, i32 %175, i32 -1
+  switch i32 %.0.i.i97, label %176 [
+    i32 -1, label %178
+    i32 0, label %184
+  ]
+
+176:                                              ; preds = %hexpair_to_int.exit.i95
+  %177 = trunc i32 %.0.i.i97 to i8
+  br label %183
+
+178:                                              ; preds = %hexpair_to_int.exit.i95, %139
+  %179 = icmp ult ptr %140, %132
+  br i1 %179, label %180, label %184
+
+180:                                              ; preds = %178
+  %181 = load i8, ptr %140, align 1, !tbaa !7
+  %182 = sext i8 %181 to i32
+  %memchr.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.47, i32 %182, i64 11)
+  %.not35.i = icmp eq ptr %memchr.i, null
+  br i1 %.not35.i, label %184, label %183
+
+183:                                              ; preds = %180, %176, %.lr.ph.i87
+  %.sink.i = phi i8 [ %177, %176 ], [ %181, %180 ], [ %137, %.lr.ph.i87 ]
+  %.130.i = phi ptr [ %141, %176 ], [ %140, %180 ], [ %.02937.i, %.lr.ph.i87 ]
+  store i8 %.sink.i, ptr %.02838.i.ptr, align 1, !tbaa !7
+  %exitcond = icmp eq i64 %.02838.i.idx, 255
+  br i1 %exitcond, label %184, label %134
+
+184:                                              ; preds = %hexpair_to_int.exit.i95, %180, %178, %183
+  %185 = load ptr, ptr %9, align 8, !tbaa !19
+  br label %.thread127.sink.split
+
+.loopexit:                                        ; preds = %134, %126
+  %.pre-phi40.i = phi i64 [ 0, %126 ], [ %.02838.i.add, %134 ]
+  store i64 %.pre-phi40.i, ptr %5, align 8, !tbaa !3
+  %186 = getelementptr inbounds nuw i8, ptr %.157.ph, i64 24
+  %187 = load i32, ptr %186, align 8, !tbaa !24
+  br label %188
+
+188:                                              ; preds = %parse_attribute_value_hex_der_encoded.exit, %.loopexit
+  %189 = phi i64 [ %109, %parse_attribute_value_hex_der_encoded.exit ], [ %.pre-phi40.i, %.loopexit ]
+  %.2 = phi i32 [ %104, %parse_attribute_value_hex_der_encoded.exit ], [ %187, %.loopexit ]
+  %190 = load ptr, ptr %9, align 8, !tbaa !19
+  %191 = load i64, ptr %8, align 8, !tbaa !17
+  %192 = call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %190, i64 noundef %191, ptr noundef nonnull %4, i64 noundef %189) #10
+  %193 = load ptr, ptr %9, align 8, !tbaa !19
+  call void @free(ptr noundef %193) #10
+  store ptr null, ptr %9, align 8, !tbaa !19
+  %.not83 = icmp eq ptr %192, null
+  br i1 %.not83, label %.thread127, label %194
+
+194:                                              ; preds = %188
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  store i32 %.2, ptr %195, align 8, !tbaa !25
+  br label %196
+
+196:                                              ; preds = %198, %194
+  %.364 = phi ptr [ %.061147, %194 ], [ %199, %198 ]
+  %197 = icmp ult ptr %.364, %7
+  br i1 %197, label %198, label %202
+
+198:                                              ; preds = %196
+  %199 = getelementptr inbounds nuw i8, ptr %.364, i64 1
+  %200 = load i8, ptr %199, align 1, !tbaa !7
+  %201 = icmp eq i8 %200, 32
+  br i1 %201, label %196, label %202, !llvm.loop !28
+
+202:                                              ; preds = %198, %196
+  %203 = getelementptr inbounds nuw i8, ptr %.364, i64 1
+  br label %204
+
+204:                                              ; preds = %202, %11, %39, %43
+  %.150110 = phi i32 [ %.150.ph, %202 ], [ %.150.ph, %39 ], [ %.150.ph, %43 ], [ %.049151, %11 ]
+  %.157108 = phi ptr [ %.157.ph, %202 ], [ %.157.ph, %39 ], [ %.157.ph, %43 ], [ %.056149, %11 ]
+  %.267 = phi ptr [ %203, %202 ], [ %.166.ph, %39 ], [ %.166.ph, %43 ], [ %.065146, %11 ]
+  %.162 = phi ptr [ %.364, %202 ], [ %.061147, %39 ], [ %.061147, %43 ], [ %.061147, %11 ]
+  %.159 = phi i32 [ 0, %202 ], [ %.058148, %39 ], [ %.058148, %43 ], [ %.058148, %11 ]
+  %.254 = phi i32 [ 1, %202 ], [ 0, %39 ], [ 0, %43 ], [ 1, %11 ]
+  %205 = getelementptr inbounds nuw i8, ptr %.162, i64 1
+  %.not = icmp ugt ptr %205, %7
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !29
+
+._crit_edge:                                      ; preds = %204
+  %.pre158 = load ptr, ptr %9, align 8, !tbaa !19
+  %.not75 = icmp eq ptr %.pre158, null
+  br i1 %.not75, label %.thread127, label %.thread127.sink.split
+
+.thread127.sink.split:                            ; preds = %._crit_edge, %46, %parse_attribute_value_hex_der_encoded.exit.thread, %124, %184
+  %.pre158.sink = phi ptr [ %185, %184 ], [ %125, %124 ], [ %122, %parse_attribute_value_hex_der_encoded.exit.thread ], [ %47, %46 ], [ %.pre158, %._crit_edge ]
+  %.1.ph = phi i32 [ -9088, %184 ], [ -9088, %124 ], [ %.039.i115, %parse_attribute_value_hex_der_encoded.exit.thread ], [ -9088, %46 ], [ %.159, %._crit_edge ]
+  call void @free(ptr noundef %.pre158.sink) #10
+  br label %.thread127
+
+.thread127:                                       ; preds = %188, %28, %.thread127.sink.split, %._crit_edge
+  %.1 = phi i32 [ %.159, %._crit_edge ], [ %.1.ph, %.thread127.sink.split ], [ -10368, %188 ], [ -9088, %28 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  ret i32 %.1
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
-
-declare void @mbedtls_asn1_free_named_data_list(ptr noundef) local_unnamed_addr #2
-
-declare ptr @mbedtls_asn1_store_named_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind uwtable
-define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
-  %7 = add i64 %5, 1
-  %8 = tail call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef %7) #5
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %16, label %10
-
-10:                                               ; preds = %6
-  %11 = trunc i32 %3 to i8
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %13 = load ptr, ptr %12, align 8
-  store i8 %11, ptr %13, align 1
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %4, i64 %5, i1 false)
-  br label %16
-
-16:                                               ; preds = %6, %10
-  %.0 = phi i32 [ 0, %10 ], [ -10368, %6 ]
-  ret i32 %.0
-}
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+declare void @mbedtls_asn1_free_named_data_list(ptr noundef) local_unnamed_addr #4
+
+declare i32 @mbedtls_oid_from_numeric_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+
+declare ptr @mbedtls_asn1_store_named_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
+  %7 = icmp eq i64 %5, -1
+  br i1 %7, label %18, label %8
+
+8:                                                ; preds = %6
+  %9 = add nuw i64 %5, 1
+  %10 = tail call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef %9) #10
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %18, label %12
+
+12:                                               ; preds = %8
+  %13 = trunc i32 %3 to i8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
+  store i8 %13, ptr %15, align 1, !tbaa !7
+  %16 = load ptr, ptr %14, align 8, !tbaa !30
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %4, i64 %5, i1 false)
+  br label %18
+
+18:                                               ; preds = %8, %6, %12
+  %.0 = phi i32 [ 0, %12 ], [ -10240, %6 ], [ -10368, %8 ]
+  ret i32 %.0
+}
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
@@ -247,33 +598,33 @@ define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr 
   %.032 = phi ptr [ %44, %40 ], [ %2, %3 ]
   %.02131 = phi i64 [ %42, %40 ], [ 0, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.032, i64 16
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %.032, i64 8
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %.032, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %.032, i64 40
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %.032, i64 32
-  %12 = load i64, ptr %11, align 8
-  %13 = load i32, ptr %8, align 8
-  %14 = tail call i32 @mbedtls_asn1_write_tagged_string(ptr noundef %0, ptr noundef %1, i32 noundef %13, ptr noundef %10, i64 noundef %12) #5
+  %12 = load i64, ptr %11, align 8, !tbaa !33
+  %13 = load i32, ptr %8, align 8, !tbaa !25
+  %14 = tail call i32 @mbedtls_asn1_write_tagged_string(ptr noundef %0, ptr noundef %1, i32 noundef %13, ptr noundef %10, i64 noundef %12) #10
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %x509_write_name.exit.thread, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call i32 @mbedtls_asn1_write_oid(ptr noundef %0, ptr noundef %1, ptr noundef %5, i64 noundef %7) #5
+  %17 = tail call i32 @mbedtls_asn1_write_oid(ptr noundef %0, ptr noundef %1, ptr noundef %5, i64 noundef %7) #10
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %x509_write_name.exit.thread, label %19
 
 19:                                               ; preds = %16
   %narrow.i = add nuw i32 %17, %14
   %20 = zext i32 %narrow.i to i64
-  %21 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %20) #5
+  %21 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %20) #10
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %x509_write_name.exit.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #5
+  %24 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #10
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %x509_write_name.exit.thread, label %26
 
@@ -282,12 +633,12 @@ define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr 
   %28 = add nuw nsw i64 %27, %20
   %29 = zext nneg i32 %24 to i64
   %30 = add nuw nsw i64 %28, %29
-  %31 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %30) #5
+  %31 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %30) #10
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %x509_write_name.exit.thread, label %33
 
 33:                                               ; preds = %26
-  %34 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 49) #5
+  %34 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 49) #10
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %x509_write_name.exit.thread, label %x509_write_name.exit
 
@@ -302,18 +653,18 @@ x509_write_name.exit:                             ; preds = %33
   %41 = zext nneg i32 %38 to i64
   %42 = add i64 %.02131, %41
   %43 = getelementptr inbounds nuw i8, ptr %.032, i64 48
-  %44 = load ptr, ptr %43, align 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !34
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %40, %3
   %.021.lcssa = phi i64 [ 0, %3 ], [ %42, %40 ]
-  %45 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %.021.lcssa) #5
+  %45 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %.021.lcssa) #10
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %x509_write_name.exit.thread, label %47
 
 47:                                               ; preds = %._crit_edge
-  %48 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #5
+  %48 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #10
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %x509_write_name.exit.thread, label %50
 
@@ -328,66 +679,68 @@ x509_write_name.exit.thread:                      ; preds = %33, %26, %23, %19, 
   ret i32 %.022
 }
 
-declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %0, align 8
-  %8 = icmp ult ptr %7, %1
-  br i1 %8, label %37, label %9
+define hidden i32 @mbedtls_x509_write_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+  %8 = load ptr, ptr %0, align 8, !tbaa !21
+  %9 = icmp ult ptr %8, %1
+  br i1 %9, label %39, label %10
 
-9:                                                ; preds = %6
-  %10 = ptrtoint ptr %7 to i64
-  %11 = ptrtoint ptr %1 to i64
-  %12 = sub i64 %10, %11
-  %13 = icmp ult i64 %12, %5
-  br i1 %13, label %37, label %14
+10:                                               ; preds = %7
+  %11 = ptrtoint ptr %8 to i64
+  %12 = ptrtoint ptr %1 to i64
+  %13 = sub i64 %11, %12
+  %14 = icmp ult i64 %13, %5
+  br i1 %14, label %39, label %15
 
-14:                                               ; preds = %9
-  %15 = sub i64 0, %5
-  %16 = getelementptr inbounds i8, ptr %7, i64 %15
-  store ptr %16, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %4, i64 %5, i1 false)
-  %17 = load ptr, ptr %0, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = sub i64 %18, %11
-  %20 = icmp slt i64 %19, 1
-  br i1 %20, label %37, label %21
+15:                                               ; preds = %10
+  %16 = sub i64 0, %5
+  %17 = getelementptr inbounds i8, ptr %8, i64 %16
+  store ptr %17, ptr %0, align 8, !tbaa !21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %4, i64 %5, i1 false)
+  %18 = load ptr, ptr %0, align 8, !tbaa !21
+  %19 = ptrtoint ptr %18 to i64
+  %20 = sub i64 %19, %12
+  %21 = icmp slt i64 %20, 1
+  br i1 %21, label %39, label %22
 
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %17, i64 -1
-  store ptr %22, ptr %0, align 8
-  store i8 0, ptr %22, align 1
-  %23 = add i64 %5, 1
-  %24 = tail call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %23) #5
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %37, label %26
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds i8, ptr %18, i64 -1
+  store ptr %23, ptr %0, align 8, !tbaa !21
+  store i8 0, ptr %23, align 1, !tbaa !7
+  %24 = add i64 %5, 1
+  %25 = tail call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %24) #10
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %39, label %27
 
-26:                                               ; preds = %21
-  %27 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext 3) #5
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %37, label %29
+27:                                               ; preds = %22
+  %28 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext 3) #10
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %39, label %30
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @mbedtls_asn1_write_algorithm_identifier(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0) #5
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %37, label %32
+30:                                               ; preds = %27
+  %31 = icmp ne i32 %6, 4
+  %. = zext i1 %31 to i32
+  %32 = tail call i32 @mbedtls_asn1_write_algorithm_identifier_ext(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %.) #10
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %39, label %34
 
-32:                                               ; preds = %29
-  %33 = trunc i64 %23 to i32
-  %34 = add i32 %24, %33
-  %35 = add i32 %34, %27
-  %36 = add i32 %35, %30
-  br label %37
+34:                                               ; preds = %30
+  %35 = trunc i64 %24 to i32
+  %36 = add i32 %25, %35
+  %37 = add i32 %36, %28
+  %38 = add i32 %37, %32
+  br label %39
 
-37:                                               ; preds = %29, %26, %21, %14, %6, %9, %32
-  %.0 = phi i32 [ %36, %32 ], [ -108, %9 ], [ -108, %6 ], [ -108, %14 ], [ %24, %21 ], [ %27, %26 ], [ %30, %29 ]
-  ret i32 %.0
+39:                                               ; preds = %30, %27, %22, %15, %7, %10, %34
+  %.036 = phi i32 [ %38, %34 ], [ -108, %10 ], [ -108, %7 ], [ -108, %15 ], [ %25, %22 ], [ %28, %27 ], [ %32, %30 ]
+  ret i32 %.036
 }
 
-declare i32 @mbedtls_asn1_write_algorithm_identifier(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @mbedtls_asn1_write_algorithm_identifier_ext(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
@@ -398,24 +751,24 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
   %.016 = phi ptr [ %65, %62 ], [ %2, %3 ]
   %.01015 = phi i32 [ %63, %62 ], [ 0, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.016, i64 40
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = getelementptr inbounds nuw i8, ptr %.016, i64 32
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !33
   %9 = add i64 %8, -1
-  %10 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i64 noundef %9) #5
+  %10 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i64 noundef %9) #10
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %x509_write_extension.exit.thread, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = load i64, ptr %7, align 8
+  %13 = load i64, ptr %7, align 8, !tbaa !33
   %14 = add i64 %13, -1
-  %15 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %14) #5
+  %15 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %14) #10
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %x509_write_extension.exit.thread, label %17
 
 17:                                               ; preds = %12
-  %18 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 4) #5
+  %18 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 4) #10
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %x509_write_extension.exit.thread, label %20
 
@@ -424,13 +777,13 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
   %21 = zext i32 %narrow.i to i64
   %22 = zext nneg i32 %18 to i64
   %23 = add nuw nsw i64 %22, %21
-  %24 = load ptr, ptr %4, align 8
-  %25 = load i8, ptr %24, align 1
+  %24 = load ptr, ptr %4, align 8, !tbaa !30
+  %25 = load i8, ptr %24, align 1, !tbaa !7
   %.not.i = icmp eq i8 %25, 0
   br i1 %.not.i, label %32, label %26
 
 26:                                               ; preds = %20
-  %27 = tail call i32 @mbedtls_asn1_write_bool(ptr noundef %0, ptr noundef %1, i32 noundef 1) #5
+  %27 = tail call i32 @mbedtls_asn1_write_bool(ptr noundef %0, ptr noundef %1, i32 noundef 1) #10
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %x509_write_extension.exit.thread, label %29
 
@@ -442,21 +795,21 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
 32:                                               ; preds = %29, %20
   %.0.i = phi i64 [ %31, %29 ], [ %23, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %.016, i64 16
-  %34 = load ptr, ptr %33, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %36 = load i64, ptr %35, align 8
-  %37 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %34, i64 noundef %36) #5
+  %36 = load i64, ptr %35, align 8, !tbaa !32
+  %37 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %34, i64 noundef %36) #10
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %x509_write_extension.exit.thread, label %39
 
 39:                                               ; preds = %32
-  %40 = load i64, ptr %35, align 8
-  %41 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %40) #5
+  %40 = load i64, ptr %35, align 8, !tbaa !32
+  %41 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %40) #10
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %x509_write_extension.exit.thread, label %43
 
 43:                                               ; preds = %39
-  %44 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 6) #5
+  %44 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 6) #10
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %x509_write_extension.exit.thread, label %46
 
@@ -467,12 +820,12 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
   %50 = add nuw nsw i64 %48, %49
   %51 = zext nneg i32 %44 to i64
   %52 = add nuw nsw i64 %50, %51
-  %53 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %52) #5
+  %53 = tail call i32 @mbedtls_asn1_write_len(ptr noundef %0, ptr noundef %1, i64 noundef %52) #10
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %x509_write_extension.exit.thread, label %55
 
 55:                                               ; preds = %46
-  %56 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #5
+  %56 = tail call i32 @mbedtls_asn1_write_tag(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 48) #10
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %x509_write_extension.exit.thread, label %x509_write_extension.exit
 
@@ -486,9 +839,9 @@ x509_write_extension.exit:                        ; preds = %55
 62:                                               ; preds = %x509_write_extension.exit
   %63 = add i32 %60, %.01015
   %64 = getelementptr inbounds nuw i8, ptr %.016, i64 48
-  %65 = load ptr, ptr %64, align 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !34
   %.not = icmp eq ptr %65, null
-  br i1 %.not, label %x509_write_extension.exit.thread, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %x509_write_extension.exit.thread, label %.lr.ph, !llvm.loop !36
 
 x509_write_extension.exit.thread:                 ; preds = %x509_write_extension.exit, %.lr.ph, %12, %17, %26, %32, %39, %43, %46, %55, %62, %3
   %.011 = phi i32 [ 0, %3 ], [ %63, %62 ], [ %56, %55 ], [ %53, %46 ], [ %44, %43 ], [ %41, %39 ], [ %37, %32 ], [ %27, %26 ], [ %18, %17 ], [ %15, %12 ], [ %10, %.lr.ph ], [ %60, %x509_write_extension.exit ]
@@ -496,32 +849,73 @@ x509_write_extension.exit.thread:                 ; preds = %x509_write_extensio
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_asn1_write_tagged_string(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @mbedtls_asn1_get_len(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @mbedtls_asn1_write_oid(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @mbedtls_asn1_write_tagged_string(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @mbedtls_asn1_write_raw_buffer(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @mbedtls_asn1_write_oid(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @mbedtls_asn1_write_bool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @mbedtls_asn1_write_raw_buffer(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+declare i32 @mbedtls_asn1_write_bool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #8
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"long", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = !{!9, !4, i64 8}
+!9 = !{!"", !10, i64 0, !4, i64 8, !10, i64 16, !12, i64 24}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!"int", !5, i64 0}
+!13 = !{!9, !10, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!9, !10, i64 16}
+!17 = !{!18, !4, i64 8}
+!18 = !{!"mbedtls_asn1_buf", !12, i64 0, !4, i64 8, !10, i64 16}
+!19 = !{!18, !10, i64 16}
+!20 = distinct !{!20, !15}
+!21 = !{!10, !10, i64 0}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = !{!9, !12, i64 24}
+!25 = !{!26, !12, i64 24}
+!26 = !{!"mbedtls_asn1_named_data", !18, i64 0, !18, i64 24, !27, i64 48, !5, i64 56}
+!27 = !{!"p1 _ZTS23mbedtls_asn1_named_data", !11, i64 0}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = !{!26, !10, i64 40}
+!31 = !{!26, !10, i64 16}
+!32 = !{!26, !4, i64 8}
+!33 = !{!26, !4, i64 32}
+!34 = !{!26, !27, i64 48}
+!35 = distinct !{!35, !15}
+!36 = distinct !{!36, !15}

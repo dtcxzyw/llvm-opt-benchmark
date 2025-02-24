@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @mbedtls_hmac_drbg_init(ptr noundef writeonly captures(none) initializes((0, 128)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 10000, ptr %2, align 4
+  store i32 10000, ptr %2, align 4, !tbaa !3
   ret void
 }
 
@@ -33,14 +33,16 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define hidden i32 @mbedtls_hmac_drbg_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [1 x i8], align 1
   %5 = alloca [64 x i8], align 16
-  %6 = load ptr, ptr %0, align 8
+  %6 = load ptr, ptr %0, align 8, !tbaa !12
   %7 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %6) #12
   %8 = zext i8 %7 to i64
   %9 = icmp ne ptr %1, null
   %10 = icmp ne i64 %2, 0
   %11 = and i1 %9, %10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %4, align 1
+  store i8 0, ptr %4, align 1, !tbaa !13
   br i1 %11, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %28
@@ -84,11 +86,11 @@ define hidden i32 @mbedtls_hmac_drbg_update(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not37.us, label %28, label %.split39.us
 
 28:                                               ; preds = %26
-  %29 = load i8, ptr %4, align 1
+  %29 = load i8, ptr %4, align 1, !tbaa !13
   %30 = add i8 %29, 1
-  store i8 %30, ptr %4, align 1
+  store i8 %30, ptr %4, align 1, !tbaa !13
   %31 = icmp ult i8 %30, 2
-  br i1 %31, label %.split.us, label %.split39.us, !llvm.loop !4
+  br i1 %31, label %.split.us, label %.split39.us, !llvm.loop !14
 
 .split:                                           ; preds = %3, %45
   %32 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #12
@@ -126,29 +128,37 @@ define hidden i32 @mbedtls_hmac_drbg_update(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not37, label %45, label %.split39.us
 
 45:                                               ; preds = %43
-  %46 = load i8, ptr %4, align 1
+  %46 = load i8, ptr %4, align 1, !tbaa !13
   %47 = add i8 %46, 1
-  store i8 %47, ptr %4, align 1
+  store i8 %47, ptr %4, align 1, !tbaa !13
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %.split, label %.split39.us, !llvm.loop !4
+  br i1 %48, label %.split, label %.split39.us, !llvm.loop !14
 
 .split39.us:                                      ; preds = %.split, %33, %35, %37, %39, %41, %43, %45, %.split.us, %14, %16, %18, %20, %22, %24, %26, %28
   %.us-phi = phi i32 [ %13, %.split.us ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ 0, %28 ], [ %32, %.split ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ 0, %45 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 64) #12
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
   ret i32 %.us-phi
 }
 
-declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-declare i32 @mbedtls_md_hmac_reset(ptr noundef) local_unnamed_addr #3
+declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #4
 
-declare i32 @mbedtls_md_hmac_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_md_hmac_reset(ptr noundef) local_unnamed_addr #4
 
-declare i32 @mbedtls_md_hmac_finish(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_md_hmac_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @mbedtls_md_hmac_starts(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_md_hmac_finish(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_md_hmac_starts(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_hmac_drbg_seed_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
@@ -176,62 +186,62 @@ define hidden i32 @mbedtls_hmac_drbg_seed_buf(ptr noundef %0, ptr noundef %1, pt
   ret i32 %.0
 }
 
-declare i32 @mbedtls_md_setup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_md_setup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_hmac_drbg_reseed(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [384 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !16
   %7 = icmp ugt i64 %2, 256
   %8 = add i64 %6, %2
   %9 = icmp ugt i64 %8, 384
-  %or.cond39.i = select i1 %7, i1 true, i1 %9
-  br i1 %or.cond39.i, label %hmac_drbg_reseed_core.exit, label %10
+  %or.cond43.i = select i1 %7, i1 true, i1 %9
+  br i1 %or.cond43.i, label %hmac_drbg_reseed_core.exit, label %.critedge.i
 
-10:                                               ; preds = %3
+.critedge.i:                                      ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %4, i8 0, i64 384, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %12(ptr noundef %14, ptr noundef nonnull %4, i64 noundef %6) #12
-  %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %16, label %hmac_drbg_reseed_core.exit
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %11 = load ptr, ptr %10, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %13 = load ptr, ptr %12, align 8, !tbaa !18
+  %14 = call i32 %11(ptr noundef %13, ptr noundef nonnull %4, i64 noundef %6) #12
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %15, label %hmac_drbg_reseed_core.exit
 
-16:                                               ; preds = %10
-  %17 = load i64, ptr %5, align 8
-  %18 = icmp ne ptr %1, null
-  %19 = icmp ne i64 %2, 0
-  %or.cond.i = and i1 %18, %19
-  br i1 %or.cond.i, label %20, label %23
+15:                                               ; preds = %.critedge.i
+  %16 = load i64, ptr %5, align 8, !tbaa !16
+  %17 = icmp ne ptr %1, null
+  %18 = icmp ne i64 %2, 0
+  %or.cond.i = and i1 %17, %18
+  br i1 %or.cond.i, label %19, label %22
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 %17
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
-  %22 = add i64 %17, %2
-  br label %23
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %16
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  %21 = add i64 %16, %2
+  br label %22
 
-23:                                               ; preds = %20, %16
-  %.1.i = phi i64 [ %22, %20 ], [ %17, %16 ]
-  %24 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %.1.i)
-  %.not37.i = icmp eq i32 %24, 0
-  br i1 %.not37.i, label %25, label %27
+22:                                               ; preds = %19, %15
+  %.1.i = phi i64 [ %21, %19 ], [ %16, %15 ]
+  %23 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %.1.i)
+  %.not41.i = icmp eq i32 %23, 0
+  br i1 %.not41.i, label %24, label %26
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 1, ptr %26, align 8
-  br label %27
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 1, ptr %25, align 8, !tbaa !19
+  br label %26
 
-27:                                               ; preds = %25, %23
+26:                                               ; preds = %24, %22
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef %.1.i) #12
   br label %hmac_drbg_reseed_core.exit
 
-hmac_drbg_reseed_core.exit:                       ; preds = %3, %10, %27
-  %.032.i = phi i32 [ %24, %27 ], [ -5, %3 ], [ -9, %10 ]
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4)
-  ret i32 %.032.i
+hmac_drbg_reseed_core.exit:                       ; preds = %3, %.critedge.i, %26
+  %.135.i = phi i32 [ %23, %26 ], [ -5, %3 ], [ -9, %.critedge.i ]
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #12
+  ret i32 %.135.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -239,7 +249,7 @@ define hidden i32 @mbedtls_hmac_drbg_seed(ptr noundef %0, ptr noundef %1, ptr no
   %7 = alloca [384 x i8], align 16
   %8 = tail call i32 @mbedtls_md_setup(ptr noundef %0, ptr noundef %1, i32 noundef 1) #12
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %55
+  br i1 %.not, label %9, label %54
 
 9:                                                ; preds = %6
   %10 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %1) #12
@@ -247,16 +257,16 @@ define hidden i32 @mbedtls_hmac_drbg_seed(ptr noundef %0, ptr noundef %1, ptr no
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = tail call i32 @mbedtls_md_hmac_starts(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %11) #12
   %.not25 = icmp eq i32 %13, 0
-  br i1 %.not25, label %14, label %55
+  br i1 %.not25, label %14, label %54
 
 14:                                               ; preds = %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %12, i8 1, i64 %11, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %2, ptr %15, align 8
+  store ptr %2, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %3, ptr %16, align 8
+  store ptr %3, ptr %16, align 8, !tbaa !18
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %18 = load i64, ptr %17, align 8
+  %18 = load i64, ptr %17, align 8, !tbaa !16
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %25
 
@@ -265,246 +275,246 @@ define hidden i32 @mbedtls_hmac_drbg_seed(ptr noundef %0, ptr noundef %1, ptr no
   %22 = icmp ult i8 %10, 29
   %23 = select i1 %22, i64 24, i64 32
   %24 = select i1 %21, i64 16, i64 %23
-  store i64 %24, ptr %17, align 8
+  store i64 %24, ptr %17, align 8, !tbaa !16
   br label %25
 
 25:                                               ; preds = %20, %14
   %26 = phi i64 [ %24, %20 ], [ %18, %14 ]
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %7) #12
   %27 = mul i64 %26, 3
   %28 = lshr i64 %27, 1
   %29 = icmp ugt i64 %5, 256
   %30 = add nuw i64 %28, %5
   %31 = icmp ugt i64 %30, 384
-  %or.cond39.i = select i1 %29, i1 true, i1 %31
-  br i1 %or.cond39.i, label %hmac_drbg_reseed_core.exit, label %32
+  %or.cond43.i = select i1 %29, i1 true, i1 %31
+  br i1 %or.cond43.i, label %hmac_drbg_reseed_core.exit, label %.critedge.i
 
-32:                                               ; preds = %25
+.critedge.i:                                      ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %7, i8 0, i64 384, i1 false)
-  %33 = call i32 %2(ptr noundef %3, ptr noundef nonnull %7, i64 noundef %26) #12
-  %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %34, label %hmac_drbg_reseed_core.exit
+  %32 = call i32 %2(ptr noundef %3, ptr noundef nonnull %7, i64 noundef %26) #12
+  %.not.i = icmp eq i32 %32, 0
+  br i1 %.not.i, label %33, label %hmac_drbg_reseed_core.exit
 
-34:                                               ; preds = %32
-  %35 = load i64, ptr %17, align 8
-  %36 = load ptr, ptr %15, align 8
-  %37 = load ptr, ptr %16, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 %35
-  %39 = lshr i64 %35, 1
-  %40 = call i32 %36(ptr noundef %37, ptr noundef nonnull %38, i64 noundef %39) #12
-  %.not36.i = icmp eq i32 %40, 0
-  br i1 %.not36.i, label %41, label %hmac_drbg_reseed_core.exit
+33:                                               ; preds = %.critedge.i
+  %34 = load i64, ptr %17, align 8, !tbaa !16
+  %35 = load ptr, ptr %15, align 8, !tbaa !17
+  %36 = load ptr, ptr %16, align 8, !tbaa !18
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 %34
+  %38 = lshr i64 %34, 1
+  %39 = call i32 %35(ptr noundef %36, ptr noundef nonnull %37, i64 noundef %38) #12
+  %.not40.i = icmp eq i32 %39, 0
+  br i1 %.not40.i, label %40, label %hmac_drbg_reseed_core.exit
 
-41:                                               ; preds = %34
-  %42 = load i64, ptr %17, align 8
-  %43 = lshr i64 %42, 1
-  %44 = add i64 %43, %35
-  %45 = icmp ne ptr %4, null
-  %46 = icmp ne i64 %5, 0
-  %or.cond.i = and i1 %45, %46
-  br i1 %or.cond.i, label %47, label %50
+40:                                               ; preds = %33
+  %41 = load i64, ptr %17, align 8, !tbaa !16
+  %42 = lshr i64 %41, 1
+  %43 = add i64 %42, %34
+  %44 = icmp ne ptr %4, null
+  %45 = icmp ne i64 %5, 0
+  %or.cond.i = and i1 %44, %45
+  br i1 %or.cond.i, label %46, label %49
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %7, i64 %44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %4, i64 %5, i1 false)
-  %49 = add i64 %44, %5
-  br label %50
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 %43
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull readonly align 1 %4, i64 %5, i1 false)
+  %48 = add i64 %43, %5
+  br label %49
 
-50:                                               ; preds = %47, %41
-  %.1.i = phi i64 [ %49, %47 ], [ %44, %41 ]
-  %51 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef %.1.i)
-  %.not37.i = icmp eq i32 %51, 0
-  br i1 %.not37.i, label %52, label %54
+49:                                               ; preds = %46, %40
+  %.1.i = phi i64 [ %48, %46 ], [ %43, %40 ]
+  %50 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef %.1.i)
+  %.not41.i = icmp eq i32 %50, 0
+  br i1 %.not41.i, label %51, label %53
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 1, ptr %53, align 8
-  br label %54
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 1, ptr %52, align 8, !tbaa !19
+  br label %53
 
-54:                                               ; preds = %52, %50
+53:                                               ; preds = %51, %49
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef %.1.i) #12
   br label %hmac_drbg_reseed_core.exit
 
-hmac_drbg_reseed_core.exit:                       ; preds = %25, %32, %34, %54
-  %.032.i = phi i32 [ %51, %54 ], [ -5, %25 ], [ -9, %32 ], [ -9, %34 ]
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7)
-  br label %55
+hmac_drbg_reseed_core.exit:                       ; preds = %25, %.critedge.i, %33, %53
+  %.135.i = phi i32 [ %50, %53 ], [ -5, %25 ], [ -9, %.critedge.i ], [ -9, %33 ]
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #12
+  br label %54
 
-55:                                               ; preds = %hmac_drbg_reseed_core.exit, %9, %6
-  %.0 = phi i32 [ %8, %6 ], [ %13, %9 ], [ %.032.i, %hmac_drbg_reseed_core.exit ]
+54:                                               ; preds = %hmac_drbg_reseed_core.exit, %9, %6
+  %.0 = phi i32 [ %8, %6 ], [ %13, %9 ], [ %.135.i, %hmac_drbg_reseed_core.exit ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_hmac_drbg_set_prediction_resistance(ptr noundef writeonly captures(none) initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %1, ptr %3, align 8
+  store i32 %1, ptr %3, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_hmac_drbg_set_entropy_len(ptr noundef writeonly captures(none) initializes((96, 104)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %1, ptr %3, align 8
+  store i64 %1, ptr %3, align 8, !tbaa !16
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_hmac_drbg_set_reseed_interval(ptr noundef writeonly captures(none) initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %1, ptr %3, align 4
+  store i32 %1, ptr %3, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [384 x i8], align 16
-  %7 = load ptr, ptr %0, align 8
+  %7 = load ptr, ptr %0, align 8, !tbaa !12
   %8 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %7) #12
   %9 = zext i8 %8 to i64
   %10 = icmp ugt i64 %2, 1024
-  br i1 %10, label %.loopexit, label %11
+  br i1 %10, label %.thread77, label %11
 
 11:                                               ; preds = %5
   %12 = icmp ugt i64 %4, 256
-  br i1 %12, label %.loopexit, label %13
+  br i1 %12, label %.thread77, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %45, label %16
+  br i1 %.not, label %44, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %18 = load i32, ptr %17, align 8
+  %18 = load i32, ptr %17, align 8, !tbaa !20
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %22 = load i32, ptr %21, align 8
+  %22 = load i32, ptr %21, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %24 = load i32, ptr %23, align 4
+  %24 = load i32, ptr %23, align 4, !tbaa !3
   %25 = icmp sgt i32 %22, %24
-  br i1 %25, label %26, label %45
+  br i1 %25, label %26, label %44
 
 26:                                               ; preds = %20, %16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #12
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %28 = load i64, ptr %27, align 8
+  %28 = load i64, ptr %27, align 8, !tbaa !16
   %29 = add i64 %28, %4
   %30 = icmp ugt i64 %29, 384
-  br i1 %30, label %mbedtls_hmac_drbg_reseed.exit.thread, label %31
+  br i1 %30, label %mbedtls_hmac_drbg_reseed.exit.thread, label %.critedge.i.i
 
-31:                                               ; preds = %26
+.critedge.i.i:                                    ; preds = %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %6, i8 0, i64 384, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %33 = load ptr, ptr %32, align 8
-  %34 = call i32 %15(ptr noundef %33, ptr noundef nonnull %6, i64 noundef %28) #12
-  %.not.i.i = icmp eq i32 %34, 0
-  br i1 %.not.i.i, label %35, label %mbedtls_hmac_drbg_reseed.exit.thread
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %32 = load ptr, ptr %31, align 8, !tbaa !18
+  %33 = call i32 %15(ptr noundef %32, ptr noundef nonnull %6, i64 noundef %28) #12
+  %.not.i.i = icmp eq i32 %33, 0
+  br i1 %.not.i.i, label %34, label %mbedtls_hmac_drbg_reseed.exit.thread
 
-35:                                               ; preds = %31
-  %36 = load i64, ptr %27, align 8
-  %37 = icmp ne ptr %3, null
-  %38 = icmp ne i64 %4, 0
-  %or.cond.i.i = and i1 %37, %38
-  br i1 %or.cond.i.i, label %39, label %42
+34:                                               ; preds = %.critedge.i.i
+  %35 = load i64, ptr %27, align 8, !tbaa !16
+  %36 = icmp ne ptr %3, null
+  %37 = icmp ne i64 %4, 0
+  %or.cond.i.i = and i1 %36, %37
+  br i1 %or.cond.i.i, label %38, label %41
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %6, i64 %36
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
-  %41 = add i64 %36, %4
-  br label %42
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 %35
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
+  %40 = add i64 %35, %4
+  br label %41
 
-42:                                               ; preds = %39, %35
-  %.1.i.i = phi i64 [ %41, %39 ], [ %36, %35 ]
-  %43 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %.1.i.i)
-  %.not37.i.i = icmp eq i32 %43, 0
-  br i1 %.not37.i.i, label %.thread, label %mbedtls_hmac_drbg_reseed.exit
+41:                                               ; preds = %38, %34
+  %.1.i.i = phi i64 [ %40, %38 ], [ %35, %34 ]
+  %42 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %.1.i.i)
+  %.not41.i.i = icmp eq i32 %42, 0
+  br i1 %.not41.i.i, label %.thread, label %mbedtls_hmac_drbg_reseed.exit
 
-.thread:                                          ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 1, ptr %44, align 8
+.thread:                                          ; preds = %41
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 1, ptr %43, align 8, !tbaa !19
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef %.1.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6)
-  br label %50
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #12
+  br label %49
 
-mbedtls_hmac_drbg_reseed.exit.thread:             ; preds = %26, %31
-  %.032.i.i.ph = phi i32 [ -9, %31 ], [ -5, %26 ]
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6)
-  br label %.loopexit
+mbedtls_hmac_drbg_reseed.exit.thread:             ; preds = %26, %.critedge.i.i
+  %.135.i.i.ph = phi i32 [ -9, %.critedge.i.i ], [ -5, %26 ]
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #12
+  br label %.thread77
 
-mbedtls_hmac_drbg_reseed.exit:                    ; preds = %42
+mbedtls_hmac_drbg_reseed.exit:                    ; preds = %41
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef %.1.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6)
-  br label %.loopexit
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #12
+  br label %.thread77
 
-45:                                               ; preds = %20, %13
-  %46 = icmp ne ptr %3, null
-  %47 = icmp ne i64 %4, 0
-  %or.cond = and i1 %46, %47
-  br i1 %or.cond, label %48, label %50
+44:                                               ; preds = %20, %13
+  %45 = icmp ne ptr %3, null
+  %46 = icmp ne i64 %4, 0
+  %or.cond = and i1 %45, %46
+  br i1 %or.cond, label %47, label %49
 
-48:                                               ; preds = %45
-  %49 = tail call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4)
-  %.not57 = icmp eq i32 %49, 0
-  br i1 %.not57, label %50, label %.loopexit
+47:                                               ; preds = %44
+  %48 = tail call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4)
+  %.not63 = icmp eq i32 %48, 0
+  br i1 %.not63, label %49, label %.thread77
 
-50:                                               ; preds = %.thread, %48, %45
-  %.04569 = phi i64 [ 0, %.thread ], [ %4, %48 ], [ %4, %45 ]
-  %.not5870 = icmp eq i64 %2, 0
-  br i1 %.not5870, label %._crit_edge, label %.lr.ph
+49:                                               ; preds = %.thread, %47, %44
+  %.04876 = phi i64 [ 0, %.thread ], [ %4, %47 ], [ %4, %44 ]
+  %.not6483 = icmp eq i64 %2, 0
+  br i1 %.not6483, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %50
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %52
+.lr.ph:                                           ; preds = %49
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %51
 
-52:                                               ; preds = %.lr.ph, %59
-  %.04372 = phi ptr [ %1, %.lr.ph ], [ %60, %59 ]
-  %.04471 = phi i64 [ %2, %.lr.ph ], [ %61, %59 ]
-  %53 = call i64 @llvm.umin.i64(i64 %.04471, i64 %9)
-  %54 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #12
-  %.not60 = icmp eq i32 %54, 0
-  br i1 %.not60, label %55, label %.loopexit
+51:                                               ; preds = %.lr.ph, %58
+  %.04585 = phi ptr [ %1, %.lr.ph ], [ %59, %58 ]
+  %.04684 = phi i64 [ %2, %.lr.ph ], [ %60, %58 ]
+  %52 = call i64 @llvm.umin.i64(i64 %.04684, i64 %9)
+  %53 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #12
+  %.not66 = icmp eq i32 %53, 0
+  br i1 %.not66, label %54, label %.thread77
 
-55:                                               ; preds = %52
-  %56 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef %9) #12
-  %.not61 = icmp eq i32 %56, 0
-  br i1 %.not61, label %57, label %.loopexit
+54:                                               ; preds = %51
+  %55 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %0, ptr noundef nonnull %50, i64 noundef %9) #12
+  %.not67 = icmp eq i32 %55, 0
+  br i1 %.not67, label %56, label %.thread77
 
-57:                                               ; preds = %55
-  %58 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %51) #12
-  %.not62 = icmp eq i32 %58, 0
-  br i1 %.not62, label %59, label %.loopexit
+56:                                               ; preds = %54
+  %57 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %0, ptr noundef nonnull %50) #12
+  %.not68 = icmp eq i32 %57, 0
+  br i1 %.not68, label %58, label %.thread77
 
-59:                                               ; preds = %57
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04372, ptr nonnull align 8 %51, i64 %53, i1 false)
-  %60 = getelementptr inbounds nuw i8, ptr %.04372, i64 %53
-  %61 = sub i64 %.04471, %53
-  %.not58 = icmp eq i64 %61, 0
-  br i1 %.not58, label %._crit_edge, label %52, !llvm.loop !6
+58:                                               ; preds = %56
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04585, ptr nonnull align 8 %50, i64 %52, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %.04585, i64 %52
+  %60 = sub i64 %.04684, %52
+  %.not64 = icmp eq i64 %60, 0
+  br i1 %.not64, label %._crit_edge, label %51
 
-._crit_edge:                                      ; preds = %59, %50
-  %62 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %.04569)
-  %.not59 = icmp eq i32 %62, 0
-  br i1 %.not59, label %63, label %.loopexit
+._crit_edge:                                      ; preds = %58, %49
+  %61 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %0, ptr noundef %3, i64 noundef %.04876)
+  %.not65 = icmp eq i32 %61, 0
+  br i1 %.not65, label %62, label %.thread77
 
-63:                                               ; preds = %._crit_edge
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %65 = load i32, ptr %64, align 8
-  %66 = add nsw i32 %65, 1
-  store i32 %66, ptr %64, align 8
-  br label %.loopexit
+62:                                               ; preds = %._crit_edge
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %64 = load i32, ptr %63, align 8, !tbaa !19
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %63, align 8, !tbaa !19
+  br label %.thread77
 
-.loopexit:                                        ; preds = %52, %55, %57, %mbedtls_hmac_drbg_reseed.exit, %mbedtls_hmac_drbg_reseed.exit.thread, %63, %48, %._crit_edge, %11, %5
-  %.0 = phi i32 [ -3, %5 ], [ -5, %11 ], [ %43, %mbedtls_hmac_drbg_reseed.exit ], [ %49, %48 ], [ %62, %._crit_edge ], [ 0, %63 ], [ %.032.i.i.ph, %mbedtls_hmac_drbg_reseed.exit.thread ], [ %58, %57 ], [ %56, %55 ], [ %54, %52 ]
+.thread77:                                        ; preds = %56, %54, %51, %mbedtls_hmac_drbg_reseed.exit, %mbedtls_hmac_drbg_reseed.exit.thread, %62, %47, %._crit_edge, %11, %5
+  %.0 = phi i32 [ -3, %5 ], [ -5, %11 ], [ %42, %mbedtls_hmac_drbg_reseed.exit ], [ %48, %47 ], [ %61, %._crit_edge ], [ 0, %62 ], [ %.135.i.i.ph, %mbedtls_hmac_drbg_reseed.exit.thread ], [ %53, %51 ], [ %55, %54 ], [ %57, %56 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_hmac_drbg_random(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
@@ -521,18 +531,19 @@ define hidden void @mbedtls_hmac_drbg_free(ptr noundef %0) local_unnamed_addr #2
   tail call void @mbedtls_md_free(ptr noundef nonnull %0) #12
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 128) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 10000, ptr %4, align 4
+  store i32 10000, ptr %4, align 4, !tbaa !3
   br label %5
 
 5:                                                ; preds = %1, %3
   ret void
 }
 
-declare void @mbedtls_md_free(ptr noundef) local_unnamed_addr #3
+declare void @mbedtls_md_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_hmac_drbg_write_seed_file(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [256 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #12
   %4 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6
@@ -557,25 +568,28 @@ define hidden i32 @mbedtls_hmac_drbg_write_seed_file(ptr noundef %0, ptr noundef
 
 12:                                               ; preds = %2, %10
   %.0 = phi i32 [ %.06, %10 ], [ -7, %2 ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #12
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare void @setbuf(ptr noundef captures(none), ptr noundef) local_unnamed_addr #5
+declare void @setbuf(ptr noundef captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_hmac_drbg_update_seed_file(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
   %5 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %20, label %7
@@ -615,24 +629,28 @@ define hidden i32 @mbedtls_hmac_drbg_update_seed_file(ptr noundef %0, ptr nounde
 
 20:                                               ; preds = %.thread28, %15, %2, %18
   %.0 = phi i32 [ %19, %18 ], [ -7, %2 ], [ %17, %15 ], [ %.016.ph, %.thread28 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #12
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @mbedtls_hmac_drbg_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca [384 x i8], align 16
   %3 = alloca %struct.mbedtls_hmac_drbg_context, align 8
   %4 = alloca [80 x i8], align 16
-  %5 = tail call ptr @mbedtls_md_info_from_type(i32 noundef 2) #12
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #12
+  %5 = tail call ptr @mbedtls_md_info_from_type(i32 noundef 5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 108
-  store i32 10000, ptr %6, align 4
+  store i32 10000, ptr %6, align 4, !tbaa !3
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %9, label %7
 
@@ -641,7 +659,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_hmac_drbg_self_test(i32 noundef %0) l
   br label %9
 
 9:                                                ; preds = %7, %1
-  store i64 0, ptr @test_offset, align 8
+  store i64 0, ptr @test_offset, align 8, !tbaa !21
   %10 = call i32 @mbedtls_md_setup(ptr noundef nonnull %3, ptr noundef %5, i32 noundef 1) #12
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %mbedtls_hmac_drbg_seed.exit.thread
@@ -657,11 +675,11 @@ define hidden range(i32 0, 2) i32 @mbedtls_hmac_drbg_self_test(i32 noundef %0) l
 16:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %14, i8 1, i64 %13, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr @hmac_drbg_self_test_entropy, ptr %17, align 8
+  store ptr @hmac_drbg_self_test_entropy, ptr %17, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store ptr @entropy_pr, ptr %18, align 8
+  store ptr @entropy_pr, ptr %18, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %20 = load i64, ptr %19, align 8
+  %20 = load i64, ptr %19, align 8, !tbaa !16
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %27
 
@@ -670,39 +688,39 @@ define hidden range(i32 0, 2) i32 @mbedtls_hmac_drbg_self_test(i32 noundef %0) l
   %24 = icmp ult i8 %12, 29
   %25 = select i1 %24, i64 24, i64 32
   %26 = select i1 %23, i64 16, i64 %25
-  store i64 %26, ptr %19, align 8
+  store i64 %26, ptr %19, align 8, !tbaa !16
   br label %27
 
 27:                                               ; preds = %22, %16
   %28 = phi i64 [ %26, %22 ], [ %20, %16 ]
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2) #12
   %29 = mul i64 %28, 3
   %30 = icmp ugt i64 %29, 769
   br i1 %30, label %mbedtls_hmac_drbg_seed.exit.thread.sink.split, label %31
 
 31:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %2, i8 0, i64 384, i1 false)
-  %32 = load i64, ptr @test_offset, align 8
-  %33 = getelementptr inbounds i8, ptr @entropy_pr, i64 %32
+  %32 = load i64, ptr @test_offset, align 8, !tbaa !21
+  %33 = getelementptr inbounds nuw i8, ptr @entropy_pr, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull readonly align 1 %33, i64 %28, i1 false)
   %34 = add i64 %32, %28
-  %35 = getelementptr inbounds i8, ptr %2, i64 %28
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 %28
   %36 = lshr i64 %28, 1
-  %37 = getelementptr inbounds i8, ptr @entropy_pr, i64 %34
+  %37 = getelementptr inbounds nuw i8, ptr @entropy_pr, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %37, i64 %36, i1 false)
   %38 = add i64 %34, %36
-  store i64 %38, ptr @test_offset, align 8
+  store i64 %38, ptr @test_offset, align 8, !tbaa !21
   %39 = add i64 %36, %28
   %40 = call i32 @mbedtls_hmac_drbg_update(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef %39)
-  %.not37.i.i = icmp eq i32 %40, 0
-  br i1 %.not37.i.i, label %42, label %mbedtls_hmac_drbg_seed.exit
+  %.not41.i.i = icmp eq i32 %40, 0
+  br i1 %.not41.i.i, label %42, label %mbedtls_hmac_drbg_seed.exit
 
 mbedtls_hmac_drbg_seed.exit:                      ; preds = %31
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef %39) #12
   br label %mbedtls_hmac_drbg_seed.exit.thread.sink.split
 
 mbedtls_hmac_drbg_seed.exit.thread.sink.split:    ; preds = %27, %mbedtls_hmac_drbg_seed.exit
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2) #12
   br label %mbedtls_hmac_drbg_seed.exit.thread
 
 mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %mbedtls_hmac_drbg_seed.exit.thread.sink.split, %11, %9
@@ -714,11 +732,11 @@ mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %mbedtls_hmac_drbg_s
 
 42:                                               ; preds = %31
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i32 1, ptr %43, align 8
+  store i32 1, ptr %43, align 8, !tbaa !19
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef %39) #12
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2) #12
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store i32 1, ptr %44, align 8
+  store i32 1, ptr %44, align 8, !tbaa !20
   %45 = call i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 80, ptr noundef null, i64 noundef 0)
   %.not17 = icmp eq i32 %45, 0
   br i1 %.not17, label %48, label %46
@@ -766,8 +784,8 @@ mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %mbedtls_hmac_drbg_s
 
 .critedge:                                        ; preds = %55, %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
-  store i32 10000, ptr %6, align 4
-  store i64 0, ptr @test_offset, align 8
+  store i32 10000, ptr %6, align 4, !tbaa !3
+  store i64 0, ptr @test_offset, align 8, !tbaa !21
   %58 = call i32 @mbedtls_hmac_drbg_seed(ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull @hmac_drbg_self_test_entropy, ptr noundef nonnull @entropy_nopr, ptr noundef null, i64 noundef 0)
   %.not20 = icmp eq i32 %58, 0
   br i1 %.not20, label %61, label %59
@@ -839,62 +857,73 @@ mbedtls_hmac_drbg_seed.exit.thread:               ; preds = %mbedtls_hmac_drbg_s
 
 .critedge37:                                      ; preds = %77, %76, %74, %75, %71, %72, %67, %68, %63, %64, %59, %60, %53, %54, %50, %51, %46, %47, %mbedtls_hmac_drbg_seed.exit.thread, %41
   %.0 = phi i32 [ 1, %41 ], [ 1, %mbedtls_hmac_drbg_seed.exit.thread ], [ 1, %47 ], [ 1, %46 ], [ 1, %51 ], [ 1, %50 ], [ 1, %54 ], [ 1, %53 ], [ 1, %60 ], [ 1, %59 ], [ 1, %64 ], [ 1, %63 ], [ 1, %68 ], [ 1, %67 ], [ 1, %72 ], [ 1, %71 ], [ 1, %75 ], [ 1, %74 ], [ 0, %76 ], [ 0, %77 ]
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #12
   ret i32 %.0
 }
 
-declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #3
+declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @hmac_drbg_self_test_entropy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #7 {
-  %4 = load i64, ptr @test_offset, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 %4
+define internal noundef i32 @hmac_drbg_self_test_entropy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #8 {
+  %4 = load i64, ptr @test_offset, align 8, !tbaa !21
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %5, i64 %2, i1 false)
   %6 = add i64 %4, %2
-  store i64 %6, ptr @test_offset, align 8
+  store i64 %6, ptr @test_offset, align 8, !tbaa !21
   ret i32 0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nofree nounwind }
 attributes #12 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !10, i64 108}
+!4 = !{!"mbedtls_hmac_drbg_context", !5, i64 0, !8, i64 24, !10, i64 88, !11, i64 96, !10, i64 104, !10, i64 108, !7, i64 112, !7, i64 120}
+!5 = !{!"mbedtls_md_context_t", !6, i64 0, !7, i64 8, !7, i64 16}
+!6 = !{!"p1 _ZTS17mbedtls_md_info_t", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!"long", !8, i64 0}
+!12 = !{!4, !6, i64 0}
+!13 = !{!8, !8, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!4, !11, i64 96}
+!17 = !{!4, !7, i64 112}
+!18 = !{!4, !7, i64 120}
+!19 = !{!4, !10, i64 88}
+!20 = !{!4, !10, i64 104}
+!21 = !{!11, !11, i64 0}

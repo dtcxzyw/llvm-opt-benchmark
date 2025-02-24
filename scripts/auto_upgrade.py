@@ -101,6 +101,7 @@ supported_project = [
     "jsonnet",
     "libphonenumber",
     "libzmq",
+    "lief",
 ]
 
 modify_only = [

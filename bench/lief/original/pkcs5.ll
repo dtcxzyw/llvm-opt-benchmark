@@ -2,9 +2,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.mbedtls_asn1_buf = type { i32, i64, ptr }
-%struct.mbedtls_md_context_t = type { ptr, ptr, ptr }
 %struct.mbedtls_cipher_context_t = type { ptr, i32, i32, ptr, ptr, [16 x i8], i64, [16 x i8], i64, ptr, ptr }
-%struct.mbedtls_cipher_info_t = type { i32, i32, i32, ptr, i32, i32, i32, ptr }
+%struct.mbedtls_cipher_info_t = type { ptr, i32 }
+%struct.mbedtls_md_context_t = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/lief/bench_build/mbed_src/library/pkcs5.c\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"*\86H\86\F7\0D\01\05\0C\00", align 1
@@ -22,295 +22,436 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_pkcs5_pbes2(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store i32 %1, ptr %9, align 4, !tbaa !8
+  store ptr %2, ptr %10, align 8, !tbaa !10
+  store i64 %3, ptr %11, align 8, !tbaa !12
+  store ptr %4, ptr %12, align 8, !tbaa !10
+  store i64 %5, ptr %13, align 8, !tbaa !12
+  store ptr %6, ptr %14, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  store i64 0, ptr %15, align 8, !tbaa !12
+  %16 = load ptr, ptr %8, align 8, !tbaa !3
+  %17 = load i32, ptr %9, align 4, !tbaa !8
+  %18 = load ptr, ptr %10, align 8, !tbaa !10
+  %19 = load i64, ptr %11, align 8, !tbaa !12
+  %20 = load ptr, ptr %12, align 8, !tbaa !10
+  %21 = load i64, ptr %13, align 8, !tbaa !12
+  %22 = load ptr, ptr %14, align 8, !tbaa !10
+  %23 = call i32 @mbedtls_pkcs5_pbes2_ext(ptr noundef %16, i32 noundef %17, ptr noundef %18, i64 noundef %19, ptr noundef %20, i64 noundef %21, ptr noundef %22, i64 noundef -1, ptr noundef %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  ret i32 %23
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @mbedtls_pkcs5_pbes2_ext(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8) #0 {
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  %12 = alloca i64, align 8
+  %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca i64, align 8
   %15 = alloca ptr, align 8
-  %16 = alloca i32, align 4
-  %17 = alloca i32, align 4
-  %18 = alloca i32, align 4
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i64, align 8
   %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca %struct.mbedtls_asn1_buf, align 8
-  %22 = alloca %struct.mbedtls_asn1_buf, align 8
-  %23 = alloca %struct.mbedtls_asn1_buf, align 8
-  %24 = alloca %struct.mbedtls_asn1_buf, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
   %25 = alloca %struct.mbedtls_asn1_buf, align 8
-  %26 = alloca i32, align 4
-  %27 = alloca [32 x i8], align 16
-  %28 = alloca [32 x i8], align 16
-  %29 = alloca i64, align 8
-  %30 = alloca ptr, align 8
-  %31 = alloca ptr, align 8
-  %32 = alloca %struct.mbedtls_md_context_t, align 8
-  %33 = alloca i32, align 4
-  %34 = alloca %struct.mbedtls_cipher_context_t, align 8
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store ptr %2, ptr %11, align 8
-  store i64 %3, ptr %12, align 8
-  store ptr %4, ptr %13, align 8
-  store i64 %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  store i32 0, ptr %17, align 4
-  store i32 0, ptr %18, align 4
-  store i32 2, ptr %26, align 4
-  store i64 0, ptr %29, align 8
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %35, i32 0, i32 2
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %19, align 8
-  %38 = load ptr, ptr %19, align 8
-  %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %39, i32 0, i32 1
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  store ptr %42, ptr %20, align 8
-  %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %43, i32 0, i32 0
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp ne i32 %45, 48
-  br i1 %46, label %47, label %49
+  %26 = alloca %struct.mbedtls_asn1_buf, align 8
+  %27 = alloca %struct.mbedtls_asn1_buf, align 8
+  %28 = alloca %struct.mbedtls_asn1_buf, align 8
+  %29 = alloca %struct.mbedtls_asn1_buf, align 8
+  %30 = alloca i32, align 4
+  %31 = alloca [32 x i8], align 16
+  %32 = alloca [32 x i8], align 16
+  %33 = alloca ptr, align 8
+  %34 = alloca i32, align 4
+  %35 = alloca %struct.mbedtls_cipher_context_t, align 8
+  %36 = alloca i32, align 4
+  %37 = alloca i32, align 4
+  %38 = alloca i32, align 4
+  store ptr %0, ptr %11, align 8, !tbaa !3
+  store i32 %1, ptr %12, align 4, !tbaa !8
+  store ptr %2, ptr %13, align 8, !tbaa !10
+  store i64 %3, ptr %14, align 8, !tbaa !12
+  store ptr %4, ptr %15, align 8, !tbaa !10
+  store i64 %5, ptr %16, align 8, !tbaa !12
+  store ptr %6, ptr %17, align 8, !tbaa !10
+  store i64 %7, ptr %18, align 8, !tbaa !12
+  store ptr %8, ptr %19, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #8
+  store i32 0, ptr %21, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #8
+  store i32 0, ptr %22, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %25) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %26) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %27) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %28) #8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %29) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #8
+  store i32 5, ptr %30, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %31) #8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %32) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #8
+  call void @llvm.lifetime.start.p0(i64 96, ptr %35) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #8
+  store i32 0, ptr %36, align 4, !tbaa !8
+  %39 = load ptr, ptr %11, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8, !tbaa !16
+  store ptr %41, ptr %23, align 8, !tbaa !10
+  %42 = load ptr, ptr %23, align 8, !tbaa !10
+  %43 = load ptr, ptr %11, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %43, i32 0, i32 1
+  %45 = load i64, ptr %44, align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %45
+  store ptr %46, ptr %24, align 8, !tbaa !10
+  %47 = load ptr, ptr %11, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %47, i32 0, i32 0
+  %49 = load i32, ptr %48, align 8, !tbaa !19
+  %50 = icmp ne i32 %49, 48
+  br i1 %50, label %51, label %53
 
-47:                                               ; preds = %7
-  %48 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef -98, ptr noundef @.str, i32 noundef 138)
-  store i32 %48, ptr %8, align 4
-  br label %166
+51:                                               ; preds = %9
+  %52 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef -98, ptr noundef @.str, i32 noundef 157)
+  store i32 %52, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-49:                                               ; preds = %7
-  %50 = load ptr, ptr %20, align 8
-  %51 = call i32 @mbedtls_asn1_get_alg(ptr noundef %19, ptr noundef %50, ptr noundef %21, ptr noundef %23)
-  store i32 %51, ptr %16, align 4
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %56
+53:                                               ; preds = %9
+  %54 = load ptr, ptr %24, align 8, !tbaa !10
+  %55 = call i32 @mbedtls_asn1_get_alg(ptr noundef %23, ptr noundef %54, ptr noundef %25, ptr noundef %27)
+  store i32 %55, ptr %20, align 4, !tbaa !8
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %60
 
-53:                                               ; preds = %49
-  %54 = load i32, ptr %16, align 4
-  %55 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %54, ptr noundef @.str, i32 noundef 142)
-  store i32 %55, ptr %8, align 4
-  br label %166
+57:                                               ; preds = %53
+  %58 = load i32, ptr %20, align 4, !tbaa !8
+  %59 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %58, ptr noundef @.str, i32 noundef 162)
+  store i32 %59, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-56:                                               ; preds = %49
-  %57 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %21, i32 0, i32 1
-  %58 = load i64, ptr %57, align 8
-  %59 = icmp ne i64 9, %58
-  br i1 %59, label %67, label %60
+60:                                               ; preds = %53
+  %61 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %25, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8, !tbaa !18
+  %63 = icmp ne i64 9, %62
+  br i1 %63, label %71, label %64
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %21, i32 0, i32 2
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %21, i32 0, i32 1
-  %64 = load i64, ptr %63, align 8
-  %65 = call i32 @memcmp(ptr noundef @.str.1, ptr noundef %62, i64 noundef %64) #5
-  %66 = icmp ne i32 %65, 0
-  br label %67
-
-67:                                               ; preds = %60, %56
-  %68 = phi i1 [ true, %56 ], [ %66, %60 ]
-  %69 = zext i1 %68 to i32
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %25, i32 0, i32 2
+  %66 = load ptr, ptr %65, align 8, !tbaa !16
+  %67 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %25, i32 0, i32 1
+  %68 = load i64, ptr %67, align 8, !tbaa !18
+  %69 = call i32 @memcmp(ptr noundef @.str.1, ptr noundef %66, i64 noundef %68) #9
   %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %72
+  br label %71
 
-71:                                               ; preds = %67
-  store i32 -11904, ptr %8, align 4
-  br label %166
-
-72:                                               ; preds = %67
-  %73 = call i32 @pkcs5_parse_pbkdf2_params(ptr noundef %23, ptr noundef %25, ptr noundef %17, ptr noundef %18, ptr noundef %26)
-  store i32 %73, ptr %16, align 4
+71:                                               ; preds = %64, %60
+  %72 = phi i1 [ true, %60 ], [ %70, %64 ]
+  %73 = zext i1 %72 to i32
   %74 = icmp ne i32 %73, 0
-  br i1 %74, label %75, label %77
+  br i1 %74, label %75, label %76
 
-75:                                               ; preds = %72
-  %76 = load i32, ptr %16, align 4
-  store i32 %76, ptr %8, align 4
-  br label %166
+75:                                               ; preds = %71
+  store i32 -11904, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-77:                                               ; preds = %72
-  %78 = load i32, ptr %26, align 4
-  %79 = call ptr @mbedtls_md_info_from_type(i32 noundef %78)
-  store ptr %79, ptr %30, align 8
-  %80 = load ptr, ptr %30, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %82, label %83
+76:                                               ; preds = %71
+  %77 = call i32 @pkcs5_parse_pbkdf2_params(ptr noundef %27, ptr noundef %29, ptr noundef %21, ptr noundef %22, ptr noundef %30)
+  store i32 %77, ptr %20, align 4, !tbaa !8
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %81
 
-82:                                               ; preds = %77
-  store i32 -11904, ptr %8, align 4
-  br label %166
+79:                                               ; preds = %76
+  %80 = load i32, ptr %20, align 4, !tbaa !8
+  store i32 %80, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %20, align 8
-  %85 = call i32 @mbedtls_asn1_get_alg(ptr noundef %19, ptr noundef %84, ptr noundef %22, ptr noundef %24)
-  store i32 %85, ptr %16, align 4
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %90
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %24, align 8, !tbaa !10
+  %83 = call i32 @mbedtls_asn1_get_alg(ptr noundef %23, ptr noundef %82, ptr noundef %26, ptr noundef %28)
+  store i32 %83, ptr %20, align 4, !tbaa !8
+  %84 = icmp ne i32 %83, 0
+  br i1 %84, label %85, label %88
 
-87:                                               ; preds = %83
-  %88 = load i32, ptr %16, align 4
-  %89 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %88, ptr noundef @.str, i32 noundef 163)
-  store i32 %89, ptr %8, align 4
-  br label %166
+85:                                               ; preds = %81
+  %86 = load i32, ptr %20, align 4, !tbaa !8
+  %87 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %86, ptr noundef @.str, i32 noundef 179)
+  store i32 %87, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-90:                                               ; preds = %83
-  %91 = call i32 @mbedtls_oid_get_cipher_alg(ptr noundef %22, ptr noundef %33)
-  %92 = icmp ne i32 %91, 0
-  br i1 %92, label %93, label %94
+88:                                               ; preds = %81
+  %89 = call i32 @mbedtls_oid_get_cipher_alg(ptr noundef %26, ptr noundef %34)
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %92
 
-93:                                               ; preds = %90
-  store i32 -11904, ptr %8, align 4
-  br label %166
+91:                                               ; preds = %88
+  store i32 -11904, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-94:                                               ; preds = %90
-  %95 = load i32, ptr %33, align 4
-  %96 = call ptr @mbedtls_cipher_info_from_type(i32 noundef %95)
-  store ptr %96, ptr %31, align 8
-  %97 = load ptr, ptr %31, align 8
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %100
+92:                                               ; preds = %88
+  %93 = load i32, ptr %34, align 4, !tbaa !8
+  %94 = call ptr @mbedtls_cipher_info_from_type(i32 noundef %93)
+  store ptr %94, ptr %33, align 8, !tbaa !20
+  %95 = load ptr, ptr %33, align 8, !tbaa !20
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %98
 
-99:                                               ; preds = %94
-  store i32 -11904, ptr %8, align 4
-  br label %166
+97:                                               ; preds = %92
+  store i32 -11904, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-100:                                              ; preds = %94
-  %101 = load ptr, ptr %31, align 8
-  %102 = getelementptr inbounds %struct.mbedtls_cipher_info_t, ptr %101, i32 0, i32 2
-  %103 = load i32, ptr %102, align 8
-  %104 = udiv i32 %103, 8
-  store i32 %104, ptr %18, align 4
-  %105 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %24, i32 0, i32 0
-  %106 = load i32, ptr %105, align 8
-  %107 = icmp ne i32 %106, 4
-  br i1 %107, label %116, label %108
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %33, align 8, !tbaa !20
+  %100 = call i64 @mbedtls_cipher_info_get_key_bitlen(ptr noundef %99)
+  %101 = trunc i64 %100 to i32
+  %102 = sdiv i32 %101, 8
+  store i32 %102, ptr %22, align 4, !tbaa !8
+  %103 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %28, i32 0, i32 0
+  %104 = load i32, ptr %103, align 8, !tbaa !19
+  %105 = icmp ne i32 %104, 4
+  br i1 %105, label %112, label %106
 
-108:                                              ; preds = %100
-  %109 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %24, i32 0, i32 1
-  %110 = load i64, ptr %109, align 8
-  %111 = load ptr, ptr %31, align 8
-  %112 = getelementptr inbounds %struct.mbedtls_cipher_info_t, ptr %111, i32 0, i32 4
-  %113 = load i32, ptr %112, align 8
-  %114 = zext i32 %113 to i64
-  %115 = icmp ne i64 %110, %114
-  br i1 %115, label %116, label %117
+106:                                              ; preds = %98
+  %107 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %28, i32 0, i32 1
+  %108 = load i64, ptr %107, align 8, !tbaa !18
+  %109 = load ptr, ptr %33, align 8, !tbaa !20
+  %110 = call i64 @mbedtls_cipher_info_get_iv_size(ptr noundef %109)
+  %111 = icmp ne i64 %108, %110
+  br i1 %111, label %112, label %113
 
-116:                                              ; preds = %108, %100
-  store i32 -12032, ptr %8, align 4
-  br label %166
+112:                                              ; preds = %106, %98
+  store i32 -12032, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-117:                                              ; preds = %108
-  call void @mbedtls_md_init(ptr noundef %32)
-  call void @mbedtls_cipher_init(ptr noundef %34)
-  %118 = getelementptr inbounds [32 x i8], ptr %28, i64 0, i64 0
-  %119 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %24, i32 0, i32 2
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %24, i32 0, i32 1
-  %122 = load i64, ptr %121, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %118, ptr align 1 %120, i64 %122, i1 false)
-  %123 = load ptr, ptr %30, align 8
-  %124 = call i32 @mbedtls_md_setup(ptr noundef %32, ptr noundef %123, i32 noundef 1)
-  store i32 %124, ptr %16, align 4
-  %125 = icmp ne i32 %124, 0
-  br i1 %125, label %126, label %127
+113:                                              ; preds = %106
+  %114 = load i32, ptr %12, align 4, !tbaa !8
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %122
 
-126:                                              ; preds = %117
-  br label %164
+116:                                              ; preds = %113
+  %117 = load i64, ptr %18, align 8, !tbaa !12
+  %118 = load i64, ptr %16, align 8, !tbaa !12
+  %119 = icmp ult i64 %117, %118
+  br i1 %119, label %120, label %121
 
-127:                                              ; preds = %117
-  %128 = load ptr, ptr %11, align 8
-  %129 = load i64, ptr %12, align 8
-  %130 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %25, i32 0, i32 2
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %25, i32 0, i32 1
-  %133 = load i64, ptr %132, align 8
-  %134 = load i32, ptr %17, align 4
-  %135 = load i32, ptr %18, align 4
-  %136 = getelementptr inbounds [32 x i8], ptr %27, i64 0, i64 0
-  %137 = call i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %32, ptr noundef %128, i64 noundef %129, ptr noundef %131, i64 noundef %133, i32 noundef %134, i32 noundef %135, ptr noundef %136)
-  store i32 %137, ptr %16, align 4
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %140
+120:                                              ; preds = %116
+  store i32 -108, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-139:                                              ; preds = %127
-  br label %164
+121:                                              ; preds = %116
+  br label %122
 
-140:                                              ; preds = %127
-  %141 = load ptr, ptr %31, align 8
-  %142 = call i32 @mbedtls_cipher_setup(ptr noundef %34, ptr noundef %141)
-  store i32 %142, ptr %16, align 4
-  %143 = icmp ne i32 %142, 0
-  br i1 %143, label %144, label %145
+122:                                              ; preds = %121, %113
+  %123 = load i32, ptr %12, align 4, !tbaa !8
+  %124 = icmp eq i32 %123, 1
+  br i1 %124, label %125, label %148
 
-144:                                              ; preds = %140
-  br label %164
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %33, align 8, !tbaa !20
+  %127 = getelementptr inbounds nuw %struct.mbedtls_cipher_info_t, ptr %126, i32 0, i32 1
+  %128 = load i32, ptr %127, align 8
+  %129 = and i32 %128, 31
+  %130 = zext i32 %129 to i64
+  %131 = load i64, ptr %16, align 8, !tbaa !12
+  %132 = load ptr, ptr %33, align 8, !tbaa !20
+  %133 = getelementptr inbounds nuw %struct.mbedtls_cipher_info_t, ptr %132, i32 0, i32 1
+  %134 = load i32, ptr %133, align 8
+  %135 = and i32 %134, 31
+  %136 = zext i32 %135 to i64
+  %137 = urem i64 %131, %136
+  %138 = sub i64 %130, %137
+  %139 = trunc i64 %138 to i32
+  store i32 %139, ptr %36, align 4, !tbaa !8
+  %140 = load i64, ptr %18, align 8, !tbaa !12
+  %141 = load i64, ptr %16, align 8, !tbaa !12
+  %142 = load i32, ptr %36, align 4, !tbaa !8
+  %143 = zext i32 %142 to i64
+  %144 = add i64 %141, %143
+  %145 = icmp ult i64 %140, %144
+  br i1 %145, label %146, label %147
 
-145:                                              ; preds = %140
-  %146 = getelementptr inbounds [32 x i8], ptr %27, i64 0, i64 0
-  %147 = load i32, ptr %18, align 4
-  %148 = mul nsw i32 8, %147
-  %149 = load i32, ptr %10, align 4
-  %150 = call i32 @mbedtls_cipher_setkey(ptr noundef %34, ptr noundef %146, i32 noundef %148, i32 noundef %149)
-  store i32 %150, ptr %16, align 4
-  %151 = icmp ne i32 %150, 0
-  br i1 %151, label %152, label %153
+146:                                              ; preds = %125
+  store i32 -108, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
 
-152:                                              ; preds = %145
-  br label %164
+147:                                              ; preds = %125
+  br label %148
 
-153:                                              ; preds = %145
-  %154 = getelementptr inbounds [32 x i8], ptr %28, i64 0, i64 0
-  %155 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %24, i32 0, i32 1
-  %156 = load i64, ptr %155, align 8
-  %157 = load ptr, ptr %13, align 8
-  %158 = load i64, ptr %14, align 8
-  %159 = load ptr, ptr %15, align 8
-  %160 = call i32 @mbedtls_cipher_crypt(ptr noundef %34, ptr noundef %154, i64 noundef %156, ptr noundef %157, i64 noundef %158, ptr noundef %159, ptr noundef %29)
-  store i32 %160, ptr %16, align 4
-  %161 = icmp ne i32 %160, 0
-  br i1 %161, label %162, label %163
+148:                                              ; preds = %147, %122
+  call void @mbedtls_cipher_init(ptr noundef %35)
+  %149 = getelementptr inbounds [32 x i8], ptr %32, i64 0, i64 0
+  %150 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %28, i32 0, i32 2
+  %151 = load ptr, ptr %150, align 8, !tbaa !16
+  %152 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %28, i32 0, i32 1
+  %153 = load i64, ptr %152, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %149, ptr align 1 %151, i64 %153, i1 false)
+  %154 = load i32, ptr %30, align 4, !tbaa !8
+  %155 = load ptr, ptr %13, align 8, !tbaa !10
+  %156 = load i64, ptr %14, align 8, !tbaa !12
+  %157 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %29, i32 0, i32 2
+  %158 = load ptr, ptr %157, align 8, !tbaa !16
+  %159 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %29, i32 0, i32 1
+  %160 = load i64, ptr %159, align 8, !tbaa !18
+  %161 = load i32, ptr %21, align 4, !tbaa !8
+  %162 = load i32, ptr %22, align 4, !tbaa !8
+  %163 = getelementptr inbounds [32 x i8], ptr %31, i64 0, i64 0
+  %164 = call i32 @mbedtls_pkcs5_pbkdf2_hmac_ext(i32 noundef %154, ptr noundef %155, i64 noundef %156, ptr noundef %158, i64 noundef %160, i32 noundef %161, i32 noundef %162, ptr noundef %163)
+  store i32 %164, ptr %20, align 4, !tbaa !8
+  %165 = icmp ne i32 %164, 0
+  br i1 %165, label %166, label %167
 
-162:                                              ; preds = %153
-  store i32 -11776, ptr %16, align 4
-  br label %163
+166:                                              ; preds = %148
+  br label %200
 
-163:                                              ; preds = %162, %153
-  br label %164
+167:                                              ; preds = %148
+  %168 = load ptr, ptr %33, align 8, !tbaa !20
+  %169 = call i32 @mbedtls_cipher_setup(ptr noundef %35, ptr noundef %168)
+  store i32 %169, ptr %20, align 4, !tbaa !8
+  %170 = icmp ne i32 %169, 0
+  br i1 %170, label %171, label %172
 
-164:                                              ; preds = %163, %152, %144, %139, %126
-  call void @mbedtls_md_free(ptr noundef %32)
-  call void @mbedtls_cipher_free(ptr noundef %34)
-  %165 = load i32, ptr %16, align 4
-  store i32 %165, ptr %8, align 4
-  br label %166
+171:                                              ; preds = %167
+  br label %200
 
-166:                                              ; preds = %164, %116, %99, %93, %87, %82, %75, %71, %53, %47
-  %167 = load i32, ptr %8, align 4
-  ret i32 %167
+172:                                              ; preds = %167
+  %173 = getelementptr inbounds [32 x i8], ptr %31, i64 0, i64 0
+  %174 = load i32, ptr %22, align 4, !tbaa !8
+  %175 = mul nsw i32 8, %174
+  %176 = load i32, ptr %12, align 4, !tbaa !8
+  %177 = call i32 @mbedtls_cipher_setkey(ptr noundef %35, ptr noundef %173, i32 noundef %175, i32 noundef %176)
+  store i32 %177, ptr %20, align 4, !tbaa !8
+  %178 = icmp ne i32 %177, 0
+  br i1 %178, label %179, label %180
+
+179:                                              ; preds = %172
+  br label %200
+
+180:                                              ; preds = %172
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #8
+  store i32 0, ptr %38, align 4, !tbaa !8
+  %181 = load i32, ptr %38, align 4, !tbaa !8
+  %182 = call i32 @mbedtls_cipher_set_padding_mode(ptr noundef %35, i32 noundef %181)
+  store i32 %182, ptr %20, align 4, !tbaa !8
+  %183 = icmp ne i32 %182, 0
+  br i1 %183, label %184, label %185
+
+184:                                              ; preds = %180
+  store i32 2, ptr %37, align 4
+  br label %186
+
+185:                                              ; preds = %180
+  store i32 0, ptr %37, align 4
+  br label %186
+
+186:                                              ; preds = %184, %185
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #8
+  %187 = load i32, ptr %37, align 4
+  switch i32 %187, label %202 [
+    i32 0, label %188
+    i32 2, label %200
+  ]
+
+188:                                              ; preds = %186
+  %189 = getelementptr inbounds [32 x i8], ptr %32, i64 0, i64 0
+  %190 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %28, i32 0, i32 1
+  %191 = load i64, ptr %190, align 8, !tbaa !18
+  %192 = load ptr, ptr %15, align 8, !tbaa !10
+  %193 = load i64, ptr %16, align 8, !tbaa !12
+  %194 = load ptr, ptr %17, align 8, !tbaa !10
+  %195 = load ptr, ptr %19, align 8, !tbaa !14
+  %196 = call i32 @mbedtls_cipher_crypt(ptr noundef %35, ptr noundef %189, i64 noundef %191, ptr noundef %192, i64 noundef %193, ptr noundef %194, ptr noundef %195)
+  store i32 %196, ptr %20, align 4, !tbaa !8
+  %197 = icmp ne i32 %196, 0
+  br i1 %197, label %198, label %199
+
+198:                                              ; preds = %188
+  store i32 -11776, ptr %20, align 4, !tbaa !8
+  br label %199
+
+199:                                              ; preds = %198, %188
+  br label %200
+
+200:                                              ; preds = %199, %186, %179, %171, %166
+  call void @mbedtls_cipher_free(ptr noundef %35)
+  %201 = load i32, ptr %20, align 4, !tbaa !8
+  store i32 %201, ptr %10, align 4
+  store i32 1, ptr %37, align 4
+  br label %202
+
+202:                                              ; preds = %200, %186, %146, %120, %112, %97, %91, %85, %79, %75, %57, %51
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #8
+  call void @llvm.lifetime.end.p0(i64 96, ptr %35) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr %32) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr %31) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %29) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %28) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %27) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %26) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %25) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  %203 = load i32, ptr %10, align 4
+  ret i32 %203
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @mbedtls_error_add(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @mbedtls_error_add(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store i32 %0, ptr %5, align 4
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  store i32 %3, ptr %8, align 4
-  %9 = load i32, ptr %5, align 4
-  %10 = load i32, ptr %6, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !8
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store i32 %3, ptr %8, align 4, !tbaa !8
+  %9 = load i32, ptr %5, align 4, !tbaa !8
+  %10 = load i32, ptr %6, align 4, !tbaa !8
   %11 = add nsw i32 %9, %10
   ret i32 %11
 }
 
-declare i32 @mbedtls_asn1_get_alg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @mbedtls_asn1_get_alg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pkcs5_parse_pbkdf2_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -324,176 +465,365 @@ define internal i32 @pkcs5_parse_pbkdf2_params(ptr noundef %0, ptr noundef %1, p
   %13 = alloca %struct.mbedtls_asn1_buf, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store i32 -110, ptr %12, align 4
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %16, i32 0, i32 2
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %14, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %19, i32 0, i32 2
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %22, i32 0, i32 1
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 %24
-  store ptr %25, ptr %15, align 8
-  %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %26, i32 0, i32 0
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp ne i32 %28, 48
-  br i1 %29, label %30, label %32
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !22
+  store ptr %3, ptr %10, align 8, !tbaa !22
+  store ptr %4, ptr %11, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  store i32 -110, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %17 = load ptr, ptr %7, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %17, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
+  store ptr %19, ptr %14, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %20 = load ptr, ptr %7, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %20, i32 0, i32 2
+  %22 = load ptr, ptr %21, align 8, !tbaa !16
+  %23 = load ptr, ptr %7, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %23, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8, !tbaa !18
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
+  store ptr %26, ptr %15, align 8, !tbaa !10
+  %27 = load ptr, ptr %7, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %27, i32 0, i32 0
+  %29 = load i32, ptr %28, align 8, !tbaa !19
+  %30 = icmp ne i32 %29, 48
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %5
-  %31 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef -98, ptr noundef @.str, i32 noundef 64)
-  store i32 %31, ptr %6, align 4
-  br label %98
+31:                                               ; preds = %5
+  %32 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef -98, ptr noundef @.str, i32 noundef 51)
+  store i32 %32, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %99
 
-32:                                               ; preds = %5
-  %33 = load ptr, ptr %15, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %34, i32 0, i32 1
-  %36 = call i32 @mbedtls_asn1_get_tag(ptr noundef %14, ptr noundef %33, ptr noundef %35, i32 noundef 4)
-  store i32 %36, ptr %12, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %41
+33:                                               ; preds = %5
+  %34 = load ptr, ptr %15, align 8, !tbaa !10
+  %35 = load ptr, ptr %8, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %35, i32 0, i32 1
+  %37 = call i32 @mbedtls_asn1_get_tag(ptr noundef %14, ptr noundef %34, ptr noundef %36, i32 noundef 4)
+  store i32 %37, ptr %12, align 4, !tbaa !8
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %32
-  %39 = load i32, ptr %12, align 4
-  %40 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %39, ptr noundef @.str, i32 noundef 76)
-  store i32 %40, ptr %6, align 4
-  br label %98
+39:                                               ; preds = %33
+  %40 = load i32, ptr %12, align 4, !tbaa !8
+  %41 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %40, ptr noundef @.str, i32 noundef 64)
+  store i32 %41, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %99
 
-41:                                               ; preds = %32
-  %42 = load ptr, ptr %14, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %43, i32 0, i32 2
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.mbedtls_asn1_buf, ptr %45, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  %48 = load ptr, ptr %14, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 %47
-  store ptr %49, ptr %14, align 8
-  %50 = load ptr, ptr %15, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = call i32 @mbedtls_asn1_get_int(ptr noundef %14, ptr noundef %50, ptr noundef %51)
-  store i32 %52, ptr %12, align 4
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %57
+42:                                               ; preds = %33
+  %43 = load ptr, ptr %14, align 8, !tbaa !10
+  %44 = load ptr, ptr %8, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %44, i32 0, i32 2
+  store ptr %43, ptr %45, align 8, !tbaa !16
+  %46 = load ptr, ptr %8, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.mbedtls_asn1_buf, ptr %46, i32 0, i32 1
+  %48 = load i64, ptr %47, align 8, !tbaa !18
+  %49 = load ptr, ptr %14, align 8, !tbaa !10
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %48
+  store ptr %50, ptr %14, align 8, !tbaa !10
+  %51 = load ptr, ptr %15, align 8, !tbaa !10
+  %52 = load ptr, ptr %9, align 8, !tbaa !22
+  %53 = call i32 @mbedtls_asn1_get_int(ptr noundef %14, ptr noundef %51, ptr noundef %52)
+  store i32 %53, ptr %12, align 4, !tbaa !8
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %58
 
-54:                                               ; preds = %41
-  %55 = load i32, ptr %12, align 4
-  %56 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %55, ptr noundef @.str, i32 noundef 82)
-  store i32 %56, ptr %6, align 4
-  br label %98
+55:                                               ; preds = %42
+  %56 = load i32, ptr %12, align 4, !tbaa !8
+  %57 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %56, ptr noundef @.str, i32 noundef 71)
+  store i32 %57, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %99
 
-57:                                               ; preds = %41
-  %58 = load ptr, ptr %14, align 8
-  %59 = load ptr, ptr %15, align 8
-  %60 = icmp eq ptr %58, %59
-  br i1 %60, label %61, label %62
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %14, align 8, !tbaa !10
+  %60 = load ptr, ptr %15, align 8, !tbaa !10
+  %61 = icmp eq ptr %59, %60
+  br i1 %61, label %62, label %63
 
-61:                                               ; preds = %57
+62:                                               ; preds = %58
   store i32 0, ptr %6, align 4
-  br label %98
+  store i32 1, ptr %16, align 4
+  br label %99
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %15, align 8
-  %64 = load ptr, ptr %10, align 8
-  %65 = call i32 @mbedtls_asn1_get_int(ptr noundef %14, ptr noundef %63, ptr noundef %64)
-  store i32 %65, ptr %12, align 4
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %74
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %15, align 8, !tbaa !10
+  %65 = load ptr, ptr %10, align 8, !tbaa !22
+  %66 = call i32 @mbedtls_asn1_get_int(ptr noundef %14, ptr noundef %64, ptr noundef %65)
+  store i32 %66, ptr %12, align 4, !tbaa !8
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %75
 
-67:                                               ; preds = %62
-  %68 = load i32, ptr %12, align 4
-  %69 = icmp ne i32 %68, -98
-  br i1 %69, label %70, label %73
+68:                                               ; preds = %63
+  %69 = load i32, ptr %12, align 4, !tbaa !8
+  %70 = icmp ne i32 %69, -98
+  br i1 %70, label %71, label %74
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr %12, align 4
-  %72 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %71, ptr noundef @.str, i32 noundef 90)
-  store i32 %72, ptr %6, align 4
-  br label %98
+71:                                               ; preds = %68
+  %72 = load i32, ptr %12, align 4, !tbaa !8
+  %73 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %72, ptr noundef @.str, i32 noundef 80)
+  store i32 %73, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %99
 
-73:                                               ; preds = %67
-  br label %74
+74:                                               ; preds = %68
+  br label %75
 
-74:                                               ; preds = %73, %62
-  %75 = load ptr, ptr %14, align 8
-  %76 = load ptr, ptr %15, align 8
-  %77 = icmp eq ptr %75, %76
-  br i1 %77, label %78, label %79
+75:                                               ; preds = %74, %63
+  %76 = load ptr, ptr %14, align 8, !tbaa !10
+  %77 = load ptr, ptr %15, align 8, !tbaa !10
+  %78 = icmp eq ptr %76, %77
+  br i1 %78, label %79, label %80
 
-78:                                               ; preds = %74
+79:                                               ; preds = %75
   store i32 0, ptr %6, align 4
-  br label %98
+  store i32 1, ptr %16, align 4
+  br label %99
 
-79:                                               ; preds = %74
-  %80 = load ptr, ptr %15, align 8
-  %81 = call i32 @mbedtls_asn1_get_alg_null(ptr noundef %14, ptr noundef %80, ptr noundef %13)
-  store i32 %81, ptr %12, align 4
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %86
+80:                                               ; preds = %75
+  %81 = load ptr, ptr %15, align 8, !tbaa !10
+  %82 = call i32 @mbedtls_asn1_get_alg_null(ptr noundef %14, ptr noundef %81, ptr noundef %13)
+  store i32 %82, ptr %12, align 4, !tbaa !8
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %87
 
-83:                                               ; preds = %79
-  %84 = load i32, ptr %12, align 4
-  %85 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %84, ptr noundef @.str, i32 noundef 97)
-  store i32 %85, ptr %6, align 4
-  br label %98
+84:                                               ; preds = %80
+  %85 = load i32, ptr %12, align 4, !tbaa !8
+  %86 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef %85, ptr noundef @.str, i32 noundef 89)
+  store i32 %86, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %99
 
-86:                                               ; preds = %79
-  %87 = load ptr, ptr %11, align 8
-  %88 = call i32 @mbedtls_oid_get_md_hmac(ptr noundef %13, ptr noundef %87)
-  %89 = icmp ne i32 %88, 0
-  br i1 %89, label %90, label %91
+87:                                               ; preds = %80
+  %88 = load ptr, ptr %11, align 8, !tbaa !24
+  %89 = call i32 @mbedtls_oid_get_md_hmac(ptr noundef %13, ptr noundef %88)
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %92
 
-90:                                               ; preds = %86
+91:                                               ; preds = %87
   store i32 -11904, ptr %6, align 4
-  br label %98
+  store i32 1, ptr %16, align 4
+  br label %99
 
-91:                                               ; preds = %86
-  %92 = load ptr, ptr %14, align 8
-  %93 = load ptr, ptr %15, align 8
-  %94 = icmp ne ptr %92, %93
-  br i1 %94, label %95, label %97
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %14, align 8, !tbaa !10
+  %94 = load ptr, ptr %15, align 8, !tbaa !10
+  %95 = icmp ne ptr %93, %94
+  br i1 %95, label %96, label %98
 
-95:                                               ; preds = %91
-  %96 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef -102, ptr noundef @.str, i32 noundef 104)
-  store i32 %96, ptr %6, align 4
-  br label %98
+96:                                               ; preds = %92
+  %97 = call i32 @mbedtls_error_add(i32 noundef -12032, i32 noundef -102, ptr noundef @.str, i32 noundef 98)
+  store i32 %97, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %99
 
-97:                                               ; preds = %91
+98:                                               ; preds = %92
   store i32 0, ptr %6, align 4
-  br label %98
+  store i32 1, ptr %16, align 4
+  br label %99
 
-98:                                               ; preds = %97, %95, %90, %83, %78, %70, %61, %54, %38, %30
-  %99 = load i32, ptr %6, align 4
-  ret i32 %99
+99:                                               ; preds = %98, %96, %91, %84, %79, %71, %62, %55, %39, %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  %100 = load i32, ptr %6, align 4
+  ret i32 %100
 }
 
-declare ptr @mbedtls_md_info_from_type(i32 noundef) #1
+declare i32 @mbedtls_oid_get_cipher_alg(ptr noundef, ptr noundef) #3
 
-declare i32 @mbedtls_oid_get_cipher_alg(ptr noundef, ptr noundef) #1
+declare ptr @mbedtls_cipher_info_from_type(i32 noundef) #3
 
-declare ptr @mbedtls_cipher_info_from_type(i32 noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @mbedtls_cipher_info_get_key_bitlen(ptr noundef %0) #2 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
 
-declare void @mbedtls_md_init(ptr noundef) #1
+6:                                                ; preds = %1
+  store i64 0, ptr %2, align 8
+  br label %15
 
-declare void @mbedtls_cipher_init(ptr noundef) #1
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !20
+  %9 = getelementptr inbounds nuw %struct.mbedtls_cipher_info_t, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8
+  %11 = lshr i32 %10, 8
+  %12 = and i32 %11, 15
+  %13 = zext i32 %12 to i64
+  %14 = shl i64 %13, 6
+  store i64 %14, ptr %2, align 8
+  br label %15
+
+15:                                               ; preds = %7, %6
+  %16 = load i64, ptr %2, align 8
+  ret i64 %16
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @mbedtls_cipher_info_get_iv_size(ptr noundef %0) #2 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  %4 = load ptr, ptr %3, align 8, !tbaa !20
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %1
+  store i64 0, ptr %2, align 8
+  br label %15
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %3, align 8, !tbaa !20
+  %9 = getelementptr inbounds nuw %struct.mbedtls_cipher_info_t, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8
+  %11 = lshr i32 %10, 5
+  %12 = and i32 %11, 7
+  %13 = zext i32 %12 to i64
+  %14 = shl i64 %13, 2
+  store i64 %14, ptr %2, align 8
+  br label %15
+
+15:                                               ; preds = %7, %6
+  %16 = load i64, ptr %2, align 8
+  ret i64 %16
+}
+
+declare void @mbedtls_cipher_init(ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @mbedtls_md_setup(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: nounwind uwtable
+define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac_ext(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca %struct.mbedtls_md_context_t, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  store i32 %0, ptr %10, align 4, !tbaa !8
+  store ptr %1, ptr %11, align 8, !tbaa !10
+  store i64 %2, ptr %12, align 8, !tbaa !12
+  store ptr %3, ptr %13, align 8, !tbaa !10
+  store i64 %4, ptr %14, align 8, !tbaa !12
+  store i32 %5, ptr %15, align 4, !tbaa !8
+  store i32 %6, ptr %16, align 4, !tbaa !8
+  store ptr %7, ptr %17, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
+  store ptr null, ptr %19, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  store i32 -110, ptr %20, align 4, !tbaa !8
+  %22 = load i32, ptr %10, align 4, !tbaa !8
+  %23 = call ptr @mbedtls_md_info_from_type(i32 noundef %22)
+  store ptr %23, ptr %19, align 8, !tbaa !25
+  %24 = load ptr, ptr %19, align 8, !tbaa !25
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %8
+  store i32 -11904, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %43
+
+27:                                               ; preds = %8
+  call void @mbedtls_md_init(ptr noundef %18)
+  %28 = load ptr, ptr %19, align 8, !tbaa !25
+  %29 = call i32 @mbedtls_md_setup(ptr noundef %18, ptr noundef %28, i32 noundef 1)
+  store i32 %29, ptr %20, align 4, !tbaa !8
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %32
+
+31:                                               ; preds = %27
+  br label %41
+
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %11, align 8, !tbaa !10
+  %34 = load i64, ptr %12, align 8, !tbaa !12
+  %35 = load ptr, ptr %13, align 8, !tbaa !10
+  %36 = load i64, ptr %14, align 8, !tbaa !12
+  %37 = load i32, ptr %15, align 4, !tbaa !8
+  %38 = load i32, ptr %16, align 4, !tbaa !8
+  %39 = load ptr, ptr %17, align 8, !tbaa !10
+  %40 = call i32 @pkcs5_pbkdf2_hmac(ptr noundef %18, ptr noundef %33, i64 noundef %34, ptr noundef %35, i64 noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef %39)
+  store i32 %40, ptr %20, align 4, !tbaa !8
+  br label %41
+
+41:                                               ; preds = %32, %31
+  call void @mbedtls_md_free(ptr noundef %18)
+  %42 = load i32, ptr %20, align 4, !tbaa !8
+  store i32 %42, ptr %9, align 4
+  store i32 1, ptr %21, align 4
+  br label %43
+
+43:                                               ; preds = %41, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #8
+  %44 = load i32, ptr %9, align 4
+  ret i32 %44
+}
+
+declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) #3
+
+declare i32 @mbedtls_cipher_setkey(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
+
+declare i32 @mbedtls_cipher_set_padding_mode(ptr noundef, i32 noundef) #3
+
+declare i32 @mbedtls_cipher_crypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
+
+declare void @mbedtls_cipher_free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8, !tbaa !27
+  store ptr %1, ptr %10, align 8, !tbaa !10
+  store i64 %2, ptr %11, align 8, !tbaa !12
+  store ptr %3, ptr %12, align 8, !tbaa !10
+  store i64 %4, ptr %13, align 8, !tbaa !12
+  store i32 %5, ptr %14, align 4, !tbaa !8
+  store i32 %6, ptr %15, align 4, !tbaa !8
+  store ptr %7, ptr %16, align 8, !tbaa !10
+  %17 = load ptr, ptr %9, align 8, !tbaa !27
+  %18 = load ptr, ptr %10, align 8, !tbaa !10
+  %19 = load i64, ptr %11, align 8, !tbaa !12
+  %20 = load ptr, ptr %12, align 8, !tbaa !10
+  %21 = load i64, ptr %13, align 8, !tbaa !12
+  %22 = load i32, ptr %14, align 4, !tbaa !8
+  %23 = load i32, ptr %15, align 4, !tbaa !8
+  %24 = load ptr, ptr %16, align 8, !tbaa !10
+  %25 = call i32 @pkcs5_pbkdf2_hmac(ptr noundef %17, ptr noundef %18, i64 noundef %19, ptr noundef %20, i64 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef %24)
+  ret i32 %25
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
@@ -505,471 +835,585 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  %20 = alloca i32, align 4
+  %20 = alloca [64 x i8], align 16
   %21 = alloca [64 x i8], align 16
-  %22 = alloca [64 x i8], align 16
-  %23 = alloca i8, align 1
-  %24 = alloca i64, align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca [4 x i8], align 1
-  store ptr %0, ptr %10, align 8
-  store ptr %1, ptr %11, align 8
-  store i64 %2, ptr %12, align 8
-  store ptr %3, ptr %13, align 8
-  store i64 %4, ptr %14, align 8
-  store i32 %5, ptr %15, align 4
-  store i32 %6, ptr %16, align 4
-  store ptr %7, ptr %17, align 8
-  store i32 -110, ptr %18, align 4
-  %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds %struct.mbedtls_md_context_t, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
+  %22 = alloca i8, align 1
+  %23 = alloca i64, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca [4 x i8], align 1
+  %26 = alloca i32, align 4
+  store ptr %0, ptr %10, align 8, !tbaa !27
+  store ptr %1, ptr %11, align 8, !tbaa !10
+  store i64 %2, ptr %12, align 8, !tbaa !12
+  store ptr %3, ptr %13, align 8, !tbaa !10
+  store i64 %4, ptr %14, align 8, !tbaa !12
+  store i32 %5, ptr %15, align 4, !tbaa !8
+  store i32 %6, ptr %16, align 4, !tbaa !8
+  store ptr %7, ptr %17, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  store i32 -110, ptr %18, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %21) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #8
+  %27 = load ptr, ptr %10, align 8, !tbaa !27
+  %28 = getelementptr inbounds nuw %struct.mbedtls_md_context_t, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !29
   %30 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %29)
-  store i8 %30, ptr %23, align 1
-  %31 = load ptr, ptr %17, align 8
-  store ptr %31, ptr %25, align 8
-  %32 = getelementptr inbounds [4 x i8], ptr %26, i64 0, i64 0
+  store i8 %30, ptr %22, align 1, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #8
+  %31 = load ptr, ptr %17, align 8, !tbaa !10
+  store ptr %31, ptr %24, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #8
+  %32 = getelementptr inbounds [4 x i8], ptr %25, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 4, i1 false)
-  %33 = getelementptr inbounds [4 x i8], ptr %26, i64 0, i64 3
-  store i8 1, ptr %33, align 1
-  %34 = load ptr, ptr %10, align 8
-  %35 = load ptr, ptr %11, align 8
-  %36 = load i64, ptr %12, align 8
+  %33 = getelementptr inbounds [4 x i8], ptr %25, i64 0, i64 3
+  store i8 1, ptr %33, align 1, !tbaa !31
+  %34 = load ptr, ptr %10, align 8, !tbaa !27
+  %35 = load ptr, ptr %11, align 8, !tbaa !10
+  %36 = load i64, ptr %12, align 8, !tbaa !12
   %37 = call i32 @mbedtls_md_hmac_starts(ptr noundef %34, ptr noundef %35, i64 noundef %36)
-  store i32 %37, ptr %18, align 4
+  store i32 %37, ptr %18, align 4, !tbaa !8
   %38 = icmp ne i32 %37, 0
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %8
-  %40 = load i32, ptr %18, align 4
+  %40 = load i32, ptr %18, align 4, !tbaa !8
   store i32 %40, ptr %9, align 4
-  br label %169
+  store i32 1, ptr %26, align 4
+  br label %152
 
 41:                                               ; preds = %8
   br label %42
 
-42:                                               ; preds = %163, %41
-  %43 = load i32, ptr %16, align 4
+42:                                               ; preds = %146, %41
+  %43 = load i32, ptr %16, align 4, !tbaa !8
   %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %164
+  br i1 %44, label %45, label %147
 
 45:                                               ; preds = %42
-  %46 = load ptr, ptr %10, align 8
-  %47 = load ptr, ptr %13, align 8
-  %48 = load i64, ptr %14, align 8
+  %46 = load ptr, ptr %10, align 8, !tbaa !27
+  %47 = load ptr, ptr %13, align 8, !tbaa !10
+  %48 = load i64, ptr %14, align 8, !tbaa !12
   %49 = call i32 @mbedtls_md_hmac_update(ptr noundef %46, ptr noundef %47, i64 noundef %48)
-  store i32 %49, ptr %18, align 4
+  store i32 %49, ptr %18, align 4, !tbaa !8
   %50 = icmp ne i32 %49, 0
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %45
-  br label %165
+  br label %148
 
 52:                                               ; preds = %45
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds [4 x i8], ptr %26, i64 0, i64 0
+  %53 = load ptr, ptr %10, align 8, !tbaa !27
+  %54 = getelementptr inbounds [4 x i8], ptr %25, i64 0, i64 0
   %55 = call i32 @mbedtls_md_hmac_update(ptr noundef %53, ptr noundef %54, i64 noundef 4)
-  store i32 %55, ptr %18, align 4
+  store i32 %55, ptr %18, align 4, !tbaa !8
   %56 = icmp ne i32 %55, 0
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %52
-  br label %165
+  br label %148
 
 58:                                               ; preds = %52
-  %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
+  %59 = load ptr, ptr %10, align 8, !tbaa !27
+  %60 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
   %61 = call i32 @mbedtls_md_hmac_finish(ptr noundef %59, ptr noundef %60)
-  store i32 %61, ptr %18, align 4
+  store i32 %61, ptr %18, align 4, !tbaa !8
   %62 = icmp ne i32 %61, 0
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %58
-  br label %165
+  br label %148
 
 64:                                               ; preds = %58
-  %65 = load ptr, ptr %10, align 8
+  %65 = load ptr, ptr %10, align 8, !tbaa !27
   %66 = call i32 @mbedtls_md_hmac_reset(ptr noundef %65)
-  store i32 %66, ptr %18, align 4
+  store i32 %66, ptr %18, align 4, !tbaa !8
   %67 = icmp ne i32 %66, 0
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %64
-  br label %165
+  br label %148
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
-  %71 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
-  %72 = load i8, ptr %23, align 1
+  %70 = getelementptr inbounds [64 x i8], ptr %20, i64 0, i64 0
+  %71 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
+  %72 = load i8, ptr %22, align 1, !tbaa !31
   %73 = zext i8 %72 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %70, ptr align 16 %71, i64 %73, i1 false)
-  store i32 1, ptr %20, align 4
+  store i32 1, ptr %19, align 4, !tbaa !8
   br label %74
 
-74:                                               ; preds = %120, %69
-  %75 = load i32, ptr %20, align 4
-  %76 = load i32, ptr %15, align 4
+74:                                               ; preds = %103, %69
+  %75 = load i32, ptr %19, align 4, !tbaa !8
+  %76 = load i32, ptr %15, align 4, !tbaa !8
   %77 = icmp ult i32 %75, %76
-  br i1 %77, label %78, label %123
+  br i1 %77, label %78, label %106
 
 78:                                               ; preds = %74
-  %79 = load ptr, ptr %10, align 8
-  %80 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
-  %81 = load i8, ptr %23, align 1
+  %79 = load ptr, ptr %10, align 8, !tbaa !27
+  %80 = getelementptr inbounds [64 x i8], ptr %20, i64 0, i64 0
+  %81 = load i8, ptr %22, align 1, !tbaa !31
   %82 = zext i8 %81 to i64
   %83 = call i32 @mbedtls_md_hmac_update(ptr noundef %79, ptr noundef %80, i64 noundef %82)
-  store i32 %83, ptr %18, align 4
+  store i32 %83, ptr %18, align 4, !tbaa !8
   %84 = icmp ne i32 %83, 0
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %78
-  br label %165
+  br label %148
 
 86:                                               ; preds = %78
-  %87 = load ptr, ptr %10, align 8
-  %88 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
+  %87 = load ptr, ptr %10, align 8, !tbaa !27
+  %88 = getelementptr inbounds [64 x i8], ptr %20, i64 0, i64 0
   %89 = call i32 @mbedtls_md_hmac_finish(ptr noundef %87, ptr noundef %88)
-  store i32 %89, ptr %18, align 4
+  store i32 %89, ptr %18, align 4, !tbaa !8
   %90 = icmp ne i32 %89, 0
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %86
-  br label %165
+  br label %148
 
 92:                                               ; preds = %86
-  %93 = load ptr, ptr %10, align 8
+  %93 = load ptr, ptr %10, align 8, !tbaa !27
   %94 = call i32 @mbedtls_md_hmac_reset(ptr noundef %93)
-  store i32 %94, ptr %18, align 4
+  store i32 %94, ptr %18, align 4, !tbaa !8
   %95 = icmp ne i32 %94, 0
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %92
-  br label %165
+  br label %148
 
 97:                                               ; preds = %92
-  store i32 0, ptr %19, align 4
-  br label %98
+  %98 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
+  %99 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
+  %100 = getelementptr inbounds [64 x i8], ptr %20, i64 0, i64 0
+  %101 = load i8, ptr %22, align 1, !tbaa !31
+  %102 = zext i8 %101 to i64
+  call void @mbedtls_xor(ptr noundef %98, ptr noundef %99, ptr noundef %100, i64 noundef %102)
+  br label %103
 
-98:                                               ; preds = %116, %97
-  %99 = load i32, ptr %19, align 4
-  %100 = load i8, ptr %23, align 1
-  %101 = zext i8 %100 to i32
-  %102 = icmp slt i32 %99, %101
-  br i1 %102, label %103, label %119
+103:                                              ; preds = %97
+  %104 = load i32, ptr %19, align 4, !tbaa !8
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %19, align 4, !tbaa !8
+  br label %74, !llvm.loop !32
 
-103:                                              ; preds = %98
-  %104 = load i32, ptr %19, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 %105
-  %107 = load i8, ptr %106, align 1
-  %108 = zext i8 %107 to i32
-  %109 = load i32, ptr %19, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %110
-  %112 = load i8, ptr %111, align 1
-  %113 = zext i8 %112 to i32
-  %114 = xor i32 %113, %108
-  %115 = trunc i32 %114 to i8
-  store i8 %115, ptr %111, align 1
+106:                                              ; preds = %74
+  %107 = load i32, ptr %16, align 4, !tbaa !8
+  %108 = load i8, ptr %22, align 1, !tbaa !31
+  %109 = zext i8 %108 to i32
+  %110 = icmp ult i32 %107, %109
+  br i1 %110, label %111, label %113
+
+111:                                              ; preds = %106
+  %112 = load i32, ptr %16, align 4, !tbaa !8
   br label %116
 
-116:                                              ; preds = %103
-  %117 = load i32, ptr %19, align 4
-  %118 = add nsw i32 %117, 1
-  store i32 %118, ptr %19, align 4
-  br label %98, !llvm.loop !4
+113:                                              ; preds = %106
+  %114 = load i8, ptr %22, align 1, !tbaa !31
+  %115 = zext i8 %114 to i32
+  br label %116
 
-119:                                              ; preds = %98
-  br label %120
+116:                                              ; preds = %113, %111
+  %117 = phi i32 [ %112, %111 ], [ %115, %113 ]
+  %118 = zext i32 %117 to i64
+  store i64 %118, ptr %23, align 8, !tbaa !12
+  %119 = load ptr, ptr %24, align 8, !tbaa !10
+  %120 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
+  %121 = load i64, ptr %23, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %119, ptr align 16 %120, i64 %121, i1 false)
+  %122 = load i64, ptr %23, align 8, !tbaa !12
+  %123 = trunc i64 %122 to i32
+  %124 = load i32, ptr %16, align 4, !tbaa !8
+  %125 = sub i32 %124, %123
+  store i32 %125, ptr %16, align 4, !tbaa !8
+  %126 = load i64, ptr %23, align 8, !tbaa !12
+  %127 = load ptr, ptr %24, align 8, !tbaa !10
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %126
+  store ptr %128, ptr %24, align 8, !tbaa !10
+  store i32 4, ptr %19, align 4, !tbaa !8
+  br label %129
 
-120:                                              ; preds = %119
-  %121 = load i32, ptr %20, align 4
-  %122 = add i32 %121, 1
-  store i32 %122, ptr %20, align 4
-  br label %74, !llvm.loop !6
+129:                                              ; preds = %143, %116
+  %130 = load i32, ptr %19, align 4, !tbaa !8
+  %131 = icmp ugt i32 %130, 0
+  br i1 %131, label %132, label %146
 
-123:                                              ; preds = %74
-  %124 = load i32, ptr %16, align 4
-  %125 = load i8, ptr %23, align 1
-  %126 = zext i8 %125 to i32
-  %127 = icmp ult i32 %124, %126
-  br i1 %127, label %128, label %130
-
-128:                                              ; preds = %123
-  %129 = load i32, ptr %16, align 4
-  br label %133
-
-130:                                              ; preds = %123
-  %131 = load i8, ptr %23, align 1
-  %132 = zext i8 %131 to i32
-  br label %133
-
-133:                                              ; preds = %130, %128
-  %134 = phi i32 [ %129, %128 ], [ %132, %130 ]
+132:                                              ; preds = %129
+  %133 = load i32, ptr %19, align 4, !tbaa !8
+  %134 = sub i32 %133, 1
   %135 = zext i32 %134 to i64
-  store i64 %135, ptr %24, align 8
-  %136 = load ptr, ptr %25, align 8
-  %137 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
-  %138 = load i64, ptr %24, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %136, ptr align 16 %137, i64 %138, i1 false)
-  %139 = load i64, ptr %24, align 8
-  %140 = trunc i64 %139 to i32
-  %141 = load i32, ptr %16, align 4
-  %142 = sub i32 %141, %140
-  store i32 %142, ptr %16, align 4
-  %143 = load i64, ptr %24, align 8
-  %144 = load ptr, ptr %25, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 %143
-  store ptr %145, ptr %25, align 8
-  store i32 4, ptr %20, align 4
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 0, i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !31
+  %138 = add i8 %137, 1
+  store i8 %138, ptr %136, align 1, !tbaa !31
+  %139 = zext i8 %138 to i32
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %142
+
+141:                                              ; preds = %132
   br label %146
 
-146:                                              ; preds = %160, %133
-  %147 = load i32, ptr %20, align 4
-  %148 = icmp ugt i32 %147, 0
-  br i1 %148, label %149, label %163
+142:                                              ; preds = %132
+  br label %143
 
-149:                                              ; preds = %146
-  %150 = load i32, ptr %20, align 4
-  %151 = sub i32 %150, 1
-  %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds [4 x i8], ptr %26, i64 0, i64 %152
-  %154 = load i8, ptr %153, align 1
-  %155 = add i8 %154, 1
-  store i8 %155, ptr %153, align 1
-  %156 = zext i8 %155 to i32
-  %157 = icmp ne i32 %156, 0
-  br i1 %157, label %158, label %159
+143:                                              ; preds = %142
+  %144 = load i32, ptr %19, align 4, !tbaa !8
+  %145 = add i32 %144, -1
+  store i32 %145, ptr %19, align 4, !tbaa !8
+  br label %129, !llvm.loop !34
 
-158:                                              ; preds = %149
-  br label %163
+146:                                              ; preds = %141, %129
+  br label %42, !llvm.loop !35
 
-159:                                              ; preds = %149
-  br label %160
+147:                                              ; preds = %42
+  br label %148
 
-160:                                              ; preds = %159
-  %161 = load i32, ptr %20, align 4
-  %162 = add i32 %161, -1
-  store i32 %162, ptr %20, align 4
-  br label %146, !llvm.loop !7
+148:                                              ; preds = %147, %96, %91, %85, %68, %63, %57, %51
+  %149 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
+  call void @mbedtls_platform_zeroize(ptr noundef %149, i64 noundef 64)
+  %150 = getelementptr inbounds [64 x i8], ptr %20, i64 0, i64 0
+  call void @mbedtls_platform_zeroize(ptr noundef %150, i64 noundef 64)
+  %151 = load i32, ptr %18, align 4, !tbaa !8
+  store i32 %151, ptr %9, align 4
+  store i32 1, ptr %26, align 4
+  br label %152
 
-163:                                              ; preds = %158, %146
-  br label %42, !llvm.loop !8
-
-164:                                              ; preds = %42
-  br label %165
-
-165:                                              ; preds = %164, %96, %91, %85, %68, %63, %57, %51
-  %166 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 0
-  call void @mbedtls_platform_zeroize(ptr noundef %166, i64 noundef 64)
-  %167 = getelementptr inbounds [64 x i8], ptr %21, i64 0, i64 0
-  call void @mbedtls_platform_zeroize(ptr noundef %167, i64 noundef 64)
-  %168 = load i32, ptr %18, align 4
-  store i32 %168, ptr %9, align 4
-  br label %169
-
-169:                                              ; preds = %165, %39
-  %170 = load i32, ptr %9, align 4
-  ret i32 %170
+152:                                              ; preds = %148, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  %153 = load i32, ptr %9, align 4
+  ret i32 %153
 }
 
-declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) #1
+declare ptr @mbedtls_md_info_from_type(i32 noundef) #3
 
-declare i32 @mbedtls_cipher_setkey(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+declare void @mbedtls_md_init(ptr noundef) #3
 
-declare i32 @mbedtls_cipher_crypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
+declare i32 @mbedtls_md_setup(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare void @mbedtls_md_free(ptr noundef) #1
-
-declare void @mbedtls_cipher_free(ptr noundef) #1
-
-declare zeroext i8 @mbedtls_md_get_size(ptr noundef) #1
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
-
-declare i32 @mbedtls_md_hmac_starts(ptr noundef, ptr noundef, i64 noundef) #1
-
-declare i32 @mbedtls_md_hmac_update(ptr noundef, ptr noundef, i64 noundef) #1
-
-declare i32 @mbedtls_md_hmac_finish(ptr noundef, ptr noundef) #1
-
-declare i32 @mbedtls_md_hmac_reset(ptr noundef) #1
-
-declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) #1
+declare void @mbedtls_md_free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_pkcs5_self_test(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
-  %3 = alloca %struct.mbedtls_md_context_t, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  %7 = alloca [64 x i8], align 16
-  store i32 %0, ptr %2, align 4
-  call void @mbedtls_md_init(ptr noundef %3)
-  %8 = call ptr @mbedtls_md_info_from_type(i32 noundef 2)
-  store ptr %8, ptr %4, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca [64 x i8], align 16
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %5) #8
+  store i32 0, ptr %4, align 4, !tbaa !8
+  br label %6
 
-11:                                               ; preds = %1
-  store i32 1, ptr %5, align 4
-  br label %90
+6:                                                ; preds = %69, %1
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = icmp slt i32 %7, 6
+  br i1 %8, label %9, label %72
 
-12:                                               ; preds = %1
-  %13 = load ptr, ptr %4, align 8
-  %14 = call i32 @mbedtls_md_setup(ptr noundef %3, ptr noundef %13, i32 noundef 1)
-  store i32 %14, ptr %5, align 4
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %17
+9:                                                ; preds = %6
+  %10 = load i32, ptr %2, align 4, !tbaa !8
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %15
 
-16:                                               ; preds = %12
-  store i32 1, ptr %5, align 4
-  br label %90
+12:                                               ; preds = %9
+  %13 = load i32, ptr %4, align 4, !tbaa !8
+  %14 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %13)
+  br label %15
 
-17:                                               ; preds = %12
-  store i32 0, ptr %6, align 4
-  br label %18
-
-18:                                               ; preds = %81, %17
-  %19 = load i32, ptr %6, align 4
-  %20 = icmp slt i32 %19, 6
-  br i1 %20, label %21, label %84
-
-21:                                               ; preds = %18
-  %22 = load i32, ptr %2, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %27
-
-24:                                               ; preds = %21
-  %25 = load i32, ptr %6, align 4
-  %26 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, i32 noundef %25)
-  br label %27
-
-27:                                               ; preds = %24, %21
-  %28 = load i32, ptr %6, align 4
+15:                                               ; preds = %12, %9
+  %16 = load i32, ptr %4, align 4, !tbaa !8
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [6 x [32 x i8]], ptr @password_test_data, i64 0, i64 %17
+  %19 = getelementptr inbounds [32 x i8], ptr %18, i64 0, i64 0
+  %20 = load i32, ptr %4, align 4, !tbaa !8
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [6 x i64], ptr @plen_test_data, i64 0, i64 %21
+  %23 = load i64, ptr %22, align 8, !tbaa !12
+  %24 = load i32, ptr %4, align 4, !tbaa !8
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds [6 x [40 x i8]], ptr @salt_test_data, i64 0, i64 %25
+  %27 = getelementptr inbounds [40 x i8], ptr %26, i64 0, i64 0
+  %28 = load i32, ptr %4, align 4, !tbaa !8
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [6 x [32 x i8]], ptr @password_test_data, i64 0, i64 %29
-  %31 = getelementptr inbounds [32 x i8], ptr %30, i64 0, i64 0
-  %32 = load i32, ptr %6, align 4
+  %30 = getelementptr inbounds [6 x i64], ptr @slen_test_data, i64 0, i64 %29
+  %31 = load i64, ptr %30, align 8, !tbaa !12
+  %32 = load i32, ptr %4, align 4, !tbaa !8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [6 x i64], ptr @plen_test_data, i64 0, i64 %33
-  %35 = load i64, ptr %34, align 8
-  %36 = load i32, ptr %6, align 4
+  %34 = getelementptr inbounds [6 x i32], ptr @it_cnt_test_data, i64 0, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !8
+  %36 = load i32, ptr %4, align 4, !tbaa !8
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [6 x [40 x i8]], ptr @salt_test_data, i64 0, i64 %37
-  %39 = getelementptr inbounds [40 x i8], ptr %38, i64 0, i64 0
-  %40 = load i32, ptr %6, align 4
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [6 x i64], ptr @slen_test_data, i64 0, i64 %41
-  %43 = load i64, ptr %42, align 8
-  %44 = load i32, ptr %6, align 4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [6 x i32], ptr @it_cnt_test_data, i64 0, i64 %45
-  %47 = load i32, ptr %46, align 4
-  %48 = load i32, ptr %6, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [6 x i32], ptr @key_len_test_data, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 0
-  %53 = call i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %3, ptr noundef %31, i64 noundef %35, ptr noundef %39, i64 noundef %43, i32 noundef %47, i32 noundef %51, ptr noundef %52)
-  store i32 %53, ptr %5, align 4
-  %54 = load i32, ptr %5, align 4
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %69, label %56
+  %38 = getelementptr inbounds [6 x i32], ptr @key_len_test_data, i64 0, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !8
+  %40 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 0
+  %41 = call i32 @mbedtls_pkcs5_pbkdf2_hmac_ext(i32 noundef 5, ptr noundef %19, i64 noundef %23, ptr noundef %27, i64 noundef %31, i32 noundef %35, i32 noundef %39, ptr noundef %40)
+  store i32 %41, ptr %3, align 4, !tbaa !8
+  %42 = load i32, ptr %3, align 4, !tbaa !8
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %57, label %44
 
-56:                                               ; preds = %27
-  %57 = load i32, ptr %6, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [6 x [32 x i8]], ptr @result_key_test_data, i64 0, i64 %58
-  %60 = getelementptr inbounds [32 x i8], ptr %59, i64 0, i64 0
-  %61 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 0
-  %62 = load i32, ptr %6, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [6 x i32], ptr @key_len_test_data, i64 0, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = zext i32 %65 to i64
-  %67 = call i32 @memcmp(ptr noundef %60, ptr noundef %61, i64 noundef %66) #5
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %75
+44:                                               ; preds = %15
+  %45 = load i32, ptr %4, align 4, !tbaa !8
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds [6 x [32 x i8]], ptr @result_key_test_data, i64 0, i64 %46
+  %48 = getelementptr inbounds [32 x i8], ptr %47, i64 0, i64 0
+  %49 = getelementptr inbounds [64 x i8], ptr %5, i64 0, i64 0
+  %50 = load i32, ptr %4, align 4, !tbaa !8
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds [6 x i32], ptr @key_len_test_data, i64 0, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !8
+  %54 = zext i32 %53 to i64
+  %55 = call i32 @memcmp(ptr noundef %48, ptr noundef %49, i64 noundef %54) #9
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %63
 
-69:                                               ; preds = %56, %27
-  %70 = load i32, ptr %2, align 4
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %74
+57:                                               ; preds = %44, %15
+  %58 = load i32, ptr %2, align 4, !tbaa !8
+  %59 = icmp ne i32 %58, 0
+  br i1 %59, label %60, label %62
 
-72:                                               ; preds = %69
-  %73 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
-  br label %74
+60:                                               ; preds = %57
+  %61 = call i32 (ptr, ...) @printf(ptr noundef @.str.3)
+  br label %62
 
-74:                                               ; preds = %72, %69
-  store i32 1, ptr %5, align 4
-  br label %90
+62:                                               ; preds = %60, %57
+  store i32 1, ptr %3, align 4, !tbaa !8
+  br label %78
 
-75:                                               ; preds = %56
-  %76 = load i32, ptr %2, align 4
-  %77 = icmp ne i32 %76, 0
-  br i1 %77, label %78, label %80
+63:                                               ; preds = %44
+  %64 = load i32, ptr %2, align 4, !tbaa !8
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %68
 
-78:                                               ; preds = %75
-  %79 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
-  br label %80
+66:                                               ; preds = %63
+  %67 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
+  br label %68
 
-80:                                               ; preds = %78, %75
-  br label %81
+68:                                               ; preds = %66, %63
+  br label %69
 
-81:                                               ; preds = %80
-  %82 = load i32, ptr %6, align 4
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %6, align 4
-  br label %18, !llvm.loop !9
+69:                                               ; preds = %68
+  %70 = load i32, ptr %4, align 4, !tbaa !8
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %4, align 4, !tbaa !8
+  br label %6, !llvm.loop !36
 
-84:                                               ; preds = %18
-  %85 = load i32, ptr %2, align 4
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %89
+72:                                               ; preds = %6
+  %73 = load i32, ptr %2, align 4, !tbaa !8
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %77
 
-87:                                               ; preds = %84
-  %88 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
-  br label %89
+75:                                               ; preds = %72
+  %76 = call i32 (ptr, ...) @printf(ptr noundef @.str.5)
+  br label %77
 
-89:                                               ; preds = %87, %84
-  br label %90
+77:                                               ; preds = %75, %72
+  br label %78
 
-90:                                               ; preds = %89, %74, %16, %11
-  call void @mbedtls_md_free(ptr noundef %3)
-  %91 = load i32, ptr %5, align 4
-  ret i32 %91
+78:                                               ; preds = %77, %62
+  %79 = load i32, ptr %3, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i32 %79
 }
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @printf(ptr noundef, ...) #3
 
-declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @mbedtls_asn1_get_int(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @mbedtls_asn1_get_int(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @mbedtls_asn1_get_alg_null(ptr noundef, ptr noundef, ptr noundef) #1
+declare i32 @mbedtls_asn1_get_alg_null(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @mbedtls_oid_get_md_hmac(ptr noundef, ptr noundef) #1
+declare i32 @mbedtls_oid_get_md_hmac(ptr noundef, ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind willreturn memory(read) }
+declare zeroext i8 @mbedtls_md_get_size(ptr noundef) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+declare i32 @mbedtls_md_hmac_starts(ptr noundef, ptr noundef, i64 noundef) #3
+
+declare i32 @mbedtls_md_hmac_update(ptr noundef, ptr noundef, i64 noundef) #3
+
+declare i32 @mbedtls_md_hmac_finish(ptr noundef, ptr noundef) #3
+
+declare i32 @mbedtls_md_hmac_reset(ptr noundef) #3
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @mbedtls_xor(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #7 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !10
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store i64 %3, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  store i64 0, ptr %9, align 8, !tbaa !12
+  br label %11
+
+11:                                               ; preds = %30, %4
+  %12 = load i64, ptr %9, align 8, !tbaa !12
+  %13 = add i64 %12, 8
+  %14 = load i64, ptr %8, align 8, !tbaa !12
+  %15 = icmp ule i64 %13, %14
+  br i1 %15, label %16, label %33
+
+16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  %17 = load ptr, ptr %6, align 8, !tbaa !10
+  %18 = load i64, ptr %9, align 8, !tbaa !12
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  %20 = call i64 @mbedtls_get_unaligned_uint64(ptr noundef %19)
+  %21 = load ptr, ptr %7, align 8, !tbaa !10
+  %22 = load i64, ptr %9, align 8, !tbaa !12
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
+  %24 = call i64 @mbedtls_get_unaligned_uint64(ptr noundef %23)
+  %25 = xor i64 %20, %24
+  store i64 %25, ptr %10, align 8, !tbaa !12
+  %26 = load ptr, ptr %5, align 8, !tbaa !10
+  %27 = load i64, ptr %9, align 8, !tbaa !12
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  %29 = load i64, ptr %10, align 8, !tbaa !12
+  call void @mbedtls_put_unaligned_uint64(ptr noundef %28, i64 noundef %29)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  br label %30
+
+30:                                               ; preds = %16
+  %31 = load i64, ptr %9, align 8, !tbaa !12
+  %32 = add i64 %31, 8
+  store i64 %32, ptr %9, align 8, !tbaa !12
+  br label %11, !llvm.loop !37
+
+33:                                               ; preds = %11
+  br label %34
+
+34:                                               ; preds = %54, %33
+  %35 = load i64, ptr %9, align 8, !tbaa !12
+  %36 = load i64, ptr %8, align 8, !tbaa !12
+  %37 = icmp ult i64 %35, %36
+  br i1 %37, label %38, label %57
+
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %6, align 8, !tbaa !10
+  %40 = load i64, ptr %9, align 8, !tbaa !12
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !31
+  %43 = zext i8 %42 to i32
+  %44 = load ptr, ptr %7, align 8, !tbaa !10
+  %45 = load i64, ptr %9, align 8, !tbaa !12
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !31
+  %48 = zext i8 %47 to i32
+  %49 = xor i32 %43, %48
+  %50 = trunc i32 %49 to i8
+  %51 = load ptr, ptr %5, align 8, !tbaa !10
+  %52 = load i64, ptr %9, align 8, !tbaa !12
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
+  store i8 %50, ptr %53, align 1, !tbaa !31
+  br label %54
+
+54:                                               ; preds = %38
+  %55 = load i64, ptr %9, align 8, !tbaa !12
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %9, align 8, !tbaa !12
+  br label %34, !llvm.loop !38
+
+57:                                               ; preds = %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret void
+}
+
+declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) #3
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i64 @mbedtls_get_unaligned_uint64(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 1 %4, i64 8, i1 false)
+  %5 = load i64, ptr %3, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i64 %5
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @mbedtls_put_unaligned_uint64(ptr noundef %0, i64 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store i64 %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 8 %4, i64 8, i1 false)
+  ret void
+}
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS16mbedtls_asn1_buf", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 long", !5, i64 0}
+!16 = !{!17, !11, i64 16}
+!17 = !{!"mbedtls_asn1_buf", !9, i64 0, !13, i64 8, !11, i64 16}
+!18 = !{!17, !13, i64 8}
+!19 = !{!17, !9, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS21mbedtls_cipher_info_t", !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 int", !5, i64 0}
+!24 = !{!5, !5, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS17mbedtls_md_info_t", !5, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS20mbedtls_md_context_t", !5, i64 0}
+!29 = !{!30, !26, i64 0}
+!30 = !{!"mbedtls_md_context_t", !26, i64 0, !5, i64 8, !5, i64 16}
+!31 = !{!6, !6, i64 0}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.mustprogress"}
+!34 = distinct !{!34, !33}
+!35 = distinct !{!35, !33}
+!36 = distinct !{!36, !33}
+!37 = distinct !{!37, !33}
+!38 = distinct !{!38, !33}

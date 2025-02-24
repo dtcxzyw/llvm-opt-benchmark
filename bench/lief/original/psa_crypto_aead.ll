@@ -3,10 +3,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.mbedtls_psa_aead_operation_t = type { i32, i16, i8, i8, %union.anon }
 %union.anon = type { %struct.mbedtls_gcm_context }
-%struct.mbedtls_gcm_context = type { %struct.mbedtls_cipher_context_t, [16 x i64], [16 x i64], i64, i64, [16 x i8], [16 x i8], [16 x i8], i32 }
+%struct.mbedtls_gcm_context = type { %struct.mbedtls_cipher_context_t, [16 x [2 x i64]], i64, i64, [16 x i8], [16 x i8], [16 x i8], i8, i8 }
 %struct.mbedtls_cipher_context_t = type { ptr, i32, i32, ptr, ptr, [16 x i8], i64, [16 x i8], i64, ptr, ptr }
-%struct.psa_key_attributes_s = type { %struct.psa_core_key_attributes_t, ptr, i64 }
-%struct.psa_core_key_attributes_t = type { i16, i16, i32, i32, %struct.psa_key_policy_s, i16 }
+%struct.psa_key_attributes_s = type { i16, i16, i32, %struct.psa_key_policy_s, i32 }
 %struct.psa_key_policy_s = type { i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
@@ -28,172 +27,184 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr noundef %0, ptr noundef %1, i64 
   %28 = alloca i32, align 4
   %29 = alloca %struct.mbedtls_psa_aead_operation_t, align 8
   %30 = alloca ptr, align 8
-  store ptr %0, ptr %15, align 8
-  store ptr %1, ptr %16, align 8
-  store i64 %2, ptr %17, align 8
-  store i32 %3, ptr %18, align 4
-  store ptr %4, ptr %19, align 8
-  store i64 %5, ptr %20, align 8
-  store ptr %6, ptr %21, align 8
-  store i64 %7, ptr %22, align 8
-  store ptr %8, ptr %23, align 8
-  store i64 %9, ptr %24, align 8
-  store ptr %10, ptr %25, align 8
-  store i64 %11, ptr %26, align 8
-  store ptr %12, ptr %27, align 8
-  store i32 -151, ptr %28, align 4
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %15, align 8, !tbaa !3
+  store ptr %1, ptr %16, align 8, !tbaa !8
+  store i64 %2, ptr %17, align 8, !tbaa !10
+  store i32 %3, ptr %18, align 4, !tbaa !12
+  store ptr %4, ptr %19, align 8, !tbaa !8
+  store i64 %5, ptr %20, align 8, !tbaa !10
+  store ptr %6, ptr %21, align 8, !tbaa !8
+  store i64 %7, ptr %22, align 8, !tbaa !10
+  store ptr %8, ptr %23, align 8, !tbaa !8
+  store i64 %9, ptr %24, align 8, !tbaa !10
+  store ptr %10, ptr %25, align 8, !tbaa !8
+  store i64 %11, ptr %26, align 8, !tbaa !10
+  store ptr %12, ptr %27, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #5
+  store i32 -151, ptr %28, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 432, ptr %29) #5
   call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 432, i1 false)
-  %31 = load ptr, ptr %15, align 8
-  %32 = load ptr, ptr %16, align 8
-  %33 = load i64, ptr %17, align 8
-  %34 = load i32, ptr %18, align 4
-  %35 = call i32 @psa_aead_setup(ptr noundef %29, ptr noundef %31, ptr noundef %32, i64 noundef %33, i32 noundef %34)
-  store i32 %35, ptr %28, align 4
-  %36 = load i32, ptr %28, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %13
-  br label %124
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #5
+  %32 = load ptr, ptr %15, align 8, !tbaa !3
+  %33 = load ptr, ptr %16, align 8, !tbaa !8
+  %34 = load i64, ptr %17, align 8, !tbaa !10
+  %35 = load i32, ptr %18, align 4, !tbaa !12
+  %36 = call i32 @psa_aead_setup(ptr noundef %29, ptr noundef %32, ptr noundef %33, i64 noundef %34, i32 noundef %35)
+  store i32 %36, ptr %28, align 4, !tbaa !12
+  %37 = load i32, ptr %28, align 4, !tbaa !12
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
 
 39:                                               ; preds = %13
-  %40 = load i64, ptr %26, align 8
-  %41 = load i64, ptr %24, align 8
-  %42 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i64
-  %45 = add i64 %41, %44
-  %46 = icmp ult i64 %40, %45
-  br i1 %46, label %47, label %48
+  br label %125
 
-47:                                               ; preds = %39
-  store i32 -138, ptr %28, align 4
-  br label %124
+40:                                               ; preds = %13
+  %41 = load i64, ptr %26, align 8, !tbaa !10
+  %42 = load i64, ptr %24, align 8, !tbaa !10
+  %43 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %44 = load i8, ptr %43, align 1, !tbaa !16
+  %45 = zext i8 %44 to i64
+  %46 = add i64 %42, %45
+  %47 = icmp ult i64 %41, %46
+  br i1 %47, label %48, label %49
 
-48:                                               ; preds = %39
-  %49 = load ptr, ptr %25, align 8
-  %50 = load i64, ptr %24, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 %50
-  store ptr %51, ptr %30, align 8
-  %52 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, 89129216
-  br i1 %54, label %55, label %70
+48:                                               ; preds = %40
+  store i32 -138, ptr %28, align 4, !tbaa !12
+  br label %125
 
-55:                                               ; preds = %48
-  %56 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
-  %57 = load i64, ptr %24, align 8
-  %58 = load ptr, ptr %19, align 8
-  %59 = load i64, ptr %20, align 8
-  %60 = load ptr, ptr %21, align 8
-  %61 = load i64, ptr %22, align 8
-  %62 = load ptr, ptr %23, align 8
-  %63 = load ptr, ptr %25, align 8
-  %64 = load ptr, ptr %30, align 8
-  %65 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i64
-  %68 = call i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %56, i64 noundef %57, ptr noundef %58, i64 noundef %59, ptr noundef %60, i64 noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %64, i64 noundef %67)
-  %69 = call i32 @mbedtls_to_psa_error(i32 noundef %68)
-  store i32 %69, ptr %28, align 4
+49:                                               ; preds = %40
+  %50 = load ptr, ptr %25, align 8, !tbaa !8
+  %51 = load i64, ptr %24, align 8, !tbaa !10
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
+  store ptr %52, ptr %30, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
+  %54 = load i32, ptr %53, align 8, !tbaa !19
+  %55 = icmp eq i32 %54, 89129216
+  br i1 %55, label %56, label %71
+
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
+  %58 = load i64, ptr %24, align 8, !tbaa !10
+  %59 = load ptr, ptr %19, align 8, !tbaa !8
+  %60 = load i64, ptr %20, align 8, !tbaa !10
+  %61 = load ptr, ptr %21, align 8, !tbaa !8
+  %62 = load i64, ptr %22, align 8, !tbaa !10
+  %63 = load ptr, ptr %23, align 8, !tbaa !8
+  %64 = load ptr, ptr %25, align 8, !tbaa !8
+  %65 = load ptr, ptr %30, align 8, !tbaa !8
+  %66 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %67 = load i8, ptr %66, align 1, !tbaa !16
+  %68 = zext i8 %67 to i64
+  %69 = call i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef %57, i64 noundef %58, ptr noundef %59, i64 noundef %60, ptr noundef %61, i64 noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65, i64 noundef %68)
+  %70 = call i32 @mbedtls_to_psa_error(i32 noundef %69)
+  store i32 %70, ptr %28, align 4, !tbaa !12
+  br label %114
+
+71:                                               ; preds = %49
+  %72 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
+  %73 = load i32, ptr %72, align 8, !tbaa !19
+  %74 = icmp eq i32 %73, 89129472
+  br i1 %74, label %75, label %90
+
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
+  %77 = load i64, ptr %24, align 8, !tbaa !10
+  %78 = load ptr, ptr %19, align 8, !tbaa !8
+  %79 = load i64, ptr %20, align 8, !tbaa !10
+  %80 = load ptr, ptr %21, align 8, !tbaa !8
+  %81 = load i64, ptr %22, align 8, !tbaa !10
+  %82 = load ptr, ptr %23, align 8, !tbaa !8
+  %83 = load ptr, ptr %25, align 8, !tbaa !8
+  %84 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %85 = load i8, ptr %84, align 1, !tbaa !16
+  %86 = zext i8 %85 to i64
+  %87 = load ptr, ptr %30, align 8, !tbaa !8
+  %88 = call i32 @mbedtls_gcm_crypt_and_tag(ptr noundef %76, i32 noundef 1, i64 noundef %77, ptr noundef %78, i64 noundef %79, ptr noundef %80, i64 noundef %81, ptr noundef %82, ptr noundef %83, i64 noundef %86, ptr noundef %87)
+  %89 = call i32 @mbedtls_to_psa_error(i32 noundef %88)
+  store i32 %89, ptr %28, align 4, !tbaa !12
   br label %113
 
-70:                                               ; preds = %48
-  %71 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 89129472
-  br i1 %73, label %74, label %89
+90:                                               ; preds = %71
+  %91 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
+  %92 = load i32, ptr %91, align 8, !tbaa !19
+  %93 = icmp eq i32 %92, 84935936
+  br i1 %93, label %94, label %111
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
-  %76 = load i64, ptr %24, align 8
-  %77 = load ptr, ptr %19, align 8
-  %78 = load i64, ptr %20, align 8
-  %79 = load ptr, ptr %21, align 8
-  %80 = load i64, ptr %22, align 8
-  %81 = load ptr, ptr %23, align 8
-  %82 = load ptr, ptr %25, align 8
-  %83 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i64
-  %86 = load ptr, ptr %30, align 8
-  %87 = call i32 @mbedtls_gcm_crypt_and_tag(ptr noundef %75, i32 noundef 1, i64 noundef %76, ptr noundef %77, i64 noundef %78, ptr noundef %79, i64 noundef %80, ptr noundef %81, ptr noundef %82, i64 noundef %85, ptr noundef %86)
-  %88 = call i32 @mbedtls_to_psa_error(i32 noundef %87)
-  store i32 %88, ptr %28, align 4
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %96 = load i8, ptr %95, align 1, !tbaa !16
+  %97 = zext i8 %96 to i32
+  %98 = icmp ne i32 %97, 16
+  br i1 %98, label %99, label %100
+
+99:                                               ; preds = %94
+  store i32 -134, ptr %28, align 4, !tbaa !12
+  br label %125
+
+100:                                              ; preds = %94
+  %101 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
+  %102 = load i64, ptr %24, align 8, !tbaa !10
+  %103 = load ptr, ptr %19, align 8, !tbaa !8
+  %104 = load ptr, ptr %21, align 8, !tbaa !8
+  %105 = load i64, ptr %22, align 8, !tbaa !10
+  %106 = load ptr, ptr %23, align 8, !tbaa !8
+  %107 = load ptr, ptr %25, align 8, !tbaa !8
+  %108 = load ptr, ptr %30, align 8, !tbaa !8
+  %109 = call i32 @mbedtls_chachapoly_encrypt_and_tag(ptr noundef %101, i64 noundef %102, ptr noundef %103, ptr noundef %104, i64 noundef %105, ptr noundef %106, ptr noundef %107, ptr noundef %108)
+  %110 = call i32 @mbedtls_to_psa_error(i32 noundef %109)
+  store i32 %110, ptr %28, align 4, !tbaa !12
   br label %112
 
-89:                                               ; preds = %70
-  %90 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
-  %91 = load i32, ptr %90, align 8
-  %92 = icmp eq i32 %91, 84935936
-  br i1 %92, label %93, label %110
-
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = icmp ne i32 %96, 16
-  br i1 %97, label %98, label %99
-
-98:                                               ; preds = %93
-  store i32 -134, ptr %28, align 4
-  br label %124
-
-99:                                               ; preds = %93
-  %100 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
-  %101 = load i64, ptr %24, align 8
-  %102 = load ptr, ptr %19, align 8
-  %103 = load ptr, ptr %21, align 8
-  %104 = load i64, ptr %22, align 8
-  %105 = load ptr, ptr %23, align 8
-  %106 = load ptr, ptr %25, align 8
-  %107 = load ptr, ptr %30, align 8
-  %108 = call i32 @mbedtls_chachapoly_encrypt_and_tag(ptr noundef %100, i64 noundef %101, ptr noundef %102, ptr noundef %103, i64 noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef %107)
-  %109 = call i32 @mbedtls_to_psa_error(i32 noundef %108)
-  store i32 %109, ptr %28, align 4
-  br label %111
-
-110:                                              ; preds = %89
+111:                                              ; preds = %90
   store i32 -134, ptr %14, align 4
-  br label %127
+  store i32 1, ptr %31, align 4
+  br label %128
 
-111:                                              ; preds = %99
-  br label %112
-
-112:                                              ; preds = %111, %74
+112:                                              ; preds = %100
   br label %113
 
-113:                                              ; preds = %112, %55
-  %114 = load i32, ptr %28, align 4
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %123
+113:                                              ; preds = %112, %75
+  br label %114
 
-116:                                              ; preds = %113
-  %117 = load i64, ptr %24, align 8
-  %118 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %119 = load i8, ptr %118, align 1
-  %120 = zext i8 %119 to i64
-  %121 = add i64 %117, %120
-  %122 = load ptr, ptr %27, align 8
-  store i64 %121, ptr %122, align 8
-  br label %123
+114:                                              ; preds = %113, %56
+  %115 = load i32, ptr %28, align 4, !tbaa !12
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %124
 
-123:                                              ; preds = %116, %113
+117:                                              ; preds = %114
+  %118 = load i64, ptr %24, align 8, !tbaa !10
+  %119 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %120 = load i8, ptr %119, align 1, !tbaa !16
+  %121 = zext i8 %120 to i64
+  %122 = add i64 %118, %121
+  %123 = load ptr, ptr %27, align 8, !tbaa !14
+  store i64 %122, ptr %123, align 8, !tbaa !10
   br label %124
 
-124:                                              ; preds = %123, %98, %47, %38
-  %125 = call i32 @mbedtls_psa_aead_abort(ptr noundef %29)
-  %126 = load i32, ptr %28, align 4
-  store i32 %126, ptr %14, align 4
-  br label %127
+124:                                              ; preds = %117, %114
+  br label %125
 
-127:                                              ; preds = %124, %110
-  %128 = load i32, ptr %14, align 4
-  ret i32 %128
+125:                                              ; preds = %124, %99, %48, %39
+  %126 = call i32 @mbedtls_psa_aead_abort(ptr noundef %29)
+  %127 = load i32, ptr %28, align 4, !tbaa !12
+  store i32 %127, ptr %14, align 4
+  store i32 1, ptr %31, align 4
+  br label %128
+
+128:                                              ; preds = %125, %111
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #5
+  call void @llvm.lifetime.end.p0(i64 432, ptr %29) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #5
+  %129 = load i32, ptr %14, align 4
+  ret i32 %129
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @psa_aead_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #0 {
@@ -204,430 +215,255 @@ define internal i32 @psa_aead_setup(ptr noundef %0, ptr noundef %1, ptr noundef 
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = alloca i64, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca i64, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store i64 %3, ptr %10, align 8
-  store i32 %4, ptr %11, align 4
-  store i32 -151, ptr %12, align 4
-  store i64 0, ptr %16, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %18, i32 0, i32 1
-  %20 = load i16, ptr %19, align 2
-  %21 = zext i16 %20 to i64
-  store i64 %21, ptr %13, align 8
-  %22 = load i32, ptr %11, align 4
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %23, i32 0, i32 0
-  %25 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %24, i32 0, i32 0
-  %26 = load i16, ptr %25, align 8
-  %27 = load i64, ptr %13, align 8
-  %28 = call ptr @mbedtls_cipher_info_from_psa(i32 noundef %22, i16 noundef zeroext %26, i64 noundef %27, ptr noundef %15)
-  store ptr %28, ptr %14, align 8
-  %29 = load ptr, ptr %14, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %32
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !20
+  store ptr %1, ptr %8, align 8, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !8
+  store i64 %3, ptr %10, align 8, !tbaa !10
+  store i32 %4, ptr %11, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  store i32 -151, ptr %12, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %17 = load ptr, ptr %8, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.psa_key_attributes_s, ptr %17, i32 0, i32 1
+  %19 = load i16, ptr %18, align 2, !tbaa !21
+  %20 = zext i16 %19 to i64
+  store i64 %20, ptr %15, align 8, !tbaa !10
+  %21 = load i32, ptr %11, align 4, !tbaa !12
+  %22 = load ptr, ptr %8, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.psa_key_attributes_s, ptr %22, i32 0, i32 0
+  %24 = load i16, ptr %23, align 4, !tbaa !24
+  %25 = call i32 @mbedtls_cipher_values_from_psa(i32 noundef %21, i16 noundef zeroext %24, ptr noundef %15, ptr noundef %14, ptr noundef %13)
+  store i32 %25, ptr %12, align 4, !tbaa !12
+  %26 = load i32, ptr %12, align 4, !tbaa !12
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %30
 
-31:                                               ; preds = %5
-  store i32 -134, ptr %6, align 4
-  br label %268
+28:                                               ; preds = %5
+  %29 = load i32, ptr %12, align 4, !tbaa !12
+  store i32 %29, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %141
 
-32:                                               ; preds = %5
-  %33 = load i32, ptr %11, align 4
-  %34 = and i32 %33, -4161537
-  %35 = or i32 %34, 0
-  switch i32 %35, label %135 [
-    i32 88080640, label %36
-    i32 88080896, label %76
-    i32 83887360, label %116
+30:                                               ; preds = %5
+  %31 = load i32, ptr %11, align 4, !tbaa !12
+  %32 = and i32 %31, -4161537
+  %33 = or i32 %32, 0
+  switch i32 %33, label %129 [
+    i32 88080640, label %34
+    i32 88080896, label %72
+    i32 83887360, label %110
   ]
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %37, i32 0, i32 0
-  store i32 89129216, ptr %38, align 8
-  store i64 16, ptr %16, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %39, i32 0, i32 0
-  %41 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %40, i32 0, i32 0
-  %42 = load i16, ptr %41, align 8
-  %43 = zext i16 %42 to i32
-  %44 = and i32 %43, 28672
-  %45 = icmp eq i32 %44, 8192
-  br i1 %45, label %46, label %55
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %7, align 8, !tbaa !20
+  %36 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %35, i32 0, i32 0
+  store i32 89129216, ptr %36, align 8, !tbaa !19
+  %37 = load ptr, ptr %8, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.psa_key_attributes_s, ptr %37, i32 0, i32 0
+  %39 = load i16, ptr %38, align 4, !tbaa !24
+  %40 = zext i16 %39 to i32
+  %41 = and i32 %40, 28672
+  %42 = icmp eq i32 %41, 8192
+  br i1 %42, label %43, label %51
 
-46:                                               ; preds = %36
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %47, i32 0, i32 0
-  %49 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %48, i32 0, i32 0
-  %50 = load i16, ptr %49, align 8
-  %51 = zext i16 %50 to i32
-  %52 = ashr i32 %51, 8
-  %53 = and i32 %52, 7
-  %54 = shl i32 1, %53
-  br label %56
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %8, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.psa_key_attributes_s, ptr %44, i32 0, i32 0
+  %46 = load i16, ptr %45, align 4, !tbaa !24
+  %47 = zext i16 %46 to i32
+  %48 = ashr i32 %47, 8
+  %49 = and i32 %48, 7
+  %50 = shl i32 1, %49
+  br label %52
 
-55:                                               ; preds = %36
-  br label %56
+51:                                               ; preds = %34
+  br label %52
 
-56:                                               ; preds = %55, %46
-  %57 = phi i32 [ %54, %46 ], [ 0, %55 ]
-  %58 = icmp ne i32 %57, 16
-  br i1 %58, label %59, label %60
+52:                                               ; preds = %51, %43
+  %53 = phi i32 [ %50, %43 ], [ 0, %51 ]
+  %54 = icmp ne i32 %53, 16
+  br i1 %54, label %55, label %56
 
-59:                                               ; preds = %56
+55:                                               ; preds = %52
   store i32 -135, ptr %6, align 4
-  br label %268
+  store i32 1, ptr %16, align 4
+  br label %141
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %61, i32 0, i32 4
-  call void @mbedtls_ccm_init(ptr noundef %62)
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %63, i32 0, i32 4
-  %65 = load i32, ptr %15, align 4
-  %66 = load ptr, ptr %9, align 8
-  %67 = load i64, ptr %13, align 8
-  %68 = trunc i64 %67 to i32
-  %69 = call i32 @mbedtls_ccm_setkey(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %68)
-  %70 = call i32 @mbedtls_to_psa_error(i32 noundef %69)
-  store i32 %70, ptr %12, align 4
-  %71 = load i32, ptr %12, align 4
-  %72 = icmp ne i32 %71, 0
-  br i1 %72, label %73, label %75
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %7, align 8, !tbaa !20
+  %58 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %57, i32 0, i32 4
+  call void @mbedtls_ccm_init(ptr noundef %58)
+  %59 = load ptr, ptr %7, align 8, !tbaa !20
+  %60 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %59, i32 0, i32 4
+  %61 = load i32, ptr %13, align 4, !tbaa !12
+  %62 = load ptr, ptr %9, align 8, !tbaa !8
+  %63 = load i64, ptr %15, align 8, !tbaa !10
+  %64 = trunc i64 %63 to i32
+  %65 = call i32 @mbedtls_ccm_setkey(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %64)
+  %66 = call i32 @mbedtls_to_psa_error(i32 noundef %65)
+  store i32 %66, ptr %12, align 4, !tbaa !12
+  %67 = load i32, ptr %12, align 4, !tbaa !12
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %71
 
-73:                                               ; preds = %60
-  %74 = load i32, ptr %12, align 4
-  store i32 %74, ptr %6, align 4
-  br label %268
+69:                                               ; preds = %56
+  %70 = load i32, ptr %12, align 4, !tbaa !12
+  store i32 %70, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %141
 
-75:                                               ; preds = %60
-  br label %136
+71:                                               ; preds = %56
+  br label %130
 
-76:                                               ; preds = %32
-  %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %77, i32 0, i32 0
-  store i32 89129472, ptr %78, align 8
-  store i64 16, ptr %16, align 8
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %79, i32 0, i32 0
-  %81 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %80, i32 0, i32 0
-  %82 = load i16, ptr %81, align 8
-  %83 = zext i16 %82 to i32
-  %84 = and i32 %83, 28672
-  %85 = icmp eq i32 %84, 8192
-  br i1 %85, label %86, label %95
+72:                                               ; preds = %30
+  %73 = load ptr, ptr %7, align 8, !tbaa !20
+  %74 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %73, i32 0, i32 0
+  store i32 89129472, ptr %74, align 8, !tbaa !19
+  %75 = load ptr, ptr %8, align 8, !tbaa !3
+  %76 = getelementptr inbounds nuw %struct.psa_key_attributes_s, ptr %75, i32 0, i32 0
+  %77 = load i16, ptr %76, align 4, !tbaa !24
+  %78 = zext i16 %77 to i32
+  %79 = and i32 %78, 28672
+  %80 = icmp eq i32 %79, 8192
+  br i1 %80, label %81, label %89
 
-86:                                               ; preds = %76
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %87, i32 0, i32 0
-  %89 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %88, i32 0, i32 0
-  %90 = load i16, ptr %89, align 8
-  %91 = zext i16 %90 to i32
-  %92 = ashr i32 %91, 8
-  %93 = and i32 %92, 7
-  %94 = shl i32 1, %93
-  br label %96
+81:                                               ; preds = %72
+  %82 = load ptr, ptr %8, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.psa_key_attributes_s, ptr %82, i32 0, i32 0
+  %84 = load i16, ptr %83, align 4, !tbaa !24
+  %85 = zext i16 %84 to i32
+  %86 = ashr i32 %85, 8
+  %87 = and i32 %86, 7
+  %88 = shl i32 1, %87
+  br label %90
 
-95:                                               ; preds = %76
-  br label %96
+89:                                               ; preds = %72
+  br label %90
 
-96:                                               ; preds = %95, %86
-  %97 = phi i32 [ %94, %86 ], [ 0, %95 ]
-  %98 = icmp ne i32 %97, 16
-  br i1 %98, label %99, label %100
+90:                                               ; preds = %89, %81
+  %91 = phi i32 [ %88, %81 ], [ 0, %89 ]
+  %92 = icmp ne i32 %91, 16
+  br i1 %92, label %93, label %94
 
-99:                                               ; preds = %96
+93:                                               ; preds = %90
   store i32 -135, ptr %6, align 4
-  br label %268
+  store i32 1, ptr %16, align 4
+  br label %141
 
-100:                                              ; preds = %96
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %101, i32 0, i32 4
-  call void @mbedtls_gcm_init(ptr noundef %102)
-  %103 = load ptr, ptr %7, align 8
-  %104 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %103, i32 0, i32 4
-  %105 = load i32, ptr %15, align 4
-  %106 = load ptr, ptr %9, align 8
-  %107 = load i64, ptr %13, align 8
-  %108 = trunc i64 %107 to i32
-  %109 = call i32 @mbedtls_gcm_setkey(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef %108)
-  %110 = call i32 @mbedtls_to_psa_error(i32 noundef %109)
-  store i32 %110, ptr %12, align 4
-  %111 = load i32, ptr %12, align 4
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %113, label %115
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %7, align 8, !tbaa !20
+  %96 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %95, i32 0, i32 4
+  call void @mbedtls_gcm_init(ptr noundef %96)
+  %97 = load ptr, ptr %7, align 8, !tbaa !20
+  %98 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %97, i32 0, i32 4
+  %99 = load i32, ptr %13, align 4, !tbaa !12
+  %100 = load ptr, ptr %9, align 8, !tbaa !8
+  %101 = load i64, ptr %15, align 8, !tbaa !10
+  %102 = trunc i64 %101 to i32
+  %103 = call i32 @mbedtls_gcm_setkey(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef %102)
+  %104 = call i32 @mbedtls_to_psa_error(i32 noundef %103)
+  store i32 %104, ptr %12, align 4, !tbaa !12
+  %105 = load i32, ptr %12, align 4, !tbaa !12
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %109
 
-113:                                              ; preds = %100
-  %114 = load i32, ptr %12, align 4
-  store i32 %114, ptr %6, align 4
-  br label %268
+107:                                              ; preds = %94
+  %108 = load i32, ptr %12, align 4, !tbaa !12
+  store i32 %108, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %141
 
-115:                                              ; preds = %100
-  br label %136
+109:                                              ; preds = %94
+  br label %130
 
-116:                                              ; preds = %32
-  %117 = load ptr, ptr %7, align 8
-  %118 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %117, i32 0, i32 0
-  store i32 84935936, ptr %118, align 8
-  store i64 16, ptr %16, align 8
-  %119 = load i32, ptr %11, align 4
-  %120 = icmp ne i32 %119, 84935936
-  br i1 %120, label %121, label %122
+110:                                              ; preds = %30
+  %111 = load ptr, ptr %7, align 8, !tbaa !20
+  %112 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %111, i32 0, i32 0
+  store i32 84935936, ptr %112, align 8, !tbaa !19
+  %113 = load i32, ptr %11, align 4, !tbaa !12
+  %114 = icmp ne i32 %113, 84935936
+  br i1 %114, label %115, label %116
 
-121:                                              ; preds = %116
+115:                                              ; preds = %110
   store i32 -134, ptr %6, align 4
-  br label %268
+  store i32 1, ptr %16, align 4
+  br label %141
 
-122:                                              ; preds = %116
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %123, i32 0, i32 4
-  call void @mbedtls_chachapoly_init(ptr noundef %124)
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %125, i32 0, i32 4
-  %127 = load ptr, ptr %9, align 8
-  %128 = call i32 @mbedtls_chachapoly_setkey(ptr noundef %126, ptr noundef %127)
-  %129 = call i32 @mbedtls_to_psa_error(i32 noundef %128)
-  store i32 %129, ptr %12, align 4
-  %130 = load i32, ptr %12, align 4
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %134
+116:                                              ; preds = %110
+  %117 = load ptr, ptr %7, align 8, !tbaa !20
+  %118 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %117, i32 0, i32 4
+  call void @mbedtls_chachapoly_init(ptr noundef %118)
+  %119 = load ptr, ptr %7, align 8, !tbaa !20
+  %120 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %119, i32 0, i32 4
+  %121 = load ptr, ptr %9, align 8, !tbaa !8
+  %122 = call i32 @mbedtls_chachapoly_setkey(ptr noundef %120, ptr noundef %121)
+  %123 = call i32 @mbedtls_to_psa_error(i32 noundef %122)
+  store i32 %123, ptr %12, align 4, !tbaa !12
+  %124 = load i32, ptr %12, align 4, !tbaa !12
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %126, label %128
 
-132:                                              ; preds = %122
-  %133 = load i32, ptr %12, align 4
-  store i32 %133, ptr %6, align 4
-  br label %268
+126:                                              ; preds = %116
+  %127 = load i32, ptr %12, align 4, !tbaa !12
+  store i32 %127, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %141
 
-134:                                              ; preds = %122
-  br label %136
+128:                                              ; preds = %116
+  br label %130
 
-135:                                              ; preds = %32
+129:                                              ; preds = %30
   store i32 -134, ptr %6, align 4
-  br label %268
+  store i32 1, ptr %16, align 4
+  br label %141
 
-136:                                              ; preds = %134, %115, %75
-  %137 = load ptr, ptr %8, align 8
-  %138 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %137, i32 0, i32 0
-  %139 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %138, i32 0, i32 0
-  %140 = load i16, ptr %139, align 8
-  %141 = zext i16 %140 to i32
-  %142 = and i32 %141, 28672
-  %143 = icmp eq i32 %142, 8192
-  br i1 %143, label %144, label %153
-
-144:                                              ; preds = %136
-  %145 = load ptr, ptr %8, align 8
-  %146 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %145, i32 0, i32 0
-  %147 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %146, i32 0, i32 0
-  %148 = load i16, ptr %147, align 8
-  %149 = zext i16 %148 to i32
-  %150 = ashr i32 %149, 8
-  %151 = and i32 %150, 7
-  %152 = shl i32 1, %151
-  br label %154
-
-153:                                              ; preds = %136
-  br label %154
-
-154:                                              ; preds = %153, %144
-  %155 = phi i32 [ %152, %144 ], [ 0, %153 ]
-  %156 = icmp eq i32 %155, 16
-  br i1 %156, label %157, label %172
-
-157:                                              ; preds = %154
-  %158 = load i32, ptr %11, align 4
-  %159 = xor i32 %158, 89129216
-  %160 = and i32 %159, -4161537
-  %161 = icmp ne i32 %160, 0
-  br i1 %161, label %163, label %162
-
-162:                                              ; preds = %157
-  br label %170
-
-163:                                              ; preds = %157
-  %164 = load i32, ptr %11, align 4
-  %165 = xor i32 %164, 89129472
-  %166 = and i32 %165, -4161537
-  %167 = icmp ne i32 %166, 0
-  %168 = xor i1 %167, true
-  %169 = select i1 %168, i32 12, i32 0
-  br label %170
-
-170:                                              ; preds = %163, %162
-  %171 = phi i32 [ 13, %162 ], [ %169, %163 ]
-  br label %188
-
-172:                                              ; preds = %154
-  %173 = load ptr, ptr %8, align 8
-  %174 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %173, i32 0, i32 0
-  %175 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %174, i32 0, i32 0
-  %176 = load i16, ptr %175, align 8
-  %177 = zext i16 %176 to i32
-  %178 = icmp eq i32 %177, 8196
-  br i1 %178, label %179, label %185
-
-179:                                              ; preds = %172
-  %180 = load i32, ptr %11, align 4
-  %181 = xor i32 %180, 84935936
-  %182 = and i32 %181, -4161537
-  %183 = icmp ne i32 %182, 0
-  %184 = xor i1 %183, true
-  br label %185
-
-185:                                              ; preds = %179, %172
-  %186 = phi i1 [ false, %172 ], [ %184, %179 ]
-  %187 = select i1 %186, i32 12, i32 0
-  br label %188
-
-188:                                              ; preds = %185, %170
-  %189 = phi i32 [ %171, %170 ], [ %187, %185 ]
-  %190 = icmp ne i32 %189, 0
-  br i1 %190, label %191, label %195
-
-191:                                              ; preds = %188
-  %192 = load i32, ptr %11, align 4
-  %193 = and i32 %192, 4128768
-  %194 = lshr i32 %193, 16
-  br label %196
-
-195:                                              ; preds = %188
-  br label %196
-
-196:                                              ; preds = %195, %191
-  %197 = phi i32 [ %194, %191 ], [ 0, %195 ]
-  %198 = zext i32 %197 to i64
-  %199 = load i64, ptr %16, align 8
-  %200 = icmp ugt i64 %198, %199
-  br i1 %200, label %201, label %202
-
-201:                                              ; preds = %196
-  store i32 -135, ptr %6, align 4
-  br label %268
-
-202:                                              ; preds = %196
-  %203 = load ptr, ptr %8, align 8
-  %204 = call zeroext i16 @psa_get_key_type(ptr noundef %203)
-  %205 = load ptr, ptr %7, align 8
-  %206 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %205, i32 0, i32 1
-  store i16 %204, ptr %206, align 4
-  %207 = load ptr, ptr %7, align 8
-  %208 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %207, i32 0, i32 1
-  %209 = load i16, ptr %208, align 4
-  %210 = zext i16 %209 to i32
-  %211 = and i32 %210, 28672
-  %212 = icmp eq i32 %211, 8192
-  br i1 %212, label %213, label %221
-
-213:                                              ; preds = %202
-  %214 = load ptr, ptr %7, align 8
-  %215 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %214, i32 0, i32 1
-  %216 = load i16, ptr %215, align 4
-  %217 = zext i16 %216 to i32
-  %218 = ashr i32 %217, 8
-  %219 = and i32 %218, 7
-  %220 = shl i32 1, %219
-  br label %222
-
-221:                                              ; preds = %202
-  br label %222
-
-222:                                              ; preds = %221, %213
-  %223 = phi i32 [ %220, %213 ], [ 0, %221 ]
-  %224 = icmp eq i32 %223, 16
-  br i1 %224, label %225, label %240
-
-225:                                              ; preds = %222
-  %226 = load i32, ptr %11, align 4
-  %227 = xor i32 %226, 89129216
-  %228 = and i32 %227, -4161537
-  %229 = icmp ne i32 %228, 0
-  br i1 %229, label %231, label %230
-
-230:                                              ; preds = %225
-  br label %238
-
-231:                                              ; preds = %225
-  %232 = load i32, ptr %11, align 4
-  %233 = xor i32 %232, 89129472
-  %234 = and i32 %233, -4161537
-  %235 = icmp ne i32 %234, 0
-  %236 = xor i1 %235, true
-  %237 = select i1 %236, i32 12, i32 0
-  br label %238
-
-238:                                              ; preds = %231, %230
-  %239 = phi i32 [ 13, %230 ], [ %237, %231 ]
-  br label %255
-
-240:                                              ; preds = %222
-  %241 = load ptr, ptr %7, align 8
-  %242 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %241, i32 0, i32 1
-  %243 = load i16, ptr %242, align 4
-  %244 = zext i16 %243 to i32
-  %245 = icmp eq i32 %244, 8196
-  br i1 %245, label %246, label %252
-
-246:                                              ; preds = %240
-  %247 = load i32, ptr %11, align 4
-  %248 = xor i32 %247, 84935936
-  %249 = and i32 %248, -4161537
-  %250 = icmp ne i32 %249, 0
-  %251 = xor i1 %250, true
-  br label %252
-
-252:                                              ; preds = %246, %240
-  %253 = phi i1 [ false, %240 ], [ %251, %246 ]
-  %254 = select i1 %253, i32 12, i32 0
-  br label %255
-
-255:                                              ; preds = %252, %238
-  %256 = phi i32 [ %239, %238 ], [ %254, %252 ]
-  %257 = icmp ne i32 %256, 0
-  br i1 %257, label %258, label %262
-
-258:                                              ; preds = %255
-  %259 = load i32, ptr %11, align 4
-  %260 = and i32 %259, 4128768
-  %261 = lshr i32 %260, 16
-  br label %263
-
-262:                                              ; preds = %255
-  br label %263
-
-263:                                              ; preds = %262, %258
-  %264 = phi i32 [ %261, %258 ], [ 0, %262 ]
-  %265 = trunc i32 %264 to i8
-  %266 = load ptr, ptr %7, align 8
-  %267 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %266, i32 0, i32 3
-  store i8 %265, ptr %267, align 1
+130:                                              ; preds = %128, %109, %71
+  %131 = load ptr, ptr %8, align 8, !tbaa !3
+  %132 = call zeroext i16 @psa_get_key_type(ptr noundef %131)
+  %133 = load ptr, ptr %7, align 8, !tbaa !20
+  %134 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %133, i32 0, i32 1
+  store i16 %132, ptr %134, align 4, !tbaa !25
+  %135 = load i32, ptr %11, align 4, !tbaa !12
+  %136 = and i32 %135, 4128768
+  %137 = lshr i32 %136, 16
+  %138 = trunc i32 %137 to i8
+  %139 = load ptr, ptr %7, align 8, !tbaa !20
+  %140 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %139, i32 0, i32 3
+  store i8 %138, ptr %140, align 1, !tbaa !16
   store i32 0, ptr %6, align 4
-  br label %268
+  store i32 1, ptr %16, align 4
+  br label %141
 
-268:                                              ; preds = %263, %201, %135, %132, %121, %113, %99, %73, %59, %31
-  %269 = load i32, ptr %6, align 4
-  ret i32 %269
+141:                                              ; preds = %130, %129, %126, %115, %107, %93, %69, %55, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  %142 = load i32, ptr %6, align 4
+  ret i32 %142
 }
 
-declare i32 @mbedtls_to_psa_error(i32 noundef) #2
+declare i32 @mbedtls_to_psa_error(i32 noundef) #3
 
-declare i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @mbedtls_gcm_crypt_and_tag(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @mbedtls_gcm_crypt_and_tag(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
-declare i32 @mbedtls_chachapoly_encrypt_and_tag(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @mbedtls_chachapoly_encrypt_and_tag(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_aead_abort(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
+  %4 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !19
   switch i32 %5, label %15 [
     i32 89129216, label %6
     i32 89129472, label %9
@@ -635,32 +471,35 @@ define hidden i32 @mbedtls_psa_aead_abort(ptr noundef %0) #0 {
   ]
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %7, i32 0, i32 4
+  %7 = load ptr, ptr %2, align 8, !tbaa !20
+  %8 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %7, i32 0, i32 4
   call void @mbedtls_ccm_free(ptr noundef %8)
   br label %15
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %10, i32 0, i32 4
+  %10 = load ptr, ptr %2, align 8, !tbaa !20
+  %11 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %10, i32 0, i32 4
   call void @mbedtls_gcm_free(ptr noundef %11)
   br label %15
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %13, i32 0, i32 4
+  %13 = load ptr, ptr %2, align 8, !tbaa !20
+  %14 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %13, i32 0, i32 4
   call void @mbedtls_chachapoly_free(ptr noundef %14)
   br label %15
 
-15:                                               ; preds = %12, %9, %6, %1
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %16, i32 0, i32 2
+15:                                               ; preds = %1, %12, %9, %6
+  %16 = load ptr, ptr %2, align 8, !tbaa !20
+  %17 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %16, i32 0, i32 2
   %18 = load i8, ptr %17, align 2
   %19 = and i8 %18, -2
   %20 = or i8 %19, 0
   store i8 %20, ptr %17, align 2
   ret i32 0
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_aead_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef %11, ptr noundef %12) #0 {
@@ -681,194 +520,203 @@ define hidden i32 @mbedtls_psa_aead_decrypt(ptr noundef %0, ptr noundef %1, i64 
   %28 = alloca i32, align 4
   %29 = alloca %struct.mbedtls_psa_aead_operation_t, align 8
   %30 = alloca ptr, align 8
-  store ptr %0, ptr %15, align 8
-  store ptr %1, ptr %16, align 8
-  store i64 %2, ptr %17, align 8
-  store i32 %3, ptr %18, align 4
-  store ptr %4, ptr %19, align 8
-  store i64 %5, ptr %20, align 8
-  store ptr %6, ptr %21, align 8
-  store i64 %7, ptr %22, align 8
-  store ptr %8, ptr %23, align 8
-  store i64 %9, ptr %24, align 8
-  store ptr %10, ptr %25, align 8
-  store i64 %11, ptr %26, align 8
-  store ptr %12, ptr %27, align 8
-  store i32 -151, ptr %28, align 4
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %15, align 8, !tbaa !3
+  store ptr %1, ptr %16, align 8, !tbaa !8
+  store i64 %2, ptr %17, align 8, !tbaa !10
+  store i32 %3, ptr %18, align 4, !tbaa !12
+  store ptr %4, ptr %19, align 8, !tbaa !8
+  store i64 %5, ptr %20, align 8, !tbaa !10
+  store ptr %6, ptr %21, align 8, !tbaa !8
+  store i64 %7, ptr %22, align 8, !tbaa !10
+  store ptr %8, ptr %23, align 8, !tbaa !8
+  store i64 %9, ptr %24, align 8, !tbaa !10
+  store ptr %10, ptr %25, align 8, !tbaa !8
+  store i64 %11, ptr %26, align 8, !tbaa !10
+  store ptr %12, ptr %27, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #5
+  store i32 -151, ptr %28, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 432, ptr %29) #5
   call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 432, i1 false)
-  store ptr null, ptr %30, align 8
-  %31 = load ptr, ptr %15, align 8
-  %32 = load ptr, ptr %16, align 8
-  %33 = load i64, ptr %17, align 8
-  %34 = load i32, ptr %18, align 4
-  %35 = call i32 @psa_aead_setup(ptr noundef %29, ptr noundef %31, ptr noundef %32, i64 noundef %33, i32 noundef %34)
-  store i32 %35, ptr %28, align 4
-  %36 = load i32, ptr %28, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %13
-  br label %135
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #5
+  store ptr null, ptr %30, align 8, !tbaa !8
+  %32 = load ptr, ptr %15, align 8, !tbaa !3
+  %33 = load ptr, ptr %16, align 8, !tbaa !8
+  %34 = load i64, ptr %17, align 8, !tbaa !10
+  %35 = load i32, ptr %18, align 4, !tbaa !12
+  %36 = call i32 @psa_aead_setup(ptr noundef %29, ptr noundef %32, ptr noundef %33, i64 noundef %34, i32 noundef %35)
+  store i32 %36, ptr %28, align 4, !tbaa !12
+  %37 = load i32, ptr %28, align 4, !tbaa !12
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
 
 39:                                               ; preds = %13
-  %40 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i64
-  %43 = load ptr, ptr %23, align 8
-  %44 = load i64, ptr %24, align 8
-  %45 = load i64, ptr %26, align 8
-  %46 = call i32 @psa_aead_unpadded_locate_tag(i64 noundef %42, ptr noundef %43, i64 noundef %44, i64 noundef %45, ptr noundef %30)
-  store i32 %46, ptr %28, align 4
-  %47 = load i32, ptr %28, align 4
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %50
+  br label %136
 
-49:                                               ; preds = %39
-  br label %135
+40:                                               ; preds = %13
+  %41 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %42 = load i8, ptr %41, align 1, !tbaa !16
+  %43 = zext i8 %42 to i64
+  %44 = load ptr, ptr %23, align 8, !tbaa !8
+  %45 = load i64, ptr %24, align 8, !tbaa !10
+  %46 = load i64, ptr %26, align 8, !tbaa !10
+  %47 = call i32 @psa_aead_unpadded_locate_tag(i64 noundef %43, ptr noundef %44, i64 noundef %45, i64 noundef %46, ptr noundef %30)
+  store i32 %47, ptr %28, align 4, !tbaa !12
+  %48 = load i32, ptr %28, align 4, !tbaa !12
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %51
 
-50:                                               ; preds = %39
-  %51 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp eq i32 %52, 89129216
-  br i1 %53, label %54, label %73
+50:                                               ; preds = %40
+  br label %136
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
-  %56 = load i64, ptr %24, align 8
-  %57 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i64
-  %60 = sub i64 %56, %59
-  %61 = load ptr, ptr %19, align 8
-  %62 = load i64, ptr %20, align 8
-  %63 = load ptr, ptr %21, align 8
-  %64 = load i64, ptr %22, align 8
-  %65 = load ptr, ptr %23, align 8
-  %66 = load ptr, ptr %25, align 8
-  %67 = load ptr, ptr %30, align 8
-  %68 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i64
-  %71 = call i32 @mbedtls_ccm_auth_decrypt(ptr noundef %55, i64 noundef %60, ptr noundef %61, i64 noundef %62, ptr noundef %63, i64 noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, i64 noundef %70)
-  %72 = call i32 @mbedtls_to_psa_error(i32 noundef %71)
-  store i32 %72, ptr %28, align 4
+51:                                               ; preds = %40
+  %52 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8, !tbaa !19
+  %54 = icmp eq i32 %53, 89129216
+  br i1 %54, label %55, label %74
+
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
+  %57 = load i64, ptr %24, align 8, !tbaa !10
+  %58 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %59 = load i8, ptr %58, align 1, !tbaa !16
+  %60 = zext i8 %59 to i64
+  %61 = sub i64 %57, %60
+  %62 = load ptr, ptr %19, align 8, !tbaa !8
+  %63 = load i64, ptr %20, align 8, !tbaa !10
+  %64 = load ptr, ptr %21, align 8, !tbaa !8
+  %65 = load i64, ptr %22, align 8, !tbaa !10
+  %66 = load ptr, ptr %23, align 8, !tbaa !8
+  %67 = load ptr, ptr %25, align 8, !tbaa !8
+  %68 = load ptr, ptr %30, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %70 = load i8, ptr %69, align 1, !tbaa !16
+  %71 = zext i8 %70 to i64
+  %72 = call i32 @mbedtls_ccm_auth_decrypt(ptr noundef %56, i64 noundef %61, ptr noundef %62, i64 noundef %63, ptr noundef %64, i64 noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68, i64 noundef %71)
+  %73 = call i32 @mbedtls_to_psa_error(i32 noundef %72)
+  store i32 %73, ptr %28, align 4, !tbaa !12
+  br label %125
+
+74:                                               ; preds = %51
+  %75 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
+  %76 = load i32, ptr %75, align 8, !tbaa !19
+  %77 = icmp eq i32 %76, 89129472
+  br i1 %77, label %78, label %97
+
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
+  %80 = load i64, ptr %24, align 8, !tbaa !10
+  %81 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %82 = load i8, ptr %81, align 1, !tbaa !16
+  %83 = zext i8 %82 to i64
+  %84 = sub i64 %80, %83
+  %85 = load ptr, ptr %19, align 8, !tbaa !8
+  %86 = load i64, ptr %20, align 8, !tbaa !10
+  %87 = load ptr, ptr %21, align 8, !tbaa !8
+  %88 = load i64, ptr %22, align 8, !tbaa !10
+  %89 = load ptr, ptr %30, align 8, !tbaa !8
+  %90 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %91 = load i8, ptr %90, align 1, !tbaa !16
+  %92 = zext i8 %91 to i64
+  %93 = load ptr, ptr %23, align 8, !tbaa !8
+  %94 = load ptr, ptr %25, align 8, !tbaa !8
+  %95 = call i32 @mbedtls_gcm_auth_decrypt(ptr noundef %79, i64 noundef %84, ptr noundef %85, i64 noundef %86, ptr noundef %87, i64 noundef %88, ptr noundef %89, i64 noundef %92, ptr noundef %93, ptr noundef %94)
+  %96 = call i32 @mbedtls_to_psa_error(i32 noundef %95)
+  store i32 %96, ptr %28, align 4, !tbaa !12
   br label %124
 
-73:                                               ; preds = %50
-  %74 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
-  %75 = load i32, ptr %74, align 8
-  %76 = icmp eq i32 %75, 89129472
-  br i1 %76, label %77, label %96
+97:                                               ; preds = %74
+  %98 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
+  %99 = load i32, ptr %98, align 8, !tbaa !19
+  %100 = icmp eq i32 %99, 84935936
+  br i1 %100, label %101, label %122
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
-  %79 = load i64, ptr %24, align 8
-  %80 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %81 = load i8, ptr %80, align 1
-  %82 = zext i8 %81 to i64
-  %83 = sub i64 %79, %82
-  %84 = load ptr, ptr %19, align 8
-  %85 = load i64, ptr %20, align 8
-  %86 = load ptr, ptr %21, align 8
-  %87 = load i64, ptr %22, align 8
-  %88 = load ptr, ptr %30, align 8
-  %89 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i64
-  %92 = load ptr, ptr %23, align 8
-  %93 = load ptr, ptr %25, align 8
-  %94 = call i32 @mbedtls_gcm_auth_decrypt(ptr noundef %78, i64 noundef %83, ptr noundef %84, i64 noundef %85, ptr noundef %86, i64 noundef %87, ptr noundef %88, i64 noundef %91, ptr noundef %92, ptr noundef %93)
-  %95 = call i32 @mbedtls_to_psa_error(i32 noundef %94)
-  store i32 %95, ptr %28, align 4
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %103 = load i8, ptr %102, align 1, !tbaa !16
+  %104 = zext i8 %103 to i32
+  %105 = icmp ne i32 %104, 16
+  br i1 %105, label %106, label %107
+
+106:                                              ; preds = %101
+  store i32 -134, ptr %28, align 4, !tbaa !12
+  br label %136
+
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
+  %109 = load i64, ptr %24, align 8, !tbaa !10
+  %110 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %111 = load i8, ptr %110, align 1, !tbaa !16
+  %112 = zext i8 %111 to i64
+  %113 = sub i64 %109, %112
+  %114 = load ptr, ptr %19, align 8, !tbaa !8
+  %115 = load ptr, ptr %21, align 8, !tbaa !8
+  %116 = load i64, ptr %22, align 8, !tbaa !10
+  %117 = load ptr, ptr %30, align 8, !tbaa !8
+  %118 = load ptr, ptr %23, align 8, !tbaa !8
+  %119 = load ptr, ptr %25, align 8, !tbaa !8
+  %120 = call i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %108, i64 noundef %113, ptr noundef %114, ptr noundef %115, i64 noundef %116, ptr noundef %117, ptr noundef %118, ptr noundef %119)
+  %121 = call i32 @mbedtls_to_psa_error(i32 noundef %120)
+  store i32 %121, ptr %28, align 4, !tbaa !12
   br label %123
 
-96:                                               ; preds = %73
-  %97 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
-  %98 = load i32, ptr %97, align 8
-  %99 = icmp eq i32 %98, 84935936
-  br i1 %99, label %100, label %121
-
-100:                                              ; preds = %96
-  %101 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %102 = load i8, ptr %101, align 1
-  %103 = zext i8 %102 to i32
-  %104 = icmp ne i32 %103, 16
-  br i1 %104, label %105, label %106
-
-105:                                              ; preds = %100
-  store i32 -134, ptr %28, align 4
-  br label %135
-
-106:                                              ; preds = %100
-  %107 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 4
-  %108 = load i64, ptr %24, align 8
-  %109 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i64
-  %112 = sub i64 %108, %111
-  %113 = load ptr, ptr %19, align 8
-  %114 = load ptr, ptr %21, align 8
-  %115 = load i64, ptr %22, align 8
-  %116 = load ptr, ptr %30, align 8
-  %117 = load ptr, ptr %23, align 8
-  %118 = load ptr, ptr %25, align 8
-  %119 = call i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %107, i64 noundef %112, ptr noundef %113, ptr noundef %114, i64 noundef %115, ptr noundef %116, ptr noundef %117, ptr noundef %118)
-  %120 = call i32 @mbedtls_to_psa_error(i32 noundef %119)
-  store i32 %120, ptr %28, align 4
-  br label %122
-
-121:                                              ; preds = %96
+122:                                              ; preds = %97
   store i32 -134, ptr %14, align 4
-  br label %148
+  store i32 1, ptr %31, align 4
+  br label %149
 
-122:                                              ; preds = %106
-  br label %123
-
-123:                                              ; preds = %122, %77
+123:                                              ; preds = %107
   br label %124
 
-124:                                              ; preds = %123, %54
-  %125 = load i32, ptr %28, align 4
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %134
+124:                                              ; preds = %123, %78
+  br label %125
 
-127:                                              ; preds = %124
-  %128 = load i64, ptr %24, align 8
-  %129 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i64
-  %132 = sub i64 %128, %131
-  %133 = load ptr, ptr %27, align 8
-  store i64 %132, ptr %133, align 8
-  br label %134
+125:                                              ; preds = %124, %55
+  %126 = load i32, ptr %28, align 4, !tbaa !12
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %135
 
-134:                                              ; preds = %127, %124
+128:                                              ; preds = %125
+  %129 = load i64, ptr %24, align 8, !tbaa !10
+  %130 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %131 = load i8, ptr %130, align 1, !tbaa !16
+  %132 = zext i8 %131 to i64
+  %133 = sub i64 %129, %132
+  %134 = load ptr, ptr %27, align 8, !tbaa !14
+  store i64 %133, ptr %134, align 8, !tbaa !10
   br label %135
 
-135:                                              ; preds = %134, %105, %49, %38
-  %136 = call i32 @mbedtls_psa_aead_abort(ptr noundef %29)
-  %137 = load i32, ptr %28, align 4
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %146
+135:                                              ; preds = %128, %125
+  br label %136
 
-139:                                              ; preds = %135
-  %140 = load i64, ptr %24, align 8
-  %141 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
-  %142 = load i8, ptr %141, align 1
-  %143 = zext i8 %142 to i64
-  %144 = sub i64 %140, %143
-  %145 = load ptr, ptr %27, align 8
-  store i64 %144, ptr %145, align 8
-  br label %146
+136:                                              ; preds = %135, %106, %50, %39
+  %137 = call i32 @mbedtls_psa_aead_abort(ptr noundef %29)
+  %138 = load i32, ptr %28, align 4, !tbaa !12
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %140, label %147
 
-146:                                              ; preds = %139, %135
-  %147 = load i32, ptr %28, align 4
-  store i32 %147, ptr %14, align 4
-  br label %148
+140:                                              ; preds = %136
+  %141 = load i64, ptr %24, align 8, !tbaa !10
+  %142 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 3
+  %143 = load i8, ptr %142, align 1, !tbaa !16
+  %144 = zext i8 %143 to i64
+  %145 = sub i64 %141, %144
+  %146 = load ptr, ptr %27, align 8, !tbaa !14
+  store i64 %145, ptr %146, align 8, !tbaa !10
+  br label %147
 
-148:                                              ; preds = %146, %121
-  %149 = load i32, ptr %14, align 4
-  ret i32 %149
+147:                                              ; preds = %140, %136
+  %148 = load i32, ptr %28, align 4, !tbaa !12
+  store i32 %148, ptr %14, align 4
+  store i32 1, ptr %31, align 4
+  br label %149
+
+149:                                              ; preds = %147, %122
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #5
+  call void @llvm.lifetime.end.p0(i64 432, ptr %29) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #5
+  %150 = load i32, ptr %14, align 4
+  ret i32 %150
 }
 
 ; Function Attrs: nounwind uwtable
@@ -880,53 +728,59 @@ define internal i32 @psa_aead_unpadded_locate_tag(i64 noundef %0, ptr noundef %1
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i64, align 8
-  store i64 %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store i64 %2, ptr %9, align 8
-  store i64 %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  %13 = load i64, ptr %7, align 8
-  %14 = load i64, ptr %9, align 8
-  %15 = icmp ugt i64 %13, %14
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %5
-  store i32 -135, ptr %6, align 4
-  br label %30
+  %13 = alloca i32, align 4
+  store i64 %0, ptr %7, align 8, !tbaa !10
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store i64 %2, ptr %9, align 8, !tbaa !10
+  store i64 %3, ptr %10, align 8, !tbaa !10
+  store ptr %4, ptr %11, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %14 = load i64, ptr %7, align 8, !tbaa !10
+  %15 = load i64, ptr %9, align 8, !tbaa !10
+  %16 = icmp ugt i64 %14, %15
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %5
-  %18 = load i64, ptr %9, align 8
-  %19 = load i64, ptr %7, align 8
-  %20 = sub i64 %18, %19
-  store i64 %20, ptr %12, align 8
-  %21 = load i64, ptr %12, align 8
-  %22 = load i64, ptr %10, align 8
-  %23 = icmp ugt i64 %21, %22
-  br i1 %23, label %24, label %25
+  store i32 -135, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %31
 
-24:                                               ; preds = %17
+18:                                               ; preds = %5
+  %19 = load i64, ptr %9, align 8, !tbaa !10
+  %20 = load i64, ptr %7, align 8, !tbaa !10
+  %21 = sub i64 %19, %20
+  store i64 %21, ptr %12, align 8, !tbaa !10
+  %22 = load i64, ptr %12, align 8, !tbaa !10
+  %23 = load i64, ptr %10, align 8, !tbaa !10
+  %24 = icmp ugt i64 %22, %23
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %18
   store i32 -138, ptr %6, align 4
-  br label %30
+  store i32 1, ptr %13, align 4
+  br label %31
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i64, ptr %12, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = load ptr, ptr %11, align 8
-  store ptr %28, ptr %29, align 8
+26:                                               ; preds = %18
+  %27 = load ptr, ptr %8, align 8, !tbaa !8
+  %28 = load i64, ptr %12, align 8, !tbaa !10
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
+  %30 = load ptr, ptr %11, align 8, !tbaa !26
+  store ptr %29, ptr %30, align 8, !tbaa !8
   store i32 0, ptr %6, align 4
-  br label %30
+  store i32 1, ptr %13, align 4
+  br label %31
 
-30:                                               ; preds = %25, %24, %16
-  %31 = load i32, ptr %6, align 4
-  ret i32 %31
+31:                                               ; preds = %26, %25, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %32 = load i32, ptr %6, align 4
+  ret i32 %32
 }
 
-declare i32 @mbedtls_ccm_auth_decrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_ccm_auth_decrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @mbedtls_gcm_auth_decrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
+declare i32 @mbedtls_gcm_auth_decrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_aead_encrypt_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #0 {
@@ -936,26 +790,27 @@ define hidden i32 @mbedtls_psa_aead_encrypt_setup(ptr noundef %0, ptr noundef %1
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  store i32 %4, ptr %10, align 4
-  store i32 -151, ptr %11, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = load i64, ptr %9, align 8
-  %16 = load i32, ptr %10, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !20
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i64 %3, ptr %9, align 8, !tbaa !10
+  store i32 %4, ptr %10, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 -151, ptr %11, align 4, !tbaa !12
+  %12 = load ptr, ptr %6, align 8, !tbaa !20
+  %13 = load ptr, ptr %7, align 8, !tbaa !3
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = load i64, ptr %9, align 8, !tbaa !10
+  %16 = load i32, ptr %10, align 4, !tbaa !12
   %17 = call i32 @psa_aead_setup(ptr noundef %12, ptr noundef %13, ptr noundef %14, i64 noundef %15, i32 noundef %16)
-  store i32 %17, ptr %11, align 4
-  %18 = load i32, ptr %11, align 4
+  store i32 %17, ptr %11, align 4, !tbaa !12
+  %18 = load i32, ptr %11, align 4, !tbaa !12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %5
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %21, i32 0, i32 2
+  %21 = load ptr, ptr %6, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %21, i32 0, i32 2
   %23 = load i8, ptr %22, align 2
   %24 = and i8 %23, -2
   %25 = or i8 %24, 1
@@ -963,7 +818,8 @@ define hidden i32 @mbedtls_psa_aead_encrypt_setup(ptr noundef %0, ptr noundef %1
   br label %26
 
 26:                                               ; preds = %20, %5
-  %27 = load i32, ptr %11, align 4
+  %27 = load i32, ptr %11, align 4, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   ret i32 %27
 }
 
@@ -975,26 +831,27 @@ define hidden i32 @mbedtls_psa_aead_decrypt_setup(ptr noundef %0, ptr noundef %1
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  store i32 %4, ptr %10, align 4
-  store i32 -151, ptr %11, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = load i64, ptr %9, align 8
-  %16 = load i32, ptr %10, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !20
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i64 %3, ptr %9, align 8, !tbaa !10
+  store i32 %4, ptr %10, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 -151, ptr %11, align 4, !tbaa !12
+  %12 = load ptr, ptr %6, align 8, !tbaa !20
+  %13 = load ptr, ptr %7, align 8, !tbaa !3
+  %14 = load ptr, ptr %8, align 8, !tbaa !8
+  %15 = load i64, ptr %9, align 8, !tbaa !10
+  %16 = load i32, ptr %10, align 4, !tbaa !12
   %17 = call i32 @psa_aead_setup(ptr noundef %12, ptr noundef %13, ptr noundef %14, i64 noundef %15, i32 noundef %16)
-  store i32 %17, ptr %11, align 4
-  %18 = load i32, ptr %11, align 4
+  store i32 %17, ptr %11, align 4, !tbaa !12
+  %18 = load i32, ptr %11, align 4, !tbaa !12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %5
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %21, i32 0, i32 2
+  %21 = load ptr, ptr %6, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %21, i32 0, i32 2
   %23 = load i8, ptr %22, align 2
   %24 = and i8 %23, -2
   %25 = or i8 %24, 0
@@ -1002,7 +859,8 @@ define hidden i32 @mbedtls_psa_aead_decrypt_setup(ptr noundef %0, ptr noundef %1
   br label %26
 
 26:                                               ; preds = %20, %5
-  %27 = load i32, ptr %11, align 4
+  %27 = load i32, ptr %11, align 4, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   ret i32 %27
 }
 
@@ -1013,114 +871,120 @@ define hidden i32 @mbedtls_psa_aead_set_nonce(ptr noundef %0, ptr noundef %1, i6
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i32 -151, ptr %8, align 4
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %9, i32 0, i32 0
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, 89129472
-  br i1 %12, label %13, label %27
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 -151, ptr %8, align 4, !tbaa !12
+  %10 = load ptr, ptr %5, align 8, !tbaa !20
+  %11 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8, !tbaa !19
+  %13 = icmp eq i32 %12, 89129472
+  br i1 %13, label %14, label %28
 
-13:                                               ; preds = %3
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %14, i32 0, i32 4
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %16, i32 0, i32 2
-  %18 = load i8, ptr %17, align 2
-  %19 = and i8 %18, 1
-  %20 = zext i8 %19 to i32
-  %21 = icmp ne i32 %20, 0
-  %22 = select i1 %21, i32 1, i32 0
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i64, ptr %7, align 8
-  %25 = call i32 @mbedtls_gcm_starts(ptr noundef %15, i32 noundef %22, ptr noundef %23, i64 noundef %24)
-  %26 = call i32 @mbedtls_to_psa_error(i32 noundef %25)
-  store i32 %26, ptr %8, align 4
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !20
+  %16 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %15, i32 0, i32 4
+  %17 = load ptr, ptr %5, align 8, !tbaa !20
+  %18 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %17, i32 0, i32 2
+  %19 = load i8, ptr %18, align 2
+  %20 = and i8 %19, 1
+  %21 = zext i8 %20 to i32
+  %22 = icmp ne i32 %21, 0
+  %23 = select i1 %22, i32 1, i32 0
+  %24 = load ptr, ptr %6, align 8, !tbaa !8
+  %25 = load i64, ptr %7, align 8, !tbaa !10
+  %26 = call i32 @mbedtls_gcm_starts(ptr noundef %16, i32 noundef %23, ptr noundef %24, i64 noundef %25)
+  %27 = call i32 @mbedtls_to_psa_error(i32 noundef %26)
+  store i32 %27, ptr %8, align 4, !tbaa !12
+  br label %72
+
+28:                                               ; preds = %3
+  %29 = load ptr, ptr %5, align 8, !tbaa !20
+  %30 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %29, i32 0, i32 0
+  %31 = load i32, ptr %30, align 8, !tbaa !19
+  %32 = icmp eq i32 %31, 89129216
+  br i1 %32, label %33, label %47
+
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %5, align 8, !tbaa !20
+  %35 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %34, i32 0, i32 4
+  %36 = load ptr, ptr %5, align 8, !tbaa !20
+  %37 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %36, i32 0, i32 2
+  %38 = load i8, ptr %37, align 2
+  %39 = and i8 %38, 1
+  %40 = zext i8 %39 to i32
+  %41 = icmp ne i32 %40, 0
+  %42 = select i1 %41, i32 1, i32 0
+  %43 = load ptr, ptr %6, align 8, !tbaa !8
+  %44 = load i64, ptr %7, align 8, !tbaa !10
+  %45 = call i32 @mbedtls_ccm_starts(ptr noundef %35, i32 noundef %42, ptr noundef %43, i64 noundef %44)
+  %46 = call i32 @mbedtls_to_psa_error(i32 noundef %45)
+  store i32 %46, ptr %8, align 4, !tbaa !12
   br label %71
 
-27:                                               ; preds = %3
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %28, i32 0, i32 0
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp eq i32 %30, 89129216
-  br i1 %31, label %32, label %46
+47:                                               ; preds = %28
+  %48 = load ptr, ptr %5, align 8, !tbaa !20
+  %49 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %48, i32 0, i32 0
+  %50 = load i32, ptr %49, align 8, !tbaa !19
+  %51 = icmp eq i32 %50, 84935936
+  br i1 %51, label %52, label %69
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %33, i32 0, i32 4
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %35, i32 0, i32 2
-  %37 = load i8, ptr %36, align 2
-  %38 = and i8 %37, 1
-  %39 = zext i8 %38 to i32
-  %40 = icmp ne i32 %39, 0
-  %41 = select i1 %40, i32 1, i32 0
-  %42 = load ptr, ptr %6, align 8
-  %43 = load i64, ptr %7, align 8
-  %44 = call i32 @mbedtls_ccm_starts(ptr noundef %34, i32 noundef %41, ptr noundef %42, i64 noundef %43)
-  %45 = call i32 @mbedtls_to_psa_error(i32 noundef %44)
-  store i32 %45, ptr %8, align 4
-  br label %70
+52:                                               ; preds = %47
+  %53 = load i64, ptr %7, align 8, !tbaa !10
+  %54 = icmp ne i64 %53, 12
+  br i1 %54, label %55, label %56
 
-46:                                               ; preds = %27
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %47, i32 0, i32 0
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, 84935936
-  br i1 %50, label %51, label %68
-
-51:                                               ; preds = %46
-  %52 = load i64, ptr %7, align 8
-  %53 = icmp ne i64 %52, 12
-  br i1 %53, label %54, label %55
-
-54:                                               ; preds = %51
+55:                                               ; preds = %52
   store i32 -135, ptr %4, align 4
-  br label %73
+  store i32 1, ptr %9, align 4
+  br label %74
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %56, i32 0, i32 4
-  %58 = load ptr, ptr %6, align 8
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %59, i32 0, i32 2
-  %61 = load i8, ptr %60, align 2
-  %62 = and i8 %61, 1
-  %63 = zext i8 %62 to i32
-  %64 = icmp ne i32 %63, 0
-  %65 = select i1 %64, i32 0, i32 1
-  %66 = call i32 @mbedtls_chachapoly_starts(ptr noundef %57, ptr noundef %58, i32 noundef %65)
-  %67 = call i32 @mbedtls_to_psa_error(i32 noundef %66)
-  store i32 %67, ptr %8, align 4
-  br label %69
-
-68:                                               ; preds = %46
-  store i32 -134, ptr %4, align 4
-  br label %73
-
-69:                                               ; preds = %55
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %5, align 8, !tbaa !20
+  %58 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %57, i32 0, i32 4
+  %59 = load ptr, ptr %6, align 8, !tbaa !8
+  %60 = load ptr, ptr %5, align 8, !tbaa !20
+  %61 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %60, i32 0, i32 2
+  %62 = load i8, ptr %61, align 2
+  %63 = and i8 %62, 1
+  %64 = zext i8 %63 to i32
+  %65 = icmp ne i32 %64, 0
+  %66 = select i1 %65, i32 0, i32 1
+  %67 = call i32 @mbedtls_chachapoly_starts(ptr noundef %58, ptr noundef %59, i32 noundef %66)
+  %68 = call i32 @mbedtls_to_psa_error(i32 noundef %67)
+  store i32 %68, ptr %8, align 4, !tbaa !12
   br label %70
 
-70:                                               ; preds = %69, %32
+69:                                               ; preds = %47
+  store i32 -134, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %74
+
+70:                                               ; preds = %56
   br label %71
 
-71:                                               ; preds = %70, %13
-  %72 = load i32, ptr %8, align 4
-  store i32 %72, ptr %4, align 4
-  br label %73
+71:                                               ; preds = %70, %33
+  br label %72
 
-73:                                               ; preds = %71, %68, %54
-  %74 = load i32, ptr %4, align 4
-  ret i32 %74
+72:                                               ; preds = %71, %14
+  %73 = load i32, ptr %8, align 4, !tbaa !12
+  store i32 %73, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %74
+
+74:                                               ; preds = %72, %69, %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %75 = load i32, ptr %4, align 4
+  ret i32 %75
 }
 
-declare i32 @mbedtls_gcm_starts(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_gcm_starts(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @mbedtls_ccm_starts(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_ccm_starts(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @mbedtls_chachapoly_starts(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @mbedtls_chachapoly_starts(ptr noundef, ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_aead_set_lengths(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
@@ -1128,23 +992,23 @@ define hidden i32 @mbedtls_psa_aead_set_lengths(ptr noundef %0, i64 noundef %1, 
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store i64 %1, ptr %6, align 8, !tbaa !10
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
+  %9 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !19
   %11 = icmp eq i32 %10, 89129216
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %13, i32 0, i32 4
-  %15 = load i64, ptr %6, align 8
-  %16 = load i64, ptr %7, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %17, i32 0, i32 3
-  %19 = load i8, ptr %18, align 1
+  %13 = load ptr, ptr %5, align 8, !tbaa !20
+  %14 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %13, i32 0, i32 4
+  %15 = load i64, ptr %6, align 8, !tbaa !10
+  %16 = load i64, ptr %7, align 8, !tbaa !10
+  %17 = load ptr, ptr %5, align 8, !tbaa !20
+  %18 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %17, i32 0, i32 3
+  %19 = load i8, ptr %18, align 1, !tbaa !16
   %20 = zext i8 %19 to i64
   %21 = call i32 @mbedtls_ccm_set_lengths(ptr noundef %14, i64 noundef %15, i64 noundef %16, i64 noundef %20)
   %22 = call i32 @mbedtls_to_psa_error(i32 noundef %21)
@@ -1160,7 +1024,7 @@ define hidden i32 @mbedtls_psa_aead_set_lengths(ptr noundef %0, i64 noundef %1, 
   ret i32 %25
 }
 
-declare i32 @mbedtls_ccm_set_lengths(ptr noundef, i64 noundef, i64 noundef, i64 noundef) #2
+declare i32 @mbedtls_ccm_set_lengths(ptr noundef, i64 noundef, i64 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_aead_update_ad(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -1169,85 +1033,90 @@ define hidden i32 @mbedtls_psa_aead_update_ad(ptr noundef %0, ptr noundef %1, i6
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i32 -151, ptr %8, align 4
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %9, i32 0, i32 0
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, 89129472
-  br i1 %12, label %13, label %20
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  store i32 -151, ptr %8, align 4, !tbaa !12
+  %10 = load ptr, ptr %5, align 8, !tbaa !20
+  %11 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8, !tbaa !19
+  %13 = icmp eq i32 %12, 89129472
+  br i1 %13, label %14, label %21
 
-13:                                               ; preds = %3
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %14, i32 0, i32 4
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i64, ptr %7, align 8
-  %18 = call i32 @mbedtls_gcm_update_ad(ptr noundef %15, ptr noundef %16, i64 noundef %17)
-  %19 = call i32 @mbedtls_to_psa_error(i32 noundef %18)
-  store i32 %19, ptr %8, align 4
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !20
+  %16 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %15, i32 0, i32 4
+  %17 = load ptr, ptr %6, align 8, !tbaa !8
+  %18 = load i64, ptr %7, align 8, !tbaa !10
+  %19 = call i32 @mbedtls_gcm_update_ad(ptr noundef %16, ptr noundef %17, i64 noundef %18)
+  %20 = call i32 @mbedtls_to_psa_error(i32 noundef %19)
+  store i32 %20, ptr %8, align 4, !tbaa !12
+  br label %48
+
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %5, align 8, !tbaa !20
+  %23 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !19
+  %25 = icmp eq i32 %24, 89129216
+  br i1 %25, label %26, label %33
+
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8, !tbaa !20
+  %28 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %27, i32 0, i32 4
+  %29 = load ptr, ptr %6, align 8, !tbaa !8
+  %30 = load i64, ptr %7, align 8, !tbaa !10
+  %31 = call i32 @mbedtls_ccm_update_ad(ptr noundef %28, ptr noundef %29, i64 noundef %30)
+  %32 = call i32 @mbedtls_to_psa_error(i32 noundef %31)
+  store i32 %32, ptr %8, align 4, !tbaa !12
   br label %47
 
-20:                                               ; preds = %3
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp eq i32 %23, 89129216
-  br i1 %24, label %25, label %32
+33:                                               ; preds = %21
+  %34 = load ptr, ptr %5, align 8, !tbaa !20
+  %35 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %34, i32 0, i32 0
+  %36 = load i32, ptr %35, align 8, !tbaa !19
+  %37 = icmp eq i32 %36, 84935936
+  br i1 %37, label %38, label %45
 
-25:                                               ; preds = %20
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %26, i32 0, i32 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i64, ptr %7, align 8
-  %30 = call i32 @mbedtls_ccm_update_ad(ptr noundef %27, ptr noundef %28, i64 noundef %29)
-  %31 = call i32 @mbedtls_to_psa_error(i32 noundef %30)
-  store i32 %31, ptr %8, align 4
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %5, align 8, !tbaa !20
+  %40 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %39, i32 0, i32 4
+  %41 = load ptr, ptr %6, align 8, !tbaa !8
+  %42 = load i64, ptr %7, align 8, !tbaa !10
+  %43 = call i32 @mbedtls_chachapoly_update_aad(ptr noundef %40, ptr noundef %41, i64 noundef %42)
+  %44 = call i32 @mbedtls_to_psa_error(i32 noundef %43)
+  store i32 %44, ptr %8, align 4, !tbaa !12
   br label %46
 
-32:                                               ; preds = %20
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %33, i32 0, i32 0
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, 84935936
-  br i1 %36, label %37, label %44
-
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %38, i32 0, i32 4
-  %40 = load ptr, ptr %6, align 8
-  %41 = load i64, ptr %7, align 8
-  %42 = call i32 @mbedtls_chachapoly_update_aad(ptr noundef %39, ptr noundef %40, i64 noundef %41)
-  %43 = call i32 @mbedtls_to_psa_error(i32 noundef %42)
-  store i32 %43, ptr %8, align 4
-  br label %45
-
-44:                                               ; preds = %32
+45:                                               ; preds = %33
   store i32 -134, ptr %4, align 4
-  br label %49
+  store i32 1, ptr %9, align 4
+  br label %50
 
-45:                                               ; preds = %37
-  br label %46
-
-46:                                               ; preds = %45, %25
+46:                                               ; preds = %38
   br label %47
 
-47:                                               ; preds = %46, %13
-  %48 = load i32, ptr %8, align 4
-  store i32 %48, ptr %4, align 4
-  br label %49
+47:                                               ; preds = %46, %26
+  br label %48
 
-49:                                               ; preds = %47, %44
-  %50 = load i32, ptr %4, align 4
-  ret i32 %50
+48:                                               ; preds = %47, %14
+  %49 = load i32, ptr %8, align 4, !tbaa !12
+  store i32 %49, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %50
+
+50:                                               ; preds = %48, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  %51 = load i32, ptr %4, align 4
+  ret i32 %51
 }
 
-declare i32 @mbedtls_gcm_update_ad(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_gcm_update_ad(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @mbedtls_ccm_update_ad(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_ccm_update_ad(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @mbedtls_chachapoly_update_aad(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_chachapoly_update_aad(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_aead_update(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
@@ -1260,126 +1129,135 @@ define hidden i32 @mbedtls_psa_aead_update(ptr noundef %0, ptr noundef %1, i64 n
   %13 = alloca ptr, align 8
   %14 = alloca i64, align 8
   %15 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store i64 %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  store i32 -151, ptr %15, align 4
-  %16 = load i64, ptr %10, align 8
-  store i64 %16, ptr %14, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %17, i32 0, i32 0
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp eq i32 %19, 89129472
-  br i1 %20, label %21, label %30
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !20
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store i64 %2, ptr %10, align 8, !tbaa !10
+  store ptr %3, ptr %11, align 8, !tbaa !8
+  store i64 %4, ptr %12, align 8, !tbaa !10
+  store ptr %5, ptr %13, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  store i32 -151, ptr %15, align 4, !tbaa !12
+  %17 = load i64, ptr %10, align 8, !tbaa !10
+  store i64 %17, ptr %14, align 8, !tbaa !10
+  %18 = load ptr, ptr %8, align 8, !tbaa !20
+  %19 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %19, align 8, !tbaa !19
+  %21 = icmp eq i32 %20, 89129472
+  br i1 %21, label %22, label %31
 
-21:                                               ; preds = %6
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %22, i32 0, i32 4
-  %24 = load ptr, ptr %9, align 8
-  %25 = load i64, ptr %10, align 8
-  %26 = load ptr, ptr %11, align 8
-  %27 = load i64, ptr %12, align 8
-  %28 = call i32 @mbedtls_gcm_update(ptr noundef %23, ptr noundef %24, i64 noundef %25, ptr noundef %26, i64 noundef %27, ptr noundef %14)
-  %29 = call i32 @mbedtls_to_psa_error(i32 noundef %28)
-  store i32 %29, ptr %15, align 4
+22:                                               ; preds = %6
+  %23 = load ptr, ptr %8, align 8, !tbaa !20
+  %24 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %23, i32 0, i32 4
+  %25 = load ptr, ptr %9, align 8, !tbaa !8
+  %26 = load i64, ptr %10, align 8, !tbaa !10
+  %27 = load ptr, ptr %11, align 8, !tbaa !8
+  %28 = load i64, ptr %12, align 8, !tbaa !10
+  %29 = call i32 @mbedtls_gcm_update(ptr noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef %27, i64 noundef %28, ptr noundef %14)
+  %30 = call i32 @mbedtls_to_psa_error(i32 noundef %29)
+  store i32 %30, ptr %15, align 4, !tbaa !12
+  br label %71
+
+31:                                               ; preds = %6
+  %32 = load ptr, ptr %8, align 8, !tbaa !20
+  %33 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %32, i32 0, i32 0
+  %34 = load i32, ptr %33, align 8, !tbaa !19
+  %35 = icmp eq i32 %34, 89129216
+  br i1 %35, label %36, label %50
+
+36:                                               ; preds = %31
+  %37 = load i64, ptr %12, align 8, !tbaa !10
+  %38 = load i64, ptr %10, align 8, !tbaa !10
+  %39 = icmp ult i64 %37, %38
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %36
+  store i32 -138, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %79
+
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %8, align 8, !tbaa !20
+  %43 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %42, i32 0, i32 4
+  %44 = load ptr, ptr %9, align 8, !tbaa !8
+  %45 = load i64, ptr %10, align 8, !tbaa !10
+  %46 = load ptr, ptr %11, align 8, !tbaa !8
+  %47 = load i64, ptr %12, align 8, !tbaa !10
+  %48 = call i32 @mbedtls_ccm_update(ptr noundef %43, ptr noundef %44, i64 noundef %45, ptr noundef %46, i64 noundef %47, ptr noundef %14)
+  %49 = call i32 @mbedtls_to_psa_error(i32 noundef %48)
+  store i32 %49, ptr %15, align 4, !tbaa !12
   br label %70
 
-30:                                               ; preds = %6
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %31, i32 0, i32 0
-  %33 = load i32, ptr %32, align 8
-  %34 = icmp eq i32 %33, 89129216
-  br i1 %34, label %35, label %49
+50:                                               ; preds = %31
+  %51 = load ptr, ptr %8, align 8, !tbaa !20
+  %52 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 8, !tbaa !19
+  %54 = icmp eq i32 %53, 84935936
+  br i1 %54, label %55, label %68
 
-35:                                               ; preds = %30
-  %36 = load i64, ptr %12, align 8
-  %37 = load i64, ptr %10, align 8
-  %38 = icmp ult i64 %36, %37
-  br i1 %38, label %39, label %40
+55:                                               ; preds = %50
+  %56 = load i64, ptr %12, align 8, !tbaa !10
+  %57 = load i64, ptr %10, align 8, !tbaa !10
+  %58 = icmp ult i64 %56, %57
+  br i1 %58, label %59, label %60
 
-39:                                               ; preds = %35
+59:                                               ; preds = %55
   store i32 -138, ptr %7, align 4
-  br label %78
+  store i32 1, ptr %16, align 4
+  br label %79
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %41, i32 0, i32 4
-  %43 = load ptr, ptr %9, align 8
-  %44 = load i64, ptr %10, align 8
-  %45 = load ptr, ptr %11, align 8
-  %46 = load i64, ptr %12, align 8
-  %47 = call i32 @mbedtls_ccm_update(ptr noundef %42, ptr noundef %43, i64 noundef %44, ptr noundef %45, i64 noundef %46, ptr noundef %14)
-  %48 = call i32 @mbedtls_to_psa_error(i32 noundef %47)
-  store i32 %48, ptr %15, align 4
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %8, align 8, !tbaa !20
+  %62 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %61, i32 0, i32 4
+  %63 = load i64, ptr %10, align 8, !tbaa !10
+  %64 = load ptr, ptr %9, align 8, !tbaa !8
+  %65 = load ptr, ptr %11, align 8, !tbaa !8
+  %66 = call i32 @mbedtls_chachapoly_update(ptr noundef %62, i64 noundef %63, ptr noundef %64, ptr noundef %65)
+  %67 = call i32 @mbedtls_to_psa_error(i32 noundef %66)
+  store i32 %67, ptr %15, align 4, !tbaa !12
   br label %69
 
-49:                                               ; preds = %30
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %50, i32 0, i32 0
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp eq i32 %52, 84935936
-  br i1 %53, label %54, label %67
-
-54:                                               ; preds = %49
-  %55 = load i64, ptr %12, align 8
-  %56 = load i64, ptr %10, align 8
-  %57 = icmp ult i64 %55, %56
-  br i1 %57, label %58, label %59
-
-58:                                               ; preds = %54
-  store i32 -138, ptr %7, align 4
-  br label %78
-
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %60, i32 0, i32 4
-  %62 = load i64, ptr %10, align 8
-  %63 = load ptr, ptr %9, align 8
-  %64 = load ptr, ptr %11, align 8
-  %65 = call i32 @mbedtls_chachapoly_update(ptr noundef %61, i64 noundef %62, ptr noundef %63, ptr noundef %64)
-  %66 = call i32 @mbedtls_to_psa_error(i32 noundef %65)
-  store i32 %66, ptr %15, align 4
-  br label %68
-
-67:                                               ; preds = %49
+68:                                               ; preds = %50
   store i32 -134, ptr %7, align 4
-  br label %78
+  store i32 1, ptr %16, align 4
+  br label %79
 
-68:                                               ; preds = %59
-  br label %69
-
-69:                                               ; preds = %68, %40
+69:                                               ; preds = %60
   br label %70
 
-70:                                               ; preds = %69, %21
-  %71 = load i32, ptr %15, align 4
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %76
+70:                                               ; preds = %69, %41
+  br label %71
 
-73:                                               ; preds = %70
-  %74 = load i64, ptr %14, align 8
-  %75 = load ptr, ptr %13, align 8
-  store i64 %74, ptr %75, align 8
-  br label %76
+71:                                               ; preds = %70, %22
+  %72 = load i32, ptr %15, align 4, !tbaa !12
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %77
 
-76:                                               ; preds = %73, %70
-  %77 = load i32, ptr %15, align 4
-  store i32 %77, ptr %7, align 4
-  br label %78
+74:                                               ; preds = %71
+  %75 = load i64, ptr %14, align 8, !tbaa !10
+  %76 = load ptr, ptr %13, align 8, !tbaa !14
+  store i64 %75, ptr %76, align 8, !tbaa !10
+  br label %77
 
-78:                                               ; preds = %76, %67, %58, %39
-  %79 = load i32, ptr %7, align 4
-  ret i32 %79
+77:                                               ; preds = %74, %71
+  %78 = load i32, ptr %15, align 4, !tbaa !12
+  store i32 %78, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %79
+
+79:                                               ; preds = %77, %68, %59, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  %80 = load i32, ptr %7, align 4
+  ret i32 %80
 }
 
-declare i32 @mbedtls_gcm_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @mbedtls_gcm_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
-declare i32 @mbedtls_ccm_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @mbedtls_ccm_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
-declare i32 @mbedtls_chachapoly_update(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #2
+declare i32 @mbedtls_chachapoly_update(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
@@ -1393,189 +1271,226 @@ define hidden i32 @mbedtls_psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 n
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
   %17 = alloca i64, align 8
-  store ptr %0, ptr %9, align 8
-  store ptr %1, ptr %10, align 8
-  store i64 %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  store ptr %4, ptr %13, align 8
-  store i64 %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  store i32 -151, ptr %16, align 4
-  store i64 0, ptr %17, align 8
-  %18 = load i64, ptr %14, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %19, i32 0, i32 3
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i64
-  %23 = icmp ult i64 %18, %22
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %7
-  store i32 -138, ptr %8, align 4
-  br label %97
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8, !tbaa !20
+  store ptr %1, ptr %10, align 8, !tbaa !8
+  store i64 %2, ptr %11, align 8, !tbaa !10
+  store ptr %3, ptr %12, align 8, !tbaa !14
+  store ptr %4, ptr %13, align 8, !tbaa !8
+  store i64 %5, ptr %14, align 8, !tbaa !10
+  store ptr %6, ptr %15, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  store i32 -151, ptr %16, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  store i64 0, ptr %17, align 8, !tbaa !10
+  %19 = load i64, ptr %14, align 8, !tbaa !10
+  %20 = load ptr, ptr %9, align 8, !tbaa !20
+  %21 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %20, i32 0, i32 3
+  %22 = load i8, ptr %21, align 1, !tbaa !16
+  %23 = zext i8 %22 to i64
+  %24 = icmp ult i64 %19, %23
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %7
-  %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %26, i32 0, i32 0
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 89129472
-  br i1 %29, label %30, label %43
+  store i32 -138, ptr %8, align 4
+  store i32 1, ptr %18, align 4
+  br label %98
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %31, i32 0, i32 4
-  %33 = load ptr, ptr %10, align 8
-  %34 = load i64, ptr %11, align 8
-  %35 = load ptr, ptr %12, align 8
-  %36 = load ptr, ptr %13, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %37, i32 0, i32 3
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i64
-  %41 = call i32 @mbedtls_gcm_finish(ptr noundef %32, ptr noundef %33, i64 noundef %34, ptr noundef %35, ptr noundef %36, i64 noundef %40)
-  %42 = call i32 @mbedtls_to_psa_error(i32 noundef %41)
-  store i32 %42, ptr %16, align 4
+26:                                               ; preds = %7
+  %27 = load ptr, ptr %9, align 8, !tbaa !20
+  %28 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %27, i32 0, i32 0
+  %29 = load i32, ptr %28, align 8, !tbaa !19
+  %30 = icmp eq i32 %29, 89129472
+  br i1 %30, label %31, label %44
+
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %9, align 8, !tbaa !20
+  %33 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %32, i32 0, i32 4
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  %35 = load i64, ptr %11, align 8, !tbaa !10
+  %36 = load ptr, ptr %12, align 8, !tbaa !14
+  %37 = load ptr, ptr %13, align 8, !tbaa !8
+  %38 = load ptr, ptr %9, align 8, !tbaa !20
+  %39 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %38, i32 0, i32 3
+  %40 = load i8, ptr %39, align 1, !tbaa !16
+  %41 = zext i8 %40 to i64
+  %42 = call i32 @mbedtls_gcm_finish(ptr noundef %33, ptr noundef %34, i64 noundef %35, ptr noundef %36, ptr noundef %37, i64 noundef %41)
+  %43 = call i32 @mbedtls_to_psa_error(i32 noundef %42)
+  store i32 %43, ptr %16, align 4, !tbaa !12
+  br label %85
+
+44:                                               ; preds = %26
+  %45 = load ptr, ptr %9, align 8, !tbaa !20
+  %46 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %45, i32 0, i32 0
+  %47 = load i32, ptr %46, align 8, !tbaa !19
+  %48 = icmp eq i32 %47, 89129216
+  br i1 %48, label %49, label %67
+
+49:                                               ; preds = %44
+  %50 = load i64, ptr %14, align 8, !tbaa !10
+  %51 = load ptr, ptr %9, align 8, !tbaa !20
+  %52 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %51, i32 0, i32 3
+  %53 = load i8, ptr %52, align 1, !tbaa !16
+  %54 = zext i8 %53 to i64
+  %55 = icmp ult i64 %50, %54
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %49
+  store i32 -138, ptr %8, align 4
+  store i32 1, ptr %18, align 4
+  br label %98
+
+57:                                               ; preds = %49
+  %58 = load ptr, ptr %9, align 8, !tbaa !20
+  %59 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %58, i32 0, i32 4
+  %60 = load ptr, ptr %13, align 8, !tbaa !8
+  %61 = load ptr, ptr %9, align 8, !tbaa !20
+  %62 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %61, i32 0, i32 3
+  %63 = load i8, ptr %62, align 1, !tbaa !16
+  %64 = zext i8 %63 to i64
+  %65 = call i32 @mbedtls_ccm_finish(ptr noundef %59, ptr noundef %60, i64 noundef %64)
+  %66 = call i32 @mbedtls_to_psa_error(i32 noundef %65)
+  store i32 %66, ptr %16, align 4, !tbaa !12
   br label %84
 
-43:                                               ; preds = %25
-  %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %44, i32 0, i32 0
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %46, 89129216
-  br i1 %47, label %48, label %66
+67:                                               ; preds = %44
+  %68 = load ptr, ptr %9, align 8, !tbaa !20
+  %69 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %68, i32 0, i32 0
+  %70 = load i32, ptr %69, align 8, !tbaa !19
+  %71 = icmp eq i32 %70, 84935936
+  br i1 %71, label %72, label %82
 
-48:                                               ; preds = %43
-  %49 = load i64, ptr %14, align 8
-  %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %50, i32 0, i32 3
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i64
-  %54 = icmp ult i64 %49, %53
-  br i1 %54, label %55, label %56
+72:                                               ; preds = %67
+  %73 = load i64, ptr %14, align 8, !tbaa !10
+  %74 = icmp ult i64 %73, 16
+  br i1 %74, label %75, label %76
 
-55:                                               ; preds = %48
+75:                                               ; preds = %72
   store i32 -138, ptr %8, align 4
-  br label %97
+  store i32 1, ptr %18, align 4
+  br label %98
 
-56:                                               ; preds = %48
-  %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %57, i32 0, i32 4
-  %59 = load ptr, ptr %13, align 8
-  %60 = load ptr, ptr %9, align 8
-  %61 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %60, i32 0, i32 3
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i64
-  %64 = call i32 @mbedtls_ccm_finish(ptr noundef %58, ptr noundef %59, i64 noundef %63)
-  %65 = call i32 @mbedtls_to_psa_error(i32 noundef %64)
-  store i32 %65, ptr %16, align 4
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %9, align 8, !tbaa !20
+  %78 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %77, i32 0, i32 4
+  %79 = load ptr, ptr %13, align 8, !tbaa !8
+  %80 = call i32 @mbedtls_chachapoly_finish(ptr noundef %78, ptr noundef %79)
+  %81 = call i32 @mbedtls_to_psa_error(i32 noundef %80)
+  store i32 %81, ptr %16, align 4, !tbaa !12
   br label %83
 
-66:                                               ; preds = %43
-  %67 = load ptr, ptr %9, align 8
-  %68 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %67, i32 0, i32 0
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp eq i32 %69, 84935936
-  br i1 %70, label %71, label %81
-
-71:                                               ; preds = %66
-  %72 = load i64, ptr %14, align 8
-  %73 = icmp ult i64 %72, 16
-  br i1 %73, label %74, label %75
-
-74:                                               ; preds = %71
-  store i32 -138, ptr %8, align 4
-  br label %97
-
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %76, i32 0, i32 4
-  %78 = load ptr, ptr %13, align 8
-  %79 = call i32 @mbedtls_chachapoly_finish(ptr noundef %77, ptr noundef %78)
-  %80 = call i32 @mbedtls_to_psa_error(i32 noundef %79)
-  store i32 %80, ptr %16, align 4
-  br label %82
-
-81:                                               ; preds = %66
+82:                                               ; preds = %67
   store i32 -134, ptr %8, align 4
-  br label %97
+  store i32 1, ptr %18, align 4
+  br label %98
 
-82:                                               ; preds = %75
-  br label %83
-
-83:                                               ; preds = %82, %56
+83:                                               ; preds = %76
   br label %84
 
-84:                                               ; preds = %83, %30
-  %85 = load i32, ptr %16, align 4
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %95
+84:                                               ; preds = %83, %57
+  br label %85
 
-87:                                               ; preds = %84
-  %88 = load i64, ptr %17, align 8
-  %89 = load ptr, ptr %12, align 8
-  store i64 %88, ptr %89, align 8
-  %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds %struct.mbedtls_psa_aead_operation_t, ptr %90, i32 0, i32 3
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i64
-  %94 = load ptr, ptr %15, align 8
-  store i64 %93, ptr %94, align 8
-  br label %95
+85:                                               ; preds = %84, %31
+  %86 = load i32, ptr %16, align 4, !tbaa !12
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %96
 
-95:                                               ; preds = %87, %84
-  %96 = load i32, ptr %16, align 4
-  store i32 %96, ptr %8, align 4
-  br label %97
+88:                                               ; preds = %85
+  %89 = load i64, ptr %17, align 8, !tbaa !10
+  %90 = load ptr, ptr %12, align 8, !tbaa !14
+  store i64 %89, ptr %90, align 8, !tbaa !10
+  %91 = load ptr, ptr %9, align 8, !tbaa !20
+  %92 = getelementptr inbounds nuw %struct.mbedtls_psa_aead_operation_t, ptr %91, i32 0, i32 3
+  %93 = load i8, ptr %92, align 1, !tbaa !16
+  %94 = zext i8 %93 to i64
+  %95 = load ptr, ptr %15, align 8, !tbaa !14
+  store i64 %94, ptr %95, align 8, !tbaa !10
+  br label %96
 
-97:                                               ; preds = %95, %81, %74, %55, %24
-  %98 = load i32, ptr %8, align 4
-  ret i32 %98
+96:                                               ; preds = %88, %85
+  %97 = load i32, ptr %16, align 4, !tbaa !12
+  store i32 %97, ptr %8, align 4
+  store i32 1, ptr %18, align 4
+  br label %98
+
+98:                                               ; preds = %96, %82, %75, %56, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  %99 = load i32, ptr %8, align 4
+  ret i32 %99
 }
 
-declare i32 @mbedtls_gcm_finish(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_gcm_finish(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @mbedtls_ccm_finish(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_ccm_finish(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @mbedtls_chachapoly_finish(ptr noundef, ptr noundef) #2
+declare i32 @mbedtls_chachapoly_finish(ptr noundef, ptr noundef) #3
 
-declare void @mbedtls_ccm_free(ptr noundef) #2
+declare void @mbedtls_ccm_free(ptr noundef) #3
 
-declare void @mbedtls_gcm_free(ptr noundef) #2
+declare void @mbedtls_gcm_free(ptr noundef) #3
 
-declare void @mbedtls_chachapoly_free(ptr noundef) #2
+declare void @mbedtls_chachapoly_free(ptr noundef) #3
 
-declare ptr @mbedtls_cipher_info_from_psa(i32 noundef, i16 noundef zeroext, i64 noundef, ptr noundef) #2
+declare i32 @mbedtls_cipher_values_from_psa(i32 noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @mbedtls_ccm_init(ptr noundef) #2
+declare void @mbedtls_ccm_init(ptr noundef) #3
 
-declare i32 @mbedtls_ccm_setkey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
+declare i32 @mbedtls_ccm_setkey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-declare void @mbedtls_gcm_init(ptr noundef) #2
+declare void @mbedtls_gcm_init(ptr noundef) #3
 
-declare i32 @mbedtls_gcm_setkey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
+declare i32 @mbedtls_gcm_setkey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-declare void @mbedtls_chachapoly_init(ptr noundef) #2
+declare void @mbedtls_chachapoly_init(ptr noundef) #3
 
-declare i32 @mbedtls_chachapoly_setkey(ptr noundef, ptr noundef) #2
+declare i32 @mbedtls_chachapoly_setkey(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @psa_get_key_type(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i16 @psa_get_key_type(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.psa_key_attributes_s, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.psa_core_key_attributes_t, ptr %4, i32 0, i32 0
-  %6 = load i16, ptr %5, align 8
-  ret i16 %6
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.psa_key_attributes_s, ptr %3, i32 0, i32 0
+  %5 = load i16, ptr %4, align 4, !tbaa !24
+  ret i16 %5
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS20psa_key_attributes_s", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 long", !5, i64 0}
+!16 = !{!17, !6, i64 7}
+!17 = !{!"", !13, i64 0, !18, i64 4, !13, i64 6, !6, i64 7, !6, i64 8}
+!18 = !{!"short", !6, i64 0}
+!19 = !{!17, !13, i64 0}
+!20 = !{!5, !5, i64 0}
+!21 = !{!22, !18, i64 2}
+!22 = !{!"psa_key_attributes_s", !18, i64 0, !18, i64 2, !13, i64 4, !23, i64 8, !13, i64 20}
+!23 = !{!"psa_key_policy_s", !13, i64 0, !13, i64 4, !13, i64 8}
+!24 = !{!22, !18, i64 0}
+!25 = !{!17, !18, i64 4}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p2 omnipotent char", !28, i64 0}
+!28 = !{!"any p2 pointer", !5, i64 0}

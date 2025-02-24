@@ -14,8 +14,8 @@ target triple = "x86_64-pc-linux-gnu"
 @kw_msg_len = internal unnamed_addr constant [3 x i64] [i64 16, i64 40, i64 24], align 16
 @kw_out_len = internal unnamed_addr constant [3 x i64] [i64 24, i64 48, i64 32], align 16
 @.str.2 = private unnamed_addr constant [9 x i8] c"failed. \00", align 1
-@.str.5 = private unnamed_addr constant [14 x i8] c"  KWP-AES-%u \00", align 1
-@.str.6 = private unnamed_addr constant [21 x i8] c"  KWP: setup failed \00", align 1
+@.str.6 = private unnamed_addr constant [14 x i8] c"  KWP-AES-%u \00", align 1
+@.str.7 = private unnamed_addr constant [21 x i8] c"  KWP: setup failed \00", align 1
 @kwp_msg_len = internal unnamed_addr constant [3 x i64] [i64 9, i64 31, i64 1], align 16
 @kwp_out_len = internal unnamed_addr constant [3 x i64] [i64 24, i64 40, i64 16], align 16
 @kw_key = internal constant <{ <{ [16 x i8], [16 x i8] }>, <{ [24 x i8], [8 x i8] }>, [32 x i8] }> <{ <{ [16 x i8], [16 x i8] }> <{ [16 x i8] c"uu\DA:\93`|\C2\BF\D8\CE\C7\AA\DF\D9\A6", [16 x i8] zeroinitializer }>, <{ [24 x i8], [8 x i8] }> <{ [24 x i8] c"-\85&\08\1D\02\FB[\85\F6\9A\C2\86\EC\D5}@\DF]\F3IGD\D3", [8 x i8] zeroinitializer }>, [32 x i8] c"\11*\D4\1BHV\C7%J\98H\D3\0F\DDx3[\03\9AH\A8\96,M\1C\B7\8E\AB\D5\DA\D7\88" }>, align 16
@@ -38,13 +38,14 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_nist_kw_setkey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
-  %6 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %1, i32 noundef %3, i32 noundef 1) #9
+  %6 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %1, i32 noundef %3, i32 noundef 1) #11
   %7 = icmp eq ptr %6, null
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %10 = load i32, ptr %9, align 8
+  %9 = getelementptr i8, ptr %6, i64 8
+  %.val = load i32, ptr %9, align 8
+  %10 = and i32 %.val, 31
   %.not = icmp eq i32 %10, 16
   br i1 %.not, label %11, label %17
 
@@ -53,15 +54,15 @@ define hidden i32 @mbedtls_nist_kw_setkey(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not17, label %12, label %17
 
 12:                                               ; preds = %11
-  tail call void @mbedtls_cipher_free(ptr noundef %0) #9
-  %13 = tail call i32 @mbedtls_cipher_setup(ptr noundef %0, ptr noundef nonnull %6) #9
+  tail call void @mbedtls_cipher_free(ptr noundef %0) #11
+  %13 = tail call i32 @mbedtls_cipher_setup(ptr noundef %0, ptr noundef nonnull %6) #11
   %.not18 = icmp eq i32 %13, 0
   br i1 %.not18, label %14, label %17
 
 14:                                               ; preds = %12
   %.not19 = icmp ne i32 %4, 0
   %15 = zext i1 %.not19 to i32
-  %16 = tail call i32 @mbedtls_cipher_setkey(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %15) #9
+  %16 = tail call i32 @mbedtls_cipher_setkey(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %15) #11
   br label %17
 
 17:                                               ; preds = %14, %12, %11, %8, %5
@@ -69,50 +70,66 @@ define hidden i32 @mbedtls_nist_kw_setkey(ptr noundef %0, i32 noundef %1, ptr no
   ret i32 %.0
 }
 
-declare ptr @mbedtls_cipher_info_from_values(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-declare void @mbedtls_cipher_free(ptr noundef) local_unnamed_addr #3
+declare ptr @mbedtls_cipher_info_from_values(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @mbedtls_cipher_free(ptr noundef) local_unnamed_addr #4
 
-declare i32 @mbedtls_cipher_setkey(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @mbedtls_cipher_setkey(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_nist_kw_free(ptr noundef %0) local_unnamed_addr #2 {
-  tail call void @mbedtls_cipher_free(ptr noundef %0) #9
-  tail call void @mbedtls_platform_zeroize(ptr noundef %0, i64 noundef 96) #9
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %4, label %3
+
+3:                                                ; preds = %1
+  tail call void @mbedtls_cipher_free(ptr noundef nonnull %0) #11
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 96) #11
+  br label %4
+
+4:                                                ; preds = %1, %3
   ret void
 }
 
-declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca [16 x i8], align 16
   %10 = alloca [16 x i8], align 16
-  store i64 0, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
+  store i64 0, ptr %5, align 8, !tbaa !3
   %11 = icmp eq i32 %1, 0
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %7
   %13 = add i64 %3, 8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %78, label %15
+  br i1 %14, label %70, label %15
 
 15:                                               ; preds = %12
   %16 = add i64 %3, -16
   %or.cond = icmp ult i64 %16, 144115188075855849
   %17 = and i64 %3, 7
-  %.not87 = icmp eq i64 %17, 0
-  %or.cond93 = and i1 %or.cond, %.not87
-  br i1 %or.cond93, label %18, label %78
+  %.not83 = icmp eq i64 %17, 0
+  %or.cond89 = and i1 %or.cond, %.not83
+  br i1 %or.cond89, label %18, label %70
 
 18:                                               ; preds = %15
   store i64 -6438275382588823898, ptr %4, align 1
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %2, i64 %3, i1 false)
-  br label %41
+  br label %33
 
 20:                                               ; preds = %7
   %21 = and i64 %3, 7
@@ -124,288 +141,265 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noun
   %25 = icmp ult i64 %6, %24
   %26 = add i64 %3, -4294967296
   %or.cond3 = icmp ult i64 %26, -4294967295
-  %or.cond95 = or i1 %or.cond3, %25
-  br i1 %or.cond95, label %78, label %27
+  %or.cond92 = or i1 %or.cond3, %25
+  br i1 %or.cond92, label %70, label %27
 
 27:                                               ; preds = %20
   store i32 -1504093786, ptr %4, align 1
-  %28 = lshr i64 %3, 24
-  %29 = trunc nuw i64 %28 to i8
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 %29, ptr %30, align 1
-  %31 = lshr i64 %3, 16
-  %32 = trunc i64 %31 to i8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 %32, ptr %33, align 1
-  %34 = lshr i64 %3, 8
-  %35 = trunc i64 %34 to i8
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i8 %35, ptr %36, align 1
-  %37 = trunc i64 %3 to i8
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 7
-  store i8 %37, ptr %38, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %2, i64 %3, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %40, i8 0, i64 %spec.select, i1 false)
-  br label %41
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %29 = trunc nuw i64 %3 to i32
+  %30 = tail call i32 @llvm.bswap.i32(i32 %29)
+  store i32 %30, ptr %28, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %2, i64 %3, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 0, i64 %spec.select, i1 false)
+  br label %33
 
-41:                                               ; preds = %27, %18
-  %.074 = phi i64 [ 0, %18 ], [ %spec.select, %27 ]
-  %42 = add nuw nsw i64 %.074, %3
-  %43 = lshr i64 %42, 3
-  %44 = add nuw nsw i64 %43, 1
-  %45 = mul nuw nsw i64 %43, 6
-  %46 = icmp eq i32 %1, 1
-  %47 = icmp samesign ult i64 %3, 9
-  %or.cond5 = and i1 %46, %47
-  br i1 %or.cond5, label %48, label %50
+33:                                               ; preds = %27, %18
+  %.070 = phi i64 [ 0, %18 ], [ %spec.select, %27 ]
+  %34 = add nuw nsw i64 %.070, %3
+  %35 = lshr i64 %34, 3
+  %36 = add nuw nsw i64 %35, 1
+  %37 = mul nuw nsw i64 %35, 6
+  %38 = icmp eq i32 %1, 1
+  %39 = icmp samesign ult i64 %3, 9
+  %or.cond5 = and i1 %38, %39
+  br i1 %or.cond5, label %40, label %42
 
-48:                                               ; preds = %41
+40:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
-  %49 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %4, ptr noundef nonnull %8) #9
-  %.not91 = icmp eq i32 %49, 0
-  br i1 %.not91, label %.loopexit, label %.loopexit100
+  %41 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %4, ptr noundef nonnull %8) #11
+  %.not87 = icmp eq i32 %41, 0
+  br i1 %.not87, label %.loopexit, label %.thread
 
-50:                                               ; preds = %41
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = icmp samesign ult i64 %42, 16
-  br i1 %52, label %.loopexit100, label %.lr.ph
+42:                                               ; preds = %33
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %44 = icmp samesign ult i64 %34, 16
+  br i1 %44, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %55 = shl nuw nsw i64 %44, 3
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %55
-  %umax = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
-  br label %57
+.lr.ph:                                           ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %47 = shl nuw nsw i64 %36, 3
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %47
+  %umax = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
+  br label %49
 
-57:                                               ; preds = %.lr.ph, %calc_a_xor_t.exit
-  %.072103 = phi ptr [ %51, %.lr.ph ], [ %spec.select94, %calc_a_xor_t.exit ]
-  %.073102 = phi i64 [ 1, %.lr.ph ], [ %74, %calc_a_xor_t.exit ]
-  %58 = load i64, ptr %4, align 1
-  store i64 %58, ptr %10, align 16
-  %59 = load i64, ptr %.072103, align 1
-  store i64 %59, ptr %53, align 8
-  %60 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %8) #9
-  %.not89 = icmp eq i32 %60, 0
-  br i1 %.not89, label %61, label %.loopexit100
+49:                                               ; preds = %.lr.ph, %calc_a_xor_t.exit
+  %.067104 = phi ptr [ %43, %.lr.ph ], [ %spec.select90, %calc_a_xor_t.exit ]
+  %.069103 = phi i64 [ 1, %.lr.ph ], [ %66, %calc_a_xor_t.exit ]
+  %50 = load i64, ptr %4, align 1
+  store i64 %50, ptr %10, align 16
+  %51 = load i64, ptr %.067104, align 1
+  store i64 %51, ptr %45, align 8
+  %52 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
+  %.not85 = icmp eq i32 %52, 0
+  br i1 %.not85, label %53, label %.thread
 
-61:                                               ; preds = %57
-  %62 = load i64, ptr %9, align 16
-  store i64 %62, ptr %4, align 1
-  br label %63
+53:                                               ; preds = %49
+  %54 = load i64, ptr %9, align 16
+  store i64 %54, ptr %4, align 1
+  br label %55
 
-63:                                               ; preds = %63, %61
-  %.05.i = phi i64 [ 0, %61 ], [ %71, %63 ]
-  %64 = shl nuw nsw i64 %.05.i, 3
-  %65 = sub nuw nsw i64 56, %64
-  %66 = lshr i64 %.073102, %65
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.05.i
-  %68 = load i8, ptr %67, align 1
-  %69 = trunc i64 %66 to i8
-  %70 = xor i8 %68, %69
-  store i8 %70, ptr %67, align 1
-  %71 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %71, 8
-  br i1 %exitcond.not.i, label %calc_a_xor_t.exit, label %63, !llvm.loop !4
+55:                                               ; preds = %55, %53
+  %.05.i = phi i64 [ 0, %53 ], [ %63, %55 ]
+  %56 = shl nuw nsw i64 %.05.i, 3
+  %57 = sub nuw nsw i64 56, %56
+  %58 = lshr i64 %.069103, %57
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 %.05.i
+  %60 = load i8, ptr %59, align 1, !tbaa !7
+  %61 = trunc i64 %58 to i8
+  %62 = xor i8 %60, %61
+  store i8 %62, ptr %59, align 1, !tbaa !7
+  %63 = add nuw nsw i64 %.05.i, 1
+  %exitcond.not.i = icmp eq i64 %63, 8
+  br i1 %exitcond.not.i, label %calc_a_xor_t.exit, label %55, !llvm.loop !8
 
-calc_a_xor_t.exit:                                ; preds = %63
-  %72 = load i64, ptr %54, align 8
-  store i64 %72, ptr %.072103, align 1
-  %73 = getelementptr inbounds nuw i8, ptr %.072103, i64 8
-  %.not90 = icmp ult ptr %73, %56
-  %spec.select94 = select i1 %.not90, ptr %73, ptr %51
-  %74 = add nuw i64 %.073102, 1
-  %exitcond.not = icmp eq i64 %.073102, %umax
-  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !6
+calc_a_xor_t.exit:                                ; preds = %55
+  %64 = load i64, ptr %46, align 8
+  store i64 %64, ptr %.067104, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %.067104, i64 8
+  %.not86 = icmp ult ptr %65, %48
+  %spec.select90 = select i1 %.not86, ptr %65, ptr %43
+  %66 = add nuw i64 %.069103, 1
+  %exitcond.not = icmp eq i64 %.069103, %umax
+  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !10
 
-.loopexit:                                        ; preds = %calc_a_xor_t.exit, %48
-  %75 = shl i64 %44, 3
-  store i64 %75, ptr %5, align 8
-  br label %77
+.loopexit:                                        ; preds = %calc_a_xor_t.exit, %40
+  %67 = shl i64 %36, 3
+  store i64 %67, ptr %5, align 8, !tbaa !3
+  br label %69
 
-.loopexit100:                                     ; preds = %57, %48, %50
-  %.076.ph = phi i32 [ -24832, %50 ], [ %49, %48 ], [ %60, %57 ]
-  %76 = shl i64 %44, 3
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %4, i8 0, i64 %76, i1 false)
-  br label %77
+.thread:                                          ; preds = %49, %42, %40
+  %.072.ph = phi i32 [ %41, %40 ], [ -24832, %42 ], [ %52, %49 ]
+  %68 = shl i64 %36, 3
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %4, i8 0, i64 %68, i1 false)
+  br label %69
 
-77:                                               ; preds = %.loopexit, %.loopexit100
-  %.07699 = phi i32 [ %.076.ph, %.loopexit100 ], [ 0, %.loopexit ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 16) #9
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #9
-  br label %78
+69:                                               ; preds = %.loopexit, %.thread
+  %.072101 = phi i32 [ %.072.ph, %.thread ], [ 0, %.loopexit ]
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 16) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #11
+  br label %70
 
-78:                                               ; preds = %20, %15, %12, %77
-  %.0 = phi i32 [ %.07699, %77 ], [ -24832, %12 ], [ -24832, %15 ], [ -24832, %20 ]
+70:                                               ; preds = %20, %15, %12, %69
+  %.0 = phi i32 [ %.072101, %69 ], [ -24832, %12 ], [ -24832, %15 ], [ -24832, %20 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @mbedtls_cipher_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #6
+
+declare i32 @mbedtls_cipher_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(none) initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca [8 x i8], align 8
-  %10 = alloca i8, align 1
-  %11 = alloca i8, align 1
-  %12 = alloca [16 x i8], align 16
-  store i8 0, ptr %11, align 1
-  store i64 0, ptr %5, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca [16 x i8], align 16
+  %12 = alloca [8 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
+  store i64 0, ptr %5, align 8, !tbaa !3
   %13 = add i64 %3, -8
   %14 = icmp ult i64 %6, %13
-  br i1 %14, label %81, label %15
+  br i1 %14, label %.thread81, label %15
 
 15:                                               ; preds = %7
-  switch i32 %1, label %79 [
+  switch i32 %1, label %.thread85 [
     i32 0, label %16
-    i32 1, label %26
+    i32 1, label %24
   ]
 
 16:                                               ; preds = %15
   %17 = add i64 %3, -24
   %or.cond = icmp ult i64 %17, 144115188075855849
   %18 = and i64 %3, 7
-  %.not78 = icmp eq i64 %18, 0
-  %or.cond82 = and i1 %or.cond, %.not78
-  br i1 %or.cond82, label %19, label %81
+  %.not70 = icmp eq i64 %18, 0
+  %or.cond74 = and i1 %or.cond, %.not70
+  br i1 %or.cond74, label %19, label %.thread81
 
 19:                                               ; preds = %16
   %20 = lshr exact i64 %3, 3
   %21 = call fastcc i32 @unwrap(ptr noundef %0, ptr noundef %2, i64 noundef %20, ptr noundef %9, ptr noundef %4, ptr noundef nonnull %5)
-  %.not79 = icmp eq i32 %21, 0
-  br i1 %.not79, label %22, label %79
+  %.not71 = icmp eq i32 %21, 0
+  br i1 %.not71, label %22, label %.thread85
 
 22:                                               ; preds = %19
-  %23 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV1, ptr noundef nonnull %9, i64 noundef 8) #9
-  %24 = trunc i32 %23 to i8
-  store i8 %24, ptr %10, align 1
-  %25 = and i32 %23, 255
-  %.not80 = icmp eq i32 %25, 0
-  br i1 %.not80, label %select.unfold, label %79
+  %23 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV1, ptr noundef nonnull %9, i64 noundef 8) #11
+  store i32 %23, ptr %10, align 4, !tbaa !11
+  %.not72 = icmp eq i32 %23, 0
+  br i1 %.not72, label %.thread90, label %.thread85
 
-26:                                               ; preds = %15
-  %27 = add i64 %3, -16
-  %or.cond3 = icmp ult i64 %27, 4294967281
-  %28 = and i64 %3, 7
-  %.not = icmp eq i64 %28, 0
-  %or.cond83 = and i1 %or.cond3, %.not
-  br i1 %or.cond83, label %29, label %81
+24:                                               ; preds = %15
+  %25 = add i64 %3, -16
+  %or.cond3 = icmp ult i64 %25, 4294967281
+  %26 = and i64 %3, 7
+  %.not = icmp eq i64 %26, 0
+  %or.cond75 = and i1 %or.cond3, %.not
+  br i1 %or.cond75, label %27, label %.thread81
 
-29:                                               ; preds = %26
-  %30 = icmp eq i64 %3, 16
-  br i1 %30, label %31, label %37
+27:                                               ; preds = %24
+  %28 = icmp eq i64 %3, 16
+  br i1 %28, label %29, label %35
 
-31:                                               ; preds = %29
-  %32 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef %2, i64 noundef 16, ptr noundef nonnull %12, ptr noundef nonnull %8) #9
-  %.not73 = icmp eq i32 %32, 0
-  br i1 %.not73, label %33, label %79
+29:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
+  %30 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef %2, i64 noundef 16, ptr noundef nonnull %11, ptr noundef nonnull %8) #11
+  %.not66 = icmp eq i32 %30, 0
+  br i1 %.not66, label %.thread, label %34
 
-33:                                               ; preds = %31
-  %34 = load i64, ptr %12, align 16
-  store i64 %34, ptr %9, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %36 = load i64, ptr %35, align 8
-  store i64 %36, ptr %4, align 1
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 16) #9
-  store i64 8, ptr %5, align 8
-  br label %40
+.thread:                                          ; preds = %29
+  %31 = load i64, ptr %11, align 16
+  store i64 %31, ptr %9, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %33 = load i64, ptr %32, align 8
+  store i64 %33, ptr %4, align 1
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef 16) #11
+  store i64 8, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
+  br label %38
 
-37:                                               ; preds = %29
-  %38 = lshr exact i64 %3, 3
-  %39 = call fastcc i32 @unwrap(ptr noundef %0, ptr noundef %2, i64 noundef %38, ptr noundef %9, ptr noundef %4, ptr noundef nonnull %5)
-  %.not72 = icmp eq i32 %39, 0
-  br i1 %.not72, label %40, label %79
+34:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
+  br label %.thread85
 
-40:                                               ; preds = %37, %33
-  %41 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV2, ptr noundef nonnull %9, i64 noundef 4) #9
-  %42 = and i32 %41, 255
-  %.not74 = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %44 = load i8, ptr %43, align 4
-  %45 = zext i8 %44 to i64
-  %46 = shl nuw nsw i64 %45, 24
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 5
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i64
-  %50 = shl nuw nsw i64 %49, 16
-  %51 = or disjoint i64 %50, %46
-  %52 = getelementptr inbounds nuw i8, ptr %9, i64 6
-  %53 = load i8, ptr %52, align 2
-  %54 = zext i8 %53 to i64
-  %55 = shl nuw nsw i64 %54, 8
-  %56 = or disjoint i64 %51, %55
-  %57 = getelementptr inbounds nuw i8, ptr %9, i64 7
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i64
-  %60 = or disjoint i64 %56, %59
-  %61 = sub nsw i64 %13, %60
-  %62 = and i64 %61, 7
-  %63 = sub nuw nsw i64 8, %62
-  %invariant.gep = getelementptr i8, ptr %4, i64 -8
-  %64 = load i64, ptr %5, align 8
-  %gep91 = getelementptr i8, ptr %invariant.gep, i64 %64
-  br label %65
+35:                                               ; preds = %27
+  %36 = lshr exact i64 %3, 3
+  %37 = call fastcc i32 @unwrap(ptr noundef %0, ptr noundef %2, i64 noundef %36, ptr noundef %9, ptr noundef %4, ptr noundef nonnull %5)
+  %.not65 = icmp eq i32 %37, 0
+  br i1 %.not65, label %38, label %.thread85
 
-65:                                               ; preds = %40, %65
-  %.05894 = phi i64 [ 0, %40 ], [ %74, %65 ]
-  %66 = phi i8 [ 0, %40 ], [ %73, %65 ]
-  %67 = phi i8 [ 0, %40 ], [ %71, %65 ]
-  %.not77 = icmp samesign ult i64 %.05894, %63
-  %68 = getelementptr i8, ptr %gep91, i64 %.05894
-  %69 = load i8, ptr %68, align 1
-  %70 = select i1 %.not77, i8 %69, i8 0
-  %71 = or i8 %67, %70
-  %72 = select i1 %.not77, i8 0, i8 %69
-  %73 = or i8 %66, %72
-  %74 = add nuw nsw i64 %.05894, 1
-  %exitcond.not = icmp eq i64 %74, 8
-  br i1 %exitcond.not, label %75, label %65, !llvm.loop !7
+38:                                               ; preds = %.thread, %35
+  %39 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV2, ptr noundef nonnull %9, i64 noundef 4) #11
+  %.not67 = icmp eq i32 %39, 0
+  %spec.select76.neg = select i1 %.not67, i64 0, i64 25344
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.0.copyload.i = load i32, ptr %40, align 4
+  %41 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
+  %42 = zext i32 %41 to i64
+  %43 = sub nsw i64 %13, %42
+  %44 = call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 7, i64 %43) #11, !srcloc !13
+  %45 = extractvalue { i64, i64, i64 } %44, 1
+  %46 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %45, i64 25344, i64 range(i64 -2147483647, 2147483648) %spec.select76.neg) #11, !srcloc !14
+  %47 = extractvalue { i64, i64, i64 } %46, 2
+  %48 = trunc i64 %47 to i32
+  %49 = sub nsw i32 0, %48
+  %50 = and i64 %43, 7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #11
+  store i64 0, ptr %12, align 8
+  %51 = load i64, ptr %5, align 8, !tbaa !3
+  %52 = getelementptr i8, ptr %4, i64 %51
+  %53 = getelementptr i8, ptr %52, i64 -8
+  %54 = sub nuw nsw i64 8, %50
+  %55 = call i32 @mbedtls_ct_memcmp_partial(ptr noundef %53, ptr noundef nonnull %12, i64 noundef 8, i64 noundef %54, i64 noundef 0) #11
+  store i32 %55, ptr %10, align 4, !tbaa !11
+  %.not68 = icmp eq i32 %55, 0
+  %.4 = select i1 %.not68, i32 %49, i32 -25344
+  %.not69 = icmp eq i32 %.4, 0
+  br i1 %.not69, label %.thread93, label %57
 
-75:                                               ; preds = %65
-  %spec.select84 = select i1 %.not74, i32 0, i32 -25344
-  %76 = icmp ugt i64 %61, 7
-  %.3 = select i1 %76, i32 -25344, i32 %spec.select84
-  store i8 %73, ptr %10, align 1
-  store i8 %71, ptr %11, align 1
-  %.not75 = icmp eq i8 %73, 0
-  %spec.select85 = select i1 %.not75, i32 %.3, i32 -25344
-  %.not76 = icmp eq i32 %spec.select85, 0
-  br i1 %.not76, label %77, label %79
+.thread93:                                        ; preds = %38
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %42
+  call void @llvm.memset.p0.i64(ptr align 1 %56, i8 0, i64 %50, i1 false)
+  store i64 %42, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
+  br label %.thread90
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 %60
-  call void @llvm.memset.p0.i64(ptr align 1 %78, i8 0, i64 %62, i1 false)
-  br label %select.unfold.sink.split
+57:                                               ; preds = %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
+  br label %.thread85
 
-79:                                               ; preds = %19, %31, %75, %37, %22, %15
-  %.059.ph = phi i32 [ -24704, %15 ], [ -25344, %22 ], [ %39, %37 ], [ %spec.select85, %75 ], [ %32, %31 ], [ %21, %19 ]
-  %80 = load i64, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %80, i1 false)
-  br label %select.unfold.sink.split
+.thread85:                                        ; preds = %35, %34, %15, %22, %19, %57
+  %.05588 = phi i32 [ %.4, %57 ], [ -24704, %15 ], [ -25344, %22 ], [ %21, %19 ], [ %37, %35 ], [ %30, %34 ]
+  %58 = load i64, ptr %5, align 8, !tbaa !3
+  call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %58, i1 false)
+  store i64 0, ptr %5, align 8, !tbaa !3
+  br label %.thread90
 
-select.unfold.sink.split:                         ; preds = %79, %77
-  %.sink = phi i64 [ %60, %77 ], [ 0, %79 ]
-  %.05989.ph = phi i32 [ 0, %77 ], [ %.059.ph, %79 ]
-  store i64 %.sink, ptr %5, align 8
-  br label %select.unfold
+.thread90:                                        ; preds = %22, %.thread93, %.thread85
+  %.05589 = phi i32 [ %.05588, %.thread85 ], [ 0, %.thread93 ], [ 0, %22 ]
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 4) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 8) #11
+  br label %.thread81
 
-select.unfold:                                    ; preds = %select.unfold.sink.split, %22
-  %.05989 = phi i32 [ 0, %22 ], [ %.05989.ph, %select.unfold.sink.split ]
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef 1) #9
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 1) #9
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 8) #9
-  br label %81
-
-81:                                               ; preds = %26, %16, %7, %select.unfold
-  %.0 = phi i32 [ %.05989, %select.unfold ], [ -24832, %7 ], [ -24832, %16 ], [ -24832, %26 ]
+.thread81:                                        ; preds = %24, %16, %7, %.thread90
+  %.0 = phi i32 [ %.05589, %.thread90 ], [ -24832, %7 ], [ -24832, %16 ], [ -24832, %24 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
   ret i32 %.0
 }
 
@@ -414,7 +408,10 @@ define internal fastcc i32 @unwrap(ptr noundef %0, ptr noundef readonly captures
   %7 = alloca i64, align 8
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16
-  store i64 0, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  store i64 0, ptr %5, align 8, !tbaa !3
   %10 = icmp samesign ult i64 %2, 3
   br i1 %10, label %41, label %.preheader.lr.ph
 
@@ -444,20 +441,20 @@ define internal fastcc i32 @unwrap(ptr noundef %0, ptr noundef readonly captures
   %23 = sub nuw nsw i64 56, %22
   %24 = lshr i64 %.03245, %23
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.05.i
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 1, !tbaa !7
   %27 = trunc i64 %24 to i8
   %28 = xor i8 %26, %27
-  store i8 %28, ptr %25, align 1
+  store i8 %28, ptr %25, align 1, !tbaa !7
   %29 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %29, 8
-  br i1 %exitcond.not.i, label %calc_a_xor_t.exit, label %21, !llvm.loop !4
+  br i1 %exitcond.not.i, label %calc_a_xor_t.exit, label %21, !llvm.loop !8
 
 calc_a_xor_t.exit:                                ; preds = %21
   %30 = load i64, ptr %3, align 1
   store i64 %30, ptr %9, align 16
   %31 = load i64, ptr %.046, align 1
   store i64 %31, ptr %19, align 8
-  %32 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 16, ptr noundef nonnull %8, ptr noundef nonnull %7) #9
+  %32 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 16, ptr noundef nonnull %8, ptr noundef nonnull %7) #11
   %.not39 = icmp eq i32 %32, 0
   br i1 %.not39, label %33, label %39
 
@@ -471,10 +468,10 @@ calc_a_xor_t.exit:                                ; preds = %21
   %.1 = select i1 %36, ptr %17, ptr %37
   %38 = add nsw i64 %.03245, -1
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %.thread, label %.preheader, !llvm.loop !8
+  br i1 %.not, label %.thread, label %.preheader, !llvm.loop !15
 
 .thread:                                          ; preds = %33
-  store i64 %14, ptr %5, align 8
+  store i64 %14, ptr %5, align 8, !tbaa !3
   br label %40
 
 39:                                               ; preds = %calc_a_xor_t.exit
@@ -482,340 +479,403 @@ calc_a_xor_t.exit:                                ; preds = %21
   br label %40
 
 40:                                               ; preds = %.thread, %39
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #9
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 16) #9
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 16) #11
   br label %41
 
 41:                                               ; preds = %6, %40
   %.033 = phi i32 [ %32, %40 ], [ -24832, %6 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   ret i32 %.033
 }
 
-declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+declare i32 @mbedtls_ct_memcmp_partial(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_nist_kw_self_test(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = alloca %struct.mbedtls_nist_kw_context, align 8
-  %3 = alloca [48 x i8], align 16
-  %4 = alloca i64, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 96, i1 false)
+  %2 = alloca [8 x i8], align 1
+  %3 = alloca i32, align 4
+  %4 = alloca %struct.mbedtls_nist_kw_context, align 8
+  %5 = alloca [48 x i8], align 16
+  %6 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   %.not71 = icmp eq i32 %0, 0
-  br label %5
+  br label %7
 
-5:                                                ; preds = %1, %52
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %52 ]
+7:                                                ; preds = %1, %59
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %59 ]
   %.phi.trans.insert = getelementptr inbounds nuw [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.pre126 = shl i32 %.pre, 3
-  br i1 %.not71, label %._crit_edge, label %6
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !11
+  %.pre136 = shl i32 %.pre, 3
+  br i1 %.not71, label %._crit_edge, label %8
 
-6:                                                ; preds = %5
-  %7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.pre126)
+8:                                                ; preds = %7
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.pre136)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %5, %6
-  %8 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @kw_key, i64 0, i64 %indvars.iv
-  %9 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre126, i32 noundef 1) #9
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %mbedtls_nist_kw_setkey.exit.thread, label %11
+._crit_edge:                                      ; preds = %7, %8
+  %10 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @kw_key, i64 0, i64 %indvars.iv
+  %11 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre136, i32 noundef 1) #11
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %mbedtls_nist_kw_setkey.exit.thread, label %13
 
-11:                                               ; preds = %._crit_edge
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %13 = load i32, ptr %12, align 8
-  %.not.i = icmp eq i32 %13, 16
-  br i1 %.not.i, label %14, label %mbedtls_nist_kw_setkey.exit.thread
+13:                                               ; preds = %._crit_edge
+  %14 = getelementptr i8, ptr %11, i64 8
+  %.val.i = load i32, ptr %14, align 8
+  %15 = and i32 %.val.i, 31
+  %.not.i = icmp eq i32 %15, 16
+  br i1 %.not.i, label %16, label %mbedtls_nist_kw_setkey.exit.thread
 
-14:                                               ; preds = %11
-  call void @mbedtls_cipher_free(ptr noundef nonnull %2) #9
-  %15 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %2, ptr noundef nonnull %9) #9
-  %.not18.i = icmp eq i32 %15, 0
+16:                                               ; preds = %13
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
+  %17 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %11) #11
+  %.not18.i = icmp eq i32 %17, 0
   br i1 %.not18.i, label %mbedtls_nist_kw_setkey.exit, label %mbedtls_nist_kw_setkey.exit.thread
 
-mbedtls_nist_kw_setkey.exit:                      ; preds = %14
-  %16 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef %.pre126, i32 noundef 1) #9
-  %.not72 = icmp eq i32 %16, 0
-  br i1 %.not72, label %19, label %mbedtls_nist_kw_setkey.exit.thread
+mbedtls_nist_kw_setkey.exit:                      ; preds = %16
+  %18 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef %.pre136, i32 noundef 1) #11
+  %.not72 = icmp eq i32 %18, 0
+  br i1 %.not72, label %21, label %mbedtls_nist_kw_setkey.exit.thread
 
-mbedtls_nist_kw_setkey.exit.thread:               ; preds = %14, %11, %._crit_edge, %mbedtls_nist_kw_setkey.exit
-  %.0.i99 = phi i32 [ %16, %mbedtls_nist_kw_setkey.exit ], [ %15, %14 ], [ -24832, %11 ], [ -24832, %._crit_edge ]
-  br i1 %.not71, label %.loopexit, label %17
+mbedtls_nist_kw_setkey.exit.thread:               ; preds = %16, %13, %._crit_edge, %mbedtls_nist_kw_setkey.exit
+  %.0.i103 = phi i32 [ %18, %mbedtls_nist_kw_setkey.exit ], [ %17, %16 ], [ -24832, %13 ], [ -24832, %._crit_edge ]
+  br i1 %.not71, label %.loopexit, label %19
 
-17:                                               ; preds = %mbedtls_nist_kw_setkey.exit.thread
-  %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
+19:                                               ; preds = %mbedtls_nist_kw_setkey.exit.thread
+  %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   br label %.loopexit
 
-19:                                               ; preds = %mbedtls_nist_kw_setkey.exit
-  %20 = getelementptr inbounds nuw [3 x [40 x i8]], ptr @kw_msg, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw [3 x i64], ptr @kw_msg_len, i64 0, i64 %indvars.iv
-  %22 = load i64, ptr %21, align 8
-  %23 = call i32 @mbedtls_nist_kw_wrap(ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %20, i64 noundef %22, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 48)
-  %.not73 = icmp eq i32 %23, 0
-  br i1 %.not73, label %24, label %30
+21:                                               ; preds = %mbedtls_nist_kw_setkey.exit
+  %22 = getelementptr inbounds nuw [3 x [40 x i8]], ptr @kw_msg, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [3 x i64], ptr @kw_msg_len, i64 0, i64 %indvars.iv
+  %24 = load i64, ptr %23, align 8, !tbaa !3
+  %25 = call i32 @mbedtls_nist_kw_wrap(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %22, i64 noundef %24, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 48)
+  %.not73 = icmp eq i32 %25, 0
+  br i1 %.not73, label %26, label %32
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw [3 x i64], ptr @kw_out_len, i64 0, i64 %indvars.iv
-  %26 = load i64, ptr %25, align 8
-  %27 = load i64, ptr %4, align 8
-  %.not74 = icmp eq i64 %26, %27
-  br i1 %.not74, label %28, label %30
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw [3 x i64], ptr @kw_out_len, i64 0, i64 %indvars.iv
+  %28 = load i64, ptr %27, align 8, !tbaa !3
+  %29 = load i64, ptr %6, align 8, !tbaa !3
+  %.not74 = icmp eq i64 %28, %29
+  br i1 %.not74, label %30, label %32
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @kw_res, i64 0, i64 %indvars.iv
-  %bcmp75 = call i32 @bcmp(ptr nonnull %3, ptr nonnull %29, i64 %26)
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @kw_res, i64 0, i64 %indvars.iv
+  %bcmp75 = call i32 @bcmp(ptr nonnull %5, ptr nonnull %31, i64 %28)
   %.not76 = icmp eq i32 %bcmp75, 0
-  br i1 %.not76, label %33, label %30
+  br i1 %.not76, label %35, label %32
 
-30:                                               ; preds = %28, %24, %19
-  br i1 %.not71, label %.loopexit, label %31
+32:                                               ; preds = %30, %26, %21
+  br i1 %.not71, label %.loopexit, label %33
 
-31:                                               ; preds = %30
-  %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
+33:                                               ; preds = %32
+  %34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
   br label %.loopexit
 
-33:                                               ; preds = %28
-  %34 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre126, i32 noundef 1) #9
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %mbedtls_nist_kw_setkey.exit88.thread, label %36
+35:                                               ; preds = %30
+  %36 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre136, i32 noundef 1) #11
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %mbedtls_nist_kw_setkey.exit89.thread, label %38
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %38 = load i32, ptr %37, align 8
-  %.not.i85 = icmp eq i32 %38, 16
-  br i1 %.not.i85, label %39, label %mbedtls_nist_kw_setkey.exit88.thread
+38:                                               ; preds = %35
+  %39 = getelementptr i8, ptr %36, i64 8
+  %.val.i85 = load i32, ptr %39, align 8
+  %40 = and i32 %.val.i85, 31
+  %.not.i86 = icmp eq i32 %40, 16
+  br i1 %.not.i86, label %41, label %mbedtls_nist_kw_setkey.exit89.thread
 
-39:                                               ; preds = %36
-  call void @mbedtls_cipher_free(ptr noundef nonnull %2) #9
-  %40 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %2, ptr noundef nonnull %34) #9
-  %.not18.i87 = icmp eq i32 %40, 0
-  br i1 %.not18.i87, label %mbedtls_nist_kw_setkey.exit88, label %mbedtls_nist_kw_setkey.exit88.thread
+41:                                               ; preds = %38
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
+  %42 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %36) #11
+  %.not18.i88 = icmp eq i32 %42, 0
+  br i1 %.not18.i88, label %mbedtls_nist_kw_setkey.exit89, label %mbedtls_nist_kw_setkey.exit89.thread
 
-mbedtls_nist_kw_setkey.exit88:                    ; preds = %39
-  %41 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef %.pre126, i32 noundef 0) #9
-  %.not77 = icmp eq i32 %41, 0
-  br i1 %.not77, label %44, label %mbedtls_nist_kw_setkey.exit88.thread
+mbedtls_nist_kw_setkey.exit89:                    ; preds = %41
+  %43 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %10, i32 noundef %.pre136, i32 noundef 0) #11
+  %.not77 = icmp eq i32 %43, 0
+  br i1 %.not77, label %46, label %mbedtls_nist_kw_setkey.exit89.thread
 
-mbedtls_nist_kw_setkey.exit88.thread:             ; preds = %39, %36, %33, %mbedtls_nist_kw_setkey.exit88
-  %.0.i86102 = phi i32 [ %41, %mbedtls_nist_kw_setkey.exit88 ], [ %40, %39 ], [ -24832, %36 ], [ -24832, %33 ]
-  br i1 %.not71, label %.loopexit, label %42
+mbedtls_nist_kw_setkey.exit89.thread:             ; preds = %41, %38, %35, %mbedtls_nist_kw_setkey.exit89
+  %.0.i87106 = phi i32 [ %43, %mbedtls_nist_kw_setkey.exit89 ], [ %42, %41 ], [ -24832, %38 ], [ -24832, %35 ]
+  br i1 %.not71, label %.loopexit, label %44
 
-42:                                               ; preds = %mbedtls_nist_kw_setkey.exit88.thread
-  %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
+44:                                               ; preds = %mbedtls_nist_kw_setkey.exit89.thread
+  %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   br label %.loopexit
 
-44:                                               ; preds = %mbedtls_nist_kw_setkey.exit88
-  %45 = call i32 @mbedtls_nist_kw_unwrap(ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %26, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 48)
-  %.not78 = icmp eq i32 %45, 0
-  %46 = load i64, ptr %4, align 8
-  %.not79 = icmp eq i64 %46, %22
+46:                                               ; preds = %mbedtls_nist_kw_setkey.exit89
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  %47 = add i64 %28, -24
+  %or.cond139 = icmp ult i64 %47, 33
+  br i1 %or.cond139, label %48, label %mbedtls_nist_kw_unwrap.exit.thread
+
+48:                                               ; preds = %46
+  %49 = lshr exact i64 %28, 3
+  %50 = call fastcc i32 @unwrap(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %49, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %.not71.i = icmp eq i32 %50, 0
+  br i1 %.not71.i, label %51, label %.thread85.i
+
+51:                                               ; preds = %48
+  %52 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV1, ptr noundef nonnull %2, i64 noundef 8) #11
+  store i32 %52, ptr %3, align 4, !tbaa !11
+  %.not72.i = icmp eq i32 %52, 0
+  br i1 %.not72.i, label %.mbedtls_nist_kw_unwrap.exit_crit_edge, label %.thread85.i
+
+.mbedtls_nist_kw_unwrap.exit_crit_edge:           ; preds = %51
+  %.pre132 = load i64, ptr %6, align 8
+  br label %mbedtls_nist_kw_unwrap.exit
+
+.thread85.i:                                      ; preds = %51, %48
+  %53 = load i64, ptr %6, align 8, !tbaa !3
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %5, i8 0, i64 %53, i1 false)
+  store i64 0, ptr %6, align 8, !tbaa !3
+  br label %mbedtls_nist_kw_unwrap.exit
+
+mbedtls_nist_kw_unwrap.exit.thread:               ; preds = %46
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  br label %.loopexit116
+
+mbedtls_nist_kw_unwrap.exit:                      ; preds = %.mbedtls_nist_kw_unwrap.exit_crit_edge, %.thread85.i
+  %54 = phi i64 [ 0, %.thread85.i ], [ %.pre132, %.mbedtls_nist_kw_unwrap.exit_crit_edge ]
+  %.not78 = phi i1 [ false, %.thread85.i ], [ true, %.mbedtls_nist_kw_unwrap.exit_crit_edge ]
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 4) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  %.not79 = icmp eq i64 %54, %24
   %or.cond = select i1 %.not78, i1 %.not79, i1 false
-  br i1 %or.cond, label %47, label %48
+  br i1 %or.cond, label %55, label %.loopexit116
 
-47:                                               ; preds = %44
-  %bcmp80 = call i32 @bcmp(ptr nonnull %3, ptr nonnull %20, i64 %22)
+55:                                               ; preds = %mbedtls_nist_kw_unwrap.exit
+  %bcmp80 = call i32 @bcmp(ptr nonnull %5, ptr nonnull %22, i64 %24)
   %.not81 = icmp eq i32 %bcmp80, 0
-  br i1 %.not81, label %50, label %48
+  br i1 %.not81, label %57, label %.loopexit116
 
-48:                                               ; preds = %47, %44
-  br i1 %.not71, label %.loopexit, label %49
+.loopexit116:                                     ; preds = %55, %mbedtls_nist_kw_unwrap.exit, %mbedtls_nist_kw_unwrap.exit.thread
+  br i1 %.not71, label %.loopexit, label %56
 
-49:                                               ; preds = %48
+56:                                               ; preds = %.loopexit116
   %puts83 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   br label %.loopexit
 
-50:                                               ; preds = %47
-  br i1 %.not71, label %52, label %51
+57:                                               ; preds = %55
+  br i1 %.not71, label %59, label %58
 
-51:                                               ; preds = %50
+58:                                               ; preds = %57
   %puts82 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %52
+  br label %59
 
-52:                                               ; preds = %50, %51
+59:                                               ; preds = %57, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !16
 
-.preheader:                                       ; preds = %52, %100
-  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %100 ], [ 0, %52 ]
-  %.phi.trans.insert124 = getelementptr inbounds nuw [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv119
-  %.pre125 = load i32, ptr %.phi.trans.insert124, align 4
-  %.pre127 = shl i32 %.pre125, 3
-  br i1 %.not71, label %._crit_edge123, label %53
+.preheader:                                       ; preds = %59, %107
+  %indvars.iv128 = phi i64 [ %indvars.iv.next129, %107 ], [ 0, %59 ]
+  %.phi.trans.insert134 = getelementptr inbounds nuw [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv128
+  %.pre135 = load i32, ptr %.phi.trans.insert134, align 4, !tbaa !11
+  %.pre137 = shl i32 %.pre135, 3
+  br i1 %.not71, label %._crit_edge133, label %60
 
-53:                                               ; preds = %.preheader
-  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.pre127)
-  br label %._crit_edge123
+60:                                               ; preds = %.preheader
+  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.pre137)
+  br label %._crit_edge133
 
-._crit_edge123:                                   ; preds = %.preheader, %53
-  %55 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @kwp_key, i64 0, i64 %indvars.iv119
-  %56 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre127, i32 noundef 1) #9
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %mbedtls_nist_kw_setkey.exit92.thread, label %58
+._crit_edge133:                                   ; preds = %.preheader, %60
+  %62 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @kwp_key, i64 0, i64 %indvars.iv128
+  %63 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre137, i32 noundef 1) #11
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %mbedtls_nist_kw_setkey.exit95.thread, label %65
 
-58:                                               ; preds = %._crit_edge123
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %60 = load i32, ptr %59, align 8
-  %.not.i89 = icmp eq i32 %60, 16
-  br i1 %.not.i89, label %61, label %mbedtls_nist_kw_setkey.exit92.thread
+65:                                               ; preds = %._crit_edge133
+  %66 = getelementptr i8, ptr %63, i64 8
+  %.val.i91 = load i32, ptr %66, align 8
+  %67 = and i32 %.val.i91, 31
+  %.not.i92 = icmp eq i32 %67, 16
+  br i1 %.not.i92, label %68, label %mbedtls_nist_kw_setkey.exit95.thread
 
-61:                                               ; preds = %58
-  call void @mbedtls_cipher_free(ptr noundef nonnull %2) #9
-  %62 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %2, ptr noundef nonnull %56) #9
-  %.not18.i91 = icmp eq i32 %62, 0
-  br i1 %.not18.i91, label %mbedtls_nist_kw_setkey.exit92, label %mbedtls_nist_kw_setkey.exit92.thread
+68:                                               ; preds = %65
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
+  %69 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %63) #11
+  %.not18.i94 = icmp eq i32 %69, 0
+  br i1 %.not18.i94, label %mbedtls_nist_kw_setkey.exit95, label %mbedtls_nist_kw_setkey.exit95.thread
 
-mbedtls_nist_kw_setkey.exit92:                    ; preds = %61
-  %63 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %2, ptr noundef nonnull %55, i32 noundef %.pre127, i32 noundef 1) #9
-  %.not62 = icmp eq i32 %63, 0
-  br i1 %.not62, label %66, label %mbedtls_nist_kw_setkey.exit92.thread
+mbedtls_nist_kw_setkey.exit95:                    ; preds = %68
+  %70 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %62, i32 noundef %.pre137, i32 noundef 1) #11
+  %.not62 = icmp eq i32 %70, 0
+  br i1 %.not62, label %73, label %mbedtls_nist_kw_setkey.exit95.thread
 
-mbedtls_nist_kw_setkey.exit92.thread:             ; preds = %61, %58, %._crit_edge123, %mbedtls_nist_kw_setkey.exit92
-  %.0.i90105 = phi i32 [ %63, %mbedtls_nist_kw_setkey.exit92 ], [ %62, %61 ], [ -24832, %58 ], [ -24832, %._crit_edge123 ]
-  br i1 %.not71, label %.loopexit, label %64
+mbedtls_nist_kw_setkey.exit95.thread:             ; preds = %68, %65, %._crit_edge133, %mbedtls_nist_kw_setkey.exit95
+  %.0.i93111 = phi i32 [ %70, %mbedtls_nist_kw_setkey.exit95 ], [ %69, %68 ], [ -24832, %65 ], [ -24832, %._crit_edge133 ]
+  br i1 %.not71, label %.loopexit, label %71
 
-64:                                               ; preds = %mbedtls_nist_kw_setkey.exit92.thread
-  %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
+71:                                               ; preds = %mbedtls_nist_kw_setkey.exit95.thread
+  %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7)
   br label %.loopexit
 
-66:                                               ; preds = %mbedtls_nist_kw_setkey.exit92
-  %67 = getelementptr inbounds nuw [3 x [31 x i8]], ptr @kwp_msg, i64 0, i64 %indvars.iv119
-  %68 = getelementptr inbounds nuw [3 x i64], ptr @kwp_msg_len, i64 0, i64 %indvars.iv119
-  %69 = load i64, ptr %68, align 8
-  %70 = call i32 @mbedtls_nist_kw_wrap(ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %67, i64 noundef %69, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 48)
-  %.not63 = icmp eq i32 %70, 0
-  br i1 %.not63, label %71, label %77
+73:                                               ; preds = %mbedtls_nist_kw_setkey.exit95
+  %74 = getelementptr inbounds nuw [3 x [31 x i8]], ptr @kwp_msg, i64 0, i64 %indvars.iv128
+  %75 = getelementptr inbounds nuw [3 x i64], ptr @kwp_msg_len, i64 0, i64 %indvars.iv128
+  %76 = load i64, ptr %75, align 8, !tbaa !3
+  %77 = call i32 @mbedtls_nist_kw_wrap(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %74, i64 noundef %76, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 48)
+  %.not63 = icmp eq i32 %77, 0
+  br i1 %.not63, label %78, label %84
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw [3 x i64], ptr @kwp_out_len, i64 0, i64 %indvars.iv119
-  %73 = load i64, ptr %72, align 8
-  %74 = load i64, ptr %4, align 8
-  %.not64 = icmp eq i64 %73, %74
-  br i1 %.not64, label %75, label %77
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds nuw [3 x i64], ptr @kwp_out_len, i64 0, i64 %indvars.iv128
+  %80 = load i64, ptr %79, align 8, !tbaa !3
+  %81 = load i64, ptr %6, align 8, !tbaa !3
+  %.not64 = icmp eq i64 %80, %81
+  br i1 %.not64, label %82, label %84
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @kwp_res, i64 0, i64 %indvars.iv119
-  %bcmp = call i32 @bcmp(ptr nonnull %3, ptr nonnull %76, i64 %73)
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @kwp_res, i64 0, i64 %indvars.iv128
+  %bcmp = call i32 @bcmp(ptr nonnull %5, ptr nonnull %83, i64 %80)
   %.not65 = icmp eq i32 %bcmp, 0
-  br i1 %.not65, label %80, label %77
+  br i1 %.not65, label %87, label %84
 
-77:                                               ; preds = %75, %71, %66
-  br i1 %.not71, label %.loopexit, label %78
+84:                                               ; preds = %82, %78, %73
+  br i1 %.not71, label %.loopexit, label %85
 
-78:                                               ; preds = %77
-  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
+85:                                               ; preds = %84
+  %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
   br label %.loopexit
 
-80:                                               ; preds = %75
-  %81 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre127, i32 noundef 1) #9
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %mbedtls_nist_kw_setkey.exit96.thread, label %83
+87:                                               ; preds = %82
+  %88 = call ptr @mbedtls_cipher_info_from_values(i32 noundef 2, i32 noundef %.pre137, i32 noundef 1) #11
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %mbedtls_nist_kw_setkey.exit100.thread, label %90
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %85 = load i32, ptr %84, align 8
-  %.not.i93 = icmp eq i32 %85, 16
-  br i1 %.not.i93, label %86, label %mbedtls_nist_kw_setkey.exit96.thread
+90:                                               ; preds = %87
+  %91 = getelementptr i8, ptr %88, i64 8
+  %.val.i96 = load i32, ptr %91, align 8
+  %92 = and i32 %.val.i96, 31
+  %.not.i97 = icmp eq i32 %92, 16
+  br i1 %.not.i97, label %93, label %mbedtls_nist_kw_setkey.exit100.thread
 
-86:                                               ; preds = %83
-  call void @mbedtls_cipher_free(ptr noundef nonnull %2) #9
-  %87 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %2, ptr noundef nonnull %81) #9
-  %.not18.i95 = icmp eq i32 %87, 0
-  br i1 %.not18.i95, label %mbedtls_nist_kw_setkey.exit96, label %mbedtls_nist_kw_setkey.exit96.thread
+93:                                               ; preds = %90
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
+  %94 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %4, ptr noundef nonnull %88) #11
+  %.not18.i99 = icmp eq i32 %94, 0
+  br i1 %.not18.i99, label %mbedtls_nist_kw_setkey.exit100, label %mbedtls_nist_kw_setkey.exit100.thread
 
-mbedtls_nist_kw_setkey.exit96:                    ; preds = %86
-  %88 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %2, ptr noundef nonnull %55, i32 noundef %.pre127, i32 noundef 0) #9
-  %.not66 = icmp eq i32 %88, 0
-  br i1 %.not66, label %91, label %mbedtls_nist_kw_setkey.exit96.thread
+mbedtls_nist_kw_setkey.exit100:                   ; preds = %93
+  %95 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %4, ptr noundef nonnull %62, i32 noundef %.pre137, i32 noundef 0) #11
+  %.not66 = icmp eq i32 %95, 0
+  br i1 %.not66, label %98, label %mbedtls_nist_kw_setkey.exit100.thread
 
-mbedtls_nist_kw_setkey.exit96.thread:             ; preds = %86, %83, %80, %mbedtls_nist_kw_setkey.exit96
-  %.0.i94108 = phi i32 [ %88, %mbedtls_nist_kw_setkey.exit96 ], [ %87, %86 ], [ -24832, %83 ], [ -24832, %80 ]
-  br i1 %.not71, label %.loopexit, label %89
-
-89:                                               ; preds = %mbedtls_nist_kw_setkey.exit96.thread
-  %90 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
-  br label %.loopexit
-
-91:                                               ; preds = %mbedtls_nist_kw_setkey.exit96
-  %92 = call i32 @mbedtls_nist_kw_unwrap(ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %3, i64 noundef %73, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 48)
-  %.not67 = icmp eq i32 %92, 0
-  %93 = load i64, ptr %4, align 8
-  %.not68 = icmp eq i64 %93, %69
-  %or.cond109 = select i1 %.not67, i1 %.not68, i1 false
-  br i1 %or.cond109, label %94, label %95
-
-94:                                               ; preds = %91
-  %bcmp69 = call i32 @bcmp(ptr nonnull %3, ptr nonnull %67, i64 %69)
-  %.not70 = icmp eq i32 %bcmp69, 0
-  br i1 %.not70, label %98, label %95
-
-95:                                               ; preds = %94, %91
+mbedtls_nist_kw_setkey.exit100.thread:            ; preds = %93, %90, %87, %mbedtls_nist_kw_setkey.exit100
+  %.0.i98114 = phi i32 [ %95, %mbedtls_nist_kw_setkey.exit100 ], [ %94, %93 ], [ -24832, %90 ], [ -24832, %87 ]
   br i1 %.not71, label %.loopexit, label %96
 
-96:                                               ; preds = %95
-  %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
+96:                                               ; preds = %mbedtls_nist_kw_setkey.exit100.thread
+  %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7)
   br label %.loopexit
 
-98:                                               ; preds = %94
-  br i1 %.not71, label %100, label %99
+98:                                               ; preds = %mbedtls_nist_kw_setkey.exit100
+  %99 = call i32 @mbedtls_nist_kw_unwrap(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5, i64 noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 48)
+  %.not67 = icmp eq i32 %99, 0
+  %100 = load i64, ptr %6, align 8
+  %.not68 = icmp eq i64 %100, %76
+  %or.cond115 = select i1 %.not67, i1 %.not68, i1 false
+  br i1 %or.cond115, label %101, label %102
 
-99:                                               ; preds = %98
+101:                                              ; preds = %98
+  %bcmp69 = call i32 @bcmp(ptr nonnull %5, ptr nonnull %74, i64 %76)
+  %.not70 = icmp eq i32 %bcmp69, 0
+  br i1 %.not70, label %105, label %102
+
+102:                                              ; preds = %101, %98
+  br i1 %.not71, label %.loopexit, label %103
+
+103:                                              ; preds = %102
+  %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
+  br label %.loopexit
+
+105:                                              ; preds = %101
+  br i1 %.not71, label %107, label %106
+
+106:                                              ; preds = %105
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %100
+  br label %107
 
-100:                                              ; preds = %98, %99
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond122.not = icmp eq i64 %indvars.iv.next120, 3
-  br i1 %exitcond122.not, label %.loopexit, label %.preheader, !llvm.loop !10
+107:                                              ; preds = %105, %106
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next129, 3
+  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
-.loopexit:                                        ; preds = %100, %95, %96, %77, %78, %48, %49, %30, %31, %mbedtls_nist_kw_setkey.exit96.thread, %89, %mbedtls_nist_kw_setkey.exit92.thread, %64, %mbedtls_nist_kw_setkey.exit88.thread, %42, %mbedtls_nist_kw_setkey.exit.thread, %17
-  %.1 = phi i32 [ %.0.i99, %17 ], [ %.0.i99, %mbedtls_nist_kw_setkey.exit.thread ], [ %.0.i86102, %42 ], [ %.0.i86102, %mbedtls_nist_kw_setkey.exit88.thread ], [ %.0.i90105, %64 ], [ %.0.i90105, %mbedtls_nist_kw_setkey.exit92.thread ], [ %.0.i94108, %89 ], [ %.0.i94108, %mbedtls_nist_kw_setkey.exit96.thread ], [ 1, %31 ], [ 1, %30 ], [ 1, %49 ], [ 1, %48 ], [ 1, %78 ], [ 1, %77 ], [ 1, %96 ], [ 1, %95 ], [ 0, %100 ]
-  call void @mbedtls_cipher_free(ptr noundef nonnull %2) #9
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 96) #9
-  br i1 %.not71, label %102, label %101
+.loopexit:                                        ; preds = %107, %102, %103, %84, %85, %.loopexit116, %56, %32, %33, %mbedtls_nist_kw_setkey.exit100.thread, %96, %mbedtls_nist_kw_setkey.exit95.thread, %71, %mbedtls_nist_kw_setkey.exit89.thread, %44, %mbedtls_nist_kw_setkey.exit.thread, %19
+  %.1 = phi i32 [ %.0.i103, %19 ], [ %.0.i103, %mbedtls_nist_kw_setkey.exit.thread ], [ %.0.i87106, %44 ], [ %.0.i87106, %mbedtls_nist_kw_setkey.exit89.thread ], [ %.0.i93111, %71 ], [ %.0.i93111, %mbedtls_nist_kw_setkey.exit95.thread ], [ %.0.i98114, %96 ], [ %.0.i98114, %mbedtls_nist_kw_setkey.exit100.thread ], [ 1, %33 ], [ 1, %32 ], [ 1, %56 ], [ 1, %.loopexit116 ], [ 1, %85 ], [ 1, %84 ], [ 1, %103 ], [ 1, %102 ], [ 0, %107 ]
+  call void @mbedtls_cipher_free(ptr noundef nonnull %4) #11
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 96) #11
+  br i1 %.not71, label %109, label %108
 
-101:                                              ; preds = %.loopexit
+108:                                              ; preds = %.loopexit
   %putchar = call i32 @putchar(i32 10)
-  br label %102
+  br label %109
 
-102:                                              ; preds = %101, %.loopexit
+109:                                              ; preds = %108, %.loopexit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #11
   ret i32 %.1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #10
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"long", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !5, i64 0}
+!13 = !{i64 1011032, i64 1011082, i64 1011154, i64 1011226, i64 1011298, i64 1011370, i64 1011442, i64 1011514, i64 1011586}
+!14 = !{i64 1007800, i64 1007850, i64 1007922, i64 1007994, i64 1008066}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

@@ -15,26 +15,20 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_sha1_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  br label %3
-
-3:                                                ; preds = %1
-  br label %4
-
-4:                                                ; preds = %3
-  %5 = load ptr, ptr %2, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 92, i1 false)
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @llvm.memset.p0.i64(ptr align 4 %3, i8 0, i64 92, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_sha1_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -42,7 +36,7 @@ define hidden void @mbedtls_sha1_free(ptr noundef %0) #0 {
   br label %8
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
   call void @mbedtls_platform_zeroize(ptr noundef %7, i64 noundef 92)
   br label %8
 
@@ -56,67 +50,49 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) #2
 define hidden void @mbedtls_sha1_clone(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  br label %5
-
-5:                                                ; preds = %2
-  br label %6
-
-6:                                                ; preds = %5
-  br label %7
-
-7:                                                ; preds = %6
-  br label %8
-
-8:                                                ; preds = %7
-  %9 = load ptr, ptr %3, align 8
-  %10 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %10, i64 92, i1 false)
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %6, i64 92, i1 false), !tbaa.struct !8
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_sha1_starts(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  br label %3
-
-3:                                                ; preds = %1
-  br label %4
-
-4:                                                ; preds = %3
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %5, i32 0, i32 0
-  %7 = getelementptr inbounds [2 x i32], ptr %6, i64 0, i64 0
-  store i32 0, ptr %7, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %8, i32 0, i32 0
-  %10 = getelementptr inbounds [2 x i32], ptr %9, i64 0, i64 1
-  store i32 0, ptr %10, align 4
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %11, i32 0, i32 1
-  %13 = getelementptr inbounds [5 x i32], ptr %12, i64 0, i64 0
-  store i32 1732584193, ptr %13, align 4
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %14, i32 0, i32 1
-  %16 = getelementptr inbounds [5 x i32], ptr %15, i64 0, i64 1
-  store i32 -271733879, ptr %16, align 4
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %17, i32 0, i32 1
-  %19 = getelementptr inbounds [5 x i32], ptr %18, i64 0, i64 2
-  store i32 -1732584194, ptr %19, align 4
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %20, i32 0, i32 1
-  %22 = getelementptr inbounds [5 x i32], ptr %21, i64 0, i64 3
-  store i32 271733878, ptr %22, align 4
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %23, i32 0, i32 1
-  %25 = getelementptr inbounds [5 x i32], ptr %24, i64 0, i64 4
-  store i32 -1009589776, ptr %25, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 0
+  store i32 0, ptr %5, align 4, !tbaa !10
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds [2 x i32], ptr %7, i64 0, i64 1
+  store i32 0, ptr %8, align 4, !tbaa !10
+  %9 = load ptr, ptr %2, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds [5 x i32], ptr %10, i64 0, i64 0
+  store i32 1732584193, ptr %11, align 4, !tbaa !10
+  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %12, i32 0, i32 1
+  %14 = getelementptr inbounds [5 x i32], ptr %13, i64 0, i64 1
+  store i32 -271733879, ptr %14, align 4, !tbaa !10
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %15, i32 0, i32 1
+  %17 = getelementptr inbounds [5 x i32], ptr %16, i64 0, i64 2
+  store i32 -1732584194, ptr %17, align 4, !tbaa !10
+  %18 = load ptr, ptr %2, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %18, i32 0, i32 1
+  %20 = getelementptr inbounds [5 x i32], ptr %19, i64 0, i64 3
+  store i32 271733878, ptr %20, align 4, !tbaa !10
+  %21 = load ptr, ptr %2, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %21, i32 0, i32 1
+  %23 = getelementptr inbounds [5 x i32], ptr %22, i64 0, i64 4
+  store i32 -1009589776, ptr %23, align 4, !tbaa !10
   ret i32 0
 }
 
@@ -125,5633 +101,5597 @@ define hidden i32 @mbedtls_internal_sha1_process(ptr noundef %0, ptr noundef %1)
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.anon, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  br label %6
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 88, ptr %5) #8
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = getelementptr inbounds i8, ptr %6, i64 0
+  %8 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %7)
+  %9 = call i32 @llvm.bswap.i32(i32 %8)
+  %10 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 0
+  store i32 %9, ptr %11, align 4, !tbaa !10
+  %12 = load ptr, ptr %4, align 8, !tbaa !12
+  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %13)
+  %15 = call i32 @llvm.bswap.i32(i32 %14)
+  %16 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %17 = getelementptr inbounds [16 x i32], ptr %16, i64 0, i64 1
+  store i32 %15, ptr %17, align 4, !tbaa !10
+  %18 = load ptr, ptr %4, align 8, !tbaa !12
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %19)
+  %21 = call i32 @llvm.bswap.i32(i32 %20)
+  %22 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %23 = getelementptr inbounds [16 x i32], ptr %22, i64 0, i64 2
+  store i32 %21, ptr %23, align 4, !tbaa !10
+  %24 = load ptr, ptr %4, align 8, !tbaa !12
+  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %26 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %25)
+  %27 = call i32 @llvm.bswap.i32(i32 %26)
+  %28 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %29 = getelementptr inbounds [16 x i32], ptr %28, i64 0, i64 3
+  store i32 %27, ptr %29, align 4, !tbaa !10
+  %30 = load ptr, ptr %4, align 8, !tbaa !12
+  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %31)
+  %33 = call i32 @llvm.bswap.i32(i32 %32)
+  %34 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %35 = getelementptr inbounds [16 x i32], ptr %34, i64 0, i64 4
+  store i32 %33, ptr %35, align 4, !tbaa !10
+  %36 = load ptr, ptr %4, align 8, !tbaa !12
+  %37 = getelementptr inbounds i8, ptr %36, i64 20
+  %38 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %37)
+  %39 = call i32 @llvm.bswap.i32(i32 %38)
+  %40 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %41 = getelementptr inbounds [16 x i32], ptr %40, i64 0, i64 5
+  store i32 %39, ptr %41, align 4, !tbaa !10
+  %42 = load ptr, ptr %4, align 8, !tbaa !12
+  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %44 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %43)
+  %45 = call i32 @llvm.bswap.i32(i32 %44)
+  %46 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %47 = getelementptr inbounds [16 x i32], ptr %46, i64 0, i64 6
+  store i32 %45, ptr %47, align 4, !tbaa !10
+  %48 = load ptr, ptr %4, align 8, !tbaa !12
+  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %50 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %49)
+  %51 = call i32 @llvm.bswap.i32(i32 %50)
+  %52 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %53 = getelementptr inbounds [16 x i32], ptr %52, i64 0, i64 7
+  store i32 %51, ptr %53, align 4, !tbaa !10
+  %54 = load ptr, ptr %4, align 8, !tbaa !12
+  %55 = getelementptr inbounds i8, ptr %54, i64 32
+  %56 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %55)
+  %57 = call i32 @llvm.bswap.i32(i32 %56)
+  %58 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %59 = getelementptr inbounds [16 x i32], ptr %58, i64 0, i64 8
+  store i32 %57, ptr %59, align 4, !tbaa !10
+  %60 = load ptr, ptr %4, align 8, !tbaa !12
+  %61 = getelementptr inbounds i8, ptr %60, i64 36
+  %62 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %61)
+  %63 = call i32 @llvm.bswap.i32(i32 %62)
+  %64 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %65 = getelementptr inbounds [16 x i32], ptr %64, i64 0, i64 9
+  store i32 %63, ptr %65, align 4, !tbaa !10
+  %66 = load ptr, ptr %4, align 8, !tbaa !12
+  %67 = getelementptr inbounds i8, ptr %66, i64 40
+  %68 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %67)
+  %69 = call i32 @llvm.bswap.i32(i32 %68)
+  %70 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %71 = getelementptr inbounds [16 x i32], ptr %70, i64 0, i64 10
+  store i32 %69, ptr %71, align 4, !tbaa !10
+  %72 = load ptr, ptr %4, align 8, !tbaa !12
+  %73 = getelementptr inbounds i8, ptr %72, i64 44
+  %74 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %73)
+  %75 = call i32 @llvm.bswap.i32(i32 %74)
+  %76 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %77 = getelementptr inbounds [16 x i32], ptr %76, i64 0, i64 11
+  store i32 %75, ptr %77, align 4, !tbaa !10
+  %78 = load ptr, ptr %4, align 8, !tbaa !12
+  %79 = getelementptr inbounds i8, ptr %78, i64 48
+  %80 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %79)
+  %81 = call i32 @llvm.bswap.i32(i32 %80)
+  %82 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %83 = getelementptr inbounds [16 x i32], ptr %82, i64 0, i64 12
+  store i32 %81, ptr %83, align 4, !tbaa !10
+  %84 = load ptr, ptr %4, align 8, !tbaa !12
+  %85 = getelementptr inbounds i8, ptr %84, i64 52
+  %86 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %85)
+  %87 = call i32 @llvm.bswap.i32(i32 %86)
+  %88 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %89 = getelementptr inbounds [16 x i32], ptr %88, i64 0, i64 13
+  store i32 %87, ptr %89, align 4, !tbaa !10
+  %90 = load ptr, ptr %4, align 8, !tbaa !12
+  %91 = getelementptr inbounds i8, ptr %90, i64 56
+  %92 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %91)
+  %93 = call i32 @llvm.bswap.i32(i32 %92)
+  %94 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %95 = getelementptr inbounds [16 x i32], ptr %94, i64 0, i64 14
+  store i32 %93, ptr %95, align 4, !tbaa !10
+  %96 = load ptr, ptr %4, align 8, !tbaa !12
+  %97 = getelementptr inbounds i8, ptr %96, i64 60
+  %98 = call i32 @mbedtls_get_unaligned_uint32(ptr noundef %97)
+  %99 = call i32 @llvm.bswap.i32(i32 %98)
+  %100 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %101 = getelementptr inbounds [16 x i32], ptr %100, i64 0, i64 15
+  store i32 %99, ptr %101, align 4, !tbaa !10
+  %102 = load ptr, ptr %3, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %102, i32 0, i32 1
+  %104 = getelementptr inbounds [5 x i32], ptr %103, i64 0, i64 0
+  %105 = load i32, ptr %104, align 4, !tbaa !10
+  %106 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %105, ptr %106, align 4, !tbaa !14
+  %107 = load ptr, ptr %3, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %107, i32 0, i32 1
+  %109 = getelementptr inbounds [5 x i32], ptr %108, i64 0, i64 1
+  %110 = load i32, ptr %109, align 4, !tbaa !10
+  %111 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %110, ptr %111, align 4, !tbaa !16
+  %112 = load ptr, ptr %3, align 8, !tbaa !3
+  %113 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %112, i32 0, i32 1
+  %114 = getelementptr inbounds [5 x i32], ptr %113, i64 0, i64 2
+  %115 = load i32, ptr %114, align 4, !tbaa !10
+  %116 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %115, ptr %116, align 4, !tbaa !17
+  %117 = load ptr, ptr %3, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %117, i32 0, i32 1
+  %119 = getelementptr inbounds [5 x i32], ptr %118, i64 0, i64 3
+  %120 = load i32, ptr %119, align 4, !tbaa !10
+  %121 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %120, ptr %121, align 4, !tbaa !18
+  %122 = load ptr, ptr %3, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %122, i32 0, i32 1
+  %124 = getelementptr inbounds [5 x i32], ptr %123, i64 0, i64 4
+  %125 = load i32, ptr %124, align 4, !tbaa !10
+  %126 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %125, ptr %126, align 4, !tbaa !19
+  br label %127
 
-6:                                                ; preds = %2
-  br label %7
+127:                                              ; preds = %2
+  %128 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %129 = load i32, ptr %128, align 4, !tbaa !14
+  %130 = shl i32 %129, 5
+  %131 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %132 = load i32, ptr %131, align 4, !tbaa !14
+  %133 = and i32 %132, -1
+  %134 = lshr i32 %133, 27
+  %135 = or i32 %130, %134
+  %136 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %137 = load i32, ptr %136, align 4, !tbaa !18
+  %138 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %139 = load i32, ptr %138, align 4, !tbaa !16
+  %140 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %141 = load i32, ptr %140, align 4, !tbaa !17
+  %142 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %143 = load i32, ptr %142, align 4, !tbaa !18
+  %144 = xor i32 %141, %143
+  %145 = and i32 %139, %144
+  %146 = xor i32 %137, %145
+  %147 = add i32 %135, %146
+  %148 = add i32 %147, 1518500249
+  %149 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %150 = getelementptr inbounds [16 x i32], ptr %149, i64 0, i64 0
+  %151 = load i32, ptr %150, align 4, !tbaa !10
+  %152 = add i32 %148, %151
+  %153 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %154 = load i32, ptr %153, align 4, !tbaa !19
+  %155 = add i32 %154, %152
+  store i32 %155, ptr %153, align 4, !tbaa !19
+  %156 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %157 = load i32, ptr %156, align 4, !tbaa !16
+  %158 = shl i32 %157, 30
+  %159 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %160 = load i32, ptr %159, align 4, !tbaa !16
+  %161 = and i32 %160, -1
+  %162 = lshr i32 %161, 2
+  %163 = or i32 %158, %162
+  %164 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %163, ptr %164, align 4, !tbaa !16
+  br label %165
 
-7:                                                ; preds = %6
-  br label %8
+165:                                              ; preds = %127
+  br label %166
 
-8:                                                ; preds = %7
-  br label %9
+166:                                              ; preds = %165
+  br label %167
 
-9:                                                ; preds = %8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 0
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = shl i32 %13, 24
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = shl i32 %18, 16
-  %20 = or i32 %14, %19
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 2
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = shl i32 %24, 8
-  %26 = or i32 %20, %25
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 3
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = or i32 %26, %30
-  %32 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %33 = getelementptr inbounds [16 x i32], ptr %32, i64 0, i64 0
-  store i32 %31, ptr %33, align 4
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i32
-  %38 = shl i32 %37, 24
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 5
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %43 = shl i32 %42, 16
-  %44 = or i32 %38, %43
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 6
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = shl i32 %48, 8
-  %50 = or i32 %44, %49
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 7
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = or i32 %50, %54
-  %56 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %57 = getelementptr inbounds [16 x i32], ptr %56, i64 0, i64 1
-  store i32 %55, ptr %57, align 4
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = shl i32 %61, 24
-  %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 9
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = shl i32 %66, 16
-  %68 = or i32 %62, %67
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 10
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = shl i32 %72, 8
-  %74 = or i32 %68, %73
-  %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 11
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = or i32 %74, %78
-  %80 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %81 = getelementptr inbounds [16 x i32], ptr %80, i64 0, i64 2
-  store i32 %79, ptr %81, align 4
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 12
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = shl i32 %85, 24
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 13
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i32
-  %91 = shl i32 %90, 16
-  %92 = or i32 %86, %91
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 14
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = shl i32 %96, 8
-  %98 = or i32 %92, %97
-  %99 = load ptr, ptr %4, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 15
-  %101 = load i8, ptr %100, align 1
-  %102 = zext i8 %101 to i32
-  %103 = or i32 %98, %102
-  %104 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %105 = getelementptr inbounds [16 x i32], ptr %104, i64 0, i64 3
-  store i32 %103, ptr %105, align 4
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 16
-  %108 = load i8, ptr %107, align 1
-  %109 = zext i8 %108 to i32
-  %110 = shl i32 %109, 24
-  %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 17
-  %113 = load i8, ptr %112, align 1
-  %114 = zext i8 %113 to i32
-  %115 = shl i32 %114, 16
-  %116 = or i32 %110, %115
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 18
-  %119 = load i8, ptr %118, align 1
-  %120 = zext i8 %119 to i32
-  %121 = shl i32 %120, 8
-  %122 = or i32 %116, %121
-  %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 19
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  %127 = or i32 %122, %126
-  %128 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %129 = getelementptr inbounds [16 x i32], ptr %128, i64 0, i64 4
-  store i32 %127, ptr %129, align 4
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 20
-  %132 = load i8, ptr %131, align 1
-  %133 = zext i8 %132 to i32
-  %134 = shl i32 %133, 24
-  %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 21
-  %137 = load i8, ptr %136, align 1
-  %138 = zext i8 %137 to i32
-  %139 = shl i32 %138, 16
-  %140 = or i32 %134, %139
-  %141 = load ptr, ptr %4, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 22
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i32
-  %145 = shl i32 %144, 8
-  %146 = or i32 %140, %145
-  %147 = load ptr, ptr %4, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 23
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i32
-  %151 = or i32 %146, %150
-  %152 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %153 = getelementptr inbounds [16 x i32], ptr %152, i64 0, i64 5
-  store i32 %151, ptr %153, align 4
-  %154 = load ptr, ptr %4, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 24
-  %156 = load i8, ptr %155, align 1
-  %157 = zext i8 %156 to i32
-  %158 = shl i32 %157, 24
-  %159 = load ptr, ptr %4, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 25
-  %161 = load i8, ptr %160, align 1
-  %162 = zext i8 %161 to i32
-  %163 = shl i32 %162, 16
-  %164 = or i32 %158, %163
-  %165 = load ptr, ptr %4, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 26
-  %167 = load i8, ptr %166, align 1
-  %168 = zext i8 %167 to i32
-  %169 = shl i32 %168, 8
-  %170 = or i32 %164, %169
-  %171 = load ptr, ptr %4, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 27
-  %173 = load i8, ptr %172, align 1
-  %174 = zext i8 %173 to i32
+167:                                              ; preds = %166
+  %168 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %169 = load i32, ptr %168, align 4, !tbaa !19
+  %170 = shl i32 %169, 5
+  %171 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %172 = load i32, ptr %171, align 4, !tbaa !19
+  %173 = and i32 %172, -1
+  %174 = lshr i32 %173, 27
   %175 = or i32 %170, %174
-  %176 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %177 = getelementptr inbounds [16 x i32], ptr %176, i64 0, i64 6
-  store i32 %175, ptr %177, align 4
-  %178 = load ptr, ptr %4, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 28
-  %180 = load i8, ptr %179, align 1
-  %181 = zext i8 %180 to i32
-  %182 = shl i32 %181, 24
-  %183 = load ptr, ptr %4, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 29
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i32
-  %187 = shl i32 %186, 16
-  %188 = or i32 %182, %187
-  %189 = load ptr, ptr %4, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 30
-  %191 = load i8, ptr %190, align 1
-  %192 = zext i8 %191 to i32
-  %193 = shl i32 %192, 8
-  %194 = or i32 %188, %193
-  %195 = load ptr, ptr %4, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 31
-  %197 = load i8, ptr %196, align 1
-  %198 = zext i8 %197 to i32
-  %199 = or i32 %194, %198
-  %200 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %201 = getelementptr inbounds [16 x i32], ptr %200, i64 0, i64 7
-  store i32 %199, ptr %201, align 4
-  %202 = load ptr, ptr %4, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 32
-  %204 = load i8, ptr %203, align 1
-  %205 = zext i8 %204 to i32
-  %206 = shl i32 %205, 24
-  %207 = load ptr, ptr %4, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 33
-  %209 = load i8, ptr %208, align 1
-  %210 = zext i8 %209 to i32
-  %211 = shl i32 %210, 16
-  %212 = or i32 %206, %211
-  %213 = load ptr, ptr %4, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 34
-  %215 = load i8, ptr %214, align 1
-  %216 = zext i8 %215 to i32
-  %217 = shl i32 %216, 8
-  %218 = or i32 %212, %217
-  %219 = load ptr, ptr %4, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 35
-  %221 = load i8, ptr %220, align 1
-  %222 = zext i8 %221 to i32
-  %223 = or i32 %218, %222
-  %224 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %225 = getelementptr inbounds [16 x i32], ptr %224, i64 0, i64 8
-  store i32 %223, ptr %225, align 4
-  %226 = load ptr, ptr %4, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 36
-  %228 = load i8, ptr %227, align 1
-  %229 = zext i8 %228 to i32
-  %230 = shl i32 %229, 24
-  %231 = load ptr, ptr %4, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 37
-  %233 = load i8, ptr %232, align 1
-  %234 = zext i8 %233 to i32
-  %235 = shl i32 %234, 16
-  %236 = or i32 %230, %235
-  %237 = load ptr, ptr %4, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 38
-  %239 = load i8, ptr %238, align 1
-  %240 = zext i8 %239 to i32
-  %241 = shl i32 %240, 8
-  %242 = or i32 %236, %241
-  %243 = load ptr, ptr %4, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 39
-  %245 = load i8, ptr %244, align 1
-  %246 = zext i8 %245 to i32
-  %247 = or i32 %242, %246
-  %248 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %249 = getelementptr inbounds [16 x i32], ptr %248, i64 0, i64 9
-  store i32 %247, ptr %249, align 4
-  %250 = load ptr, ptr %4, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 40
-  %252 = load i8, ptr %251, align 1
-  %253 = zext i8 %252 to i32
-  %254 = shl i32 %253, 24
-  %255 = load ptr, ptr %4, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 41
-  %257 = load i8, ptr %256, align 1
-  %258 = zext i8 %257 to i32
-  %259 = shl i32 %258, 16
-  %260 = or i32 %254, %259
-  %261 = load ptr, ptr %4, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 42
-  %263 = load i8, ptr %262, align 1
-  %264 = zext i8 %263 to i32
-  %265 = shl i32 %264, 8
-  %266 = or i32 %260, %265
-  %267 = load ptr, ptr %4, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 43
-  %269 = load i8, ptr %268, align 1
-  %270 = zext i8 %269 to i32
-  %271 = or i32 %266, %270
-  %272 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %273 = getelementptr inbounds [16 x i32], ptr %272, i64 0, i64 10
-  store i32 %271, ptr %273, align 4
-  %274 = load ptr, ptr %4, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 44
-  %276 = load i8, ptr %275, align 1
-  %277 = zext i8 %276 to i32
-  %278 = shl i32 %277, 24
-  %279 = load ptr, ptr %4, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 45
-  %281 = load i8, ptr %280, align 1
-  %282 = zext i8 %281 to i32
-  %283 = shl i32 %282, 16
-  %284 = or i32 %278, %283
-  %285 = load ptr, ptr %4, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 46
-  %287 = load i8, ptr %286, align 1
-  %288 = zext i8 %287 to i32
-  %289 = shl i32 %288, 8
-  %290 = or i32 %284, %289
-  %291 = load ptr, ptr %4, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 47
-  %293 = load i8, ptr %292, align 1
-  %294 = zext i8 %293 to i32
+  %176 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %177 = load i32, ptr %176, align 4, !tbaa !17
+  %178 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %179 = load i32, ptr %178, align 4, !tbaa !14
+  %180 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %181 = load i32, ptr %180, align 4, !tbaa !16
+  %182 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %183 = load i32, ptr %182, align 4, !tbaa !17
+  %184 = xor i32 %181, %183
+  %185 = and i32 %179, %184
+  %186 = xor i32 %177, %185
+  %187 = add i32 %175, %186
+  %188 = add i32 %187, 1518500249
+  %189 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %190 = getelementptr inbounds [16 x i32], ptr %189, i64 0, i64 1
+  %191 = load i32, ptr %190, align 4, !tbaa !10
+  %192 = add i32 %188, %191
+  %193 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %194 = load i32, ptr %193, align 4, !tbaa !18
+  %195 = add i32 %194, %192
+  store i32 %195, ptr %193, align 4, !tbaa !18
+  %196 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %197 = load i32, ptr %196, align 4, !tbaa !14
+  %198 = shl i32 %197, 30
+  %199 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %200 = load i32, ptr %199, align 4, !tbaa !14
+  %201 = and i32 %200, -1
+  %202 = lshr i32 %201, 2
+  %203 = or i32 %198, %202
+  %204 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %203, ptr %204, align 4, !tbaa !14
+  br label %205
+
+205:                                              ; preds = %167
+  br label %206
+
+206:                                              ; preds = %205
+  br label %207
+
+207:                                              ; preds = %206
+  %208 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %209 = load i32, ptr %208, align 4, !tbaa !18
+  %210 = shl i32 %209, 5
+  %211 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %212 = load i32, ptr %211, align 4, !tbaa !18
+  %213 = and i32 %212, -1
+  %214 = lshr i32 %213, 27
+  %215 = or i32 %210, %214
+  %216 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %217 = load i32, ptr %216, align 4, !tbaa !16
+  %218 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %219 = load i32, ptr %218, align 4, !tbaa !19
+  %220 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %221 = load i32, ptr %220, align 4, !tbaa !14
+  %222 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %223 = load i32, ptr %222, align 4, !tbaa !16
+  %224 = xor i32 %221, %223
+  %225 = and i32 %219, %224
+  %226 = xor i32 %217, %225
+  %227 = add i32 %215, %226
+  %228 = add i32 %227, 1518500249
+  %229 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %230 = getelementptr inbounds [16 x i32], ptr %229, i64 0, i64 2
+  %231 = load i32, ptr %230, align 4, !tbaa !10
+  %232 = add i32 %228, %231
+  %233 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %234 = load i32, ptr %233, align 4, !tbaa !17
+  %235 = add i32 %234, %232
+  store i32 %235, ptr %233, align 4, !tbaa !17
+  %236 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %237 = load i32, ptr %236, align 4, !tbaa !19
+  %238 = shl i32 %237, 30
+  %239 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %240 = load i32, ptr %239, align 4, !tbaa !19
+  %241 = and i32 %240, -1
+  %242 = lshr i32 %241, 2
+  %243 = or i32 %238, %242
+  %244 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %243, ptr %244, align 4, !tbaa !19
+  br label %245
+
+245:                                              ; preds = %207
+  br label %246
+
+246:                                              ; preds = %245
+  br label %247
+
+247:                                              ; preds = %246
+  %248 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %249 = load i32, ptr %248, align 4, !tbaa !17
+  %250 = shl i32 %249, 5
+  %251 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %252 = load i32, ptr %251, align 4, !tbaa !17
+  %253 = and i32 %252, -1
+  %254 = lshr i32 %253, 27
+  %255 = or i32 %250, %254
+  %256 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %257 = load i32, ptr %256, align 4, !tbaa !14
+  %258 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %259 = load i32, ptr %258, align 4, !tbaa !18
+  %260 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %261 = load i32, ptr %260, align 4, !tbaa !19
+  %262 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %263 = load i32, ptr %262, align 4, !tbaa !14
+  %264 = xor i32 %261, %263
+  %265 = and i32 %259, %264
+  %266 = xor i32 %257, %265
+  %267 = add i32 %255, %266
+  %268 = add i32 %267, 1518500249
+  %269 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %270 = getelementptr inbounds [16 x i32], ptr %269, i64 0, i64 3
+  %271 = load i32, ptr %270, align 4, !tbaa !10
+  %272 = add i32 %268, %271
+  %273 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %274 = load i32, ptr %273, align 4, !tbaa !16
+  %275 = add i32 %274, %272
+  store i32 %275, ptr %273, align 4, !tbaa !16
+  %276 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %277 = load i32, ptr %276, align 4, !tbaa !18
+  %278 = shl i32 %277, 30
+  %279 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %280 = load i32, ptr %279, align 4, !tbaa !18
+  %281 = and i32 %280, -1
+  %282 = lshr i32 %281, 2
+  %283 = or i32 %278, %282
+  %284 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %283, ptr %284, align 4, !tbaa !18
+  br label %285
+
+285:                                              ; preds = %247
+  br label %286
+
+286:                                              ; preds = %285
+  br label %287
+
+287:                                              ; preds = %286
+  %288 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %289 = load i32, ptr %288, align 4, !tbaa !16
+  %290 = shl i32 %289, 5
+  %291 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %292 = load i32, ptr %291, align 4, !tbaa !16
+  %293 = and i32 %292, -1
+  %294 = lshr i32 %293, 27
   %295 = or i32 %290, %294
-  %296 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %297 = getelementptr inbounds [16 x i32], ptr %296, i64 0, i64 11
-  store i32 %295, ptr %297, align 4
-  %298 = load ptr, ptr %4, align 8
-  %299 = getelementptr inbounds i8, ptr %298, i64 48
-  %300 = load i8, ptr %299, align 1
-  %301 = zext i8 %300 to i32
-  %302 = shl i32 %301, 24
-  %303 = load ptr, ptr %4, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 49
-  %305 = load i8, ptr %304, align 1
-  %306 = zext i8 %305 to i32
-  %307 = shl i32 %306, 16
-  %308 = or i32 %302, %307
-  %309 = load ptr, ptr %4, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 50
-  %311 = load i8, ptr %310, align 1
-  %312 = zext i8 %311 to i32
-  %313 = shl i32 %312, 8
-  %314 = or i32 %308, %313
-  %315 = load ptr, ptr %4, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 51
-  %317 = load i8, ptr %316, align 1
-  %318 = zext i8 %317 to i32
-  %319 = or i32 %314, %318
-  %320 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %321 = getelementptr inbounds [16 x i32], ptr %320, i64 0, i64 12
-  store i32 %319, ptr %321, align 4
-  %322 = load ptr, ptr %4, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 52
-  %324 = load i8, ptr %323, align 1
-  %325 = zext i8 %324 to i32
-  %326 = shl i32 %325, 24
-  %327 = load ptr, ptr %4, align 8
-  %328 = getelementptr inbounds i8, ptr %327, i64 53
-  %329 = load i8, ptr %328, align 1
-  %330 = zext i8 %329 to i32
-  %331 = shl i32 %330, 16
-  %332 = or i32 %326, %331
-  %333 = load ptr, ptr %4, align 8
-  %334 = getelementptr inbounds i8, ptr %333, i64 54
-  %335 = load i8, ptr %334, align 1
-  %336 = zext i8 %335 to i32
-  %337 = shl i32 %336, 8
-  %338 = or i32 %332, %337
-  %339 = load ptr, ptr %4, align 8
-  %340 = getelementptr inbounds i8, ptr %339, i64 55
-  %341 = load i8, ptr %340, align 1
-  %342 = zext i8 %341 to i32
-  %343 = or i32 %338, %342
-  %344 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %345 = getelementptr inbounds [16 x i32], ptr %344, i64 0, i64 13
-  store i32 %343, ptr %345, align 4
-  %346 = load ptr, ptr %4, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 56
-  %348 = load i8, ptr %347, align 1
-  %349 = zext i8 %348 to i32
-  %350 = shl i32 %349, 24
-  %351 = load ptr, ptr %4, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 57
-  %353 = load i8, ptr %352, align 1
-  %354 = zext i8 %353 to i32
-  %355 = shl i32 %354, 16
-  %356 = or i32 %350, %355
-  %357 = load ptr, ptr %4, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 58
-  %359 = load i8, ptr %358, align 1
-  %360 = zext i8 %359 to i32
-  %361 = shl i32 %360, 8
-  %362 = or i32 %356, %361
-  %363 = load ptr, ptr %4, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 59
-  %365 = load i8, ptr %364, align 1
-  %366 = zext i8 %365 to i32
-  %367 = or i32 %362, %366
-  %368 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %369 = getelementptr inbounds [16 x i32], ptr %368, i64 0, i64 14
-  store i32 %367, ptr %369, align 4
-  %370 = load ptr, ptr %4, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 60
-  %372 = load i8, ptr %371, align 1
-  %373 = zext i8 %372 to i32
-  %374 = shl i32 %373, 24
-  %375 = load ptr, ptr %4, align 8
-  %376 = getelementptr inbounds i8, ptr %375, i64 61
-  %377 = load i8, ptr %376, align 1
-  %378 = zext i8 %377 to i32
-  %379 = shl i32 %378, 16
-  %380 = or i32 %374, %379
-  %381 = load ptr, ptr %4, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 62
-  %383 = load i8, ptr %382, align 1
-  %384 = zext i8 %383 to i32
-  %385 = shl i32 %384, 8
-  %386 = or i32 %380, %385
-  %387 = load ptr, ptr %4, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 63
-  %389 = load i8, ptr %388, align 1
-  %390 = zext i8 %389 to i32
-  %391 = or i32 %386, %390
-  %392 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %393 = getelementptr inbounds [16 x i32], ptr %392, i64 0, i64 15
-  store i32 %391, ptr %393, align 4
-  %394 = load ptr, ptr %3, align 8
-  %395 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %394, i32 0, i32 1
-  %396 = getelementptr inbounds [5 x i32], ptr %395, i64 0, i64 0
-  %397 = load i32, ptr %396, align 4
-  %398 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %397, ptr %398, align 4
-  %399 = load ptr, ptr %3, align 8
-  %400 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %399, i32 0, i32 1
-  %401 = getelementptr inbounds [5 x i32], ptr %400, i64 0, i64 1
-  %402 = load i32, ptr %401, align 4
-  %403 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %402, ptr %403, align 4
-  %404 = load ptr, ptr %3, align 8
-  %405 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %404, i32 0, i32 1
-  %406 = getelementptr inbounds [5 x i32], ptr %405, i64 0, i64 2
-  %407 = load i32, ptr %406, align 4
-  %408 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %407, ptr %408, align 4
-  %409 = load ptr, ptr %3, align 8
-  %410 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %409, i32 0, i32 1
-  %411 = getelementptr inbounds [5 x i32], ptr %410, i64 0, i64 3
-  %412 = load i32, ptr %411, align 4
-  %413 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %412, ptr %413, align 4
-  %414 = load ptr, ptr %3, align 8
-  %415 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %414, i32 0, i32 1
-  %416 = getelementptr inbounds [5 x i32], ptr %415, i64 0, i64 4
-  %417 = load i32, ptr %416, align 4
-  %418 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %417, ptr %418, align 4
-  br label %419
+  %296 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %297 = load i32, ptr %296, align 4, !tbaa !19
+  %298 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %299 = load i32, ptr %298, align 4, !tbaa !17
+  %300 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %301 = load i32, ptr %300, align 4, !tbaa !18
+  %302 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %303 = load i32, ptr %302, align 4, !tbaa !19
+  %304 = xor i32 %301, %303
+  %305 = and i32 %299, %304
+  %306 = xor i32 %297, %305
+  %307 = add i32 %295, %306
+  %308 = add i32 %307, 1518500249
+  %309 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %310 = getelementptr inbounds [16 x i32], ptr %309, i64 0, i64 4
+  %311 = load i32, ptr %310, align 4, !tbaa !10
+  %312 = add i32 %308, %311
+  %313 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %314 = load i32, ptr %313, align 4, !tbaa !14
+  %315 = add i32 %314, %312
+  store i32 %315, ptr %313, align 4, !tbaa !14
+  %316 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %317 = load i32, ptr %316, align 4, !tbaa !17
+  %318 = shl i32 %317, 30
+  %319 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %320 = load i32, ptr %319, align 4, !tbaa !17
+  %321 = and i32 %320, -1
+  %322 = lshr i32 %321, 2
+  %323 = or i32 %318, %322
+  %324 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %323, ptr %324, align 4, !tbaa !17
+  br label %325
 
-419:                                              ; preds = %9
-  %420 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %421 = load i32, ptr %420, align 4
-  %422 = shl i32 %421, 5
-  %423 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %424 = load i32, ptr %423, align 4
-  %425 = and i32 %424, -1
-  %426 = lshr i32 %425, 27
-  %427 = or i32 %422, %426
-  %428 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %429 = load i32, ptr %428, align 4
-  %430 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %431 = load i32, ptr %430, align 4
-  %432 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %433 = load i32, ptr %432, align 4
-  %434 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %435 = load i32, ptr %434, align 4
-  %436 = xor i32 %433, %435
-  %437 = and i32 %431, %436
-  %438 = xor i32 %429, %437
-  %439 = add i32 %427, %438
-  %440 = add i32 %439, 1518500249
-  %441 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %442 = getelementptr inbounds [16 x i32], ptr %441, i64 0, i64 0
-  %443 = load i32, ptr %442, align 4
-  %444 = add i32 %440, %443
-  %445 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %446 = load i32, ptr %445, align 4
-  %447 = add i32 %446, %444
-  store i32 %447, ptr %445, align 4
-  %448 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %449 = load i32, ptr %448, align 4
-  %450 = shl i32 %449, 30
-  %451 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %452 = load i32, ptr %451, align 4
+325:                                              ; preds = %287
+  br label %326
+
+326:                                              ; preds = %325
+  br label %327
+
+327:                                              ; preds = %326
+  %328 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %329 = load i32, ptr %328, align 4, !tbaa !14
+  %330 = shl i32 %329, 5
+  %331 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %332 = load i32, ptr %331, align 4, !tbaa !14
+  %333 = and i32 %332, -1
+  %334 = lshr i32 %333, 27
+  %335 = or i32 %330, %334
+  %336 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %337 = load i32, ptr %336, align 4, !tbaa !18
+  %338 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %339 = load i32, ptr %338, align 4, !tbaa !16
+  %340 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %341 = load i32, ptr %340, align 4, !tbaa !17
+  %342 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %343 = load i32, ptr %342, align 4, !tbaa !18
+  %344 = xor i32 %341, %343
+  %345 = and i32 %339, %344
+  %346 = xor i32 %337, %345
+  %347 = add i32 %335, %346
+  %348 = add i32 %347, 1518500249
+  %349 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %350 = getelementptr inbounds [16 x i32], ptr %349, i64 0, i64 5
+  %351 = load i32, ptr %350, align 4, !tbaa !10
+  %352 = add i32 %348, %351
+  %353 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %354 = load i32, ptr %353, align 4, !tbaa !19
+  %355 = add i32 %354, %352
+  store i32 %355, ptr %353, align 4, !tbaa !19
+  %356 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %357 = load i32, ptr %356, align 4, !tbaa !16
+  %358 = shl i32 %357, 30
+  %359 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %360 = load i32, ptr %359, align 4, !tbaa !16
+  %361 = and i32 %360, -1
+  %362 = lshr i32 %361, 2
+  %363 = or i32 %358, %362
+  %364 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %363, ptr %364, align 4, !tbaa !16
+  br label %365
+
+365:                                              ; preds = %327
+  br label %366
+
+366:                                              ; preds = %365
+  br label %367
+
+367:                                              ; preds = %366
+  %368 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %369 = load i32, ptr %368, align 4, !tbaa !19
+  %370 = shl i32 %369, 5
+  %371 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %372 = load i32, ptr %371, align 4, !tbaa !19
+  %373 = and i32 %372, -1
+  %374 = lshr i32 %373, 27
+  %375 = or i32 %370, %374
+  %376 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %377 = load i32, ptr %376, align 4, !tbaa !17
+  %378 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %379 = load i32, ptr %378, align 4, !tbaa !14
+  %380 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %381 = load i32, ptr %380, align 4, !tbaa !16
+  %382 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %383 = load i32, ptr %382, align 4, !tbaa !17
+  %384 = xor i32 %381, %383
+  %385 = and i32 %379, %384
+  %386 = xor i32 %377, %385
+  %387 = add i32 %375, %386
+  %388 = add i32 %387, 1518500249
+  %389 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %390 = getelementptr inbounds [16 x i32], ptr %389, i64 0, i64 6
+  %391 = load i32, ptr %390, align 4, !tbaa !10
+  %392 = add i32 %388, %391
+  %393 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %394 = load i32, ptr %393, align 4, !tbaa !18
+  %395 = add i32 %394, %392
+  store i32 %395, ptr %393, align 4, !tbaa !18
+  %396 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %397 = load i32, ptr %396, align 4, !tbaa !14
+  %398 = shl i32 %397, 30
+  %399 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %400 = load i32, ptr %399, align 4, !tbaa !14
+  %401 = and i32 %400, -1
+  %402 = lshr i32 %401, 2
+  %403 = or i32 %398, %402
+  %404 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %403, ptr %404, align 4, !tbaa !14
+  br label %405
+
+405:                                              ; preds = %367
+  br label %406
+
+406:                                              ; preds = %405
+  br label %407
+
+407:                                              ; preds = %406
+  %408 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %409 = load i32, ptr %408, align 4, !tbaa !18
+  %410 = shl i32 %409, 5
+  %411 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %412 = load i32, ptr %411, align 4, !tbaa !18
+  %413 = and i32 %412, -1
+  %414 = lshr i32 %413, 27
+  %415 = or i32 %410, %414
+  %416 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %417 = load i32, ptr %416, align 4, !tbaa !16
+  %418 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %419 = load i32, ptr %418, align 4, !tbaa !19
+  %420 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %421 = load i32, ptr %420, align 4, !tbaa !14
+  %422 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %423 = load i32, ptr %422, align 4, !tbaa !16
+  %424 = xor i32 %421, %423
+  %425 = and i32 %419, %424
+  %426 = xor i32 %417, %425
+  %427 = add i32 %415, %426
+  %428 = add i32 %427, 1518500249
+  %429 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %430 = getelementptr inbounds [16 x i32], ptr %429, i64 0, i64 7
+  %431 = load i32, ptr %430, align 4, !tbaa !10
+  %432 = add i32 %428, %431
+  %433 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %434 = load i32, ptr %433, align 4, !tbaa !17
+  %435 = add i32 %434, %432
+  store i32 %435, ptr %433, align 4, !tbaa !17
+  %436 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %437 = load i32, ptr %436, align 4, !tbaa !19
+  %438 = shl i32 %437, 30
+  %439 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %440 = load i32, ptr %439, align 4, !tbaa !19
+  %441 = and i32 %440, -1
+  %442 = lshr i32 %441, 2
+  %443 = or i32 %438, %442
+  %444 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %443, ptr %444, align 4, !tbaa !19
+  br label %445
+
+445:                                              ; preds = %407
+  br label %446
+
+446:                                              ; preds = %445
+  br label %447
+
+447:                                              ; preds = %446
+  %448 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %449 = load i32, ptr %448, align 4, !tbaa !17
+  %450 = shl i32 %449, 5
+  %451 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %452 = load i32, ptr %451, align 4, !tbaa !17
   %453 = and i32 %452, -1
-  %454 = lshr i32 %453, 2
+  %454 = lshr i32 %453, 27
   %455 = or i32 %450, %454
-  %456 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %455, ptr %456, align 4
-  br label %457
+  %456 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %457 = load i32, ptr %456, align 4, !tbaa !14
+  %458 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %459 = load i32, ptr %458, align 4, !tbaa !18
+  %460 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %461 = load i32, ptr %460, align 4, !tbaa !19
+  %462 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %463 = load i32, ptr %462, align 4, !tbaa !14
+  %464 = xor i32 %461, %463
+  %465 = and i32 %459, %464
+  %466 = xor i32 %457, %465
+  %467 = add i32 %455, %466
+  %468 = add i32 %467, 1518500249
+  %469 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %470 = getelementptr inbounds [16 x i32], ptr %469, i64 0, i64 8
+  %471 = load i32, ptr %470, align 4, !tbaa !10
+  %472 = add i32 %468, %471
+  %473 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %474 = load i32, ptr %473, align 4, !tbaa !16
+  %475 = add i32 %474, %472
+  store i32 %475, ptr %473, align 4, !tbaa !16
+  %476 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %477 = load i32, ptr %476, align 4, !tbaa !18
+  %478 = shl i32 %477, 30
+  %479 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %480 = load i32, ptr %479, align 4, !tbaa !18
+  %481 = and i32 %480, -1
+  %482 = lshr i32 %481, 2
+  %483 = or i32 %478, %482
+  %484 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %483, ptr %484, align 4, !tbaa !18
+  br label %485
 
-457:                                              ; preds = %419
-  br label %458
+485:                                              ; preds = %447
+  br label %486
 
-458:                                              ; preds = %457
-  %459 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %460 = load i32, ptr %459, align 4
-  %461 = shl i32 %460, 5
-  %462 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %463 = load i32, ptr %462, align 4
-  %464 = and i32 %463, -1
-  %465 = lshr i32 %464, 27
-  %466 = or i32 %461, %465
-  %467 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %468 = load i32, ptr %467, align 4
-  %469 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %470 = load i32, ptr %469, align 4
-  %471 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %472 = load i32, ptr %471, align 4
-  %473 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %474 = load i32, ptr %473, align 4
-  %475 = xor i32 %472, %474
-  %476 = and i32 %470, %475
-  %477 = xor i32 %468, %476
-  %478 = add i32 %466, %477
-  %479 = add i32 %478, 1518500249
-  %480 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %481 = getelementptr inbounds [16 x i32], ptr %480, i64 0, i64 1
-  %482 = load i32, ptr %481, align 4
-  %483 = add i32 %479, %482
-  %484 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %485 = load i32, ptr %484, align 4
-  %486 = add i32 %485, %483
-  store i32 %486, ptr %484, align 4
-  %487 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %488 = load i32, ptr %487, align 4
-  %489 = shl i32 %488, 30
-  %490 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %491 = load i32, ptr %490, align 4
-  %492 = and i32 %491, -1
-  %493 = lshr i32 %492, 2
-  %494 = or i32 %489, %493
-  %495 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %494, ptr %495, align 4
-  br label %496
+486:                                              ; preds = %485
+  br label %487
 
-496:                                              ; preds = %458
-  br label %497
+487:                                              ; preds = %486
+  %488 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %489 = load i32, ptr %488, align 4, !tbaa !16
+  %490 = shl i32 %489, 5
+  %491 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %492 = load i32, ptr %491, align 4, !tbaa !16
+  %493 = and i32 %492, -1
+  %494 = lshr i32 %493, 27
+  %495 = or i32 %490, %494
+  %496 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %497 = load i32, ptr %496, align 4, !tbaa !19
+  %498 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %499 = load i32, ptr %498, align 4, !tbaa !17
+  %500 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %501 = load i32, ptr %500, align 4, !tbaa !18
+  %502 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %503 = load i32, ptr %502, align 4, !tbaa !19
+  %504 = xor i32 %501, %503
+  %505 = and i32 %499, %504
+  %506 = xor i32 %497, %505
+  %507 = add i32 %495, %506
+  %508 = add i32 %507, 1518500249
+  %509 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %510 = getelementptr inbounds [16 x i32], ptr %509, i64 0, i64 9
+  %511 = load i32, ptr %510, align 4, !tbaa !10
+  %512 = add i32 %508, %511
+  %513 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %514 = load i32, ptr %513, align 4, !tbaa !14
+  %515 = add i32 %514, %512
+  store i32 %515, ptr %513, align 4, !tbaa !14
+  %516 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %517 = load i32, ptr %516, align 4, !tbaa !17
+  %518 = shl i32 %517, 30
+  %519 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %520 = load i32, ptr %519, align 4, !tbaa !17
+  %521 = and i32 %520, -1
+  %522 = lshr i32 %521, 2
+  %523 = or i32 %518, %522
+  %524 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %523, ptr %524, align 4, !tbaa !17
+  br label %525
 
-497:                                              ; preds = %496
-  %498 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %499 = load i32, ptr %498, align 4
-  %500 = shl i32 %499, 5
-  %501 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %502 = load i32, ptr %501, align 4
-  %503 = and i32 %502, -1
-  %504 = lshr i32 %503, 27
-  %505 = or i32 %500, %504
-  %506 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %507 = load i32, ptr %506, align 4
-  %508 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %509 = load i32, ptr %508, align 4
-  %510 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %511 = load i32, ptr %510, align 4
-  %512 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %513 = load i32, ptr %512, align 4
-  %514 = xor i32 %511, %513
-  %515 = and i32 %509, %514
-  %516 = xor i32 %507, %515
-  %517 = add i32 %505, %516
-  %518 = add i32 %517, 1518500249
-  %519 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %520 = getelementptr inbounds [16 x i32], ptr %519, i64 0, i64 2
-  %521 = load i32, ptr %520, align 4
-  %522 = add i32 %518, %521
-  %523 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %524 = load i32, ptr %523, align 4
-  %525 = add i32 %524, %522
-  store i32 %525, ptr %523, align 4
-  %526 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %527 = load i32, ptr %526, align 4
-  %528 = shl i32 %527, 30
-  %529 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %530 = load i32, ptr %529, align 4
-  %531 = and i32 %530, -1
-  %532 = lshr i32 %531, 2
-  %533 = or i32 %528, %532
-  %534 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %533, ptr %534, align 4
-  br label %535
+525:                                              ; preds = %487
+  br label %526
 
-535:                                              ; preds = %497
-  br label %536
+526:                                              ; preds = %525
+  br label %527
 
-536:                                              ; preds = %535
-  %537 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %538 = load i32, ptr %537, align 4
-  %539 = shl i32 %538, 5
-  %540 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %541 = load i32, ptr %540, align 4
-  %542 = and i32 %541, -1
-  %543 = lshr i32 %542, 27
-  %544 = or i32 %539, %543
-  %545 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %546 = load i32, ptr %545, align 4
-  %547 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %548 = load i32, ptr %547, align 4
-  %549 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %550 = load i32, ptr %549, align 4
-  %551 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %552 = load i32, ptr %551, align 4
-  %553 = xor i32 %550, %552
-  %554 = and i32 %548, %553
-  %555 = xor i32 %546, %554
-  %556 = add i32 %544, %555
-  %557 = add i32 %556, 1518500249
-  %558 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %559 = getelementptr inbounds [16 x i32], ptr %558, i64 0, i64 3
-  %560 = load i32, ptr %559, align 4
-  %561 = add i32 %557, %560
-  %562 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %563 = load i32, ptr %562, align 4
-  %564 = add i32 %563, %561
-  store i32 %564, ptr %562, align 4
-  %565 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %566 = load i32, ptr %565, align 4
-  %567 = shl i32 %566, 30
-  %568 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %569 = load i32, ptr %568, align 4
-  %570 = and i32 %569, -1
-  %571 = lshr i32 %570, 2
-  %572 = or i32 %567, %571
-  %573 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %572, ptr %573, align 4
-  br label %574
+527:                                              ; preds = %526
+  %528 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %529 = load i32, ptr %528, align 4, !tbaa !14
+  %530 = shl i32 %529, 5
+  %531 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %532 = load i32, ptr %531, align 4, !tbaa !14
+  %533 = and i32 %532, -1
+  %534 = lshr i32 %533, 27
+  %535 = or i32 %530, %534
+  %536 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %537 = load i32, ptr %536, align 4, !tbaa !18
+  %538 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %539 = load i32, ptr %538, align 4, !tbaa !16
+  %540 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %541 = load i32, ptr %540, align 4, !tbaa !17
+  %542 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %543 = load i32, ptr %542, align 4, !tbaa !18
+  %544 = xor i32 %541, %543
+  %545 = and i32 %539, %544
+  %546 = xor i32 %537, %545
+  %547 = add i32 %535, %546
+  %548 = add i32 %547, 1518500249
+  %549 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %550 = getelementptr inbounds [16 x i32], ptr %549, i64 0, i64 10
+  %551 = load i32, ptr %550, align 4, !tbaa !10
+  %552 = add i32 %548, %551
+  %553 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %554 = load i32, ptr %553, align 4, !tbaa !19
+  %555 = add i32 %554, %552
+  store i32 %555, ptr %553, align 4, !tbaa !19
+  %556 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %557 = load i32, ptr %556, align 4, !tbaa !16
+  %558 = shl i32 %557, 30
+  %559 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %560 = load i32, ptr %559, align 4, !tbaa !16
+  %561 = and i32 %560, -1
+  %562 = lshr i32 %561, 2
+  %563 = or i32 %558, %562
+  %564 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %563, ptr %564, align 4, !tbaa !16
+  br label %565
 
-574:                                              ; preds = %536
-  br label %575
+565:                                              ; preds = %527
+  br label %566
 
-575:                                              ; preds = %574
-  %576 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %577 = load i32, ptr %576, align 4
-  %578 = shl i32 %577, 5
-  %579 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %580 = load i32, ptr %579, align 4
-  %581 = and i32 %580, -1
-  %582 = lshr i32 %581, 27
-  %583 = or i32 %578, %582
-  %584 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %585 = load i32, ptr %584, align 4
-  %586 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %587 = load i32, ptr %586, align 4
-  %588 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %589 = load i32, ptr %588, align 4
-  %590 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %591 = load i32, ptr %590, align 4
-  %592 = xor i32 %589, %591
-  %593 = and i32 %587, %592
-  %594 = xor i32 %585, %593
-  %595 = add i32 %583, %594
-  %596 = add i32 %595, 1518500249
-  %597 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %598 = getelementptr inbounds [16 x i32], ptr %597, i64 0, i64 4
-  %599 = load i32, ptr %598, align 4
-  %600 = add i32 %596, %599
-  %601 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %602 = load i32, ptr %601, align 4
-  %603 = add i32 %602, %600
-  store i32 %603, ptr %601, align 4
-  %604 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %605 = load i32, ptr %604, align 4
-  %606 = shl i32 %605, 30
-  %607 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %608 = load i32, ptr %607, align 4
-  %609 = and i32 %608, -1
-  %610 = lshr i32 %609, 2
-  %611 = or i32 %606, %610
-  %612 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %611, ptr %612, align 4
-  br label %613
+566:                                              ; preds = %565
+  br label %567
 
-613:                                              ; preds = %575
-  br label %614
+567:                                              ; preds = %566
+  %568 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %569 = load i32, ptr %568, align 4, !tbaa !19
+  %570 = shl i32 %569, 5
+  %571 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %572 = load i32, ptr %571, align 4, !tbaa !19
+  %573 = and i32 %572, -1
+  %574 = lshr i32 %573, 27
+  %575 = or i32 %570, %574
+  %576 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %577 = load i32, ptr %576, align 4, !tbaa !17
+  %578 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %579 = load i32, ptr %578, align 4, !tbaa !14
+  %580 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %581 = load i32, ptr %580, align 4, !tbaa !16
+  %582 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %583 = load i32, ptr %582, align 4, !tbaa !17
+  %584 = xor i32 %581, %583
+  %585 = and i32 %579, %584
+  %586 = xor i32 %577, %585
+  %587 = add i32 %575, %586
+  %588 = add i32 %587, 1518500249
+  %589 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %590 = getelementptr inbounds [16 x i32], ptr %589, i64 0, i64 11
+  %591 = load i32, ptr %590, align 4, !tbaa !10
+  %592 = add i32 %588, %591
+  %593 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %594 = load i32, ptr %593, align 4, !tbaa !18
+  %595 = add i32 %594, %592
+  store i32 %595, ptr %593, align 4, !tbaa !18
+  %596 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %597 = load i32, ptr %596, align 4, !tbaa !14
+  %598 = shl i32 %597, 30
+  %599 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %600 = load i32, ptr %599, align 4, !tbaa !14
+  %601 = and i32 %600, -1
+  %602 = lshr i32 %601, 2
+  %603 = or i32 %598, %602
+  %604 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %603, ptr %604, align 4, !tbaa !14
+  br label %605
 
-614:                                              ; preds = %613
-  %615 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %616 = load i32, ptr %615, align 4
-  %617 = shl i32 %616, 5
-  %618 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %619 = load i32, ptr %618, align 4
-  %620 = and i32 %619, -1
-  %621 = lshr i32 %620, 27
-  %622 = or i32 %617, %621
-  %623 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %624 = load i32, ptr %623, align 4
-  %625 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %626 = load i32, ptr %625, align 4
-  %627 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %628 = load i32, ptr %627, align 4
-  %629 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %630 = load i32, ptr %629, align 4
-  %631 = xor i32 %628, %630
-  %632 = and i32 %626, %631
-  %633 = xor i32 %624, %632
-  %634 = add i32 %622, %633
-  %635 = add i32 %634, 1518500249
-  %636 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %637 = getelementptr inbounds [16 x i32], ptr %636, i64 0, i64 5
-  %638 = load i32, ptr %637, align 4
-  %639 = add i32 %635, %638
-  %640 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %641 = load i32, ptr %640, align 4
-  %642 = add i32 %641, %639
-  store i32 %642, ptr %640, align 4
-  %643 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %644 = load i32, ptr %643, align 4
-  %645 = shl i32 %644, 30
-  %646 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %647 = load i32, ptr %646, align 4
-  %648 = and i32 %647, -1
-  %649 = lshr i32 %648, 2
-  %650 = or i32 %645, %649
-  %651 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %650, ptr %651, align 4
-  br label %652
+605:                                              ; preds = %567
+  br label %606
 
-652:                                              ; preds = %614
-  br label %653
+606:                                              ; preds = %605
+  br label %607
 
-653:                                              ; preds = %652
-  %654 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %655 = load i32, ptr %654, align 4
-  %656 = shl i32 %655, 5
-  %657 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %658 = load i32, ptr %657, align 4
-  %659 = and i32 %658, -1
-  %660 = lshr i32 %659, 27
-  %661 = or i32 %656, %660
-  %662 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %663 = load i32, ptr %662, align 4
-  %664 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %665 = load i32, ptr %664, align 4
-  %666 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %667 = load i32, ptr %666, align 4
-  %668 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %669 = load i32, ptr %668, align 4
-  %670 = xor i32 %667, %669
-  %671 = and i32 %665, %670
-  %672 = xor i32 %663, %671
-  %673 = add i32 %661, %672
-  %674 = add i32 %673, 1518500249
-  %675 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %676 = getelementptr inbounds [16 x i32], ptr %675, i64 0, i64 6
-  %677 = load i32, ptr %676, align 4
-  %678 = add i32 %674, %677
-  %679 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %680 = load i32, ptr %679, align 4
-  %681 = add i32 %680, %678
-  store i32 %681, ptr %679, align 4
-  %682 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %683 = load i32, ptr %682, align 4
-  %684 = shl i32 %683, 30
-  %685 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %686 = load i32, ptr %685, align 4
-  %687 = and i32 %686, -1
-  %688 = lshr i32 %687, 2
-  %689 = or i32 %684, %688
-  %690 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %689, ptr %690, align 4
-  br label %691
+607:                                              ; preds = %606
+  %608 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %609 = load i32, ptr %608, align 4, !tbaa !18
+  %610 = shl i32 %609, 5
+  %611 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %612 = load i32, ptr %611, align 4, !tbaa !18
+  %613 = and i32 %612, -1
+  %614 = lshr i32 %613, 27
+  %615 = or i32 %610, %614
+  %616 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %617 = load i32, ptr %616, align 4, !tbaa !16
+  %618 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %619 = load i32, ptr %618, align 4, !tbaa !19
+  %620 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %621 = load i32, ptr %620, align 4, !tbaa !14
+  %622 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %623 = load i32, ptr %622, align 4, !tbaa !16
+  %624 = xor i32 %621, %623
+  %625 = and i32 %619, %624
+  %626 = xor i32 %617, %625
+  %627 = add i32 %615, %626
+  %628 = add i32 %627, 1518500249
+  %629 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %630 = getelementptr inbounds [16 x i32], ptr %629, i64 0, i64 12
+  %631 = load i32, ptr %630, align 4, !tbaa !10
+  %632 = add i32 %628, %631
+  %633 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %634 = load i32, ptr %633, align 4, !tbaa !17
+  %635 = add i32 %634, %632
+  store i32 %635, ptr %633, align 4, !tbaa !17
+  %636 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %637 = load i32, ptr %636, align 4, !tbaa !19
+  %638 = shl i32 %637, 30
+  %639 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %640 = load i32, ptr %639, align 4, !tbaa !19
+  %641 = and i32 %640, -1
+  %642 = lshr i32 %641, 2
+  %643 = or i32 %638, %642
+  %644 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %643, ptr %644, align 4, !tbaa !19
+  br label %645
 
-691:                                              ; preds = %653
-  br label %692
+645:                                              ; preds = %607
+  br label %646
 
-692:                                              ; preds = %691
-  %693 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %694 = load i32, ptr %693, align 4
-  %695 = shl i32 %694, 5
-  %696 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %697 = load i32, ptr %696, align 4
-  %698 = and i32 %697, -1
-  %699 = lshr i32 %698, 27
-  %700 = or i32 %695, %699
-  %701 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %702 = load i32, ptr %701, align 4
-  %703 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %704 = load i32, ptr %703, align 4
-  %705 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %706 = load i32, ptr %705, align 4
-  %707 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %708 = load i32, ptr %707, align 4
-  %709 = xor i32 %706, %708
-  %710 = and i32 %704, %709
-  %711 = xor i32 %702, %710
-  %712 = add i32 %700, %711
-  %713 = add i32 %712, 1518500249
-  %714 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %715 = getelementptr inbounds [16 x i32], ptr %714, i64 0, i64 7
-  %716 = load i32, ptr %715, align 4
-  %717 = add i32 %713, %716
-  %718 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %719 = load i32, ptr %718, align 4
-  %720 = add i32 %719, %717
-  store i32 %720, ptr %718, align 4
-  %721 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %722 = load i32, ptr %721, align 4
-  %723 = shl i32 %722, 30
-  %724 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %725 = load i32, ptr %724, align 4
-  %726 = and i32 %725, -1
-  %727 = lshr i32 %726, 2
-  %728 = or i32 %723, %727
-  %729 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %728, ptr %729, align 4
-  br label %730
+646:                                              ; preds = %645
+  br label %647
 
-730:                                              ; preds = %692
-  br label %731
+647:                                              ; preds = %646
+  %648 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %649 = load i32, ptr %648, align 4, !tbaa !17
+  %650 = shl i32 %649, 5
+  %651 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %652 = load i32, ptr %651, align 4, !tbaa !17
+  %653 = and i32 %652, -1
+  %654 = lshr i32 %653, 27
+  %655 = or i32 %650, %654
+  %656 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %657 = load i32, ptr %656, align 4, !tbaa !14
+  %658 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %659 = load i32, ptr %658, align 4, !tbaa !18
+  %660 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %661 = load i32, ptr %660, align 4, !tbaa !19
+  %662 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %663 = load i32, ptr %662, align 4, !tbaa !14
+  %664 = xor i32 %661, %663
+  %665 = and i32 %659, %664
+  %666 = xor i32 %657, %665
+  %667 = add i32 %655, %666
+  %668 = add i32 %667, 1518500249
+  %669 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %670 = getelementptr inbounds [16 x i32], ptr %669, i64 0, i64 13
+  %671 = load i32, ptr %670, align 4, !tbaa !10
+  %672 = add i32 %668, %671
+  %673 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %674 = load i32, ptr %673, align 4, !tbaa !16
+  %675 = add i32 %674, %672
+  store i32 %675, ptr %673, align 4, !tbaa !16
+  %676 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %677 = load i32, ptr %676, align 4, !tbaa !18
+  %678 = shl i32 %677, 30
+  %679 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %680 = load i32, ptr %679, align 4, !tbaa !18
+  %681 = and i32 %680, -1
+  %682 = lshr i32 %681, 2
+  %683 = or i32 %678, %682
+  %684 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %683, ptr %684, align 4, !tbaa !18
+  br label %685
 
-731:                                              ; preds = %730
-  %732 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %733 = load i32, ptr %732, align 4
-  %734 = shl i32 %733, 5
-  %735 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %736 = load i32, ptr %735, align 4
-  %737 = and i32 %736, -1
-  %738 = lshr i32 %737, 27
-  %739 = or i32 %734, %738
-  %740 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %741 = load i32, ptr %740, align 4
-  %742 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %743 = load i32, ptr %742, align 4
-  %744 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %745 = load i32, ptr %744, align 4
-  %746 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %747 = load i32, ptr %746, align 4
-  %748 = xor i32 %745, %747
-  %749 = and i32 %743, %748
-  %750 = xor i32 %741, %749
-  %751 = add i32 %739, %750
-  %752 = add i32 %751, 1518500249
-  %753 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %754 = getelementptr inbounds [16 x i32], ptr %753, i64 0, i64 8
-  %755 = load i32, ptr %754, align 4
-  %756 = add i32 %752, %755
-  %757 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %758 = load i32, ptr %757, align 4
-  %759 = add i32 %758, %756
-  store i32 %759, ptr %757, align 4
-  %760 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %761 = load i32, ptr %760, align 4
-  %762 = shl i32 %761, 30
-  %763 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %764 = load i32, ptr %763, align 4
-  %765 = and i32 %764, -1
-  %766 = lshr i32 %765, 2
-  %767 = or i32 %762, %766
-  %768 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %767, ptr %768, align 4
-  br label %769
+685:                                              ; preds = %647
+  br label %686
 
-769:                                              ; preds = %731
-  br label %770
+686:                                              ; preds = %685
+  br label %687
 
-770:                                              ; preds = %769
-  %771 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %772 = load i32, ptr %771, align 4
-  %773 = shl i32 %772, 5
-  %774 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %775 = load i32, ptr %774, align 4
-  %776 = and i32 %775, -1
-  %777 = lshr i32 %776, 27
-  %778 = or i32 %773, %777
-  %779 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %780 = load i32, ptr %779, align 4
-  %781 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %782 = load i32, ptr %781, align 4
-  %783 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %784 = load i32, ptr %783, align 4
-  %785 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %786 = load i32, ptr %785, align 4
-  %787 = xor i32 %784, %786
-  %788 = and i32 %782, %787
-  %789 = xor i32 %780, %788
-  %790 = add i32 %778, %789
-  %791 = add i32 %790, 1518500249
-  %792 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %793 = getelementptr inbounds [16 x i32], ptr %792, i64 0, i64 9
-  %794 = load i32, ptr %793, align 4
-  %795 = add i32 %791, %794
-  %796 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %797 = load i32, ptr %796, align 4
-  %798 = add i32 %797, %795
-  store i32 %798, ptr %796, align 4
-  %799 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %800 = load i32, ptr %799, align 4
-  %801 = shl i32 %800, 30
-  %802 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %803 = load i32, ptr %802, align 4
-  %804 = and i32 %803, -1
-  %805 = lshr i32 %804, 2
-  %806 = or i32 %801, %805
-  %807 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %806, ptr %807, align 4
-  br label %808
+687:                                              ; preds = %686
+  %688 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %689 = load i32, ptr %688, align 4, !tbaa !16
+  %690 = shl i32 %689, 5
+  %691 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %692 = load i32, ptr %691, align 4, !tbaa !16
+  %693 = and i32 %692, -1
+  %694 = lshr i32 %693, 27
+  %695 = or i32 %690, %694
+  %696 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %697 = load i32, ptr %696, align 4, !tbaa !19
+  %698 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %699 = load i32, ptr %698, align 4, !tbaa !17
+  %700 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %701 = load i32, ptr %700, align 4, !tbaa !18
+  %702 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %703 = load i32, ptr %702, align 4, !tbaa !19
+  %704 = xor i32 %701, %703
+  %705 = and i32 %699, %704
+  %706 = xor i32 %697, %705
+  %707 = add i32 %695, %706
+  %708 = add i32 %707, 1518500249
+  %709 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %710 = getelementptr inbounds [16 x i32], ptr %709, i64 0, i64 14
+  %711 = load i32, ptr %710, align 4, !tbaa !10
+  %712 = add i32 %708, %711
+  %713 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %714 = load i32, ptr %713, align 4, !tbaa !14
+  %715 = add i32 %714, %712
+  store i32 %715, ptr %713, align 4, !tbaa !14
+  %716 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %717 = load i32, ptr %716, align 4, !tbaa !17
+  %718 = shl i32 %717, 30
+  %719 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %720 = load i32, ptr %719, align 4, !tbaa !17
+  %721 = and i32 %720, -1
+  %722 = lshr i32 %721, 2
+  %723 = or i32 %718, %722
+  %724 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %723, ptr %724, align 4, !tbaa !17
+  br label %725
 
-808:                                              ; preds = %770
-  br label %809
+725:                                              ; preds = %687
+  br label %726
 
-809:                                              ; preds = %808
-  %810 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %811 = load i32, ptr %810, align 4
-  %812 = shl i32 %811, 5
-  %813 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %814 = load i32, ptr %813, align 4
-  %815 = and i32 %814, -1
-  %816 = lshr i32 %815, 27
-  %817 = or i32 %812, %816
-  %818 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %819 = load i32, ptr %818, align 4
-  %820 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %821 = load i32, ptr %820, align 4
-  %822 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %823 = load i32, ptr %822, align 4
-  %824 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %825 = load i32, ptr %824, align 4
-  %826 = xor i32 %823, %825
-  %827 = and i32 %821, %826
-  %828 = xor i32 %819, %827
-  %829 = add i32 %817, %828
-  %830 = add i32 %829, 1518500249
-  %831 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %832 = getelementptr inbounds [16 x i32], ptr %831, i64 0, i64 10
-  %833 = load i32, ptr %832, align 4
-  %834 = add i32 %830, %833
-  %835 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %836 = load i32, ptr %835, align 4
-  %837 = add i32 %836, %834
-  store i32 %837, ptr %835, align 4
-  %838 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %839 = load i32, ptr %838, align 4
-  %840 = shl i32 %839, 30
-  %841 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %842 = load i32, ptr %841, align 4
-  %843 = and i32 %842, -1
-  %844 = lshr i32 %843, 2
-  %845 = or i32 %840, %844
-  %846 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %845, ptr %846, align 4
-  br label %847
+726:                                              ; preds = %725
+  br label %727
 
-847:                                              ; preds = %809
-  br label %848
+727:                                              ; preds = %726
+  %728 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %729 = load i32, ptr %728, align 4, !tbaa !14
+  %730 = shl i32 %729, 5
+  %731 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %732 = load i32, ptr %731, align 4, !tbaa !14
+  %733 = and i32 %732, -1
+  %734 = lshr i32 %733, 27
+  %735 = or i32 %730, %734
+  %736 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %737 = load i32, ptr %736, align 4, !tbaa !18
+  %738 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %739 = load i32, ptr %738, align 4, !tbaa !16
+  %740 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %741 = load i32, ptr %740, align 4, !tbaa !17
+  %742 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %743 = load i32, ptr %742, align 4, !tbaa !18
+  %744 = xor i32 %741, %743
+  %745 = and i32 %739, %744
+  %746 = xor i32 %737, %745
+  %747 = add i32 %735, %746
+  %748 = add i32 %747, 1518500249
+  %749 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %750 = getelementptr inbounds [16 x i32], ptr %749, i64 0, i64 15
+  %751 = load i32, ptr %750, align 4, !tbaa !10
+  %752 = add i32 %748, %751
+  %753 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %754 = load i32, ptr %753, align 4, !tbaa !19
+  %755 = add i32 %754, %752
+  store i32 %755, ptr %753, align 4, !tbaa !19
+  %756 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %757 = load i32, ptr %756, align 4, !tbaa !16
+  %758 = shl i32 %757, 30
+  %759 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %760 = load i32, ptr %759, align 4, !tbaa !16
+  %761 = and i32 %760, -1
+  %762 = lshr i32 %761, 2
+  %763 = or i32 %758, %762
+  %764 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %763, ptr %764, align 4, !tbaa !16
+  br label %765
 
-848:                                              ; preds = %847
-  %849 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %850 = load i32, ptr %849, align 4
-  %851 = shl i32 %850, 5
-  %852 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %853 = load i32, ptr %852, align 4
-  %854 = and i32 %853, -1
-  %855 = lshr i32 %854, 27
-  %856 = or i32 %851, %855
-  %857 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %858 = load i32, ptr %857, align 4
-  %859 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %860 = load i32, ptr %859, align 4
-  %861 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %862 = load i32, ptr %861, align 4
-  %863 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %864 = load i32, ptr %863, align 4
-  %865 = xor i32 %862, %864
-  %866 = and i32 %860, %865
-  %867 = xor i32 %858, %866
-  %868 = add i32 %856, %867
-  %869 = add i32 %868, 1518500249
-  %870 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %871 = getelementptr inbounds [16 x i32], ptr %870, i64 0, i64 11
-  %872 = load i32, ptr %871, align 4
-  %873 = add i32 %869, %872
-  %874 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %875 = load i32, ptr %874, align 4
-  %876 = add i32 %875, %873
-  store i32 %876, ptr %874, align 4
-  %877 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %878 = load i32, ptr %877, align 4
-  %879 = shl i32 %878, 30
-  %880 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %881 = load i32, ptr %880, align 4
-  %882 = and i32 %881, -1
-  %883 = lshr i32 %882, 2
-  %884 = or i32 %879, %883
-  %885 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %884, ptr %885, align 4
-  br label %886
+765:                                              ; preds = %727
+  br label %766
 
-886:                                              ; preds = %848
-  br label %887
+766:                                              ; preds = %765
+  br label %767
 
-887:                                              ; preds = %886
-  %888 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %889 = load i32, ptr %888, align 4
-  %890 = shl i32 %889, 5
-  %891 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %892 = load i32, ptr %891, align 4
-  %893 = and i32 %892, -1
-  %894 = lshr i32 %893, 27
-  %895 = or i32 %890, %894
-  %896 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %897 = load i32, ptr %896, align 4
-  %898 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %899 = load i32, ptr %898, align 4
-  %900 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %901 = load i32, ptr %900, align 4
-  %902 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %903 = load i32, ptr %902, align 4
-  %904 = xor i32 %901, %903
-  %905 = and i32 %899, %904
-  %906 = xor i32 %897, %905
-  %907 = add i32 %895, %906
-  %908 = add i32 %907, 1518500249
-  %909 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %910 = getelementptr inbounds [16 x i32], ptr %909, i64 0, i64 12
-  %911 = load i32, ptr %910, align 4
-  %912 = add i32 %908, %911
-  %913 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %914 = load i32, ptr %913, align 4
-  %915 = add i32 %914, %912
-  store i32 %915, ptr %913, align 4
-  %916 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %917 = load i32, ptr %916, align 4
-  %918 = shl i32 %917, 30
-  %919 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %920 = load i32, ptr %919, align 4
-  %921 = and i32 %920, -1
-  %922 = lshr i32 %921, 2
-  %923 = or i32 %918, %922
-  %924 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %923, ptr %924, align 4
-  br label %925
+767:                                              ; preds = %766
+  %768 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %769 = load i32, ptr %768, align 4, !tbaa !19
+  %770 = shl i32 %769, 5
+  %771 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %772 = load i32, ptr %771, align 4, !tbaa !19
+  %773 = and i32 %772, -1
+  %774 = lshr i32 %773, 27
+  %775 = or i32 %770, %774
+  %776 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %777 = load i32, ptr %776, align 4, !tbaa !17
+  %778 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %779 = load i32, ptr %778, align 4, !tbaa !14
+  %780 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %781 = load i32, ptr %780, align 4, !tbaa !16
+  %782 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %783 = load i32, ptr %782, align 4, !tbaa !17
+  %784 = xor i32 %781, %783
+  %785 = and i32 %779, %784
+  %786 = xor i32 %777, %785
+  %787 = add i32 %775, %786
+  %788 = add i32 %787, 1518500249
+  %789 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %790 = getelementptr inbounds [16 x i32], ptr %789, i64 0, i64 13
+  %791 = load i32, ptr %790, align 4, !tbaa !10
+  %792 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %793 = getelementptr inbounds [16 x i32], ptr %792, i64 0, i64 8
+  %794 = load i32, ptr %793, align 4, !tbaa !10
+  %795 = xor i32 %791, %794
+  %796 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %797 = getelementptr inbounds [16 x i32], ptr %796, i64 0, i64 2
+  %798 = load i32, ptr %797, align 4, !tbaa !10
+  %799 = xor i32 %795, %798
+  %800 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %801 = getelementptr inbounds [16 x i32], ptr %800, i64 0, i64 0
+  %802 = load i32, ptr %801, align 4, !tbaa !10
+  %803 = xor i32 %799, %802
+  %804 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %803, ptr %804, align 4, !tbaa !20
+  %805 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %806 = load i32, ptr %805, align 4, !tbaa !20
+  %807 = shl i32 %806, 1
+  %808 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %809 = load i32, ptr %808, align 4, !tbaa !20
+  %810 = and i32 %809, -1
+  %811 = lshr i32 %810, 31
+  %812 = or i32 %807, %811
+  %813 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %814 = getelementptr inbounds [16 x i32], ptr %813, i64 0, i64 0
+  store i32 %812, ptr %814, align 4, !tbaa !10
+  %815 = add i32 %788, %812
+  %816 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %817 = load i32, ptr %816, align 4, !tbaa !18
+  %818 = add i32 %817, %815
+  store i32 %818, ptr %816, align 4, !tbaa !18
+  %819 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %820 = load i32, ptr %819, align 4, !tbaa !14
+  %821 = shl i32 %820, 30
+  %822 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %823 = load i32, ptr %822, align 4, !tbaa !14
+  %824 = and i32 %823, -1
+  %825 = lshr i32 %824, 2
+  %826 = or i32 %821, %825
+  %827 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %826, ptr %827, align 4, !tbaa !14
+  br label %828
 
-925:                                              ; preds = %887
-  br label %926
+828:                                              ; preds = %767
+  br label %829
 
-926:                                              ; preds = %925
-  %927 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %928 = load i32, ptr %927, align 4
-  %929 = shl i32 %928, 5
-  %930 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %931 = load i32, ptr %930, align 4
-  %932 = and i32 %931, -1
-  %933 = lshr i32 %932, 27
-  %934 = or i32 %929, %933
-  %935 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %936 = load i32, ptr %935, align 4
-  %937 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %938 = load i32, ptr %937, align 4
-  %939 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %940 = load i32, ptr %939, align 4
-  %941 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %942 = load i32, ptr %941, align 4
-  %943 = xor i32 %940, %942
-  %944 = and i32 %938, %943
-  %945 = xor i32 %936, %944
-  %946 = add i32 %934, %945
-  %947 = add i32 %946, 1518500249
-  %948 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %949 = getelementptr inbounds [16 x i32], ptr %948, i64 0, i64 13
-  %950 = load i32, ptr %949, align 4
-  %951 = add i32 %947, %950
-  %952 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %953 = load i32, ptr %952, align 4
-  %954 = add i32 %953, %951
-  store i32 %954, ptr %952, align 4
-  %955 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %956 = load i32, ptr %955, align 4
-  %957 = shl i32 %956, 30
-  %958 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %959 = load i32, ptr %958, align 4
-  %960 = and i32 %959, -1
-  %961 = lshr i32 %960, 2
-  %962 = or i32 %957, %961
-  %963 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %962, ptr %963, align 4
-  br label %964
+829:                                              ; preds = %828
+  br label %830
 
-964:                                              ; preds = %926
-  br label %965
+830:                                              ; preds = %829
+  %831 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %832 = load i32, ptr %831, align 4, !tbaa !18
+  %833 = shl i32 %832, 5
+  %834 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %835 = load i32, ptr %834, align 4, !tbaa !18
+  %836 = and i32 %835, -1
+  %837 = lshr i32 %836, 27
+  %838 = or i32 %833, %837
+  %839 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %840 = load i32, ptr %839, align 4, !tbaa !16
+  %841 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %842 = load i32, ptr %841, align 4, !tbaa !19
+  %843 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %844 = load i32, ptr %843, align 4, !tbaa !14
+  %845 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %846 = load i32, ptr %845, align 4, !tbaa !16
+  %847 = xor i32 %844, %846
+  %848 = and i32 %842, %847
+  %849 = xor i32 %840, %848
+  %850 = add i32 %838, %849
+  %851 = add i32 %850, 1518500249
+  %852 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %853 = getelementptr inbounds [16 x i32], ptr %852, i64 0, i64 14
+  %854 = load i32, ptr %853, align 4, !tbaa !10
+  %855 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %856 = getelementptr inbounds [16 x i32], ptr %855, i64 0, i64 9
+  %857 = load i32, ptr %856, align 4, !tbaa !10
+  %858 = xor i32 %854, %857
+  %859 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %860 = getelementptr inbounds [16 x i32], ptr %859, i64 0, i64 3
+  %861 = load i32, ptr %860, align 4, !tbaa !10
+  %862 = xor i32 %858, %861
+  %863 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %864 = getelementptr inbounds [16 x i32], ptr %863, i64 0, i64 1
+  %865 = load i32, ptr %864, align 4, !tbaa !10
+  %866 = xor i32 %862, %865
+  %867 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %866, ptr %867, align 4, !tbaa !20
+  %868 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %869 = load i32, ptr %868, align 4, !tbaa !20
+  %870 = shl i32 %869, 1
+  %871 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %872 = load i32, ptr %871, align 4, !tbaa !20
+  %873 = and i32 %872, -1
+  %874 = lshr i32 %873, 31
+  %875 = or i32 %870, %874
+  %876 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %877 = getelementptr inbounds [16 x i32], ptr %876, i64 0, i64 1
+  store i32 %875, ptr %877, align 4, !tbaa !10
+  %878 = add i32 %851, %875
+  %879 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %880 = load i32, ptr %879, align 4, !tbaa !17
+  %881 = add i32 %880, %878
+  store i32 %881, ptr %879, align 4, !tbaa !17
+  %882 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %883 = load i32, ptr %882, align 4, !tbaa !19
+  %884 = shl i32 %883, 30
+  %885 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %886 = load i32, ptr %885, align 4, !tbaa !19
+  %887 = and i32 %886, -1
+  %888 = lshr i32 %887, 2
+  %889 = or i32 %884, %888
+  %890 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %889, ptr %890, align 4, !tbaa !19
+  br label %891
 
-965:                                              ; preds = %964
-  %966 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %967 = load i32, ptr %966, align 4
-  %968 = shl i32 %967, 5
-  %969 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %970 = load i32, ptr %969, align 4
-  %971 = and i32 %970, -1
-  %972 = lshr i32 %971, 27
-  %973 = or i32 %968, %972
-  %974 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %975 = load i32, ptr %974, align 4
-  %976 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %977 = load i32, ptr %976, align 4
-  %978 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %979 = load i32, ptr %978, align 4
-  %980 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %981 = load i32, ptr %980, align 4
-  %982 = xor i32 %979, %981
-  %983 = and i32 %977, %982
-  %984 = xor i32 %975, %983
-  %985 = add i32 %973, %984
-  %986 = add i32 %985, 1518500249
-  %987 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %988 = getelementptr inbounds [16 x i32], ptr %987, i64 0, i64 14
-  %989 = load i32, ptr %988, align 4
-  %990 = add i32 %986, %989
-  %991 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %992 = load i32, ptr %991, align 4
-  %993 = add i32 %992, %990
-  store i32 %993, ptr %991, align 4
-  %994 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %995 = load i32, ptr %994, align 4
-  %996 = shl i32 %995, 30
-  %997 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %998 = load i32, ptr %997, align 4
+891:                                              ; preds = %830
+  br label %892
+
+892:                                              ; preds = %891
+  br label %893
+
+893:                                              ; preds = %892
+  %894 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %895 = load i32, ptr %894, align 4, !tbaa !17
+  %896 = shl i32 %895, 5
+  %897 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %898 = load i32, ptr %897, align 4, !tbaa !17
+  %899 = and i32 %898, -1
+  %900 = lshr i32 %899, 27
+  %901 = or i32 %896, %900
+  %902 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %903 = load i32, ptr %902, align 4, !tbaa !14
+  %904 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %905 = load i32, ptr %904, align 4, !tbaa !18
+  %906 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %907 = load i32, ptr %906, align 4, !tbaa !19
+  %908 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %909 = load i32, ptr %908, align 4, !tbaa !14
+  %910 = xor i32 %907, %909
+  %911 = and i32 %905, %910
+  %912 = xor i32 %903, %911
+  %913 = add i32 %901, %912
+  %914 = add i32 %913, 1518500249
+  %915 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %916 = getelementptr inbounds [16 x i32], ptr %915, i64 0, i64 15
+  %917 = load i32, ptr %916, align 4, !tbaa !10
+  %918 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %919 = getelementptr inbounds [16 x i32], ptr %918, i64 0, i64 10
+  %920 = load i32, ptr %919, align 4, !tbaa !10
+  %921 = xor i32 %917, %920
+  %922 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %923 = getelementptr inbounds [16 x i32], ptr %922, i64 0, i64 4
+  %924 = load i32, ptr %923, align 4, !tbaa !10
+  %925 = xor i32 %921, %924
+  %926 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %927 = getelementptr inbounds [16 x i32], ptr %926, i64 0, i64 2
+  %928 = load i32, ptr %927, align 4, !tbaa !10
+  %929 = xor i32 %925, %928
+  %930 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %929, ptr %930, align 4, !tbaa !20
+  %931 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %932 = load i32, ptr %931, align 4, !tbaa !20
+  %933 = shl i32 %932, 1
+  %934 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %935 = load i32, ptr %934, align 4, !tbaa !20
+  %936 = and i32 %935, -1
+  %937 = lshr i32 %936, 31
+  %938 = or i32 %933, %937
+  %939 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %940 = getelementptr inbounds [16 x i32], ptr %939, i64 0, i64 2
+  store i32 %938, ptr %940, align 4, !tbaa !10
+  %941 = add i32 %914, %938
+  %942 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %943 = load i32, ptr %942, align 4, !tbaa !16
+  %944 = add i32 %943, %941
+  store i32 %944, ptr %942, align 4, !tbaa !16
+  %945 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %946 = load i32, ptr %945, align 4, !tbaa !18
+  %947 = shl i32 %946, 30
+  %948 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %949 = load i32, ptr %948, align 4, !tbaa !18
+  %950 = and i32 %949, -1
+  %951 = lshr i32 %950, 2
+  %952 = or i32 %947, %951
+  %953 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %952, ptr %953, align 4, !tbaa !18
+  br label %954
+
+954:                                              ; preds = %893
+  br label %955
+
+955:                                              ; preds = %954
+  br label %956
+
+956:                                              ; preds = %955
+  %957 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %958 = load i32, ptr %957, align 4, !tbaa !16
+  %959 = shl i32 %958, 5
+  %960 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %961 = load i32, ptr %960, align 4, !tbaa !16
+  %962 = and i32 %961, -1
+  %963 = lshr i32 %962, 27
+  %964 = or i32 %959, %963
+  %965 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %966 = load i32, ptr %965, align 4, !tbaa !19
+  %967 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %968 = load i32, ptr %967, align 4, !tbaa !17
+  %969 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %970 = load i32, ptr %969, align 4, !tbaa !18
+  %971 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %972 = load i32, ptr %971, align 4, !tbaa !19
+  %973 = xor i32 %970, %972
+  %974 = and i32 %968, %973
+  %975 = xor i32 %966, %974
+  %976 = add i32 %964, %975
+  %977 = add i32 %976, 1518500249
+  %978 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %979 = getelementptr inbounds [16 x i32], ptr %978, i64 0, i64 0
+  %980 = load i32, ptr %979, align 4, !tbaa !10
+  %981 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %982 = getelementptr inbounds [16 x i32], ptr %981, i64 0, i64 11
+  %983 = load i32, ptr %982, align 4, !tbaa !10
+  %984 = xor i32 %980, %983
+  %985 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %986 = getelementptr inbounds [16 x i32], ptr %985, i64 0, i64 5
+  %987 = load i32, ptr %986, align 4, !tbaa !10
+  %988 = xor i32 %984, %987
+  %989 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %990 = getelementptr inbounds [16 x i32], ptr %989, i64 0, i64 3
+  %991 = load i32, ptr %990, align 4, !tbaa !10
+  %992 = xor i32 %988, %991
+  %993 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %992, ptr %993, align 4, !tbaa !20
+  %994 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %995 = load i32, ptr %994, align 4, !tbaa !20
+  %996 = shl i32 %995, 1
+  %997 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %998 = load i32, ptr %997, align 4, !tbaa !20
   %999 = and i32 %998, -1
-  %1000 = lshr i32 %999, 2
+  %1000 = lshr i32 %999, 31
   %1001 = or i32 %996, %1000
-  %1002 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %1001, ptr %1002, align 4
-  br label %1003
+  %1002 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1003 = getelementptr inbounds [16 x i32], ptr %1002, i64 0, i64 3
+  store i32 %1001, ptr %1003, align 4, !tbaa !10
+  %1004 = add i32 %977, %1001
+  %1005 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1006 = load i32, ptr %1005, align 4, !tbaa !14
+  %1007 = add i32 %1006, %1004
+  store i32 %1007, ptr %1005, align 4, !tbaa !14
+  %1008 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1009 = load i32, ptr %1008, align 4, !tbaa !17
+  %1010 = shl i32 %1009, 30
+  %1011 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1012 = load i32, ptr %1011, align 4, !tbaa !17
+  %1013 = and i32 %1012, -1
+  %1014 = lshr i32 %1013, 2
+  %1015 = or i32 %1010, %1014
+  %1016 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %1015, ptr %1016, align 4, !tbaa !17
+  br label %1017
 
-1003:                                             ; preds = %965
-  br label %1004
+1017:                                             ; preds = %956
+  br label %1018
 
-1004:                                             ; preds = %1003
-  %1005 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1006 = load i32, ptr %1005, align 4
-  %1007 = shl i32 %1006, 5
-  %1008 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1009 = load i32, ptr %1008, align 4
-  %1010 = and i32 %1009, -1
-  %1011 = lshr i32 %1010, 27
-  %1012 = or i32 %1007, %1011
-  %1013 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1014 = load i32, ptr %1013, align 4
-  %1015 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1016 = load i32, ptr %1015, align 4
-  %1017 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1018 = load i32, ptr %1017, align 4
-  %1019 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1020 = load i32, ptr %1019, align 4
-  %1021 = xor i32 %1018, %1020
-  %1022 = and i32 %1016, %1021
-  %1023 = xor i32 %1014, %1022
-  %1024 = add i32 %1012, %1023
-  %1025 = add i32 %1024, 1518500249
-  %1026 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1027 = getelementptr inbounds [16 x i32], ptr %1026, i64 0, i64 15
-  %1028 = load i32, ptr %1027, align 4
-  %1029 = add i32 %1025, %1028
-  %1030 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1031 = load i32, ptr %1030, align 4
-  %1032 = add i32 %1031, %1029
-  store i32 %1032, ptr %1030, align 4
-  %1033 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1034 = load i32, ptr %1033, align 4
-  %1035 = shl i32 %1034, 30
-  %1036 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1037 = load i32, ptr %1036, align 4
-  %1038 = and i32 %1037, -1
-  %1039 = lshr i32 %1038, 2
-  %1040 = or i32 %1035, %1039
-  %1041 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %1040, ptr %1041, align 4
-  br label %1042
+1018:                                             ; preds = %1017
+  br label %1019
 
-1042:                                             ; preds = %1004
-  br label %1043
+1019:                                             ; preds = %1018
+  %1020 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1021 = load i32, ptr %1020, align 4, !tbaa !14
+  %1022 = shl i32 %1021, 5
+  %1023 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1024 = load i32, ptr %1023, align 4, !tbaa !14
+  %1025 = and i32 %1024, -1
+  %1026 = lshr i32 %1025, 27
+  %1027 = or i32 %1022, %1026
+  %1028 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1029 = load i32, ptr %1028, align 4, !tbaa !16
+  %1030 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1031 = load i32, ptr %1030, align 4, !tbaa !17
+  %1032 = xor i32 %1029, %1031
+  %1033 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1034 = load i32, ptr %1033, align 4, !tbaa !18
+  %1035 = xor i32 %1032, %1034
+  %1036 = add i32 %1027, %1035
+  %1037 = add i32 %1036, 1859775393
+  %1038 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1039 = getelementptr inbounds [16 x i32], ptr %1038, i64 0, i64 1
+  %1040 = load i32, ptr %1039, align 4, !tbaa !10
+  %1041 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1042 = getelementptr inbounds [16 x i32], ptr %1041, i64 0, i64 12
+  %1043 = load i32, ptr %1042, align 4, !tbaa !10
+  %1044 = xor i32 %1040, %1043
+  %1045 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1046 = getelementptr inbounds [16 x i32], ptr %1045, i64 0, i64 6
+  %1047 = load i32, ptr %1046, align 4, !tbaa !10
+  %1048 = xor i32 %1044, %1047
+  %1049 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1050 = getelementptr inbounds [16 x i32], ptr %1049, i64 0, i64 4
+  %1051 = load i32, ptr %1050, align 4, !tbaa !10
+  %1052 = xor i32 %1048, %1051
+  %1053 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1052, ptr %1053, align 4, !tbaa !20
+  %1054 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1055 = load i32, ptr %1054, align 4, !tbaa !20
+  %1056 = shl i32 %1055, 1
+  %1057 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1058 = load i32, ptr %1057, align 4, !tbaa !20
+  %1059 = and i32 %1058, -1
+  %1060 = lshr i32 %1059, 31
+  %1061 = or i32 %1056, %1060
+  %1062 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1063 = getelementptr inbounds [16 x i32], ptr %1062, i64 0, i64 4
+  store i32 %1061, ptr %1063, align 4, !tbaa !10
+  %1064 = add i32 %1037, %1061
+  %1065 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1066 = load i32, ptr %1065, align 4, !tbaa !19
+  %1067 = add i32 %1066, %1064
+  store i32 %1067, ptr %1065, align 4, !tbaa !19
+  %1068 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1069 = load i32, ptr %1068, align 4, !tbaa !16
+  %1070 = shl i32 %1069, 30
+  %1071 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1072 = load i32, ptr %1071, align 4, !tbaa !16
+  %1073 = and i32 %1072, -1
+  %1074 = lshr i32 %1073, 2
+  %1075 = or i32 %1070, %1074
+  %1076 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %1075, ptr %1076, align 4, !tbaa !16
+  br label %1077
 
-1043:                                             ; preds = %1042
-  %1044 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1045 = load i32, ptr %1044, align 4
-  %1046 = shl i32 %1045, 5
-  %1047 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1048 = load i32, ptr %1047, align 4
-  %1049 = and i32 %1048, -1
-  %1050 = lshr i32 %1049, 27
-  %1051 = or i32 %1046, %1050
-  %1052 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1053 = load i32, ptr %1052, align 4
-  %1054 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1055 = load i32, ptr %1054, align 4
-  %1056 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1057 = load i32, ptr %1056, align 4
-  %1058 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1059 = load i32, ptr %1058, align 4
-  %1060 = xor i32 %1057, %1059
-  %1061 = and i32 %1055, %1060
-  %1062 = xor i32 %1053, %1061
-  %1063 = add i32 %1051, %1062
-  %1064 = add i32 %1063, 1518500249
-  %1065 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1066 = getelementptr inbounds [16 x i32], ptr %1065, i64 0, i64 13
-  %1067 = load i32, ptr %1066, align 4
-  %1068 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1069 = getelementptr inbounds [16 x i32], ptr %1068, i64 0, i64 8
-  %1070 = load i32, ptr %1069, align 4
-  %1071 = xor i32 %1067, %1070
-  %1072 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1073 = getelementptr inbounds [16 x i32], ptr %1072, i64 0, i64 2
-  %1074 = load i32, ptr %1073, align 4
-  %1075 = xor i32 %1071, %1074
-  %1076 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1077 = getelementptr inbounds [16 x i32], ptr %1076, i64 0, i64 0
-  %1078 = load i32, ptr %1077, align 4
-  %1079 = xor i32 %1075, %1078
-  %1080 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1079, ptr %1080, align 4
-  %1081 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1082 = load i32, ptr %1081, align 4
-  %1083 = shl i32 %1082, 1
-  %1084 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1085 = load i32, ptr %1084, align 4
-  %1086 = and i32 %1085, -1
-  %1087 = lshr i32 %1086, 31
-  %1088 = or i32 %1083, %1087
-  %1089 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1090 = getelementptr inbounds [16 x i32], ptr %1089, i64 0, i64 0
-  store i32 %1088, ptr %1090, align 4
-  %1091 = add i32 %1064, %1088
-  %1092 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1093 = load i32, ptr %1092, align 4
-  %1094 = add i32 %1093, %1091
-  store i32 %1094, ptr %1092, align 4
-  %1095 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1096 = load i32, ptr %1095, align 4
-  %1097 = shl i32 %1096, 30
-  %1098 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1099 = load i32, ptr %1098, align 4
-  %1100 = and i32 %1099, -1
-  %1101 = lshr i32 %1100, 2
-  %1102 = or i32 %1097, %1101
-  %1103 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %1102, ptr %1103, align 4
-  br label %1104
+1077:                                             ; preds = %1019
+  br label %1078
 
-1104:                                             ; preds = %1043
-  br label %1105
+1078:                                             ; preds = %1077
+  br label %1079
 
-1105:                                             ; preds = %1104
-  %1106 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1107 = load i32, ptr %1106, align 4
-  %1108 = shl i32 %1107, 5
-  %1109 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1110 = load i32, ptr %1109, align 4
-  %1111 = and i32 %1110, -1
-  %1112 = lshr i32 %1111, 27
-  %1113 = or i32 %1108, %1112
-  %1114 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1115 = load i32, ptr %1114, align 4
-  %1116 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1117 = load i32, ptr %1116, align 4
-  %1118 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1119 = load i32, ptr %1118, align 4
-  %1120 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1121 = load i32, ptr %1120, align 4
-  %1122 = xor i32 %1119, %1121
-  %1123 = and i32 %1117, %1122
-  %1124 = xor i32 %1115, %1123
-  %1125 = add i32 %1113, %1124
-  %1126 = add i32 %1125, 1518500249
-  %1127 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1128 = getelementptr inbounds [16 x i32], ptr %1127, i64 0, i64 14
-  %1129 = load i32, ptr %1128, align 4
-  %1130 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1131 = getelementptr inbounds [16 x i32], ptr %1130, i64 0, i64 9
-  %1132 = load i32, ptr %1131, align 4
-  %1133 = xor i32 %1129, %1132
-  %1134 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1135 = getelementptr inbounds [16 x i32], ptr %1134, i64 0, i64 3
-  %1136 = load i32, ptr %1135, align 4
-  %1137 = xor i32 %1133, %1136
-  %1138 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1139 = getelementptr inbounds [16 x i32], ptr %1138, i64 0, i64 1
-  %1140 = load i32, ptr %1139, align 4
-  %1141 = xor i32 %1137, %1140
-  %1142 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1141, ptr %1142, align 4
-  %1143 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1144 = load i32, ptr %1143, align 4
-  %1145 = shl i32 %1144, 1
-  %1146 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1147 = load i32, ptr %1146, align 4
-  %1148 = and i32 %1147, -1
-  %1149 = lshr i32 %1148, 31
-  %1150 = or i32 %1145, %1149
-  %1151 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1152 = getelementptr inbounds [16 x i32], ptr %1151, i64 0, i64 1
-  store i32 %1150, ptr %1152, align 4
-  %1153 = add i32 %1126, %1150
-  %1154 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1155 = load i32, ptr %1154, align 4
-  %1156 = add i32 %1155, %1153
-  store i32 %1156, ptr %1154, align 4
-  %1157 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1158 = load i32, ptr %1157, align 4
-  %1159 = shl i32 %1158, 30
-  %1160 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1161 = load i32, ptr %1160, align 4
-  %1162 = and i32 %1161, -1
-  %1163 = lshr i32 %1162, 2
-  %1164 = or i32 %1159, %1163
-  %1165 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %1164, ptr %1165, align 4
-  br label %1166
+1079:                                             ; preds = %1078
+  %1080 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1081 = load i32, ptr %1080, align 4, !tbaa !19
+  %1082 = shl i32 %1081, 5
+  %1083 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1084 = load i32, ptr %1083, align 4, !tbaa !19
+  %1085 = and i32 %1084, -1
+  %1086 = lshr i32 %1085, 27
+  %1087 = or i32 %1082, %1086
+  %1088 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1089 = load i32, ptr %1088, align 4, !tbaa !14
+  %1090 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1091 = load i32, ptr %1090, align 4, !tbaa !16
+  %1092 = xor i32 %1089, %1091
+  %1093 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1094 = load i32, ptr %1093, align 4, !tbaa !17
+  %1095 = xor i32 %1092, %1094
+  %1096 = add i32 %1087, %1095
+  %1097 = add i32 %1096, 1859775393
+  %1098 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1099 = getelementptr inbounds [16 x i32], ptr %1098, i64 0, i64 2
+  %1100 = load i32, ptr %1099, align 4, !tbaa !10
+  %1101 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1102 = getelementptr inbounds [16 x i32], ptr %1101, i64 0, i64 13
+  %1103 = load i32, ptr %1102, align 4, !tbaa !10
+  %1104 = xor i32 %1100, %1103
+  %1105 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1106 = getelementptr inbounds [16 x i32], ptr %1105, i64 0, i64 7
+  %1107 = load i32, ptr %1106, align 4, !tbaa !10
+  %1108 = xor i32 %1104, %1107
+  %1109 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1110 = getelementptr inbounds [16 x i32], ptr %1109, i64 0, i64 5
+  %1111 = load i32, ptr %1110, align 4, !tbaa !10
+  %1112 = xor i32 %1108, %1111
+  %1113 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1112, ptr %1113, align 4, !tbaa !20
+  %1114 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1115 = load i32, ptr %1114, align 4, !tbaa !20
+  %1116 = shl i32 %1115, 1
+  %1117 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1118 = load i32, ptr %1117, align 4, !tbaa !20
+  %1119 = and i32 %1118, -1
+  %1120 = lshr i32 %1119, 31
+  %1121 = or i32 %1116, %1120
+  %1122 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1123 = getelementptr inbounds [16 x i32], ptr %1122, i64 0, i64 5
+  store i32 %1121, ptr %1123, align 4, !tbaa !10
+  %1124 = add i32 %1097, %1121
+  %1125 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1126 = load i32, ptr %1125, align 4, !tbaa !18
+  %1127 = add i32 %1126, %1124
+  store i32 %1127, ptr %1125, align 4, !tbaa !18
+  %1128 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1129 = load i32, ptr %1128, align 4, !tbaa !14
+  %1130 = shl i32 %1129, 30
+  %1131 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1132 = load i32, ptr %1131, align 4, !tbaa !14
+  %1133 = and i32 %1132, -1
+  %1134 = lshr i32 %1133, 2
+  %1135 = or i32 %1130, %1134
+  %1136 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %1135, ptr %1136, align 4, !tbaa !14
+  br label %1137
 
-1166:                                             ; preds = %1105
-  br label %1167
+1137:                                             ; preds = %1079
+  br label %1138
 
-1167:                                             ; preds = %1166
-  %1168 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1169 = load i32, ptr %1168, align 4
-  %1170 = shl i32 %1169, 5
-  %1171 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1172 = load i32, ptr %1171, align 4
-  %1173 = and i32 %1172, -1
-  %1174 = lshr i32 %1173, 27
-  %1175 = or i32 %1170, %1174
-  %1176 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1177 = load i32, ptr %1176, align 4
-  %1178 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1179 = load i32, ptr %1178, align 4
-  %1180 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1181 = load i32, ptr %1180, align 4
-  %1182 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1183 = load i32, ptr %1182, align 4
-  %1184 = xor i32 %1181, %1183
-  %1185 = and i32 %1179, %1184
-  %1186 = xor i32 %1177, %1185
-  %1187 = add i32 %1175, %1186
-  %1188 = add i32 %1187, 1518500249
-  %1189 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1190 = getelementptr inbounds [16 x i32], ptr %1189, i64 0, i64 15
-  %1191 = load i32, ptr %1190, align 4
-  %1192 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1193 = getelementptr inbounds [16 x i32], ptr %1192, i64 0, i64 10
-  %1194 = load i32, ptr %1193, align 4
-  %1195 = xor i32 %1191, %1194
-  %1196 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1197 = getelementptr inbounds [16 x i32], ptr %1196, i64 0, i64 4
-  %1198 = load i32, ptr %1197, align 4
-  %1199 = xor i32 %1195, %1198
-  %1200 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1201 = getelementptr inbounds [16 x i32], ptr %1200, i64 0, i64 2
-  %1202 = load i32, ptr %1201, align 4
-  %1203 = xor i32 %1199, %1202
-  %1204 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1203, ptr %1204, align 4
-  %1205 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1206 = load i32, ptr %1205, align 4
-  %1207 = shl i32 %1206, 1
-  %1208 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1209 = load i32, ptr %1208, align 4
-  %1210 = and i32 %1209, -1
-  %1211 = lshr i32 %1210, 31
-  %1212 = or i32 %1207, %1211
-  %1213 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1214 = getelementptr inbounds [16 x i32], ptr %1213, i64 0, i64 2
-  store i32 %1212, ptr %1214, align 4
-  %1215 = add i32 %1188, %1212
-  %1216 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1217 = load i32, ptr %1216, align 4
-  %1218 = add i32 %1217, %1215
-  store i32 %1218, ptr %1216, align 4
-  %1219 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1220 = load i32, ptr %1219, align 4
-  %1221 = shl i32 %1220, 30
-  %1222 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1223 = load i32, ptr %1222, align 4
-  %1224 = and i32 %1223, -1
-  %1225 = lshr i32 %1224, 2
-  %1226 = or i32 %1221, %1225
-  %1227 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %1226, ptr %1227, align 4
-  br label %1228
+1138:                                             ; preds = %1137
+  br label %1139
 
-1228:                                             ; preds = %1167
-  br label %1229
+1139:                                             ; preds = %1138
+  %1140 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1141 = load i32, ptr %1140, align 4, !tbaa !18
+  %1142 = shl i32 %1141, 5
+  %1143 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1144 = load i32, ptr %1143, align 4, !tbaa !18
+  %1145 = and i32 %1144, -1
+  %1146 = lshr i32 %1145, 27
+  %1147 = or i32 %1142, %1146
+  %1148 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1149 = load i32, ptr %1148, align 4, !tbaa !19
+  %1150 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1151 = load i32, ptr %1150, align 4, !tbaa !14
+  %1152 = xor i32 %1149, %1151
+  %1153 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1154 = load i32, ptr %1153, align 4, !tbaa !16
+  %1155 = xor i32 %1152, %1154
+  %1156 = add i32 %1147, %1155
+  %1157 = add i32 %1156, 1859775393
+  %1158 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1159 = getelementptr inbounds [16 x i32], ptr %1158, i64 0, i64 3
+  %1160 = load i32, ptr %1159, align 4, !tbaa !10
+  %1161 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1162 = getelementptr inbounds [16 x i32], ptr %1161, i64 0, i64 14
+  %1163 = load i32, ptr %1162, align 4, !tbaa !10
+  %1164 = xor i32 %1160, %1163
+  %1165 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1166 = getelementptr inbounds [16 x i32], ptr %1165, i64 0, i64 8
+  %1167 = load i32, ptr %1166, align 4, !tbaa !10
+  %1168 = xor i32 %1164, %1167
+  %1169 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1170 = getelementptr inbounds [16 x i32], ptr %1169, i64 0, i64 6
+  %1171 = load i32, ptr %1170, align 4, !tbaa !10
+  %1172 = xor i32 %1168, %1171
+  %1173 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1172, ptr %1173, align 4, !tbaa !20
+  %1174 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1175 = load i32, ptr %1174, align 4, !tbaa !20
+  %1176 = shl i32 %1175, 1
+  %1177 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1178 = load i32, ptr %1177, align 4, !tbaa !20
+  %1179 = and i32 %1178, -1
+  %1180 = lshr i32 %1179, 31
+  %1181 = or i32 %1176, %1180
+  %1182 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1183 = getelementptr inbounds [16 x i32], ptr %1182, i64 0, i64 6
+  store i32 %1181, ptr %1183, align 4, !tbaa !10
+  %1184 = add i32 %1157, %1181
+  %1185 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1186 = load i32, ptr %1185, align 4, !tbaa !17
+  %1187 = add i32 %1186, %1184
+  store i32 %1187, ptr %1185, align 4, !tbaa !17
+  %1188 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1189 = load i32, ptr %1188, align 4, !tbaa !19
+  %1190 = shl i32 %1189, 30
+  %1191 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1192 = load i32, ptr %1191, align 4, !tbaa !19
+  %1193 = and i32 %1192, -1
+  %1194 = lshr i32 %1193, 2
+  %1195 = or i32 %1190, %1194
+  %1196 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %1195, ptr %1196, align 4, !tbaa !19
+  br label %1197
 
-1229:                                             ; preds = %1228
-  %1230 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1231 = load i32, ptr %1230, align 4
-  %1232 = shl i32 %1231, 5
-  %1233 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1234 = load i32, ptr %1233, align 4
-  %1235 = and i32 %1234, -1
-  %1236 = lshr i32 %1235, 27
-  %1237 = or i32 %1232, %1236
-  %1238 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1239 = load i32, ptr %1238, align 4
-  %1240 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1241 = load i32, ptr %1240, align 4
-  %1242 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1243 = load i32, ptr %1242, align 4
-  %1244 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1245 = load i32, ptr %1244, align 4
-  %1246 = xor i32 %1243, %1245
-  %1247 = and i32 %1241, %1246
-  %1248 = xor i32 %1239, %1247
-  %1249 = add i32 %1237, %1248
-  %1250 = add i32 %1249, 1518500249
-  %1251 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1252 = getelementptr inbounds [16 x i32], ptr %1251, i64 0, i64 0
-  %1253 = load i32, ptr %1252, align 4
-  %1254 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1255 = getelementptr inbounds [16 x i32], ptr %1254, i64 0, i64 11
-  %1256 = load i32, ptr %1255, align 4
-  %1257 = xor i32 %1253, %1256
-  %1258 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1259 = getelementptr inbounds [16 x i32], ptr %1258, i64 0, i64 5
-  %1260 = load i32, ptr %1259, align 4
-  %1261 = xor i32 %1257, %1260
-  %1262 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1263 = getelementptr inbounds [16 x i32], ptr %1262, i64 0, i64 3
-  %1264 = load i32, ptr %1263, align 4
-  %1265 = xor i32 %1261, %1264
-  %1266 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1265, ptr %1266, align 4
-  %1267 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1268 = load i32, ptr %1267, align 4
-  %1269 = shl i32 %1268, 1
-  %1270 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1271 = load i32, ptr %1270, align 4
-  %1272 = and i32 %1271, -1
-  %1273 = lshr i32 %1272, 31
-  %1274 = or i32 %1269, %1273
-  %1275 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1276 = getelementptr inbounds [16 x i32], ptr %1275, i64 0, i64 3
-  store i32 %1274, ptr %1276, align 4
-  %1277 = add i32 %1250, %1274
-  %1278 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1279 = load i32, ptr %1278, align 4
-  %1280 = add i32 %1279, %1277
-  store i32 %1280, ptr %1278, align 4
-  %1281 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1282 = load i32, ptr %1281, align 4
-  %1283 = shl i32 %1282, 30
-  %1284 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1285 = load i32, ptr %1284, align 4
-  %1286 = and i32 %1285, -1
-  %1287 = lshr i32 %1286, 2
-  %1288 = or i32 %1283, %1287
-  %1289 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %1288, ptr %1289, align 4
-  br label %1290
+1197:                                             ; preds = %1139
+  br label %1198
 
-1290:                                             ; preds = %1229
-  br label %1291
+1198:                                             ; preds = %1197
+  br label %1199
 
-1291:                                             ; preds = %1290
-  %1292 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1293 = load i32, ptr %1292, align 4
-  %1294 = shl i32 %1293, 5
-  %1295 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1296 = load i32, ptr %1295, align 4
-  %1297 = and i32 %1296, -1
-  %1298 = lshr i32 %1297, 27
-  %1299 = or i32 %1294, %1298
-  %1300 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1301 = load i32, ptr %1300, align 4
-  %1302 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1303 = load i32, ptr %1302, align 4
-  %1304 = xor i32 %1301, %1303
-  %1305 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1306 = load i32, ptr %1305, align 4
-  %1307 = xor i32 %1304, %1306
-  %1308 = add i32 %1299, %1307
-  %1309 = add i32 %1308, 1859775393
-  %1310 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1311 = getelementptr inbounds [16 x i32], ptr %1310, i64 0, i64 1
-  %1312 = load i32, ptr %1311, align 4
-  %1313 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1314 = getelementptr inbounds [16 x i32], ptr %1313, i64 0, i64 12
-  %1315 = load i32, ptr %1314, align 4
-  %1316 = xor i32 %1312, %1315
-  %1317 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1318 = getelementptr inbounds [16 x i32], ptr %1317, i64 0, i64 6
-  %1319 = load i32, ptr %1318, align 4
-  %1320 = xor i32 %1316, %1319
-  %1321 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1322 = getelementptr inbounds [16 x i32], ptr %1321, i64 0, i64 4
-  %1323 = load i32, ptr %1322, align 4
-  %1324 = xor i32 %1320, %1323
-  %1325 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1324, ptr %1325, align 4
-  %1326 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1327 = load i32, ptr %1326, align 4
-  %1328 = shl i32 %1327, 1
-  %1329 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1330 = load i32, ptr %1329, align 4
-  %1331 = and i32 %1330, -1
-  %1332 = lshr i32 %1331, 31
-  %1333 = or i32 %1328, %1332
-  %1334 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1335 = getelementptr inbounds [16 x i32], ptr %1334, i64 0, i64 4
-  store i32 %1333, ptr %1335, align 4
-  %1336 = add i32 %1309, %1333
-  %1337 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1338 = load i32, ptr %1337, align 4
-  %1339 = add i32 %1338, %1336
-  store i32 %1339, ptr %1337, align 4
-  %1340 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1341 = load i32, ptr %1340, align 4
-  %1342 = shl i32 %1341, 30
-  %1343 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1344 = load i32, ptr %1343, align 4
-  %1345 = and i32 %1344, -1
-  %1346 = lshr i32 %1345, 2
-  %1347 = or i32 %1342, %1346
-  %1348 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %1347, ptr %1348, align 4
-  br label %1349
+1199:                                             ; preds = %1198
+  %1200 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1201 = load i32, ptr %1200, align 4, !tbaa !17
+  %1202 = shl i32 %1201, 5
+  %1203 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1204 = load i32, ptr %1203, align 4, !tbaa !17
+  %1205 = and i32 %1204, -1
+  %1206 = lshr i32 %1205, 27
+  %1207 = or i32 %1202, %1206
+  %1208 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1209 = load i32, ptr %1208, align 4, !tbaa !18
+  %1210 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1211 = load i32, ptr %1210, align 4, !tbaa !19
+  %1212 = xor i32 %1209, %1211
+  %1213 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1214 = load i32, ptr %1213, align 4, !tbaa !14
+  %1215 = xor i32 %1212, %1214
+  %1216 = add i32 %1207, %1215
+  %1217 = add i32 %1216, 1859775393
+  %1218 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1219 = getelementptr inbounds [16 x i32], ptr %1218, i64 0, i64 4
+  %1220 = load i32, ptr %1219, align 4, !tbaa !10
+  %1221 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1222 = getelementptr inbounds [16 x i32], ptr %1221, i64 0, i64 15
+  %1223 = load i32, ptr %1222, align 4, !tbaa !10
+  %1224 = xor i32 %1220, %1223
+  %1225 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1226 = getelementptr inbounds [16 x i32], ptr %1225, i64 0, i64 9
+  %1227 = load i32, ptr %1226, align 4, !tbaa !10
+  %1228 = xor i32 %1224, %1227
+  %1229 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1230 = getelementptr inbounds [16 x i32], ptr %1229, i64 0, i64 7
+  %1231 = load i32, ptr %1230, align 4, !tbaa !10
+  %1232 = xor i32 %1228, %1231
+  %1233 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1232, ptr %1233, align 4, !tbaa !20
+  %1234 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1235 = load i32, ptr %1234, align 4, !tbaa !20
+  %1236 = shl i32 %1235, 1
+  %1237 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1238 = load i32, ptr %1237, align 4, !tbaa !20
+  %1239 = and i32 %1238, -1
+  %1240 = lshr i32 %1239, 31
+  %1241 = or i32 %1236, %1240
+  %1242 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1243 = getelementptr inbounds [16 x i32], ptr %1242, i64 0, i64 7
+  store i32 %1241, ptr %1243, align 4, !tbaa !10
+  %1244 = add i32 %1217, %1241
+  %1245 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1246 = load i32, ptr %1245, align 4, !tbaa !16
+  %1247 = add i32 %1246, %1244
+  store i32 %1247, ptr %1245, align 4, !tbaa !16
+  %1248 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1249 = load i32, ptr %1248, align 4, !tbaa !18
+  %1250 = shl i32 %1249, 30
+  %1251 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1252 = load i32, ptr %1251, align 4, !tbaa !18
+  %1253 = and i32 %1252, -1
+  %1254 = lshr i32 %1253, 2
+  %1255 = or i32 %1250, %1254
+  %1256 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %1255, ptr %1256, align 4, !tbaa !18
+  br label %1257
 
-1349:                                             ; preds = %1291
-  br label %1350
+1257:                                             ; preds = %1199
+  br label %1258
 
-1350:                                             ; preds = %1349
-  %1351 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1352 = load i32, ptr %1351, align 4
-  %1353 = shl i32 %1352, 5
-  %1354 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1355 = load i32, ptr %1354, align 4
-  %1356 = and i32 %1355, -1
-  %1357 = lshr i32 %1356, 27
-  %1358 = or i32 %1353, %1357
-  %1359 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1360 = load i32, ptr %1359, align 4
-  %1361 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1362 = load i32, ptr %1361, align 4
-  %1363 = xor i32 %1360, %1362
-  %1364 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1365 = load i32, ptr %1364, align 4
-  %1366 = xor i32 %1363, %1365
-  %1367 = add i32 %1358, %1366
-  %1368 = add i32 %1367, 1859775393
-  %1369 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1370 = getelementptr inbounds [16 x i32], ptr %1369, i64 0, i64 2
-  %1371 = load i32, ptr %1370, align 4
-  %1372 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1373 = getelementptr inbounds [16 x i32], ptr %1372, i64 0, i64 13
-  %1374 = load i32, ptr %1373, align 4
-  %1375 = xor i32 %1371, %1374
-  %1376 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1377 = getelementptr inbounds [16 x i32], ptr %1376, i64 0, i64 7
-  %1378 = load i32, ptr %1377, align 4
-  %1379 = xor i32 %1375, %1378
-  %1380 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1381 = getelementptr inbounds [16 x i32], ptr %1380, i64 0, i64 5
-  %1382 = load i32, ptr %1381, align 4
-  %1383 = xor i32 %1379, %1382
-  %1384 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1383, ptr %1384, align 4
-  %1385 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1386 = load i32, ptr %1385, align 4
-  %1387 = shl i32 %1386, 1
-  %1388 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1389 = load i32, ptr %1388, align 4
-  %1390 = and i32 %1389, -1
-  %1391 = lshr i32 %1390, 31
-  %1392 = or i32 %1387, %1391
-  %1393 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1394 = getelementptr inbounds [16 x i32], ptr %1393, i64 0, i64 5
-  store i32 %1392, ptr %1394, align 4
-  %1395 = add i32 %1368, %1392
-  %1396 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1397 = load i32, ptr %1396, align 4
-  %1398 = add i32 %1397, %1395
-  store i32 %1398, ptr %1396, align 4
-  %1399 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1400 = load i32, ptr %1399, align 4
-  %1401 = shl i32 %1400, 30
-  %1402 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1403 = load i32, ptr %1402, align 4
-  %1404 = and i32 %1403, -1
-  %1405 = lshr i32 %1404, 2
-  %1406 = or i32 %1401, %1405
-  %1407 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %1406, ptr %1407, align 4
-  br label %1408
+1258:                                             ; preds = %1257
+  br label %1259
 
-1408:                                             ; preds = %1350
-  br label %1409
+1259:                                             ; preds = %1258
+  %1260 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1261 = load i32, ptr %1260, align 4, !tbaa !16
+  %1262 = shl i32 %1261, 5
+  %1263 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1264 = load i32, ptr %1263, align 4, !tbaa !16
+  %1265 = and i32 %1264, -1
+  %1266 = lshr i32 %1265, 27
+  %1267 = or i32 %1262, %1266
+  %1268 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1269 = load i32, ptr %1268, align 4, !tbaa !17
+  %1270 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1271 = load i32, ptr %1270, align 4, !tbaa !18
+  %1272 = xor i32 %1269, %1271
+  %1273 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1274 = load i32, ptr %1273, align 4, !tbaa !19
+  %1275 = xor i32 %1272, %1274
+  %1276 = add i32 %1267, %1275
+  %1277 = add i32 %1276, 1859775393
+  %1278 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1279 = getelementptr inbounds [16 x i32], ptr %1278, i64 0, i64 5
+  %1280 = load i32, ptr %1279, align 4, !tbaa !10
+  %1281 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1282 = getelementptr inbounds [16 x i32], ptr %1281, i64 0, i64 0
+  %1283 = load i32, ptr %1282, align 4, !tbaa !10
+  %1284 = xor i32 %1280, %1283
+  %1285 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1286 = getelementptr inbounds [16 x i32], ptr %1285, i64 0, i64 10
+  %1287 = load i32, ptr %1286, align 4, !tbaa !10
+  %1288 = xor i32 %1284, %1287
+  %1289 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1290 = getelementptr inbounds [16 x i32], ptr %1289, i64 0, i64 8
+  %1291 = load i32, ptr %1290, align 4, !tbaa !10
+  %1292 = xor i32 %1288, %1291
+  %1293 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1292, ptr %1293, align 4, !tbaa !20
+  %1294 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1295 = load i32, ptr %1294, align 4, !tbaa !20
+  %1296 = shl i32 %1295, 1
+  %1297 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1298 = load i32, ptr %1297, align 4, !tbaa !20
+  %1299 = and i32 %1298, -1
+  %1300 = lshr i32 %1299, 31
+  %1301 = or i32 %1296, %1300
+  %1302 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1303 = getelementptr inbounds [16 x i32], ptr %1302, i64 0, i64 8
+  store i32 %1301, ptr %1303, align 4, !tbaa !10
+  %1304 = add i32 %1277, %1301
+  %1305 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1306 = load i32, ptr %1305, align 4, !tbaa !14
+  %1307 = add i32 %1306, %1304
+  store i32 %1307, ptr %1305, align 4, !tbaa !14
+  %1308 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1309 = load i32, ptr %1308, align 4, !tbaa !17
+  %1310 = shl i32 %1309, 30
+  %1311 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1312 = load i32, ptr %1311, align 4, !tbaa !17
+  %1313 = and i32 %1312, -1
+  %1314 = lshr i32 %1313, 2
+  %1315 = or i32 %1310, %1314
+  %1316 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %1315, ptr %1316, align 4, !tbaa !17
+  br label %1317
 
-1409:                                             ; preds = %1408
-  %1410 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1411 = load i32, ptr %1410, align 4
-  %1412 = shl i32 %1411, 5
-  %1413 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1414 = load i32, ptr %1413, align 4
-  %1415 = and i32 %1414, -1
-  %1416 = lshr i32 %1415, 27
-  %1417 = or i32 %1412, %1416
-  %1418 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1419 = load i32, ptr %1418, align 4
-  %1420 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1421 = load i32, ptr %1420, align 4
-  %1422 = xor i32 %1419, %1421
-  %1423 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1424 = load i32, ptr %1423, align 4
-  %1425 = xor i32 %1422, %1424
-  %1426 = add i32 %1417, %1425
-  %1427 = add i32 %1426, 1859775393
-  %1428 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1429 = getelementptr inbounds [16 x i32], ptr %1428, i64 0, i64 3
-  %1430 = load i32, ptr %1429, align 4
-  %1431 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1432 = getelementptr inbounds [16 x i32], ptr %1431, i64 0, i64 14
-  %1433 = load i32, ptr %1432, align 4
-  %1434 = xor i32 %1430, %1433
-  %1435 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1436 = getelementptr inbounds [16 x i32], ptr %1435, i64 0, i64 8
-  %1437 = load i32, ptr %1436, align 4
-  %1438 = xor i32 %1434, %1437
-  %1439 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1440 = getelementptr inbounds [16 x i32], ptr %1439, i64 0, i64 6
-  %1441 = load i32, ptr %1440, align 4
-  %1442 = xor i32 %1438, %1441
-  %1443 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1442, ptr %1443, align 4
-  %1444 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1445 = load i32, ptr %1444, align 4
-  %1446 = shl i32 %1445, 1
-  %1447 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1448 = load i32, ptr %1447, align 4
-  %1449 = and i32 %1448, -1
-  %1450 = lshr i32 %1449, 31
-  %1451 = or i32 %1446, %1450
-  %1452 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1453 = getelementptr inbounds [16 x i32], ptr %1452, i64 0, i64 6
-  store i32 %1451, ptr %1453, align 4
-  %1454 = add i32 %1427, %1451
-  %1455 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1456 = load i32, ptr %1455, align 4
-  %1457 = add i32 %1456, %1454
-  store i32 %1457, ptr %1455, align 4
-  %1458 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1459 = load i32, ptr %1458, align 4
-  %1460 = shl i32 %1459, 30
-  %1461 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1462 = load i32, ptr %1461, align 4
-  %1463 = and i32 %1462, -1
-  %1464 = lshr i32 %1463, 2
-  %1465 = or i32 %1460, %1464
-  %1466 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %1465, ptr %1466, align 4
-  br label %1467
+1317:                                             ; preds = %1259
+  br label %1318
 
-1467:                                             ; preds = %1409
-  br label %1468
+1318:                                             ; preds = %1317
+  br label %1319
 
-1468:                                             ; preds = %1467
-  %1469 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1470 = load i32, ptr %1469, align 4
-  %1471 = shl i32 %1470, 5
-  %1472 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1473 = load i32, ptr %1472, align 4
-  %1474 = and i32 %1473, -1
-  %1475 = lshr i32 %1474, 27
-  %1476 = or i32 %1471, %1475
-  %1477 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1478 = load i32, ptr %1477, align 4
-  %1479 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1480 = load i32, ptr %1479, align 4
-  %1481 = xor i32 %1478, %1480
-  %1482 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1483 = load i32, ptr %1482, align 4
-  %1484 = xor i32 %1481, %1483
-  %1485 = add i32 %1476, %1484
-  %1486 = add i32 %1485, 1859775393
-  %1487 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1488 = getelementptr inbounds [16 x i32], ptr %1487, i64 0, i64 4
-  %1489 = load i32, ptr %1488, align 4
-  %1490 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1491 = getelementptr inbounds [16 x i32], ptr %1490, i64 0, i64 15
-  %1492 = load i32, ptr %1491, align 4
-  %1493 = xor i32 %1489, %1492
-  %1494 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1495 = getelementptr inbounds [16 x i32], ptr %1494, i64 0, i64 9
-  %1496 = load i32, ptr %1495, align 4
-  %1497 = xor i32 %1493, %1496
-  %1498 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1499 = getelementptr inbounds [16 x i32], ptr %1498, i64 0, i64 7
-  %1500 = load i32, ptr %1499, align 4
-  %1501 = xor i32 %1497, %1500
-  %1502 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1501, ptr %1502, align 4
-  %1503 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1504 = load i32, ptr %1503, align 4
-  %1505 = shl i32 %1504, 1
-  %1506 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1507 = load i32, ptr %1506, align 4
-  %1508 = and i32 %1507, -1
-  %1509 = lshr i32 %1508, 31
-  %1510 = or i32 %1505, %1509
-  %1511 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1512 = getelementptr inbounds [16 x i32], ptr %1511, i64 0, i64 7
-  store i32 %1510, ptr %1512, align 4
-  %1513 = add i32 %1486, %1510
-  %1514 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1515 = load i32, ptr %1514, align 4
-  %1516 = add i32 %1515, %1513
-  store i32 %1516, ptr %1514, align 4
-  %1517 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1518 = load i32, ptr %1517, align 4
-  %1519 = shl i32 %1518, 30
-  %1520 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1521 = load i32, ptr %1520, align 4
-  %1522 = and i32 %1521, -1
-  %1523 = lshr i32 %1522, 2
-  %1524 = or i32 %1519, %1523
-  %1525 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %1524, ptr %1525, align 4
-  br label %1526
+1319:                                             ; preds = %1318
+  %1320 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1321 = load i32, ptr %1320, align 4, !tbaa !14
+  %1322 = shl i32 %1321, 5
+  %1323 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1324 = load i32, ptr %1323, align 4, !tbaa !14
+  %1325 = and i32 %1324, -1
+  %1326 = lshr i32 %1325, 27
+  %1327 = or i32 %1322, %1326
+  %1328 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1329 = load i32, ptr %1328, align 4, !tbaa !16
+  %1330 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1331 = load i32, ptr %1330, align 4, !tbaa !17
+  %1332 = xor i32 %1329, %1331
+  %1333 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1334 = load i32, ptr %1333, align 4, !tbaa !18
+  %1335 = xor i32 %1332, %1334
+  %1336 = add i32 %1327, %1335
+  %1337 = add i32 %1336, 1859775393
+  %1338 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1339 = getelementptr inbounds [16 x i32], ptr %1338, i64 0, i64 6
+  %1340 = load i32, ptr %1339, align 4, !tbaa !10
+  %1341 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1342 = getelementptr inbounds [16 x i32], ptr %1341, i64 0, i64 1
+  %1343 = load i32, ptr %1342, align 4, !tbaa !10
+  %1344 = xor i32 %1340, %1343
+  %1345 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1346 = getelementptr inbounds [16 x i32], ptr %1345, i64 0, i64 11
+  %1347 = load i32, ptr %1346, align 4, !tbaa !10
+  %1348 = xor i32 %1344, %1347
+  %1349 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1350 = getelementptr inbounds [16 x i32], ptr %1349, i64 0, i64 9
+  %1351 = load i32, ptr %1350, align 4, !tbaa !10
+  %1352 = xor i32 %1348, %1351
+  %1353 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1352, ptr %1353, align 4, !tbaa !20
+  %1354 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1355 = load i32, ptr %1354, align 4, !tbaa !20
+  %1356 = shl i32 %1355, 1
+  %1357 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1358 = load i32, ptr %1357, align 4, !tbaa !20
+  %1359 = and i32 %1358, -1
+  %1360 = lshr i32 %1359, 31
+  %1361 = or i32 %1356, %1360
+  %1362 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1363 = getelementptr inbounds [16 x i32], ptr %1362, i64 0, i64 9
+  store i32 %1361, ptr %1363, align 4, !tbaa !10
+  %1364 = add i32 %1337, %1361
+  %1365 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1366 = load i32, ptr %1365, align 4, !tbaa !19
+  %1367 = add i32 %1366, %1364
+  store i32 %1367, ptr %1365, align 4, !tbaa !19
+  %1368 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1369 = load i32, ptr %1368, align 4, !tbaa !16
+  %1370 = shl i32 %1369, 30
+  %1371 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1372 = load i32, ptr %1371, align 4, !tbaa !16
+  %1373 = and i32 %1372, -1
+  %1374 = lshr i32 %1373, 2
+  %1375 = or i32 %1370, %1374
+  %1376 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %1375, ptr %1376, align 4, !tbaa !16
+  br label %1377
 
-1526:                                             ; preds = %1468
-  br label %1527
+1377:                                             ; preds = %1319
+  br label %1378
 
-1527:                                             ; preds = %1526
-  %1528 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1529 = load i32, ptr %1528, align 4
-  %1530 = shl i32 %1529, 5
-  %1531 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1532 = load i32, ptr %1531, align 4
-  %1533 = and i32 %1532, -1
-  %1534 = lshr i32 %1533, 27
-  %1535 = or i32 %1530, %1534
-  %1536 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1537 = load i32, ptr %1536, align 4
-  %1538 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1539 = load i32, ptr %1538, align 4
-  %1540 = xor i32 %1537, %1539
-  %1541 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1542 = load i32, ptr %1541, align 4
-  %1543 = xor i32 %1540, %1542
-  %1544 = add i32 %1535, %1543
-  %1545 = add i32 %1544, 1859775393
-  %1546 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1547 = getelementptr inbounds [16 x i32], ptr %1546, i64 0, i64 5
-  %1548 = load i32, ptr %1547, align 4
-  %1549 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1550 = getelementptr inbounds [16 x i32], ptr %1549, i64 0, i64 0
-  %1551 = load i32, ptr %1550, align 4
-  %1552 = xor i32 %1548, %1551
-  %1553 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1554 = getelementptr inbounds [16 x i32], ptr %1553, i64 0, i64 10
-  %1555 = load i32, ptr %1554, align 4
-  %1556 = xor i32 %1552, %1555
-  %1557 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1558 = getelementptr inbounds [16 x i32], ptr %1557, i64 0, i64 8
-  %1559 = load i32, ptr %1558, align 4
-  %1560 = xor i32 %1556, %1559
-  %1561 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1560, ptr %1561, align 4
-  %1562 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1563 = load i32, ptr %1562, align 4
-  %1564 = shl i32 %1563, 1
-  %1565 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1566 = load i32, ptr %1565, align 4
-  %1567 = and i32 %1566, -1
-  %1568 = lshr i32 %1567, 31
-  %1569 = or i32 %1564, %1568
-  %1570 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1571 = getelementptr inbounds [16 x i32], ptr %1570, i64 0, i64 8
-  store i32 %1569, ptr %1571, align 4
-  %1572 = add i32 %1545, %1569
-  %1573 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1574 = load i32, ptr %1573, align 4
-  %1575 = add i32 %1574, %1572
-  store i32 %1575, ptr %1573, align 4
-  %1576 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1577 = load i32, ptr %1576, align 4
-  %1578 = shl i32 %1577, 30
-  %1579 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1580 = load i32, ptr %1579, align 4
-  %1581 = and i32 %1580, -1
-  %1582 = lshr i32 %1581, 2
-  %1583 = or i32 %1578, %1582
-  %1584 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %1583, ptr %1584, align 4
-  br label %1585
+1378:                                             ; preds = %1377
+  br label %1379
 
-1585:                                             ; preds = %1527
-  br label %1586
+1379:                                             ; preds = %1378
+  %1380 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1381 = load i32, ptr %1380, align 4, !tbaa !19
+  %1382 = shl i32 %1381, 5
+  %1383 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1384 = load i32, ptr %1383, align 4, !tbaa !19
+  %1385 = and i32 %1384, -1
+  %1386 = lshr i32 %1385, 27
+  %1387 = or i32 %1382, %1386
+  %1388 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1389 = load i32, ptr %1388, align 4, !tbaa !14
+  %1390 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1391 = load i32, ptr %1390, align 4, !tbaa !16
+  %1392 = xor i32 %1389, %1391
+  %1393 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1394 = load i32, ptr %1393, align 4, !tbaa !17
+  %1395 = xor i32 %1392, %1394
+  %1396 = add i32 %1387, %1395
+  %1397 = add i32 %1396, 1859775393
+  %1398 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1399 = getelementptr inbounds [16 x i32], ptr %1398, i64 0, i64 7
+  %1400 = load i32, ptr %1399, align 4, !tbaa !10
+  %1401 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1402 = getelementptr inbounds [16 x i32], ptr %1401, i64 0, i64 2
+  %1403 = load i32, ptr %1402, align 4, !tbaa !10
+  %1404 = xor i32 %1400, %1403
+  %1405 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1406 = getelementptr inbounds [16 x i32], ptr %1405, i64 0, i64 12
+  %1407 = load i32, ptr %1406, align 4, !tbaa !10
+  %1408 = xor i32 %1404, %1407
+  %1409 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1410 = getelementptr inbounds [16 x i32], ptr %1409, i64 0, i64 10
+  %1411 = load i32, ptr %1410, align 4, !tbaa !10
+  %1412 = xor i32 %1408, %1411
+  %1413 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1412, ptr %1413, align 4, !tbaa !20
+  %1414 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1415 = load i32, ptr %1414, align 4, !tbaa !20
+  %1416 = shl i32 %1415, 1
+  %1417 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1418 = load i32, ptr %1417, align 4, !tbaa !20
+  %1419 = and i32 %1418, -1
+  %1420 = lshr i32 %1419, 31
+  %1421 = or i32 %1416, %1420
+  %1422 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1423 = getelementptr inbounds [16 x i32], ptr %1422, i64 0, i64 10
+  store i32 %1421, ptr %1423, align 4, !tbaa !10
+  %1424 = add i32 %1397, %1421
+  %1425 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1426 = load i32, ptr %1425, align 4, !tbaa !18
+  %1427 = add i32 %1426, %1424
+  store i32 %1427, ptr %1425, align 4, !tbaa !18
+  %1428 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1429 = load i32, ptr %1428, align 4, !tbaa !14
+  %1430 = shl i32 %1429, 30
+  %1431 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1432 = load i32, ptr %1431, align 4, !tbaa !14
+  %1433 = and i32 %1432, -1
+  %1434 = lshr i32 %1433, 2
+  %1435 = or i32 %1430, %1434
+  %1436 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %1435, ptr %1436, align 4, !tbaa !14
+  br label %1437
 
-1586:                                             ; preds = %1585
-  %1587 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1588 = load i32, ptr %1587, align 4
-  %1589 = shl i32 %1588, 5
-  %1590 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1591 = load i32, ptr %1590, align 4
-  %1592 = and i32 %1591, -1
-  %1593 = lshr i32 %1592, 27
-  %1594 = or i32 %1589, %1593
-  %1595 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1596 = load i32, ptr %1595, align 4
-  %1597 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1598 = load i32, ptr %1597, align 4
-  %1599 = xor i32 %1596, %1598
-  %1600 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1601 = load i32, ptr %1600, align 4
-  %1602 = xor i32 %1599, %1601
-  %1603 = add i32 %1594, %1602
-  %1604 = add i32 %1603, 1859775393
-  %1605 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1606 = getelementptr inbounds [16 x i32], ptr %1605, i64 0, i64 6
-  %1607 = load i32, ptr %1606, align 4
-  %1608 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1609 = getelementptr inbounds [16 x i32], ptr %1608, i64 0, i64 1
-  %1610 = load i32, ptr %1609, align 4
-  %1611 = xor i32 %1607, %1610
-  %1612 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1613 = getelementptr inbounds [16 x i32], ptr %1612, i64 0, i64 11
-  %1614 = load i32, ptr %1613, align 4
-  %1615 = xor i32 %1611, %1614
-  %1616 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1617 = getelementptr inbounds [16 x i32], ptr %1616, i64 0, i64 9
-  %1618 = load i32, ptr %1617, align 4
-  %1619 = xor i32 %1615, %1618
-  %1620 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1619, ptr %1620, align 4
-  %1621 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1622 = load i32, ptr %1621, align 4
-  %1623 = shl i32 %1622, 1
-  %1624 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1625 = load i32, ptr %1624, align 4
-  %1626 = and i32 %1625, -1
-  %1627 = lshr i32 %1626, 31
-  %1628 = or i32 %1623, %1627
-  %1629 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1630 = getelementptr inbounds [16 x i32], ptr %1629, i64 0, i64 9
-  store i32 %1628, ptr %1630, align 4
-  %1631 = add i32 %1604, %1628
-  %1632 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1633 = load i32, ptr %1632, align 4
-  %1634 = add i32 %1633, %1631
-  store i32 %1634, ptr %1632, align 4
-  %1635 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1636 = load i32, ptr %1635, align 4
-  %1637 = shl i32 %1636, 30
-  %1638 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1639 = load i32, ptr %1638, align 4
-  %1640 = and i32 %1639, -1
-  %1641 = lshr i32 %1640, 2
-  %1642 = or i32 %1637, %1641
-  %1643 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %1642, ptr %1643, align 4
-  br label %1644
+1437:                                             ; preds = %1379
+  br label %1438
 
-1644:                                             ; preds = %1586
-  br label %1645
+1438:                                             ; preds = %1437
+  br label %1439
 
-1645:                                             ; preds = %1644
-  %1646 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1647 = load i32, ptr %1646, align 4
-  %1648 = shl i32 %1647, 5
-  %1649 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1650 = load i32, ptr %1649, align 4
-  %1651 = and i32 %1650, -1
-  %1652 = lshr i32 %1651, 27
-  %1653 = or i32 %1648, %1652
-  %1654 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1655 = load i32, ptr %1654, align 4
-  %1656 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1657 = load i32, ptr %1656, align 4
-  %1658 = xor i32 %1655, %1657
-  %1659 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1660 = load i32, ptr %1659, align 4
-  %1661 = xor i32 %1658, %1660
-  %1662 = add i32 %1653, %1661
-  %1663 = add i32 %1662, 1859775393
-  %1664 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1665 = getelementptr inbounds [16 x i32], ptr %1664, i64 0, i64 7
-  %1666 = load i32, ptr %1665, align 4
-  %1667 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1668 = getelementptr inbounds [16 x i32], ptr %1667, i64 0, i64 2
-  %1669 = load i32, ptr %1668, align 4
-  %1670 = xor i32 %1666, %1669
-  %1671 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1672 = getelementptr inbounds [16 x i32], ptr %1671, i64 0, i64 12
-  %1673 = load i32, ptr %1672, align 4
-  %1674 = xor i32 %1670, %1673
-  %1675 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1676 = getelementptr inbounds [16 x i32], ptr %1675, i64 0, i64 10
-  %1677 = load i32, ptr %1676, align 4
-  %1678 = xor i32 %1674, %1677
-  %1679 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1678, ptr %1679, align 4
-  %1680 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1681 = load i32, ptr %1680, align 4
-  %1682 = shl i32 %1681, 1
-  %1683 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1684 = load i32, ptr %1683, align 4
+1439:                                             ; preds = %1438
+  %1440 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1441 = load i32, ptr %1440, align 4, !tbaa !18
+  %1442 = shl i32 %1441, 5
+  %1443 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1444 = load i32, ptr %1443, align 4, !tbaa !18
+  %1445 = and i32 %1444, -1
+  %1446 = lshr i32 %1445, 27
+  %1447 = or i32 %1442, %1446
+  %1448 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1449 = load i32, ptr %1448, align 4, !tbaa !19
+  %1450 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1451 = load i32, ptr %1450, align 4, !tbaa !14
+  %1452 = xor i32 %1449, %1451
+  %1453 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1454 = load i32, ptr %1453, align 4, !tbaa !16
+  %1455 = xor i32 %1452, %1454
+  %1456 = add i32 %1447, %1455
+  %1457 = add i32 %1456, 1859775393
+  %1458 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1459 = getelementptr inbounds [16 x i32], ptr %1458, i64 0, i64 8
+  %1460 = load i32, ptr %1459, align 4, !tbaa !10
+  %1461 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1462 = getelementptr inbounds [16 x i32], ptr %1461, i64 0, i64 3
+  %1463 = load i32, ptr %1462, align 4, !tbaa !10
+  %1464 = xor i32 %1460, %1463
+  %1465 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1466 = getelementptr inbounds [16 x i32], ptr %1465, i64 0, i64 13
+  %1467 = load i32, ptr %1466, align 4, !tbaa !10
+  %1468 = xor i32 %1464, %1467
+  %1469 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1470 = getelementptr inbounds [16 x i32], ptr %1469, i64 0, i64 11
+  %1471 = load i32, ptr %1470, align 4, !tbaa !10
+  %1472 = xor i32 %1468, %1471
+  %1473 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1472, ptr %1473, align 4, !tbaa !20
+  %1474 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1475 = load i32, ptr %1474, align 4, !tbaa !20
+  %1476 = shl i32 %1475, 1
+  %1477 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1478 = load i32, ptr %1477, align 4, !tbaa !20
+  %1479 = and i32 %1478, -1
+  %1480 = lshr i32 %1479, 31
+  %1481 = or i32 %1476, %1480
+  %1482 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1483 = getelementptr inbounds [16 x i32], ptr %1482, i64 0, i64 11
+  store i32 %1481, ptr %1483, align 4, !tbaa !10
+  %1484 = add i32 %1457, %1481
+  %1485 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1486 = load i32, ptr %1485, align 4, !tbaa !17
+  %1487 = add i32 %1486, %1484
+  store i32 %1487, ptr %1485, align 4, !tbaa !17
+  %1488 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1489 = load i32, ptr %1488, align 4, !tbaa !19
+  %1490 = shl i32 %1489, 30
+  %1491 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1492 = load i32, ptr %1491, align 4, !tbaa !19
+  %1493 = and i32 %1492, -1
+  %1494 = lshr i32 %1493, 2
+  %1495 = or i32 %1490, %1494
+  %1496 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %1495, ptr %1496, align 4, !tbaa !19
+  br label %1497
+
+1497:                                             ; preds = %1439
+  br label %1498
+
+1498:                                             ; preds = %1497
+  br label %1499
+
+1499:                                             ; preds = %1498
+  %1500 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1501 = load i32, ptr %1500, align 4, !tbaa !17
+  %1502 = shl i32 %1501, 5
+  %1503 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1504 = load i32, ptr %1503, align 4, !tbaa !17
+  %1505 = and i32 %1504, -1
+  %1506 = lshr i32 %1505, 27
+  %1507 = or i32 %1502, %1506
+  %1508 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1509 = load i32, ptr %1508, align 4, !tbaa !18
+  %1510 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1511 = load i32, ptr %1510, align 4, !tbaa !19
+  %1512 = xor i32 %1509, %1511
+  %1513 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1514 = load i32, ptr %1513, align 4, !tbaa !14
+  %1515 = xor i32 %1512, %1514
+  %1516 = add i32 %1507, %1515
+  %1517 = add i32 %1516, 1859775393
+  %1518 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1519 = getelementptr inbounds [16 x i32], ptr %1518, i64 0, i64 9
+  %1520 = load i32, ptr %1519, align 4, !tbaa !10
+  %1521 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1522 = getelementptr inbounds [16 x i32], ptr %1521, i64 0, i64 4
+  %1523 = load i32, ptr %1522, align 4, !tbaa !10
+  %1524 = xor i32 %1520, %1523
+  %1525 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1526 = getelementptr inbounds [16 x i32], ptr %1525, i64 0, i64 14
+  %1527 = load i32, ptr %1526, align 4, !tbaa !10
+  %1528 = xor i32 %1524, %1527
+  %1529 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1530 = getelementptr inbounds [16 x i32], ptr %1529, i64 0, i64 12
+  %1531 = load i32, ptr %1530, align 4, !tbaa !10
+  %1532 = xor i32 %1528, %1531
+  %1533 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1532, ptr %1533, align 4, !tbaa !20
+  %1534 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1535 = load i32, ptr %1534, align 4, !tbaa !20
+  %1536 = shl i32 %1535, 1
+  %1537 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1538 = load i32, ptr %1537, align 4, !tbaa !20
+  %1539 = and i32 %1538, -1
+  %1540 = lshr i32 %1539, 31
+  %1541 = or i32 %1536, %1540
+  %1542 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1543 = getelementptr inbounds [16 x i32], ptr %1542, i64 0, i64 12
+  store i32 %1541, ptr %1543, align 4, !tbaa !10
+  %1544 = add i32 %1517, %1541
+  %1545 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1546 = load i32, ptr %1545, align 4, !tbaa !16
+  %1547 = add i32 %1546, %1544
+  store i32 %1547, ptr %1545, align 4, !tbaa !16
+  %1548 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1549 = load i32, ptr %1548, align 4, !tbaa !18
+  %1550 = shl i32 %1549, 30
+  %1551 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1552 = load i32, ptr %1551, align 4, !tbaa !18
+  %1553 = and i32 %1552, -1
+  %1554 = lshr i32 %1553, 2
+  %1555 = or i32 %1550, %1554
+  %1556 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %1555, ptr %1556, align 4, !tbaa !18
+  br label %1557
+
+1557:                                             ; preds = %1499
+  br label %1558
+
+1558:                                             ; preds = %1557
+  br label %1559
+
+1559:                                             ; preds = %1558
+  %1560 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1561 = load i32, ptr %1560, align 4, !tbaa !16
+  %1562 = shl i32 %1561, 5
+  %1563 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1564 = load i32, ptr %1563, align 4, !tbaa !16
+  %1565 = and i32 %1564, -1
+  %1566 = lshr i32 %1565, 27
+  %1567 = or i32 %1562, %1566
+  %1568 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1569 = load i32, ptr %1568, align 4, !tbaa !17
+  %1570 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1571 = load i32, ptr %1570, align 4, !tbaa !18
+  %1572 = xor i32 %1569, %1571
+  %1573 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1574 = load i32, ptr %1573, align 4, !tbaa !19
+  %1575 = xor i32 %1572, %1574
+  %1576 = add i32 %1567, %1575
+  %1577 = add i32 %1576, 1859775393
+  %1578 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1579 = getelementptr inbounds [16 x i32], ptr %1578, i64 0, i64 10
+  %1580 = load i32, ptr %1579, align 4, !tbaa !10
+  %1581 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1582 = getelementptr inbounds [16 x i32], ptr %1581, i64 0, i64 5
+  %1583 = load i32, ptr %1582, align 4, !tbaa !10
+  %1584 = xor i32 %1580, %1583
+  %1585 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1586 = getelementptr inbounds [16 x i32], ptr %1585, i64 0, i64 15
+  %1587 = load i32, ptr %1586, align 4, !tbaa !10
+  %1588 = xor i32 %1584, %1587
+  %1589 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1590 = getelementptr inbounds [16 x i32], ptr %1589, i64 0, i64 13
+  %1591 = load i32, ptr %1590, align 4, !tbaa !10
+  %1592 = xor i32 %1588, %1591
+  %1593 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1592, ptr %1593, align 4, !tbaa !20
+  %1594 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1595 = load i32, ptr %1594, align 4, !tbaa !20
+  %1596 = shl i32 %1595, 1
+  %1597 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1598 = load i32, ptr %1597, align 4, !tbaa !20
+  %1599 = and i32 %1598, -1
+  %1600 = lshr i32 %1599, 31
+  %1601 = or i32 %1596, %1600
+  %1602 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1603 = getelementptr inbounds [16 x i32], ptr %1602, i64 0, i64 13
+  store i32 %1601, ptr %1603, align 4, !tbaa !10
+  %1604 = add i32 %1577, %1601
+  %1605 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1606 = load i32, ptr %1605, align 4, !tbaa !14
+  %1607 = add i32 %1606, %1604
+  store i32 %1607, ptr %1605, align 4, !tbaa !14
+  %1608 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1609 = load i32, ptr %1608, align 4, !tbaa !17
+  %1610 = shl i32 %1609, 30
+  %1611 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1612 = load i32, ptr %1611, align 4, !tbaa !17
+  %1613 = and i32 %1612, -1
+  %1614 = lshr i32 %1613, 2
+  %1615 = or i32 %1610, %1614
+  %1616 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %1615, ptr %1616, align 4, !tbaa !17
+  br label %1617
+
+1617:                                             ; preds = %1559
+  br label %1618
+
+1618:                                             ; preds = %1617
+  br label %1619
+
+1619:                                             ; preds = %1618
+  %1620 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1621 = load i32, ptr %1620, align 4, !tbaa !14
+  %1622 = shl i32 %1621, 5
+  %1623 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1624 = load i32, ptr %1623, align 4, !tbaa !14
+  %1625 = and i32 %1624, -1
+  %1626 = lshr i32 %1625, 27
+  %1627 = or i32 %1622, %1626
+  %1628 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1629 = load i32, ptr %1628, align 4, !tbaa !16
+  %1630 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1631 = load i32, ptr %1630, align 4, !tbaa !17
+  %1632 = xor i32 %1629, %1631
+  %1633 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1634 = load i32, ptr %1633, align 4, !tbaa !18
+  %1635 = xor i32 %1632, %1634
+  %1636 = add i32 %1627, %1635
+  %1637 = add i32 %1636, 1859775393
+  %1638 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1639 = getelementptr inbounds [16 x i32], ptr %1638, i64 0, i64 11
+  %1640 = load i32, ptr %1639, align 4, !tbaa !10
+  %1641 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1642 = getelementptr inbounds [16 x i32], ptr %1641, i64 0, i64 6
+  %1643 = load i32, ptr %1642, align 4, !tbaa !10
+  %1644 = xor i32 %1640, %1643
+  %1645 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1646 = getelementptr inbounds [16 x i32], ptr %1645, i64 0, i64 0
+  %1647 = load i32, ptr %1646, align 4, !tbaa !10
+  %1648 = xor i32 %1644, %1647
+  %1649 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1650 = getelementptr inbounds [16 x i32], ptr %1649, i64 0, i64 14
+  %1651 = load i32, ptr %1650, align 4, !tbaa !10
+  %1652 = xor i32 %1648, %1651
+  %1653 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1652, ptr %1653, align 4, !tbaa !20
+  %1654 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1655 = load i32, ptr %1654, align 4, !tbaa !20
+  %1656 = shl i32 %1655, 1
+  %1657 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1658 = load i32, ptr %1657, align 4, !tbaa !20
+  %1659 = and i32 %1658, -1
+  %1660 = lshr i32 %1659, 31
+  %1661 = or i32 %1656, %1660
+  %1662 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1663 = getelementptr inbounds [16 x i32], ptr %1662, i64 0, i64 14
+  store i32 %1661, ptr %1663, align 4, !tbaa !10
+  %1664 = add i32 %1637, %1661
+  %1665 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1666 = load i32, ptr %1665, align 4, !tbaa !19
+  %1667 = add i32 %1666, %1664
+  store i32 %1667, ptr %1665, align 4, !tbaa !19
+  %1668 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1669 = load i32, ptr %1668, align 4, !tbaa !16
+  %1670 = shl i32 %1669, 30
+  %1671 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1672 = load i32, ptr %1671, align 4, !tbaa !16
+  %1673 = and i32 %1672, -1
+  %1674 = lshr i32 %1673, 2
+  %1675 = or i32 %1670, %1674
+  %1676 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %1675, ptr %1676, align 4, !tbaa !16
+  br label %1677
+
+1677:                                             ; preds = %1619
+  br label %1678
+
+1678:                                             ; preds = %1677
+  br label %1679
+
+1679:                                             ; preds = %1678
+  %1680 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1681 = load i32, ptr %1680, align 4, !tbaa !19
+  %1682 = shl i32 %1681, 5
+  %1683 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1684 = load i32, ptr %1683, align 4, !tbaa !19
   %1685 = and i32 %1684, -1
-  %1686 = lshr i32 %1685, 31
+  %1686 = lshr i32 %1685, 27
   %1687 = or i32 %1682, %1686
-  %1688 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1689 = getelementptr inbounds [16 x i32], ptr %1688, i64 0, i64 10
-  store i32 %1687, ptr %1689, align 4
-  %1690 = add i32 %1663, %1687
-  %1691 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1692 = load i32, ptr %1691, align 4
-  %1693 = add i32 %1692, %1690
-  store i32 %1693, ptr %1691, align 4
-  %1694 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1695 = load i32, ptr %1694, align 4
-  %1696 = shl i32 %1695, 30
-  %1697 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1698 = load i32, ptr %1697, align 4
-  %1699 = and i32 %1698, -1
-  %1700 = lshr i32 %1699, 2
-  %1701 = or i32 %1696, %1700
-  %1702 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %1701, ptr %1702, align 4
-  br label %1703
+  %1688 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1689 = load i32, ptr %1688, align 4, !tbaa !14
+  %1690 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1691 = load i32, ptr %1690, align 4, !tbaa !16
+  %1692 = xor i32 %1689, %1691
+  %1693 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1694 = load i32, ptr %1693, align 4, !tbaa !17
+  %1695 = xor i32 %1692, %1694
+  %1696 = add i32 %1687, %1695
+  %1697 = add i32 %1696, 1859775393
+  %1698 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1699 = getelementptr inbounds [16 x i32], ptr %1698, i64 0, i64 12
+  %1700 = load i32, ptr %1699, align 4, !tbaa !10
+  %1701 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1702 = getelementptr inbounds [16 x i32], ptr %1701, i64 0, i64 7
+  %1703 = load i32, ptr %1702, align 4, !tbaa !10
+  %1704 = xor i32 %1700, %1703
+  %1705 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1706 = getelementptr inbounds [16 x i32], ptr %1705, i64 0, i64 1
+  %1707 = load i32, ptr %1706, align 4, !tbaa !10
+  %1708 = xor i32 %1704, %1707
+  %1709 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1710 = getelementptr inbounds [16 x i32], ptr %1709, i64 0, i64 15
+  %1711 = load i32, ptr %1710, align 4, !tbaa !10
+  %1712 = xor i32 %1708, %1711
+  %1713 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1712, ptr %1713, align 4, !tbaa !20
+  %1714 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1715 = load i32, ptr %1714, align 4, !tbaa !20
+  %1716 = shl i32 %1715, 1
+  %1717 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1718 = load i32, ptr %1717, align 4, !tbaa !20
+  %1719 = and i32 %1718, -1
+  %1720 = lshr i32 %1719, 31
+  %1721 = or i32 %1716, %1720
+  %1722 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1723 = getelementptr inbounds [16 x i32], ptr %1722, i64 0, i64 15
+  store i32 %1721, ptr %1723, align 4, !tbaa !10
+  %1724 = add i32 %1697, %1721
+  %1725 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1726 = load i32, ptr %1725, align 4, !tbaa !18
+  %1727 = add i32 %1726, %1724
+  store i32 %1727, ptr %1725, align 4, !tbaa !18
+  %1728 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1729 = load i32, ptr %1728, align 4, !tbaa !14
+  %1730 = shl i32 %1729, 30
+  %1731 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1732 = load i32, ptr %1731, align 4, !tbaa !14
+  %1733 = and i32 %1732, -1
+  %1734 = lshr i32 %1733, 2
+  %1735 = or i32 %1730, %1734
+  %1736 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %1735, ptr %1736, align 4, !tbaa !14
+  br label %1737
 
-1703:                                             ; preds = %1645
-  br label %1704
+1737:                                             ; preds = %1679
+  br label %1738
 
-1704:                                             ; preds = %1703
-  %1705 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1706 = load i32, ptr %1705, align 4
-  %1707 = shl i32 %1706, 5
-  %1708 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1709 = load i32, ptr %1708, align 4
-  %1710 = and i32 %1709, -1
-  %1711 = lshr i32 %1710, 27
-  %1712 = or i32 %1707, %1711
-  %1713 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1714 = load i32, ptr %1713, align 4
-  %1715 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1716 = load i32, ptr %1715, align 4
-  %1717 = xor i32 %1714, %1716
-  %1718 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1719 = load i32, ptr %1718, align 4
-  %1720 = xor i32 %1717, %1719
-  %1721 = add i32 %1712, %1720
-  %1722 = add i32 %1721, 1859775393
-  %1723 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1724 = getelementptr inbounds [16 x i32], ptr %1723, i64 0, i64 8
-  %1725 = load i32, ptr %1724, align 4
-  %1726 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1727 = getelementptr inbounds [16 x i32], ptr %1726, i64 0, i64 3
-  %1728 = load i32, ptr %1727, align 4
-  %1729 = xor i32 %1725, %1728
-  %1730 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1731 = getelementptr inbounds [16 x i32], ptr %1730, i64 0, i64 13
-  %1732 = load i32, ptr %1731, align 4
-  %1733 = xor i32 %1729, %1732
-  %1734 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1735 = getelementptr inbounds [16 x i32], ptr %1734, i64 0, i64 11
-  %1736 = load i32, ptr %1735, align 4
-  %1737 = xor i32 %1733, %1736
-  %1738 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1737, ptr %1738, align 4
-  %1739 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1740 = load i32, ptr %1739, align 4
-  %1741 = shl i32 %1740, 1
-  %1742 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1743 = load i32, ptr %1742, align 4
-  %1744 = and i32 %1743, -1
-  %1745 = lshr i32 %1744, 31
-  %1746 = or i32 %1741, %1745
-  %1747 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1748 = getelementptr inbounds [16 x i32], ptr %1747, i64 0, i64 11
-  store i32 %1746, ptr %1748, align 4
-  %1749 = add i32 %1722, %1746
-  %1750 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1751 = load i32, ptr %1750, align 4
-  %1752 = add i32 %1751, %1749
-  store i32 %1752, ptr %1750, align 4
-  %1753 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1754 = load i32, ptr %1753, align 4
-  %1755 = shl i32 %1754, 30
-  %1756 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1757 = load i32, ptr %1756, align 4
-  %1758 = and i32 %1757, -1
-  %1759 = lshr i32 %1758, 2
-  %1760 = or i32 %1755, %1759
-  %1761 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %1760, ptr %1761, align 4
-  br label %1762
+1738:                                             ; preds = %1737
+  br label %1739
 
-1762:                                             ; preds = %1704
-  br label %1763
+1739:                                             ; preds = %1738
+  %1740 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1741 = load i32, ptr %1740, align 4, !tbaa !18
+  %1742 = shl i32 %1741, 5
+  %1743 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1744 = load i32, ptr %1743, align 4, !tbaa !18
+  %1745 = and i32 %1744, -1
+  %1746 = lshr i32 %1745, 27
+  %1747 = or i32 %1742, %1746
+  %1748 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1749 = load i32, ptr %1748, align 4, !tbaa !19
+  %1750 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1751 = load i32, ptr %1750, align 4, !tbaa !14
+  %1752 = xor i32 %1749, %1751
+  %1753 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1754 = load i32, ptr %1753, align 4, !tbaa !16
+  %1755 = xor i32 %1752, %1754
+  %1756 = add i32 %1747, %1755
+  %1757 = add i32 %1756, 1859775393
+  %1758 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1759 = getelementptr inbounds [16 x i32], ptr %1758, i64 0, i64 13
+  %1760 = load i32, ptr %1759, align 4, !tbaa !10
+  %1761 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1762 = getelementptr inbounds [16 x i32], ptr %1761, i64 0, i64 8
+  %1763 = load i32, ptr %1762, align 4, !tbaa !10
+  %1764 = xor i32 %1760, %1763
+  %1765 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1766 = getelementptr inbounds [16 x i32], ptr %1765, i64 0, i64 2
+  %1767 = load i32, ptr %1766, align 4, !tbaa !10
+  %1768 = xor i32 %1764, %1767
+  %1769 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1770 = getelementptr inbounds [16 x i32], ptr %1769, i64 0, i64 0
+  %1771 = load i32, ptr %1770, align 4, !tbaa !10
+  %1772 = xor i32 %1768, %1771
+  %1773 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1772, ptr %1773, align 4, !tbaa !20
+  %1774 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1775 = load i32, ptr %1774, align 4, !tbaa !20
+  %1776 = shl i32 %1775, 1
+  %1777 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1778 = load i32, ptr %1777, align 4, !tbaa !20
+  %1779 = and i32 %1778, -1
+  %1780 = lshr i32 %1779, 31
+  %1781 = or i32 %1776, %1780
+  %1782 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1783 = getelementptr inbounds [16 x i32], ptr %1782, i64 0, i64 0
+  store i32 %1781, ptr %1783, align 4, !tbaa !10
+  %1784 = add i32 %1757, %1781
+  %1785 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1786 = load i32, ptr %1785, align 4, !tbaa !17
+  %1787 = add i32 %1786, %1784
+  store i32 %1787, ptr %1785, align 4, !tbaa !17
+  %1788 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1789 = load i32, ptr %1788, align 4, !tbaa !19
+  %1790 = shl i32 %1789, 30
+  %1791 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1792 = load i32, ptr %1791, align 4, !tbaa !19
+  %1793 = and i32 %1792, -1
+  %1794 = lshr i32 %1793, 2
+  %1795 = or i32 %1790, %1794
+  %1796 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %1795, ptr %1796, align 4, !tbaa !19
+  br label %1797
 
-1763:                                             ; preds = %1762
-  %1764 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1765 = load i32, ptr %1764, align 4
-  %1766 = shl i32 %1765, 5
-  %1767 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1768 = load i32, ptr %1767, align 4
-  %1769 = and i32 %1768, -1
-  %1770 = lshr i32 %1769, 27
-  %1771 = or i32 %1766, %1770
-  %1772 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1773 = load i32, ptr %1772, align 4
-  %1774 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1775 = load i32, ptr %1774, align 4
-  %1776 = xor i32 %1773, %1775
-  %1777 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1778 = load i32, ptr %1777, align 4
-  %1779 = xor i32 %1776, %1778
-  %1780 = add i32 %1771, %1779
-  %1781 = add i32 %1780, 1859775393
-  %1782 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1783 = getelementptr inbounds [16 x i32], ptr %1782, i64 0, i64 9
-  %1784 = load i32, ptr %1783, align 4
-  %1785 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1786 = getelementptr inbounds [16 x i32], ptr %1785, i64 0, i64 4
-  %1787 = load i32, ptr %1786, align 4
-  %1788 = xor i32 %1784, %1787
-  %1789 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1790 = getelementptr inbounds [16 x i32], ptr %1789, i64 0, i64 14
-  %1791 = load i32, ptr %1790, align 4
-  %1792 = xor i32 %1788, %1791
-  %1793 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1794 = getelementptr inbounds [16 x i32], ptr %1793, i64 0, i64 12
-  %1795 = load i32, ptr %1794, align 4
-  %1796 = xor i32 %1792, %1795
-  %1797 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1796, ptr %1797, align 4
-  %1798 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1799 = load i32, ptr %1798, align 4
-  %1800 = shl i32 %1799, 1
-  %1801 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1802 = load i32, ptr %1801, align 4
-  %1803 = and i32 %1802, -1
-  %1804 = lshr i32 %1803, 31
-  %1805 = or i32 %1800, %1804
-  %1806 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1807 = getelementptr inbounds [16 x i32], ptr %1806, i64 0, i64 12
-  store i32 %1805, ptr %1807, align 4
-  %1808 = add i32 %1781, %1805
-  %1809 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1810 = load i32, ptr %1809, align 4
-  %1811 = add i32 %1810, %1808
-  store i32 %1811, ptr %1809, align 4
-  %1812 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1813 = load i32, ptr %1812, align 4
-  %1814 = shl i32 %1813, 30
-  %1815 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1816 = load i32, ptr %1815, align 4
-  %1817 = and i32 %1816, -1
-  %1818 = lshr i32 %1817, 2
-  %1819 = or i32 %1814, %1818
-  %1820 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %1819, ptr %1820, align 4
-  br label %1821
+1797:                                             ; preds = %1739
+  br label %1798
 
-1821:                                             ; preds = %1763
-  br label %1822
+1798:                                             ; preds = %1797
+  br label %1799
 
-1822:                                             ; preds = %1821
-  %1823 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1824 = load i32, ptr %1823, align 4
-  %1825 = shl i32 %1824, 5
-  %1826 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1827 = load i32, ptr %1826, align 4
-  %1828 = and i32 %1827, -1
-  %1829 = lshr i32 %1828, 27
-  %1830 = or i32 %1825, %1829
-  %1831 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1832 = load i32, ptr %1831, align 4
-  %1833 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1834 = load i32, ptr %1833, align 4
-  %1835 = xor i32 %1832, %1834
-  %1836 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1837 = load i32, ptr %1836, align 4
-  %1838 = xor i32 %1835, %1837
-  %1839 = add i32 %1830, %1838
-  %1840 = add i32 %1839, 1859775393
-  %1841 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1842 = getelementptr inbounds [16 x i32], ptr %1841, i64 0, i64 10
-  %1843 = load i32, ptr %1842, align 4
-  %1844 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1845 = getelementptr inbounds [16 x i32], ptr %1844, i64 0, i64 5
-  %1846 = load i32, ptr %1845, align 4
-  %1847 = xor i32 %1843, %1846
-  %1848 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1849 = getelementptr inbounds [16 x i32], ptr %1848, i64 0, i64 15
-  %1850 = load i32, ptr %1849, align 4
-  %1851 = xor i32 %1847, %1850
-  %1852 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1853 = getelementptr inbounds [16 x i32], ptr %1852, i64 0, i64 13
-  %1854 = load i32, ptr %1853, align 4
-  %1855 = xor i32 %1851, %1854
-  %1856 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1855, ptr %1856, align 4
-  %1857 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1858 = load i32, ptr %1857, align 4
-  %1859 = shl i32 %1858, 1
-  %1860 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1861 = load i32, ptr %1860, align 4
-  %1862 = and i32 %1861, -1
-  %1863 = lshr i32 %1862, 31
-  %1864 = or i32 %1859, %1863
-  %1865 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1866 = getelementptr inbounds [16 x i32], ptr %1865, i64 0, i64 13
-  store i32 %1864, ptr %1866, align 4
-  %1867 = add i32 %1840, %1864
-  %1868 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1869 = load i32, ptr %1868, align 4
-  %1870 = add i32 %1869, %1867
-  store i32 %1870, ptr %1868, align 4
-  %1871 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1872 = load i32, ptr %1871, align 4
-  %1873 = shl i32 %1872, 30
-  %1874 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1875 = load i32, ptr %1874, align 4
-  %1876 = and i32 %1875, -1
-  %1877 = lshr i32 %1876, 2
-  %1878 = or i32 %1873, %1877
-  %1879 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %1878, ptr %1879, align 4
-  br label %1880
+1799:                                             ; preds = %1798
+  %1800 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1801 = load i32, ptr %1800, align 4, !tbaa !17
+  %1802 = shl i32 %1801, 5
+  %1803 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1804 = load i32, ptr %1803, align 4, !tbaa !17
+  %1805 = and i32 %1804, -1
+  %1806 = lshr i32 %1805, 27
+  %1807 = or i32 %1802, %1806
+  %1808 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1809 = load i32, ptr %1808, align 4, !tbaa !18
+  %1810 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1811 = load i32, ptr %1810, align 4, !tbaa !19
+  %1812 = xor i32 %1809, %1811
+  %1813 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1814 = load i32, ptr %1813, align 4, !tbaa !14
+  %1815 = xor i32 %1812, %1814
+  %1816 = add i32 %1807, %1815
+  %1817 = add i32 %1816, 1859775393
+  %1818 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1819 = getelementptr inbounds [16 x i32], ptr %1818, i64 0, i64 14
+  %1820 = load i32, ptr %1819, align 4, !tbaa !10
+  %1821 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1822 = getelementptr inbounds [16 x i32], ptr %1821, i64 0, i64 9
+  %1823 = load i32, ptr %1822, align 4, !tbaa !10
+  %1824 = xor i32 %1820, %1823
+  %1825 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1826 = getelementptr inbounds [16 x i32], ptr %1825, i64 0, i64 3
+  %1827 = load i32, ptr %1826, align 4, !tbaa !10
+  %1828 = xor i32 %1824, %1827
+  %1829 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1830 = getelementptr inbounds [16 x i32], ptr %1829, i64 0, i64 1
+  %1831 = load i32, ptr %1830, align 4, !tbaa !10
+  %1832 = xor i32 %1828, %1831
+  %1833 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1832, ptr %1833, align 4, !tbaa !20
+  %1834 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1835 = load i32, ptr %1834, align 4, !tbaa !20
+  %1836 = shl i32 %1835, 1
+  %1837 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1838 = load i32, ptr %1837, align 4, !tbaa !20
+  %1839 = and i32 %1838, -1
+  %1840 = lshr i32 %1839, 31
+  %1841 = or i32 %1836, %1840
+  %1842 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1843 = getelementptr inbounds [16 x i32], ptr %1842, i64 0, i64 1
+  store i32 %1841, ptr %1843, align 4, !tbaa !10
+  %1844 = add i32 %1817, %1841
+  %1845 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1846 = load i32, ptr %1845, align 4, !tbaa !16
+  %1847 = add i32 %1846, %1844
+  store i32 %1847, ptr %1845, align 4, !tbaa !16
+  %1848 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1849 = load i32, ptr %1848, align 4, !tbaa !18
+  %1850 = shl i32 %1849, 30
+  %1851 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1852 = load i32, ptr %1851, align 4, !tbaa !18
+  %1853 = and i32 %1852, -1
+  %1854 = lshr i32 %1853, 2
+  %1855 = or i32 %1850, %1854
+  %1856 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %1855, ptr %1856, align 4, !tbaa !18
+  br label %1857
 
-1880:                                             ; preds = %1822
-  br label %1881
+1857:                                             ; preds = %1799
+  br label %1858
 
-1881:                                             ; preds = %1880
-  %1882 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1883 = load i32, ptr %1882, align 4
-  %1884 = shl i32 %1883, 5
-  %1885 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1886 = load i32, ptr %1885, align 4
-  %1887 = and i32 %1886, -1
-  %1888 = lshr i32 %1887, 27
-  %1889 = or i32 %1884, %1888
-  %1890 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1891 = load i32, ptr %1890, align 4
-  %1892 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1893 = load i32, ptr %1892, align 4
-  %1894 = xor i32 %1891, %1893
-  %1895 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1896 = load i32, ptr %1895, align 4
-  %1897 = xor i32 %1894, %1896
-  %1898 = add i32 %1889, %1897
-  %1899 = add i32 %1898, 1859775393
-  %1900 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1901 = getelementptr inbounds [16 x i32], ptr %1900, i64 0, i64 11
-  %1902 = load i32, ptr %1901, align 4
-  %1903 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1904 = getelementptr inbounds [16 x i32], ptr %1903, i64 0, i64 6
-  %1905 = load i32, ptr %1904, align 4
-  %1906 = xor i32 %1902, %1905
-  %1907 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1908 = getelementptr inbounds [16 x i32], ptr %1907, i64 0, i64 0
-  %1909 = load i32, ptr %1908, align 4
-  %1910 = xor i32 %1906, %1909
-  %1911 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1912 = getelementptr inbounds [16 x i32], ptr %1911, i64 0, i64 14
-  %1913 = load i32, ptr %1912, align 4
-  %1914 = xor i32 %1910, %1913
-  %1915 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1914, ptr %1915, align 4
-  %1916 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1917 = load i32, ptr %1916, align 4
-  %1918 = shl i32 %1917, 1
-  %1919 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1920 = load i32, ptr %1919, align 4
-  %1921 = and i32 %1920, -1
-  %1922 = lshr i32 %1921, 31
-  %1923 = or i32 %1918, %1922
-  %1924 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1925 = getelementptr inbounds [16 x i32], ptr %1924, i64 0, i64 14
-  store i32 %1923, ptr %1925, align 4
-  %1926 = add i32 %1899, %1923
-  %1927 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1928 = load i32, ptr %1927, align 4
-  %1929 = add i32 %1928, %1926
-  store i32 %1929, ptr %1927, align 4
-  %1930 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1931 = load i32, ptr %1930, align 4
-  %1932 = shl i32 %1931, 30
-  %1933 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1934 = load i32, ptr %1933, align 4
-  %1935 = and i32 %1934, -1
-  %1936 = lshr i32 %1935, 2
-  %1937 = or i32 %1932, %1936
-  %1938 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %1937, ptr %1938, align 4
-  br label %1939
+1858:                                             ; preds = %1857
+  br label %1859
 
-1939:                                             ; preds = %1881
-  br label %1940
+1859:                                             ; preds = %1858
+  %1860 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1861 = load i32, ptr %1860, align 4, !tbaa !16
+  %1862 = shl i32 %1861, 5
+  %1863 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1864 = load i32, ptr %1863, align 4, !tbaa !16
+  %1865 = and i32 %1864, -1
+  %1866 = lshr i32 %1865, 27
+  %1867 = or i32 %1862, %1866
+  %1868 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1869 = load i32, ptr %1868, align 4, !tbaa !17
+  %1870 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1871 = load i32, ptr %1870, align 4, !tbaa !18
+  %1872 = xor i32 %1869, %1871
+  %1873 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1874 = load i32, ptr %1873, align 4, !tbaa !19
+  %1875 = xor i32 %1872, %1874
+  %1876 = add i32 %1867, %1875
+  %1877 = add i32 %1876, 1859775393
+  %1878 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1879 = getelementptr inbounds [16 x i32], ptr %1878, i64 0, i64 15
+  %1880 = load i32, ptr %1879, align 4, !tbaa !10
+  %1881 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1882 = getelementptr inbounds [16 x i32], ptr %1881, i64 0, i64 10
+  %1883 = load i32, ptr %1882, align 4, !tbaa !10
+  %1884 = xor i32 %1880, %1883
+  %1885 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1886 = getelementptr inbounds [16 x i32], ptr %1885, i64 0, i64 4
+  %1887 = load i32, ptr %1886, align 4, !tbaa !10
+  %1888 = xor i32 %1884, %1887
+  %1889 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1890 = getelementptr inbounds [16 x i32], ptr %1889, i64 0, i64 2
+  %1891 = load i32, ptr %1890, align 4, !tbaa !10
+  %1892 = xor i32 %1888, %1891
+  %1893 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1892, ptr %1893, align 4, !tbaa !20
+  %1894 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1895 = load i32, ptr %1894, align 4, !tbaa !20
+  %1896 = shl i32 %1895, 1
+  %1897 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1898 = load i32, ptr %1897, align 4, !tbaa !20
+  %1899 = and i32 %1898, -1
+  %1900 = lshr i32 %1899, 31
+  %1901 = or i32 %1896, %1900
+  %1902 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1903 = getelementptr inbounds [16 x i32], ptr %1902, i64 0, i64 2
+  store i32 %1901, ptr %1903, align 4, !tbaa !10
+  %1904 = add i32 %1877, %1901
+  %1905 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1906 = load i32, ptr %1905, align 4, !tbaa !14
+  %1907 = add i32 %1906, %1904
+  store i32 %1907, ptr %1905, align 4, !tbaa !14
+  %1908 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1909 = load i32, ptr %1908, align 4, !tbaa !17
+  %1910 = shl i32 %1909, 30
+  %1911 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1912 = load i32, ptr %1911, align 4, !tbaa !17
+  %1913 = and i32 %1912, -1
+  %1914 = lshr i32 %1913, 2
+  %1915 = or i32 %1910, %1914
+  %1916 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %1915, ptr %1916, align 4, !tbaa !17
+  br label %1917
 
-1940:                                             ; preds = %1939
-  %1941 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1942 = load i32, ptr %1941, align 4
-  %1943 = shl i32 %1942, 5
-  %1944 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %1945 = load i32, ptr %1944, align 4
-  %1946 = and i32 %1945, -1
-  %1947 = lshr i32 %1946, 27
-  %1948 = or i32 %1943, %1947
-  %1949 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1950 = load i32, ptr %1949, align 4
-  %1951 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %1952 = load i32, ptr %1951, align 4
-  %1953 = xor i32 %1950, %1952
-  %1954 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %1955 = load i32, ptr %1954, align 4
-  %1956 = xor i32 %1953, %1955
-  %1957 = add i32 %1948, %1956
-  %1958 = add i32 %1957, 1859775393
-  %1959 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1960 = getelementptr inbounds [16 x i32], ptr %1959, i64 0, i64 12
-  %1961 = load i32, ptr %1960, align 4
-  %1962 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1963 = getelementptr inbounds [16 x i32], ptr %1962, i64 0, i64 7
-  %1964 = load i32, ptr %1963, align 4
-  %1965 = xor i32 %1961, %1964
-  %1966 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1967 = getelementptr inbounds [16 x i32], ptr %1966, i64 0, i64 1
-  %1968 = load i32, ptr %1967, align 4
-  %1969 = xor i32 %1965, %1968
-  %1970 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1971 = getelementptr inbounds [16 x i32], ptr %1970, i64 0, i64 15
-  %1972 = load i32, ptr %1971, align 4
-  %1973 = xor i32 %1969, %1972
-  %1974 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %1973, ptr %1974, align 4
-  %1975 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1976 = load i32, ptr %1975, align 4
-  %1977 = shl i32 %1976, 1
-  %1978 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %1979 = load i32, ptr %1978, align 4
-  %1980 = and i32 %1979, -1
-  %1981 = lshr i32 %1980, 31
-  %1982 = or i32 %1977, %1981
-  %1983 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %1984 = getelementptr inbounds [16 x i32], ptr %1983, i64 0, i64 15
-  store i32 %1982, ptr %1984, align 4
-  %1985 = add i32 %1958, %1982
-  %1986 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %1987 = load i32, ptr %1986, align 4
-  %1988 = add i32 %1987, %1985
-  store i32 %1988, ptr %1986, align 4
-  %1989 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1990 = load i32, ptr %1989, align 4
-  %1991 = shl i32 %1990, 30
-  %1992 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %1993 = load i32, ptr %1992, align 4
-  %1994 = and i32 %1993, -1
-  %1995 = lshr i32 %1994, 2
-  %1996 = or i32 %1991, %1995
-  %1997 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %1996, ptr %1997, align 4
-  br label %1998
+1917:                                             ; preds = %1859
+  br label %1918
 
-1998:                                             ; preds = %1940
-  br label %1999
+1918:                                             ; preds = %1917
+  br label %1919
 
-1999:                                             ; preds = %1998
-  %2000 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2001 = load i32, ptr %2000, align 4
-  %2002 = shl i32 %2001, 5
-  %2003 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2004 = load i32, ptr %2003, align 4
-  %2005 = and i32 %2004, -1
-  %2006 = lshr i32 %2005, 27
-  %2007 = or i32 %2002, %2006
-  %2008 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2009 = load i32, ptr %2008, align 4
-  %2010 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2011 = load i32, ptr %2010, align 4
-  %2012 = xor i32 %2009, %2011
-  %2013 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2014 = load i32, ptr %2013, align 4
-  %2015 = xor i32 %2012, %2014
-  %2016 = add i32 %2007, %2015
-  %2017 = add i32 %2016, 1859775393
-  %2018 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2019 = getelementptr inbounds [16 x i32], ptr %2018, i64 0, i64 13
-  %2020 = load i32, ptr %2019, align 4
-  %2021 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2022 = getelementptr inbounds [16 x i32], ptr %2021, i64 0, i64 8
-  %2023 = load i32, ptr %2022, align 4
-  %2024 = xor i32 %2020, %2023
-  %2025 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2026 = getelementptr inbounds [16 x i32], ptr %2025, i64 0, i64 2
-  %2027 = load i32, ptr %2026, align 4
-  %2028 = xor i32 %2024, %2027
-  %2029 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2030 = getelementptr inbounds [16 x i32], ptr %2029, i64 0, i64 0
-  %2031 = load i32, ptr %2030, align 4
-  %2032 = xor i32 %2028, %2031
-  %2033 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2032, ptr %2033, align 4
-  %2034 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2035 = load i32, ptr %2034, align 4
-  %2036 = shl i32 %2035, 1
-  %2037 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2038 = load i32, ptr %2037, align 4
-  %2039 = and i32 %2038, -1
-  %2040 = lshr i32 %2039, 31
-  %2041 = or i32 %2036, %2040
-  %2042 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2043 = getelementptr inbounds [16 x i32], ptr %2042, i64 0, i64 0
-  store i32 %2041, ptr %2043, align 4
-  %2044 = add i32 %2017, %2041
-  %2045 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2046 = load i32, ptr %2045, align 4
-  %2047 = add i32 %2046, %2044
-  store i32 %2047, ptr %2045, align 4
-  %2048 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2049 = load i32, ptr %2048, align 4
-  %2050 = shl i32 %2049, 30
-  %2051 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2052 = load i32, ptr %2051, align 4
-  %2053 = and i32 %2052, -1
-  %2054 = lshr i32 %2053, 2
-  %2055 = or i32 %2050, %2054
-  %2056 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %2055, ptr %2056, align 4
-  br label %2057
+1919:                                             ; preds = %1918
+  %1920 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1921 = load i32, ptr %1920, align 4, !tbaa !14
+  %1922 = shl i32 %1921, 5
+  %1923 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1924 = load i32, ptr %1923, align 4, !tbaa !14
+  %1925 = and i32 %1924, -1
+  %1926 = lshr i32 %1925, 27
+  %1927 = or i32 %1922, %1926
+  %1928 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1929 = load i32, ptr %1928, align 4, !tbaa !16
+  %1930 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1931 = load i32, ptr %1930, align 4, !tbaa !17
+  %1932 = xor i32 %1929, %1931
+  %1933 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %1934 = load i32, ptr %1933, align 4, !tbaa !18
+  %1935 = xor i32 %1932, %1934
+  %1936 = add i32 %1927, %1935
+  %1937 = add i32 %1936, 1859775393
+  %1938 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1939 = getelementptr inbounds [16 x i32], ptr %1938, i64 0, i64 0
+  %1940 = load i32, ptr %1939, align 4, !tbaa !10
+  %1941 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1942 = getelementptr inbounds [16 x i32], ptr %1941, i64 0, i64 11
+  %1943 = load i32, ptr %1942, align 4, !tbaa !10
+  %1944 = xor i32 %1940, %1943
+  %1945 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1946 = getelementptr inbounds [16 x i32], ptr %1945, i64 0, i64 5
+  %1947 = load i32, ptr %1946, align 4, !tbaa !10
+  %1948 = xor i32 %1944, %1947
+  %1949 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1950 = getelementptr inbounds [16 x i32], ptr %1949, i64 0, i64 3
+  %1951 = load i32, ptr %1950, align 4, !tbaa !10
+  %1952 = xor i32 %1948, %1951
+  %1953 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %1952, ptr %1953, align 4, !tbaa !20
+  %1954 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1955 = load i32, ptr %1954, align 4, !tbaa !20
+  %1956 = shl i32 %1955, 1
+  %1957 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %1958 = load i32, ptr %1957, align 4, !tbaa !20
+  %1959 = and i32 %1958, -1
+  %1960 = lshr i32 %1959, 31
+  %1961 = or i32 %1956, %1960
+  %1962 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1963 = getelementptr inbounds [16 x i32], ptr %1962, i64 0, i64 3
+  store i32 %1961, ptr %1963, align 4, !tbaa !10
+  %1964 = add i32 %1937, %1961
+  %1965 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1966 = load i32, ptr %1965, align 4, !tbaa !19
+  %1967 = add i32 %1966, %1964
+  store i32 %1967, ptr %1965, align 4, !tbaa !19
+  %1968 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1969 = load i32, ptr %1968, align 4, !tbaa !16
+  %1970 = shl i32 %1969, 30
+  %1971 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1972 = load i32, ptr %1971, align 4, !tbaa !16
+  %1973 = and i32 %1972, -1
+  %1974 = lshr i32 %1973, 2
+  %1975 = or i32 %1970, %1974
+  %1976 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %1975, ptr %1976, align 4, !tbaa !16
+  br label %1977
 
-2057:                                             ; preds = %1999
-  br label %2058
+1977:                                             ; preds = %1919
+  br label %1978
 
-2058:                                             ; preds = %2057
-  %2059 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2060 = load i32, ptr %2059, align 4
-  %2061 = shl i32 %2060, 5
-  %2062 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2063 = load i32, ptr %2062, align 4
-  %2064 = and i32 %2063, -1
-  %2065 = lshr i32 %2064, 27
-  %2066 = or i32 %2061, %2065
-  %2067 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2068 = load i32, ptr %2067, align 4
-  %2069 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2070 = load i32, ptr %2069, align 4
-  %2071 = xor i32 %2068, %2070
-  %2072 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2073 = load i32, ptr %2072, align 4
-  %2074 = xor i32 %2071, %2073
-  %2075 = add i32 %2066, %2074
-  %2076 = add i32 %2075, 1859775393
-  %2077 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2078 = getelementptr inbounds [16 x i32], ptr %2077, i64 0, i64 14
-  %2079 = load i32, ptr %2078, align 4
-  %2080 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2081 = getelementptr inbounds [16 x i32], ptr %2080, i64 0, i64 9
-  %2082 = load i32, ptr %2081, align 4
-  %2083 = xor i32 %2079, %2082
-  %2084 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2085 = getelementptr inbounds [16 x i32], ptr %2084, i64 0, i64 3
-  %2086 = load i32, ptr %2085, align 4
-  %2087 = xor i32 %2083, %2086
-  %2088 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2089 = getelementptr inbounds [16 x i32], ptr %2088, i64 0, i64 1
-  %2090 = load i32, ptr %2089, align 4
-  %2091 = xor i32 %2087, %2090
-  %2092 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2091, ptr %2092, align 4
-  %2093 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2094 = load i32, ptr %2093, align 4
-  %2095 = shl i32 %2094, 1
-  %2096 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2097 = load i32, ptr %2096, align 4
-  %2098 = and i32 %2097, -1
-  %2099 = lshr i32 %2098, 31
-  %2100 = or i32 %2095, %2099
-  %2101 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2102 = getelementptr inbounds [16 x i32], ptr %2101, i64 0, i64 1
-  store i32 %2100, ptr %2102, align 4
-  %2103 = add i32 %2076, %2100
-  %2104 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2105 = load i32, ptr %2104, align 4
-  %2106 = add i32 %2105, %2103
-  store i32 %2106, ptr %2104, align 4
-  %2107 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2108 = load i32, ptr %2107, align 4
-  %2109 = shl i32 %2108, 30
-  %2110 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2111 = load i32, ptr %2110, align 4
-  %2112 = and i32 %2111, -1
-  %2113 = lshr i32 %2112, 2
-  %2114 = or i32 %2109, %2113
-  %2115 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %2114, ptr %2115, align 4
-  br label %2116
+1978:                                             ; preds = %1977
+  br label %1979
 
-2116:                                             ; preds = %2058
-  br label %2117
+1979:                                             ; preds = %1978
+  %1980 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1981 = load i32, ptr %1980, align 4, !tbaa !19
+  %1982 = shl i32 %1981, 5
+  %1983 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %1984 = load i32, ptr %1983, align 4, !tbaa !19
+  %1985 = and i32 %1984, -1
+  %1986 = lshr i32 %1985, 27
+  %1987 = or i32 %1982, %1986
+  %1988 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %1989 = load i32, ptr %1988, align 4, !tbaa !14
+  %1990 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %1991 = load i32, ptr %1990, align 4, !tbaa !16
+  %1992 = xor i32 %1989, %1991
+  %1993 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %1994 = load i32, ptr %1993, align 4, !tbaa !17
+  %1995 = xor i32 %1992, %1994
+  %1996 = add i32 %1987, %1995
+  %1997 = add i32 %1996, 1859775393
+  %1998 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %1999 = getelementptr inbounds [16 x i32], ptr %1998, i64 0, i64 1
+  %2000 = load i32, ptr %1999, align 4, !tbaa !10
+  %2001 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2002 = getelementptr inbounds [16 x i32], ptr %2001, i64 0, i64 12
+  %2003 = load i32, ptr %2002, align 4, !tbaa !10
+  %2004 = xor i32 %2000, %2003
+  %2005 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2006 = getelementptr inbounds [16 x i32], ptr %2005, i64 0, i64 6
+  %2007 = load i32, ptr %2006, align 4, !tbaa !10
+  %2008 = xor i32 %2004, %2007
+  %2009 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2010 = getelementptr inbounds [16 x i32], ptr %2009, i64 0, i64 4
+  %2011 = load i32, ptr %2010, align 4, !tbaa !10
+  %2012 = xor i32 %2008, %2011
+  %2013 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2012, ptr %2013, align 4, !tbaa !20
+  %2014 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2015 = load i32, ptr %2014, align 4, !tbaa !20
+  %2016 = shl i32 %2015, 1
+  %2017 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2018 = load i32, ptr %2017, align 4, !tbaa !20
+  %2019 = and i32 %2018, -1
+  %2020 = lshr i32 %2019, 31
+  %2021 = or i32 %2016, %2020
+  %2022 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2023 = getelementptr inbounds [16 x i32], ptr %2022, i64 0, i64 4
+  store i32 %2021, ptr %2023, align 4, !tbaa !10
+  %2024 = add i32 %1997, %2021
+  %2025 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2026 = load i32, ptr %2025, align 4, !tbaa !18
+  %2027 = add i32 %2026, %2024
+  store i32 %2027, ptr %2025, align 4, !tbaa !18
+  %2028 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2029 = load i32, ptr %2028, align 4, !tbaa !14
+  %2030 = shl i32 %2029, 30
+  %2031 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2032 = load i32, ptr %2031, align 4, !tbaa !14
+  %2033 = and i32 %2032, -1
+  %2034 = lshr i32 %2033, 2
+  %2035 = or i32 %2030, %2034
+  %2036 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %2035, ptr %2036, align 4, !tbaa !14
+  br label %2037
 
-2117:                                             ; preds = %2116
-  %2118 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2119 = load i32, ptr %2118, align 4
-  %2120 = shl i32 %2119, 5
-  %2121 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2122 = load i32, ptr %2121, align 4
-  %2123 = and i32 %2122, -1
-  %2124 = lshr i32 %2123, 27
-  %2125 = or i32 %2120, %2124
-  %2126 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2127 = load i32, ptr %2126, align 4
-  %2128 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2129 = load i32, ptr %2128, align 4
-  %2130 = xor i32 %2127, %2129
-  %2131 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2132 = load i32, ptr %2131, align 4
-  %2133 = xor i32 %2130, %2132
-  %2134 = add i32 %2125, %2133
-  %2135 = add i32 %2134, 1859775393
-  %2136 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2137 = getelementptr inbounds [16 x i32], ptr %2136, i64 0, i64 15
-  %2138 = load i32, ptr %2137, align 4
-  %2139 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2140 = getelementptr inbounds [16 x i32], ptr %2139, i64 0, i64 10
-  %2141 = load i32, ptr %2140, align 4
-  %2142 = xor i32 %2138, %2141
-  %2143 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2144 = getelementptr inbounds [16 x i32], ptr %2143, i64 0, i64 4
-  %2145 = load i32, ptr %2144, align 4
-  %2146 = xor i32 %2142, %2145
-  %2147 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2148 = getelementptr inbounds [16 x i32], ptr %2147, i64 0, i64 2
-  %2149 = load i32, ptr %2148, align 4
-  %2150 = xor i32 %2146, %2149
-  %2151 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2150, ptr %2151, align 4
-  %2152 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2153 = load i32, ptr %2152, align 4
-  %2154 = shl i32 %2153, 1
-  %2155 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2156 = load i32, ptr %2155, align 4
-  %2157 = and i32 %2156, -1
-  %2158 = lshr i32 %2157, 31
-  %2159 = or i32 %2154, %2158
-  %2160 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2161 = getelementptr inbounds [16 x i32], ptr %2160, i64 0, i64 2
-  store i32 %2159, ptr %2161, align 4
-  %2162 = add i32 %2135, %2159
-  %2163 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2164 = load i32, ptr %2163, align 4
-  %2165 = add i32 %2164, %2162
-  store i32 %2165, ptr %2163, align 4
-  %2166 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2167 = load i32, ptr %2166, align 4
-  %2168 = shl i32 %2167, 30
-  %2169 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2170 = load i32, ptr %2169, align 4
-  %2171 = and i32 %2170, -1
-  %2172 = lshr i32 %2171, 2
-  %2173 = or i32 %2168, %2172
-  %2174 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %2173, ptr %2174, align 4
-  br label %2175
+2037:                                             ; preds = %1979
+  br label %2038
 
-2175:                                             ; preds = %2117
-  br label %2176
+2038:                                             ; preds = %2037
+  br label %2039
 
-2176:                                             ; preds = %2175
-  %2177 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2178 = load i32, ptr %2177, align 4
-  %2179 = shl i32 %2178, 5
-  %2180 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2181 = load i32, ptr %2180, align 4
-  %2182 = and i32 %2181, -1
-  %2183 = lshr i32 %2182, 27
-  %2184 = or i32 %2179, %2183
-  %2185 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2186 = load i32, ptr %2185, align 4
-  %2187 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2188 = load i32, ptr %2187, align 4
-  %2189 = xor i32 %2186, %2188
-  %2190 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2191 = load i32, ptr %2190, align 4
-  %2192 = xor i32 %2189, %2191
-  %2193 = add i32 %2184, %2192
-  %2194 = add i32 %2193, 1859775393
-  %2195 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2196 = getelementptr inbounds [16 x i32], ptr %2195, i64 0, i64 0
-  %2197 = load i32, ptr %2196, align 4
-  %2198 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2199 = getelementptr inbounds [16 x i32], ptr %2198, i64 0, i64 11
-  %2200 = load i32, ptr %2199, align 4
-  %2201 = xor i32 %2197, %2200
-  %2202 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2203 = getelementptr inbounds [16 x i32], ptr %2202, i64 0, i64 5
-  %2204 = load i32, ptr %2203, align 4
-  %2205 = xor i32 %2201, %2204
-  %2206 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2207 = getelementptr inbounds [16 x i32], ptr %2206, i64 0, i64 3
-  %2208 = load i32, ptr %2207, align 4
-  %2209 = xor i32 %2205, %2208
-  %2210 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2209, ptr %2210, align 4
-  %2211 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2212 = load i32, ptr %2211, align 4
-  %2213 = shl i32 %2212, 1
-  %2214 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2215 = load i32, ptr %2214, align 4
-  %2216 = and i32 %2215, -1
-  %2217 = lshr i32 %2216, 31
-  %2218 = or i32 %2213, %2217
-  %2219 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2220 = getelementptr inbounds [16 x i32], ptr %2219, i64 0, i64 3
-  store i32 %2218, ptr %2220, align 4
-  %2221 = add i32 %2194, %2218
-  %2222 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2223 = load i32, ptr %2222, align 4
-  %2224 = add i32 %2223, %2221
-  store i32 %2224, ptr %2222, align 4
-  %2225 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2226 = load i32, ptr %2225, align 4
-  %2227 = shl i32 %2226, 30
-  %2228 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2229 = load i32, ptr %2228, align 4
-  %2230 = and i32 %2229, -1
-  %2231 = lshr i32 %2230, 2
-  %2232 = or i32 %2227, %2231
-  %2233 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %2232, ptr %2233, align 4
-  br label %2234
+2039:                                             ; preds = %2038
+  %2040 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2041 = load i32, ptr %2040, align 4, !tbaa !18
+  %2042 = shl i32 %2041, 5
+  %2043 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2044 = load i32, ptr %2043, align 4, !tbaa !18
+  %2045 = and i32 %2044, -1
+  %2046 = lshr i32 %2045, 27
+  %2047 = or i32 %2042, %2046
+  %2048 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2049 = load i32, ptr %2048, align 4, !tbaa !19
+  %2050 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2051 = load i32, ptr %2050, align 4, !tbaa !14
+  %2052 = xor i32 %2049, %2051
+  %2053 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2054 = load i32, ptr %2053, align 4, !tbaa !16
+  %2055 = xor i32 %2052, %2054
+  %2056 = add i32 %2047, %2055
+  %2057 = add i32 %2056, 1859775393
+  %2058 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2059 = getelementptr inbounds [16 x i32], ptr %2058, i64 0, i64 2
+  %2060 = load i32, ptr %2059, align 4, !tbaa !10
+  %2061 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2062 = getelementptr inbounds [16 x i32], ptr %2061, i64 0, i64 13
+  %2063 = load i32, ptr %2062, align 4, !tbaa !10
+  %2064 = xor i32 %2060, %2063
+  %2065 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2066 = getelementptr inbounds [16 x i32], ptr %2065, i64 0, i64 7
+  %2067 = load i32, ptr %2066, align 4, !tbaa !10
+  %2068 = xor i32 %2064, %2067
+  %2069 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2070 = getelementptr inbounds [16 x i32], ptr %2069, i64 0, i64 5
+  %2071 = load i32, ptr %2070, align 4, !tbaa !10
+  %2072 = xor i32 %2068, %2071
+  %2073 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2072, ptr %2073, align 4, !tbaa !20
+  %2074 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2075 = load i32, ptr %2074, align 4, !tbaa !20
+  %2076 = shl i32 %2075, 1
+  %2077 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2078 = load i32, ptr %2077, align 4, !tbaa !20
+  %2079 = and i32 %2078, -1
+  %2080 = lshr i32 %2079, 31
+  %2081 = or i32 %2076, %2080
+  %2082 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2083 = getelementptr inbounds [16 x i32], ptr %2082, i64 0, i64 5
+  store i32 %2081, ptr %2083, align 4, !tbaa !10
+  %2084 = add i32 %2057, %2081
+  %2085 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2086 = load i32, ptr %2085, align 4, !tbaa !17
+  %2087 = add i32 %2086, %2084
+  store i32 %2087, ptr %2085, align 4, !tbaa !17
+  %2088 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2089 = load i32, ptr %2088, align 4, !tbaa !19
+  %2090 = shl i32 %2089, 30
+  %2091 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2092 = load i32, ptr %2091, align 4, !tbaa !19
+  %2093 = and i32 %2092, -1
+  %2094 = lshr i32 %2093, 2
+  %2095 = or i32 %2090, %2094
+  %2096 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %2095, ptr %2096, align 4, !tbaa !19
+  br label %2097
 
-2234:                                             ; preds = %2176
-  br label %2235
+2097:                                             ; preds = %2039
+  br label %2098
 
-2235:                                             ; preds = %2234
-  %2236 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2237 = load i32, ptr %2236, align 4
-  %2238 = shl i32 %2237, 5
-  %2239 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2240 = load i32, ptr %2239, align 4
-  %2241 = and i32 %2240, -1
-  %2242 = lshr i32 %2241, 27
-  %2243 = or i32 %2238, %2242
-  %2244 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2245 = load i32, ptr %2244, align 4
-  %2246 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2247 = load i32, ptr %2246, align 4
-  %2248 = xor i32 %2245, %2247
-  %2249 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2250 = load i32, ptr %2249, align 4
-  %2251 = xor i32 %2248, %2250
-  %2252 = add i32 %2243, %2251
-  %2253 = add i32 %2252, 1859775393
-  %2254 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2255 = getelementptr inbounds [16 x i32], ptr %2254, i64 0, i64 1
-  %2256 = load i32, ptr %2255, align 4
-  %2257 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2258 = getelementptr inbounds [16 x i32], ptr %2257, i64 0, i64 12
-  %2259 = load i32, ptr %2258, align 4
-  %2260 = xor i32 %2256, %2259
-  %2261 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2262 = getelementptr inbounds [16 x i32], ptr %2261, i64 0, i64 6
-  %2263 = load i32, ptr %2262, align 4
-  %2264 = xor i32 %2260, %2263
-  %2265 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2266 = getelementptr inbounds [16 x i32], ptr %2265, i64 0, i64 4
-  %2267 = load i32, ptr %2266, align 4
-  %2268 = xor i32 %2264, %2267
-  %2269 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2268, ptr %2269, align 4
-  %2270 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2271 = load i32, ptr %2270, align 4
-  %2272 = shl i32 %2271, 1
-  %2273 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2274 = load i32, ptr %2273, align 4
-  %2275 = and i32 %2274, -1
-  %2276 = lshr i32 %2275, 31
-  %2277 = or i32 %2272, %2276
-  %2278 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2279 = getelementptr inbounds [16 x i32], ptr %2278, i64 0, i64 4
-  store i32 %2277, ptr %2279, align 4
-  %2280 = add i32 %2253, %2277
-  %2281 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2282 = load i32, ptr %2281, align 4
-  %2283 = add i32 %2282, %2280
-  store i32 %2283, ptr %2281, align 4
-  %2284 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2285 = load i32, ptr %2284, align 4
-  %2286 = shl i32 %2285, 30
-  %2287 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2288 = load i32, ptr %2287, align 4
-  %2289 = and i32 %2288, -1
-  %2290 = lshr i32 %2289, 2
-  %2291 = or i32 %2286, %2290
-  %2292 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %2291, ptr %2292, align 4
-  br label %2293
+2098:                                             ; preds = %2097
+  br label %2099
 
-2293:                                             ; preds = %2235
-  br label %2294
+2099:                                             ; preds = %2098
+  %2100 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2101 = load i32, ptr %2100, align 4, !tbaa !17
+  %2102 = shl i32 %2101, 5
+  %2103 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2104 = load i32, ptr %2103, align 4, !tbaa !17
+  %2105 = and i32 %2104, -1
+  %2106 = lshr i32 %2105, 27
+  %2107 = or i32 %2102, %2106
+  %2108 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2109 = load i32, ptr %2108, align 4, !tbaa !18
+  %2110 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2111 = load i32, ptr %2110, align 4, !tbaa !19
+  %2112 = xor i32 %2109, %2111
+  %2113 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2114 = load i32, ptr %2113, align 4, !tbaa !14
+  %2115 = xor i32 %2112, %2114
+  %2116 = add i32 %2107, %2115
+  %2117 = add i32 %2116, 1859775393
+  %2118 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2119 = getelementptr inbounds [16 x i32], ptr %2118, i64 0, i64 3
+  %2120 = load i32, ptr %2119, align 4, !tbaa !10
+  %2121 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2122 = getelementptr inbounds [16 x i32], ptr %2121, i64 0, i64 14
+  %2123 = load i32, ptr %2122, align 4, !tbaa !10
+  %2124 = xor i32 %2120, %2123
+  %2125 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2126 = getelementptr inbounds [16 x i32], ptr %2125, i64 0, i64 8
+  %2127 = load i32, ptr %2126, align 4, !tbaa !10
+  %2128 = xor i32 %2124, %2127
+  %2129 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2130 = getelementptr inbounds [16 x i32], ptr %2129, i64 0, i64 6
+  %2131 = load i32, ptr %2130, align 4, !tbaa !10
+  %2132 = xor i32 %2128, %2131
+  %2133 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2132, ptr %2133, align 4, !tbaa !20
+  %2134 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2135 = load i32, ptr %2134, align 4, !tbaa !20
+  %2136 = shl i32 %2135, 1
+  %2137 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2138 = load i32, ptr %2137, align 4, !tbaa !20
+  %2139 = and i32 %2138, -1
+  %2140 = lshr i32 %2139, 31
+  %2141 = or i32 %2136, %2140
+  %2142 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2143 = getelementptr inbounds [16 x i32], ptr %2142, i64 0, i64 6
+  store i32 %2141, ptr %2143, align 4, !tbaa !10
+  %2144 = add i32 %2117, %2141
+  %2145 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2146 = load i32, ptr %2145, align 4, !tbaa !16
+  %2147 = add i32 %2146, %2144
+  store i32 %2147, ptr %2145, align 4, !tbaa !16
+  %2148 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2149 = load i32, ptr %2148, align 4, !tbaa !18
+  %2150 = shl i32 %2149, 30
+  %2151 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2152 = load i32, ptr %2151, align 4, !tbaa !18
+  %2153 = and i32 %2152, -1
+  %2154 = lshr i32 %2153, 2
+  %2155 = or i32 %2150, %2154
+  %2156 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %2155, ptr %2156, align 4, !tbaa !18
+  br label %2157
 
-2294:                                             ; preds = %2293
-  %2295 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2296 = load i32, ptr %2295, align 4
-  %2297 = shl i32 %2296, 5
-  %2298 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2299 = load i32, ptr %2298, align 4
-  %2300 = and i32 %2299, -1
-  %2301 = lshr i32 %2300, 27
-  %2302 = or i32 %2297, %2301
-  %2303 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2304 = load i32, ptr %2303, align 4
-  %2305 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2306 = load i32, ptr %2305, align 4
-  %2307 = xor i32 %2304, %2306
-  %2308 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2309 = load i32, ptr %2308, align 4
-  %2310 = xor i32 %2307, %2309
-  %2311 = add i32 %2302, %2310
-  %2312 = add i32 %2311, 1859775393
-  %2313 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2314 = getelementptr inbounds [16 x i32], ptr %2313, i64 0, i64 2
-  %2315 = load i32, ptr %2314, align 4
-  %2316 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2317 = getelementptr inbounds [16 x i32], ptr %2316, i64 0, i64 13
-  %2318 = load i32, ptr %2317, align 4
-  %2319 = xor i32 %2315, %2318
-  %2320 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2321 = getelementptr inbounds [16 x i32], ptr %2320, i64 0, i64 7
-  %2322 = load i32, ptr %2321, align 4
-  %2323 = xor i32 %2319, %2322
-  %2324 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2325 = getelementptr inbounds [16 x i32], ptr %2324, i64 0, i64 5
-  %2326 = load i32, ptr %2325, align 4
-  %2327 = xor i32 %2323, %2326
-  %2328 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2327, ptr %2328, align 4
-  %2329 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2330 = load i32, ptr %2329, align 4
-  %2331 = shl i32 %2330, 1
-  %2332 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2333 = load i32, ptr %2332, align 4
-  %2334 = and i32 %2333, -1
-  %2335 = lshr i32 %2334, 31
-  %2336 = or i32 %2331, %2335
-  %2337 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2338 = getelementptr inbounds [16 x i32], ptr %2337, i64 0, i64 5
-  store i32 %2336, ptr %2338, align 4
-  %2339 = add i32 %2312, %2336
-  %2340 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2341 = load i32, ptr %2340, align 4
-  %2342 = add i32 %2341, %2339
-  store i32 %2342, ptr %2340, align 4
-  %2343 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2344 = load i32, ptr %2343, align 4
-  %2345 = shl i32 %2344, 30
-  %2346 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2347 = load i32, ptr %2346, align 4
-  %2348 = and i32 %2347, -1
-  %2349 = lshr i32 %2348, 2
-  %2350 = or i32 %2345, %2349
-  %2351 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %2350, ptr %2351, align 4
-  br label %2352
+2157:                                             ; preds = %2099
+  br label %2158
 
-2352:                                             ; preds = %2294
-  br label %2353
+2158:                                             ; preds = %2157
+  br label %2159
 
-2353:                                             ; preds = %2352
-  %2354 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2355 = load i32, ptr %2354, align 4
-  %2356 = shl i32 %2355, 5
-  %2357 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2358 = load i32, ptr %2357, align 4
-  %2359 = and i32 %2358, -1
-  %2360 = lshr i32 %2359, 27
-  %2361 = or i32 %2356, %2360
-  %2362 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2363 = load i32, ptr %2362, align 4
-  %2364 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2365 = load i32, ptr %2364, align 4
-  %2366 = xor i32 %2363, %2365
-  %2367 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2368 = load i32, ptr %2367, align 4
-  %2369 = xor i32 %2366, %2368
-  %2370 = add i32 %2361, %2369
-  %2371 = add i32 %2370, 1859775393
-  %2372 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2373 = getelementptr inbounds [16 x i32], ptr %2372, i64 0, i64 3
-  %2374 = load i32, ptr %2373, align 4
-  %2375 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2376 = getelementptr inbounds [16 x i32], ptr %2375, i64 0, i64 14
-  %2377 = load i32, ptr %2376, align 4
-  %2378 = xor i32 %2374, %2377
-  %2379 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2380 = getelementptr inbounds [16 x i32], ptr %2379, i64 0, i64 8
-  %2381 = load i32, ptr %2380, align 4
+2159:                                             ; preds = %2158
+  %2160 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2161 = load i32, ptr %2160, align 4, !tbaa !16
+  %2162 = shl i32 %2161, 5
+  %2163 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2164 = load i32, ptr %2163, align 4, !tbaa !16
+  %2165 = and i32 %2164, -1
+  %2166 = lshr i32 %2165, 27
+  %2167 = or i32 %2162, %2166
+  %2168 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2169 = load i32, ptr %2168, align 4, !tbaa !17
+  %2170 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2171 = load i32, ptr %2170, align 4, !tbaa !18
+  %2172 = xor i32 %2169, %2171
+  %2173 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2174 = load i32, ptr %2173, align 4, !tbaa !19
+  %2175 = xor i32 %2172, %2174
+  %2176 = add i32 %2167, %2175
+  %2177 = add i32 %2176, 1859775393
+  %2178 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2179 = getelementptr inbounds [16 x i32], ptr %2178, i64 0, i64 4
+  %2180 = load i32, ptr %2179, align 4, !tbaa !10
+  %2181 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2182 = getelementptr inbounds [16 x i32], ptr %2181, i64 0, i64 15
+  %2183 = load i32, ptr %2182, align 4, !tbaa !10
+  %2184 = xor i32 %2180, %2183
+  %2185 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2186 = getelementptr inbounds [16 x i32], ptr %2185, i64 0, i64 9
+  %2187 = load i32, ptr %2186, align 4, !tbaa !10
+  %2188 = xor i32 %2184, %2187
+  %2189 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2190 = getelementptr inbounds [16 x i32], ptr %2189, i64 0, i64 7
+  %2191 = load i32, ptr %2190, align 4, !tbaa !10
+  %2192 = xor i32 %2188, %2191
+  %2193 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2192, ptr %2193, align 4, !tbaa !20
+  %2194 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2195 = load i32, ptr %2194, align 4, !tbaa !20
+  %2196 = shl i32 %2195, 1
+  %2197 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2198 = load i32, ptr %2197, align 4, !tbaa !20
+  %2199 = and i32 %2198, -1
+  %2200 = lshr i32 %2199, 31
+  %2201 = or i32 %2196, %2200
+  %2202 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2203 = getelementptr inbounds [16 x i32], ptr %2202, i64 0, i64 7
+  store i32 %2201, ptr %2203, align 4, !tbaa !10
+  %2204 = add i32 %2177, %2201
+  %2205 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2206 = load i32, ptr %2205, align 4, !tbaa !14
+  %2207 = add i32 %2206, %2204
+  store i32 %2207, ptr %2205, align 4, !tbaa !14
+  %2208 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2209 = load i32, ptr %2208, align 4, !tbaa !17
+  %2210 = shl i32 %2209, 30
+  %2211 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2212 = load i32, ptr %2211, align 4, !tbaa !17
+  %2213 = and i32 %2212, -1
+  %2214 = lshr i32 %2213, 2
+  %2215 = or i32 %2210, %2214
+  %2216 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %2215, ptr %2216, align 4, !tbaa !17
+  br label %2217
+
+2217:                                             ; preds = %2159
+  br label %2218
+
+2218:                                             ; preds = %2217
+  br label %2219
+
+2219:                                             ; preds = %2218
+  %2220 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2221 = load i32, ptr %2220, align 4, !tbaa !14
+  %2222 = shl i32 %2221, 5
+  %2223 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2224 = load i32, ptr %2223, align 4, !tbaa !14
+  %2225 = and i32 %2224, -1
+  %2226 = lshr i32 %2225, 27
+  %2227 = or i32 %2222, %2226
+  %2228 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2229 = load i32, ptr %2228, align 4, !tbaa !16
+  %2230 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2231 = load i32, ptr %2230, align 4, !tbaa !17
+  %2232 = and i32 %2229, %2231
+  %2233 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2234 = load i32, ptr %2233, align 4, !tbaa !18
+  %2235 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2236 = load i32, ptr %2235, align 4, !tbaa !16
+  %2237 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2238 = load i32, ptr %2237, align 4, !tbaa !17
+  %2239 = or i32 %2236, %2238
+  %2240 = and i32 %2234, %2239
+  %2241 = or i32 %2232, %2240
+  %2242 = add i32 %2227, %2241
+  %2243 = add i32 %2242, -1894007588
+  %2244 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2245 = getelementptr inbounds [16 x i32], ptr %2244, i64 0, i64 5
+  %2246 = load i32, ptr %2245, align 4, !tbaa !10
+  %2247 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2248 = getelementptr inbounds [16 x i32], ptr %2247, i64 0, i64 0
+  %2249 = load i32, ptr %2248, align 4, !tbaa !10
+  %2250 = xor i32 %2246, %2249
+  %2251 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2252 = getelementptr inbounds [16 x i32], ptr %2251, i64 0, i64 10
+  %2253 = load i32, ptr %2252, align 4, !tbaa !10
+  %2254 = xor i32 %2250, %2253
+  %2255 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2256 = getelementptr inbounds [16 x i32], ptr %2255, i64 0, i64 8
+  %2257 = load i32, ptr %2256, align 4, !tbaa !10
+  %2258 = xor i32 %2254, %2257
+  %2259 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2258, ptr %2259, align 4, !tbaa !20
+  %2260 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2261 = load i32, ptr %2260, align 4, !tbaa !20
+  %2262 = shl i32 %2261, 1
+  %2263 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2264 = load i32, ptr %2263, align 4, !tbaa !20
+  %2265 = and i32 %2264, -1
+  %2266 = lshr i32 %2265, 31
+  %2267 = or i32 %2262, %2266
+  %2268 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2269 = getelementptr inbounds [16 x i32], ptr %2268, i64 0, i64 8
+  store i32 %2267, ptr %2269, align 4, !tbaa !10
+  %2270 = add i32 %2243, %2267
+  %2271 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2272 = load i32, ptr %2271, align 4, !tbaa !19
+  %2273 = add i32 %2272, %2270
+  store i32 %2273, ptr %2271, align 4, !tbaa !19
+  %2274 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2275 = load i32, ptr %2274, align 4, !tbaa !16
+  %2276 = shl i32 %2275, 30
+  %2277 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2278 = load i32, ptr %2277, align 4, !tbaa !16
+  %2279 = and i32 %2278, -1
+  %2280 = lshr i32 %2279, 2
+  %2281 = or i32 %2276, %2280
+  %2282 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %2281, ptr %2282, align 4, !tbaa !16
+  br label %2283
+
+2283:                                             ; preds = %2219
+  br label %2284
+
+2284:                                             ; preds = %2283
+  br label %2285
+
+2285:                                             ; preds = %2284
+  %2286 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2287 = load i32, ptr %2286, align 4, !tbaa !19
+  %2288 = shl i32 %2287, 5
+  %2289 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2290 = load i32, ptr %2289, align 4, !tbaa !19
+  %2291 = and i32 %2290, -1
+  %2292 = lshr i32 %2291, 27
+  %2293 = or i32 %2288, %2292
+  %2294 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2295 = load i32, ptr %2294, align 4, !tbaa !14
+  %2296 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2297 = load i32, ptr %2296, align 4, !tbaa !16
+  %2298 = and i32 %2295, %2297
+  %2299 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2300 = load i32, ptr %2299, align 4, !tbaa !17
+  %2301 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2302 = load i32, ptr %2301, align 4, !tbaa !14
+  %2303 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2304 = load i32, ptr %2303, align 4, !tbaa !16
+  %2305 = or i32 %2302, %2304
+  %2306 = and i32 %2300, %2305
+  %2307 = or i32 %2298, %2306
+  %2308 = add i32 %2293, %2307
+  %2309 = add i32 %2308, -1894007588
+  %2310 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2311 = getelementptr inbounds [16 x i32], ptr %2310, i64 0, i64 6
+  %2312 = load i32, ptr %2311, align 4, !tbaa !10
+  %2313 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2314 = getelementptr inbounds [16 x i32], ptr %2313, i64 0, i64 1
+  %2315 = load i32, ptr %2314, align 4, !tbaa !10
+  %2316 = xor i32 %2312, %2315
+  %2317 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2318 = getelementptr inbounds [16 x i32], ptr %2317, i64 0, i64 11
+  %2319 = load i32, ptr %2318, align 4, !tbaa !10
+  %2320 = xor i32 %2316, %2319
+  %2321 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2322 = getelementptr inbounds [16 x i32], ptr %2321, i64 0, i64 9
+  %2323 = load i32, ptr %2322, align 4, !tbaa !10
+  %2324 = xor i32 %2320, %2323
+  %2325 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2324, ptr %2325, align 4, !tbaa !20
+  %2326 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2327 = load i32, ptr %2326, align 4, !tbaa !20
+  %2328 = shl i32 %2327, 1
+  %2329 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2330 = load i32, ptr %2329, align 4, !tbaa !20
+  %2331 = and i32 %2330, -1
+  %2332 = lshr i32 %2331, 31
+  %2333 = or i32 %2328, %2332
+  %2334 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2335 = getelementptr inbounds [16 x i32], ptr %2334, i64 0, i64 9
+  store i32 %2333, ptr %2335, align 4, !tbaa !10
+  %2336 = add i32 %2309, %2333
+  %2337 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2338 = load i32, ptr %2337, align 4, !tbaa !18
+  %2339 = add i32 %2338, %2336
+  store i32 %2339, ptr %2337, align 4, !tbaa !18
+  %2340 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2341 = load i32, ptr %2340, align 4, !tbaa !14
+  %2342 = shl i32 %2341, 30
+  %2343 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2344 = load i32, ptr %2343, align 4, !tbaa !14
+  %2345 = and i32 %2344, -1
+  %2346 = lshr i32 %2345, 2
+  %2347 = or i32 %2342, %2346
+  %2348 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %2347, ptr %2348, align 4, !tbaa !14
+  br label %2349
+
+2349:                                             ; preds = %2285
+  br label %2350
+
+2350:                                             ; preds = %2349
+  br label %2351
+
+2351:                                             ; preds = %2350
+  %2352 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2353 = load i32, ptr %2352, align 4, !tbaa !18
+  %2354 = shl i32 %2353, 5
+  %2355 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2356 = load i32, ptr %2355, align 4, !tbaa !18
+  %2357 = and i32 %2356, -1
+  %2358 = lshr i32 %2357, 27
+  %2359 = or i32 %2354, %2358
+  %2360 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2361 = load i32, ptr %2360, align 4, !tbaa !19
+  %2362 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2363 = load i32, ptr %2362, align 4, !tbaa !14
+  %2364 = and i32 %2361, %2363
+  %2365 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2366 = load i32, ptr %2365, align 4, !tbaa !16
+  %2367 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2368 = load i32, ptr %2367, align 4, !tbaa !19
+  %2369 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2370 = load i32, ptr %2369, align 4, !tbaa !14
+  %2371 = or i32 %2368, %2370
+  %2372 = and i32 %2366, %2371
+  %2373 = or i32 %2364, %2372
+  %2374 = add i32 %2359, %2373
+  %2375 = add i32 %2374, -1894007588
+  %2376 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2377 = getelementptr inbounds [16 x i32], ptr %2376, i64 0, i64 7
+  %2378 = load i32, ptr %2377, align 4, !tbaa !10
+  %2379 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2380 = getelementptr inbounds [16 x i32], ptr %2379, i64 0, i64 2
+  %2381 = load i32, ptr %2380, align 4, !tbaa !10
   %2382 = xor i32 %2378, %2381
-  %2383 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2384 = getelementptr inbounds [16 x i32], ptr %2383, i64 0, i64 6
-  %2385 = load i32, ptr %2384, align 4
+  %2383 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2384 = getelementptr inbounds [16 x i32], ptr %2383, i64 0, i64 12
+  %2385 = load i32, ptr %2384, align 4, !tbaa !10
   %2386 = xor i32 %2382, %2385
-  %2387 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2386, ptr %2387, align 4
-  %2388 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2389 = load i32, ptr %2388, align 4
-  %2390 = shl i32 %2389, 1
-  %2391 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2392 = load i32, ptr %2391, align 4
-  %2393 = and i32 %2392, -1
-  %2394 = lshr i32 %2393, 31
-  %2395 = or i32 %2390, %2394
-  %2396 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2397 = getelementptr inbounds [16 x i32], ptr %2396, i64 0, i64 6
-  store i32 %2395, ptr %2397, align 4
-  %2398 = add i32 %2371, %2395
-  %2399 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2400 = load i32, ptr %2399, align 4
-  %2401 = add i32 %2400, %2398
-  store i32 %2401, ptr %2399, align 4
-  %2402 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2403 = load i32, ptr %2402, align 4
-  %2404 = shl i32 %2403, 30
-  %2405 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2406 = load i32, ptr %2405, align 4
-  %2407 = and i32 %2406, -1
-  %2408 = lshr i32 %2407, 2
-  %2409 = or i32 %2404, %2408
-  %2410 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %2409, ptr %2410, align 4
-  br label %2411
+  %2387 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2388 = getelementptr inbounds [16 x i32], ptr %2387, i64 0, i64 10
+  %2389 = load i32, ptr %2388, align 4, !tbaa !10
+  %2390 = xor i32 %2386, %2389
+  %2391 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2390, ptr %2391, align 4, !tbaa !20
+  %2392 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2393 = load i32, ptr %2392, align 4, !tbaa !20
+  %2394 = shl i32 %2393, 1
+  %2395 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2396 = load i32, ptr %2395, align 4, !tbaa !20
+  %2397 = and i32 %2396, -1
+  %2398 = lshr i32 %2397, 31
+  %2399 = or i32 %2394, %2398
+  %2400 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2401 = getelementptr inbounds [16 x i32], ptr %2400, i64 0, i64 10
+  store i32 %2399, ptr %2401, align 4, !tbaa !10
+  %2402 = add i32 %2375, %2399
+  %2403 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2404 = load i32, ptr %2403, align 4, !tbaa !17
+  %2405 = add i32 %2404, %2402
+  store i32 %2405, ptr %2403, align 4, !tbaa !17
+  %2406 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2407 = load i32, ptr %2406, align 4, !tbaa !19
+  %2408 = shl i32 %2407, 30
+  %2409 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2410 = load i32, ptr %2409, align 4, !tbaa !19
+  %2411 = and i32 %2410, -1
+  %2412 = lshr i32 %2411, 2
+  %2413 = or i32 %2408, %2412
+  %2414 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %2413, ptr %2414, align 4, !tbaa !19
+  br label %2415
 
-2411:                                             ; preds = %2353
-  br label %2412
+2415:                                             ; preds = %2351
+  br label %2416
 
-2412:                                             ; preds = %2411
-  %2413 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2414 = load i32, ptr %2413, align 4
-  %2415 = shl i32 %2414, 5
-  %2416 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2417 = load i32, ptr %2416, align 4
-  %2418 = and i32 %2417, -1
-  %2419 = lshr i32 %2418, 27
-  %2420 = or i32 %2415, %2419
-  %2421 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2422 = load i32, ptr %2421, align 4
-  %2423 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2424 = load i32, ptr %2423, align 4
-  %2425 = xor i32 %2422, %2424
-  %2426 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2427 = load i32, ptr %2426, align 4
-  %2428 = xor i32 %2425, %2427
-  %2429 = add i32 %2420, %2428
-  %2430 = add i32 %2429, 1859775393
-  %2431 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2432 = getelementptr inbounds [16 x i32], ptr %2431, i64 0, i64 4
-  %2433 = load i32, ptr %2432, align 4
-  %2434 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2435 = getelementptr inbounds [16 x i32], ptr %2434, i64 0, i64 15
-  %2436 = load i32, ptr %2435, align 4
-  %2437 = xor i32 %2433, %2436
-  %2438 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2439 = getelementptr inbounds [16 x i32], ptr %2438, i64 0, i64 9
-  %2440 = load i32, ptr %2439, align 4
-  %2441 = xor i32 %2437, %2440
-  %2442 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2443 = getelementptr inbounds [16 x i32], ptr %2442, i64 0, i64 7
-  %2444 = load i32, ptr %2443, align 4
-  %2445 = xor i32 %2441, %2444
-  %2446 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2445, ptr %2446, align 4
-  %2447 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2448 = load i32, ptr %2447, align 4
-  %2449 = shl i32 %2448, 1
-  %2450 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2451 = load i32, ptr %2450, align 4
-  %2452 = and i32 %2451, -1
-  %2453 = lshr i32 %2452, 31
-  %2454 = or i32 %2449, %2453
-  %2455 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2456 = getelementptr inbounds [16 x i32], ptr %2455, i64 0, i64 7
-  store i32 %2454, ptr %2456, align 4
-  %2457 = add i32 %2430, %2454
-  %2458 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2459 = load i32, ptr %2458, align 4
-  %2460 = add i32 %2459, %2457
-  store i32 %2460, ptr %2458, align 4
-  %2461 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2462 = load i32, ptr %2461, align 4
-  %2463 = shl i32 %2462, 30
-  %2464 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2465 = load i32, ptr %2464, align 4
-  %2466 = and i32 %2465, -1
-  %2467 = lshr i32 %2466, 2
-  %2468 = or i32 %2463, %2467
-  %2469 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %2468, ptr %2469, align 4
-  br label %2470
+2416:                                             ; preds = %2415
+  br label %2417
 
-2470:                                             ; preds = %2412
-  br label %2471
-
-2471:                                             ; preds = %2470
-  %2472 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2473 = load i32, ptr %2472, align 4
-  %2474 = shl i32 %2473, 5
-  %2475 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2476 = load i32, ptr %2475, align 4
+2417:                                             ; preds = %2416
+  %2418 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2419 = load i32, ptr %2418, align 4, !tbaa !17
+  %2420 = shl i32 %2419, 5
+  %2421 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2422 = load i32, ptr %2421, align 4, !tbaa !17
+  %2423 = and i32 %2422, -1
+  %2424 = lshr i32 %2423, 27
+  %2425 = or i32 %2420, %2424
+  %2426 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2427 = load i32, ptr %2426, align 4, !tbaa !18
+  %2428 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2429 = load i32, ptr %2428, align 4, !tbaa !19
+  %2430 = and i32 %2427, %2429
+  %2431 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2432 = load i32, ptr %2431, align 4, !tbaa !14
+  %2433 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2434 = load i32, ptr %2433, align 4, !tbaa !18
+  %2435 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2436 = load i32, ptr %2435, align 4, !tbaa !19
+  %2437 = or i32 %2434, %2436
+  %2438 = and i32 %2432, %2437
+  %2439 = or i32 %2430, %2438
+  %2440 = add i32 %2425, %2439
+  %2441 = add i32 %2440, -1894007588
+  %2442 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2443 = getelementptr inbounds [16 x i32], ptr %2442, i64 0, i64 8
+  %2444 = load i32, ptr %2443, align 4, !tbaa !10
+  %2445 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2446 = getelementptr inbounds [16 x i32], ptr %2445, i64 0, i64 3
+  %2447 = load i32, ptr %2446, align 4, !tbaa !10
+  %2448 = xor i32 %2444, %2447
+  %2449 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2450 = getelementptr inbounds [16 x i32], ptr %2449, i64 0, i64 13
+  %2451 = load i32, ptr %2450, align 4, !tbaa !10
+  %2452 = xor i32 %2448, %2451
+  %2453 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2454 = getelementptr inbounds [16 x i32], ptr %2453, i64 0, i64 11
+  %2455 = load i32, ptr %2454, align 4, !tbaa !10
+  %2456 = xor i32 %2452, %2455
+  %2457 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2456, ptr %2457, align 4, !tbaa !20
+  %2458 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2459 = load i32, ptr %2458, align 4, !tbaa !20
+  %2460 = shl i32 %2459, 1
+  %2461 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2462 = load i32, ptr %2461, align 4, !tbaa !20
+  %2463 = and i32 %2462, -1
+  %2464 = lshr i32 %2463, 31
+  %2465 = or i32 %2460, %2464
+  %2466 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2467 = getelementptr inbounds [16 x i32], ptr %2466, i64 0, i64 11
+  store i32 %2465, ptr %2467, align 4, !tbaa !10
+  %2468 = add i32 %2441, %2465
+  %2469 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2470 = load i32, ptr %2469, align 4, !tbaa !16
+  %2471 = add i32 %2470, %2468
+  store i32 %2471, ptr %2469, align 4, !tbaa !16
+  %2472 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2473 = load i32, ptr %2472, align 4, !tbaa !18
+  %2474 = shl i32 %2473, 30
+  %2475 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2476 = load i32, ptr %2475, align 4, !tbaa !18
   %2477 = and i32 %2476, -1
-  %2478 = lshr i32 %2477, 27
+  %2478 = lshr i32 %2477, 2
   %2479 = or i32 %2474, %2478
-  %2480 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2481 = load i32, ptr %2480, align 4
-  %2482 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2483 = load i32, ptr %2482, align 4
-  %2484 = and i32 %2481, %2483
-  %2485 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2486 = load i32, ptr %2485, align 4
-  %2487 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2488 = load i32, ptr %2487, align 4
-  %2489 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2490 = load i32, ptr %2489, align 4
-  %2491 = or i32 %2488, %2490
-  %2492 = and i32 %2486, %2491
-  %2493 = or i32 %2484, %2492
-  %2494 = add i32 %2479, %2493
-  %2495 = add i32 %2494, -1894007588
-  %2496 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2497 = getelementptr inbounds [16 x i32], ptr %2496, i64 0, i64 5
-  %2498 = load i32, ptr %2497, align 4
-  %2499 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2500 = getelementptr inbounds [16 x i32], ptr %2499, i64 0, i64 0
-  %2501 = load i32, ptr %2500, align 4
-  %2502 = xor i32 %2498, %2501
-  %2503 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2504 = getelementptr inbounds [16 x i32], ptr %2503, i64 0, i64 10
-  %2505 = load i32, ptr %2504, align 4
-  %2506 = xor i32 %2502, %2505
-  %2507 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2508 = getelementptr inbounds [16 x i32], ptr %2507, i64 0, i64 8
-  %2509 = load i32, ptr %2508, align 4
-  %2510 = xor i32 %2506, %2509
-  %2511 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2510, ptr %2511, align 4
-  %2512 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2513 = load i32, ptr %2512, align 4
-  %2514 = shl i32 %2513, 1
-  %2515 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2516 = load i32, ptr %2515, align 4
-  %2517 = and i32 %2516, -1
-  %2518 = lshr i32 %2517, 31
-  %2519 = or i32 %2514, %2518
-  %2520 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2521 = getelementptr inbounds [16 x i32], ptr %2520, i64 0, i64 8
-  store i32 %2519, ptr %2521, align 4
-  %2522 = add i32 %2495, %2519
-  %2523 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2524 = load i32, ptr %2523, align 4
-  %2525 = add i32 %2524, %2522
-  store i32 %2525, ptr %2523, align 4
-  %2526 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2527 = load i32, ptr %2526, align 4
-  %2528 = shl i32 %2527, 30
-  %2529 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2530 = load i32, ptr %2529, align 4
-  %2531 = and i32 %2530, -1
-  %2532 = lshr i32 %2531, 2
-  %2533 = or i32 %2528, %2532
-  %2534 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %2533, ptr %2534, align 4
-  br label %2535
+  %2480 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %2479, ptr %2480, align 4, !tbaa !18
+  br label %2481
 
-2535:                                             ; preds = %2471
-  br label %2536
+2481:                                             ; preds = %2417
+  br label %2482
 
-2536:                                             ; preds = %2535
-  %2537 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2538 = load i32, ptr %2537, align 4
-  %2539 = shl i32 %2538, 5
-  %2540 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2541 = load i32, ptr %2540, align 4
-  %2542 = and i32 %2541, -1
-  %2543 = lshr i32 %2542, 27
-  %2544 = or i32 %2539, %2543
-  %2545 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2546 = load i32, ptr %2545, align 4
-  %2547 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2548 = load i32, ptr %2547, align 4
-  %2549 = and i32 %2546, %2548
-  %2550 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2551 = load i32, ptr %2550, align 4
-  %2552 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2553 = load i32, ptr %2552, align 4
-  %2554 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2555 = load i32, ptr %2554, align 4
-  %2556 = or i32 %2553, %2555
-  %2557 = and i32 %2551, %2556
-  %2558 = or i32 %2549, %2557
-  %2559 = add i32 %2544, %2558
-  %2560 = add i32 %2559, -1894007588
-  %2561 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2562 = getelementptr inbounds [16 x i32], ptr %2561, i64 0, i64 6
-  %2563 = load i32, ptr %2562, align 4
-  %2564 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2565 = getelementptr inbounds [16 x i32], ptr %2564, i64 0, i64 1
-  %2566 = load i32, ptr %2565, align 4
-  %2567 = xor i32 %2563, %2566
-  %2568 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2569 = getelementptr inbounds [16 x i32], ptr %2568, i64 0, i64 11
-  %2570 = load i32, ptr %2569, align 4
-  %2571 = xor i32 %2567, %2570
-  %2572 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2573 = getelementptr inbounds [16 x i32], ptr %2572, i64 0, i64 9
-  %2574 = load i32, ptr %2573, align 4
-  %2575 = xor i32 %2571, %2574
-  %2576 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2575, ptr %2576, align 4
-  %2577 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2578 = load i32, ptr %2577, align 4
-  %2579 = shl i32 %2578, 1
-  %2580 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2581 = load i32, ptr %2580, align 4
-  %2582 = and i32 %2581, -1
-  %2583 = lshr i32 %2582, 31
-  %2584 = or i32 %2579, %2583
-  %2585 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2586 = getelementptr inbounds [16 x i32], ptr %2585, i64 0, i64 9
-  store i32 %2584, ptr %2586, align 4
-  %2587 = add i32 %2560, %2584
-  %2588 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2589 = load i32, ptr %2588, align 4
-  %2590 = add i32 %2589, %2587
-  store i32 %2590, ptr %2588, align 4
-  %2591 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2592 = load i32, ptr %2591, align 4
-  %2593 = shl i32 %2592, 30
-  %2594 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2595 = load i32, ptr %2594, align 4
-  %2596 = and i32 %2595, -1
-  %2597 = lshr i32 %2596, 2
-  %2598 = or i32 %2593, %2597
-  %2599 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %2598, ptr %2599, align 4
-  br label %2600
+2482:                                             ; preds = %2481
+  br label %2483
 
-2600:                                             ; preds = %2536
-  br label %2601
+2483:                                             ; preds = %2482
+  %2484 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2485 = load i32, ptr %2484, align 4, !tbaa !16
+  %2486 = shl i32 %2485, 5
+  %2487 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2488 = load i32, ptr %2487, align 4, !tbaa !16
+  %2489 = and i32 %2488, -1
+  %2490 = lshr i32 %2489, 27
+  %2491 = or i32 %2486, %2490
+  %2492 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2493 = load i32, ptr %2492, align 4, !tbaa !17
+  %2494 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2495 = load i32, ptr %2494, align 4, !tbaa !18
+  %2496 = and i32 %2493, %2495
+  %2497 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2498 = load i32, ptr %2497, align 4, !tbaa !19
+  %2499 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2500 = load i32, ptr %2499, align 4, !tbaa !17
+  %2501 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2502 = load i32, ptr %2501, align 4, !tbaa !18
+  %2503 = or i32 %2500, %2502
+  %2504 = and i32 %2498, %2503
+  %2505 = or i32 %2496, %2504
+  %2506 = add i32 %2491, %2505
+  %2507 = add i32 %2506, -1894007588
+  %2508 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2509 = getelementptr inbounds [16 x i32], ptr %2508, i64 0, i64 9
+  %2510 = load i32, ptr %2509, align 4, !tbaa !10
+  %2511 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2512 = getelementptr inbounds [16 x i32], ptr %2511, i64 0, i64 4
+  %2513 = load i32, ptr %2512, align 4, !tbaa !10
+  %2514 = xor i32 %2510, %2513
+  %2515 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2516 = getelementptr inbounds [16 x i32], ptr %2515, i64 0, i64 14
+  %2517 = load i32, ptr %2516, align 4, !tbaa !10
+  %2518 = xor i32 %2514, %2517
+  %2519 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2520 = getelementptr inbounds [16 x i32], ptr %2519, i64 0, i64 12
+  %2521 = load i32, ptr %2520, align 4, !tbaa !10
+  %2522 = xor i32 %2518, %2521
+  %2523 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2522, ptr %2523, align 4, !tbaa !20
+  %2524 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2525 = load i32, ptr %2524, align 4, !tbaa !20
+  %2526 = shl i32 %2525, 1
+  %2527 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2528 = load i32, ptr %2527, align 4, !tbaa !20
+  %2529 = and i32 %2528, -1
+  %2530 = lshr i32 %2529, 31
+  %2531 = or i32 %2526, %2530
+  %2532 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2533 = getelementptr inbounds [16 x i32], ptr %2532, i64 0, i64 12
+  store i32 %2531, ptr %2533, align 4, !tbaa !10
+  %2534 = add i32 %2507, %2531
+  %2535 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2536 = load i32, ptr %2535, align 4, !tbaa !14
+  %2537 = add i32 %2536, %2534
+  store i32 %2537, ptr %2535, align 4, !tbaa !14
+  %2538 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2539 = load i32, ptr %2538, align 4, !tbaa !17
+  %2540 = shl i32 %2539, 30
+  %2541 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2542 = load i32, ptr %2541, align 4, !tbaa !17
+  %2543 = and i32 %2542, -1
+  %2544 = lshr i32 %2543, 2
+  %2545 = or i32 %2540, %2544
+  %2546 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %2545, ptr %2546, align 4, !tbaa !17
+  br label %2547
 
-2601:                                             ; preds = %2600
-  %2602 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2603 = load i32, ptr %2602, align 4
-  %2604 = shl i32 %2603, 5
-  %2605 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2606 = load i32, ptr %2605, align 4
-  %2607 = and i32 %2606, -1
-  %2608 = lshr i32 %2607, 27
-  %2609 = or i32 %2604, %2608
-  %2610 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2611 = load i32, ptr %2610, align 4
-  %2612 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2613 = load i32, ptr %2612, align 4
-  %2614 = and i32 %2611, %2613
-  %2615 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2616 = load i32, ptr %2615, align 4
-  %2617 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2618 = load i32, ptr %2617, align 4
-  %2619 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2620 = load i32, ptr %2619, align 4
-  %2621 = or i32 %2618, %2620
-  %2622 = and i32 %2616, %2621
-  %2623 = or i32 %2614, %2622
-  %2624 = add i32 %2609, %2623
-  %2625 = add i32 %2624, -1894007588
-  %2626 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2627 = getelementptr inbounds [16 x i32], ptr %2626, i64 0, i64 7
-  %2628 = load i32, ptr %2627, align 4
-  %2629 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2630 = getelementptr inbounds [16 x i32], ptr %2629, i64 0, i64 2
-  %2631 = load i32, ptr %2630, align 4
-  %2632 = xor i32 %2628, %2631
-  %2633 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2634 = getelementptr inbounds [16 x i32], ptr %2633, i64 0, i64 12
-  %2635 = load i32, ptr %2634, align 4
-  %2636 = xor i32 %2632, %2635
-  %2637 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2638 = getelementptr inbounds [16 x i32], ptr %2637, i64 0, i64 10
-  %2639 = load i32, ptr %2638, align 4
-  %2640 = xor i32 %2636, %2639
-  %2641 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2640, ptr %2641, align 4
-  %2642 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2643 = load i32, ptr %2642, align 4
-  %2644 = shl i32 %2643, 1
-  %2645 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2646 = load i32, ptr %2645, align 4
-  %2647 = and i32 %2646, -1
-  %2648 = lshr i32 %2647, 31
-  %2649 = or i32 %2644, %2648
-  %2650 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2651 = getelementptr inbounds [16 x i32], ptr %2650, i64 0, i64 10
-  store i32 %2649, ptr %2651, align 4
-  %2652 = add i32 %2625, %2649
-  %2653 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2654 = load i32, ptr %2653, align 4
-  %2655 = add i32 %2654, %2652
-  store i32 %2655, ptr %2653, align 4
-  %2656 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2657 = load i32, ptr %2656, align 4
-  %2658 = shl i32 %2657, 30
-  %2659 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2660 = load i32, ptr %2659, align 4
+2547:                                             ; preds = %2483
+  br label %2548
+
+2548:                                             ; preds = %2547
+  br label %2549
+
+2549:                                             ; preds = %2548
+  %2550 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2551 = load i32, ptr %2550, align 4, !tbaa !14
+  %2552 = shl i32 %2551, 5
+  %2553 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2554 = load i32, ptr %2553, align 4, !tbaa !14
+  %2555 = and i32 %2554, -1
+  %2556 = lshr i32 %2555, 27
+  %2557 = or i32 %2552, %2556
+  %2558 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2559 = load i32, ptr %2558, align 4, !tbaa !16
+  %2560 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2561 = load i32, ptr %2560, align 4, !tbaa !17
+  %2562 = and i32 %2559, %2561
+  %2563 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2564 = load i32, ptr %2563, align 4, !tbaa !18
+  %2565 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2566 = load i32, ptr %2565, align 4, !tbaa !16
+  %2567 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2568 = load i32, ptr %2567, align 4, !tbaa !17
+  %2569 = or i32 %2566, %2568
+  %2570 = and i32 %2564, %2569
+  %2571 = or i32 %2562, %2570
+  %2572 = add i32 %2557, %2571
+  %2573 = add i32 %2572, -1894007588
+  %2574 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2575 = getelementptr inbounds [16 x i32], ptr %2574, i64 0, i64 10
+  %2576 = load i32, ptr %2575, align 4, !tbaa !10
+  %2577 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2578 = getelementptr inbounds [16 x i32], ptr %2577, i64 0, i64 5
+  %2579 = load i32, ptr %2578, align 4, !tbaa !10
+  %2580 = xor i32 %2576, %2579
+  %2581 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2582 = getelementptr inbounds [16 x i32], ptr %2581, i64 0, i64 15
+  %2583 = load i32, ptr %2582, align 4, !tbaa !10
+  %2584 = xor i32 %2580, %2583
+  %2585 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2586 = getelementptr inbounds [16 x i32], ptr %2585, i64 0, i64 13
+  %2587 = load i32, ptr %2586, align 4, !tbaa !10
+  %2588 = xor i32 %2584, %2587
+  %2589 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2588, ptr %2589, align 4, !tbaa !20
+  %2590 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2591 = load i32, ptr %2590, align 4, !tbaa !20
+  %2592 = shl i32 %2591, 1
+  %2593 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2594 = load i32, ptr %2593, align 4, !tbaa !20
+  %2595 = and i32 %2594, -1
+  %2596 = lshr i32 %2595, 31
+  %2597 = or i32 %2592, %2596
+  %2598 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2599 = getelementptr inbounds [16 x i32], ptr %2598, i64 0, i64 13
+  store i32 %2597, ptr %2599, align 4, !tbaa !10
+  %2600 = add i32 %2573, %2597
+  %2601 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2602 = load i32, ptr %2601, align 4, !tbaa !19
+  %2603 = add i32 %2602, %2600
+  store i32 %2603, ptr %2601, align 4, !tbaa !19
+  %2604 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2605 = load i32, ptr %2604, align 4, !tbaa !16
+  %2606 = shl i32 %2605, 30
+  %2607 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2608 = load i32, ptr %2607, align 4, !tbaa !16
+  %2609 = and i32 %2608, -1
+  %2610 = lshr i32 %2609, 2
+  %2611 = or i32 %2606, %2610
+  %2612 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %2611, ptr %2612, align 4, !tbaa !16
+  br label %2613
+
+2613:                                             ; preds = %2549
+  br label %2614
+
+2614:                                             ; preds = %2613
+  br label %2615
+
+2615:                                             ; preds = %2614
+  %2616 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2617 = load i32, ptr %2616, align 4, !tbaa !19
+  %2618 = shl i32 %2617, 5
+  %2619 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2620 = load i32, ptr %2619, align 4, !tbaa !19
+  %2621 = and i32 %2620, -1
+  %2622 = lshr i32 %2621, 27
+  %2623 = or i32 %2618, %2622
+  %2624 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2625 = load i32, ptr %2624, align 4, !tbaa !14
+  %2626 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2627 = load i32, ptr %2626, align 4, !tbaa !16
+  %2628 = and i32 %2625, %2627
+  %2629 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2630 = load i32, ptr %2629, align 4, !tbaa !17
+  %2631 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2632 = load i32, ptr %2631, align 4, !tbaa !14
+  %2633 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2634 = load i32, ptr %2633, align 4, !tbaa !16
+  %2635 = or i32 %2632, %2634
+  %2636 = and i32 %2630, %2635
+  %2637 = or i32 %2628, %2636
+  %2638 = add i32 %2623, %2637
+  %2639 = add i32 %2638, -1894007588
+  %2640 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2641 = getelementptr inbounds [16 x i32], ptr %2640, i64 0, i64 11
+  %2642 = load i32, ptr %2641, align 4, !tbaa !10
+  %2643 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2644 = getelementptr inbounds [16 x i32], ptr %2643, i64 0, i64 6
+  %2645 = load i32, ptr %2644, align 4, !tbaa !10
+  %2646 = xor i32 %2642, %2645
+  %2647 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2648 = getelementptr inbounds [16 x i32], ptr %2647, i64 0, i64 0
+  %2649 = load i32, ptr %2648, align 4, !tbaa !10
+  %2650 = xor i32 %2646, %2649
+  %2651 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2652 = getelementptr inbounds [16 x i32], ptr %2651, i64 0, i64 14
+  %2653 = load i32, ptr %2652, align 4, !tbaa !10
+  %2654 = xor i32 %2650, %2653
+  %2655 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2654, ptr %2655, align 4, !tbaa !20
+  %2656 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2657 = load i32, ptr %2656, align 4, !tbaa !20
+  %2658 = shl i32 %2657, 1
+  %2659 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2660 = load i32, ptr %2659, align 4, !tbaa !20
   %2661 = and i32 %2660, -1
-  %2662 = lshr i32 %2661, 2
+  %2662 = lshr i32 %2661, 31
   %2663 = or i32 %2658, %2662
-  %2664 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %2663, ptr %2664, align 4
-  br label %2665
+  %2664 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2665 = getelementptr inbounds [16 x i32], ptr %2664, i64 0, i64 14
+  store i32 %2663, ptr %2665, align 4, !tbaa !10
+  %2666 = add i32 %2639, %2663
+  %2667 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2668 = load i32, ptr %2667, align 4, !tbaa !18
+  %2669 = add i32 %2668, %2666
+  store i32 %2669, ptr %2667, align 4, !tbaa !18
+  %2670 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2671 = load i32, ptr %2670, align 4, !tbaa !14
+  %2672 = shl i32 %2671, 30
+  %2673 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2674 = load i32, ptr %2673, align 4, !tbaa !14
+  %2675 = and i32 %2674, -1
+  %2676 = lshr i32 %2675, 2
+  %2677 = or i32 %2672, %2676
+  %2678 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %2677, ptr %2678, align 4, !tbaa !14
+  br label %2679
 
-2665:                                             ; preds = %2601
-  br label %2666
+2679:                                             ; preds = %2615
+  br label %2680
 
-2666:                                             ; preds = %2665
-  %2667 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2668 = load i32, ptr %2667, align 4
-  %2669 = shl i32 %2668, 5
-  %2670 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2671 = load i32, ptr %2670, align 4
-  %2672 = and i32 %2671, -1
-  %2673 = lshr i32 %2672, 27
-  %2674 = or i32 %2669, %2673
-  %2675 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2676 = load i32, ptr %2675, align 4
-  %2677 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2678 = load i32, ptr %2677, align 4
-  %2679 = and i32 %2676, %2678
-  %2680 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2681 = load i32, ptr %2680, align 4
-  %2682 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2683 = load i32, ptr %2682, align 4
-  %2684 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2685 = load i32, ptr %2684, align 4
-  %2686 = or i32 %2683, %2685
-  %2687 = and i32 %2681, %2686
-  %2688 = or i32 %2679, %2687
-  %2689 = add i32 %2674, %2688
-  %2690 = add i32 %2689, -1894007588
-  %2691 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2692 = getelementptr inbounds [16 x i32], ptr %2691, i64 0, i64 8
-  %2693 = load i32, ptr %2692, align 4
-  %2694 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2695 = getelementptr inbounds [16 x i32], ptr %2694, i64 0, i64 3
-  %2696 = load i32, ptr %2695, align 4
-  %2697 = xor i32 %2693, %2696
-  %2698 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2699 = getelementptr inbounds [16 x i32], ptr %2698, i64 0, i64 13
-  %2700 = load i32, ptr %2699, align 4
-  %2701 = xor i32 %2697, %2700
-  %2702 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2703 = getelementptr inbounds [16 x i32], ptr %2702, i64 0, i64 11
-  %2704 = load i32, ptr %2703, align 4
-  %2705 = xor i32 %2701, %2704
-  %2706 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2705, ptr %2706, align 4
-  %2707 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2708 = load i32, ptr %2707, align 4
-  %2709 = shl i32 %2708, 1
-  %2710 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2711 = load i32, ptr %2710, align 4
-  %2712 = and i32 %2711, -1
-  %2713 = lshr i32 %2712, 31
-  %2714 = or i32 %2709, %2713
-  %2715 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2716 = getelementptr inbounds [16 x i32], ptr %2715, i64 0, i64 11
-  store i32 %2714, ptr %2716, align 4
-  %2717 = add i32 %2690, %2714
-  %2718 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2719 = load i32, ptr %2718, align 4
-  %2720 = add i32 %2719, %2717
-  store i32 %2720, ptr %2718, align 4
-  %2721 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2722 = load i32, ptr %2721, align 4
-  %2723 = shl i32 %2722, 30
-  %2724 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2725 = load i32, ptr %2724, align 4
-  %2726 = and i32 %2725, -1
-  %2727 = lshr i32 %2726, 2
-  %2728 = or i32 %2723, %2727
-  %2729 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %2728, ptr %2729, align 4
-  br label %2730
+2680:                                             ; preds = %2679
+  br label %2681
 
-2730:                                             ; preds = %2666
-  br label %2731
+2681:                                             ; preds = %2680
+  %2682 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2683 = load i32, ptr %2682, align 4, !tbaa !18
+  %2684 = shl i32 %2683, 5
+  %2685 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2686 = load i32, ptr %2685, align 4, !tbaa !18
+  %2687 = and i32 %2686, -1
+  %2688 = lshr i32 %2687, 27
+  %2689 = or i32 %2684, %2688
+  %2690 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2691 = load i32, ptr %2690, align 4, !tbaa !19
+  %2692 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2693 = load i32, ptr %2692, align 4, !tbaa !14
+  %2694 = and i32 %2691, %2693
+  %2695 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2696 = load i32, ptr %2695, align 4, !tbaa !16
+  %2697 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2698 = load i32, ptr %2697, align 4, !tbaa !19
+  %2699 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2700 = load i32, ptr %2699, align 4, !tbaa !14
+  %2701 = or i32 %2698, %2700
+  %2702 = and i32 %2696, %2701
+  %2703 = or i32 %2694, %2702
+  %2704 = add i32 %2689, %2703
+  %2705 = add i32 %2704, -1894007588
+  %2706 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2707 = getelementptr inbounds [16 x i32], ptr %2706, i64 0, i64 12
+  %2708 = load i32, ptr %2707, align 4, !tbaa !10
+  %2709 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2710 = getelementptr inbounds [16 x i32], ptr %2709, i64 0, i64 7
+  %2711 = load i32, ptr %2710, align 4, !tbaa !10
+  %2712 = xor i32 %2708, %2711
+  %2713 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2714 = getelementptr inbounds [16 x i32], ptr %2713, i64 0, i64 1
+  %2715 = load i32, ptr %2714, align 4, !tbaa !10
+  %2716 = xor i32 %2712, %2715
+  %2717 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2718 = getelementptr inbounds [16 x i32], ptr %2717, i64 0, i64 15
+  %2719 = load i32, ptr %2718, align 4, !tbaa !10
+  %2720 = xor i32 %2716, %2719
+  %2721 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2720, ptr %2721, align 4, !tbaa !20
+  %2722 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2723 = load i32, ptr %2722, align 4, !tbaa !20
+  %2724 = shl i32 %2723, 1
+  %2725 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2726 = load i32, ptr %2725, align 4, !tbaa !20
+  %2727 = and i32 %2726, -1
+  %2728 = lshr i32 %2727, 31
+  %2729 = or i32 %2724, %2728
+  %2730 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2731 = getelementptr inbounds [16 x i32], ptr %2730, i64 0, i64 15
+  store i32 %2729, ptr %2731, align 4, !tbaa !10
+  %2732 = add i32 %2705, %2729
+  %2733 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2734 = load i32, ptr %2733, align 4, !tbaa !17
+  %2735 = add i32 %2734, %2732
+  store i32 %2735, ptr %2733, align 4, !tbaa !17
+  %2736 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2737 = load i32, ptr %2736, align 4, !tbaa !19
+  %2738 = shl i32 %2737, 30
+  %2739 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2740 = load i32, ptr %2739, align 4, !tbaa !19
+  %2741 = and i32 %2740, -1
+  %2742 = lshr i32 %2741, 2
+  %2743 = or i32 %2738, %2742
+  %2744 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %2743, ptr %2744, align 4, !tbaa !19
+  br label %2745
 
-2731:                                             ; preds = %2730
-  %2732 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2733 = load i32, ptr %2732, align 4
-  %2734 = shl i32 %2733, 5
-  %2735 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2736 = load i32, ptr %2735, align 4
-  %2737 = and i32 %2736, -1
-  %2738 = lshr i32 %2737, 27
-  %2739 = or i32 %2734, %2738
-  %2740 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2741 = load i32, ptr %2740, align 4
-  %2742 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2743 = load i32, ptr %2742, align 4
-  %2744 = and i32 %2741, %2743
-  %2745 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2746 = load i32, ptr %2745, align 4
-  %2747 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2748 = load i32, ptr %2747, align 4
-  %2749 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2750 = load i32, ptr %2749, align 4
-  %2751 = or i32 %2748, %2750
-  %2752 = and i32 %2746, %2751
-  %2753 = or i32 %2744, %2752
-  %2754 = add i32 %2739, %2753
-  %2755 = add i32 %2754, -1894007588
-  %2756 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2757 = getelementptr inbounds [16 x i32], ptr %2756, i64 0, i64 9
-  %2758 = load i32, ptr %2757, align 4
-  %2759 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2760 = getelementptr inbounds [16 x i32], ptr %2759, i64 0, i64 4
-  %2761 = load i32, ptr %2760, align 4
-  %2762 = xor i32 %2758, %2761
-  %2763 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2764 = getelementptr inbounds [16 x i32], ptr %2763, i64 0, i64 14
-  %2765 = load i32, ptr %2764, align 4
-  %2766 = xor i32 %2762, %2765
-  %2767 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2768 = getelementptr inbounds [16 x i32], ptr %2767, i64 0, i64 12
-  %2769 = load i32, ptr %2768, align 4
-  %2770 = xor i32 %2766, %2769
-  %2771 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2770, ptr %2771, align 4
-  %2772 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2773 = load i32, ptr %2772, align 4
-  %2774 = shl i32 %2773, 1
-  %2775 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2776 = load i32, ptr %2775, align 4
-  %2777 = and i32 %2776, -1
-  %2778 = lshr i32 %2777, 31
-  %2779 = or i32 %2774, %2778
-  %2780 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2781 = getelementptr inbounds [16 x i32], ptr %2780, i64 0, i64 12
-  store i32 %2779, ptr %2781, align 4
-  %2782 = add i32 %2755, %2779
-  %2783 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2784 = load i32, ptr %2783, align 4
-  %2785 = add i32 %2784, %2782
-  store i32 %2785, ptr %2783, align 4
-  %2786 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2787 = load i32, ptr %2786, align 4
-  %2788 = shl i32 %2787, 30
-  %2789 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2790 = load i32, ptr %2789, align 4
-  %2791 = and i32 %2790, -1
-  %2792 = lshr i32 %2791, 2
-  %2793 = or i32 %2788, %2792
-  %2794 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %2793, ptr %2794, align 4
-  br label %2795
+2745:                                             ; preds = %2681
+  br label %2746
 
-2795:                                             ; preds = %2731
-  br label %2796
+2746:                                             ; preds = %2745
+  br label %2747
 
-2796:                                             ; preds = %2795
-  %2797 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2798 = load i32, ptr %2797, align 4
-  %2799 = shl i32 %2798, 5
-  %2800 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2801 = load i32, ptr %2800, align 4
-  %2802 = and i32 %2801, -1
-  %2803 = lshr i32 %2802, 27
-  %2804 = or i32 %2799, %2803
-  %2805 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2806 = load i32, ptr %2805, align 4
-  %2807 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2808 = load i32, ptr %2807, align 4
-  %2809 = and i32 %2806, %2808
-  %2810 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2811 = load i32, ptr %2810, align 4
-  %2812 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2813 = load i32, ptr %2812, align 4
-  %2814 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2815 = load i32, ptr %2814, align 4
-  %2816 = or i32 %2813, %2815
-  %2817 = and i32 %2811, %2816
-  %2818 = or i32 %2809, %2817
-  %2819 = add i32 %2804, %2818
-  %2820 = add i32 %2819, -1894007588
-  %2821 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2822 = getelementptr inbounds [16 x i32], ptr %2821, i64 0, i64 10
-  %2823 = load i32, ptr %2822, align 4
-  %2824 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2825 = getelementptr inbounds [16 x i32], ptr %2824, i64 0, i64 5
-  %2826 = load i32, ptr %2825, align 4
-  %2827 = xor i32 %2823, %2826
-  %2828 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2829 = getelementptr inbounds [16 x i32], ptr %2828, i64 0, i64 15
-  %2830 = load i32, ptr %2829, align 4
-  %2831 = xor i32 %2827, %2830
-  %2832 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2833 = getelementptr inbounds [16 x i32], ptr %2832, i64 0, i64 13
-  %2834 = load i32, ptr %2833, align 4
-  %2835 = xor i32 %2831, %2834
-  %2836 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2835, ptr %2836, align 4
-  %2837 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2838 = load i32, ptr %2837, align 4
-  %2839 = shl i32 %2838, 1
-  %2840 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2841 = load i32, ptr %2840, align 4
-  %2842 = and i32 %2841, -1
-  %2843 = lshr i32 %2842, 31
-  %2844 = or i32 %2839, %2843
-  %2845 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2846 = getelementptr inbounds [16 x i32], ptr %2845, i64 0, i64 13
-  store i32 %2844, ptr %2846, align 4
-  %2847 = add i32 %2820, %2844
-  %2848 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2849 = load i32, ptr %2848, align 4
-  %2850 = add i32 %2849, %2847
-  store i32 %2850, ptr %2848, align 4
-  %2851 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2852 = load i32, ptr %2851, align 4
-  %2853 = shl i32 %2852, 30
-  %2854 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2855 = load i32, ptr %2854, align 4
-  %2856 = and i32 %2855, -1
-  %2857 = lshr i32 %2856, 2
-  %2858 = or i32 %2853, %2857
-  %2859 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %2858, ptr %2859, align 4
-  br label %2860
+2747:                                             ; preds = %2746
+  %2748 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2749 = load i32, ptr %2748, align 4, !tbaa !17
+  %2750 = shl i32 %2749, 5
+  %2751 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2752 = load i32, ptr %2751, align 4, !tbaa !17
+  %2753 = and i32 %2752, -1
+  %2754 = lshr i32 %2753, 27
+  %2755 = or i32 %2750, %2754
+  %2756 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2757 = load i32, ptr %2756, align 4, !tbaa !18
+  %2758 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2759 = load i32, ptr %2758, align 4, !tbaa !19
+  %2760 = and i32 %2757, %2759
+  %2761 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2762 = load i32, ptr %2761, align 4, !tbaa !14
+  %2763 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2764 = load i32, ptr %2763, align 4, !tbaa !18
+  %2765 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2766 = load i32, ptr %2765, align 4, !tbaa !19
+  %2767 = or i32 %2764, %2766
+  %2768 = and i32 %2762, %2767
+  %2769 = or i32 %2760, %2768
+  %2770 = add i32 %2755, %2769
+  %2771 = add i32 %2770, -1894007588
+  %2772 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2773 = getelementptr inbounds [16 x i32], ptr %2772, i64 0, i64 13
+  %2774 = load i32, ptr %2773, align 4, !tbaa !10
+  %2775 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2776 = getelementptr inbounds [16 x i32], ptr %2775, i64 0, i64 8
+  %2777 = load i32, ptr %2776, align 4, !tbaa !10
+  %2778 = xor i32 %2774, %2777
+  %2779 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2780 = getelementptr inbounds [16 x i32], ptr %2779, i64 0, i64 2
+  %2781 = load i32, ptr %2780, align 4, !tbaa !10
+  %2782 = xor i32 %2778, %2781
+  %2783 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2784 = getelementptr inbounds [16 x i32], ptr %2783, i64 0, i64 0
+  %2785 = load i32, ptr %2784, align 4, !tbaa !10
+  %2786 = xor i32 %2782, %2785
+  %2787 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2786, ptr %2787, align 4, !tbaa !20
+  %2788 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2789 = load i32, ptr %2788, align 4, !tbaa !20
+  %2790 = shl i32 %2789, 1
+  %2791 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2792 = load i32, ptr %2791, align 4, !tbaa !20
+  %2793 = and i32 %2792, -1
+  %2794 = lshr i32 %2793, 31
+  %2795 = or i32 %2790, %2794
+  %2796 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2797 = getelementptr inbounds [16 x i32], ptr %2796, i64 0, i64 0
+  store i32 %2795, ptr %2797, align 4, !tbaa !10
+  %2798 = add i32 %2771, %2795
+  %2799 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2800 = load i32, ptr %2799, align 4, !tbaa !16
+  %2801 = add i32 %2800, %2798
+  store i32 %2801, ptr %2799, align 4, !tbaa !16
+  %2802 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2803 = load i32, ptr %2802, align 4, !tbaa !18
+  %2804 = shl i32 %2803, 30
+  %2805 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2806 = load i32, ptr %2805, align 4, !tbaa !18
+  %2807 = and i32 %2806, -1
+  %2808 = lshr i32 %2807, 2
+  %2809 = or i32 %2804, %2808
+  %2810 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %2809, ptr %2810, align 4, !tbaa !18
+  br label %2811
 
-2860:                                             ; preds = %2796
-  br label %2861
+2811:                                             ; preds = %2747
+  br label %2812
 
-2861:                                             ; preds = %2860
-  %2862 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2863 = load i32, ptr %2862, align 4
-  %2864 = shl i32 %2863, 5
-  %2865 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2866 = load i32, ptr %2865, align 4
-  %2867 = and i32 %2866, -1
-  %2868 = lshr i32 %2867, 27
-  %2869 = or i32 %2864, %2868
-  %2870 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2871 = load i32, ptr %2870, align 4
-  %2872 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2873 = load i32, ptr %2872, align 4
-  %2874 = and i32 %2871, %2873
-  %2875 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2876 = load i32, ptr %2875, align 4
-  %2877 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2878 = load i32, ptr %2877, align 4
-  %2879 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2880 = load i32, ptr %2879, align 4
-  %2881 = or i32 %2878, %2880
-  %2882 = and i32 %2876, %2881
-  %2883 = or i32 %2874, %2882
-  %2884 = add i32 %2869, %2883
-  %2885 = add i32 %2884, -1894007588
-  %2886 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2887 = getelementptr inbounds [16 x i32], ptr %2886, i64 0, i64 11
-  %2888 = load i32, ptr %2887, align 4
-  %2889 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2890 = getelementptr inbounds [16 x i32], ptr %2889, i64 0, i64 6
-  %2891 = load i32, ptr %2890, align 4
-  %2892 = xor i32 %2888, %2891
-  %2893 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2894 = getelementptr inbounds [16 x i32], ptr %2893, i64 0, i64 0
-  %2895 = load i32, ptr %2894, align 4
-  %2896 = xor i32 %2892, %2895
-  %2897 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2898 = getelementptr inbounds [16 x i32], ptr %2897, i64 0, i64 14
-  %2899 = load i32, ptr %2898, align 4
-  %2900 = xor i32 %2896, %2899
-  %2901 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2900, ptr %2901, align 4
-  %2902 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2903 = load i32, ptr %2902, align 4
-  %2904 = shl i32 %2903, 1
-  %2905 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2906 = load i32, ptr %2905, align 4
-  %2907 = and i32 %2906, -1
-  %2908 = lshr i32 %2907, 31
-  %2909 = or i32 %2904, %2908
-  %2910 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2911 = getelementptr inbounds [16 x i32], ptr %2910, i64 0, i64 14
-  store i32 %2909, ptr %2911, align 4
-  %2912 = add i32 %2885, %2909
-  %2913 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2914 = load i32, ptr %2913, align 4
-  %2915 = add i32 %2914, %2912
-  store i32 %2915, ptr %2913, align 4
-  %2916 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2917 = load i32, ptr %2916, align 4
-  %2918 = shl i32 %2917, 30
-  %2919 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2920 = load i32, ptr %2919, align 4
-  %2921 = and i32 %2920, -1
-  %2922 = lshr i32 %2921, 2
-  %2923 = or i32 %2918, %2922
-  %2924 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %2923, ptr %2924, align 4
-  br label %2925
+2812:                                             ; preds = %2811
+  br label %2813
 
-2925:                                             ; preds = %2861
-  br label %2926
+2813:                                             ; preds = %2812
+  %2814 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2815 = load i32, ptr %2814, align 4, !tbaa !16
+  %2816 = shl i32 %2815, 5
+  %2817 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2818 = load i32, ptr %2817, align 4, !tbaa !16
+  %2819 = and i32 %2818, -1
+  %2820 = lshr i32 %2819, 27
+  %2821 = or i32 %2816, %2820
+  %2822 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2823 = load i32, ptr %2822, align 4, !tbaa !17
+  %2824 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2825 = load i32, ptr %2824, align 4, !tbaa !18
+  %2826 = and i32 %2823, %2825
+  %2827 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2828 = load i32, ptr %2827, align 4, !tbaa !19
+  %2829 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2830 = load i32, ptr %2829, align 4, !tbaa !17
+  %2831 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2832 = load i32, ptr %2831, align 4, !tbaa !18
+  %2833 = or i32 %2830, %2832
+  %2834 = and i32 %2828, %2833
+  %2835 = or i32 %2826, %2834
+  %2836 = add i32 %2821, %2835
+  %2837 = add i32 %2836, -1894007588
+  %2838 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2839 = getelementptr inbounds [16 x i32], ptr %2838, i64 0, i64 14
+  %2840 = load i32, ptr %2839, align 4, !tbaa !10
+  %2841 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2842 = getelementptr inbounds [16 x i32], ptr %2841, i64 0, i64 9
+  %2843 = load i32, ptr %2842, align 4, !tbaa !10
+  %2844 = xor i32 %2840, %2843
+  %2845 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2846 = getelementptr inbounds [16 x i32], ptr %2845, i64 0, i64 3
+  %2847 = load i32, ptr %2846, align 4, !tbaa !10
+  %2848 = xor i32 %2844, %2847
+  %2849 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2850 = getelementptr inbounds [16 x i32], ptr %2849, i64 0, i64 1
+  %2851 = load i32, ptr %2850, align 4, !tbaa !10
+  %2852 = xor i32 %2848, %2851
+  %2853 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2852, ptr %2853, align 4, !tbaa !20
+  %2854 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2855 = load i32, ptr %2854, align 4, !tbaa !20
+  %2856 = shl i32 %2855, 1
+  %2857 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2858 = load i32, ptr %2857, align 4, !tbaa !20
+  %2859 = and i32 %2858, -1
+  %2860 = lshr i32 %2859, 31
+  %2861 = or i32 %2856, %2860
+  %2862 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2863 = getelementptr inbounds [16 x i32], ptr %2862, i64 0, i64 1
+  store i32 %2861, ptr %2863, align 4, !tbaa !10
+  %2864 = add i32 %2837, %2861
+  %2865 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2866 = load i32, ptr %2865, align 4, !tbaa !14
+  %2867 = add i32 %2866, %2864
+  store i32 %2867, ptr %2865, align 4, !tbaa !14
+  %2868 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2869 = load i32, ptr %2868, align 4, !tbaa !17
+  %2870 = shl i32 %2869, 30
+  %2871 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2872 = load i32, ptr %2871, align 4, !tbaa !17
+  %2873 = and i32 %2872, -1
+  %2874 = lshr i32 %2873, 2
+  %2875 = or i32 %2870, %2874
+  %2876 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %2875, ptr %2876, align 4, !tbaa !17
+  br label %2877
 
-2926:                                             ; preds = %2925
-  %2927 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2928 = load i32, ptr %2927, align 4
-  %2929 = shl i32 %2928, 5
-  %2930 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %2931 = load i32, ptr %2930, align 4
-  %2932 = and i32 %2931, -1
-  %2933 = lshr i32 %2932, 27
-  %2934 = or i32 %2929, %2933
-  %2935 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2936 = load i32, ptr %2935, align 4
-  %2937 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2938 = load i32, ptr %2937, align 4
-  %2939 = and i32 %2936, %2938
-  %2940 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %2941 = load i32, ptr %2940, align 4
-  %2942 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2943 = load i32, ptr %2942, align 4
-  %2944 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %2945 = load i32, ptr %2944, align 4
-  %2946 = or i32 %2943, %2945
-  %2947 = and i32 %2941, %2946
-  %2948 = or i32 %2939, %2947
-  %2949 = add i32 %2934, %2948
-  %2950 = add i32 %2949, -1894007588
-  %2951 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2952 = getelementptr inbounds [16 x i32], ptr %2951, i64 0, i64 12
-  %2953 = load i32, ptr %2952, align 4
-  %2954 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2955 = getelementptr inbounds [16 x i32], ptr %2954, i64 0, i64 7
-  %2956 = load i32, ptr %2955, align 4
-  %2957 = xor i32 %2953, %2956
-  %2958 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2959 = getelementptr inbounds [16 x i32], ptr %2958, i64 0, i64 1
-  %2960 = load i32, ptr %2959, align 4
-  %2961 = xor i32 %2957, %2960
-  %2962 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2963 = getelementptr inbounds [16 x i32], ptr %2962, i64 0, i64 15
-  %2964 = load i32, ptr %2963, align 4
-  %2965 = xor i32 %2961, %2964
-  %2966 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %2965, ptr %2966, align 4
-  %2967 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2968 = load i32, ptr %2967, align 4
-  %2969 = shl i32 %2968, 1
-  %2970 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %2971 = load i32, ptr %2970, align 4
-  %2972 = and i32 %2971, -1
-  %2973 = lshr i32 %2972, 31
-  %2974 = or i32 %2969, %2973
-  %2975 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %2976 = getelementptr inbounds [16 x i32], ptr %2975, i64 0, i64 15
-  store i32 %2974, ptr %2976, align 4
-  %2977 = add i32 %2950, %2974
-  %2978 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2979 = load i32, ptr %2978, align 4
-  %2980 = add i32 %2979, %2977
-  store i32 %2980, ptr %2978, align 4
-  %2981 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2982 = load i32, ptr %2981, align 4
-  %2983 = shl i32 %2982, 30
-  %2984 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %2985 = load i32, ptr %2984, align 4
-  %2986 = and i32 %2985, -1
-  %2987 = lshr i32 %2986, 2
-  %2988 = or i32 %2983, %2987
-  %2989 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %2988, ptr %2989, align 4
-  br label %2990
+2877:                                             ; preds = %2813
+  br label %2878
 
-2990:                                             ; preds = %2926
-  br label %2991
+2878:                                             ; preds = %2877
+  br label %2879
 
-2991:                                             ; preds = %2990
-  %2992 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2993 = load i32, ptr %2992, align 4
-  %2994 = shl i32 %2993, 5
-  %2995 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %2996 = load i32, ptr %2995, align 4
-  %2997 = and i32 %2996, -1
-  %2998 = lshr i32 %2997, 27
-  %2999 = or i32 %2994, %2998
-  %3000 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3001 = load i32, ptr %3000, align 4
-  %3002 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3003 = load i32, ptr %3002, align 4
-  %3004 = and i32 %3001, %3003
-  %3005 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3006 = load i32, ptr %3005, align 4
-  %3007 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3008 = load i32, ptr %3007, align 4
-  %3009 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3010 = load i32, ptr %3009, align 4
-  %3011 = or i32 %3008, %3010
-  %3012 = and i32 %3006, %3011
-  %3013 = or i32 %3004, %3012
-  %3014 = add i32 %2999, %3013
-  %3015 = add i32 %3014, -1894007588
-  %3016 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3017 = getelementptr inbounds [16 x i32], ptr %3016, i64 0, i64 13
-  %3018 = load i32, ptr %3017, align 4
-  %3019 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3020 = getelementptr inbounds [16 x i32], ptr %3019, i64 0, i64 8
-  %3021 = load i32, ptr %3020, align 4
-  %3022 = xor i32 %3018, %3021
-  %3023 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3024 = getelementptr inbounds [16 x i32], ptr %3023, i64 0, i64 2
-  %3025 = load i32, ptr %3024, align 4
-  %3026 = xor i32 %3022, %3025
-  %3027 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3028 = getelementptr inbounds [16 x i32], ptr %3027, i64 0, i64 0
-  %3029 = load i32, ptr %3028, align 4
-  %3030 = xor i32 %3026, %3029
-  %3031 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3030, ptr %3031, align 4
-  %3032 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3033 = load i32, ptr %3032, align 4
-  %3034 = shl i32 %3033, 1
-  %3035 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3036 = load i32, ptr %3035, align 4
-  %3037 = and i32 %3036, -1
-  %3038 = lshr i32 %3037, 31
-  %3039 = or i32 %3034, %3038
-  %3040 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3041 = getelementptr inbounds [16 x i32], ptr %3040, i64 0, i64 0
-  store i32 %3039, ptr %3041, align 4
-  %3042 = add i32 %3015, %3039
-  %3043 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3044 = load i32, ptr %3043, align 4
-  %3045 = add i32 %3044, %3042
-  store i32 %3045, ptr %3043, align 4
-  %3046 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3047 = load i32, ptr %3046, align 4
-  %3048 = shl i32 %3047, 30
-  %3049 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3050 = load i32, ptr %3049, align 4
-  %3051 = and i32 %3050, -1
-  %3052 = lshr i32 %3051, 2
-  %3053 = or i32 %3048, %3052
-  %3054 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %3053, ptr %3054, align 4
-  br label %3055
+2879:                                             ; preds = %2878
+  %2880 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2881 = load i32, ptr %2880, align 4, !tbaa !14
+  %2882 = shl i32 %2881, 5
+  %2883 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2884 = load i32, ptr %2883, align 4, !tbaa !14
+  %2885 = and i32 %2884, -1
+  %2886 = lshr i32 %2885, 27
+  %2887 = or i32 %2882, %2886
+  %2888 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2889 = load i32, ptr %2888, align 4, !tbaa !16
+  %2890 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2891 = load i32, ptr %2890, align 4, !tbaa !17
+  %2892 = and i32 %2889, %2891
+  %2893 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2894 = load i32, ptr %2893, align 4, !tbaa !18
+  %2895 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2896 = load i32, ptr %2895, align 4, !tbaa !16
+  %2897 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2898 = load i32, ptr %2897, align 4, !tbaa !17
+  %2899 = or i32 %2896, %2898
+  %2900 = and i32 %2894, %2899
+  %2901 = or i32 %2892, %2900
+  %2902 = add i32 %2887, %2901
+  %2903 = add i32 %2902, -1894007588
+  %2904 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2905 = getelementptr inbounds [16 x i32], ptr %2904, i64 0, i64 15
+  %2906 = load i32, ptr %2905, align 4, !tbaa !10
+  %2907 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2908 = getelementptr inbounds [16 x i32], ptr %2907, i64 0, i64 10
+  %2909 = load i32, ptr %2908, align 4, !tbaa !10
+  %2910 = xor i32 %2906, %2909
+  %2911 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2912 = getelementptr inbounds [16 x i32], ptr %2911, i64 0, i64 4
+  %2913 = load i32, ptr %2912, align 4, !tbaa !10
+  %2914 = xor i32 %2910, %2913
+  %2915 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2916 = getelementptr inbounds [16 x i32], ptr %2915, i64 0, i64 2
+  %2917 = load i32, ptr %2916, align 4, !tbaa !10
+  %2918 = xor i32 %2914, %2917
+  %2919 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2918, ptr %2919, align 4, !tbaa !20
+  %2920 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2921 = load i32, ptr %2920, align 4, !tbaa !20
+  %2922 = shl i32 %2921, 1
+  %2923 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2924 = load i32, ptr %2923, align 4, !tbaa !20
+  %2925 = and i32 %2924, -1
+  %2926 = lshr i32 %2925, 31
+  %2927 = or i32 %2922, %2926
+  %2928 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2929 = getelementptr inbounds [16 x i32], ptr %2928, i64 0, i64 2
+  store i32 %2927, ptr %2929, align 4, !tbaa !10
+  %2930 = add i32 %2903, %2927
+  %2931 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2932 = load i32, ptr %2931, align 4, !tbaa !19
+  %2933 = add i32 %2932, %2930
+  store i32 %2933, ptr %2931, align 4, !tbaa !19
+  %2934 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2935 = load i32, ptr %2934, align 4, !tbaa !16
+  %2936 = shl i32 %2935, 30
+  %2937 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2938 = load i32, ptr %2937, align 4, !tbaa !16
+  %2939 = and i32 %2938, -1
+  %2940 = lshr i32 %2939, 2
+  %2941 = or i32 %2936, %2940
+  %2942 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %2941, ptr %2942, align 4, !tbaa !16
+  br label %2943
 
-3055:                                             ; preds = %2991
-  br label %3056
+2943:                                             ; preds = %2879
+  br label %2944
 
-3056:                                             ; preds = %3055
-  %3057 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3058 = load i32, ptr %3057, align 4
-  %3059 = shl i32 %3058, 5
-  %3060 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3061 = load i32, ptr %3060, align 4
-  %3062 = and i32 %3061, -1
-  %3063 = lshr i32 %3062, 27
-  %3064 = or i32 %3059, %3063
-  %3065 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3066 = load i32, ptr %3065, align 4
-  %3067 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3068 = load i32, ptr %3067, align 4
-  %3069 = and i32 %3066, %3068
-  %3070 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3071 = load i32, ptr %3070, align 4
-  %3072 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3073 = load i32, ptr %3072, align 4
-  %3074 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3075 = load i32, ptr %3074, align 4
-  %3076 = or i32 %3073, %3075
-  %3077 = and i32 %3071, %3076
-  %3078 = or i32 %3069, %3077
-  %3079 = add i32 %3064, %3078
-  %3080 = add i32 %3079, -1894007588
-  %3081 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3082 = getelementptr inbounds [16 x i32], ptr %3081, i64 0, i64 14
-  %3083 = load i32, ptr %3082, align 4
-  %3084 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3085 = getelementptr inbounds [16 x i32], ptr %3084, i64 0, i64 9
-  %3086 = load i32, ptr %3085, align 4
-  %3087 = xor i32 %3083, %3086
-  %3088 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3089 = getelementptr inbounds [16 x i32], ptr %3088, i64 0, i64 3
-  %3090 = load i32, ptr %3089, align 4
-  %3091 = xor i32 %3087, %3090
-  %3092 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3093 = getelementptr inbounds [16 x i32], ptr %3092, i64 0, i64 1
-  %3094 = load i32, ptr %3093, align 4
-  %3095 = xor i32 %3091, %3094
-  %3096 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3095, ptr %3096, align 4
-  %3097 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3098 = load i32, ptr %3097, align 4
-  %3099 = shl i32 %3098, 1
-  %3100 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3101 = load i32, ptr %3100, align 4
-  %3102 = and i32 %3101, -1
-  %3103 = lshr i32 %3102, 31
-  %3104 = or i32 %3099, %3103
-  %3105 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3106 = getelementptr inbounds [16 x i32], ptr %3105, i64 0, i64 1
-  store i32 %3104, ptr %3106, align 4
-  %3107 = add i32 %3080, %3104
-  %3108 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3109 = load i32, ptr %3108, align 4
-  %3110 = add i32 %3109, %3107
-  store i32 %3110, ptr %3108, align 4
-  %3111 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3112 = load i32, ptr %3111, align 4
-  %3113 = shl i32 %3112, 30
-  %3114 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3115 = load i32, ptr %3114, align 4
-  %3116 = and i32 %3115, -1
-  %3117 = lshr i32 %3116, 2
-  %3118 = or i32 %3113, %3117
-  %3119 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %3118, ptr %3119, align 4
-  br label %3120
+2944:                                             ; preds = %2943
+  br label %2945
 
-3120:                                             ; preds = %3056
-  br label %3121
+2945:                                             ; preds = %2944
+  %2946 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2947 = load i32, ptr %2946, align 4, !tbaa !19
+  %2948 = shl i32 %2947, 5
+  %2949 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %2950 = load i32, ptr %2949, align 4, !tbaa !19
+  %2951 = and i32 %2950, -1
+  %2952 = lshr i32 %2951, 27
+  %2953 = or i32 %2948, %2952
+  %2954 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2955 = load i32, ptr %2954, align 4, !tbaa !14
+  %2956 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2957 = load i32, ptr %2956, align 4, !tbaa !16
+  %2958 = and i32 %2955, %2957
+  %2959 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %2960 = load i32, ptr %2959, align 4, !tbaa !17
+  %2961 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %2962 = load i32, ptr %2961, align 4, !tbaa !14
+  %2963 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %2964 = load i32, ptr %2963, align 4, !tbaa !16
+  %2965 = or i32 %2962, %2964
+  %2966 = and i32 %2960, %2965
+  %2967 = or i32 %2958, %2966
+  %2968 = add i32 %2953, %2967
+  %2969 = add i32 %2968, -1894007588
+  %2970 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2971 = getelementptr inbounds [16 x i32], ptr %2970, i64 0, i64 0
+  %2972 = load i32, ptr %2971, align 4, !tbaa !10
+  %2973 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2974 = getelementptr inbounds [16 x i32], ptr %2973, i64 0, i64 11
+  %2975 = load i32, ptr %2974, align 4, !tbaa !10
+  %2976 = xor i32 %2972, %2975
+  %2977 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2978 = getelementptr inbounds [16 x i32], ptr %2977, i64 0, i64 5
+  %2979 = load i32, ptr %2978, align 4, !tbaa !10
+  %2980 = xor i32 %2976, %2979
+  %2981 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2982 = getelementptr inbounds [16 x i32], ptr %2981, i64 0, i64 3
+  %2983 = load i32, ptr %2982, align 4, !tbaa !10
+  %2984 = xor i32 %2980, %2983
+  %2985 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %2984, ptr %2985, align 4, !tbaa !20
+  %2986 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2987 = load i32, ptr %2986, align 4, !tbaa !20
+  %2988 = shl i32 %2987, 1
+  %2989 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %2990 = load i32, ptr %2989, align 4, !tbaa !20
+  %2991 = and i32 %2990, -1
+  %2992 = lshr i32 %2991, 31
+  %2993 = or i32 %2988, %2992
+  %2994 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %2995 = getelementptr inbounds [16 x i32], ptr %2994, i64 0, i64 3
+  store i32 %2993, ptr %2995, align 4, !tbaa !10
+  %2996 = add i32 %2969, %2993
+  %2997 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %2998 = load i32, ptr %2997, align 4, !tbaa !18
+  %2999 = add i32 %2998, %2996
+  store i32 %2999, ptr %2997, align 4, !tbaa !18
+  %3000 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3001 = load i32, ptr %3000, align 4, !tbaa !14
+  %3002 = shl i32 %3001, 30
+  %3003 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3004 = load i32, ptr %3003, align 4, !tbaa !14
+  %3005 = and i32 %3004, -1
+  %3006 = lshr i32 %3005, 2
+  %3007 = or i32 %3002, %3006
+  %3008 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %3007, ptr %3008, align 4, !tbaa !14
+  br label %3009
 
-3121:                                             ; preds = %3120
-  %3122 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3123 = load i32, ptr %3122, align 4
-  %3124 = shl i32 %3123, 5
-  %3125 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3126 = load i32, ptr %3125, align 4
-  %3127 = and i32 %3126, -1
-  %3128 = lshr i32 %3127, 27
-  %3129 = or i32 %3124, %3128
-  %3130 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3131 = load i32, ptr %3130, align 4
-  %3132 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3133 = load i32, ptr %3132, align 4
-  %3134 = and i32 %3131, %3133
-  %3135 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3136 = load i32, ptr %3135, align 4
-  %3137 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3138 = load i32, ptr %3137, align 4
-  %3139 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3140 = load i32, ptr %3139, align 4
-  %3141 = or i32 %3138, %3140
-  %3142 = and i32 %3136, %3141
-  %3143 = or i32 %3134, %3142
-  %3144 = add i32 %3129, %3143
-  %3145 = add i32 %3144, -1894007588
-  %3146 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3147 = getelementptr inbounds [16 x i32], ptr %3146, i64 0, i64 15
-  %3148 = load i32, ptr %3147, align 4
-  %3149 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3150 = getelementptr inbounds [16 x i32], ptr %3149, i64 0, i64 10
-  %3151 = load i32, ptr %3150, align 4
-  %3152 = xor i32 %3148, %3151
-  %3153 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3154 = getelementptr inbounds [16 x i32], ptr %3153, i64 0, i64 4
-  %3155 = load i32, ptr %3154, align 4
-  %3156 = xor i32 %3152, %3155
-  %3157 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3158 = getelementptr inbounds [16 x i32], ptr %3157, i64 0, i64 2
-  %3159 = load i32, ptr %3158, align 4
-  %3160 = xor i32 %3156, %3159
-  %3161 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3160, ptr %3161, align 4
-  %3162 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3163 = load i32, ptr %3162, align 4
-  %3164 = shl i32 %3163, 1
-  %3165 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3166 = load i32, ptr %3165, align 4
-  %3167 = and i32 %3166, -1
-  %3168 = lshr i32 %3167, 31
-  %3169 = or i32 %3164, %3168
-  %3170 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3171 = getelementptr inbounds [16 x i32], ptr %3170, i64 0, i64 2
-  store i32 %3169, ptr %3171, align 4
-  %3172 = add i32 %3145, %3169
-  %3173 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3174 = load i32, ptr %3173, align 4
-  %3175 = add i32 %3174, %3172
-  store i32 %3175, ptr %3173, align 4
-  %3176 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3177 = load i32, ptr %3176, align 4
-  %3178 = shl i32 %3177, 30
-  %3179 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3180 = load i32, ptr %3179, align 4
-  %3181 = and i32 %3180, -1
-  %3182 = lshr i32 %3181, 2
-  %3183 = or i32 %3178, %3182
-  %3184 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %3183, ptr %3184, align 4
-  br label %3185
+3009:                                             ; preds = %2945
+  br label %3010
 
-3185:                                             ; preds = %3121
-  br label %3186
+3010:                                             ; preds = %3009
+  br label %3011
 
-3186:                                             ; preds = %3185
-  %3187 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3188 = load i32, ptr %3187, align 4
-  %3189 = shl i32 %3188, 5
-  %3190 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3191 = load i32, ptr %3190, align 4
-  %3192 = and i32 %3191, -1
-  %3193 = lshr i32 %3192, 27
-  %3194 = or i32 %3189, %3193
-  %3195 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3196 = load i32, ptr %3195, align 4
-  %3197 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3198 = load i32, ptr %3197, align 4
-  %3199 = and i32 %3196, %3198
-  %3200 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3201 = load i32, ptr %3200, align 4
-  %3202 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3203 = load i32, ptr %3202, align 4
-  %3204 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3205 = load i32, ptr %3204, align 4
-  %3206 = or i32 %3203, %3205
-  %3207 = and i32 %3201, %3206
-  %3208 = or i32 %3199, %3207
-  %3209 = add i32 %3194, %3208
-  %3210 = add i32 %3209, -1894007588
-  %3211 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3212 = getelementptr inbounds [16 x i32], ptr %3211, i64 0, i64 0
-  %3213 = load i32, ptr %3212, align 4
-  %3214 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3215 = getelementptr inbounds [16 x i32], ptr %3214, i64 0, i64 11
-  %3216 = load i32, ptr %3215, align 4
-  %3217 = xor i32 %3213, %3216
-  %3218 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3219 = getelementptr inbounds [16 x i32], ptr %3218, i64 0, i64 5
-  %3220 = load i32, ptr %3219, align 4
-  %3221 = xor i32 %3217, %3220
-  %3222 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3223 = getelementptr inbounds [16 x i32], ptr %3222, i64 0, i64 3
-  %3224 = load i32, ptr %3223, align 4
-  %3225 = xor i32 %3221, %3224
-  %3226 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3225, ptr %3226, align 4
-  %3227 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3228 = load i32, ptr %3227, align 4
-  %3229 = shl i32 %3228, 1
-  %3230 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3231 = load i32, ptr %3230, align 4
-  %3232 = and i32 %3231, -1
-  %3233 = lshr i32 %3232, 31
-  %3234 = or i32 %3229, %3233
-  %3235 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3236 = getelementptr inbounds [16 x i32], ptr %3235, i64 0, i64 3
-  store i32 %3234, ptr %3236, align 4
-  %3237 = add i32 %3210, %3234
-  %3238 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3239 = load i32, ptr %3238, align 4
-  %3240 = add i32 %3239, %3237
-  store i32 %3240, ptr %3238, align 4
-  %3241 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3242 = load i32, ptr %3241, align 4
-  %3243 = shl i32 %3242, 30
-  %3244 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3245 = load i32, ptr %3244, align 4
-  %3246 = and i32 %3245, -1
-  %3247 = lshr i32 %3246, 2
-  %3248 = or i32 %3243, %3247
-  %3249 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %3248, ptr %3249, align 4
-  br label %3250
+3011:                                             ; preds = %3010
+  %3012 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3013 = load i32, ptr %3012, align 4, !tbaa !18
+  %3014 = shl i32 %3013, 5
+  %3015 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3016 = load i32, ptr %3015, align 4, !tbaa !18
+  %3017 = and i32 %3016, -1
+  %3018 = lshr i32 %3017, 27
+  %3019 = or i32 %3014, %3018
+  %3020 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3021 = load i32, ptr %3020, align 4, !tbaa !19
+  %3022 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3023 = load i32, ptr %3022, align 4, !tbaa !14
+  %3024 = and i32 %3021, %3023
+  %3025 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3026 = load i32, ptr %3025, align 4, !tbaa !16
+  %3027 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3028 = load i32, ptr %3027, align 4, !tbaa !19
+  %3029 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3030 = load i32, ptr %3029, align 4, !tbaa !14
+  %3031 = or i32 %3028, %3030
+  %3032 = and i32 %3026, %3031
+  %3033 = or i32 %3024, %3032
+  %3034 = add i32 %3019, %3033
+  %3035 = add i32 %3034, -1894007588
+  %3036 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3037 = getelementptr inbounds [16 x i32], ptr %3036, i64 0, i64 1
+  %3038 = load i32, ptr %3037, align 4, !tbaa !10
+  %3039 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3040 = getelementptr inbounds [16 x i32], ptr %3039, i64 0, i64 12
+  %3041 = load i32, ptr %3040, align 4, !tbaa !10
+  %3042 = xor i32 %3038, %3041
+  %3043 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3044 = getelementptr inbounds [16 x i32], ptr %3043, i64 0, i64 6
+  %3045 = load i32, ptr %3044, align 4, !tbaa !10
+  %3046 = xor i32 %3042, %3045
+  %3047 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3048 = getelementptr inbounds [16 x i32], ptr %3047, i64 0, i64 4
+  %3049 = load i32, ptr %3048, align 4, !tbaa !10
+  %3050 = xor i32 %3046, %3049
+  %3051 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3050, ptr %3051, align 4, !tbaa !20
+  %3052 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3053 = load i32, ptr %3052, align 4, !tbaa !20
+  %3054 = shl i32 %3053, 1
+  %3055 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3056 = load i32, ptr %3055, align 4, !tbaa !20
+  %3057 = and i32 %3056, -1
+  %3058 = lshr i32 %3057, 31
+  %3059 = or i32 %3054, %3058
+  %3060 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3061 = getelementptr inbounds [16 x i32], ptr %3060, i64 0, i64 4
+  store i32 %3059, ptr %3061, align 4, !tbaa !10
+  %3062 = add i32 %3035, %3059
+  %3063 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3064 = load i32, ptr %3063, align 4, !tbaa !17
+  %3065 = add i32 %3064, %3062
+  store i32 %3065, ptr %3063, align 4, !tbaa !17
+  %3066 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3067 = load i32, ptr %3066, align 4, !tbaa !19
+  %3068 = shl i32 %3067, 30
+  %3069 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3070 = load i32, ptr %3069, align 4, !tbaa !19
+  %3071 = and i32 %3070, -1
+  %3072 = lshr i32 %3071, 2
+  %3073 = or i32 %3068, %3072
+  %3074 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %3073, ptr %3074, align 4, !tbaa !19
+  br label %3075
 
-3250:                                             ; preds = %3186
-  br label %3251
+3075:                                             ; preds = %3011
+  br label %3076
 
-3251:                                             ; preds = %3250
-  %3252 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3253 = load i32, ptr %3252, align 4
-  %3254 = shl i32 %3253, 5
-  %3255 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3256 = load i32, ptr %3255, align 4
-  %3257 = and i32 %3256, -1
-  %3258 = lshr i32 %3257, 27
-  %3259 = or i32 %3254, %3258
-  %3260 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3261 = load i32, ptr %3260, align 4
-  %3262 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3263 = load i32, ptr %3262, align 4
-  %3264 = and i32 %3261, %3263
-  %3265 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3266 = load i32, ptr %3265, align 4
-  %3267 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3268 = load i32, ptr %3267, align 4
-  %3269 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3270 = load i32, ptr %3269, align 4
-  %3271 = or i32 %3268, %3270
-  %3272 = and i32 %3266, %3271
-  %3273 = or i32 %3264, %3272
-  %3274 = add i32 %3259, %3273
-  %3275 = add i32 %3274, -1894007588
-  %3276 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3277 = getelementptr inbounds [16 x i32], ptr %3276, i64 0, i64 1
-  %3278 = load i32, ptr %3277, align 4
-  %3279 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3280 = getelementptr inbounds [16 x i32], ptr %3279, i64 0, i64 12
-  %3281 = load i32, ptr %3280, align 4
-  %3282 = xor i32 %3278, %3281
-  %3283 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3284 = getelementptr inbounds [16 x i32], ptr %3283, i64 0, i64 6
-  %3285 = load i32, ptr %3284, align 4
-  %3286 = xor i32 %3282, %3285
-  %3287 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3288 = getelementptr inbounds [16 x i32], ptr %3287, i64 0, i64 4
-  %3289 = load i32, ptr %3288, align 4
-  %3290 = xor i32 %3286, %3289
-  %3291 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3290, ptr %3291, align 4
-  %3292 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3293 = load i32, ptr %3292, align 4
-  %3294 = shl i32 %3293, 1
-  %3295 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3296 = load i32, ptr %3295, align 4
-  %3297 = and i32 %3296, -1
-  %3298 = lshr i32 %3297, 31
-  %3299 = or i32 %3294, %3298
-  %3300 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3301 = getelementptr inbounds [16 x i32], ptr %3300, i64 0, i64 4
-  store i32 %3299, ptr %3301, align 4
-  %3302 = add i32 %3275, %3299
-  %3303 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3304 = load i32, ptr %3303, align 4
-  %3305 = add i32 %3304, %3302
-  store i32 %3305, ptr %3303, align 4
-  %3306 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3307 = load i32, ptr %3306, align 4
-  %3308 = shl i32 %3307, 30
-  %3309 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3310 = load i32, ptr %3309, align 4
-  %3311 = and i32 %3310, -1
-  %3312 = lshr i32 %3311, 2
-  %3313 = or i32 %3308, %3312
-  %3314 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %3313, ptr %3314, align 4
-  br label %3315
+3076:                                             ; preds = %3075
+  br label %3077
 
-3315:                                             ; preds = %3251
-  br label %3316
+3077:                                             ; preds = %3076
+  %3078 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3079 = load i32, ptr %3078, align 4, !tbaa !17
+  %3080 = shl i32 %3079, 5
+  %3081 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3082 = load i32, ptr %3081, align 4, !tbaa !17
+  %3083 = and i32 %3082, -1
+  %3084 = lshr i32 %3083, 27
+  %3085 = or i32 %3080, %3084
+  %3086 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3087 = load i32, ptr %3086, align 4, !tbaa !18
+  %3088 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3089 = load i32, ptr %3088, align 4, !tbaa !19
+  %3090 = and i32 %3087, %3089
+  %3091 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3092 = load i32, ptr %3091, align 4, !tbaa !14
+  %3093 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3094 = load i32, ptr %3093, align 4, !tbaa !18
+  %3095 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3096 = load i32, ptr %3095, align 4, !tbaa !19
+  %3097 = or i32 %3094, %3096
+  %3098 = and i32 %3092, %3097
+  %3099 = or i32 %3090, %3098
+  %3100 = add i32 %3085, %3099
+  %3101 = add i32 %3100, -1894007588
+  %3102 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3103 = getelementptr inbounds [16 x i32], ptr %3102, i64 0, i64 2
+  %3104 = load i32, ptr %3103, align 4, !tbaa !10
+  %3105 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3106 = getelementptr inbounds [16 x i32], ptr %3105, i64 0, i64 13
+  %3107 = load i32, ptr %3106, align 4, !tbaa !10
+  %3108 = xor i32 %3104, %3107
+  %3109 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3110 = getelementptr inbounds [16 x i32], ptr %3109, i64 0, i64 7
+  %3111 = load i32, ptr %3110, align 4, !tbaa !10
+  %3112 = xor i32 %3108, %3111
+  %3113 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3114 = getelementptr inbounds [16 x i32], ptr %3113, i64 0, i64 5
+  %3115 = load i32, ptr %3114, align 4, !tbaa !10
+  %3116 = xor i32 %3112, %3115
+  %3117 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3116, ptr %3117, align 4, !tbaa !20
+  %3118 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3119 = load i32, ptr %3118, align 4, !tbaa !20
+  %3120 = shl i32 %3119, 1
+  %3121 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3122 = load i32, ptr %3121, align 4, !tbaa !20
+  %3123 = and i32 %3122, -1
+  %3124 = lshr i32 %3123, 31
+  %3125 = or i32 %3120, %3124
+  %3126 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3127 = getelementptr inbounds [16 x i32], ptr %3126, i64 0, i64 5
+  store i32 %3125, ptr %3127, align 4, !tbaa !10
+  %3128 = add i32 %3101, %3125
+  %3129 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3130 = load i32, ptr %3129, align 4, !tbaa !16
+  %3131 = add i32 %3130, %3128
+  store i32 %3131, ptr %3129, align 4, !tbaa !16
+  %3132 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3133 = load i32, ptr %3132, align 4, !tbaa !18
+  %3134 = shl i32 %3133, 30
+  %3135 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3136 = load i32, ptr %3135, align 4, !tbaa !18
+  %3137 = and i32 %3136, -1
+  %3138 = lshr i32 %3137, 2
+  %3139 = or i32 %3134, %3138
+  %3140 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %3139, ptr %3140, align 4, !tbaa !18
+  br label %3141
 
-3316:                                             ; preds = %3315
-  %3317 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3318 = load i32, ptr %3317, align 4
-  %3319 = shl i32 %3318, 5
-  %3320 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3321 = load i32, ptr %3320, align 4
-  %3322 = and i32 %3321, -1
-  %3323 = lshr i32 %3322, 27
-  %3324 = or i32 %3319, %3323
-  %3325 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3326 = load i32, ptr %3325, align 4
-  %3327 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3328 = load i32, ptr %3327, align 4
-  %3329 = and i32 %3326, %3328
-  %3330 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3331 = load i32, ptr %3330, align 4
-  %3332 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3333 = load i32, ptr %3332, align 4
-  %3334 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3335 = load i32, ptr %3334, align 4
-  %3336 = or i32 %3333, %3335
-  %3337 = and i32 %3331, %3336
-  %3338 = or i32 %3329, %3337
-  %3339 = add i32 %3324, %3338
-  %3340 = add i32 %3339, -1894007588
-  %3341 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3342 = getelementptr inbounds [16 x i32], ptr %3341, i64 0, i64 2
-  %3343 = load i32, ptr %3342, align 4
-  %3344 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3345 = getelementptr inbounds [16 x i32], ptr %3344, i64 0, i64 13
-  %3346 = load i32, ptr %3345, align 4
-  %3347 = xor i32 %3343, %3346
-  %3348 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3349 = getelementptr inbounds [16 x i32], ptr %3348, i64 0, i64 7
-  %3350 = load i32, ptr %3349, align 4
-  %3351 = xor i32 %3347, %3350
-  %3352 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3353 = getelementptr inbounds [16 x i32], ptr %3352, i64 0, i64 5
-  %3354 = load i32, ptr %3353, align 4
-  %3355 = xor i32 %3351, %3354
-  %3356 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3355, ptr %3356, align 4
-  %3357 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3358 = load i32, ptr %3357, align 4
-  %3359 = shl i32 %3358, 1
-  %3360 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3361 = load i32, ptr %3360, align 4
-  %3362 = and i32 %3361, -1
-  %3363 = lshr i32 %3362, 31
-  %3364 = or i32 %3359, %3363
-  %3365 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3366 = getelementptr inbounds [16 x i32], ptr %3365, i64 0, i64 5
-  store i32 %3364, ptr %3366, align 4
-  %3367 = add i32 %3340, %3364
-  %3368 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3369 = load i32, ptr %3368, align 4
-  %3370 = add i32 %3369, %3367
-  store i32 %3370, ptr %3368, align 4
-  %3371 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3372 = load i32, ptr %3371, align 4
-  %3373 = shl i32 %3372, 30
-  %3374 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3375 = load i32, ptr %3374, align 4
-  %3376 = and i32 %3375, -1
-  %3377 = lshr i32 %3376, 2
-  %3378 = or i32 %3373, %3377
-  %3379 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %3378, ptr %3379, align 4
-  br label %3380
+3141:                                             ; preds = %3077
+  br label %3142
 
-3380:                                             ; preds = %3316
-  br label %3381
+3142:                                             ; preds = %3141
+  br label %3143
 
-3381:                                             ; preds = %3380
-  %3382 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3383 = load i32, ptr %3382, align 4
-  %3384 = shl i32 %3383, 5
-  %3385 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3386 = load i32, ptr %3385, align 4
+3143:                                             ; preds = %3142
+  %3144 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3145 = load i32, ptr %3144, align 4, !tbaa !16
+  %3146 = shl i32 %3145, 5
+  %3147 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3148 = load i32, ptr %3147, align 4, !tbaa !16
+  %3149 = and i32 %3148, -1
+  %3150 = lshr i32 %3149, 27
+  %3151 = or i32 %3146, %3150
+  %3152 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3153 = load i32, ptr %3152, align 4, !tbaa !17
+  %3154 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3155 = load i32, ptr %3154, align 4, !tbaa !18
+  %3156 = and i32 %3153, %3155
+  %3157 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3158 = load i32, ptr %3157, align 4, !tbaa !19
+  %3159 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3160 = load i32, ptr %3159, align 4, !tbaa !17
+  %3161 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3162 = load i32, ptr %3161, align 4, !tbaa !18
+  %3163 = or i32 %3160, %3162
+  %3164 = and i32 %3158, %3163
+  %3165 = or i32 %3156, %3164
+  %3166 = add i32 %3151, %3165
+  %3167 = add i32 %3166, -1894007588
+  %3168 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3169 = getelementptr inbounds [16 x i32], ptr %3168, i64 0, i64 3
+  %3170 = load i32, ptr %3169, align 4, !tbaa !10
+  %3171 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3172 = getelementptr inbounds [16 x i32], ptr %3171, i64 0, i64 14
+  %3173 = load i32, ptr %3172, align 4, !tbaa !10
+  %3174 = xor i32 %3170, %3173
+  %3175 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3176 = getelementptr inbounds [16 x i32], ptr %3175, i64 0, i64 8
+  %3177 = load i32, ptr %3176, align 4, !tbaa !10
+  %3178 = xor i32 %3174, %3177
+  %3179 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3180 = getelementptr inbounds [16 x i32], ptr %3179, i64 0, i64 6
+  %3181 = load i32, ptr %3180, align 4, !tbaa !10
+  %3182 = xor i32 %3178, %3181
+  %3183 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3182, ptr %3183, align 4, !tbaa !20
+  %3184 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3185 = load i32, ptr %3184, align 4, !tbaa !20
+  %3186 = shl i32 %3185, 1
+  %3187 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3188 = load i32, ptr %3187, align 4, !tbaa !20
+  %3189 = and i32 %3188, -1
+  %3190 = lshr i32 %3189, 31
+  %3191 = or i32 %3186, %3190
+  %3192 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3193 = getelementptr inbounds [16 x i32], ptr %3192, i64 0, i64 6
+  store i32 %3191, ptr %3193, align 4, !tbaa !10
+  %3194 = add i32 %3167, %3191
+  %3195 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3196 = load i32, ptr %3195, align 4, !tbaa !14
+  %3197 = add i32 %3196, %3194
+  store i32 %3197, ptr %3195, align 4, !tbaa !14
+  %3198 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3199 = load i32, ptr %3198, align 4, !tbaa !17
+  %3200 = shl i32 %3199, 30
+  %3201 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3202 = load i32, ptr %3201, align 4, !tbaa !17
+  %3203 = and i32 %3202, -1
+  %3204 = lshr i32 %3203, 2
+  %3205 = or i32 %3200, %3204
+  %3206 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %3205, ptr %3206, align 4, !tbaa !17
+  br label %3207
+
+3207:                                             ; preds = %3143
+  br label %3208
+
+3208:                                             ; preds = %3207
+  br label %3209
+
+3209:                                             ; preds = %3208
+  %3210 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3211 = load i32, ptr %3210, align 4, !tbaa !14
+  %3212 = shl i32 %3211, 5
+  %3213 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3214 = load i32, ptr %3213, align 4, !tbaa !14
+  %3215 = and i32 %3214, -1
+  %3216 = lshr i32 %3215, 27
+  %3217 = or i32 %3212, %3216
+  %3218 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3219 = load i32, ptr %3218, align 4, !tbaa !16
+  %3220 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3221 = load i32, ptr %3220, align 4, !tbaa !17
+  %3222 = and i32 %3219, %3221
+  %3223 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3224 = load i32, ptr %3223, align 4, !tbaa !18
+  %3225 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3226 = load i32, ptr %3225, align 4, !tbaa !16
+  %3227 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3228 = load i32, ptr %3227, align 4, !tbaa !17
+  %3229 = or i32 %3226, %3228
+  %3230 = and i32 %3224, %3229
+  %3231 = or i32 %3222, %3230
+  %3232 = add i32 %3217, %3231
+  %3233 = add i32 %3232, -1894007588
+  %3234 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3235 = getelementptr inbounds [16 x i32], ptr %3234, i64 0, i64 4
+  %3236 = load i32, ptr %3235, align 4, !tbaa !10
+  %3237 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3238 = getelementptr inbounds [16 x i32], ptr %3237, i64 0, i64 15
+  %3239 = load i32, ptr %3238, align 4, !tbaa !10
+  %3240 = xor i32 %3236, %3239
+  %3241 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3242 = getelementptr inbounds [16 x i32], ptr %3241, i64 0, i64 9
+  %3243 = load i32, ptr %3242, align 4, !tbaa !10
+  %3244 = xor i32 %3240, %3243
+  %3245 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3246 = getelementptr inbounds [16 x i32], ptr %3245, i64 0, i64 7
+  %3247 = load i32, ptr %3246, align 4, !tbaa !10
+  %3248 = xor i32 %3244, %3247
+  %3249 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3248, ptr %3249, align 4, !tbaa !20
+  %3250 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3251 = load i32, ptr %3250, align 4, !tbaa !20
+  %3252 = shl i32 %3251, 1
+  %3253 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3254 = load i32, ptr %3253, align 4, !tbaa !20
+  %3255 = and i32 %3254, -1
+  %3256 = lshr i32 %3255, 31
+  %3257 = or i32 %3252, %3256
+  %3258 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3259 = getelementptr inbounds [16 x i32], ptr %3258, i64 0, i64 7
+  store i32 %3257, ptr %3259, align 4, !tbaa !10
+  %3260 = add i32 %3233, %3257
+  %3261 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3262 = load i32, ptr %3261, align 4, !tbaa !19
+  %3263 = add i32 %3262, %3260
+  store i32 %3263, ptr %3261, align 4, !tbaa !19
+  %3264 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3265 = load i32, ptr %3264, align 4, !tbaa !16
+  %3266 = shl i32 %3265, 30
+  %3267 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3268 = load i32, ptr %3267, align 4, !tbaa !16
+  %3269 = and i32 %3268, -1
+  %3270 = lshr i32 %3269, 2
+  %3271 = or i32 %3266, %3270
+  %3272 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %3271, ptr %3272, align 4, !tbaa !16
+  br label %3273
+
+3273:                                             ; preds = %3209
+  br label %3274
+
+3274:                                             ; preds = %3273
+  br label %3275
+
+3275:                                             ; preds = %3274
+  %3276 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3277 = load i32, ptr %3276, align 4, !tbaa !19
+  %3278 = shl i32 %3277, 5
+  %3279 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3280 = load i32, ptr %3279, align 4, !tbaa !19
+  %3281 = and i32 %3280, -1
+  %3282 = lshr i32 %3281, 27
+  %3283 = or i32 %3278, %3282
+  %3284 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3285 = load i32, ptr %3284, align 4, !tbaa !14
+  %3286 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3287 = load i32, ptr %3286, align 4, !tbaa !16
+  %3288 = and i32 %3285, %3287
+  %3289 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3290 = load i32, ptr %3289, align 4, !tbaa !17
+  %3291 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3292 = load i32, ptr %3291, align 4, !tbaa !14
+  %3293 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3294 = load i32, ptr %3293, align 4, !tbaa !16
+  %3295 = or i32 %3292, %3294
+  %3296 = and i32 %3290, %3295
+  %3297 = or i32 %3288, %3296
+  %3298 = add i32 %3283, %3297
+  %3299 = add i32 %3298, -1894007588
+  %3300 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3301 = getelementptr inbounds [16 x i32], ptr %3300, i64 0, i64 5
+  %3302 = load i32, ptr %3301, align 4, !tbaa !10
+  %3303 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3304 = getelementptr inbounds [16 x i32], ptr %3303, i64 0, i64 0
+  %3305 = load i32, ptr %3304, align 4, !tbaa !10
+  %3306 = xor i32 %3302, %3305
+  %3307 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3308 = getelementptr inbounds [16 x i32], ptr %3307, i64 0, i64 10
+  %3309 = load i32, ptr %3308, align 4, !tbaa !10
+  %3310 = xor i32 %3306, %3309
+  %3311 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3312 = getelementptr inbounds [16 x i32], ptr %3311, i64 0, i64 8
+  %3313 = load i32, ptr %3312, align 4, !tbaa !10
+  %3314 = xor i32 %3310, %3313
+  %3315 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3314, ptr %3315, align 4, !tbaa !20
+  %3316 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3317 = load i32, ptr %3316, align 4, !tbaa !20
+  %3318 = shl i32 %3317, 1
+  %3319 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3320 = load i32, ptr %3319, align 4, !tbaa !20
+  %3321 = and i32 %3320, -1
+  %3322 = lshr i32 %3321, 31
+  %3323 = or i32 %3318, %3322
+  %3324 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3325 = getelementptr inbounds [16 x i32], ptr %3324, i64 0, i64 8
+  store i32 %3323, ptr %3325, align 4, !tbaa !10
+  %3326 = add i32 %3299, %3323
+  %3327 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3328 = load i32, ptr %3327, align 4, !tbaa !18
+  %3329 = add i32 %3328, %3326
+  store i32 %3329, ptr %3327, align 4, !tbaa !18
+  %3330 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3331 = load i32, ptr %3330, align 4, !tbaa !14
+  %3332 = shl i32 %3331, 30
+  %3333 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3334 = load i32, ptr %3333, align 4, !tbaa !14
+  %3335 = and i32 %3334, -1
+  %3336 = lshr i32 %3335, 2
+  %3337 = or i32 %3332, %3336
+  %3338 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %3337, ptr %3338, align 4, !tbaa !14
+  br label %3339
+
+3339:                                             ; preds = %3275
+  br label %3340
+
+3340:                                             ; preds = %3339
+  br label %3341
+
+3341:                                             ; preds = %3340
+  %3342 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3343 = load i32, ptr %3342, align 4, !tbaa !18
+  %3344 = shl i32 %3343, 5
+  %3345 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3346 = load i32, ptr %3345, align 4, !tbaa !18
+  %3347 = and i32 %3346, -1
+  %3348 = lshr i32 %3347, 27
+  %3349 = or i32 %3344, %3348
+  %3350 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3351 = load i32, ptr %3350, align 4, !tbaa !19
+  %3352 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3353 = load i32, ptr %3352, align 4, !tbaa !14
+  %3354 = and i32 %3351, %3353
+  %3355 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3356 = load i32, ptr %3355, align 4, !tbaa !16
+  %3357 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3358 = load i32, ptr %3357, align 4, !tbaa !19
+  %3359 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3360 = load i32, ptr %3359, align 4, !tbaa !14
+  %3361 = or i32 %3358, %3360
+  %3362 = and i32 %3356, %3361
+  %3363 = or i32 %3354, %3362
+  %3364 = add i32 %3349, %3363
+  %3365 = add i32 %3364, -1894007588
+  %3366 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3367 = getelementptr inbounds [16 x i32], ptr %3366, i64 0, i64 6
+  %3368 = load i32, ptr %3367, align 4, !tbaa !10
+  %3369 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3370 = getelementptr inbounds [16 x i32], ptr %3369, i64 0, i64 1
+  %3371 = load i32, ptr %3370, align 4, !tbaa !10
+  %3372 = xor i32 %3368, %3371
+  %3373 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3374 = getelementptr inbounds [16 x i32], ptr %3373, i64 0, i64 11
+  %3375 = load i32, ptr %3374, align 4, !tbaa !10
+  %3376 = xor i32 %3372, %3375
+  %3377 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3378 = getelementptr inbounds [16 x i32], ptr %3377, i64 0, i64 9
+  %3379 = load i32, ptr %3378, align 4, !tbaa !10
+  %3380 = xor i32 %3376, %3379
+  %3381 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3380, ptr %3381, align 4, !tbaa !20
+  %3382 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3383 = load i32, ptr %3382, align 4, !tbaa !20
+  %3384 = shl i32 %3383, 1
+  %3385 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3386 = load i32, ptr %3385, align 4, !tbaa !20
   %3387 = and i32 %3386, -1
-  %3388 = lshr i32 %3387, 27
+  %3388 = lshr i32 %3387, 31
   %3389 = or i32 %3384, %3388
-  %3390 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3391 = load i32, ptr %3390, align 4
-  %3392 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3393 = load i32, ptr %3392, align 4
-  %3394 = and i32 %3391, %3393
-  %3395 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3396 = load i32, ptr %3395, align 4
-  %3397 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3398 = load i32, ptr %3397, align 4
-  %3399 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3400 = load i32, ptr %3399, align 4
-  %3401 = or i32 %3398, %3400
-  %3402 = and i32 %3396, %3401
-  %3403 = or i32 %3394, %3402
-  %3404 = add i32 %3389, %3403
-  %3405 = add i32 %3404, -1894007588
-  %3406 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3407 = getelementptr inbounds [16 x i32], ptr %3406, i64 0, i64 3
-  %3408 = load i32, ptr %3407, align 4
-  %3409 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3410 = getelementptr inbounds [16 x i32], ptr %3409, i64 0, i64 14
-  %3411 = load i32, ptr %3410, align 4
-  %3412 = xor i32 %3408, %3411
-  %3413 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3414 = getelementptr inbounds [16 x i32], ptr %3413, i64 0, i64 8
-  %3415 = load i32, ptr %3414, align 4
-  %3416 = xor i32 %3412, %3415
-  %3417 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3418 = getelementptr inbounds [16 x i32], ptr %3417, i64 0, i64 6
-  %3419 = load i32, ptr %3418, align 4
-  %3420 = xor i32 %3416, %3419
-  %3421 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3420, ptr %3421, align 4
-  %3422 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3423 = load i32, ptr %3422, align 4
-  %3424 = shl i32 %3423, 1
-  %3425 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3426 = load i32, ptr %3425, align 4
-  %3427 = and i32 %3426, -1
-  %3428 = lshr i32 %3427, 31
-  %3429 = or i32 %3424, %3428
-  %3430 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3431 = getelementptr inbounds [16 x i32], ptr %3430, i64 0, i64 6
-  store i32 %3429, ptr %3431, align 4
-  %3432 = add i32 %3405, %3429
-  %3433 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3434 = load i32, ptr %3433, align 4
-  %3435 = add i32 %3434, %3432
-  store i32 %3435, ptr %3433, align 4
-  %3436 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3437 = load i32, ptr %3436, align 4
-  %3438 = shl i32 %3437, 30
-  %3439 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3440 = load i32, ptr %3439, align 4
-  %3441 = and i32 %3440, -1
-  %3442 = lshr i32 %3441, 2
-  %3443 = or i32 %3438, %3442
-  %3444 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %3443, ptr %3444, align 4
-  br label %3445
+  %3390 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3391 = getelementptr inbounds [16 x i32], ptr %3390, i64 0, i64 9
+  store i32 %3389, ptr %3391, align 4, !tbaa !10
+  %3392 = add i32 %3365, %3389
+  %3393 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3394 = load i32, ptr %3393, align 4, !tbaa !17
+  %3395 = add i32 %3394, %3392
+  store i32 %3395, ptr %3393, align 4, !tbaa !17
+  %3396 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3397 = load i32, ptr %3396, align 4, !tbaa !19
+  %3398 = shl i32 %3397, 30
+  %3399 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3400 = load i32, ptr %3399, align 4, !tbaa !19
+  %3401 = and i32 %3400, -1
+  %3402 = lshr i32 %3401, 2
+  %3403 = or i32 %3398, %3402
+  %3404 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %3403, ptr %3404, align 4, !tbaa !19
+  br label %3405
 
-3445:                                             ; preds = %3381
-  br label %3446
+3405:                                             ; preds = %3341
+  br label %3406
 
-3446:                                             ; preds = %3445
-  %3447 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3448 = load i32, ptr %3447, align 4
-  %3449 = shl i32 %3448, 5
-  %3450 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3451 = load i32, ptr %3450, align 4
-  %3452 = and i32 %3451, -1
-  %3453 = lshr i32 %3452, 27
-  %3454 = or i32 %3449, %3453
-  %3455 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3456 = load i32, ptr %3455, align 4
-  %3457 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3458 = load i32, ptr %3457, align 4
-  %3459 = and i32 %3456, %3458
-  %3460 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3461 = load i32, ptr %3460, align 4
-  %3462 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3463 = load i32, ptr %3462, align 4
-  %3464 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3465 = load i32, ptr %3464, align 4
-  %3466 = or i32 %3463, %3465
-  %3467 = and i32 %3461, %3466
-  %3468 = or i32 %3459, %3467
-  %3469 = add i32 %3454, %3468
-  %3470 = add i32 %3469, -1894007588
-  %3471 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3472 = getelementptr inbounds [16 x i32], ptr %3471, i64 0, i64 4
-  %3473 = load i32, ptr %3472, align 4
-  %3474 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3475 = getelementptr inbounds [16 x i32], ptr %3474, i64 0, i64 15
-  %3476 = load i32, ptr %3475, align 4
-  %3477 = xor i32 %3473, %3476
-  %3478 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3479 = getelementptr inbounds [16 x i32], ptr %3478, i64 0, i64 9
-  %3480 = load i32, ptr %3479, align 4
-  %3481 = xor i32 %3477, %3480
-  %3482 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3483 = getelementptr inbounds [16 x i32], ptr %3482, i64 0, i64 7
-  %3484 = load i32, ptr %3483, align 4
-  %3485 = xor i32 %3481, %3484
-  %3486 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3485, ptr %3486, align 4
-  %3487 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3488 = load i32, ptr %3487, align 4
-  %3489 = shl i32 %3488, 1
-  %3490 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3491 = load i32, ptr %3490, align 4
-  %3492 = and i32 %3491, -1
-  %3493 = lshr i32 %3492, 31
-  %3494 = or i32 %3489, %3493
-  %3495 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3496 = getelementptr inbounds [16 x i32], ptr %3495, i64 0, i64 7
-  store i32 %3494, ptr %3496, align 4
-  %3497 = add i32 %3470, %3494
-  %3498 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3499 = load i32, ptr %3498, align 4
-  %3500 = add i32 %3499, %3497
-  store i32 %3500, ptr %3498, align 4
-  %3501 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3502 = load i32, ptr %3501, align 4
-  %3503 = shl i32 %3502, 30
-  %3504 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3505 = load i32, ptr %3504, align 4
-  %3506 = and i32 %3505, -1
-  %3507 = lshr i32 %3506, 2
-  %3508 = or i32 %3503, %3507
-  %3509 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %3508, ptr %3509, align 4
-  br label %3510
+3406:                                             ; preds = %3405
+  br label %3407
 
-3510:                                             ; preds = %3446
-  br label %3511
+3407:                                             ; preds = %3406
+  %3408 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3409 = load i32, ptr %3408, align 4, !tbaa !17
+  %3410 = shl i32 %3409, 5
+  %3411 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3412 = load i32, ptr %3411, align 4, !tbaa !17
+  %3413 = and i32 %3412, -1
+  %3414 = lshr i32 %3413, 27
+  %3415 = or i32 %3410, %3414
+  %3416 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3417 = load i32, ptr %3416, align 4, !tbaa !18
+  %3418 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3419 = load i32, ptr %3418, align 4, !tbaa !19
+  %3420 = and i32 %3417, %3419
+  %3421 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3422 = load i32, ptr %3421, align 4, !tbaa !14
+  %3423 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3424 = load i32, ptr %3423, align 4, !tbaa !18
+  %3425 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3426 = load i32, ptr %3425, align 4, !tbaa !19
+  %3427 = or i32 %3424, %3426
+  %3428 = and i32 %3422, %3427
+  %3429 = or i32 %3420, %3428
+  %3430 = add i32 %3415, %3429
+  %3431 = add i32 %3430, -1894007588
+  %3432 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3433 = getelementptr inbounds [16 x i32], ptr %3432, i64 0, i64 7
+  %3434 = load i32, ptr %3433, align 4, !tbaa !10
+  %3435 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3436 = getelementptr inbounds [16 x i32], ptr %3435, i64 0, i64 2
+  %3437 = load i32, ptr %3436, align 4, !tbaa !10
+  %3438 = xor i32 %3434, %3437
+  %3439 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3440 = getelementptr inbounds [16 x i32], ptr %3439, i64 0, i64 12
+  %3441 = load i32, ptr %3440, align 4, !tbaa !10
+  %3442 = xor i32 %3438, %3441
+  %3443 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3444 = getelementptr inbounds [16 x i32], ptr %3443, i64 0, i64 10
+  %3445 = load i32, ptr %3444, align 4, !tbaa !10
+  %3446 = xor i32 %3442, %3445
+  %3447 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3446, ptr %3447, align 4, !tbaa !20
+  %3448 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3449 = load i32, ptr %3448, align 4, !tbaa !20
+  %3450 = shl i32 %3449, 1
+  %3451 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3452 = load i32, ptr %3451, align 4, !tbaa !20
+  %3453 = and i32 %3452, -1
+  %3454 = lshr i32 %3453, 31
+  %3455 = or i32 %3450, %3454
+  %3456 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3457 = getelementptr inbounds [16 x i32], ptr %3456, i64 0, i64 10
+  store i32 %3455, ptr %3457, align 4, !tbaa !10
+  %3458 = add i32 %3431, %3455
+  %3459 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3460 = load i32, ptr %3459, align 4, !tbaa !16
+  %3461 = add i32 %3460, %3458
+  store i32 %3461, ptr %3459, align 4, !tbaa !16
+  %3462 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3463 = load i32, ptr %3462, align 4, !tbaa !18
+  %3464 = shl i32 %3463, 30
+  %3465 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3466 = load i32, ptr %3465, align 4, !tbaa !18
+  %3467 = and i32 %3466, -1
+  %3468 = lshr i32 %3467, 2
+  %3469 = or i32 %3464, %3468
+  %3470 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %3469, ptr %3470, align 4, !tbaa !18
+  br label %3471
 
-3511:                                             ; preds = %3510
-  %3512 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3513 = load i32, ptr %3512, align 4
-  %3514 = shl i32 %3513, 5
-  %3515 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3516 = load i32, ptr %3515, align 4
-  %3517 = and i32 %3516, -1
-  %3518 = lshr i32 %3517, 27
-  %3519 = or i32 %3514, %3518
-  %3520 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3521 = load i32, ptr %3520, align 4
-  %3522 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3523 = load i32, ptr %3522, align 4
-  %3524 = and i32 %3521, %3523
-  %3525 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3526 = load i32, ptr %3525, align 4
-  %3527 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3528 = load i32, ptr %3527, align 4
-  %3529 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3530 = load i32, ptr %3529, align 4
-  %3531 = or i32 %3528, %3530
-  %3532 = and i32 %3526, %3531
-  %3533 = or i32 %3524, %3532
-  %3534 = add i32 %3519, %3533
-  %3535 = add i32 %3534, -1894007588
-  %3536 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3537 = getelementptr inbounds [16 x i32], ptr %3536, i64 0, i64 5
-  %3538 = load i32, ptr %3537, align 4
-  %3539 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3540 = getelementptr inbounds [16 x i32], ptr %3539, i64 0, i64 0
-  %3541 = load i32, ptr %3540, align 4
-  %3542 = xor i32 %3538, %3541
-  %3543 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3544 = getelementptr inbounds [16 x i32], ptr %3543, i64 0, i64 10
-  %3545 = load i32, ptr %3544, align 4
-  %3546 = xor i32 %3542, %3545
-  %3547 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3548 = getelementptr inbounds [16 x i32], ptr %3547, i64 0, i64 8
-  %3549 = load i32, ptr %3548, align 4
-  %3550 = xor i32 %3546, %3549
-  %3551 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3550, ptr %3551, align 4
-  %3552 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3553 = load i32, ptr %3552, align 4
-  %3554 = shl i32 %3553, 1
-  %3555 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3556 = load i32, ptr %3555, align 4
-  %3557 = and i32 %3556, -1
-  %3558 = lshr i32 %3557, 31
-  %3559 = or i32 %3554, %3558
-  %3560 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3561 = getelementptr inbounds [16 x i32], ptr %3560, i64 0, i64 8
-  store i32 %3559, ptr %3561, align 4
-  %3562 = add i32 %3535, %3559
-  %3563 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3564 = load i32, ptr %3563, align 4
-  %3565 = add i32 %3564, %3562
-  store i32 %3565, ptr %3563, align 4
-  %3566 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3567 = load i32, ptr %3566, align 4
-  %3568 = shl i32 %3567, 30
-  %3569 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3570 = load i32, ptr %3569, align 4
-  %3571 = and i32 %3570, -1
-  %3572 = lshr i32 %3571, 2
-  %3573 = or i32 %3568, %3572
-  %3574 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %3573, ptr %3574, align 4
-  br label %3575
+3471:                                             ; preds = %3407
+  br label %3472
 
-3575:                                             ; preds = %3511
-  br label %3576
+3472:                                             ; preds = %3471
+  br label %3473
 
-3576:                                             ; preds = %3575
-  %3577 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3578 = load i32, ptr %3577, align 4
-  %3579 = shl i32 %3578, 5
-  %3580 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3581 = load i32, ptr %3580, align 4
-  %3582 = and i32 %3581, -1
-  %3583 = lshr i32 %3582, 27
-  %3584 = or i32 %3579, %3583
-  %3585 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3586 = load i32, ptr %3585, align 4
-  %3587 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3588 = load i32, ptr %3587, align 4
-  %3589 = and i32 %3586, %3588
-  %3590 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3591 = load i32, ptr %3590, align 4
-  %3592 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3593 = load i32, ptr %3592, align 4
-  %3594 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3595 = load i32, ptr %3594, align 4
-  %3596 = or i32 %3593, %3595
-  %3597 = and i32 %3591, %3596
-  %3598 = or i32 %3589, %3597
-  %3599 = add i32 %3584, %3598
-  %3600 = add i32 %3599, -1894007588
-  %3601 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3602 = getelementptr inbounds [16 x i32], ptr %3601, i64 0, i64 6
-  %3603 = load i32, ptr %3602, align 4
-  %3604 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3605 = getelementptr inbounds [16 x i32], ptr %3604, i64 0, i64 1
-  %3606 = load i32, ptr %3605, align 4
-  %3607 = xor i32 %3603, %3606
-  %3608 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3609 = getelementptr inbounds [16 x i32], ptr %3608, i64 0, i64 11
-  %3610 = load i32, ptr %3609, align 4
-  %3611 = xor i32 %3607, %3610
-  %3612 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3613 = getelementptr inbounds [16 x i32], ptr %3612, i64 0, i64 9
-  %3614 = load i32, ptr %3613, align 4
-  %3615 = xor i32 %3611, %3614
-  %3616 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3615, ptr %3616, align 4
-  %3617 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3618 = load i32, ptr %3617, align 4
-  %3619 = shl i32 %3618, 1
-  %3620 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3621 = load i32, ptr %3620, align 4
-  %3622 = and i32 %3621, -1
-  %3623 = lshr i32 %3622, 31
-  %3624 = or i32 %3619, %3623
-  %3625 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3626 = getelementptr inbounds [16 x i32], ptr %3625, i64 0, i64 9
-  store i32 %3624, ptr %3626, align 4
-  %3627 = add i32 %3600, %3624
-  %3628 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3629 = load i32, ptr %3628, align 4
-  %3630 = add i32 %3629, %3627
-  store i32 %3630, ptr %3628, align 4
-  %3631 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3632 = load i32, ptr %3631, align 4
-  %3633 = shl i32 %3632, 30
-  %3634 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3635 = load i32, ptr %3634, align 4
-  %3636 = and i32 %3635, -1
-  %3637 = lshr i32 %3636, 2
-  %3638 = or i32 %3633, %3637
-  %3639 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %3638, ptr %3639, align 4
-  br label %3640
+3473:                                             ; preds = %3472
+  %3474 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3475 = load i32, ptr %3474, align 4, !tbaa !16
+  %3476 = shl i32 %3475, 5
+  %3477 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3478 = load i32, ptr %3477, align 4, !tbaa !16
+  %3479 = and i32 %3478, -1
+  %3480 = lshr i32 %3479, 27
+  %3481 = or i32 %3476, %3480
+  %3482 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3483 = load i32, ptr %3482, align 4, !tbaa !17
+  %3484 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3485 = load i32, ptr %3484, align 4, !tbaa !18
+  %3486 = and i32 %3483, %3485
+  %3487 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3488 = load i32, ptr %3487, align 4, !tbaa !19
+  %3489 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3490 = load i32, ptr %3489, align 4, !tbaa !17
+  %3491 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3492 = load i32, ptr %3491, align 4, !tbaa !18
+  %3493 = or i32 %3490, %3492
+  %3494 = and i32 %3488, %3493
+  %3495 = or i32 %3486, %3494
+  %3496 = add i32 %3481, %3495
+  %3497 = add i32 %3496, -1894007588
+  %3498 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3499 = getelementptr inbounds [16 x i32], ptr %3498, i64 0, i64 8
+  %3500 = load i32, ptr %3499, align 4, !tbaa !10
+  %3501 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3502 = getelementptr inbounds [16 x i32], ptr %3501, i64 0, i64 3
+  %3503 = load i32, ptr %3502, align 4, !tbaa !10
+  %3504 = xor i32 %3500, %3503
+  %3505 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3506 = getelementptr inbounds [16 x i32], ptr %3505, i64 0, i64 13
+  %3507 = load i32, ptr %3506, align 4, !tbaa !10
+  %3508 = xor i32 %3504, %3507
+  %3509 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3510 = getelementptr inbounds [16 x i32], ptr %3509, i64 0, i64 11
+  %3511 = load i32, ptr %3510, align 4, !tbaa !10
+  %3512 = xor i32 %3508, %3511
+  %3513 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3512, ptr %3513, align 4, !tbaa !20
+  %3514 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3515 = load i32, ptr %3514, align 4, !tbaa !20
+  %3516 = shl i32 %3515, 1
+  %3517 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3518 = load i32, ptr %3517, align 4, !tbaa !20
+  %3519 = and i32 %3518, -1
+  %3520 = lshr i32 %3519, 31
+  %3521 = or i32 %3516, %3520
+  %3522 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3523 = getelementptr inbounds [16 x i32], ptr %3522, i64 0, i64 11
+  store i32 %3521, ptr %3523, align 4, !tbaa !10
+  %3524 = add i32 %3497, %3521
+  %3525 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3526 = load i32, ptr %3525, align 4, !tbaa !14
+  %3527 = add i32 %3526, %3524
+  store i32 %3527, ptr %3525, align 4, !tbaa !14
+  %3528 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3529 = load i32, ptr %3528, align 4, !tbaa !17
+  %3530 = shl i32 %3529, 30
+  %3531 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3532 = load i32, ptr %3531, align 4, !tbaa !17
+  %3533 = and i32 %3532, -1
+  %3534 = lshr i32 %3533, 2
+  %3535 = or i32 %3530, %3534
+  %3536 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %3535, ptr %3536, align 4, !tbaa !17
+  br label %3537
 
-3640:                                             ; preds = %3576
-  br label %3641
+3537:                                             ; preds = %3473
+  br label %3538
 
-3641:                                             ; preds = %3640
-  %3642 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3643 = load i32, ptr %3642, align 4
-  %3644 = shl i32 %3643, 5
-  %3645 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3646 = load i32, ptr %3645, align 4
-  %3647 = and i32 %3646, -1
-  %3648 = lshr i32 %3647, 27
-  %3649 = or i32 %3644, %3648
-  %3650 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3651 = load i32, ptr %3650, align 4
-  %3652 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3653 = load i32, ptr %3652, align 4
-  %3654 = and i32 %3651, %3653
-  %3655 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3656 = load i32, ptr %3655, align 4
-  %3657 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3658 = load i32, ptr %3657, align 4
-  %3659 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3660 = load i32, ptr %3659, align 4
-  %3661 = or i32 %3658, %3660
-  %3662 = and i32 %3656, %3661
-  %3663 = or i32 %3654, %3662
-  %3664 = add i32 %3649, %3663
-  %3665 = add i32 %3664, -1894007588
-  %3666 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3667 = getelementptr inbounds [16 x i32], ptr %3666, i64 0, i64 7
-  %3668 = load i32, ptr %3667, align 4
-  %3669 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3670 = getelementptr inbounds [16 x i32], ptr %3669, i64 0, i64 2
-  %3671 = load i32, ptr %3670, align 4
-  %3672 = xor i32 %3668, %3671
-  %3673 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3674 = getelementptr inbounds [16 x i32], ptr %3673, i64 0, i64 12
-  %3675 = load i32, ptr %3674, align 4
-  %3676 = xor i32 %3672, %3675
-  %3677 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3678 = getelementptr inbounds [16 x i32], ptr %3677, i64 0, i64 10
-  %3679 = load i32, ptr %3678, align 4
-  %3680 = xor i32 %3676, %3679
-  %3681 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3680, ptr %3681, align 4
-  %3682 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3683 = load i32, ptr %3682, align 4
-  %3684 = shl i32 %3683, 1
-  %3685 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3686 = load i32, ptr %3685, align 4
-  %3687 = and i32 %3686, -1
-  %3688 = lshr i32 %3687, 31
-  %3689 = or i32 %3684, %3688
-  %3690 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3691 = getelementptr inbounds [16 x i32], ptr %3690, i64 0, i64 10
-  store i32 %3689, ptr %3691, align 4
-  %3692 = add i32 %3665, %3689
-  %3693 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3694 = load i32, ptr %3693, align 4
-  %3695 = add i32 %3694, %3692
-  store i32 %3695, ptr %3693, align 4
-  %3696 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3697 = load i32, ptr %3696, align 4
-  %3698 = shl i32 %3697, 30
-  %3699 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3700 = load i32, ptr %3699, align 4
-  %3701 = and i32 %3700, -1
-  %3702 = lshr i32 %3701, 2
-  %3703 = or i32 %3698, %3702
-  %3704 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %3703, ptr %3704, align 4
-  br label %3705
+3538:                                             ; preds = %3537
+  br label %3539
 
-3705:                                             ; preds = %3641
-  br label %3706
+3539:                                             ; preds = %3538
+  %3540 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3541 = load i32, ptr %3540, align 4, !tbaa !14
+  %3542 = shl i32 %3541, 5
+  %3543 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3544 = load i32, ptr %3543, align 4, !tbaa !14
+  %3545 = and i32 %3544, -1
+  %3546 = lshr i32 %3545, 27
+  %3547 = or i32 %3542, %3546
+  %3548 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3549 = load i32, ptr %3548, align 4, !tbaa !16
+  %3550 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3551 = load i32, ptr %3550, align 4, !tbaa !17
+  %3552 = xor i32 %3549, %3551
+  %3553 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3554 = load i32, ptr %3553, align 4, !tbaa !18
+  %3555 = xor i32 %3552, %3554
+  %3556 = add i32 %3547, %3555
+  %3557 = add i32 %3556, -899497514
+  %3558 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3559 = getelementptr inbounds [16 x i32], ptr %3558, i64 0, i64 9
+  %3560 = load i32, ptr %3559, align 4, !tbaa !10
+  %3561 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3562 = getelementptr inbounds [16 x i32], ptr %3561, i64 0, i64 4
+  %3563 = load i32, ptr %3562, align 4, !tbaa !10
+  %3564 = xor i32 %3560, %3563
+  %3565 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3566 = getelementptr inbounds [16 x i32], ptr %3565, i64 0, i64 14
+  %3567 = load i32, ptr %3566, align 4, !tbaa !10
+  %3568 = xor i32 %3564, %3567
+  %3569 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3570 = getelementptr inbounds [16 x i32], ptr %3569, i64 0, i64 12
+  %3571 = load i32, ptr %3570, align 4, !tbaa !10
+  %3572 = xor i32 %3568, %3571
+  %3573 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3572, ptr %3573, align 4, !tbaa !20
+  %3574 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3575 = load i32, ptr %3574, align 4, !tbaa !20
+  %3576 = shl i32 %3575, 1
+  %3577 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3578 = load i32, ptr %3577, align 4, !tbaa !20
+  %3579 = and i32 %3578, -1
+  %3580 = lshr i32 %3579, 31
+  %3581 = or i32 %3576, %3580
+  %3582 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3583 = getelementptr inbounds [16 x i32], ptr %3582, i64 0, i64 12
+  store i32 %3581, ptr %3583, align 4, !tbaa !10
+  %3584 = add i32 %3557, %3581
+  %3585 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3586 = load i32, ptr %3585, align 4, !tbaa !19
+  %3587 = add i32 %3586, %3584
+  store i32 %3587, ptr %3585, align 4, !tbaa !19
+  %3588 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3589 = load i32, ptr %3588, align 4, !tbaa !16
+  %3590 = shl i32 %3589, 30
+  %3591 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3592 = load i32, ptr %3591, align 4, !tbaa !16
+  %3593 = and i32 %3592, -1
+  %3594 = lshr i32 %3593, 2
+  %3595 = or i32 %3590, %3594
+  %3596 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %3595, ptr %3596, align 4, !tbaa !16
+  br label %3597
 
-3706:                                             ; preds = %3705
-  %3707 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3708 = load i32, ptr %3707, align 4
-  %3709 = shl i32 %3708, 5
-  %3710 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3711 = load i32, ptr %3710, align 4
-  %3712 = and i32 %3711, -1
-  %3713 = lshr i32 %3712, 27
-  %3714 = or i32 %3709, %3713
-  %3715 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3716 = load i32, ptr %3715, align 4
-  %3717 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3718 = load i32, ptr %3717, align 4
-  %3719 = and i32 %3716, %3718
-  %3720 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3721 = load i32, ptr %3720, align 4
-  %3722 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3723 = load i32, ptr %3722, align 4
-  %3724 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3725 = load i32, ptr %3724, align 4
-  %3726 = or i32 %3723, %3725
-  %3727 = and i32 %3721, %3726
-  %3728 = or i32 %3719, %3727
-  %3729 = add i32 %3714, %3728
-  %3730 = add i32 %3729, -1894007588
-  %3731 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3732 = getelementptr inbounds [16 x i32], ptr %3731, i64 0, i64 8
-  %3733 = load i32, ptr %3732, align 4
-  %3734 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3735 = getelementptr inbounds [16 x i32], ptr %3734, i64 0, i64 3
-  %3736 = load i32, ptr %3735, align 4
-  %3737 = xor i32 %3733, %3736
-  %3738 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3739 = getelementptr inbounds [16 x i32], ptr %3738, i64 0, i64 13
-  %3740 = load i32, ptr %3739, align 4
-  %3741 = xor i32 %3737, %3740
-  %3742 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3743 = getelementptr inbounds [16 x i32], ptr %3742, i64 0, i64 11
-  %3744 = load i32, ptr %3743, align 4
-  %3745 = xor i32 %3741, %3744
-  %3746 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3745, ptr %3746, align 4
-  %3747 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3748 = load i32, ptr %3747, align 4
-  %3749 = shl i32 %3748, 1
-  %3750 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3751 = load i32, ptr %3750, align 4
-  %3752 = and i32 %3751, -1
-  %3753 = lshr i32 %3752, 31
-  %3754 = or i32 %3749, %3753
-  %3755 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3756 = getelementptr inbounds [16 x i32], ptr %3755, i64 0, i64 11
-  store i32 %3754, ptr %3756, align 4
-  %3757 = add i32 %3730, %3754
-  %3758 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3759 = load i32, ptr %3758, align 4
-  %3760 = add i32 %3759, %3757
-  store i32 %3760, ptr %3758, align 4
-  %3761 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3762 = load i32, ptr %3761, align 4
-  %3763 = shl i32 %3762, 30
-  %3764 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3765 = load i32, ptr %3764, align 4
-  %3766 = and i32 %3765, -1
-  %3767 = lshr i32 %3766, 2
-  %3768 = or i32 %3763, %3767
-  %3769 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %3768, ptr %3769, align 4
-  br label %3770
+3597:                                             ; preds = %3539
+  br label %3598
 
-3770:                                             ; preds = %3706
-  br label %3771
+3598:                                             ; preds = %3597
+  br label %3599
 
-3771:                                             ; preds = %3770
-  %3772 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3773 = load i32, ptr %3772, align 4
-  %3774 = shl i32 %3773, 5
-  %3775 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3776 = load i32, ptr %3775, align 4
-  %3777 = and i32 %3776, -1
-  %3778 = lshr i32 %3777, 27
-  %3779 = or i32 %3774, %3778
-  %3780 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3781 = load i32, ptr %3780, align 4
-  %3782 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3783 = load i32, ptr %3782, align 4
-  %3784 = xor i32 %3781, %3783
-  %3785 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3786 = load i32, ptr %3785, align 4
-  %3787 = xor i32 %3784, %3786
-  %3788 = add i32 %3779, %3787
-  %3789 = add i32 %3788, -899497514
-  %3790 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3791 = getelementptr inbounds [16 x i32], ptr %3790, i64 0, i64 9
-  %3792 = load i32, ptr %3791, align 4
-  %3793 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3794 = getelementptr inbounds [16 x i32], ptr %3793, i64 0, i64 4
-  %3795 = load i32, ptr %3794, align 4
-  %3796 = xor i32 %3792, %3795
-  %3797 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3798 = getelementptr inbounds [16 x i32], ptr %3797, i64 0, i64 14
-  %3799 = load i32, ptr %3798, align 4
-  %3800 = xor i32 %3796, %3799
-  %3801 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3802 = getelementptr inbounds [16 x i32], ptr %3801, i64 0, i64 12
-  %3803 = load i32, ptr %3802, align 4
+3599:                                             ; preds = %3598
+  %3600 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3601 = load i32, ptr %3600, align 4, !tbaa !19
+  %3602 = shl i32 %3601, 5
+  %3603 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3604 = load i32, ptr %3603, align 4, !tbaa !19
+  %3605 = and i32 %3604, -1
+  %3606 = lshr i32 %3605, 27
+  %3607 = or i32 %3602, %3606
+  %3608 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3609 = load i32, ptr %3608, align 4, !tbaa !14
+  %3610 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3611 = load i32, ptr %3610, align 4, !tbaa !16
+  %3612 = xor i32 %3609, %3611
+  %3613 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3614 = load i32, ptr %3613, align 4, !tbaa !17
+  %3615 = xor i32 %3612, %3614
+  %3616 = add i32 %3607, %3615
+  %3617 = add i32 %3616, -899497514
+  %3618 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3619 = getelementptr inbounds [16 x i32], ptr %3618, i64 0, i64 10
+  %3620 = load i32, ptr %3619, align 4, !tbaa !10
+  %3621 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3622 = getelementptr inbounds [16 x i32], ptr %3621, i64 0, i64 5
+  %3623 = load i32, ptr %3622, align 4, !tbaa !10
+  %3624 = xor i32 %3620, %3623
+  %3625 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3626 = getelementptr inbounds [16 x i32], ptr %3625, i64 0, i64 15
+  %3627 = load i32, ptr %3626, align 4, !tbaa !10
+  %3628 = xor i32 %3624, %3627
+  %3629 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3630 = getelementptr inbounds [16 x i32], ptr %3629, i64 0, i64 13
+  %3631 = load i32, ptr %3630, align 4, !tbaa !10
+  %3632 = xor i32 %3628, %3631
+  %3633 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3632, ptr %3633, align 4, !tbaa !20
+  %3634 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3635 = load i32, ptr %3634, align 4, !tbaa !20
+  %3636 = shl i32 %3635, 1
+  %3637 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3638 = load i32, ptr %3637, align 4, !tbaa !20
+  %3639 = and i32 %3638, -1
+  %3640 = lshr i32 %3639, 31
+  %3641 = or i32 %3636, %3640
+  %3642 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3643 = getelementptr inbounds [16 x i32], ptr %3642, i64 0, i64 13
+  store i32 %3641, ptr %3643, align 4, !tbaa !10
+  %3644 = add i32 %3617, %3641
+  %3645 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3646 = load i32, ptr %3645, align 4, !tbaa !18
+  %3647 = add i32 %3646, %3644
+  store i32 %3647, ptr %3645, align 4, !tbaa !18
+  %3648 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3649 = load i32, ptr %3648, align 4, !tbaa !14
+  %3650 = shl i32 %3649, 30
+  %3651 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3652 = load i32, ptr %3651, align 4, !tbaa !14
+  %3653 = and i32 %3652, -1
+  %3654 = lshr i32 %3653, 2
+  %3655 = or i32 %3650, %3654
+  %3656 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %3655, ptr %3656, align 4, !tbaa !14
+  br label %3657
+
+3657:                                             ; preds = %3599
+  br label %3658
+
+3658:                                             ; preds = %3657
+  br label %3659
+
+3659:                                             ; preds = %3658
+  %3660 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3661 = load i32, ptr %3660, align 4, !tbaa !18
+  %3662 = shl i32 %3661, 5
+  %3663 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3664 = load i32, ptr %3663, align 4, !tbaa !18
+  %3665 = and i32 %3664, -1
+  %3666 = lshr i32 %3665, 27
+  %3667 = or i32 %3662, %3666
+  %3668 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3669 = load i32, ptr %3668, align 4, !tbaa !19
+  %3670 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3671 = load i32, ptr %3670, align 4, !tbaa !14
+  %3672 = xor i32 %3669, %3671
+  %3673 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3674 = load i32, ptr %3673, align 4, !tbaa !16
+  %3675 = xor i32 %3672, %3674
+  %3676 = add i32 %3667, %3675
+  %3677 = add i32 %3676, -899497514
+  %3678 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3679 = getelementptr inbounds [16 x i32], ptr %3678, i64 0, i64 11
+  %3680 = load i32, ptr %3679, align 4, !tbaa !10
+  %3681 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3682 = getelementptr inbounds [16 x i32], ptr %3681, i64 0, i64 6
+  %3683 = load i32, ptr %3682, align 4, !tbaa !10
+  %3684 = xor i32 %3680, %3683
+  %3685 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3686 = getelementptr inbounds [16 x i32], ptr %3685, i64 0, i64 0
+  %3687 = load i32, ptr %3686, align 4, !tbaa !10
+  %3688 = xor i32 %3684, %3687
+  %3689 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3690 = getelementptr inbounds [16 x i32], ptr %3689, i64 0, i64 14
+  %3691 = load i32, ptr %3690, align 4, !tbaa !10
+  %3692 = xor i32 %3688, %3691
+  %3693 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3692, ptr %3693, align 4, !tbaa !20
+  %3694 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3695 = load i32, ptr %3694, align 4, !tbaa !20
+  %3696 = shl i32 %3695, 1
+  %3697 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3698 = load i32, ptr %3697, align 4, !tbaa !20
+  %3699 = and i32 %3698, -1
+  %3700 = lshr i32 %3699, 31
+  %3701 = or i32 %3696, %3700
+  %3702 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3703 = getelementptr inbounds [16 x i32], ptr %3702, i64 0, i64 14
+  store i32 %3701, ptr %3703, align 4, !tbaa !10
+  %3704 = add i32 %3677, %3701
+  %3705 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3706 = load i32, ptr %3705, align 4, !tbaa !17
+  %3707 = add i32 %3706, %3704
+  store i32 %3707, ptr %3705, align 4, !tbaa !17
+  %3708 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3709 = load i32, ptr %3708, align 4, !tbaa !19
+  %3710 = shl i32 %3709, 30
+  %3711 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3712 = load i32, ptr %3711, align 4, !tbaa !19
+  %3713 = and i32 %3712, -1
+  %3714 = lshr i32 %3713, 2
+  %3715 = or i32 %3710, %3714
+  %3716 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %3715, ptr %3716, align 4, !tbaa !19
+  br label %3717
+
+3717:                                             ; preds = %3659
+  br label %3718
+
+3718:                                             ; preds = %3717
+  br label %3719
+
+3719:                                             ; preds = %3718
+  %3720 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3721 = load i32, ptr %3720, align 4, !tbaa !17
+  %3722 = shl i32 %3721, 5
+  %3723 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3724 = load i32, ptr %3723, align 4, !tbaa !17
+  %3725 = and i32 %3724, -1
+  %3726 = lshr i32 %3725, 27
+  %3727 = or i32 %3722, %3726
+  %3728 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3729 = load i32, ptr %3728, align 4, !tbaa !18
+  %3730 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3731 = load i32, ptr %3730, align 4, !tbaa !19
+  %3732 = xor i32 %3729, %3731
+  %3733 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3734 = load i32, ptr %3733, align 4, !tbaa !14
+  %3735 = xor i32 %3732, %3734
+  %3736 = add i32 %3727, %3735
+  %3737 = add i32 %3736, -899497514
+  %3738 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3739 = getelementptr inbounds [16 x i32], ptr %3738, i64 0, i64 12
+  %3740 = load i32, ptr %3739, align 4, !tbaa !10
+  %3741 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3742 = getelementptr inbounds [16 x i32], ptr %3741, i64 0, i64 7
+  %3743 = load i32, ptr %3742, align 4, !tbaa !10
+  %3744 = xor i32 %3740, %3743
+  %3745 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3746 = getelementptr inbounds [16 x i32], ptr %3745, i64 0, i64 1
+  %3747 = load i32, ptr %3746, align 4, !tbaa !10
+  %3748 = xor i32 %3744, %3747
+  %3749 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3750 = getelementptr inbounds [16 x i32], ptr %3749, i64 0, i64 15
+  %3751 = load i32, ptr %3750, align 4, !tbaa !10
+  %3752 = xor i32 %3748, %3751
+  %3753 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3752, ptr %3753, align 4, !tbaa !20
+  %3754 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3755 = load i32, ptr %3754, align 4, !tbaa !20
+  %3756 = shl i32 %3755, 1
+  %3757 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3758 = load i32, ptr %3757, align 4, !tbaa !20
+  %3759 = and i32 %3758, -1
+  %3760 = lshr i32 %3759, 31
+  %3761 = or i32 %3756, %3760
+  %3762 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3763 = getelementptr inbounds [16 x i32], ptr %3762, i64 0, i64 15
+  store i32 %3761, ptr %3763, align 4, !tbaa !10
+  %3764 = add i32 %3737, %3761
+  %3765 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3766 = load i32, ptr %3765, align 4, !tbaa !16
+  %3767 = add i32 %3766, %3764
+  store i32 %3767, ptr %3765, align 4, !tbaa !16
+  %3768 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3769 = load i32, ptr %3768, align 4, !tbaa !18
+  %3770 = shl i32 %3769, 30
+  %3771 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3772 = load i32, ptr %3771, align 4, !tbaa !18
+  %3773 = and i32 %3772, -1
+  %3774 = lshr i32 %3773, 2
+  %3775 = or i32 %3770, %3774
+  %3776 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %3775, ptr %3776, align 4, !tbaa !18
+  br label %3777
+
+3777:                                             ; preds = %3719
+  br label %3778
+
+3778:                                             ; preds = %3777
+  br label %3779
+
+3779:                                             ; preds = %3778
+  %3780 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3781 = load i32, ptr %3780, align 4, !tbaa !16
+  %3782 = shl i32 %3781, 5
+  %3783 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3784 = load i32, ptr %3783, align 4, !tbaa !16
+  %3785 = and i32 %3784, -1
+  %3786 = lshr i32 %3785, 27
+  %3787 = or i32 %3782, %3786
+  %3788 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3789 = load i32, ptr %3788, align 4, !tbaa !17
+  %3790 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3791 = load i32, ptr %3790, align 4, !tbaa !18
+  %3792 = xor i32 %3789, %3791
+  %3793 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3794 = load i32, ptr %3793, align 4, !tbaa !19
+  %3795 = xor i32 %3792, %3794
+  %3796 = add i32 %3787, %3795
+  %3797 = add i32 %3796, -899497514
+  %3798 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3799 = getelementptr inbounds [16 x i32], ptr %3798, i64 0, i64 13
+  %3800 = load i32, ptr %3799, align 4, !tbaa !10
+  %3801 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3802 = getelementptr inbounds [16 x i32], ptr %3801, i64 0, i64 8
+  %3803 = load i32, ptr %3802, align 4, !tbaa !10
   %3804 = xor i32 %3800, %3803
-  %3805 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3804, ptr %3805, align 4
-  %3806 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3807 = load i32, ptr %3806, align 4
-  %3808 = shl i32 %3807, 1
-  %3809 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3810 = load i32, ptr %3809, align 4
-  %3811 = and i32 %3810, -1
-  %3812 = lshr i32 %3811, 31
-  %3813 = or i32 %3808, %3812
-  %3814 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3815 = getelementptr inbounds [16 x i32], ptr %3814, i64 0, i64 12
-  store i32 %3813, ptr %3815, align 4
-  %3816 = add i32 %3789, %3813
-  %3817 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3818 = load i32, ptr %3817, align 4
-  %3819 = add i32 %3818, %3816
-  store i32 %3819, ptr %3817, align 4
-  %3820 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3821 = load i32, ptr %3820, align 4
-  %3822 = shl i32 %3821, 30
-  %3823 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3824 = load i32, ptr %3823, align 4
-  %3825 = and i32 %3824, -1
-  %3826 = lshr i32 %3825, 2
-  %3827 = or i32 %3822, %3826
-  %3828 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %3827, ptr %3828, align 4
-  br label %3829
+  %3805 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3806 = getelementptr inbounds [16 x i32], ptr %3805, i64 0, i64 2
+  %3807 = load i32, ptr %3806, align 4, !tbaa !10
+  %3808 = xor i32 %3804, %3807
+  %3809 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3810 = getelementptr inbounds [16 x i32], ptr %3809, i64 0, i64 0
+  %3811 = load i32, ptr %3810, align 4, !tbaa !10
+  %3812 = xor i32 %3808, %3811
+  %3813 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3812, ptr %3813, align 4, !tbaa !20
+  %3814 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3815 = load i32, ptr %3814, align 4, !tbaa !20
+  %3816 = shl i32 %3815, 1
+  %3817 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3818 = load i32, ptr %3817, align 4, !tbaa !20
+  %3819 = and i32 %3818, -1
+  %3820 = lshr i32 %3819, 31
+  %3821 = or i32 %3816, %3820
+  %3822 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3823 = getelementptr inbounds [16 x i32], ptr %3822, i64 0, i64 0
+  store i32 %3821, ptr %3823, align 4, !tbaa !10
+  %3824 = add i32 %3797, %3821
+  %3825 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3826 = load i32, ptr %3825, align 4, !tbaa !14
+  %3827 = add i32 %3826, %3824
+  store i32 %3827, ptr %3825, align 4, !tbaa !14
+  %3828 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3829 = load i32, ptr %3828, align 4, !tbaa !17
+  %3830 = shl i32 %3829, 30
+  %3831 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3832 = load i32, ptr %3831, align 4, !tbaa !17
+  %3833 = and i32 %3832, -1
+  %3834 = lshr i32 %3833, 2
+  %3835 = or i32 %3830, %3834
+  %3836 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %3835, ptr %3836, align 4, !tbaa !17
+  br label %3837
 
-3829:                                             ; preds = %3771
-  br label %3830
+3837:                                             ; preds = %3779
+  br label %3838
 
-3830:                                             ; preds = %3829
-  %3831 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3832 = load i32, ptr %3831, align 4
-  %3833 = shl i32 %3832, 5
-  %3834 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3835 = load i32, ptr %3834, align 4
-  %3836 = and i32 %3835, -1
-  %3837 = lshr i32 %3836, 27
-  %3838 = or i32 %3833, %3837
-  %3839 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3840 = load i32, ptr %3839, align 4
-  %3841 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3842 = load i32, ptr %3841, align 4
-  %3843 = xor i32 %3840, %3842
-  %3844 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3845 = load i32, ptr %3844, align 4
-  %3846 = xor i32 %3843, %3845
-  %3847 = add i32 %3838, %3846
-  %3848 = add i32 %3847, -899497514
-  %3849 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3850 = getelementptr inbounds [16 x i32], ptr %3849, i64 0, i64 10
-  %3851 = load i32, ptr %3850, align 4
-  %3852 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3853 = getelementptr inbounds [16 x i32], ptr %3852, i64 0, i64 5
-  %3854 = load i32, ptr %3853, align 4
-  %3855 = xor i32 %3851, %3854
-  %3856 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3857 = getelementptr inbounds [16 x i32], ptr %3856, i64 0, i64 15
-  %3858 = load i32, ptr %3857, align 4
-  %3859 = xor i32 %3855, %3858
-  %3860 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3861 = getelementptr inbounds [16 x i32], ptr %3860, i64 0, i64 13
-  %3862 = load i32, ptr %3861, align 4
-  %3863 = xor i32 %3859, %3862
-  %3864 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3863, ptr %3864, align 4
-  %3865 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3866 = load i32, ptr %3865, align 4
-  %3867 = shl i32 %3866, 1
-  %3868 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3869 = load i32, ptr %3868, align 4
-  %3870 = and i32 %3869, -1
-  %3871 = lshr i32 %3870, 31
-  %3872 = or i32 %3867, %3871
-  %3873 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3874 = getelementptr inbounds [16 x i32], ptr %3873, i64 0, i64 13
-  store i32 %3872, ptr %3874, align 4
-  %3875 = add i32 %3848, %3872
-  %3876 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3877 = load i32, ptr %3876, align 4
-  %3878 = add i32 %3877, %3875
-  store i32 %3878, ptr %3876, align 4
-  %3879 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3880 = load i32, ptr %3879, align 4
-  %3881 = shl i32 %3880, 30
-  %3882 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3883 = load i32, ptr %3882, align 4
-  %3884 = and i32 %3883, -1
-  %3885 = lshr i32 %3884, 2
-  %3886 = or i32 %3881, %3885
-  %3887 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %3886, ptr %3887, align 4
-  br label %3888
+3838:                                             ; preds = %3837
+  br label %3839
 
-3888:                                             ; preds = %3830
-  br label %3889
+3839:                                             ; preds = %3838
+  %3840 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3841 = load i32, ptr %3840, align 4, !tbaa !14
+  %3842 = shl i32 %3841, 5
+  %3843 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3844 = load i32, ptr %3843, align 4, !tbaa !14
+  %3845 = and i32 %3844, -1
+  %3846 = lshr i32 %3845, 27
+  %3847 = or i32 %3842, %3846
+  %3848 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3849 = load i32, ptr %3848, align 4, !tbaa !16
+  %3850 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3851 = load i32, ptr %3850, align 4, !tbaa !17
+  %3852 = xor i32 %3849, %3851
+  %3853 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3854 = load i32, ptr %3853, align 4, !tbaa !18
+  %3855 = xor i32 %3852, %3854
+  %3856 = add i32 %3847, %3855
+  %3857 = add i32 %3856, -899497514
+  %3858 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3859 = getelementptr inbounds [16 x i32], ptr %3858, i64 0, i64 14
+  %3860 = load i32, ptr %3859, align 4, !tbaa !10
+  %3861 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3862 = getelementptr inbounds [16 x i32], ptr %3861, i64 0, i64 9
+  %3863 = load i32, ptr %3862, align 4, !tbaa !10
+  %3864 = xor i32 %3860, %3863
+  %3865 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3866 = getelementptr inbounds [16 x i32], ptr %3865, i64 0, i64 3
+  %3867 = load i32, ptr %3866, align 4, !tbaa !10
+  %3868 = xor i32 %3864, %3867
+  %3869 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3870 = getelementptr inbounds [16 x i32], ptr %3869, i64 0, i64 1
+  %3871 = load i32, ptr %3870, align 4, !tbaa !10
+  %3872 = xor i32 %3868, %3871
+  %3873 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3872, ptr %3873, align 4, !tbaa !20
+  %3874 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3875 = load i32, ptr %3874, align 4, !tbaa !20
+  %3876 = shl i32 %3875, 1
+  %3877 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3878 = load i32, ptr %3877, align 4, !tbaa !20
+  %3879 = and i32 %3878, -1
+  %3880 = lshr i32 %3879, 31
+  %3881 = or i32 %3876, %3880
+  %3882 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3883 = getelementptr inbounds [16 x i32], ptr %3882, i64 0, i64 1
+  store i32 %3881, ptr %3883, align 4, !tbaa !10
+  %3884 = add i32 %3857, %3881
+  %3885 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3886 = load i32, ptr %3885, align 4, !tbaa !19
+  %3887 = add i32 %3886, %3884
+  store i32 %3887, ptr %3885, align 4, !tbaa !19
+  %3888 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3889 = load i32, ptr %3888, align 4, !tbaa !16
+  %3890 = shl i32 %3889, 30
+  %3891 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3892 = load i32, ptr %3891, align 4, !tbaa !16
+  %3893 = and i32 %3892, -1
+  %3894 = lshr i32 %3893, 2
+  %3895 = or i32 %3890, %3894
+  %3896 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %3895, ptr %3896, align 4, !tbaa !16
+  br label %3897
 
-3889:                                             ; preds = %3888
-  %3890 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3891 = load i32, ptr %3890, align 4
-  %3892 = shl i32 %3891, 5
-  %3893 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3894 = load i32, ptr %3893, align 4
-  %3895 = and i32 %3894, -1
-  %3896 = lshr i32 %3895, 27
-  %3897 = or i32 %3892, %3896
-  %3898 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3899 = load i32, ptr %3898, align 4
-  %3900 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3901 = load i32, ptr %3900, align 4
-  %3902 = xor i32 %3899, %3901
-  %3903 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3904 = load i32, ptr %3903, align 4
-  %3905 = xor i32 %3902, %3904
-  %3906 = add i32 %3897, %3905
-  %3907 = add i32 %3906, -899497514
-  %3908 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3909 = getelementptr inbounds [16 x i32], ptr %3908, i64 0, i64 11
-  %3910 = load i32, ptr %3909, align 4
-  %3911 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3912 = getelementptr inbounds [16 x i32], ptr %3911, i64 0, i64 6
-  %3913 = load i32, ptr %3912, align 4
-  %3914 = xor i32 %3910, %3913
-  %3915 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3916 = getelementptr inbounds [16 x i32], ptr %3915, i64 0, i64 0
-  %3917 = load i32, ptr %3916, align 4
-  %3918 = xor i32 %3914, %3917
-  %3919 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3920 = getelementptr inbounds [16 x i32], ptr %3919, i64 0, i64 14
-  %3921 = load i32, ptr %3920, align 4
-  %3922 = xor i32 %3918, %3921
-  %3923 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3922, ptr %3923, align 4
-  %3924 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3925 = load i32, ptr %3924, align 4
-  %3926 = shl i32 %3925, 1
-  %3927 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3928 = load i32, ptr %3927, align 4
-  %3929 = and i32 %3928, -1
-  %3930 = lshr i32 %3929, 31
-  %3931 = or i32 %3926, %3930
-  %3932 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3933 = getelementptr inbounds [16 x i32], ptr %3932, i64 0, i64 14
-  store i32 %3931, ptr %3933, align 4
-  %3934 = add i32 %3907, %3931
-  %3935 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3936 = load i32, ptr %3935, align 4
-  %3937 = add i32 %3936, %3934
-  store i32 %3937, ptr %3935, align 4
-  %3938 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3939 = load i32, ptr %3938, align 4
-  %3940 = shl i32 %3939, 30
-  %3941 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3942 = load i32, ptr %3941, align 4
-  %3943 = and i32 %3942, -1
-  %3944 = lshr i32 %3943, 2
-  %3945 = or i32 %3940, %3944
-  %3946 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %3945, ptr %3946, align 4
-  br label %3947
+3897:                                             ; preds = %3839
+  br label %3898
 
-3947:                                             ; preds = %3889
-  br label %3948
+3898:                                             ; preds = %3897
+  br label %3899
 
-3948:                                             ; preds = %3947
-  %3949 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3950 = load i32, ptr %3949, align 4
-  %3951 = shl i32 %3950, 5
-  %3952 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %3953 = load i32, ptr %3952, align 4
-  %3954 = and i32 %3953, -1
-  %3955 = lshr i32 %3954, 27
-  %3956 = or i32 %3951, %3955
-  %3957 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3958 = load i32, ptr %3957, align 4
-  %3959 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %3960 = load i32, ptr %3959, align 4
-  %3961 = xor i32 %3958, %3960
-  %3962 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %3963 = load i32, ptr %3962, align 4
-  %3964 = xor i32 %3961, %3963
-  %3965 = add i32 %3956, %3964
-  %3966 = add i32 %3965, -899497514
-  %3967 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3968 = getelementptr inbounds [16 x i32], ptr %3967, i64 0, i64 12
-  %3969 = load i32, ptr %3968, align 4
-  %3970 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3971 = getelementptr inbounds [16 x i32], ptr %3970, i64 0, i64 7
-  %3972 = load i32, ptr %3971, align 4
-  %3973 = xor i32 %3969, %3972
-  %3974 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3975 = getelementptr inbounds [16 x i32], ptr %3974, i64 0, i64 1
-  %3976 = load i32, ptr %3975, align 4
-  %3977 = xor i32 %3973, %3976
-  %3978 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3979 = getelementptr inbounds [16 x i32], ptr %3978, i64 0, i64 15
-  %3980 = load i32, ptr %3979, align 4
-  %3981 = xor i32 %3977, %3980
-  %3982 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %3981, ptr %3982, align 4
-  %3983 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3984 = load i32, ptr %3983, align 4
-  %3985 = shl i32 %3984, 1
-  %3986 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %3987 = load i32, ptr %3986, align 4
-  %3988 = and i32 %3987, -1
-  %3989 = lshr i32 %3988, 31
-  %3990 = or i32 %3985, %3989
-  %3991 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %3992 = getelementptr inbounds [16 x i32], ptr %3991, i64 0, i64 15
-  store i32 %3990, ptr %3992, align 4
-  %3993 = add i32 %3966, %3990
-  %3994 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %3995 = load i32, ptr %3994, align 4
-  %3996 = add i32 %3995, %3993
-  store i32 %3996, ptr %3994, align 4
-  %3997 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %3998 = load i32, ptr %3997, align 4
-  %3999 = shl i32 %3998, 30
-  %4000 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4001 = load i32, ptr %4000, align 4
-  %4002 = and i32 %4001, -1
-  %4003 = lshr i32 %4002, 2
-  %4004 = or i32 %3999, %4003
-  %4005 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %4004, ptr %4005, align 4
-  br label %4006
+3899:                                             ; preds = %3898
+  %3900 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3901 = load i32, ptr %3900, align 4, !tbaa !19
+  %3902 = shl i32 %3901, 5
+  %3903 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3904 = load i32, ptr %3903, align 4, !tbaa !19
+  %3905 = and i32 %3904, -1
+  %3906 = lshr i32 %3905, 27
+  %3907 = or i32 %3902, %3906
+  %3908 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3909 = load i32, ptr %3908, align 4, !tbaa !14
+  %3910 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3911 = load i32, ptr %3910, align 4, !tbaa !16
+  %3912 = xor i32 %3909, %3911
+  %3913 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %3914 = load i32, ptr %3913, align 4, !tbaa !17
+  %3915 = xor i32 %3912, %3914
+  %3916 = add i32 %3907, %3915
+  %3917 = add i32 %3916, -899497514
+  %3918 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3919 = getelementptr inbounds [16 x i32], ptr %3918, i64 0, i64 15
+  %3920 = load i32, ptr %3919, align 4, !tbaa !10
+  %3921 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3922 = getelementptr inbounds [16 x i32], ptr %3921, i64 0, i64 10
+  %3923 = load i32, ptr %3922, align 4, !tbaa !10
+  %3924 = xor i32 %3920, %3923
+  %3925 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3926 = getelementptr inbounds [16 x i32], ptr %3925, i64 0, i64 4
+  %3927 = load i32, ptr %3926, align 4, !tbaa !10
+  %3928 = xor i32 %3924, %3927
+  %3929 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3930 = getelementptr inbounds [16 x i32], ptr %3929, i64 0, i64 2
+  %3931 = load i32, ptr %3930, align 4, !tbaa !10
+  %3932 = xor i32 %3928, %3931
+  %3933 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3932, ptr %3933, align 4, !tbaa !20
+  %3934 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3935 = load i32, ptr %3934, align 4, !tbaa !20
+  %3936 = shl i32 %3935, 1
+  %3937 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3938 = load i32, ptr %3937, align 4, !tbaa !20
+  %3939 = and i32 %3938, -1
+  %3940 = lshr i32 %3939, 31
+  %3941 = or i32 %3936, %3940
+  %3942 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3943 = getelementptr inbounds [16 x i32], ptr %3942, i64 0, i64 2
+  store i32 %3941, ptr %3943, align 4, !tbaa !10
+  %3944 = add i32 %3917, %3941
+  %3945 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3946 = load i32, ptr %3945, align 4, !tbaa !18
+  %3947 = add i32 %3946, %3944
+  store i32 %3947, ptr %3945, align 4, !tbaa !18
+  %3948 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3949 = load i32, ptr %3948, align 4, !tbaa !14
+  %3950 = shl i32 %3949, 30
+  %3951 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3952 = load i32, ptr %3951, align 4, !tbaa !14
+  %3953 = and i32 %3952, -1
+  %3954 = lshr i32 %3953, 2
+  %3955 = or i32 %3950, %3954
+  %3956 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %3955, ptr %3956, align 4, !tbaa !14
+  br label %3957
 
-4006:                                             ; preds = %3948
-  br label %4007
+3957:                                             ; preds = %3899
+  br label %3958
 
-4007:                                             ; preds = %4006
-  %4008 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4009 = load i32, ptr %4008, align 4
-  %4010 = shl i32 %4009, 5
-  %4011 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4012 = load i32, ptr %4011, align 4
+3958:                                             ; preds = %3957
+  br label %3959
+
+3959:                                             ; preds = %3958
+  %3960 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3961 = load i32, ptr %3960, align 4, !tbaa !18
+  %3962 = shl i32 %3961, 5
+  %3963 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %3964 = load i32, ptr %3963, align 4, !tbaa !18
+  %3965 = and i32 %3964, -1
+  %3966 = lshr i32 %3965, 27
+  %3967 = or i32 %3962, %3966
+  %3968 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %3969 = load i32, ptr %3968, align 4, !tbaa !19
+  %3970 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %3971 = load i32, ptr %3970, align 4, !tbaa !14
+  %3972 = xor i32 %3969, %3971
+  %3973 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %3974 = load i32, ptr %3973, align 4, !tbaa !16
+  %3975 = xor i32 %3972, %3974
+  %3976 = add i32 %3967, %3975
+  %3977 = add i32 %3976, -899497514
+  %3978 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3979 = getelementptr inbounds [16 x i32], ptr %3978, i64 0, i64 0
+  %3980 = load i32, ptr %3979, align 4, !tbaa !10
+  %3981 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3982 = getelementptr inbounds [16 x i32], ptr %3981, i64 0, i64 11
+  %3983 = load i32, ptr %3982, align 4, !tbaa !10
+  %3984 = xor i32 %3980, %3983
+  %3985 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3986 = getelementptr inbounds [16 x i32], ptr %3985, i64 0, i64 5
+  %3987 = load i32, ptr %3986, align 4, !tbaa !10
+  %3988 = xor i32 %3984, %3987
+  %3989 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %3990 = getelementptr inbounds [16 x i32], ptr %3989, i64 0, i64 3
+  %3991 = load i32, ptr %3990, align 4, !tbaa !10
+  %3992 = xor i32 %3988, %3991
+  %3993 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %3992, ptr %3993, align 4, !tbaa !20
+  %3994 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3995 = load i32, ptr %3994, align 4, !tbaa !20
+  %3996 = shl i32 %3995, 1
+  %3997 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %3998 = load i32, ptr %3997, align 4, !tbaa !20
+  %3999 = and i32 %3998, -1
+  %4000 = lshr i32 %3999, 31
+  %4001 = or i32 %3996, %4000
+  %4002 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4003 = getelementptr inbounds [16 x i32], ptr %4002, i64 0, i64 3
+  store i32 %4001, ptr %4003, align 4, !tbaa !10
+  %4004 = add i32 %3977, %4001
+  %4005 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4006 = load i32, ptr %4005, align 4, !tbaa !17
+  %4007 = add i32 %4006, %4004
+  store i32 %4007, ptr %4005, align 4, !tbaa !17
+  %4008 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4009 = load i32, ptr %4008, align 4, !tbaa !19
+  %4010 = shl i32 %4009, 30
+  %4011 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4012 = load i32, ptr %4011, align 4, !tbaa !19
   %4013 = and i32 %4012, -1
-  %4014 = lshr i32 %4013, 27
+  %4014 = lshr i32 %4013, 2
   %4015 = or i32 %4010, %4014
-  %4016 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4017 = load i32, ptr %4016, align 4
-  %4018 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4019 = load i32, ptr %4018, align 4
-  %4020 = xor i32 %4017, %4019
-  %4021 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4022 = load i32, ptr %4021, align 4
-  %4023 = xor i32 %4020, %4022
-  %4024 = add i32 %4015, %4023
-  %4025 = add i32 %4024, -899497514
-  %4026 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4027 = getelementptr inbounds [16 x i32], ptr %4026, i64 0, i64 13
-  %4028 = load i32, ptr %4027, align 4
-  %4029 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4030 = getelementptr inbounds [16 x i32], ptr %4029, i64 0, i64 8
-  %4031 = load i32, ptr %4030, align 4
-  %4032 = xor i32 %4028, %4031
-  %4033 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4034 = getelementptr inbounds [16 x i32], ptr %4033, i64 0, i64 2
-  %4035 = load i32, ptr %4034, align 4
-  %4036 = xor i32 %4032, %4035
-  %4037 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4038 = getelementptr inbounds [16 x i32], ptr %4037, i64 0, i64 0
-  %4039 = load i32, ptr %4038, align 4
-  %4040 = xor i32 %4036, %4039
-  %4041 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4040, ptr %4041, align 4
-  %4042 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4043 = load i32, ptr %4042, align 4
-  %4044 = shl i32 %4043, 1
-  %4045 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4046 = load i32, ptr %4045, align 4
-  %4047 = and i32 %4046, -1
-  %4048 = lshr i32 %4047, 31
-  %4049 = or i32 %4044, %4048
-  %4050 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4051 = getelementptr inbounds [16 x i32], ptr %4050, i64 0, i64 0
-  store i32 %4049, ptr %4051, align 4
-  %4052 = add i32 %4025, %4049
-  %4053 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4054 = load i32, ptr %4053, align 4
-  %4055 = add i32 %4054, %4052
-  store i32 %4055, ptr %4053, align 4
-  %4056 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4057 = load i32, ptr %4056, align 4
-  %4058 = shl i32 %4057, 30
-  %4059 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4060 = load i32, ptr %4059, align 4
-  %4061 = and i32 %4060, -1
-  %4062 = lshr i32 %4061, 2
-  %4063 = or i32 %4058, %4062
-  %4064 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %4063, ptr %4064, align 4
-  br label %4065
+  %4016 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %4015, ptr %4016, align 4, !tbaa !19
+  br label %4017
 
-4065:                                             ; preds = %4007
-  br label %4066
+4017:                                             ; preds = %3959
+  br label %4018
 
-4066:                                             ; preds = %4065
-  %4067 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4068 = load i32, ptr %4067, align 4
-  %4069 = shl i32 %4068, 5
-  %4070 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4071 = load i32, ptr %4070, align 4
-  %4072 = and i32 %4071, -1
-  %4073 = lshr i32 %4072, 27
-  %4074 = or i32 %4069, %4073
-  %4075 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4076 = load i32, ptr %4075, align 4
-  %4077 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4078 = load i32, ptr %4077, align 4
-  %4079 = xor i32 %4076, %4078
-  %4080 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4081 = load i32, ptr %4080, align 4
-  %4082 = xor i32 %4079, %4081
-  %4083 = add i32 %4074, %4082
-  %4084 = add i32 %4083, -899497514
-  %4085 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4086 = getelementptr inbounds [16 x i32], ptr %4085, i64 0, i64 14
-  %4087 = load i32, ptr %4086, align 4
-  %4088 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4089 = getelementptr inbounds [16 x i32], ptr %4088, i64 0, i64 9
-  %4090 = load i32, ptr %4089, align 4
-  %4091 = xor i32 %4087, %4090
-  %4092 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4093 = getelementptr inbounds [16 x i32], ptr %4092, i64 0, i64 3
-  %4094 = load i32, ptr %4093, align 4
-  %4095 = xor i32 %4091, %4094
-  %4096 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4097 = getelementptr inbounds [16 x i32], ptr %4096, i64 0, i64 1
-  %4098 = load i32, ptr %4097, align 4
-  %4099 = xor i32 %4095, %4098
-  %4100 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4099, ptr %4100, align 4
-  %4101 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4102 = load i32, ptr %4101, align 4
-  %4103 = shl i32 %4102, 1
-  %4104 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4105 = load i32, ptr %4104, align 4
-  %4106 = and i32 %4105, -1
-  %4107 = lshr i32 %4106, 31
-  %4108 = or i32 %4103, %4107
-  %4109 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4110 = getelementptr inbounds [16 x i32], ptr %4109, i64 0, i64 1
-  store i32 %4108, ptr %4110, align 4
-  %4111 = add i32 %4084, %4108
-  %4112 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4113 = load i32, ptr %4112, align 4
-  %4114 = add i32 %4113, %4111
-  store i32 %4114, ptr %4112, align 4
-  %4115 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4116 = load i32, ptr %4115, align 4
-  %4117 = shl i32 %4116, 30
-  %4118 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4119 = load i32, ptr %4118, align 4
-  %4120 = and i32 %4119, -1
-  %4121 = lshr i32 %4120, 2
-  %4122 = or i32 %4117, %4121
-  %4123 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %4122, ptr %4123, align 4
-  br label %4124
+4018:                                             ; preds = %4017
+  br label %4019
 
-4124:                                             ; preds = %4066
-  br label %4125
+4019:                                             ; preds = %4018
+  %4020 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4021 = load i32, ptr %4020, align 4, !tbaa !17
+  %4022 = shl i32 %4021, 5
+  %4023 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4024 = load i32, ptr %4023, align 4, !tbaa !17
+  %4025 = and i32 %4024, -1
+  %4026 = lshr i32 %4025, 27
+  %4027 = or i32 %4022, %4026
+  %4028 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4029 = load i32, ptr %4028, align 4, !tbaa !18
+  %4030 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4031 = load i32, ptr %4030, align 4, !tbaa !19
+  %4032 = xor i32 %4029, %4031
+  %4033 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4034 = load i32, ptr %4033, align 4, !tbaa !14
+  %4035 = xor i32 %4032, %4034
+  %4036 = add i32 %4027, %4035
+  %4037 = add i32 %4036, -899497514
+  %4038 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4039 = getelementptr inbounds [16 x i32], ptr %4038, i64 0, i64 1
+  %4040 = load i32, ptr %4039, align 4, !tbaa !10
+  %4041 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4042 = getelementptr inbounds [16 x i32], ptr %4041, i64 0, i64 12
+  %4043 = load i32, ptr %4042, align 4, !tbaa !10
+  %4044 = xor i32 %4040, %4043
+  %4045 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4046 = getelementptr inbounds [16 x i32], ptr %4045, i64 0, i64 6
+  %4047 = load i32, ptr %4046, align 4, !tbaa !10
+  %4048 = xor i32 %4044, %4047
+  %4049 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4050 = getelementptr inbounds [16 x i32], ptr %4049, i64 0, i64 4
+  %4051 = load i32, ptr %4050, align 4, !tbaa !10
+  %4052 = xor i32 %4048, %4051
+  %4053 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4052, ptr %4053, align 4, !tbaa !20
+  %4054 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4055 = load i32, ptr %4054, align 4, !tbaa !20
+  %4056 = shl i32 %4055, 1
+  %4057 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4058 = load i32, ptr %4057, align 4, !tbaa !20
+  %4059 = and i32 %4058, -1
+  %4060 = lshr i32 %4059, 31
+  %4061 = or i32 %4056, %4060
+  %4062 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4063 = getelementptr inbounds [16 x i32], ptr %4062, i64 0, i64 4
+  store i32 %4061, ptr %4063, align 4, !tbaa !10
+  %4064 = add i32 %4037, %4061
+  %4065 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4066 = load i32, ptr %4065, align 4, !tbaa !16
+  %4067 = add i32 %4066, %4064
+  store i32 %4067, ptr %4065, align 4, !tbaa !16
+  %4068 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4069 = load i32, ptr %4068, align 4, !tbaa !18
+  %4070 = shl i32 %4069, 30
+  %4071 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4072 = load i32, ptr %4071, align 4, !tbaa !18
+  %4073 = and i32 %4072, -1
+  %4074 = lshr i32 %4073, 2
+  %4075 = or i32 %4070, %4074
+  %4076 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %4075, ptr %4076, align 4, !tbaa !18
+  br label %4077
 
-4125:                                             ; preds = %4124
-  %4126 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4127 = load i32, ptr %4126, align 4
-  %4128 = shl i32 %4127, 5
-  %4129 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4130 = load i32, ptr %4129, align 4
-  %4131 = and i32 %4130, -1
-  %4132 = lshr i32 %4131, 27
-  %4133 = or i32 %4128, %4132
-  %4134 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4135 = load i32, ptr %4134, align 4
-  %4136 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4137 = load i32, ptr %4136, align 4
-  %4138 = xor i32 %4135, %4137
-  %4139 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4140 = load i32, ptr %4139, align 4
-  %4141 = xor i32 %4138, %4140
-  %4142 = add i32 %4133, %4141
-  %4143 = add i32 %4142, -899497514
-  %4144 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4145 = getelementptr inbounds [16 x i32], ptr %4144, i64 0, i64 15
-  %4146 = load i32, ptr %4145, align 4
-  %4147 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4148 = getelementptr inbounds [16 x i32], ptr %4147, i64 0, i64 10
-  %4149 = load i32, ptr %4148, align 4
-  %4150 = xor i32 %4146, %4149
-  %4151 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4152 = getelementptr inbounds [16 x i32], ptr %4151, i64 0, i64 4
-  %4153 = load i32, ptr %4152, align 4
-  %4154 = xor i32 %4150, %4153
-  %4155 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4156 = getelementptr inbounds [16 x i32], ptr %4155, i64 0, i64 2
-  %4157 = load i32, ptr %4156, align 4
-  %4158 = xor i32 %4154, %4157
-  %4159 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4158, ptr %4159, align 4
-  %4160 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4161 = load i32, ptr %4160, align 4
-  %4162 = shl i32 %4161, 1
-  %4163 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4164 = load i32, ptr %4163, align 4
-  %4165 = and i32 %4164, -1
-  %4166 = lshr i32 %4165, 31
-  %4167 = or i32 %4162, %4166
-  %4168 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4169 = getelementptr inbounds [16 x i32], ptr %4168, i64 0, i64 2
-  store i32 %4167, ptr %4169, align 4
-  %4170 = add i32 %4143, %4167
-  %4171 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4172 = load i32, ptr %4171, align 4
-  %4173 = add i32 %4172, %4170
-  store i32 %4173, ptr %4171, align 4
-  %4174 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4175 = load i32, ptr %4174, align 4
-  %4176 = shl i32 %4175, 30
-  %4177 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4178 = load i32, ptr %4177, align 4
+4077:                                             ; preds = %4019
+  br label %4078
+
+4078:                                             ; preds = %4077
+  br label %4079
+
+4079:                                             ; preds = %4078
+  %4080 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4081 = load i32, ptr %4080, align 4, !tbaa !16
+  %4082 = shl i32 %4081, 5
+  %4083 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4084 = load i32, ptr %4083, align 4, !tbaa !16
+  %4085 = and i32 %4084, -1
+  %4086 = lshr i32 %4085, 27
+  %4087 = or i32 %4082, %4086
+  %4088 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4089 = load i32, ptr %4088, align 4, !tbaa !17
+  %4090 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4091 = load i32, ptr %4090, align 4, !tbaa !18
+  %4092 = xor i32 %4089, %4091
+  %4093 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4094 = load i32, ptr %4093, align 4, !tbaa !19
+  %4095 = xor i32 %4092, %4094
+  %4096 = add i32 %4087, %4095
+  %4097 = add i32 %4096, -899497514
+  %4098 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4099 = getelementptr inbounds [16 x i32], ptr %4098, i64 0, i64 2
+  %4100 = load i32, ptr %4099, align 4, !tbaa !10
+  %4101 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4102 = getelementptr inbounds [16 x i32], ptr %4101, i64 0, i64 13
+  %4103 = load i32, ptr %4102, align 4, !tbaa !10
+  %4104 = xor i32 %4100, %4103
+  %4105 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4106 = getelementptr inbounds [16 x i32], ptr %4105, i64 0, i64 7
+  %4107 = load i32, ptr %4106, align 4, !tbaa !10
+  %4108 = xor i32 %4104, %4107
+  %4109 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4110 = getelementptr inbounds [16 x i32], ptr %4109, i64 0, i64 5
+  %4111 = load i32, ptr %4110, align 4, !tbaa !10
+  %4112 = xor i32 %4108, %4111
+  %4113 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4112, ptr %4113, align 4, !tbaa !20
+  %4114 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4115 = load i32, ptr %4114, align 4, !tbaa !20
+  %4116 = shl i32 %4115, 1
+  %4117 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4118 = load i32, ptr %4117, align 4, !tbaa !20
+  %4119 = and i32 %4118, -1
+  %4120 = lshr i32 %4119, 31
+  %4121 = or i32 %4116, %4120
+  %4122 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4123 = getelementptr inbounds [16 x i32], ptr %4122, i64 0, i64 5
+  store i32 %4121, ptr %4123, align 4, !tbaa !10
+  %4124 = add i32 %4097, %4121
+  %4125 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4126 = load i32, ptr %4125, align 4, !tbaa !14
+  %4127 = add i32 %4126, %4124
+  store i32 %4127, ptr %4125, align 4, !tbaa !14
+  %4128 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4129 = load i32, ptr %4128, align 4, !tbaa !17
+  %4130 = shl i32 %4129, 30
+  %4131 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4132 = load i32, ptr %4131, align 4, !tbaa !17
+  %4133 = and i32 %4132, -1
+  %4134 = lshr i32 %4133, 2
+  %4135 = or i32 %4130, %4134
+  %4136 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %4135, ptr %4136, align 4, !tbaa !17
+  br label %4137
+
+4137:                                             ; preds = %4079
+  br label %4138
+
+4138:                                             ; preds = %4137
+  br label %4139
+
+4139:                                             ; preds = %4138
+  %4140 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4141 = load i32, ptr %4140, align 4, !tbaa !14
+  %4142 = shl i32 %4141, 5
+  %4143 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4144 = load i32, ptr %4143, align 4, !tbaa !14
+  %4145 = and i32 %4144, -1
+  %4146 = lshr i32 %4145, 27
+  %4147 = or i32 %4142, %4146
+  %4148 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4149 = load i32, ptr %4148, align 4, !tbaa !16
+  %4150 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4151 = load i32, ptr %4150, align 4, !tbaa !17
+  %4152 = xor i32 %4149, %4151
+  %4153 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4154 = load i32, ptr %4153, align 4, !tbaa !18
+  %4155 = xor i32 %4152, %4154
+  %4156 = add i32 %4147, %4155
+  %4157 = add i32 %4156, -899497514
+  %4158 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4159 = getelementptr inbounds [16 x i32], ptr %4158, i64 0, i64 3
+  %4160 = load i32, ptr %4159, align 4, !tbaa !10
+  %4161 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4162 = getelementptr inbounds [16 x i32], ptr %4161, i64 0, i64 14
+  %4163 = load i32, ptr %4162, align 4, !tbaa !10
+  %4164 = xor i32 %4160, %4163
+  %4165 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4166 = getelementptr inbounds [16 x i32], ptr %4165, i64 0, i64 8
+  %4167 = load i32, ptr %4166, align 4, !tbaa !10
+  %4168 = xor i32 %4164, %4167
+  %4169 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4170 = getelementptr inbounds [16 x i32], ptr %4169, i64 0, i64 6
+  %4171 = load i32, ptr %4170, align 4, !tbaa !10
+  %4172 = xor i32 %4168, %4171
+  %4173 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4172, ptr %4173, align 4, !tbaa !20
+  %4174 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4175 = load i32, ptr %4174, align 4, !tbaa !20
+  %4176 = shl i32 %4175, 1
+  %4177 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4178 = load i32, ptr %4177, align 4, !tbaa !20
   %4179 = and i32 %4178, -1
-  %4180 = lshr i32 %4179, 2
+  %4180 = lshr i32 %4179, 31
   %4181 = or i32 %4176, %4180
-  %4182 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %4181, ptr %4182, align 4
-  br label %4183
+  %4182 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4183 = getelementptr inbounds [16 x i32], ptr %4182, i64 0, i64 6
+  store i32 %4181, ptr %4183, align 4, !tbaa !10
+  %4184 = add i32 %4157, %4181
+  %4185 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4186 = load i32, ptr %4185, align 4, !tbaa !19
+  %4187 = add i32 %4186, %4184
+  store i32 %4187, ptr %4185, align 4, !tbaa !19
+  %4188 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4189 = load i32, ptr %4188, align 4, !tbaa !16
+  %4190 = shl i32 %4189, 30
+  %4191 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4192 = load i32, ptr %4191, align 4, !tbaa !16
+  %4193 = and i32 %4192, -1
+  %4194 = lshr i32 %4193, 2
+  %4195 = or i32 %4190, %4194
+  %4196 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %4195, ptr %4196, align 4, !tbaa !16
+  br label %4197
 
-4183:                                             ; preds = %4125
-  br label %4184
+4197:                                             ; preds = %4139
+  br label %4198
 
-4184:                                             ; preds = %4183
-  %4185 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4186 = load i32, ptr %4185, align 4
-  %4187 = shl i32 %4186, 5
-  %4188 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4189 = load i32, ptr %4188, align 4
-  %4190 = and i32 %4189, -1
-  %4191 = lshr i32 %4190, 27
-  %4192 = or i32 %4187, %4191
-  %4193 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4194 = load i32, ptr %4193, align 4
-  %4195 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4196 = load i32, ptr %4195, align 4
-  %4197 = xor i32 %4194, %4196
-  %4198 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4199 = load i32, ptr %4198, align 4
-  %4200 = xor i32 %4197, %4199
-  %4201 = add i32 %4192, %4200
-  %4202 = add i32 %4201, -899497514
-  %4203 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4204 = getelementptr inbounds [16 x i32], ptr %4203, i64 0, i64 0
-  %4205 = load i32, ptr %4204, align 4
-  %4206 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4207 = getelementptr inbounds [16 x i32], ptr %4206, i64 0, i64 11
-  %4208 = load i32, ptr %4207, align 4
-  %4209 = xor i32 %4205, %4208
-  %4210 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4211 = getelementptr inbounds [16 x i32], ptr %4210, i64 0, i64 5
-  %4212 = load i32, ptr %4211, align 4
-  %4213 = xor i32 %4209, %4212
-  %4214 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4215 = getelementptr inbounds [16 x i32], ptr %4214, i64 0, i64 3
-  %4216 = load i32, ptr %4215, align 4
-  %4217 = xor i32 %4213, %4216
-  %4218 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4217, ptr %4218, align 4
-  %4219 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4220 = load i32, ptr %4219, align 4
-  %4221 = shl i32 %4220, 1
-  %4222 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4223 = load i32, ptr %4222, align 4
-  %4224 = and i32 %4223, -1
-  %4225 = lshr i32 %4224, 31
-  %4226 = or i32 %4221, %4225
-  %4227 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4228 = getelementptr inbounds [16 x i32], ptr %4227, i64 0, i64 3
-  store i32 %4226, ptr %4228, align 4
-  %4229 = add i32 %4202, %4226
-  %4230 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4231 = load i32, ptr %4230, align 4
-  %4232 = add i32 %4231, %4229
-  store i32 %4232, ptr %4230, align 4
-  %4233 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4234 = load i32, ptr %4233, align 4
-  %4235 = shl i32 %4234, 30
-  %4236 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4237 = load i32, ptr %4236, align 4
-  %4238 = and i32 %4237, -1
-  %4239 = lshr i32 %4238, 2
-  %4240 = or i32 %4235, %4239
-  %4241 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %4240, ptr %4241, align 4
-  br label %4242
+4198:                                             ; preds = %4197
+  br label %4199
 
-4242:                                             ; preds = %4184
-  br label %4243
+4199:                                             ; preds = %4198
+  %4200 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4201 = load i32, ptr %4200, align 4, !tbaa !19
+  %4202 = shl i32 %4201, 5
+  %4203 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4204 = load i32, ptr %4203, align 4, !tbaa !19
+  %4205 = and i32 %4204, -1
+  %4206 = lshr i32 %4205, 27
+  %4207 = or i32 %4202, %4206
+  %4208 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4209 = load i32, ptr %4208, align 4, !tbaa !14
+  %4210 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4211 = load i32, ptr %4210, align 4, !tbaa !16
+  %4212 = xor i32 %4209, %4211
+  %4213 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4214 = load i32, ptr %4213, align 4, !tbaa !17
+  %4215 = xor i32 %4212, %4214
+  %4216 = add i32 %4207, %4215
+  %4217 = add i32 %4216, -899497514
+  %4218 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4219 = getelementptr inbounds [16 x i32], ptr %4218, i64 0, i64 4
+  %4220 = load i32, ptr %4219, align 4, !tbaa !10
+  %4221 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4222 = getelementptr inbounds [16 x i32], ptr %4221, i64 0, i64 15
+  %4223 = load i32, ptr %4222, align 4, !tbaa !10
+  %4224 = xor i32 %4220, %4223
+  %4225 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4226 = getelementptr inbounds [16 x i32], ptr %4225, i64 0, i64 9
+  %4227 = load i32, ptr %4226, align 4, !tbaa !10
+  %4228 = xor i32 %4224, %4227
+  %4229 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4230 = getelementptr inbounds [16 x i32], ptr %4229, i64 0, i64 7
+  %4231 = load i32, ptr %4230, align 4, !tbaa !10
+  %4232 = xor i32 %4228, %4231
+  %4233 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4232, ptr %4233, align 4, !tbaa !20
+  %4234 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4235 = load i32, ptr %4234, align 4, !tbaa !20
+  %4236 = shl i32 %4235, 1
+  %4237 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4238 = load i32, ptr %4237, align 4, !tbaa !20
+  %4239 = and i32 %4238, -1
+  %4240 = lshr i32 %4239, 31
+  %4241 = or i32 %4236, %4240
+  %4242 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4243 = getelementptr inbounds [16 x i32], ptr %4242, i64 0, i64 7
+  store i32 %4241, ptr %4243, align 4, !tbaa !10
+  %4244 = add i32 %4217, %4241
+  %4245 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4246 = load i32, ptr %4245, align 4, !tbaa !18
+  %4247 = add i32 %4246, %4244
+  store i32 %4247, ptr %4245, align 4, !tbaa !18
+  %4248 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4249 = load i32, ptr %4248, align 4, !tbaa !14
+  %4250 = shl i32 %4249, 30
+  %4251 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4252 = load i32, ptr %4251, align 4, !tbaa !14
+  %4253 = and i32 %4252, -1
+  %4254 = lshr i32 %4253, 2
+  %4255 = or i32 %4250, %4254
+  %4256 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %4255, ptr %4256, align 4, !tbaa !14
+  br label %4257
 
-4243:                                             ; preds = %4242
-  %4244 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4245 = load i32, ptr %4244, align 4
-  %4246 = shl i32 %4245, 5
-  %4247 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4248 = load i32, ptr %4247, align 4
-  %4249 = and i32 %4248, -1
-  %4250 = lshr i32 %4249, 27
-  %4251 = or i32 %4246, %4250
-  %4252 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4253 = load i32, ptr %4252, align 4
-  %4254 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4255 = load i32, ptr %4254, align 4
-  %4256 = xor i32 %4253, %4255
-  %4257 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4258 = load i32, ptr %4257, align 4
-  %4259 = xor i32 %4256, %4258
-  %4260 = add i32 %4251, %4259
-  %4261 = add i32 %4260, -899497514
-  %4262 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4263 = getelementptr inbounds [16 x i32], ptr %4262, i64 0, i64 1
-  %4264 = load i32, ptr %4263, align 4
-  %4265 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4266 = getelementptr inbounds [16 x i32], ptr %4265, i64 0, i64 12
-  %4267 = load i32, ptr %4266, align 4
-  %4268 = xor i32 %4264, %4267
-  %4269 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4270 = getelementptr inbounds [16 x i32], ptr %4269, i64 0, i64 6
-  %4271 = load i32, ptr %4270, align 4
-  %4272 = xor i32 %4268, %4271
-  %4273 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4274 = getelementptr inbounds [16 x i32], ptr %4273, i64 0, i64 4
-  %4275 = load i32, ptr %4274, align 4
-  %4276 = xor i32 %4272, %4275
-  %4277 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4276, ptr %4277, align 4
-  %4278 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4279 = load i32, ptr %4278, align 4
-  %4280 = shl i32 %4279, 1
-  %4281 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4282 = load i32, ptr %4281, align 4
-  %4283 = and i32 %4282, -1
-  %4284 = lshr i32 %4283, 31
-  %4285 = or i32 %4280, %4284
-  %4286 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4287 = getelementptr inbounds [16 x i32], ptr %4286, i64 0, i64 4
-  store i32 %4285, ptr %4287, align 4
-  %4288 = add i32 %4261, %4285
-  %4289 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4290 = load i32, ptr %4289, align 4
-  %4291 = add i32 %4290, %4288
-  store i32 %4291, ptr %4289, align 4
-  %4292 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4293 = load i32, ptr %4292, align 4
-  %4294 = shl i32 %4293, 30
-  %4295 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4296 = load i32, ptr %4295, align 4
-  %4297 = and i32 %4296, -1
-  %4298 = lshr i32 %4297, 2
-  %4299 = or i32 %4294, %4298
-  %4300 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %4299, ptr %4300, align 4
-  br label %4301
+4257:                                             ; preds = %4199
+  br label %4258
 
-4301:                                             ; preds = %4243
-  br label %4302
+4258:                                             ; preds = %4257
+  br label %4259
 
-4302:                                             ; preds = %4301
-  %4303 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4304 = load i32, ptr %4303, align 4
-  %4305 = shl i32 %4304, 5
-  %4306 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4307 = load i32, ptr %4306, align 4
-  %4308 = and i32 %4307, -1
-  %4309 = lshr i32 %4308, 27
-  %4310 = or i32 %4305, %4309
-  %4311 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4312 = load i32, ptr %4311, align 4
-  %4313 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4314 = load i32, ptr %4313, align 4
-  %4315 = xor i32 %4312, %4314
-  %4316 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4317 = load i32, ptr %4316, align 4
-  %4318 = xor i32 %4315, %4317
-  %4319 = add i32 %4310, %4318
-  %4320 = add i32 %4319, -899497514
-  %4321 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4322 = getelementptr inbounds [16 x i32], ptr %4321, i64 0, i64 2
-  %4323 = load i32, ptr %4322, align 4
-  %4324 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4325 = getelementptr inbounds [16 x i32], ptr %4324, i64 0, i64 13
-  %4326 = load i32, ptr %4325, align 4
-  %4327 = xor i32 %4323, %4326
-  %4328 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4329 = getelementptr inbounds [16 x i32], ptr %4328, i64 0, i64 7
-  %4330 = load i32, ptr %4329, align 4
-  %4331 = xor i32 %4327, %4330
-  %4332 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4333 = getelementptr inbounds [16 x i32], ptr %4332, i64 0, i64 5
-  %4334 = load i32, ptr %4333, align 4
-  %4335 = xor i32 %4331, %4334
-  %4336 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4335, ptr %4336, align 4
-  %4337 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4338 = load i32, ptr %4337, align 4
-  %4339 = shl i32 %4338, 1
-  %4340 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4341 = load i32, ptr %4340, align 4
-  %4342 = and i32 %4341, -1
-  %4343 = lshr i32 %4342, 31
-  %4344 = or i32 %4339, %4343
-  %4345 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4346 = getelementptr inbounds [16 x i32], ptr %4345, i64 0, i64 5
-  store i32 %4344, ptr %4346, align 4
-  %4347 = add i32 %4320, %4344
-  %4348 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4349 = load i32, ptr %4348, align 4
-  %4350 = add i32 %4349, %4347
-  store i32 %4350, ptr %4348, align 4
-  %4351 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4352 = load i32, ptr %4351, align 4
-  %4353 = shl i32 %4352, 30
-  %4354 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4355 = load i32, ptr %4354, align 4
-  %4356 = and i32 %4355, -1
-  %4357 = lshr i32 %4356, 2
-  %4358 = or i32 %4353, %4357
-  %4359 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %4358, ptr %4359, align 4
-  br label %4360
+4259:                                             ; preds = %4258
+  %4260 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4261 = load i32, ptr %4260, align 4, !tbaa !18
+  %4262 = shl i32 %4261, 5
+  %4263 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4264 = load i32, ptr %4263, align 4, !tbaa !18
+  %4265 = and i32 %4264, -1
+  %4266 = lshr i32 %4265, 27
+  %4267 = or i32 %4262, %4266
+  %4268 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4269 = load i32, ptr %4268, align 4, !tbaa !19
+  %4270 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4271 = load i32, ptr %4270, align 4, !tbaa !14
+  %4272 = xor i32 %4269, %4271
+  %4273 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4274 = load i32, ptr %4273, align 4, !tbaa !16
+  %4275 = xor i32 %4272, %4274
+  %4276 = add i32 %4267, %4275
+  %4277 = add i32 %4276, -899497514
+  %4278 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4279 = getelementptr inbounds [16 x i32], ptr %4278, i64 0, i64 5
+  %4280 = load i32, ptr %4279, align 4, !tbaa !10
+  %4281 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4282 = getelementptr inbounds [16 x i32], ptr %4281, i64 0, i64 0
+  %4283 = load i32, ptr %4282, align 4, !tbaa !10
+  %4284 = xor i32 %4280, %4283
+  %4285 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4286 = getelementptr inbounds [16 x i32], ptr %4285, i64 0, i64 10
+  %4287 = load i32, ptr %4286, align 4, !tbaa !10
+  %4288 = xor i32 %4284, %4287
+  %4289 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4290 = getelementptr inbounds [16 x i32], ptr %4289, i64 0, i64 8
+  %4291 = load i32, ptr %4290, align 4, !tbaa !10
+  %4292 = xor i32 %4288, %4291
+  %4293 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4292, ptr %4293, align 4, !tbaa !20
+  %4294 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4295 = load i32, ptr %4294, align 4, !tbaa !20
+  %4296 = shl i32 %4295, 1
+  %4297 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4298 = load i32, ptr %4297, align 4, !tbaa !20
+  %4299 = and i32 %4298, -1
+  %4300 = lshr i32 %4299, 31
+  %4301 = or i32 %4296, %4300
+  %4302 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4303 = getelementptr inbounds [16 x i32], ptr %4302, i64 0, i64 8
+  store i32 %4301, ptr %4303, align 4, !tbaa !10
+  %4304 = add i32 %4277, %4301
+  %4305 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4306 = load i32, ptr %4305, align 4, !tbaa !17
+  %4307 = add i32 %4306, %4304
+  store i32 %4307, ptr %4305, align 4, !tbaa !17
+  %4308 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4309 = load i32, ptr %4308, align 4, !tbaa !19
+  %4310 = shl i32 %4309, 30
+  %4311 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4312 = load i32, ptr %4311, align 4, !tbaa !19
+  %4313 = and i32 %4312, -1
+  %4314 = lshr i32 %4313, 2
+  %4315 = or i32 %4310, %4314
+  %4316 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %4315, ptr %4316, align 4, !tbaa !19
+  br label %4317
 
-4360:                                             ; preds = %4302
-  br label %4361
+4317:                                             ; preds = %4259
+  br label %4318
 
-4361:                                             ; preds = %4360
-  %4362 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4363 = load i32, ptr %4362, align 4
-  %4364 = shl i32 %4363, 5
-  %4365 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4366 = load i32, ptr %4365, align 4
-  %4367 = and i32 %4366, -1
-  %4368 = lshr i32 %4367, 27
-  %4369 = or i32 %4364, %4368
-  %4370 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4371 = load i32, ptr %4370, align 4
-  %4372 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4373 = load i32, ptr %4372, align 4
-  %4374 = xor i32 %4371, %4373
-  %4375 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4376 = load i32, ptr %4375, align 4
-  %4377 = xor i32 %4374, %4376
-  %4378 = add i32 %4369, %4377
-  %4379 = add i32 %4378, -899497514
-  %4380 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4381 = getelementptr inbounds [16 x i32], ptr %4380, i64 0, i64 3
-  %4382 = load i32, ptr %4381, align 4
-  %4383 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4384 = getelementptr inbounds [16 x i32], ptr %4383, i64 0, i64 14
-  %4385 = load i32, ptr %4384, align 4
-  %4386 = xor i32 %4382, %4385
-  %4387 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4388 = getelementptr inbounds [16 x i32], ptr %4387, i64 0, i64 8
-  %4389 = load i32, ptr %4388, align 4
-  %4390 = xor i32 %4386, %4389
-  %4391 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4392 = getelementptr inbounds [16 x i32], ptr %4391, i64 0, i64 6
-  %4393 = load i32, ptr %4392, align 4
-  %4394 = xor i32 %4390, %4393
-  %4395 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4394, ptr %4395, align 4
-  %4396 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4397 = load i32, ptr %4396, align 4
-  %4398 = shl i32 %4397, 1
-  %4399 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4400 = load i32, ptr %4399, align 4
-  %4401 = and i32 %4400, -1
-  %4402 = lshr i32 %4401, 31
-  %4403 = or i32 %4398, %4402
-  %4404 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4405 = getelementptr inbounds [16 x i32], ptr %4404, i64 0, i64 6
-  store i32 %4403, ptr %4405, align 4
-  %4406 = add i32 %4379, %4403
-  %4407 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4408 = load i32, ptr %4407, align 4
-  %4409 = add i32 %4408, %4406
-  store i32 %4409, ptr %4407, align 4
-  %4410 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4411 = load i32, ptr %4410, align 4
-  %4412 = shl i32 %4411, 30
-  %4413 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4414 = load i32, ptr %4413, align 4
-  %4415 = and i32 %4414, -1
-  %4416 = lshr i32 %4415, 2
-  %4417 = or i32 %4412, %4416
-  %4418 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %4417, ptr %4418, align 4
-  br label %4419
+4318:                                             ; preds = %4317
+  br label %4319
 
-4419:                                             ; preds = %4361
-  br label %4420
+4319:                                             ; preds = %4318
+  %4320 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4321 = load i32, ptr %4320, align 4, !tbaa !17
+  %4322 = shl i32 %4321, 5
+  %4323 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4324 = load i32, ptr %4323, align 4, !tbaa !17
+  %4325 = and i32 %4324, -1
+  %4326 = lshr i32 %4325, 27
+  %4327 = or i32 %4322, %4326
+  %4328 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4329 = load i32, ptr %4328, align 4, !tbaa !18
+  %4330 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4331 = load i32, ptr %4330, align 4, !tbaa !19
+  %4332 = xor i32 %4329, %4331
+  %4333 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4334 = load i32, ptr %4333, align 4, !tbaa !14
+  %4335 = xor i32 %4332, %4334
+  %4336 = add i32 %4327, %4335
+  %4337 = add i32 %4336, -899497514
+  %4338 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4339 = getelementptr inbounds [16 x i32], ptr %4338, i64 0, i64 6
+  %4340 = load i32, ptr %4339, align 4, !tbaa !10
+  %4341 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4342 = getelementptr inbounds [16 x i32], ptr %4341, i64 0, i64 1
+  %4343 = load i32, ptr %4342, align 4, !tbaa !10
+  %4344 = xor i32 %4340, %4343
+  %4345 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4346 = getelementptr inbounds [16 x i32], ptr %4345, i64 0, i64 11
+  %4347 = load i32, ptr %4346, align 4, !tbaa !10
+  %4348 = xor i32 %4344, %4347
+  %4349 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4350 = getelementptr inbounds [16 x i32], ptr %4349, i64 0, i64 9
+  %4351 = load i32, ptr %4350, align 4, !tbaa !10
+  %4352 = xor i32 %4348, %4351
+  %4353 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4352, ptr %4353, align 4, !tbaa !20
+  %4354 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4355 = load i32, ptr %4354, align 4, !tbaa !20
+  %4356 = shl i32 %4355, 1
+  %4357 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4358 = load i32, ptr %4357, align 4, !tbaa !20
+  %4359 = and i32 %4358, -1
+  %4360 = lshr i32 %4359, 31
+  %4361 = or i32 %4356, %4360
+  %4362 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4363 = getelementptr inbounds [16 x i32], ptr %4362, i64 0, i64 9
+  store i32 %4361, ptr %4363, align 4, !tbaa !10
+  %4364 = add i32 %4337, %4361
+  %4365 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4366 = load i32, ptr %4365, align 4, !tbaa !16
+  %4367 = add i32 %4366, %4364
+  store i32 %4367, ptr %4365, align 4, !tbaa !16
+  %4368 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4369 = load i32, ptr %4368, align 4, !tbaa !18
+  %4370 = shl i32 %4369, 30
+  %4371 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4372 = load i32, ptr %4371, align 4, !tbaa !18
+  %4373 = and i32 %4372, -1
+  %4374 = lshr i32 %4373, 2
+  %4375 = or i32 %4370, %4374
+  %4376 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %4375, ptr %4376, align 4, !tbaa !18
+  br label %4377
 
-4420:                                             ; preds = %4419
-  %4421 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4422 = load i32, ptr %4421, align 4
-  %4423 = shl i32 %4422, 5
-  %4424 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4425 = load i32, ptr %4424, align 4
-  %4426 = and i32 %4425, -1
-  %4427 = lshr i32 %4426, 27
-  %4428 = or i32 %4423, %4427
-  %4429 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4430 = load i32, ptr %4429, align 4
-  %4431 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4432 = load i32, ptr %4431, align 4
-  %4433 = xor i32 %4430, %4432
-  %4434 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4435 = load i32, ptr %4434, align 4
-  %4436 = xor i32 %4433, %4435
-  %4437 = add i32 %4428, %4436
-  %4438 = add i32 %4437, -899497514
-  %4439 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4440 = getelementptr inbounds [16 x i32], ptr %4439, i64 0, i64 4
-  %4441 = load i32, ptr %4440, align 4
-  %4442 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4443 = getelementptr inbounds [16 x i32], ptr %4442, i64 0, i64 15
-  %4444 = load i32, ptr %4443, align 4
-  %4445 = xor i32 %4441, %4444
-  %4446 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4447 = getelementptr inbounds [16 x i32], ptr %4446, i64 0, i64 9
-  %4448 = load i32, ptr %4447, align 4
-  %4449 = xor i32 %4445, %4448
-  %4450 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4451 = getelementptr inbounds [16 x i32], ptr %4450, i64 0, i64 7
-  %4452 = load i32, ptr %4451, align 4
-  %4453 = xor i32 %4449, %4452
-  %4454 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4453, ptr %4454, align 4
-  %4455 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4456 = load i32, ptr %4455, align 4
-  %4457 = shl i32 %4456, 1
-  %4458 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4459 = load i32, ptr %4458, align 4
-  %4460 = and i32 %4459, -1
-  %4461 = lshr i32 %4460, 31
-  %4462 = or i32 %4457, %4461
-  %4463 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4464 = getelementptr inbounds [16 x i32], ptr %4463, i64 0, i64 7
-  store i32 %4462, ptr %4464, align 4
-  %4465 = add i32 %4438, %4462
-  %4466 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4467 = load i32, ptr %4466, align 4
-  %4468 = add i32 %4467, %4465
-  store i32 %4468, ptr %4466, align 4
-  %4469 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4470 = load i32, ptr %4469, align 4
-  %4471 = shl i32 %4470, 30
-  %4472 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4473 = load i32, ptr %4472, align 4
-  %4474 = and i32 %4473, -1
-  %4475 = lshr i32 %4474, 2
-  %4476 = or i32 %4471, %4475
-  %4477 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %4476, ptr %4477, align 4
-  br label %4478
+4377:                                             ; preds = %4319
+  br label %4378
 
-4478:                                             ; preds = %4420
-  br label %4479
+4378:                                             ; preds = %4377
+  br label %4379
 
-4479:                                             ; preds = %4478
-  %4480 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4481 = load i32, ptr %4480, align 4
-  %4482 = shl i32 %4481, 5
-  %4483 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4484 = load i32, ptr %4483, align 4
-  %4485 = and i32 %4484, -1
-  %4486 = lshr i32 %4485, 27
-  %4487 = or i32 %4482, %4486
-  %4488 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4489 = load i32, ptr %4488, align 4
-  %4490 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4491 = load i32, ptr %4490, align 4
-  %4492 = xor i32 %4489, %4491
-  %4493 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4494 = load i32, ptr %4493, align 4
-  %4495 = xor i32 %4492, %4494
-  %4496 = add i32 %4487, %4495
-  %4497 = add i32 %4496, -899497514
-  %4498 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4499 = getelementptr inbounds [16 x i32], ptr %4498, i64 0, i64 5
-  %4500 = load i32, ptr %4499, align 4
-  %4501 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4502 = getelementptr inbounds [16 x i32], ptr %4501, i64 0, i64 0
-  %4503 = load i32, ptr %4502, align 4
-  %4504 = xor i32 %4500, %4503
-  %4505 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4506 = getelementptr inbounds [16 x i32], ptr %4505, i64 0, i64 10
-  %4507 = load i32, ptr %4506, align 4
-  %4508 = xor i32 %4504, %4507
-  %4509 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4510 = getelementptr inbounds [16 x i32], ptr %4509, i64 0, i64 8
-  %4511 = load i32, ptr %4510, align 4
-  %4512 = xor i32 %4508, %4511
-  %4513 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4512, ptr %4513, align 4
-  %4514 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4515 = load i32, ptr %4514, align 4
-  %4516 = shl i32 %4515, 1
-  %4517 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4518 = load i32, ptr %4517, align 4
-  %4519 = and i32 %4518, -1
-  %4520 = lshr i32 %4519, 31
-  %4521 = or i32 %4516, %4520
-  %4522 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4523 = getelementptr inbounds [16 x i32], ptr %4522, i64 0, i64 8
-  store i32 %4521, ptr %4523, align 4
-  %4524 = add i32 %4497, %4521
-  %4525 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4526 = load i32, ptr %4525, align 4
-  %4527 = add i32 %4526, %4524
-  store i32 %4527, ptr %4525, align 4
-  %4528 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4529 = load i32, ptr %4528, align 4
-  %4530 = shl i32 %4529, 30
-  %4531 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4532 = load i32, ptr %4531, align 4
-  %4533 = and i32 %4532, -1
-  %4534 = lshr i32 %4533, 2
-  %4535 = or i32 %4530, %4534
-  %4536 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %4535, ptr %4536, align 4
-  br label %4537
+4379:                                             ; preds = %4378
+  %4380 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4381 = load i32, ptr %4380, align 4, !tbaa !16
+  %4382 = shl i32 %4381, 5
+  %4383 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4384 = load i32, ptr %4383, align 4, !tbaa !16
+  %4385 = and i32 %4384, -1
+  %4386 = lshr i32 %4385, 27
+  %4387 = or i32 %4382, %4386
+  %4388 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4389 = load i32, ptr %4388, align 4, !tbaa !17
+  %4390 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4391 = load i32, ptr %4390, align 4, !tbaa !18
+  %4392 = xor i32 %4389, %4391
+  %4393 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4394 = load i32, ptr %4393, align 4, !tbaa !19
+  %4395 = xor i32 %4392, %4394
+  %4396 = add i32 %4387, %4395
+  %4397 = add i32 %4396, -899497514
+  %4398 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4399 = getelementptr inbounds [16 x i32], ptr %4398, i64 0, i64 7
+  %4400 = load i32, ptr %4399, align 4, !tbaa !10
+  %4401 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4402 = getelementptr inbounds [16 x i32], ptr %4401, i64 0, i64 2
+  %4403 = load i32, ptr %4402, align 4, !tbaa !10
+  %4404 = xor i32 %4400, %4403
+  %4405 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4406 = getelementptr inbounds [16 x i32], ptr %4405, i64 0, i64 12
+  %4407 = load i32, ptr %4406, align 4, !tbaa !10
+  %4408 = xor i32 %4404, %4407
+  %4409 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4410 = getelementptr inbounds [16 x i32], ptr %4409, i64 0, i64 10
+  %4411 = load i32, ptr %4410, align 4, !tbaa !10
+  %4412 = xor i32 %4408, %4411
+  %4413 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4412, ptr %4413, align 4, !tbaa !20
+  %4414 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4415 = load i32, ptr %4414, align 4, !tbaa !20
+  %4416 = shl i32 %4415, 1
+  %4417 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4418 = load i32, ptr %4417, align 4, !tbaa !20
+  %4419 = and i32 %4418, -1
+  %4420 = lshr i32 %4419, 31
+  %4421 = or i32 %4416, %4420
+  %4422 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4423 = getelementptr inbounds [16 x i32], ptr %4422, i64 0, i64 10
+  store i32 %4421, ptr %4423, align 4, !tbaa !10
+  %4424 = add i32 %4397, %4421
+  %4425 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4426 = load i32, ptr %4425, align 4, !tbaa !14
+  %4427 = add i32 %4426, %4424
+  store i32 %4427, ptr %4425, align 4, !tbaa !14
+  %4428 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4429 = load i32, ptr %4428, align 4, !tbaa !17
+  %4430 = shl i32 %4429, 30
+  %4431 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4432 = load i32, ptr %4431, align 4, !tbaa !17
+  %4433 = and i32 %4432, -1
+  %4434 = lshr i32 %4433, 2
+  %4435 = or i32 %4430, %4434
+  %4436 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %4435, ptr %4436, align 4, !tbaa !17
+  br label %4437
 
-4537:                                             ; preds = %4479
-  br label %4538
+4437:                                             ; preds = %4379
+  br label %4438
 
-4538:                                             ; preds = %4537
-  %4539 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4540 = load i32, ptr %4539, align 4
-  %4541 = shl i32 %4540, 5
-  %4542 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4543 = load i32, ptr %4542, align 4
-  %4544 = and i32 %4543, -1
-  %4545 = lshr i32 %4544, 27
-  %4546 = or i32 %4541, %4545
-  %4547 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4548 = load i32, ptr %4547, align 4
-  %4549 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4550 = load i32, ptr %4549, align 4
-  %4551 = xor i32 %4548, %4550
-  %4552 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4553 = load i32, ptr %4552, align 4
-  %4554 = xor i32 %4551, %4553
-  %4555 = add i32 %4546, %4554
-  %4556 = add i32 %4555, -899497514
-  %4557 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4558 = getelementptr inbounds [16 x i32], ptr %4557, i64 0, i64 6
-  %4559 = load i32, ptr %4558, align 4
-  %4560 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4561 = getelementptr inbounds [16 x i32], ptr %4560, i64 0, i64 1
-  %4562 = load i32, ptr %4561, align 4
-  %4563 = xor i32 %4559, %4562
-  %4564 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4565 = getelementptr inbounds [16 x i32], ptr %4564, i64 0, i64 11
-  %4566 = load i32, ptr %4565, align 4
-  %4567 = xor i32 %4563, %4566
-  %4568 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4569 = getelementptr inbounds [16 x i32], ptr %4568, i64 0, i64 9
-  %4570 = load i32, ptr %4569, align 4
-  %4571 = xor i32 %4567, %4570
-  %4572 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4571, ptr %4572, align 4
-  %4573 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4574 = load i32, ptr %4573, align 4
-  %4575 = shl i32 %4574, 1
-  %4576 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4577 = load i32, ptr %4576, align 4
-  %4578 = and i32 %4577, -1
-  %4579 = lshr i32 %4578, 31
-  %4580 = or i32 %4575, %4579
-  %4581 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4582 = getelementptr inbounds [16 x i32], ptr %4581, i64 0, i64 9
-  store i32 %4580, ptr %4582, align 4
-  %4583 = add i32 %4556, %4580
-  %4584 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4585 = load i32, ptr %4584, align 4
-  %4586 = add i32 %4585, %4583
-  store i32 %4586, ptr %4584, align 4
-  %4587 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4588 = load i32, ptr %4587, align 4
-  %4589 = shl i32 %4588, 30
-  %4590 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4591 = load i32, ptr %4590, align 4
-  %4592 = and i32 %4591, -1
-  %4593 = lshr i32 %4592, 2
-  %4594 = or i32 %4589, %4593
-  %4595 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %4594, ptr %4595, align 4
-  br label %4596
+4438:                                             ; preds = %4437
+  br label %4439
 
-4596:                                             ; preds = %4538
-  br label %4597
+4439:                                             ; preds = %4438
+  %4440 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4441 = load i32, ptr %4440, align 4, !tbaa !14
+  %4442 = shl i32 %4441, 5
+  %4443 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4444 = load i32, ptr %4443, align 4, !tbaa !14
+  %4445 = and i32 %4444, -1
+  %4446 = lshr i32 %4445, 27
+  %4447 = or i32 %4442, %4446
+  %4448 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4449 = load i32, ptr %4448, align 4, !tbaa !16
+  %4450 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4451 = load i32, ptr %4450, align 4, !tbaa !17
+  %4452 = xor i32 %4449, %4451
+  %4453 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4454 = load i32, ptr %4453, align 4, !tbaa !18
+  %4455 = xor i32 %4452, %4454
+  %4456 = add i32 %4447, %4455
+  %4457 = add i32 %4456, -899497514
+  %4458 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4459 = getelementptr inbounds [16 x i32], ptr %4458, i64 0, i64 8
+  %4460 = load i32, ptr %4459, align 4, !tbaa !10
+  %4461 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4462 = getelementptr inbounds [16 x i32], ptr %4461, i64 0, i64 3
+  %4463 = load i32, ptr %4462, align 4, !tbaa !10
+  %4464 = xor i32 %4460, %4463
+  %4465 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4466 = getelementptr inbounds [16 x i32], ptr %4465, i64 0, i64 13
+  %4467 = load i32, ptr %4466, align 4, !tbaa !10
+  %4468 = xor i32 %4464, %4467
+  %4469 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4470 = getelementptr inbounds [16 x i32], ptr %4469, i64 0, i64 11
+  %4471 = load i32, ptr %4470, align 4, !tbaa !10
+  %4472 = xor i32 %4468, %4471
+  %4473 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4472, ptr %4473, align 4, !tbaa !20
+  %4474 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4475 = load i32, ptr %4474, align 4, !tbaa !20
+  %4476 = shl i32 %4475, 1
+  %4477 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4478 = load i32, ptr %4477, align 4, !tbaa !20
+  %4479 = and i32 %4478, -1
+  %4480 = lshr i32 %4479, 31
+  %4481 = or i32 %4476, %4480
+  %4482 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4483 = getelementptr inbounds [16 x i32], ptr %4482, i64 0, i64 11
+  store i32 %4481, ptr %4483, align 4, !tbaa !10
+  %4484 = add i32 %4457, %4481
+  %4485 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4486 = load i32, ptr %4485, align 4, !tbaa !19
+  %4487 = add i32 %4486, %4484
+  store i32 %4487, ptr %4485, align 4, !tbaa !19
+  %4488 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4489 = load i32, ptr %4488, align 4, !tbaa !16
+  %4490 = shl i32 %4489, 30
+  %4491 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4492 = load i32, ptr %4491, align 4, !tbaa !16
+  %4493 = and i32 %4492, -1
+  %4494 = lshr i32 %4493, 2
+  %4495 = or i32 %4490, %4494
+  %4496 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  store i32 %4495, ptr %4496, align 4, !tbaa !16
+  br label %4497
 
-4597:                                             ; preds = %4596
-  %4598 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4599 = load i32, ptr %4598, align 4
-  %4600 = shl i32 %4599, 5
-  %4601 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4602 = load i32, ptr %4601, align 4
-  %4603 = and i32 %4602, -1
-  %4604 = lshr i32 %4603, 27
-  %4605 = or i32 %4600, %4604
-  %4606 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4607 = load i32, ptr %4606, align 4
-  %4608 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4609 = load i32, ptr %4608, align 4
-  %4610 = xor i32 %4607, %4609
-  %4611 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4612 = load i32, ptr %4611, align 4
-  %4613 = xor i32 %4610, %4612
-  %4614 = add i32 %4605, %4613
-  %4615 = add i32 %4614, -899497514
-  %4616 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4617 = getelementptr inbounds [16 x i32], ptr %4616, i64 0, i64 7
-  %4618 = load i32, ptr %4617, align 4
-  %4619 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4620 = getelementptr inbounds [16 x i32], ptr %4619, i64 0, i64 2
-  %4621 = load i32, ptr %4620, align 4
-  %4622 = xor i32 %4618, %4621
-  %4623 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4624 = getelementptr inbounds [16 x i32], ptr %4623, i64 0, i64 12
-  %4625 = load i32, ptr %4624, align 4
-  %4626 = xor i32 %4622, %4625
-  %4627 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4628 = getelementptr inbounds [16 x i32], ptr %4627, i64 0, i64 10
-  %4629 = load i32, ptr %4628, align 4
-  %4630 = xor i32 %4626, %4629
-  %4631 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4630, ptr %4631, align 4
-  %4632 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4633 = load i32, ptr %4632, align 4
-  %4634 = shl i32 %4633, 1
-  %4635 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4636 = load i32, ptr %4635, align 4
-  %4637 = and i32 %4636, -1
-  %4638 = lshr i32 %4637, 31
-  %4639 = or i32 %4634, %4638
-  %4640 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4641 = getelementptr inbounds [16 x i32], ptr %4640, i64 0, i64 10
-  store i32 %4639, ptr %4641, align 4
-  %4642 = add i32 %4615, %4639
-  %4643 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4644 = load i32, ptr %4643, align 4
-  %4645 = add i32 %4644, %4642
-  store i32 %4645, ptr %4643, align 4
-  %4646 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4647 = load i32, ptr %4646, align 4
-  %4648 = shl i32 %4647, 30
-  %4649 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4650 = load i32, ptr %4649, align 4
-  %4651 = and i32 %4650, -1
-  %4652 = lshr i32 %4651, 2
-  %4653 = or i32 %4648, %4652
-  %4654 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %4653, ptr %4654, align 4
-  br label %4655
+4497:                                             ; preds = %4439
+  br label %4498
 
-4655:                                             ; preds = %4597
-  br label %4656
+4498:                                             ; preds = %4497
+  br label %4499
 
-4656:                                             ; preds = %4655
-  %4657 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4658 = load i32, ptr %4657, align 4
-  %4659 = shl i32 %4658, 5
-  %4660 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4661 = load i32, ptr %4660, align 4
-  %4662 = and i32 %4661, -1
-  %4663 = lshr i32 %4662, 27
-  %4664 = or i32 %4659, %4663
-  %4665 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4666 = load i32, ptr %4665, align 4
-  %4667 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4668 = load i32, ptr %4667, align 4
-  %4669 = xor i32 %4666, %4668
-  %4670 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4671 = load i32, ptr %4670, align 4
-  %4672 = xor i32 %4669, %4671
-  %4673 = add i32 %4664, %4672
-  %4674 = add i32 %4673, -899497514
-  %4675 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4676 = getelementptr inbounds [16 x i32], ptr %4675, i64 0, i64 8
-  %4677 = load i32, ptr %4676, align 4
-  %4678 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4679 = getelementptr inbounds [16 x i32], ptr %4678, i64 0, i64 3
-  %4680 = load i32, ptr %4679, align 4
-  %4681 = xor i32 %4677, %4680
-  %4682 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4683 = getelementptr inbounds [16 x i32], ptr %4682, i64 0, i64 13
-  %4684 = load i32, ptr %4683, align 4
-  %4685 = xor i32 %4681, %4684
-  %4686 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4687 = getelementptr inbounds [16 x i32], ptr %4686, i64 0, i64 11
-  %4688 = load i32, ptr %4687, align 4
-  %4689 = xor i32 %4685, %4688
-  %4690 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4689, ptr %4690, align 4
-  %4691 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4692 = load i32, ptr %4691, align 4
-  %4693 = shl i32 %4692, 1
-  %4694 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4695 = load i32, ptr %4694, align 4
-  %4696 = and i32 %4695, -1
-  %4697 = lshr i32 %4696, 31
-  %4698 = or i32 %4693, %4697
-  %4699 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4700 = getelementptr inbounds [16 x i32], ptr %4699, i64 0, i64 11
-  store i32 %4698, ptr %4700, align 4
-  %4701 = add i32 %4674, %4698
-  %4702 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4703 = load i32, ptr %4702, align 4
-  %4704 = add i32 %4703, %4701
-  store i32 %4704, ptr %4702, align 4
-  %4705 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4706 = load i32, ptr %4705, align 4
-  %4707 = shl i32 %4706, 30
-  %4708 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4709 = load i32, ptr %4708, align 4
-  %4710 = and i32 %4709, -1
-  %4711 = lshr i32 %4710, 2
-  %4712 = or i32 %4707, %4711
-  %4713 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  store i32 %4712, ptr %4713, align 4
-  br label %4714
+4499:                                             ; preds = %4498
+  %4500 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4501 = load i32, ptr %4500, align 4, !tbaa !19
+  %4502 = shl i32 %4501, 5
+  %4503 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4504 = load i32, ptr %4503, align 4, !tbaa !19
+  %4505 = and i32 %4504, -1
+  %4506 = lshr i32 %4505, 27
+  %4507 = or i32 %4502, %4506
+  %4508 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4509 = load i32, ptr %4508, align 4, !tbaa !14
+  %4510 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4511 = load i32, ptr %4510, align 4, !tbaa !16
+  %4512 = xor i32 %4509, %4511
+  %4513 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4514 = load i32, ptr %4513, align 4, !tbaa !17
+  %4515 = xor i32 %4512, %4514
+  %4516 = add i32 %4507, %4515
+  %4517 = add i32 %4516, -899497514
+  %4518 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4519 = getelementptr inbounds [16 x i32], ptr %4518, i64 0, i64 9
+  %4520 = load i32, ptr %4519, align 4, !tbaa !10
+  %4521 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4522 = getelementptr inbounds [16 x i32], ptr %4521, i64 0, i64 4
+  %4523 = load i32, ptr %4522, align 4, !tbaa !10
+  %4524 = xor i32 %4520, %4523
+  %4525 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4526 = getelementptr inbounds [16 x i32], ptr %4525, i64 0, i64 14
+  %4527 = load i32, ptr %4526, align 4, !tbaa !10
+  %4528 = xor i32 %4524, %4527
+  %4529 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4530 = getelementptr inbounds [16 x i32], ptr %4529, i64 0, i64 12
+  %4531 = load i32, ptr %4530, align 4, !tbaa !10
+  %4532 = xor i32 %4528, %4531
+  %4533 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4532, ptr %4533, align 4, !tbaa !20
+  %4534 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4535 = load i32, ptr %4534, align 4, !tbaa !20
+  %4536 = shl i32 %4535, 1
+  %4537 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4538 = load i32, ptr %4537, align 4, !tbaa !20
+  %4539 = and i32 %4538, -1
+  %4540 = lshr i32 %4539, 31
+  %4541 = or i32 %4536, %4540
+  %4542 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4543 = getelementptr inbounds [16 x i32], ptr %4542, i64 0, i64 12
+  store i32 %4541, ptr %4543, align 4, !tbaa !10
+  %4544 = add i32 %4517, %4541
+  %4545 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4546 = load i32, ptr %4545, align 4, !tbaa !18
+  %4547 = add i32 %4546, %4544
+  store i32 %4547, ptr %4545, align 4, !tbaa !18
+  %4548 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4549 = load i32, ptr %4548, align 4, !tbaa !14
+  %4550 = shl i32 %4549, 30
+  %4551 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4552 = load i32, ptr %4551, align 4, !tbaa !14
+  %4553 = and i32 %4552, -1
+  %4554 = lshr i32 %4553, 2
+  %4555 = or i32 %4550, %4554
+  %4556 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  store i32 %4555, ptr %4556, align 4, !tbaa !14
+  br label %4557
 
-4714:                                             ; preds = %4656
-  br label %4715
+4557:                                             ; preds = %4499
+  br label %4558
 
-4715:                                             ; preds = %4714
-  %4716 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4717 = load i32, ptr %4716, align 4
-  %4718 = shl i32 %4717, 5
-  %4719 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4720 = load i32, ptr %4719, align 4
-  %4721 = and i32 %4720, -1
-  %4722 = lshr i32 %4721, 27
-  %4723 = or i32 %4718, %4722
-  %4724 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4725 = load i32, ptr %4724, align 4
-  %4726 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4727 = load i32, ptr %4726, align 4
-  %4728 = xor i32 %4725, %4727
-  %4729 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4730 = load i32, ptr %4729, align 4
-  %4731 = xor i32 %4728, %4730
-  %4732 = add i32 %4723, %4731
-  %4733 = add i32 %4732, -899497514
-  %4734 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4735 = getelementptr inbounds [16 x i32], ptr %4734, i64 0, i64 9
-  %4736 = load i32, ptr %4735, align 4
-  %4737 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4738 = getelementptr inbounds [16 x i32], ptr %4737, i64 0, i64 4
-  %4739 = load i32, ptr %4738, align 4
-  %4740 = xor i32 %4736, %4739
-  %4741 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4742 = getelementptr inbounds [16 x i32], ptr %4741, i64 0, i64 14
-  %4743 = load i32, ptr %4742, align 4
-  %4744 = xor i32 %4740, %4743
-  %4745 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4746 = getelementptr inbounds [16 x i32], ptr %4745, i64 0, i64 12
-  %4747 = load i32, ptr %4746, align 4
-  %4748 = xor i32 %4744, %4747
-  %4749 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4748, ptr %4749, align 4
-  %4750 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4751 = load i32, ptr %4750, align 4
-  %4752 = shl i32 %4751, 1
-  %4753 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4754 = load i32, ptr %4753, align 4
-  %4755 = and i32 %4754, -1
-  %4756 = lshr i32 %4755, 31
-  %4757 = or i32 %4752, %4756
-  %4758 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4759 = getelementptr inbounds [16 x i32], ptr %4758, i64 0, i64 12
-  store i32 %4757, ptr %4759, align 4
-  %4760 = add i32 %4733, %4757
-  %4761 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4762 = load i32, ptr %4761, align 4
-  %4763 = add i32 %4762, %4760
-  store i32 %4763, ptr %4761, align 4
-  %4764 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4765 = load i32, ptr %4764, align 4
-  %4766 = shl i32 %4765, 30
-  %4767 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4768 = load i32, ptr %4767, align 4
-  %4769 = and i32 %4768, -1
-  %4770 = lshr i32 %4769, 2
-  %4771 = or i32 %4766, %4770
-  %4772 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  store i32 %4771, ptr %4772, align 4
-  br label %4773
+4558:                                             ; preds = %4557
+  br label %4559
 
-4773:                                             ; preds = %4715
-  br label %4774
+4559:                                             ; preds = %4558
+  %4560 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4561 = load i32, ptr %4560, align 4, !tbaa !18
+  %4562 = shl i32 %4561, 5
+  %4563 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4564 = load i32, ptr %4563, align 4, !tbaa !18
+  %4565 = and i32 %4564, -1
+  %4566 = lshr i32 %4565, 27
+  %4567 = or i32 %4562, %4566
+  %4568 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4569 = load i32, ptr %4568, align 4, !tbaa !19
+  %4570 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4571 = load i32, ptr %4570, align 4, !tbaa !14
+  %4572 = xor i32 %4569, %4571
+  %4573 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4574 = load i32, ptr %4573, align 4, !tbaa !16
+  %4575 = xor i32 %4572, %4574
+  %4576 = add i32 %4567, %4575
+  %4577 = add i32 %4576, -899497514
+  %4578 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4579 = getelementptr inbounds [16 x i32], ptr %4578, i64 0, i64 10
+  %4580 = load i32, ptr %4579, align 4, !tbaa !10
+  %4581 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4582 = getelementptr inbounds [16 x i32], ptr %4581, i64 0, i64 5
+  %4583 = load i32, ptr %4582, align 4, !tbaa !10
+  %4584 = xor i32 %4580, %4583
+  %4585 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4586 = getelementptr inbounds [16 x i32], ptr %4585, i64 0, i64 15
+  %4587 = load i32, ptr %4586, align 4, !tbaa !10
+  %4588 = xor i32 %4584, %4587
+  %4589 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4590 = getelementptr inbounds [16 x i32], ptr %4589, i64 0, i64 13
+  %4591 = load i32, ptr %4590, align 4, !tbaa !10
+  %4592 = xor i32 %4588, %4591
+  %4593 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4592, ptr %4593, align 4, !tbaa !20
+  %4594 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4595 = load i32, ptr %4594, align 4, !tbaa !20
+  %4596 = shl i32 %4595, 1
+  %4597 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4598 = load i32, ptr %4597, align 4, !tbaa !20
+  %4599 = and i32 %4598, -1
+  %4600 = lshr i32 %4599, 31
+  %4601 = or i32 %4596, %4600
+  %4602 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4603 = getelementptr inbounds [16 x i32], ptr %4602, i64 0, i64 13
+  store i32 %4601, ptr %4603, align 4, !tbaa !10
+  %4604 = add i32 %4577, %4601
+  %4605 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4606 = load i32, ptr %4605, align 4, !tbaa !17
+  %4607 = add i32 %4606, %4604
+  store i32 %4607, ptr %4605, align 4, !tbaa !17
+  %4608 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4609 = load i32, ptr %4608, align 4, !tbaa !19
+  %4610 = shl i32 %4609, 30
+  %4611 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4612 = load i32, ptr %4611, align 4, !tbaa !19
+  %4613 = and i32 %4612, -1
+  %4614 = lshr i32 %4613, 2
+  %4615 = or i32 %4610, %4614
+  %4616 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  store i32 %4615, ptr %4616, align 4, !tbaa !19
+  br label %4617
 
-4774:                                             ; preds = %4773
-  %4775 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4776 = load i32, ptr %4775, align 4
-  %4777 = shl i32 %4776, 5
-  %4778 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4779 = load i32, ptr %4778, align 4
-  %4780 = and i32 %4779, -1
-  %4781 = lshr i32 %4780, 27
-  %4782 = or i32 %4777, %4781
-  %4783 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4784 = load i32, ptr %4783, align 4
-  %4785 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4786 = load i32, ptr %4785, align 4
-  %4787 = xor i32 %4784, %4786
-  %4788 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4789 = load i32, ptr %4788, align 4
-  %4790 = xor i32 %4787, %4789
-  %4791 = add i32 %4782, %4790
-  %4792 = add i32 %4791, -899497514
-  %4793 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4794 = getelementptr inbounds [16 x i32], ptr %4793, i64 0, i64 10
-  %4795 = load i32, ptr %4794, align 4
-  %4796 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4797 = getelementptr inbounds [16 x i32], ptr %4796, i64 0, i64 5
-  %4798 = load i32, ptr %4797, align 4
-  %4799 = xor i32 %4795, %4798
-  %4800 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4801 = getelementptr inbounds [16 x i32], ptr %4800, i64 0, i64 15
-  %4802 = load i32, ptr %4801, align 4
-  %4803 = xor i32 %4799, %4802
-  %4804 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4805 = getelementptr inbounds [16 x i32], ptr %4804, i64 0, i64 13
-  %4806 = load i32, ptr %4805, align 4
-  %4807 = xor i32 %4803, %4806
-  %4808 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4807, ptr %4808, align 4
-  %4809 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4810 = load i32, ptr %4809, align 4
-  %4811 = shl i32 %4810, 1
-  %4812 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4813 = load i32, ptr %4812, align 4
-  %4814 = and i32 %4813, -1
-  %4815 = lshr i32 %4814, 31
-  %4816 = or i32 %4811, %4815
-  %4817 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4818 = getelementptr inbounds [16 x i32], ptr %4817, i64 0, i64 13
-  store i32 %4816, ptr %4818, align 4
-  %4819 = add i32 %4792, %4816
-  %4820 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4821 = load i32, ptr %4820, align 4
-  %4822 = add i32 %4821, %4819
-  store i32 %4822, ptr %4820, align 4
-  %4823 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4824 = load i32, ptr %4823, align 4
-  %4825 = shl i32 %4824, 30
-  %4826 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4827 = load i32, ptr %4826, align 4
-  %4828 = and i32 %4827, -1
-  %4829 = lshr i32 %4828, 2
-  %4830 = or i32 %4825, %4829
-  %4831 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  store i32 %4830, ptr %4831, align 4
-  br label %4832
+4617:                                             ; preds = %4559
+  br label %4618
 
-4832:                                             ; preds = %4774
-  br label %4833
+4618:                                             ; preds = %4617
+  br label %4619
 
-4833:                                             ; preds = %4832
-  %4834 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4835 = load i32, ptr %4834, align 4
-  %4836 = shl i32 %4835, 5
-  %4837 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4838 = load i32, ptr %4837, align 4
-  %4839 = and i32 %4838, -1
-  %4840 = lshr i32 %4839, 27
-  %4841 = or i32 %4836, %4840
-  %4842 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4843 = load i32, ptr %4842, align 4
-  %4844 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4845 = load i32, ptr %4844, align 4
-  %4846 = xor i32 %4843, %4845
-  %4847 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4848 = load i32, ptr %4847, align 4
-  %4849 = xor i32 %4846, %4848
-  %4850 = add i32 %4841, %4849
-  %4851 = add i32 %4850, -899497514
-  %4852 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4853 = getelementptr inbounds [16 x i32], ptr %4852, i64 0, i64 11
-  %4854 = load i32, ptr %4853, align 4
-  %4855 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4856 = getelementptr inbounds [16 x i32], ptr %4855, i64 0, i64 6
-  %4857 = load i32, ptr %4856, align 4
-  %4858 = xor i32 %4854, %4857
-  %4859 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4860 = getelementptr inbounds [16 x i32], ptr %4859, i64 0, i64 0
-  %4861 = load i32, ptr %4860, align 4
-  %4862 = xor i32 %4858, %4861
-  %4863 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4864 = getelementptr inbounds [16 x i32], ptr %4863, i64 0, i64 14
-  %4865 = load i32, ptr %4864, align 4
-  %4866 = xor i32 %4862, %4865
-  %4867 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4866, ptr %4867, align 4
-  %4868 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4869 = load i32, ptr %4868, align 4
-  %4870 = shl i32 %4869, 1
-  %4871 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4872 = load i32, ptr %4871, align 4
-  %4873 = and i32 %4872, -1
-  %4874 = lshr i32 %4873, 31
-  %4875 = or i32 %4870, %4874
-  %4876 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4877 = getelementptr inbounds [16 x i32], ptr %4876, i64 0, i64 14
-  store i32 %4875, ptr %4877, align 4
-  %4878 = add i32 %4851, %4875
-  %4879 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4880 = load i32, ptr %4879, align 4
-  %4881 = add i32 %4880, %4878
-  store i32 %4881, ptr %4879, align 4
-  %4882 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4883 = load i32, ptr %4882, align 4
-  %4884 = shl i32 %4883, 30
-  %4885 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4886 = load i32, ptr %4885, align 4
-  %4887 = and i32 %4886, -1
-  %4888 = lshr i32 %4887, 2
-  %4889 = or i32 %4884, %4888
-  %4890 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  store i32 %4889, ptr %4890, align 4
-  br label %4891
+4619:                                             ; preds = %4618
+  %4620 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4621 = load i32, ptr %4620, align 4, !tbaa !17
+  %4622 = shl i32 %4621, 5
+  %4623 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4624 = load i32, ptr %4623, align 4, !tbaa !17
+  %4625 = and i32 %4624, -1
+  %4626 = lshr i32 %4625, 27
+  %4627 = or i32 %4622, %4626
+  %4628 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4629 = load i32, ptr %4628, align 4, !tbaa !18
+  %4630 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4631 = load i32, ptr %4630, align 4, !tbaa !19
+  %4632 = xor i32 %4629, %4631
+  %4633 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4634 = load i32, ptr %4633, align 4, !tbaa !14
+  %4635 = xor i32 %4632, %4634
+  %4636 = add i32 %4627, %4635
+  %4637 = add i32 %4636, -899497514
+  %4638 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4639 = getelementptr inbounds [16 x i32], ptr %4638, i64 0, i64 11
+  %4640 = load i32, ptr %4639, align 4, !tbaa !10
+  %4641 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4642 = getelementptr inbounds [16 x i32], ptr %4641, i64 0, i64 6
+  %4643 = load i32, ptr %4642, align 4, !tbaa !10
+  %4644 = xor i32 %4640, %4643
+  %4645 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4646 = getelementptr inbounds [16 x i32], ptr %4645, i64 0, i64 0
+  %4647 = load i32, ptr %4646, align 4, !tbaa !10
+  %4648 = xor i32 %4644, %4647
+  %4649 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4650 = getelementptr inbounds [16 x i32], ptr %4649, i64 0, i64 14
+  %4651 = load i32, ptr %4650, align 4, !tbaa !10
+  %4652 = xor i32 %4648, %4651
+  %4653 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4652, ptr %4653, align 4, !tbaa !20
+  %4654 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4655 = load i32, ptr %4654, align 4, !tbaa !20
+  %4656 = shl i32 %4655, 1
+  %4657 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4658 = load i32, ptr %4657, align 4, !tbaa !20
+  %4659 = and i32 %4658, -1
+  %4660 = lshr i32 %4659, 31
+  %4661 = or i32 %4656, %4660
+  %4662 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4663 = getelementptr inbounds [16 x i32], ptr %4662, i64 0, i64 14
+  store i32 %4661, ptr %4663, align 4, !tbaa !10
+  %4664 = add i32 %4637, %4661
+  %4665 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4666 = load i32, ptr %4665, align 4, !tbaa !16
+  %4667 = add i32 %4666, %4664
+  store i32 %4667, ptr %4665, align 4, !tbaa !16
+  %4668 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4669 = load i32, ptr %4668, align 4, !tbaa !18
+  %4670 = shl i32 %4669, 30
+  %4671 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4672 = load i32, ptr %4671, align 4, !tbaa !18
+  %4673 = and i32 %4672, -1
+  %4674 = lshr i32 %4673, 2
+  %4675 = or i32 %4670, %4674
+  %4676 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  store i32 %4675, ptr %4676, align 4, !tbaa !18
+  br label %4677
 
-4891:                                             ; preds = %4833
-  br label %4892
+4677:                                             ; preds = %4619
+  br label %4678
 
-4892:                                             ; preds = %4891
-  %4893 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4894 = load i32, ptr %4893, align 4
-  %4895 = shl i32 %4894, 5
-  %4896 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4897 = load i32, ptr %4896, align 4
-  %4898 = and i32 %4897, -1
-  %4899 = lshr i32 %4898, 27
-  %4900 = or i32 %4895, %4899
-  %4901 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4902 = load i32, ptr %4901, align 4
-  %4903 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4904 = load i32, ptr %4903, align 4
-  %4905 = xor i32 %4902, %4904
-  %4906 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4907 = load i32, ptr %4906, align 4
-  %4908 = xor i32 %4905, %4907
-  %4909 = add i32 %4900, %4908
-  %4910 = add i32 %4909, -899497514
-  %4911 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4912 = getelementptr inbounds [16 x i32], ptr %4911, i64 0, i64 12
-  %4913 = load i32, ptr %4912, align 4
-  %4914 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4915 = getelementptr inbounds [16 x i32], ptr %4914, i64 0, i64 7
-  %4916 = load i32, ptr %4915, align 4
-  %4917 = xor i32 %4913, %4916
-  %4918 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4919 = getelementptr inbounds [16 x i32], ptr %4918, i64 0, i64 1
-  %4920 = load i32, ptr %4919, align 4
-  %4921 = xor i32 %4917, %4920
-  %4922 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4923 = getelementptr inbounds [16 x i32], ptr %4922, i64 0, i64 15
-  %4924 = load i32, ptr %4923, align 4
-  %4925 = xor i32 %4921, %4924
-  %4926 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  store i32 %4925, ptr %4926, align 4
-  %4927 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4928 = load i32, ptr %4927, align 4
-  %4929 = shl i32 %4928, 1
-  %4930 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 0
-  %4931 = load i32, ptr %4930, align 4
-  %4932 = and i32 %4931, -1
-  %4933 = lshr i32 %4932, 31
-  %4934 = or i32 %4929, %4933
-  %4935 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 1
-  %4936 = getelementptr inbounds [16 x i32], ptr %4935, i64 0, i64 15
-  store i32 %4934, ptr %4936, align 4
-  %4937 = add i32 %4910, %4934
-  %4938 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4939 = load i32, ptr %4938, align 4
-  %4940 = add i32 %4939, %4937
-  store i32 %4940, ptr %4938, align 4
-  %4941 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4942 = load i32, ptr %4941, align 4
-  %4943 = shl i32 %4942, 30
-  %4944 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4945 = load i32, ptr %4944, align 4
-  %4946 = and i32 %4945, -1
-  %4947 = lshr i32 %4946, 2
-  %4948 = or i32 %4943, %4947
-  %4949 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  store i32 %4948, ptr %4949, align 4
-  br label %4950
+4678:                                             ; preds = %4677
+  br label %4679
 
-4950:                                             ; preds = %4892
-  %4951 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 2
-  %4952 = load i32, ptr %4951, align 4
-  %4953 = load ptr, ptr %3, align 8
-  %4954 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %4953, i32 0, i32 1
-  %4955 = getelementptr inbounds [5 x i32], ptr %4954, i64 0, i64 0
-  %4956 = load i32, ptr %4955, align 4
-  %4957 = add i32 %4956, %4952
-  store i32 %4957, ptr %4955, align 4
-  %4958 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 3
-  %4959 = load i32, ptr %4958, align 4
-  %4960 = load ptr, ptr %3, align 8
-  %4961 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %4960, i32 0, i32 1
-  %4962 = getelementptr inbounds [5 x i32], ptr %4961, i64 0, i64 1
-  %4963 = load i32, ptr %4962, align 4
-  %4964 = add i32 %4963, %4959
-  store i32 %4964, ptr %4962, align 4
-  %4965 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 4
-  %4966 = load i32, ptr %4965, align 4
-  %4967 = load ptr, ptr %3, align 8
-  %4968 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %4967, i32 0, i32 1
-  %4969 = getelementptr inbounds [5 x i32], ptr %4968, i64 0, i64 2
-  %4970 = load i32, ptr %4969, align 4
-  %4971 = add i32 %4970, %4966
-  store i32 %4971, ptr %4969, align 4
-  %4972 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 5
-  %4973 = load i32, ptr %4972, align 4
-  %4974 = load ptr, ptr %3, align 8
-  %4975 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %4974, i32 0, i32 1
-  %4976 = getelementptr inbounds [5 x i32], ptr %4975, i64 0, i64 3
-  %4977 = load i32, ptr %4976, align 4
-  %4978 = add i32 %4977, %4973
-  store i32 %4978, ptr %4976, align 4
-  %4979 = getelementptr inbounds %struct.anon, ptr %5, i32 0, i32 6
-  %4980 = load i32, ptr %4979, align 4
-  %4981 = load ptr, ptr %3, align 8
-  %4982 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %4981, i32 0, i32 1
-  %4983 = getelementptr inbounds [5 x i32], ptr %4982, i64 0, i64 4
-  %4984 = load i32, ptr %4983, align 4
-  %4985 = add i32 %4984, %4980
-  store i32 %4985, ptr %4983, align 4
+4679:                                             ; preds = %4678
+  %4680 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4681 = load i32, ptr %4680, align 4, !tbaa !16
+  %4682 = shl i32 %4681, 5
+  %4683 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4684 = load i32, ptr %4683, align 4, !tbaa !16
+  %4685 = and i32 %4684, -1
+  %4686 = lshr i32 %4685, 27
+  %4687 = or i32 %4682, %4686
+  %4688 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4689 = load i32, ptr %4688, align 4, !tbaa !17
+  %4690 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4691 = load i32, ptr %4690, align 4, !tbaa !18
+  %4692 = xor i32 %4689, %4691
+  %4693 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4694 = load i32, ptr %4693, align 4, !tbaa !19
+  %4695 = xor i32 %4692, %4694
+  %4696 = add i32 %4687, %4695
+  %4697 = add i32 %4696, -899497514
+  %4698 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4699 = getelementptr inbounds [16 x i32], ptr %4698, i64 0, i64 12
+  %4700 = load i32, ptr %4699, align 4, !tbaa !10
+  %4701 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4702 = getelementptr inbounds [16 x i32], ptr %4701, i64 0, i64 7
+  %4703 = load i32, ptr %4702, align 4, !tbaa !10
+  %4704 = xor i32 %4700, %4703
+  %4705 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4706 = getelementptr inbounds [16 x i32], ptr %4705, i64 0, i64 1
+  %4707 = load i32, ptr %4706, align 4, !tbaa !10
+  %4708 = xor i32 %4704, %4707
+  %4709 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4710 = getelementptr inbounds [16 x i32], ptr %4709, i64 0, i64 15
+  %4711 = load i32, ptr %4710, align 4, !tbaa !10
+  %4712 = xor i32 %4708, %4711
+  %4713 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  store i32 %4712, ptr %4713, align 4, !tbaa !20
+  %4714 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4715 = load i32, ptr %4714, align 4, !tbaa !20
+  %4716 = shl i32 %4715, 1
+  %4717 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 0
+  %4718 = load i32, ptr %4717, align 4, !tbaa !20
+  %4719 = and i32 %4718, -1
+  %4720 = lshr i32 %4719, 31
+  %4721 = or i32 %4716, %4720
+  %4722 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 1
+  %4723 = getelementptr inbounds [16 x i32], ptr %4722, i64 0, i64 15
+  store i32 %4721, ptr %4723, align 4, !tbaa !10
+  %4724 = add i32 %4697, %4721
+  %4725 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4726 = load i32, ptr %4725, align 4, !tbaa !14
+  %4727 = add i32 %4726, %4724
+  store i32 %4727, ptr %4725, align 4, !tbaa !14
+  %4728 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4729 = load i32, ptr %4728, align 4, !tbaa !17
+  %4730 = shl i32 %4729, 30
+  %4731 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4732 = load i32, ptr %4731, align 4, !tbaa !17
+  %4733 = and i32 %4732, -1
+  %4734 = lshr i32 %4733, 2
+  %4735 = or i32 %4730, %4734
+  %4736 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  store i32 %4735, ptr %4736, align 4, !tbaa !17
+  br label %4737
+
+4737:                                             ; preds = %4679
+  br label %4738
+
+4738:                                             ; preds = %4737
+  %4739 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 2
+  %4740 = load i32, ptr %4739, align 4, !tbaa !14
+  %4741 = load ptr, ptr %3, align 8, !tbaa !3
+  %4742 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %4741, i32 0, i32 1
+  %4743 = getelementptr inbounds [5 x i32], ptr %4742, i64 0, i64 0
+  %4744 = load i32, ptr %4743, align 4, !tbaa !10
+  %4745 = add i32 %4744, %4740
+  store i32 %4745, ptr %4743, align 4, !tbaa !10
+  %4746 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 3
+  %4747 = load i32, ptr %4746, align 4, !tbaa !16
+  %4748 = load ptr, ptr %3, align 8, !tbaa !3
+  %4749 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %4748, i32 0, i32 1
+  %4750 = getelementptr inbounds [5 x i32], ptr %4749, i64 0, i64 1
+  %4751 = load i32, ptr %4750, align 4, !tbaa !10
+  %4752 = add i32 %4751, %4747
+  store i32 %4752, ptr %4750, align 4, !tbaa !10
+  %4753 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 4
+  %4754 = load i32, ptr %4753, align 4, !tbaa !17
+  %4755 = load ptr, ptr %3, align 8, !tbaa !3
+  %4756 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %4755, i32 0, i32 1
+  %4757 = getelementptr inbounds [5 x i32], ptr %4756, i64 0, i64 2
+  %4758 = load i32, ptr %4757, align 4, !tbaa !10
+  %4759 = add i32 %4758, %4754
+  store i32 %4759, ptr %4757, align 4, !tbaa !10
+  %4760 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 5
+  %4761 = load i32, ptr %4760, align 4, !tbaa !18
+  %4762 = load ptr, ptr %3, align 8, !tbaa !3
+  %4763 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %4762, i32 0, i32 1
+  %4764 = getelementptr inbounds [5 x i32], ptr %4763, i64 0, i64 3
+  %4765 = load i32, ptr %4764, align 4, !tbaa !10
+  %4766 = add i32 %4765, %4761
+  store i32 %4766, ptr %4764, align 4, !tbaa !10
+  %4767 = getelementptr inbounds nuw %struct.anon, ptr %5, i32 0, i32 6
+  %4768 = load i32, ptr %4767, align 4, !tbaa !19
+  %4769 = load ptr, ptr %3, align 8, !tbaa !3
+  %4770 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %4769, i32 0, i32 1
+  %4771 = getelementptr inbounds [5 x i32], ptr %4770, i64 0, i64 4
+  %4772 = load i32, ptr %4771, align 4, !tbaa !10
+  %4773 = add i32 %4772, %4768
+  store i32 %4773, ptr %4771, align 4, !tbaa !10
   call void @mbedtls_platform_zeroize(ptr noundef %5, i64 noundef 88)
+  call void @llvm.lifetime.end.p0(i64 88, ptr %5) #8
   ret i32 0
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal i32 @mbedtls_get_unaligned_uint32(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 1 %4, i64 4, i1 false)
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
+  ret i32 %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_sha1_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -5762,560 +5702,360 @@ define hidden i32 @mbedtls_sha1_update(ptr noundef %0, ptr noundef %1, i64 nound
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i32 -110, ptr %8, align 4
-  br label %11
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store i64 %2, ptr %7, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 -110, ptr %8, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %12 = load i64, ptr %7, align 8, !tbaa !22
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %15
 
-11:                                               ; preds = %3
-  br label %12
-
-12:                                               ; preds = %11
-  br label %13
-
-13:                                               ; preds = %12
-  br label %14
-
-14:                                               ; preds = %13
-  %15 = load i64, ptr %7, align 8
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %14
+14:                                               ; preds = %3
   store i32 0, ptr %4, align 4
-  br label %112
+  store i32 1, ptr %11, align 4
+  br label %109
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %19, i32 0, i32 0
-  %21 = getelementptr inbounds [2 x i32], ptr %20, i64 0, i64 0
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 63
-  store i32 %23, ptr %10, align 4
-  %24 = load i32, ptr %10, align 4
-  %25 = sub i32 64, %24
-  %26 = zext i32 %25 to i64
-  store i64 %26, ptr %9, align 8
-  %27 = load i64, ptr %7, align 8
-  %28 = trunc i64 %27 to i32
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %29, i32 0, i32 0
-  %31 = getelementptr inbounds [2 x i32], ptr %30, i64 0, i64 0
-  %32 = load i32, ptr %31, align 4
-  %33 = add i32 %32, %28
-  store i32 %33, ptr %31, align 4
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %34, i32 0, i32 0
-  %36 = getelementptr inbounds [2 x i32], ptr %35, i64 0, i64 0
-  %37 = load i32, ptr %36, align 4
-  %38 = and i32 %37, -1
-  store i32 %38, ptr %36, align 4
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %39, i32 0, i32 0
-  %41 = getelementptr inbounds [2 x i32], ptr %40, i64 0, i64 0
-  %42 = load i32, ptr %41, align 4
-  %43 = load i64, ptr %7, align 8
-  %44 = trunc i64 %43 to i32
-  %45 = icmp ult i32 %42, %44
-  br i1 %45, label %46, label %52
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %16, i32 0, i32 0
+  %18 = getelementptr inbounds [2 x i32], ptr %17, i64 0, i64 0
+  %19 = load i32, ptr %18, align 4, !tbaa !10
+  %20 = and i32 %19, 63
+  store i32 %20, ptr %10, align 4, !tbaa !10
+  %21 = load i32, ptr %10, align 4, !tbaa !10
+  %22 = sub i32 64, %21
+  %23 = zext i32 %22 to i64
+  store i64 %23, ptr %9, align 8, !tbaa !22
+  %24 = load i64, ptr %7, align 8, !tbaa !22
+  %25 = trunc i64 %24 to i32
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds [2 x i32], ptr %27, i64 0, i64 0
+  %29 = load i32, ptr %28, align 4, !tbaa !10
+  %30 = add i32 %29, %25
+  store i32 %30, ptr %28, align 4, !tbaa !10
+  %31 = load ptr, ptr %5, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [2 x i32], ptr %32, i64 0, i64 0
+  %34 = load i32, ptr %33, align 4, !tbaa !10
+  %35 = and i32 %34, -1
+  store i32 %35, ptr %33, align 4, !tbaa !10
+  %36 = load ptr, ptr %5, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %36, i32 0, i32 0
+  %38 = getelementptr inbounds [2 x i32], ptr %37, i64 0, i64 0
+  %39 = load i32, ptr %38, align 4, !tbaa !10
+  %40 = load i64, ptr %7, align 8, !tbaa !22
+  %41 = trunc i64 %40 to i32
+  %42 = icmp ult i32 %39, %41
+  br i1 %42, label %43, label %49
 
-46:                                               ; preds = %18
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %47, i32 0, i32 0
-  %49 = getelementptr inbounds [2 x i32], ptr %48, i64 0, i64 1
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  br label %52
+43:                                               ; preds = %15
+  %44 = load ptr, ptr %5, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %44, i32 0, i32 0
+  %46 = getelementptr inbounds [2 x i32], ptr %45, i64 0, i64 1
+  %47 = load i32, ptr %46, align 4, !tbaa !10
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %46, align 4, !tbaa !10
+  br label %49
 
-52:                                               ; preds = %46, %18
-  %53 = load i32, ptr %10, align 4
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %83
+49:                                               ; preds = %43, %15
+  %50 = load i32, ptr %10, align 4, !tbaa !10
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %80
 
-55:                                               ; preds = %52
-  %56 = load i64, ptr %7, align 8
-  %57 = load i64, ptr %9, align 8
-  %58 = icmp uge i64 %56, %57
-  br i1 %58, label %59, label %83
+52:                                               ; preds = %49
+  %53 = load i64, ptr %7, align 8, !tbaa !22
+  %54 = load i64, ptr %9, align 8, !tbaa !22
+  %55 = icmp uge i64 %53, %54
+  br i1 %55, label %56, label %80
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %60, i32 0, i32 2
-  %62 = getelementptr inbounds [64 x i8], ptr %61, i64 0, i64 0
-  %63 = load i32, ptr %10, align 4
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %62, i64 %64
-  %66 = load ptr, ptr %6, align 8
-  %67 = load i64, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %66, i64 %67, i1 false)
-  %68 = load ptr, ptr %5, align 8
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %69, i32 0, i32 2
-  %71 = getelementptr inbounds [64 x i8], ptr %70, i64 0, i64 0
-  %72 = call i32 @mbedtls_internal_sha1_process(ptr noundef %68, ptr noundef %71)
-  store i32 %72, ptr %8, align 4
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %76
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %5, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %57, i32 0, i32 2
+  %59 = getelementptr inbounds [64 x i8], ptr %58, i64 0, i64 0
+  %60 = load i32, ptr %10, align 4, !tbaa !10
+  %61 = zext i32 %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
+  %63 = load ptr, ptr %6, align 8, !tbaa !12
+  %64 = load i64, ptr %9, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %63, i64 %64, i1 false)
+  %65 = load ptr, ptr %5, align 8, !tbaa !3
+  %66 = load ptr, ptr %5, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %66, i32 0, i32 2
+  %68 = getelementptr inbounds [64 x i8], ptr %67, i64 0, i64 0
+  %69 = call i32 @mbedtls_internal_sha1_process(ptr noundef %65, ptr noundef %68)
+  store i32 %69, ptr %8, align 4, !tbaa !10
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %73
 
-74:                                               ; preds = %59
-  %75 = load i32, ptr %8, align 4
-  store i32 %75, ptr %4, align 4
-  br label %112
+71:                                               ; preds = %56
+  %72 = load i32, ptr %8, align 4, !tbaa !10
+  store i32 %72, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %109
 
-76:                                               ; preds = %59
-  %77 = load i64, ptr %9, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 %77
-  store ptr %79, ptr %6, align 8
-  %80 = load i64, ptr %9, align 8
-  %81 = load i64, ptr %7, align 8
-  %82 = sub i64 %81, %80
-  store i64 %82, ptr %7, align 8
-  store i32 0, ptr %10, align 4
-  br label %83
+73:                                               ; preds = %56
+  %74 = load i64, ptr %9, align 8, !tbaa !22
+  %75 = load ptr, ptr %6, align 8, !tbaa !12
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %74
+  store ptr %76, ptr %6, align 8, !tbaa !12
+  %77 = load i64, ptr %9, align 8, !tbaa !22
+  %78 = load i64, ptr %7, align 8, !tbaa !22
+  %79 = sub i64 %78, %77
+  store i64 %79, ptr %7, align 8, !tbaa !22
+  store i32 0, ptr %10, align 4, !tbaa !10
+  br label %80
 
-83:                                               ; preds = %76, %55, %52
-  br label %84
+80:                                               ; preds = %73, %52, %49
+  br label %81
 
-84:                                               ; preds = %94, %83
-  %85 = load i64, ptr %7, align 8
-  %86 = icmp uge i64 %85, 64
-  br i1 %86, label %87, label %99
+81:                                               ; preds = %91, %80
+  %82 = load i64, ptr %7, align 8, !tbaa !22
+  %83 = icmp uge i64 %82, 64
+  br i1 %83, label %84, label %96
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %5, align 8
-  %89 = load ptr, ptr %6, align 8
-  %90 = call i32 @mbedtls_internal_sha1_process(ptr noundef %88, ptr noundef %89)
-  store i32 %90, ptr %8, align 4
-  %91 = icmp ne i32 %90, 0
-  br i1 %91, label %92, label %94
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %5, align 8, !tbaa !3
+  %86 = load ptr, ptr %6, align 8, !tbaa !12
+  %87 = call i32 @mbedtls_internal_sha1_process(ptr noundef %85, ptr noundef %86)
+  store i32 %87, ptr %8, align 4, !tbaa !10
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %91
 
-92:                                               ; preds = %87
-  %93 = load i32, ptr %8, align 4
-  store i32 %93, ptr %4, align 4
-  br label %112
+89:                                               ; preds = %84
+  %90 = load i32, ptr %8, align 4, !tbaa !10
+  store i32 %90, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %109
 
-94:                                               ; preds = %87
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 64
-  store ptr %96, ptr %6, align 8
-  %97 = load i64, ptr %7, align 8
-  %98 = sub i64 %97, 64
-  store i64 %98, ptr %7, align 8
-  br label %84, !llvm.loop !4
+91:                                               ; preds = %84
+  %92 = load ptr, ptr %6, align 8, !tbaa !12
+  %93 = getelementptr inbounds i8, ptr %92, i64 64
+  store ptr %93, ptr %6, align 8, !tbaa !12
+  %94 = load i64, ptr %7, align 8, !tbaa !22
+  %95 = sub i64 %94, 64
+  store i64 %95, ptr %7, align 8, !tbaa !22
+  br label %81, !llvm.loop !24
 
-99:                                               ; preds = %84
-  %100 = load i64, ptr %7, align 8
-  %101 = icmp ugt i64 %100, 0
-  br i1 %101, label %102, label %111
+96:                                               ; preds = %81
+  %97 = load i64, ptr %7, align 8, !tbaa !22
+  %98 = icmp ugt i64 %97, 0
+  br i1 %98, label %99, label %108
 
-102:                                              ; preds = %99
-  %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %103, i32 0, i32 2
-  %105 = getelementptr inbounds [64 x i8], ptr %104, i64 0, i64 0
-  %106 = load i32, ptr %10, align 4
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds i8, ptr %105, i64 %107
-  %109 = load ptr, ptr %6, align 8
-  %110 = load i64, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %108, ptr align 1 %109, i64 %110, i1 false)
-  br label %111
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %5, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %100, i32 0, i32 2
+  %102 = getelementptr inbounds [64 x i8], ptr %101, i64 0, i64 0
+  %103 = load i32, ptr %10, align 4, !tbaa !10
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 %104
+  %106 = load ptr, ptr %6, align 8, !tbaa !12
+  %107 = load i64, ptr %7, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %106, i64 %107, i1 false)
+  br label %108
 
-111:                                              ; preds = %102, %99
+108:                                              ; preds = %99, %96
   store i32 0, ptr %4, align 4
-  br label %112
+  store i32 1, ptr %11, align 4
+  br label %109
 
-112:                                              ; preds = %111, %92, %74, %17
-  %113 = load i32, ptr %4, align 4
-  ret i32 %113
+109:                                              ; preds = %108, %89, %71, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %110 = load i32, ptr %4, align 4
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_sha1_finish(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
+  %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
+  %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 -110, ptr %6, align 4
-  br label %10
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 -110, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %9, i32 0, i32 0
+  %11 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 0
+  %12 = load i32, ptr %11, align 4, !tbaa !10
+  %13 = and i32 %12, 63
+  store i32 %13, ptr %6, align 4, !tbaa !10
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %14, i32 0, i32 2
+  %16 = load i32, ptr %6, align 4, !tbaa !10
+  %17 = add i32 %16, 1
+  store i32 %17, ptr %6, align 4, !tbaa !10
+  %18 = zext i32 %16 to i64
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 0, i64 %18
+  store i8 -128, ptr %19, align 1, !tbaa !9
+  %20 = load i32, ptr %6, align 4, !tbaa !10
+  %21 = icmp ule i32 %20, 56
+  br i1 %21, label %22, label %32
 
-10:                                               ; preds = %2
-  br label %11
+22:                                               ; preds = %2
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %23, i32 0, i32 2
+  %25 = getelementptr inbounds [64 x i8], ptr %24, i64 0, i64 0
+  %26 = load i32, ptr %6, align 4, !tbaa !10
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %27
+  %29 = load i32, ptr %6, align 4, !tbaa !10
+  %30 = sub i32 56, %29
+  %31 = zext i32 %30 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %28, i8 0, i64 %31, i1 false)
+  br label %53
 
-11:                                               ; preds = %10
-  br label %12
+32:                                               ; preds = %2
+  %33 = load ptr, ptr %3, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %33, i32 0, i32 2
+  %35 = getelementptr inbounds [64 x i8], ptr %34, i64 0, i64 0
+  %36 = load i32, ptr %6, align 4, !tbaa !10
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
+  %39 = load i32, ptr %6, align 4, !tbaa !10
+  %40 = sub i32 64, %39
+  %41 = zext i32 %40 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 %41, i1 false)
+  %42 = load ptr, ptr %3, align 8, !tbaa !3
+  %43 = load ptr, ptr %3, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %43, i32 0, i32 2
+  %45 = getelementptr inbounds [64 x i8], ptr %44, i64 0, i64 0
+  %46 = call i32 @mbedtls_internal_sha1_process(ptr noundef %42, ptr noundef %45)
+  store i32 %46, ptr %5, align 4, !tbaa !10
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
-12:                                               ; preds = %11
-  br label %13
+48:                                               ; preds = %32
+  br label %125
 
-13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %14, i32 0, i32 0
-  %16 = getelementptr inbounds [2 x i32], ptr %15, i64 0, i64 0
-  %17 = load i32, ptr %16, align 4
-  %18 = and i32 %17, 63
-  store i32 %18, ptr %7, align 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %19, i32 0, i32 2
-  %21 = load i32, ptr %7, align 4
-  %22 = add i32 %21, 1
-  store i32 %22, ptr %7, align 4
-  %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds [64 x i8], ptr %20, i64 0, i64 %23
-  store i8 -128, ptr %24, align 1
-  %25 = load i32, ptr %7, align 4
-  %26 = icmp ule i32 %25, 56
-  br i1 %26, label %27, label %37
+49:                                               ; preds = %32
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %50, i32 0, i32 2
+  %52 = getelementptr inbounds [64 x i8], ptr %51, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 4 %52, i8 0, i64 56, i1 false)
+  br label %53
 
-27:                                               ; preds = %13
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %28, i32 0, i32 2
-  %30 = getelementptr inbounds [64 x i8], ptr %29, i64 0, i64 0
-  %31 = load i32, ptr %7, align 4
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %30, i64 %32
-  %34 = load i32, ptr %7, align 4
-  %35 = sub i32 56, %34
-  %36 = zext i32 %35 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 %36, i1 false)
-  br label %59
-
-37:                                               ; preds = %13
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %38, i32 0, i32 2
-  %40 = getelementptr inbounds [64 x i8], ptr %39, i64 0, i64 0
-  %41 = load i32, ptr %7, align 4
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %40, i64 %42
-  %44 = load i32, ptr %7, align 4
-  %45 = sub i32 64, %44
-  %46 = zext i32 %45 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %43, i8 0, i64 %46, i1 false)
-  %47 = load ptr, ptr %4, align 8
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %48, i32 0, i32 2
-  %50 = getelementptr inbounds [64 x i8], ptr %49, i64 0, i64 0
-  %51 = call i32 @mbedtls_internal_sha1_process(ptr noundef %47, ptr noundef %50)
-  store i32 %51, ptr %6, align 4
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %55
-
-53:                                               ; preds = %37
-  %54 = load i32, ptr %6, align 4
-  store i32 %54, ptr %3, align 4
-  br label %314
-
-55:                                               ; preds = %37
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %56, i32 0, i32 2
-  %58 = getelementptr inbounds [64 x i8], ptr %57, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 4 %58, i8 0, i64 56, i1 false)
-  br label %59
-
-59:                                               ; preds = %55, %27
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %60, i32 0, i32 0
-  %62 = getelementptr inbounds [2 x i32], ptr %61, i64 0, i64 0
-  %63 = load i32, ptr %62, align 4
-  %64 = lshr i32 %63, 29
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %65, i32 0, i32 0
-  %67 = getelementptr inbounds [2 x i32], ptr %66, i64 0, i64 1
-  %68 = load i32, ptr %67, align 4
+53:                                               ; preds = %49, %22
+  %54 = load ptr, ptr %3, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %54, i32 0, i32 0
+  %56 = getelementptr inbounds [2 x i32], ptr %55, i64 0, i64 0
+  %57 = load i32, ptr %56, align 4, !tbaa !10
+  %58 = lshr i32 %57, 29
+  %59 = load ptr, ptr %3, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %59, i32 0, i32 0
+  %61 = getelementptr inbounds [2 x i32], ptr %60, i64 0, i64 1
+  %62 = load i32, ptr %61, align 4, !tbaa !10
+  %63 = shl i32 %62, 3
+  %64 = or i32 %58, %63
+  store i32 %64, ptr %7, align 4, !tbaa !10
+  %65 = load ptr, ptr %3, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %65, i32 0, i32 0
+  %67 = getelementptr inbounds [2 x i32], ptr %66, i64 0, i64 0
+  %68 = load i32, ptr %67, align 4, !tbaa !10
   %69 = shl i32 %68, 3
-  %70 = or i32 %64, %69
-  store i32 %70, ptr %8, align 4
-  %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %71, i32 0, i32 0
-  %73 = getelementptr inbounds [2 x i32], ptr %72, i64 0, i64 0
-  %74 = load i32, ptr %73, align 4
-  %75 = shl i32 %74, 3
-  store i32 %75, ptr %9, align 4
-  %76 = load i32, ptr %8, align 4
-  %77 = lshr i32 %76, 24
-  %78 = and i32 %77, 255
-  %79 = trunc i32 %78 to i8
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %80, i32 0, i32 2
-  %82 = getelementptr inbounds [64 x i8], ptr %81, i64 0, i64 56
-  store i8 %79, ptr %82, align 4
-  %83 = load i32, ptr %8, align 4
-  %84 = lshr i32 %83, 16
-  %85 = and i32 %84, 255
-  %86 = trunc i32 %85 to i8
-  %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %87, i32 0, i32 2
-  %89 = getelementptr inbounds [64 x i8], ptr %88, i64 0, i64 57
-  store i8 %86, ptr %89, align 1
-  %90 = load i32, ptr %8, align 4
-  %91 = lshr i32 %90, 8
-  %92 = and i32 %91, 255
-  %93 = trunc i32 %92 to i8
-  %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %94, i32 0, i32 2
-  %96 = getelementptr inbounds [64 x i8], ptr %95, i64 0, i64 58
-  store i8 %93, ptr %96, align 2
-  %97 = load i32, ptr %8, align 4
-  %98 = and i32 %97, 255
-  %99 = trunc i32 %98 to i8
-  %100 = load ptr, ptr %4, align 8
-  %101 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %100, i32 0, i32 2
-  %102 = getelementptr inbounds [64 x i8], ptr %101, i64 0, i64 59
-  store i8 %99, ptr %102, align 1
-  %103 = load i32, ptr %9, align 4
-  %104 = lshr i32 %103, 24
-  %105 = and i32 %104, 255
-  %106 = trunc i32 %105 to i8
-  %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %107, i32 0, i32 2
-  %109 = getelementptr inbounds [64 x i8], ptr %108, i64 0, i64 60
-  store i8 %106, ptr %109, align 4
-  %110 = load i32, ptr %9, align 4
-  %111 = lshr i32 %110, 16
-  %112 = and i32 %111, 255
-  %113 = trunc i32 %112 to i8
-  %114 = load ptr, ptr %4, align 8
-  %115 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %114, i32 0, i32 2
-  %116 = getelementptr inbounds [64 x i8], ptr %115, i64 0, i64 61
-  store i8 %113, ptr %116, align 1
-  %117 = load i32, ptr %9, align 4
-  %118 = lshr i32 %117, 8
-  %119 = and i32 %118, 255
-  %120 = trunc i32 %119 to i8
-  %121 = load ptr, ptr %4, align 8
-  %122 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %121, i32 0, i32 2
-  %123 = getelementptr inbounds [64 x i8], ptr %122, i64 0, i64 62
-  store i8 %120, ptr %123, align 2
-  %124 = load i32, ptr %9, align 4
-  %125 = and i32 %124, 255
-  %126 = trunc i32 %125 to i8
-  %127 = load ptr, ptr %4, align 8
-  %128 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %127, i32 0, i32 2
-  %129 = getelementptr inbounds [64 x i8], ptr %128, i64 0, i64 63
-  store i8 %126, ptr %129, align 1
-  %130 = load ptr, ptr %4, align 8
-  %131 = load ptr, ptr %4, align 8
-  %132 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %131, i32 0, i32 2
-  %133 = getelementptr inbounds [64 x i8], ptr %132, i64 0, i64 0
-  %134 = call i32 @mbedtls_internal_sha1_process(ptr noundef %130, ptr noundef %133)
-  store i32 %134, ptr %6, align 4
-  %135 = icmp ne i32 %134, 0
-  br i1 %135, label %136, label %138
+  store i32 %69, ptr %8, align 4, !tbaa !10
+  %70 = load ptr, ptr %3, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %70, i32 0, i32 2
+  %72 = getelementptr inbounds [64 x i8], ptr %71, i64 0, i64 0
+  %73 = getelementptr inbounds i8, ptr %72, i64 56
+  %74 = load i32, ptr %7, align 4, !tbaa !10
+  %75 = call i32 @llvm.bswap.i32(i32 %74)
+  call void @mbedtls_put_unaligned_uint32(ptr noundef %73, i32 noundef %75)
+  %76 = load ptr, ptr %3, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %76, i32 0, i32 2
+  %78 = getelementptr inbounds [64 x i8], ptr %77, i64 0, i64 0
+  %79 = getelementptr inbounds i8, ptr %78, i64 60
+  %80 = load i32, ptr %8, align 4, !tbaa !10
+  %81 = call i32 @llvm.bswap.i32(i32 %80)
+  call void @mbedtls_put_unaligned_uint32(ptr noundef %79, i32 noundef %81)
+  %82 = load ptr, ptr %3, align 8, !tbaa !3
+  %83 = load ptr, ptr %3, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %83, i32 0, i32 2
+  %85 = getelementptr inbounds [64 x i8], ptr %84, i64 0, i64 0
+  %86 = call i32 @mbedtls_internal_sha1_process(ptr noundef %82, ptr noundef %85)
+  store i32 %86, ptr %5, align 4, !tbaa !10
+  %87 = icmp ne i32 %86, 0
+  br i1 %87, label %88, label %89
 
-136:                                              ; preds = %59
-  %137 = load i32, ptr %6, align 4
-  store i32 %137, ptr %3, align 4
-  br label %314
+88:                                               ; preds = %53
+  br label %125
 
-138:                                              ; preds = %59
-  %139 = load ptr, ptr %4, align 8
-  %140 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %139, i32 0, i32 1
-  %141 = getelementptr inbounds [5 x i32], ptr %140, i64 0, i64 0
-  %142 = load i32, ptr %141, align 4
-  %143 = lshr i32 %142, 24
-  %144 = and i32 %143, 255
-  %145 = trunc i32 %144 to i8
-  %146 = load ptr, ptr %5, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 0
-  store i8 %145, ptr %147, align 1
-  %148 = load ptr, ptr %4, align 8
-  %149 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %148, i32 0, i32 1
-  %150 = getelementptr inbounds [5 x i32], ptr %149, i64 0, i64 0
-  %151 = load i32, ptr %150, align 4
-  %152 = lshr i32 %151, 16
-  %153 = and i32 %152, 255
-  %154 = trunc i32 %153 to i8
-  %155 = load ptr, ptr %5, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 1
-  store i8 %154, ptr %156, align 1
-  %157 = load ptr, ptr %4, align 8
-  %158 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %157, i32 0, i32 1
-  %159 = getelementptr inbounds [5 x i32], ptr %158, i64 0, i64 0
-  %160 = load i32, ptr %159, align 4
-  %161 = lshr i32 %160, 8
-  %162 = and i32 %161, 255
-  %163 = trunc i32 %162 to i8
-  %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 2
-  store i8 %163, ptr %165, align 1
-  %166 = load ptr, ptr %4, align 8
-  %167 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %166, i32 0, i32 1
-  %168 = getelementptr inbounds [5 x i32], ptr %167, i64 0, i64 0
-  %169 = load i32, ptr %168, align 4
-  %170 = and i32 %169, 255
-  %171 = trunc i32 %170 to i8
-  %172 = load ptr, ptr %5, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 3
-  store i8 %171, ptr %173, align 1
-  %174 = load ptr, ptr %4, align 8
-  %175 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %174, i32 0, i32 1
-  %176 = getelementptr inbounds [5 x i32], ptr %175, i64 0, i64 1
-  %177 = load i32, ptr %176, align 4
-  %178 = lshr i32 %177, 24
-  %179 = and i32 %178, 255
-  %180 = trunc i32 %179 to i8
-  %181 = load ptr, ptr %5, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 4
-  store i8 %180, ptr %182, align 1
-  %183 = load ptr, ptr %4, align 8
-  %184 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %183, i32 0, i32 1
-  %185 = getelementptr inbounds [5 x i32], ptr %184, i64 0, i64 1
-  %186 = load i32, ptr %185, align 4
-  %187 = lshr i32 %186, 16
-  %188 = and i32 %187, 255
-  %189 = trunc i32 %188 to i8
-  %190 = load ptr, ptr %5, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 5
-  store i8 %189, ptr %191, align 1
-  %192 = load ptr, ptr %4, align 8
-  %193 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %192, i32 0, i32 1
-  %194 = getelementptr inbounds [5 x i32], ptr %193, i64 0, i64 1
-  %195 = load i32, ptr %194, align 4
-  %196 = lshr i32 %195, 8
-  %197 = and i32 %196, 255
-  %198 = trunc i32 %197 to i8
-  %199 = load ptr, ptr %5, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 6
-  store i8 %198, ptr %200, align 1
-  %201 = load ptr, ptr %4, align 8
-  %202 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %201, i32 0, i32 1
-  %203 = getelementptr inbounds [5 x i32], ptr %202, i64 0, i64 1
-  %204 = load i32, ptr %203, align 4
-  %205 = and i32 %204, 255
-  %206 = trunc i32 %205 to i8
-  %207 = load ptr, ptr %5, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 7
-  store i8 %206, ptr %208, align 1
-  %209 = load ptr, ptr %4, align 8
-  %210 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %209, i32 0, i32 1
-  %211 = getelementptr inbounds [5 x i32], ptr %210, i64 0, i64 2
-  %212 = load i32, ptr %211, align 4
-  %213 = lshr i32 %212, 24
-  %214 = and i32 %213, 255
-  %215 = trunc i32 %214 to i8
-  %216 = load ptr, ptr %5, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 8
-  store i8 %215, ptr %217, align 1
-  %218 = load ptr, ptr %4, align 8
-  %219 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %218, i32 0, i32 1
-  %220 = getelementptr inbounds [5 x i32], ptr %219, i64 0, i64 2
-  %221 = load i32, ptr %220, align 4
-  %222 = lshr i32 %221, 16
-  %223 = and i32 %222, 255
-  %224 = trunc i32 %223 to i8
-  %225 = load ptr, ptr %5, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 9
-  store i8 %224, ptr %226, align 1
-  %227 = load ptr, ptr %4, align 8
-  %228 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %227, i32 0, i32 1
-  %229 = getelementptr inbounds [5 x i32], ptr %228, i64 0, i64 2
-  %230 = load i32, ptr %229, align 4
-  %231 = lshr i32 %230, 8
-  %232 = and i32 %231, 255
-  %233 = trunc i32 %232 to i8
-  %234 = load ptr, ptr %5, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 10
-  store i8 %233, ptr %235, align 1
-  %236 = load ptr, ptr %4, align 8
-  %237 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %236, i32 0, i32 1
-  %238 = getelementptr inbounds [5 x i32], ptr %237, i64 0, i64 2
-  %239 = load i32, ptr %238, align 4
-  %240 = and i32 %239, 255
-  %241 = trunc i32 %240 to i8
-  %242 = load ptr, ptr %5, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 11
-  store i8 %241, ptr %243, align 1
-  %244 = load ptr, ptr %4, align 8
-  %245 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %244, i32 0, i32 1
-  %246 = getelementptr inbounds [5 x i32], ptr %245, i64 0, i64 3
-  %247 = load i32, ptr %246, align 4
-  %248 = lshr i32 %247, 24
-  %249 = and i32 %248, 255
-  %250 = trunc i32 %249 to i8
-  %251 = load ptr, ptr %5, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 12
-  store i8 %250, ptr %252, align 1
-  %253 = load ptr, ptr %4, align 8
-  %254 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %253, i32 0, i32 1
-  %255 = getelementptr inbounds [5 x i32], ptr %254, i64 0, i64 3
-  %256 = load i32, ptr %255, align 4
-  %257 = lshr i32 %256, 16
-  %258 = and i32 %257, 255
-  %259 = trunc i32 %258 to i8
-  %260 = load ptr, ptr %5, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 13
-  store i8 %259, ptr %261, align 1
-  %262 = load ptr, ptr %4, align 8
-  %263 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %262, i32 0, i32 1
-  %264 = getelementptr inbounds [5 x i32], ptr %263, i64 0, i64 3
-  %265 = load i32, ptr %264, align 4
-  %266 = lshr i32 %265, 8
-  %267 = and i32 %266, 255
-  %268 = trunc i32 %267 to i8
-  %269 = load ptr, ptr %5, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 14
-  store i8 %268, ptr %270, align 1
-  %271 = load ptr, ptr %4, align 8
-  %272 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %271, i32 0, i32 1
-  %273 = getelementptr inbounds [5 x i32], ptr %272, i64 0, i64 3
-  %274 = load i32, ptr %273, align 4
-  %275 = and i32 %274, 255
-  %276 = trunc i32 %275 to i8
-  %277 = load ptr, ptr %5, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 15
-  store i8 %276, ptr %278, align 1
-  %279 = load ptr, ptr %4, align 8
-  %280 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %279, i32 0, i32 1
-  %281 = getelementptr inbounds [5 x i32], ptr %280, i64 0, i64 4
-  %282 = load i32, ptr %281, align 4
-  %283 = lshr i32 %282, 24
-  %284 = and i32 %283, 255
-  %285 = trunc i32 %284 to i8
-  %286 = load ptr, ptr %5, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 16
-  store i8 %285, ptr %287, align 1
-  %288 = load ptr, ptr %4, align 8
-  %289 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %288, i32 0, i32 1
-  %290 = getelementptr inbounds [5 x i32], ptr %289, i64 0, i64 4
-  %291 = load i32, ptr %290, align 4
-  %292 = lshr i32 %291, 16
-  %293 = and i32 %292, 255
-  %294 = trunc i32 %293 to i8
-  %295 = load ptr, ptr %5, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 17
-  store i8 %294, ptr %296, align 1
-  %297 = load ptr, ptr %4, align 8
-  %298 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %297, i32 0, i32 1
-  %299 = getelementptr inbounds [5 x i32], ptr %298, i64 0, i64 4
-  %300 = load i32, ptr %299, align 4
-  %301 = lshr i32 %300, 8
-  %302 = and i32 %301, 255
-  %303 = trunc i32 %302 to i8
-  %304 = load ptr, ptr %5, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 18
-  store i8 %303, ptr %305, align 1
-  %306 = load ptr, ptr %4, align 8
-  %307 = getelementptr inbounds %struct.mbedtls_sha1_context, ptr %306, i32 0, i32 1
-  %308 = getelementptr inbounds [5 x i32], ptr %307, i64 0, i64 4
-  %309 = load i32, ptr %308, align 4
-  %310 = and i32 %309, 255
-  %311 = trunc i32 %310 to i8
-  %312 = load ptr, ptr %5, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 19
-  store i8 %311, ptr %313, align 1
-  store i32 0, ptr %3, align 4
-  br label %314
+89:                                               ; preds = %53
+  %90 = load ptr, ptr %4, align 8, !tbaa !12
+  %91 = getelementptr inbounds i8, ptr %90, i64 0
+  %92 = load ptr, ptr %3, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %92, i32 0, i32 1
+  %94 = getelementptr inbounds [5 x i32], ptr %93, i64 0, i64 0
+  %95 = load i32, ptr %94, align 4, !tbaa !10
+  %96 = call i32 @llvm.bswap.i32(i32 %95)
+  call void @mbedtls_put_unaligned_uint32(ptr noundef %91, i32 noundef %96)
+  %97 = load ptr, ptr %4, align 8, !tbaa !12
+  %98 = getelementptr inbounds i8, ptr %97, i64 4
+  %99 = load ptr, ptr %3, align 8, !tbaa !3
+  %100 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %99, i32 0, i32 1
+  %101 = getelementptr inbounds [5 x i32], ptr %100, i64 0, i64 1
+  %102 = load i32, ptr %101, align 4, !tbaa !10
+  %103 = call i32 @llvm.bswap.i32(i32 %102)
+  call void @mbedtls_put_unaligned_uint32(ptr noundef %98, i32 noundef %103)
+  %104 = load ptr, ptr %4, align 8, !tbaa !12
+  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %106 = load ptr, ptr %3, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %106, i32 0, i32 1
+  %108 = getelementptr inbounds [5 x i32], ptr %107, i64 0, i64 2
+  %109 = load i32, ptr %108, align 4, !tbaa !10
+  %110 = call i32 @llvm.bswap.i32(i32 %109)
+  call void @mbedtls_put_unaligned_uint32(ptr noundef %105, i32 noundef %110)
+  %111 = load ptr, ptr %4, align 8, !tbaa !12
+  %112 = getelementptr inbounds i8, ptr %111, i64 12
+  %113 = load ptr, ptr %3, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %113, i32 0, i32 1
+  %115 = getelementptr inbounds [5 x i32], ptr %114, i64 0, i64 3
+  %116 = load i32, ptr %115, align 4, !tbaa !10
+  %117 = call i32 @llvm.bswap.i32(i32 %116)
+  call void @mbedtls_put_unaligned_uint32(ptr noundef %112, i32 noundef %117)
+  %118 = load ptr, ptr %4, align 8, !tbaa !12
+  %119 = getelementptr inbounds i8, ptr %118, i64 16
+  %120 = load ptr, ptr %3, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw %struct.mbedtls_sha1_context, ptr %120, i32 0, i32 1
+  %122 = getelementptr inbounds [5 x i32], ptr %121, i64 0, i64 4
+  %123 = load i32, ptr %122, align 4, !tbaa !10
+  %124 = call i32 @llvm.bswap.i32(i32 %123)
+  call void @mbedtls_put_unaligned_uint32(ptr noundef %119, i32 noundef %124)
+  store i32 0, ptr %5, align 4, !tbaa !10
+  br label %125
 
-314:                                              ; preds = %138, %136, %53
-  %315 = load i32, ptr %3, align 4
-  ret i32 %315
+125:                                              ; preds = %89, %88, %48
+  %126 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @mbedtls_sha1_free(ptr noundef %126)
+  %127 = load i32, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret i32 %127
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @mbedtls_put_unaligned_uint32(ptr noundef %0, i32 noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store i32 %1, ptr %4, align 4, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 4 %4, i64 4, i1 false)
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6325,59 +6065,51 @@ define hidden i32 @mbedtls_sha1(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.mbedtls_sha1_context, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  store i32 -110, ptr %7, align 4
-  br label %9
-
-9:                                                ; preds = %3
-  br label %10
-
-10:                                               ; preds = %9
-  br label %11
-
-11:                                               ; preds = %10
-  br label %12
-
-12:                                               ; preds = %11
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store i64 %1, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 -110, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 92, ptr %8) #8
   call void @mbedtls_sha1_init(ptr noundef %8)
-  %13 = call i32 @mbedtls_sha1_starts(ptr noundef %8)
-  store i32 %13, ptr %7, align 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %16
+  %9 = call i32 @mbedtls_sha1_starts(ptr noundef %8)
+  store i32 %9, ptr %7, align 4, !tbaa !10
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
 
-15:                                               ; preds = %12
-  br label %28
+11:                                               ; preds = %3
+  br label %24
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %4, align 8
-  %18 = load i64, ptr %5, align 8
-  %19 = call i32 @mbedtls_sha1_update(ptr noundef %8, ptr noundef %17, i64 noundef %18)
-  store i32 %19, ptr %7, align 4
-  %20 = icmp ne i32 %19, 0
-  br i1 %20, label %21, label %22
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !12
+  %14 = load i64, ptr %5, align 8, !tbaa !22
+  %15 = call i32 @mbedtls_sha1_update(ptr noundef %8, ptr noundef %13, i64 noundef %14)
+  store i32 %15, ptr %7, align 4, !tbaa !10
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %18
 
-21:                                               ; preds = %16
-  br label %28
+17:                                               ; preds = %12
+  br label %24
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %6, align 8
-  %24 = call i32 @mbedtls_sha1_finish(ptr noundef %8, ptr noundef %23)
-  store i32 %24, ptr %7, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %27
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %6, align 8, !tbaa !12
+  %20 = call i32 @mbedtls_sha1_finish(ptr noundef %8, ptr noundef %19)
+  store i32 %20, ptr %7, align 4, !tbaa !10
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %23
 
-26:                                               ; preds = %22
-  br label %28
+22:                                               ; preds = %18
+  br label %24
 
-27:                                               ; preds = %22
-  br label %28
+23:                                               ; preds = %18
+  br label %24
 
-28:                                               ; preds = %27, %26, %21, %15
+24:                                               ; preds = %23, %22, %17, %11
   call void @mbedtls_sha1_free(ptr noundef %8)
-  %29 = load i32, ptr %7, align 4
-  ret i32 %29
+  %25 = load i32, ptr %7, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 92, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6390,31 +6122,38 @@ define hidden i32 @mbedtls_sha1_self_test(i32 noundef %0) #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca [20 x i8], align 16
   %9 = alloca %struct.mbedtls_sha1_context, align 4
-  store i32 %0, ptr %2, align 4
-  store i32 0, ptr %6, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  store i32 0, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 20, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 92, ptr %9) #8
   call void @mbedtls_sha1_init(ptr noundef %9)
-  store i32 0, ptr %3, align 4
+  store i32 0, ptr %3, align 4, !tbaa !10
   br label %10
 
 10:                                               ; preds = %79, %1
-  %11 = load i32, ptr %3, align 4
+  %11 = load i32, ptr %3, align 4, !tbaa !10
   %12 = icmp slt i32 %11, 3
   br i1 %12, label %13, label %82
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr %2, align 4
+  %14 = load i32, ptr %2, align 4, !tbaa !10
   %15 = icmp ne i32 %14, 0
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %13
-  %17 = load i32, ptr %3, align 4
+  %17 = load i32, ptr %3, align 4, !tbaa !10
   %18 = add nsw i32 %17, 1
   %19 = call i32 (ptr, ...) @printf(ptr noundef @.str, i32 noundef %18)
   br label %20
 
 20:                                               ; preds = %16, %13
   %21 = call i32 @mbedtls_sha1_starts(ptr noundef %9)
-  store i32 %21, ptr %6, align 4
+  store i32 %21, ptr %6, align 4, !tbaa !10
   %22 = icmp ne i32 %21, 0
   br i1 %22, label %23, label %24
 
@@ -6422,29 +6161,29 @@ define hidden i32 @mbedtls_sha1_self_test(i32 noundef %0) #0 {
   br label %88
 
 24:                                               ; preds = %20
-  %25 = load i32, ptr %3, align 4
+  %25 = load i32, ptr %3, align 4, !tbaa !10
   %26 = icmp eq i32 %25, 2
   br i1 %26, label %27, label %45
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
-  store i32 1000, ptr %5, align 4
+  store i32 1000, ptr %5, align 4, !tbaa !10
   call void @llvm.memset.p0.i64(ptr align 16 %28, i8 97, i64 1000, i1 false)
-  store i32 0, ptr %4, align 4
+  store i32 0, ptr %4, align 4, !tbaa !10
   br label %29
 
 29:                                               ; preds = %41, %27
-  %30 = load i32, ptr %4, align 4
+  %30 = load i32, ptr %4, align 4, !tbaa !10
   %31 = icmp slt i32 %30, 1000
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 0
-  %34 = load i32, ptr %5, align 4
+  %34 = load i32, ptr %5, align 4, !tbaa !10
   %35 = sext i32 %34 to i64
   %36 = call i32 @mbedtls_sha1_update(ptr noundef %9, ptr noundef %33, i64 noundef %35)
-  store i32 %36, ptr %6, align 4
-  %37 = load i32, ptr %6, align 4
+  store i32 %36, ptr %6, align 4, !tbaa !10
+  %37 = load i32, ptr %6, align 4, !tbaa !10
   %38 = icmp ne i32 %37, 0
   br i1 %38, label %39, label %40
 
@@ -6455,26 +6194,26 @@ define hidden i32 @mbedtls_sha1_self_test(i32 noundef %0) #0 {
   br label %41
 
 41:                                               ; preds = %40
-  %42 = load i32, ptr %4, align 4
+  %42 = load i32, ptr %4, align 4, !tbaa !10
   %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %4, align 4
-  br label %29, !llvm.loop !6
+  store i32 %43, ptr %4, align 4, !tbaa !10
+  br label %29, !llvm.loop !26
 
 44:                                               ; preds = %29
   br label %59
 
 45:                                               ; preds = %24
-  %46 = load i32, ptr %3, align 4
+  %46 = load i32, ptr %3, align 4, !tbaa !10
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds [3 x [57 x i8]], ptr @sha1_test_buf, i64 0, i64 %47
   %49 = getelementptr inbounds [57 x i8], ptr %48, i64 0, i64 0
-  %50 = load i32, ptr %3, align 4
+  %50 = load i32, ptr %3, align 4, !tbaa !10
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds [3 x i64], ptr @sha1_test_buflen, i64 0, i64 %51
-  %53 = load i64, ptr %52, align 8
+  %53 = load i64, ptr %52, align 8, !tbaa !22
   %54 = call i32 @mbedtls_sha1_update(ptr noundef %9, ptr noundef %49, i64 noundef %53)
-  store i32 %54, ptr %6, align 4
-  %55 = load i32, ptr %6, align 4
+  store i32 %54, ptr %6, align 4, !tbaa !10
+  %55 = load i32, ptr %6, align 4, !tbaa !10
   %56 = icmp ne i32 %55, 0
   br i1 %56, label %57, label %58
 
@@ -6487,7 +6226,7 @@ define hidden i32 @mbedtls_sha1_self_test(i32 noundef %0) #0 {
 59:                                               ; preds = %58, %44
   %60 = getelementptr inbounds [20 x i8], ptr %8, i64 0, i64 0
   %61 = call i32 @mbedtls_sha1_finish(ptr noundef %9, ptr noundef %60)
-  store i32 %61, ptr %6, align 4
+  store i32 %61, ptr %6, align 4, !tbaa !10
   %62 = icmp ne i32 %61, 0
   br i1 %62, label %63, label %64
 
@@ -6496,20 +6235,20 @@ define hidden i32 @mbedtls_sha1_self_test(i32 noundef %0) #0 {
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds [20 x i8], ptr %8, i64 0, i64 0
-  %66 = load i32, ptr %3, align 4
+  %66 = load i32, ptr %3, align 4, !tbaa !10
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds [3 x [20 x i8]], ptr @sha1_test_sum, i64 0, i64 %67
   %69 = getelementptr inbounds [20 x i8], ptr %68, i64 0, i64 0
-  %70 = call i32 @memcmp(ptr noundef %65, ptr noundef %69, i64 noundef 20) #5
+  %70 = call i32 @memcmp(ptr noundef %65, ptr noundef %69, i64 noundef 20) #9
   %71 = icmp ne i32 %70, 0
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %64
-  store i32 1, ptr %6, align 4
+  store i32 1, ptr %6, align 4, !tbaa !10
   br label %88
 
 73:                                               ; preds = %64
-  %74 = load i32, ptr %2, align 4
+  %74 = load i32, ptr %2, align 4, !tbaa !10
   %75 = icmp ne i32 %74, 0
   br i1 %75, label %76, label %78
 
@@ -6521,13 +6260,13 @@ define hidden i32 @mbedtls_sha1_self_test(i32 noundef %0) #0 {
   br label %79
 
 79:                                               ; preds = %78
-  %80 = load i32, ptr %3, align 4
+  %80 = load i32, ptr %3, align 4, !tbaa !10
   %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %3, align 4
-  br label %10, !llvm.loop !7
+  store i32 %81, ptr %3, align 4, !tbaa !10
+  br label %10, !llvm.loop !27
 
 82:                                               ; preds = %10
-  %83 = load i32, ptr %2, align 4
+  %83 = load i32, ptr %2, align 4, !tbaa !10
   %84 = icmp ne i32 %83, 0
   br i1 %84, label %85, label %87
 
@@ -6539,7 +6278,7 @@ define hidden i32 @mbedtls_sha1_self_test(i32 noundef %0) #0 {
   br label %94
 
 88:                                               ; preds = %72, %63, %57, %39, %23
-  %89 = load i32, ptr %2, align 4
+  %89 = load i32, ptr %2, align 4, !tbaa !10
   %90 = icmp ne i32 %89, 0
   br i1 %90, label %91, label %93
 
@@ -6552,29 +6291,60 @@ define hidden i32 @mbedtls_sha1_self_test(i32 noundef %0) #0 {
 
 94:                                               ; preds = %93, %87
   call void @mbedtls_sha1_free(ptr noundef %9)
-  %95 = load i32, ptr %6, align 4
+  %95 = load i32, ptr %6, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 92, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #8
   ret i32 %95
 }
 
 declare i32 @printf(ptr noundef, ...) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #7
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS20mbedtls_sha1_context", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{i64 0, i64 8, !9, i64 8, i64 20, !9, i64 28, i64 64, !9}
+!9 = !{!6, !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!15, !11, i64 68}
+!15 = !{!"", !11, i64 0, !6, i64 4, !11, i64 68, !11, i64 72, !11, i64 76, !11, i64 80, !11, i64 84}
+!16 = !{!15, !11, i64 72}
+!17 = !{!15, !11, i64 76}
+!18 = !{!15, !11, i64 80}
+!19 = !{!15, !11, i64 84}
+!20 = !{!15, !11, i64 0}
+!21 = !{!5, !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !6, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}

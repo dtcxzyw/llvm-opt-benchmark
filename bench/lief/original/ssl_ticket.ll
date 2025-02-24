@@ -2,22 +2,23 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.mbedtls_ssl_ticket_context = type { [2 x %struct.mbedtls_ssl_ticket_key], i8, i32, ptr, ptr }
-%struct.mbedtls_ssl_ticket_key = type { [4 x i8], i32, %struct.mbedtls_cipher_context_t }
+%struct.mbedtls_ssl_ticket_key = type { [4 x i8], i64, i32, %struct.mbedtls_cipher_context_t }
 %struct.mbedtls_cipher_context_t = type { ptr, i32, i32, ptr, ptr, [16 x i8], i64, [16 x i8], i64, ptr, ptr }
-%struct.mbedtls_cipher_info_t = type { i32, i32, i32, ptr, i32, i32, i32, ptr }
-%struct.mbedtls_ssl_session = type { i8, i8, i32, i64, i32, i32, i64, [32 x i8], [48 x i8], ptr, i32, ptr, i64, i32, i32 }
+%struct.mbedtls_cipher_info_t = type { ptr, i32 }
+%struct.mbedtls_ssl_session = type { i8, i8, i8, i32, i64, i32, i64, [32 x i8], [48 x i8], ptr, i32, ptr, i64, i32, i64, i32, i8, i8, [48 x i8], ptr, i64, i32, %struct.mbedtls_ssl_tls13_application_secrets }
+%struct.mbedtls_ssl_tls13_application_secrets = type { [64 x i8], [64 x i8], [64 x i8], [64 x i8] }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_ssl_ticket_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 232, i1 false)
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 264, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_ticket_rotate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #0 {
@@ -32,133 +33,151 @@ define hidden i32 @mbedtls_ssl_ticket_rotate(ptr noundef %0, ptr noundef %1, i64
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store i64 %4, ptr %12, align 8
-  store i32 %5, ptr %13, align 4
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %18, i32 0, i32 1
-  %20 = load i8, ptr %19, align 8
-  %21 = zext i8 %20 to i32
-  %22 = sub nsw i32 1, %21
-  %23 = trunc i32 %22 to i8
-  store i8 %23, ptr %14, align 1
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %24, i32 0, i32 0
-  %26 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %25, i64 0, i64 0
-  %27 = load i8, ptr %14, align 1
-  %28 = zext i8 %27 to i32
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %26, i64 %29
-  store ptr %30, ptr %15, align 8
-  store i32 -110, ptr %16, align 4
-  %31 = load ptr, ptr %15, align 8
-  %32 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %31, i32 0, i32 2
-  %33 = call i32 @mbedtls_cipher_get_key_bitlen(ptr noundef %32)
-  store i32 %33, ptr %17, align 4
-  %34 = load i64, ptr %10, align 8
-  %35 = icmp ult i64 %34, 4
-  br i1 %35, label %42, label %36
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !8
+  store i64 %2, ptr %10, align 8, !tbaa !10
+  store ptr %3, ptr %11, align 8, !tbaa !8
+  store i64 %4, ptr %12, align 8, !tbaa !10
+  store i32 %5, ptr %13, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #10
+  %19 = load ptr, ptr %8, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %19, i32 0, i32 1
+  %21 = load i8, ptr %20, align 8, !tbaa !14
+  %22 = zext i8 %21 to i32
+  %23 = sub nsw i32 1, %22
+  %24 = trunc i32 %23 to i8
+  store i8 %24, ptr %14, align 1, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %25 = load ptr, ptr %8, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %25, i32 0, i32 0
+  %27 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %26, i64 0, i64 0
+  %28 = load i8, ptr %14, align 1, !tbaa !16
+  %29 = zext i8 %28 to i32
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %27, i64 %30
+  store ptr %31, ptr %15, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  store i32 -110, ptr %16, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #10
+  %32 = load ptr, ptr %15, align 8, !tbaa !17
+  %33 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %32, i32 0, i32 3
+  %34 = call i32 @mbedtls_cipher_get_key_bitlen(ptr noundef %33)
+  store i32 %34, ptr %17, align 4, !tbaa !12
+  %35 = load i64, ptr %10, align 8, !tbaa !10
+  %36 = icmp ult i64 %35, 4
+  br i1 %36, label %43, label %37
 
-36:                                               ; preds = %6
-  %37 = load i64, ptr %12, align 8
-  %38 = mul i64 %37, 8
-  %39 = load i32, ptr %17, align 4
-  %40 = sext i32 %39 to i64
-  %41 = icmp ult i64 %38, %40
-  br i1 %41, label %42, label %43
+37:                                               ; preds = %6
+  %38 = load i64, ptr %12, align 8, !tbaa !10
+  %39 = mul i64 %38, 8
+  %40 = load i32, ptr %17, align 4, !tbaa !12
+  %41 = sext i32 %40 to i64
+  %42 = icmp ult i64 %39, %41
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %36, %6
+43:                                               ; preds = %37, %6
   store i32 -24832, ptr %7, align 4
-  br label %68
+  store i32 1, ptr %18, align 4
+  br label %71
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %15, align 8
-  %45 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %11, align 8
-  %47 = load i32, ptr %17, align 4
-  %48 = call i32 @mbedtls_cipher_setkey(ptr noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef 1)
-  store i32 %48, ptr %16, align 4
-  %49 = load i32, ptr %16, align 4
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %53
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %15, align 8, !tbaa !17
+  %46 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %45, i32 0, i32 3
+  %47 = load ptr, ptr %11, align 8, !tbaa !8
+  %48 = load i32, ptr %17, align 4, !tbaa !12
+  %49 = call i32 @mbedtls_cipher_setkey(ptr noundef %46, ptr noundef %47, i32 noundef %48, i32 noundef 1)
+  store i32 %49, ptr %16, align 4, !tbaa !12
+  %50 = load i32, ptr %16, align 4, !tbaa !12
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %43
-  %52 = load i32, ptr %16, align 4
-  store i32 %52, ptr %7, align 4
-  br label %68
+52:                                               ; preds = %44
+  %53 = load i32, ptr %16, align 4, !tbaa !12
+  store i32 %53, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %71
 
-53:                                               ; preds = %43
-  %54 = load i8, ptr %14, align 1
-  %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %55, i32 0, i32 1
-  store i8 %54, ptr %56, align 8
-  %57 = load i32, ptr %13, align 4
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %58, i32 0, i32 2
-  store i32 %57, ptr %59, align 4
-  %60 = load ptr, ptr %15, align 8
-  %61 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %60, i32 0, i32 0
-  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 0, i64 0
-  %63 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %62, ptr align 1 %63, i64 4, i1 false)
-  %64 = call i64 @time(ptr noundef null) #6
-  %65 = trunc i64 %64 to i32
-  %66 = load ptr, ptr %15, align 8
-  %67 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %66, i32 0, i32 1
-  store i32 %65, ptr %67, align 4
+54:                                               ; preds = %44
+  %55 = load i8, ptr %14, align 1, !tbaa !16
+  %56 = load ptr, ptr %8, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %56, i32 0, i32 1
+  store i8 %55, ptr %57, align 8, !tbaa !14
+  %58 = load i32, ptr %13, align 4, !tbaa !12
+  %59 = load ptr, ptr %8, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %59, i32 0, i32 2
+  store i32 %58, ptr %60, align 4, !tbaa !19
+  %61 = load ptr, ptr %15, align 8, !tbaa !17
+  %62 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %61, i32 0, i32 0
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 0, i64 0
+  %64 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %63, ptr align 1 %64, i64 4, i1 false)
+  %65 = call i64 @time(ptr noundef null) #10
+  %66 = load ptr, ptr %15, align 8, !tbaa !17
+  %67 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %66, i32 0, i32 1
+  store i64 %65, ptr %67, align 8, !tbaa !20
+  %68 = load i32, ptr %13, align 4, !tbaa !12
+  %69 = load ptr, ptr %15, align 8, !tbaa !17
+  %70 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %69, i32 0, i32 2
+  store i32 %68, ptr %70, align 8, !tbaa !25
   store i32 0, ptr %7, align 4
-  br label %68
+  store i32 1, ptr %18, align 4
+  br label %71
 
-68:                                               ; preds = %53, %51, %42
-  %69 = load i32, ptr %7, align 4
-  ret i32 %69
+71:                                               ; preds = %54, %52, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #10
+  %72 = load i32, ptr %7, align 4
+  ret i32 %72
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @mbedtls_cipher_get_key_bitlen(ptr noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @mbedtls_cipher_get_key_bitlen(ptr noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  br label %4
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %5 = getelementptr inbounds nuw %struct.mbedtls_cipher_context_t, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-4:                                                ; preds = %1
-  br label %5
-
-5:                                                ; preds = %4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.mbedtls_cipher_context_t, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %5
+8:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %17
+  br label %18
 
-11:                                               ; preds = %5
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.mbedtls_cipher_context_t, ptr %12, i32 0, i32 0
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.mbedtls_cipher_info_t, ptr %14, i32 0, i32 2
-  %16 = load i32, ptr %15, align 8
-  store i32 %16, ptr %2, align 4
-  br label %17
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !26
+  %11 = getelementptr inbounds nuw %struct.mbedtls_cipher_context_t, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !28
+  %13 = getelementptr inbounds nuw %struct.mbedtls_cipher_info_t, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8
+  %15 = lshr i32 %14, 8
+  %16 = and i32 %15, 15
+  %17 = shl i32 %16, 6
+  store i32 %17, ptr %2, align 4
+  br label %18
 
-17:                                               ; preds = %11, %10
-  %18 = load i32, ptr %2, align 4
-  ret i32 %18
+18:                                               ; preds = %9, %8
+  %19 = load i32, ptr %2, align 4
+  ret i32 %19
 }
 
-declare i32 @mbedtls_cipher_setkey(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+declare i32 @mbedtls_cipher_setkey(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #4
+declare i64 @time(ptr noundef) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_ticket_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
@@ -171,174 +190,192 @@ define hidden i32 @mbedtls_ssl_ticket_setup(ptr noundef %0, ptr noundef %1, ptr 
   %12 = alloca i32, align 4
   %13 = alloca i64, align 8
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store i32 %3, ptr %10, align 4
-  store i32 %4, ptr %11, align 4
-  store i32 -110, ptr %12, align 4
-  %15 = load i32, ptr %10, align 4
-  %16 = call ptr @mbedtls_cipher_info_from_type(i32 noundef %15)
-  store ptr %16, ptr %14, align 8
-  %17 = load ptr, ptr %14, align 8
-  %18 = call i32 @mbedtls_cipher_info_get_mode(ptr noundef %17)
-  %19 = icmp ne i32 %18, 6
-  br i1 %19, label %20, label %29
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !29
+  store ptr %2, ptr %9, align 8, !tbaa !29
+  store i32 %3, ptr %10, align 4, !tbaa !12
+  store i32 %4, ptr %11, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store i32 -110, ptr %12, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %16 = load i32, ptr %10, align 4, !tbaa !12
+  %17 = call ptr @mbedtls_cipher_info_from_type(i32 noundef %16)
+  store ptr %17, ptr %14, align 8, !tbaa !30
+  %18 = load ptr, ptr %14, align 8, !tbaa !30
+  %19 = call i32 @mbedtls_cipher_info_get_mode(ptr noundef %18)
+  %20 = icmp ne i32 %19, 6
+  br i1 %20, label %21, label %30
 
-20:                                               ; preds = %5
-  %21 = load ptr, ptr %14, align 8
-  %22 = call i32 @mbedtls_cipher_info_get_mode(ptr noundef %21)
-  %23 = icmp ne i32 %22, 8
-  br i1 %23, label %24, label %29
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %14, align 8, !tbaa !30
+  %23 = call i32 @mbedtls_cipher_info_get_mode(ptr noundef %22)
+  %24 = icmp ne i32 %23, 8
+  br i1 %24, label %25, label %30
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %14, align 8
-  %26 = call i32 @mbedtls_cipher_info_get_mode(ptr noundef %25)
-  %27 = icmp ne i32 %26, 11
-  br i1 %27, label %28, label %29
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %14, align 8, !tbaa !30
+  %27 = call i32 @mbedtls_cipher_info_get_mode(ptr noundef %26)
+  %28 = icmp ne i32 %27, 11
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %24
+29:                                               ; preds = %25
   store i32 -28928, ptr %6, align 4
-  br label %75
+  store i32 1, ptr %15, align 4
+  br label %76
 
-29:                                               ; preds = %24, %20, %5
-  %30 = load ptr, ptr %14, align 8
-  %31 = call i64 @mbedtls_cipher_info_get_key_bitlen(ptr noundef %30)
-  store i64 %31, ptr %13, align 8
-  %32 = load i64, ptr %13, align 8
-  %33 = icmp ugt i64 %32, 256
-  br i1 %33, label %34, label %35
+30:                                               ; preds = %25, %21, %5
+  %31 = load ptr, ptr %14, align 8, !tbaa !30
+  %32 = call i64 @mbedtls_cipher_info_get_key_bitlen(ptr noundef %31)
+  store i64 %32, ptr %13, align 8, !tbaa !10
+  %33 = load i64, ptr %13, align 8, !tbaa !10
+  %34 = icmp ugt i64 %33, 256
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %29
+35:                                               ; preds = %30
   store i32 -28928, ptr %6, align 4
-  br label %75
+  store i32 1, ptr %15, align 4
+  br label %76
 
-35:                                               ; preds = %29
-  %36 = load ptr, ptr %8, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %37, i32 0, i32 3
-  store ptr %36, ptr %38, align 8
-  %39 = load ptr, ptr %9, align 8
-  %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %40, i32 0, i32 4
-  store ptr %39, ptr %41, align 8
-  %42 = load i32, ptr %11, align 4
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %43, i32 0, i32 2
-  store i32 %42, ptr %44, align 4
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %45, i32 0, i32 0
-  %47 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %46, i64 0, i64 0
-  %48 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %47, i32 0, i32 2
-  %49 = load ptr, ptr %14, align 8
-  %50 = call i32 @mbedtls_cipher_setup(ptr noundef %48, ptr noundef %49)
-  store i32 %50, ptr %12, align 4
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %54
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %8, align 8, !tbaa !29
+  %38 = load ptr, ptr %7, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %38, i32 0, i32 3
+  store ptr %37, ptr %39, align 8, !tbaa !31
+  %40 = load ptr, ptr %9, align 8, !tbaa !29
+  %41 = load ptr, ptr %7, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %41, i32 0, i32 4
+  store ptr %40, ptr %42, align 8, !tbaa !32
+  %43 = load i32, ptr %11, align 4, !tbaa !12
+  %44 = load ptr, ptr %7, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %44, i32 0, i32 2
+  store i32 %43, ptr %45, align 4, !tbaa !19
+  %46 = load ptr, ptr %7, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %46, i32 0, i32 0
+  %48 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %47, i64 0, i64 0
+  %49 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %48, i32 0, i32 3
+  %50 = load ptr, ptr %14, align 8, !tbaa !30
+  %51 = call i32 @mbedtls_cipher_setup(ptr noundef %49, ptr noundef %50)
+  store i32 %51, ptr %12, align 4, !tbaa !12
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %35
-  %53 = load i32, ptr %12, align 4
-  store i32 %53, ptr %6, align 4
-  br label %75
+53:                                               ; preds = %36
+  %54 = load i32, ptr %12, align 4, !tbaa !12
+  store i32 %54, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %76
 
-54:                                               ; preds = %35
-  %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %55, i32 0, i32 0
-  %57 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %56, i64 0, i64 1
-  %58 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %57, i32 0, i32 2
-  %59 = load ptr, ptr %14, align 8
-  %60 = call i32 @mbedtls_cipher_setup(ptr noundef %58, ptr noundef %59)
-  store i32 %60, ptr %12, align 4
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %64
+55:                                               ; preds = %36
+  %56 = load ptr, ptr %7, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %56, i32 0, i32 0
+  %58 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %57, i64 0, i64 1
+  %59 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %58, i32 0, i32 3
+  %60 = load ptr, ptr %14, align 8, !tbaa !30
+  %61 = call i32 @mbedtls_cipher_setup(ptr noundef %59, ptr noundef %60)
+  store i32 %61, ptr %12, align 4, !tbaa !12
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %65
 
-62:                                               ; preds = %54
-  %63 = load i32, ptr %12, align 4
-  store i32 %63, ptr %6, align 4
-  br label %75
+63:                                               ; preds = %55
+  %64 = load i32, ptr %12, align 4, !tbaa !12
+  store i32 %64, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %76
 
-64:                                               ; preds = %54
-  %65 = load ptr, ptr %7, align 8
-  %66 = call i32 @ssl_ticket_gen_key(ptr noundef %65, i8 noundef zeroext 0)
-  store i32 %66, ptr %12, align 4
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %72, label %68
+65:                                               ; preds = %55
+  %66 = load ptr, ptr %7, align 8, !tbaa !3
+  %67 = call i32 @ssl_ticket_gen_key(ptr noundef %66, i8 noundef zeroext 0)
+  store i32 %67, ptr %12, align 4, !tbaa !12
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %73, label %69
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %7, align 8
-  %70 = call i32 @ssl_ticket_gen_key(ptr noundef %69, i8 noundef zeroext 1)
-  store i32 %70, ptr %12, align 4
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %74
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %7, align 8, !tbaa !3
+  %71 = call i32 @ssl_ticket_gen_key(ptr noundef %70, i8 noundef zeroext 1)
+  store i32 %71, ptr %12, align 4, !tbaa !12
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %75
 
-72:                                               ; preds = %68, %64
-  %73 = load i32, ptr %12, align 4
-  store i32 %73, ptr %6, align 4
-  br label %75
+73:                                               ; preds = %69, %65
+  %74 = load i32, ptr %12, align 4, !tbaa !12
+  store i32 %74, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %76
 
-74:                                               ; preds = %68
+75:                                               ; preds = %69
   store i32 0, ptr %6, align 4
-  br label %75
+  store i32 1, ptr %15, align 4
+  br label %76
 
-75:                                               ; preds = %74, %72, %62, %52, %34, %28
-  %76 = load i32, ptr %6, align 4
-  ret i32 %76
+76:                                               ; preds = %75, %73, %63, %53, %35, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  %77 = load i32, ptr %6, align 4
+  ret i32 %77
 }
 
-declare ptr @mbedtls_cipher_info_from_type(i32 noundef) #2
+declare ptr @mbedtls_cipher_info_from_type(i32 noundef) #4
 
-; Function Attrs: nounwind uwtable
-define internal i32 @mbedtls_cipher_info_get_mode(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @mbedtls_cipher_info_get_mode(ptr noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %11
+  br label %13
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.mbedtls_cipher_info_t, ptr %8, i32 0, i32 1
-  %10 = load i32, ptr %9, align 4
-  store i32 %10, ptr %2, align 4
-  br label %11
+  %8 = load ptr, ptr %3, align 8, !tbaa !30
+  %9 = getelementptr inbounds nuw %struct.mbedtls_cipher_info_t, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8
+  %11 = lshr i32 %10, 12
+  %12 = and i32 %11, 15
+  store i32 %12, ptr %2, align 4
+  br label %13
 
-11:                                               ; preds = %7, %6
-  %12 = load i32, ptr %2, align 4
-  ret i32 %12
+13:                                               ; preds = %7, %6
+  %14 = load i32, ptr %2, align 4
+  ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @mbedtls_cipher_info_get_key_bitlen(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @mbedtls_cipher_info_get_key_bitlen(ptr noundef %0) #3 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
   store i64 0, ptr %2, align 8
-  br label %12
+  br label %15
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.mbedtls_cipher_info_t, ptr %8, i32 0, i32 2
+  %8 = load ptr, ptr %3, align 8, !tbaa !30
+  %9 = getelementptr inbounds nuw %struct.mbedtls_cipher_info_t, ptr %8, i32 0, i32 1
   %10 = load i32, ptr %9, align 8
-  %11 = zext i32 %10 to i64
-  store i64 %11, ptr %2, align 8
-  br label %12
+  %11 = lshr i32 %10, 8
+  %12 = and i32 %11, 15
+  %13 = zext i32 %12 to i64
+  %14 = shl i64 %13, 6
+  store i64 %14, ptr %2, align 8
+  br label %15
 
-12:                                               ; preds = %7, %6
-  %13 = load i64, ptr %2, align 8
-  ret i64 %13
+15:                                               ; preds = %7, %6
+  %16 = load i64, ptr %2, align 8
+  ret i64 %16
 }
 
-declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) #2
+declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ssl_ticket_gen_key(ptr noundef %0, i8 noundef zeroext %1) #0 {
@@ -348,78 +385,93 @@ define internal i32 @ssl_ticket_gen_key(ptr noundef %0, i8 noundef zeroext %1) #
   %6 = alloca i32, align 4
   %7 = alloca [32 x i8], align 16
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i8 %1, ptr %5, align 1
-  store i32 -110, ptr %6, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i8 %1, ptr %5, align 1, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 -110, ptr %6, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #10
   call void @llvm.memset.p0.i64(ptr align 16 %7, i8 0, i64 32, i1 false)
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %9, i32 0, i32 0
-  %11 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %10, i64 0, i64 0
-  %12 = load i8, ptr %5, align 1
-  %13 = zext i8 %12 to i32
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %11, i64 %14
-  store ptr %15, ptr %8, align 8
-  %16 = call i64 @time(ptr noundef null) #6
-  %17 = trunc i64 %16 to i32
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %18, i32 0, i32 1
-  store i32 %17, ptr %19, align 4
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %20, i32 0, i32 3
-  %22 = load ptr, ptr %21, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %23, i32 0, i32 4
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %26, i32 0, i32 0
-  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 0, i64 0
-  %29 = call i32 %22(ptr noundef %25, ptr noundef %28, i64 noundef 4)
-  store i32 %29, ptr %6, align 4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %11, i64 0, i64 0
+  %13 = load i8, ptr %5, align 1, !tbaa !16
+  %14 = zext i8 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %12, i64 %15
+  store ptr %16, ptr %8, align 8, !tbaa !17
+  %17 = call i64 @time(ptr noundef null) #10
+  %18 = load ptr, ptr %8, align 8, !tbaa !17
+  %19 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %18, i32 0, i32 1
+  store i64 %17, ptr %19, align 8, !tbaa !20
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %20, i32 0, i32 2
+  %22 = load i32, ptr %21, align 4, !tbaa !19
+  %23 = load ptr, ptr %8, align 8, !tbaa !17
+  %24 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %23, i32 0, i32 2
+  store i32 %22, ptr %24, align 8, !tbaa !25
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %25, i32 0, i32 3
+  %27 = load ptr, ptr %26, align 8, !tbaa !31
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %28, i32 0, i32 4
+  %30 = load ptr, ptr %29, align 8, !tbaa !32
+  %31 = load ptr, ptr %8, align 8, !tbaa !17
+  %32 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %31, i32 0, i32 0
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 0, i64 0
+  %34 = call i32 %27(ptr noundef %30, ptr noundef %33, i64 noundef 4)
+  store i32 %34, ptr %6, align 4, !tbaa !12
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %38
 
-31:                                               ; preds = %2
-  %32 = load i32, ptr %6, align 4
-  store i32 %32, ptr %3, align 4
-  br label %55
+36:                                               ; preds = %2
+  %37 = load i32, ptr %6, align 4, !tbaa !12
+  store i32 %37, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %60
 
-33:                                               ; preds = %2
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %34, i32 0, i32 3
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %37, i32 0, i32 4
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 0
-  %41 = call i32 %36(ptr noundef %39, ptr noundef %40, i64 noundef 32)
-  store i32 %41, ptr %6, align 4
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %45
+38:                                               ; preds = %2
+  %39 = load ptr, ptr %4, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8, !tbaa !31
+  %42 = load ptr, ptr %4, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %42, i32 0, i32 4
+  %44 = load ptr, ptr %43, align 8, !tbaa !32
+  %45 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 0
+  %46 = call i32 %41(ptr noundef %44, ptr noundef %45, i64 noundef 32)
+  store i32 %46, ptr %6, align 4, !tbaa !12
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %50
 
-43:                                               ; preds = %33
-  %44 = load i32, ptr %6, align 4
-  store i32 %44, ptr %3, align 4
-  br label %55
+48:                                               ; preds = %38
+  %49 = load i32, ptr %6, align 4, !tbaa !12
+  store i32 %49, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %60
 
-45:                                               ; preds = %33
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %46, i32 0, i32 2
-  %48 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 0
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %49, i32 0, i32 2
-  %51 = call i32 @mbedtls_cipher_get_key_bitlen(ptr noundef %50)
-  %52 = call i32 @mbedtls_cipher_setkey(ptr noundef %47, ptr noundef %48, i32 noundef %51, i32 noundef 1)
-  store i32 %52, ptr %6, align 4
+50:                                               ; preds = %38
+  %51 = load ptr, ptr %8, align 8, !tbaa !17
+  %52 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %51, i32 0, i32 3
   %53 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 0
-  call void @mbedtls_platform_zeroize(ptr noundef %53, i64 noundef 32)
-  %54 = load i32, ptr %6, align 4
-  store i32 %54, ptr %3, align 4
-  br label %55
+  %54 = load ptr, ptr %8, align 8, !tbaa !17
+  %55 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %54, i32 0, i32 3
+  %56 = call i32 @mbedtls_cipher_get_key_bitlen(ptr noundef %55)
+  %57 = call i32 @mbedtls_cipher_setkey(ptr noundef %52, ptr noundef %53, i32 noundef %56, i32 noundef 1)
+  store i32 %57, ptr %6, align 4, !tbaa !12
+  %58 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 0
+  call void @mbedtls_platform_zeroize(ptr noundef %58, i64 noundef 32)
+  %59 = load i32, ptr %6, align 4, !tbaa !12
+  store i32 %59, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %60
 
-55:                                               ; preds = %45, %43, %31
-  %56 = load i32, ptr %3, align 4
-  ret i32 %56
+60:                                               ; preds = %50, %48, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %61 = load i32, ptr %3, align 4
+  ret i32 %61
 }
 
 ; Function Attrs: nounwind uwtable
@@ -440,205 +492,223 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
   %20 = alloca ptr, align 8
   %21 = alloca i64, align 8
   %22 = alloca i64, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  store i32 -110, ptr %14, align 4
-  %23 = load ptr, ptr %8, align 8
-  store ptr %23, ptr %15, align 8
-  %24 = load ptr, ptr %10, align 8
-  store ptr %24, ptr %17, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
-  store ptr %26, ptr %18, align 8
-  %27 = load ptr, ptr %18, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
-  store ptr %28, ptr %19, align 8
-  %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %30, ptr %20, align 8
-  %31 = load ptr, ptr %12, align 8
-  store i64 0, ptr %31, align 8
-  %32 = load ptr, ptr %15, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %39, label %34
+  %23 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !29
+  store ptr %1, ptr %9, align 8, !tbaa !33
+  store ptr %2, ptr %10, align 8, !tbaa !8
+  store ptr %3, ptr %11, align 8, !tbaa !8
+  store ptr %4, ptr %12, align 8, !tbaa !35
+  store ptr %5, ptr %13, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  store i32 -110, ptr %14, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %24 = load ptr, ptr %8, align 8, !tbaa !29
+  store ptr %24, ptr %15, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  %25 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %25, ptr %17, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  %26 = load ptr, ptr %10, align 8, !tbaa !8
+  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  store ptr %27, ptr %18, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  %28 = load ptr, ptr %18, align 8, !tbaa !8
+  %29 = getelementptr inbounds i8, ptr %28, i64 12
+  store ptr %29, ptr %19, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  %30 = load ptr, ptr %19, align 8, !tbaa !8
+  %31 = getelementptr inbounds i8, ptr %30, i64 2
+  store ptr %31, ptr %20, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #10
+  %32 = load ptr, ptr %12, align 8, !tbaa !35
+  store i64 0, ptr %32, align 8, !tbaa !10
+  %33 = load ptr, ptr %15, align 8, !tbaa !3
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %40, label %35
 
-34:                                               ; preds = %6
-  %35 = load ptr, ptr %15, align 8
-  %36 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %35, i32 0, i32 3
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %40
+35:                                               ; preds = %6
+  %36 = load ptr, ptr %15, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %36, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %34, %6
+40:                                               ; preds = %35, %6
   store i32 -28928, ptr %7, align 4
-  br label %133
+  store i32 1, ptr %23, align 4
+  br label %129
 
-40:                                               ; preds = %34
-  br label %41
+41:                                               ; preds = %35
+  br label %42
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %10, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = call i32 @mbedtls_ssl_chk_buf_ptr(ptr noundef %42, ptr noundef %43, i64 noundef 34)
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %46, label %47
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %10, align 8, !tbaa !8
+  %44 = load ptr, ptr %11, align 8, !tbaa !8
+  %45 = call i32 @mbedtls_ssl_chk_buf_ptr(ptr noundef %43, ptr noundef %44, i64 noundef 34)
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %41
+47:                                               ; preds = %42
   store i32 -27136, ptr %7, align 4
-  br label %133
+  store i32 1, ptr %23, align 4
+  br label %129
 
-47:                                               ; preds = %41
-  br label %48
+48:                                               ; preds = %42
+  br label %49
 
-48:                                               ; preds = %47
-  %49 = load ptr, ptr %15, align 8
-  %50 = call i32 @ssl_ticket_update_keys(ptr noundef %49)
-  store i32 %50, ptr %14, align 4
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %53
+49:                                               ; preds = %48
+  br label %50
 
-52:                                               ; preds = %48
-  br label %131
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %15, align 8, !tbaa !3
+  %52 = call i32 @ssl_ticket_update_keys(ptr noundef %51)
+  store i32 %52, ptr %14, align 4, !tbaa !12
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %55
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %15, align 8
-  %55 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %15, align 8
-  %57 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %56, i32 0, i32 1
-  %58 = load i8, ptr %57, align 8
-  %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %55, i64 0, i64 %59
-  store ptr %60, ptr %16, align 8
-  %61 = load ptr, ptr %15, align 8
-  %62 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %61, i32 0, i32 2
-  %63 = load i32, ptr %62, align 4
-  %64 = load ptr, ptr %13, align 8
-  store i32 %63, ptr %64, align 4
-  %65 = load ptr, ptr %17, align 8
-  %66 = load ptr, ptr %16, align 8
-  %67 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %66, i32 0, i32 0
-  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 8 %68, i64 4, i1 false)
-  %69 = load ptr, ptr %15, align 8
-  %70 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %69, i32 0, i32 3
-  %71 = load ptr, ptr %70, align 8
-  %72 = load ptr, ptr %15, align 8
-  %73 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %72, i32 0, i32 4
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %18, align 8
-  %76 = call i32 %71(ptr noundef %74, ptr noundef %75, i64 noundef 12)
-  store i32 %76, ptr %14, align 4
-  %77 = icmp ne i32 %76, 0
-  br i1 %77, label %78, label %79
+54:                                               ; preds = %50
+  br label %127
 
-78:                                               ; preds = %53
-  br label %131
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %15, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %15, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %58, i32 0, i32 1
+  %60 = load i8, ptr %59, align 8, !tbaa !14
+  %61 = zext i8 %60 to i64
+  %62 = getelementptr inbounds nuw [2 x %struct.mbedtls_ssl_ticket_key], ptr %57, i64 0, i64 %61
+  store ptr %62, ptr %16, align 8, !tbaa !17
+  %63 = load ptr, ptr %16, align 8, !tbaa !17
+  %64 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %63, i32 0, i32 2
+  %65 = load i32, ptr %64, align 8, !tbaa !25
+  %66 = load ptr, ptr %13, align 8, !tbaa !37
+  store i32 %65, ptr %66, align 4, !tbaa !12
+  %67 = load ptr, ptr %17, align 8, !tbaa !8
+  %68 = load ptr, ptr %16, align 8, !tbaa !17
+  %69 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %68, i32 0, i32 0
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 8 %70, i64 4, i1 false)
+  %71 = load ptr, ptr %15, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %71, i32 0, i32 3
+  %73 = load ptr, ptr %72, align 8, !tbaa !31
+  %74 = load ptr, ptr %15, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %74, i32 0, i32 4
+  %76 = load ptr, ptr %75, align 8, !tbaa !32
+  %77 = load ptr, ptr %18, align 8, !tbaa !8
+  %78 = call i32 %73(ptr noundef %76, ptr noundef %77, i64 noundef 12)
+  store i32 %78, ptr %14, align 4, !tbaa !12
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %81
 
-79:                                               ; preds = %53
-  %80 = load ptr, ptr %9, align 8
-  %81 = load ptr, ptr %20, align 8
-  %82 = load ptr, ptr %11, align 8
-  %83 = load ptr, ptr %20, align 8
-  %84 = ptrtoint ptr %82 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = call i32 @mbedtls_ssl_session_save(ptr noundef %80, ptr noundef %81, i64 noundef %86, ptr noundef %21)
-  store i32 %87, ptr %14, align 4
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %92, label %89
+80:                                               ; preds = %55
+  br label %127
 
-89:                                               ; preds = %79
-  %90 = load i64, ptr %21, align 8
-  %91 = icmp ugt i64 %90, 65535
-  br i1 %91, label %92, label %93
+81:                                               ; preds = %55
+  %82 = load ptr, ptr %9, align 8, !tbaa !33
+  %83 = load ptr, ptr %20, align 8, !tbaa !8
+  %84 = load ptr, ptr %11, align 8, !tbaa !8
+  %85 = load ptr, ptr %20, align 8, !tbaa !8
+  %86 = ptrtoint ptr %84 to i64
+  %87 = ptrtoint ptr %85 to i64
+  %88 = sub i64 %86, %87
+  %89 = call i32 @mbedtls_ssl_session_save(ptr noundef %82, ptr noundef %83, i64 noundef %88, ptr noundef %21)
+  store i32 %89, ptr %14, align 4, !tbaa !12
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %94, label %91
 
-92:                                               ; preds = %89, %79
-  br label %131
+91:                                               ; preds = %81
+  %92 = load i64, ptr %21, align 8, !tbaa !10
+  %93 = icmp ugt i64 %92, 65535
+  br i1 %93, label %94, label %95
 
-93:                                               ; preds = %89
-  %94 = load i64, ptr %21, align 8
-  %95 = lshr i64 %94, 8
-  %96 = and i64 %95, 255
-  %97 = trunc i64 %96 to i8
-  %98 = load ptr, ptr %19, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 0
-  store i8 %97, ptr %99, align 1
-  %100 = load i64, ptr %21, align 8
-  %101 = and i64 %100, 255
-  %102 = trunc i64 %101 to i8
-  %103 = load ptr, ptr %19, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 1
-  store i8 %102, ptr %104, align 1
-  %105 = load ptr, ptr %16, align 8
-  %106 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %105, i32 0, i32 2
-  %107 = load ptr, ptr %18, align 8
-  %108 = load ptr, ptr %17, align 8
-  %109 = load ptr, ptr %20, align 8
-  %110 = load i64, ptr %21, align 8
-  %111 = load ptr, ptr %20, align 8
-  %112 = load ptr, ptr %11, align 8
-  %113 = load ptr, ptr %20, align 8
-  %114 = ptrtoint ptr %112 to i64
-  %115 = ptrtoint ptr %113 to i64
-  %116 = sub i64 %114, %115
-  %117 = call i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef %106, ptr noundef %107, i64 noundef 12, ptr noundef %108, i64 noundef 18, ptr noundef %109, i64 noundef %110, ptr noundef %111, i64 noundef %116, ptr noundef %22, i64 noundef 16)
-  store i32 %117, ptr %14, align 4
-  %118 = icmp ne i32 %117, 0
-  br i1 %118, label %119, label %120
+94:                                               ; preds = %91, %81
+  br label %127
 
-119:                                              ; preds = %93
-  br label %131
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %19, align 8, !tbaa !8
+  %97 = getelementptr inbounds i8, ptr %96, i64 0
+  %98 = load i64, ptr %21, align 8, !tbaa !10
+  %99 = trunc i64 %98 to i16
+  %100 = call i16 @llvm.bswap.i16(i16 %99)
+  call void @mbedtls_put_unaligned_uint16(ptr noundef %97, i16 noundef zeroext %100)
+  %101 = load ptr, ptr %16, align 8, !tbaa !17
+  %102 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %101, i32 0, i32 3
+  %103 = load ptr, ptr %18, align 8, !tbaa !8
+  %104 = load ptr, ptr %17, align 8, !tbaa !8
+  %105 = load ptr, ptr %20, align 8, !tbaa !8
+  %106 = load i64, ptr %21, align 8, !tbaa !10
+  %107 = load ptr, ptr %20, align 8, !tbaa !8
+  %108 = load ptr, ptr %11, align 8, !tbaa !8
+  %109 = load ptr, ptr %20, align 8, !tbaa !8
+  %110 = ptrtoint ptr %108 to i64
+  %111 = ptrtoint ptr %109 to i64
+  %112 = sub i64 %110, %111
+  %113 = call i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef %102, ptr noundef %103, i64 noundef 12, ptr noundef %104, i64 noundef 18, ptr noundef %105, i64 noundef %106, ptr noundef %107, i64 noundef %112, ptr noundef %22, i64 noundef 16)
+  store i32 %113, ptr %14, align 4, !tbaa !12
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %116
 
-120:                                              ; preds = %93
-  %121 = load i64, ptr %22, align 8
-  %122 = load i64, ptr %21, align 8
-  %123 = add i64 %122, 16
-  %124 = icmp ne i64 %121, %123
-  br i1 %124, label %125, label %126
+115:                                              ; preds = %95
+  br label %127
 
-125:                                              ; preds = %120
-  store i32 -27648, ptr %14, align 4
-  br label %131
+116:                                              ; preds = %95
+  %117 = load i64, ptr %22, align 8, !tbaa !10
+  %118 = load i64, ptr %21, align 8, !tbaa !10
+  %119 = add i64 %118, 16
+  %120 = icmp ne i64 %117, %119
+  br i1 %120, label %121, label %122
 
-126:                                              ; preds = %120
-  %127 = load i64, ptr %22, align 8
-  %128 = add i64 34, %127
-  %129 = sub i64 %128, 16
-  %130 = load ptr, ptr %12, align 8
-  store i64 %129, ptr %130, align 8
-  br label %131
+121:                                              ; preds = %116
+  store i32 -27648, ptr %14, align 4, !tbaa !12
+  br label %127
 
-131:                                              ; preds = %126, %125, %119, %92, %78, %52
-  %132 = load i32, ptr %14, align 4
-  store i32 %132, ptr %7, align 4
-  br label %133
+122:                                              ; preds = %116
+  %123 = load i64, ptr %22, align 8, !tbaa !10
+  %124 = add i64 34, %123
+  %125 = sub i64 %124, 16
+  %126 = load ptr, ptr %12, align 8, !tbaa !35
+  store i64 %125, ptr %126, align 8, !tbaa !10
+  br label %127
 
-133:                                              ; preds = %131, %46, %39
-  %134 = load i32, ptr %7, align 4
-  ret i32 %134
+127:                                              ; preds = %122, %121, %115, %94, %80, %54
+  %128 = load i32, ptr %14, align 4, !tbaa !12
+  store i32 %128, ptr %7, align 4
+  store i32 1, ptr %23, align 4
+  br label %129
+
+129:                                              ; preds = %127, %47, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  %130 = load i32, ptr %7, align 4
+  ret i32 %130
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @mbedtls_ssl_chk_buf_ptr(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @mbedtls_ssl_chk_buf_ptr(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
   %9 = icmp ugt ptr %7, %8
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %6, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %4, align 8
+  %11 = load i64, ptr %6, align 8, !tbaa !10
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -655,78 +725,110 @@ define internal i32 @mbedtls_ssl_chk_buf_ptr(ptr noundef %0, ptr noundef %1, i64
 define internal i32 @ssl_ticket_update_keys(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %6, i32 0, i32 2
-  %8 = load i32, ptr %7, align 4
-  %9 = icmp ne i32 %8, 0
-  br i1 %9, label %10, label %48
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %9, i64 0, i64 0
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %11, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !14
+  %14 = zext i8 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %10, i64 %15
+  store ptr %16, ptr %4, align 8, !tbaa !17
+  %17 = load ptr, ptr %4, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %17, i32 0, i32 2
+  %19 = load i32, ptr %18, align 8, !tbaa !25
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %54
 
-10:                                               ; preds = %1
-  %11 = call i64 @time(ptr noundef null) #6
-  %12 = trunc i64 %11 to i32
-  store i32 %12, ptr %4, align 4
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %15, i32 0, i32 1
-  %17 = load i8, ptr %16, align 8
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %14, i64 0, i64 %18
-  %20 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %5, align 4
-  %22 = load i32, ptr %4, align 4
-  %23 = load i32, ptr %5, align 4
-  %24 = icmp uge i32 %22, %23
-  br i1 %24, label %25, label %34
+21:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %22 = call i64 @time(ptr noundef null) #10
+  store i64 %22, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %23 = load ptr, ptr %4, align 8, !tbaa !17
+  %24 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %23, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8, !tbaa !20
+  store i64 %25, ptr %6, align 8, !tbaa !10
+  %26 = load i64, ptr %5, align 8, !tbaa !10
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = icmp sge i64 %26, %27
+  br i1 %28, label %29, label %39
 
-25:                                               ; preds = %10
-  %26 = load i32, ptr %4, align 4
-  %27 = load i32, ptr %5, align 4
-  %28 = sub i32 %26, %27
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %29, i32 0, i32 2
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp ult i32 %28, %31
-  br i1 %32, label %33, label %34
+29:                                               ; preds = %21
+  %30 = load i64, ptr %5, align 8, !tbaa !10
+  %31 = load i64, ptr %6, align 8, !tbaa !10
+  %32 = sub nsw i64 %30, %31
+  %33 = load ptr, ptr %4, align 8, !tbaa !17
+  %34 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8, !tbaa !25
+  %36 = zext i32 %35 to i64
+  %37 = icmp ult i64 %32, %36
+  br i1 %37, label %38, label %39
 
-33:                                               ; preds = %25
+38:                                               ; preds = %29
   store i32 0, ptr %2, align 4
-  br label %49
+  store i32 1, ptr %7, align 4
+  br label %53
 
-34:                                               ; preds = %25, %10
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %35, i32 0, i32 1
-  %37 = load i8, ptr %36, align 8
-  %38 = zext i8 %37 to i32
-  %39 = sub nsw i32 1, %38
-  %40 = trunc i32 %39 to i8
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %41, i32 0, i32 1
-  store i8 %40, ptr %42, align 8
-  %43 = load ptr, ptr %3, align 8
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %44, i32 0, i32 1
-  %46 = load i8, ptr %45, align 8
-  %47 = call i32 @ssl_ticket_gen_key(ptr noundef %43, i8 noundef zeroext %46)
-  store i32 %47, ptr %2, align 4
-  br label %49
+39:                                               ; preds = %29, %21
+  %40 = load ptr, ptr %3, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %40, i32 0, i32 1
+  %42 = load i8, ptr %41, align 8, !tbaa !14
+  %43 = zext i8 %42 to i32
+  %44 = sub nsw i32 1, %43
+  %45 = trunc i32 %44 to i8
+  %46 = load ptr, ptr %3, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %46, i32 0, i32 1
+  store i8 %45, ptr %47, align 8, !tbaa !14
+  %48 = load ptr, ptr %3, align 8, !tbaa !3
+  %49 = load ptr, ptr %3, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %49, i32 0, i32 1
+  %51 = load i8, ptr %50, align 8, !tbaa !14
+  %52 = call i32 @ssl_ticket_gen_key(ptr noundef %48, i8 noundef zeroext %51)
+  store i32 %52, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %53
 
-48:                                               ; preds = %1
+53:                                               ; preds = %39, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %55
+
+54:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  br label %49
+  store i32 1, ptr %7, align 4
+  br label %55
 
-49:                                               ; preds = %48, %34, %33
-  %50 = load i32, ptr %2, align 4
-  ret i32 %50
+55:                                               ; preds = %54, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %56 = load i32, ptr %2, align 4
+  ret i32 %56
 }
 
-declare i32 @mbedtls_ssl_session_save(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare i32 @mbedtls_ssl_session_save(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #4
 
-declare i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: alwaysinline nounwind uwtable
+define internal void @mbedtls_put_unaligned_uint16(ptr noundef %0, i16 noundef zeroext %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i16, align 2
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store i16 %1, ptr %4, align 2, !tbaa !39
+  %5 = load ptr, ptr %3, align 8, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 2 %4, i64 2, i1 false)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #8
+
+declare i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
@@ -744,181 +846,222 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
   %16 = alloca ptr, align 8
   %17 = alloca i64, align 8
   %18 = alloca i64, align 8
-  %19 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  store i32 -110, ptr %10, align 4
-  %20 = load ptr, ptr %6, align 8
-  store ptr %20, ptr %11, align 8
-  %21 = load ptr, ptr %8, align 8
-  store ptr %21, ptr %13, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  store ptr %23, ptr %14, align 8
-  %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
-  store ptr %25, ptr %15, align 8
-  %26 = load ptr, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 2
-  store ptr %27, ptr %16, align 8
-  %28 = load ptr, ptr %11, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %35, label %30
+  %19 = alloca i32, align 4
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !29
+  store ptr %1, ptr %7, align 8, !tbaa !33
+  store ptr %2, ptr %8, align 8, !tbaa !8
+  store i64 %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 -110, ptr %10, align 4, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %23 = load ptr, ptr %6, align 8, !tbaa !29
+  store ptr %23, ptr %11, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  %24 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %24, ptr %13, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %25 = load ptr, ptr %8, align 8, !tbaa !8
+  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  store ptr %26, ptr %14, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %27 = load ptr, ptr %14, align 8, !tbaa !8
+  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  store ptr %28, ptr %15, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  %29 = load ptr, ptr %15, align 8, !tbaa !8
+  %30 = getelementptr inbounds i8, ptr %29, i64 2
+  store ptr %30, ptr %16, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  %31 = load ptr, ptr %11, align 8, !tbaa !3
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %38, label %33
 
-30:                                               ; preds = %4
-  %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %31, i32 0, i32 3
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %36
+33:                                               ; preds = %4
+  %34 = load ptr, ptr %11, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %34, i32 0, i32 3
+  %36 = load ptr, ptr %35, align 8, !tbaa !31
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %39
 
-35:                                               ; preds = %30, %4
+38:                                               ; preds = %33, %4
   store i32 -28928, ptr %5, align 4
-  br label %119
+  store i32 1, ptr %19, align 4
+  br label %120
 
-36:                                               ; preds = %30
-  %37 = load i64, ptr %9, align 8
-  %38 = icmp ult i64 %37, 34
-  br i1 %38, label %39, label %40
+39:                                               ; preds = %33
+  %40 = load i64, ptr %9, align 8, !tbaa !10
+  %41 = icmp ult i64 %40, 34
+  br i1 %41, label %42, label %43
 
-39:                                               ; preds = %36
+42:                                               ; preds = %39
   store i32 -28928, ptr %5, align 4
-  br label %119
+  store i32 1, ptr %19, align 4
+  br label %120
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %11, align 8
-  %42 = call i32 @ssl_ticket_update_keys(ptr noundef %41)
-  store i32 %42, ptr %10, align 4
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %45
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %11, align 8, !tbaa !3
+  %45 = call i32 @ssl_ticket_update_keys(ptr noundef %44)
+  store i32 %45, ptr %10, align 4, !tbaa !12
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %48
 
-44:                                               ; preds = %40
-  br label %117
+47:                                               ; preds = %43
+  br label %118
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %15, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 0
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = shl i32 %49, 8
-  %51 = load ptr, ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = or i32 %50, %54
-  %56 = sext i32 %55 to i64
-  store i64 %56, ptr %17, align 8
-  %57 = load i64, ptr %9, align 8
-  %58 = load i64, ptr %17, align 8
-  %59 = add i64 34, %58
-  %60 = icmp ne i64 %57, %59
-  br i1 %60, label %61, label %62
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %15, align 8, !tbaa !8
+  %50 = getelementptr inbounds i8, ptr %49, i64 0
+  %51 = call zeroext i16 @mbedtls_get_unaligned_uint16(ptr noundef %50)
+  %52 = call i16 @llvm.bswap.i16(i16 %51)
+  %53 = zext i16 %52 to i32
+  %54 = sext i32 %53 to i64
+  store i64 %54, ptr %17, align 8, !tbaa !10
+  %55 = load i64, ptr %9, align 8, !tbaa !10
+  %56 = load i64, ptr %17, align 8, !tbaa !10
+  %57 = add i64 34, %56
+  %58 = icmp ne i64 %55, %57
+  br i1 %58, label %59, label %60
 
-61:                                               ; preds = %45
-  store i32 -28928, ptr %10, align 4
-  br label %117
+59:                                               ; preds = %48
+  store i32 -28928, ptr %10, align 4, !tbaa !12
+  br label %118
 
-62:                                               ; preds = %45
-  %63 = load ptr, ptr %11, align 8
-  %64 = load ptr, ptr %13, align 8
-  %65 = call ptr @ssl_ticket_select_key(ptr noundef %63, ptr noundef %64)
-  store ptr %65, ptr %12, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %68
+60:                                               ; preds = %48
+  %61 = load ptr, ptr %11, align 8, !tbaa !3
+  %62 = load ptr, ptr %13, align 8, !tbaa !8
+  %63 = call ptr @ssl_ticket_select_key(ptr noundef %61, ptr noundef %62)
+  store ptr %63, ptr %12, align 8, !tbaa !17
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %66
 
-67:                                               ; preds = %62
-  store i32 -28032, ptr %10, align 4
-  br label %117
+65:                                               ; preds = %60
+  store i32 -28032, ptr %10, align 4, !tbaa !12
+  br label %118
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %12, align 8
-  %70 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %69, i32 0, i32 2
-  %71 = load ptr, ptr %14, align 8
-  %72 = load ptr, ptr %13, align 8
-  %73 = load ptr, ptr %16, align 8
-  %74 = load i64, ptr %17, align 8
-  %75 = add i64 %74, 16
-  %76 = load ptr, ptr %16, align 8
-  %77 = load i64, ptr %17, align 8
-  %78 = call i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef %70, ptr noundef %71, i64 noundef 12, ptr noundef %72, i64 noundef 18, ptr noundef %73, i64 noundef %75, ptr noundef %76, i64 noundef %77, ptr noundef %18, i64 noundef 16)
-  store i32 %78, ptr %10, align 4
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %85
+66:                                               ; preds = %60
+  %67 = load ptr, ptr %12, align 8, !tbaa !17
+  %68 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %67, i32 0, i32 3
+  %69 = load ptr, ptr %14, align 8, !tbaa !8
+  %70 = load ptr, ptr %13, align 8, !tbaa !8
+  %71 = load ptr, ptr %16, align 8, !tbaa !8
+  %72 = load i64, ptr %17, align 8, !tbaa !10
+  %73 = add i64 %72, 16
+  %74 = load ptr, ptr %16, align 8, !tbaa !8
+  %75 = load i64, ptr %17, align 8, !tbaa !10
+  %76 = call i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef %68, ptr noundef %69, i64 noundef 12, ptr noundef %70, i64 noundef 18, ptr noundef %71, i64 noundef %73, ptr noundef %74, i64 noundef %75, ptr noundef %18, i64 noundef 16)
+  store i32 %76, ptr %10, align 4, !tbaa !12
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %83
 
-80:                                               ; preds = %68
-  %81 = load i32, ptr %10, align 4
-  %82 = icmp eq i32 %81, -25344
-  br i1 %82, label %83, label %84
+78:                                               ; preds = %66
+  %79 = load i32, ptr %10, align 4, !tbaa !12
+  %80 = icmp eq i32 %79, -25344
+  br i1 %80, label %81, label %82
 
-83:                                               ; preds = %80
-  store i32 -29056, ptr %10, align 4
-  br label %84
+81:                                               ; preds = %78
+  store i32 -29056, ptr %10, align 4, !tbaa !12
+  br label %82
 
-84:                                               ; preds = %83, %80
-  br label %117
+82:                                               ; preds = %81, %78
+  br label %118
 
-85:                                               ; preds = %68
-  %86 = load i64, ptr %18, align 8
-  %87 = load i64, ptr %17, align 8
-  %88 = icmp ne i64 %86, %87
-  br i1 %88, label %89, label %90
+83:                                               ; preds = %66
+  %84 = load i64, ptr %18, align 8, !tbaa !10
+  %85 = load i64, ptr %17, align 8, !tbaa !10
+  %86 = icmp ne i64 %84, %85
+  br i1 %86, label %87, label %88
 
-89:                                               ; preds = %85
-  store i32 -27648, ptr %10, align 4
-  br label %117
+87:                                               ; preds = %83
+  store i32 -27648, ptr %10, align 4, !tbaa !12
+  br label %118
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %7, align 8
-  %92 = load ptr, ptr %16, align 8
-  %93 = load i64, ptr %18, align 8
-  %94 = call i32 @mbedtls_ssl_session_load(ptr noundef %91, ptr noundef %92, i64 noundef %93)
-  store i32 %94, ptr %10, align 4
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %97
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %7, align 8, !tbaa !33
+  %90 = load ptr, ptr %16, align 8, !tbaa !8
+  %91 = load i64, ptr %18, align 8, !tbaa !10
+  %92 = call i32 @mbedtls_ssl_session_load(ptr noundef %89, ptr noundef %90, i64 noundef %91)
+  store i32 %92, ptr %10, align 4, !tbaa !12
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %95
 
-96:                                               ; preds = %90
-  br label %117
+94:                                               ; preds = %88
+  br label %118
 
-97:                                               ; preds = %90
-  %98 = call i64 @time(ptr noundef null) #6
-  store i64 %98, ptr %19, align 8
-  %99 = load i64, ptr %19, align 8
-  %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds %struct.mbedtls_ssl_session, ptr %100, i32 0, i32 3
-  %102 = load i64, ptr %101, align 8
-  %103 = icmp slt i64 %99, %102
-  br i1 %103, label %115, label %104
+95:                                               ; preds = %88
+  %96 = load ptr, ptr %12, align 8, !tbaa !17
+  %97 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %96, i32 0, i32 2
+  %98 = load i32, ptr %97, align 8, !tbaa !25
+  %99 = zext i32 %98 to i64
+  %100 = mul nsw i64 %99, 1000
+  store i64 %100, ptr %22, align 8, !tbaa !10
+  %101 = load ptr, ptr %7, align 8, !tbaa !33
+  %102 = call i32 @mbedtls_ssl_session_get_ticket_creation_time(ptr noundef %101, ptr noundef %20)
+  store i32 %102, ptr %10, align 4, !tbaa !12
+  %103 = load i32, ptr %10, align 4, !tbaa !12
+  %104 = icmp ne i32 %103, 0
+  br i1 %104, label %105, label %106
 
-104:                                              ; preds = %97
-  %105 = load i64, ptr %19, align 8
-  %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds %struct.mbedtls_ssl_session, ptr %106, i32 0, i32 3
-  %108 = load i64, ptr %107, align 8
-  %109 = sub nsw i64 %105, %108
-  %110 = trunc i64 %109 to i32
-  %111 = load ptr, ptr %11, align 8
-  %112 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %111, i32 0, i32 2
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp ugt i32 %110, %113
-  br i1 %114, label %115, label %116
+105:                                              ; preds = %95
+  br label %118
 
-115:                                              ; preds = %104, %97
-  store i32 -28032, ptr %10, align 4
-  br label %117
+106:                                              ; preds = %95
+  %107 = call i64 @mbedtls_ms_time()
+  %108 = load i64, ptr %20, align 8, !tbaa !10
+  %109 = sub nsw i64 %107, %108
+  store i64 %109, ptr %21, align 8, !tbaa !10
+  %110 = load i64, ptr %21, align 8, !tbaa !10
+  %111 = icmp slt i64 %110, 0
+  br i1 %111, label %116, label %112
 
-116:                                              ; preds = %104
-  br label %117
+112:                                              ; preds = %106
+  %113 = load i64, ptr %21, align 8, !tbaa !10
+  %114 = load i64, ptr %22, align 8, !tbaa !10
+  %115 = icmp sgt i64 %113, %114
+  br i1 %115, label %116, label %117
 
-117:                                              ; preds = %116, %115, %96, %89, %84, %67, %61, %44
-  %118 = load i32, ptr %10, align 4
-  store i32 %118, ptr %5, align 4
-  br label %119
+116:                                              ; preds = %112, %106
+  store i32 -28032, ptr %10, align 4, !tbaa !12
+  br label %118
 
-119:                                              ; preds = %117, %39, %35
-  %120 = load i32, ptr %5, align 4
-  ret i32 %120
+117:                                              ; preds = %112
+  br label %118
+
+118:                                              ; preds = %117, %116, %105, %94, %87, %82, %65, %59, %47
+  %119 = load i32, ptr %10, align 4, !tbaa !12
+  store i32 %119, ptr %5, align 4
+  store i32 1, ptr %19, align 4
+  br label %120
+
+120:                                              ; preds = %118, %42, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  %121 = load i32, ptr %5, align 4
+  ret i32 %121
+}
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i16 @mbedtls_get_unaligned_uint16(ptr noundef %0) #7 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i16, align 2
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 2, ptr %3) #10
+  %4 = load ptr, ptr %2, align 8, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %3, ptr align 1 %4, i64 2, i1 false)
+  %5 = load i16, ptr %3, align 2, !tbaa !39
+  call void @llvm.lifetime.end.p0(i64 2, ptr %3) #10
+  ret i16 %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -927,101 +1070,207 @@ define internal ptr @ssl_ticket_select_key(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i8 0, ptr %6, align 1
-  br label %7
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #10
+  store i8 0, ptr %6, align 1, !tbaa !16
+  br label %8
 
-7:                                                ; preds = %29, %2
-  %8 = load i8, ptr %6, align 1
-  %9 = zext i8 %8 to i64
-  %10 = icmp ult i64 %9, 2
-  br i1 %10, label %11, label %32
+8:                                                ; preds = %30, %2
+  %9 = load i8, ptr %6, align 1, !tbaa !16
+  %10 = zext i8 %9 to i64
+  %11 = icmp ult i64 %10, 2
+  br i1 %11, label %12, label %33
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %13, i32 0, i32 0
-  %15 = load i8, ptr %6, align 1
-  %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %14, i64 0, i64 %16
-  %18 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %17, i32 0, i32 0
-  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 0, i64 0
-  %20 = call i32 @memcmp(ptr noundef %12, ptr noundef %19, i64 noundef 4) #7
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %28
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %14, i32 0, i32 0
+  %16 = load i8, ptr %6, align 1, !tbaa !16
+  %17 = zext i8 %16 to i64
+  %18 = getelementptr inbounds nuw [2 x %struct.mbedtls_ssl_ticket_key], ptr %15, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %18, i32 0, i32 0
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 0, i64 0
+  %21 = call i32 @memcmp(ptr noundef %13, ptr noundef %20, i64 noundef 4) #11
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %29
 
-22:                                               ; preds = %11
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %23, i32 0, i32 0
-  %25 = load i8, ptr %6, align 1
-  %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %24, i64 0, i64 %26
-  store ptr %27, ptr %3, align 8
-  br label %33
+23:                                               ; preds = %12
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %24, i32 0, i32 0
+  %26 = load i8, ptr %6, align 1, !tbaa !16
+  %27 = zext i8 %26 to i64
+  %28 = getelementptr inbounds nuw [2 x %struct.mbedtls_ssl_ticket_key], ptr %25, i64 0, i64 %27
+  store ptr %28, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %34
 
-28:                                               ; preds = %11
-  br label %29
+29:                                               ; preds = %12
+  br label %30
 
-29:                                               ; preds = %28
-  %30 = load i8, ptr %6, align 1
-  %31 = add i8 %30, 1
-  store i8 %31, ptr %6, align 1
-  br label %7, !llvm.loop !4
+30:                                               ; preds = %29
+  %31 = load i8, ptr %6, align 1, !tbaa !16
+  %32 = add i8 %31, 1
+  store i8 %32, ptr %6, align 1, !tbaa !16
+  br label %8, !llvm.loop !41
 
-32:                                               ; preds = %7
+33:                                               ; preds = %8
   store ptr null, ptr %3, align 8
-  br label %33
+  store i32 1, ptr %7, align 4
+  br label %34
 
-33:                                               ; preds = %32, %22
-  %34 = load ptr, ptr %3, align 8
-  ret ptr %34
+34:                                               ; preds = %33, %23
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #10
+  %35 = load ptr, ptr %3, align 8
+  ret ptr %35
 }
 
-declare i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) #4
 
-declare i32 @mbedtls_ssl_session_load(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @mbedtls_ssl_session_load(ptr noundef, ptr noundef, i64 noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @mbedtls_ssl_session_get_ticket_creation_time(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !33
+  store ptr %1, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %4, align 8, !tbaa !33
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %17, label %8
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %5, align 8, !tbaa !35
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %17, label %11
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %4, align 8, !tbaa !33
+  %13 = getelementptr inbounds nuw %struct.mbedtls_ssl_session, ptr %12, i32 0, i32 2
+  %14 = load i8, ptr %13, align 2, !tbaa !43
+  %15 = zext i8 %14 to i32
+  %16 = icmp ne i32 %15, 1
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %11, %8, %2
+  store i32 -28928, ptr %3, align 4
+  br label %23
+
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %4, align 8, !tbaa !33
+  %20 = getelementptr inbounds nuw %struct.mbedtls_ssl_session, ptr %19, i32 0, i32 14
+  %21 = load i64, ptr %20, align 8, !tbaa !47
+  %22 = load ptr, ptr %5, align 8, !tbaa !35
+  store i64 %21, ptr %22, align 8, !tbaa !10
+  store i32 0, ptr %3, align 4
+  br label %23
+
+23:                                               ; preds = %18, %17
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
+}
+
+declare i64 @mbedtls_ms_time() #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_ssl_ticket_free(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %4, i64 0, i64 0
-  %6 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %5, i32 0, i32 2
-  call void @mbedtls_cipher_free(ptr noundef %6)
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.mbedtls_ssl_ticket_context, ptr %7, i32 0, i32 0
-  %9 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %8, i64 0, i64 1
-  %10 = getelementptr inbounds %struct.mbedtls_ssl_ticket_key, ptr %9, i32 0, i32 2
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
+
+5:                                                ; preds = %1
+  br label %16
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %8, i64 0, i64 0
+  %10 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %9, i32 0, i32 3
   call void @mbedtls_cipher_free(ptr noundef %10)
-  %11 = load ptr, ptr %2, align 8
-  call void @mbedtls_platform_zeroize(ptr noundef %11, i64 noundef 232)
+  %11 = load ptr, ptr %2, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_context, ptr %11, i32 0, i32 0
+  %13 = getelementptr inbounds [2 x %struct.mbedtls_ssl_ticket_key], ptr %12, i64 0, i64 1
+  %14 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %13, i32 0, i32 3
+  call void @mbedtls_cipher_free(ptr noundef %14)
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @mbedtls_platform_zeroize(ptr noundef %15, i64 noundef 264)
+  br label %16
+
+16:                                               ; preds = %6, %5
   ret void
 }
 
-declare void @mbedtls_cipher_free(ptr noundef) #2
+declare void @mbedtls_cipher_free(ptr noundef) #4
 
-declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) #2
+declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #9
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS26mbedtls_ssl_ticket_context", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!15, !6, i64 240}
+!15 = !{!"mbedtls_ssl_ticket_context", !6, i64 0, !6, i64 240, !13, i64 244, !5, i64 248, !5, i64 256}
+!16 = !{!6, !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS22mbedtls_ssl_ticket_key", !5, i64 0}
+!19 = !{!15, !13, i64 244}
+!20 = !{!21, !11, i64 8}
+!21 = !{!"mbedtls_ssl_ticket_key", !6, i64 0, !11, i64 8, !13, i64 16, !22, i64 24}
+!22 = !{!"mbedtls_cipher_context_t", !23, i64 0, !13, i64 8, !13, i64 12, !5, i64 16, !5, i64 24, !6, i64 32, !11, i64 48, !6, i64 56, !11, i64 72, !5, i64 80, !24, i64 88}
+!23 = !{!"p1 _ZTS21mbedtls_cipher_info_t", !5, i64 0}
+!24 = !{!"p1 _ZTS22mbedtls_cmac_context_t", !5, i64 0}
+!25 = !{!21, !13, i64 16}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS24mbedtls_cipher_context_t", !5, i64 0}
+!28 = !{!22, !23, i64 0}
+!29 = !{!5, !5, i64 0}
+!30 = !{!23, !23, i64 0}
+!31 = !{!15, !5, i64 248}
+!32 = !{!15, !5, i64 256}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS19mbedtls_ssl_session", !5, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 long", !5, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 int", !5, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"short", !6, i64 0}
+!41 = distinct !{!41, !42}
+!42 = !{!"llvm.loop.mustprogress"}
+!43 = !{!44, !6, i64 2}
+!44 = !{!"mbedtls_ssl_session", !6, i64 0, !6, i64 1, !6, i64 2, !13, i64 4, !11, i64 8, !13, i64 16, !11, i64 24, !6, i64 32, !6, i64 64, !45, i64 112, !13, i64 120, !9, i64 128, !11, i64 136, !13, i64 144, !11, i64 152, !13, i64 160, !6, i64 164, !6, i64 165, !6, i64 166, !9, i64 216, !11, i64 224, !13, i64 232, !46, i64 236}
+!45 = !{!"p1 _ZTS16mbedtls_x509_crt", !5, i64 0}
+!46 = !{!"", !6, i64 0, !6, i64 64, !6, i64 128, !6, i64 192}
+!47 = !{!44, !11, i64 152}

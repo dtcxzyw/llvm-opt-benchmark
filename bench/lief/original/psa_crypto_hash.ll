@@ -1,150 +1,95 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.mbedtls_md_info_t = type { ptr, i32, i8, i8 }
 %struct.mbedtls_psa_hash_operation_t = type { i32, %union.anon }
 %union.anon = type { %struct.mbedtls_sha512_context }
 %struct.mbedtls_sha512_context = type { [2 x i64], [8 x i64], [128 x i8], i32 }
-
-@mbedtls_md5_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_ripemd160_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha1_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha224_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha256_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha384_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha512_info = external constant %struct.mbedtls_md_info_t, align 8
-
-; Function Attrs: nounwind uwtable
-define hidden ptr @mbedtls_md_info_from_psa(i32 noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %12 [
-    i32 33554435, label %5
-    i32 33554436, label %6
-    i32 33554437, label %7
-    i32 33554440, label %8
-    i32 33554441, label %9
-    i32 33554442, label %10
-    i32 33554443, label %11
-  ]
-
-5:                                                ; preds = %1
-  store ptr @mbedtls_md5_info, ptr %2, align 8
-  br label %13
-
-6:                                                ; preds = %1
-  store ptr @mbedtls_ripemd160_info, ptr %2, align 8
-  br label %13
-
-7:                                                ; preds = %1
-  store ptr @mbedtls_sha1_info, ptr %2, align 8
-  br label %13
-
-8:                                                ; preds = %1
-  store ptr @mbedtls_sha224_info, ptr %2, align 8
-  br label %13
-
-9:                                                ; preds = %1
-  store ptr @mbedtls_sha256_info, ptr %2, align 8
-  br label %13
-
-10:                                               ; preds = %1
-  store ptr @mbedtls_sha384_info, ptr %2, align 8
-  br label %13
-
-11:                                               ; preds = %1
-  store ptr @mbedtls_sha512_info, ptr %2, align 8
-  br label %13
-
-12:                                               ; preds = %1
-  store ptr null, ptr %2, align 8
-  br label %13
-
-13:                                               ; preds = %12, %11, %10, %9, %8, %7, %6, %5
-  %14 = load ptr, ptr %2, align 8
-  ret ptr %14
-}
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_hash_abort(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %4, i32 0, i32 0
-  %6 = load i32, ptr %5, align 8
-  switch i32 %6, label %29 [
-    i32 0, label %7
-    i32 33554435, label %8
-    i32 33554436, label %11
-    i32 33554437, label %14
-    i32 33554440, label %17
-    i32 33554441, label %20
-    i32 33554442, label %23
-    i32 33554443, label %26
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %4, i32 0, i32 0
+  %6 = load i32, ptr %5, align 8, !tbaa !7
+  switch i32 %6, label %31 [
+    i32 0, label %32
+    i32 33554435, label %7
+    i32 33554436, label %10
+    i32 33554437, label %13
+    i32 33554440, label %16
+    i32 33554441, label %19
+    i32 33554442, label %22
+    i32 33554443, label %25
+    i32 33554448, label %28
+    i32 33554449, label %28
+    i32 33554450, label %28
+    i32 33554451, label %28
   ]
 
 7:                                                ; preds = %1
-  br label %30
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %8, i32 0, i32 1
+  call void @mbedtls_md5_free(ptr noundef %9)
+  br label %32
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %9, i32 0, i32 1
-  call void @mbedtls_md5_free(ptr noundef %10)
-  br label %30
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %11, i32 0, i32 1
+  call void @mbedtls_ripemd160_free(ptr noundef %12)
+  br label %32
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %12, i32 0, i32 1
-  call void @mbedtls_ripemd160_free(ptr noundef %13)
-  br label %30
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %14, i32 0, i32 1
+  call void @mbedtls_sha1_free(ptr noundef %15)
+  br label %32
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %15, i32 0, i32 1
-  call void @mbedtls_sha1_free(ptr noundef %16)
-  br label %30
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %17, i32 0, i32 1
+  call void @mbedtls_sha256_free(ptr noundef %18)
+  br label %32
 
-17:                                               ; preds = %1
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %18, i32 0, i32 1
-  call void @mbedtls_sha256_free(ptr noundef %19)
-  br label %30
+19:                                               ; preds = %1
+  %20 = load ptr, ptr %3, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %20, i32 0, i32 1
+  call void @mbedtls_sha256_free(ptr noundef %21)
+  br label %32
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %21, i32 0, i32 1
-  call void @mbedtls_sha256_free(ptr noundef %22)
-  br label %30
+22:                                               ; preds = %1
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %23, i32 0, i32 1
+  call void @mbedtls_sha512_free(ptr noundef %24)
+  br label %32
 
-23:                                               ; preds = %1
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %24, i32 0, i32 1
-  call void @mbedtls_sha512_free(ptr noundef %25)
-  br label %30
+25:                                               ; preds = %1
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %26, i32 0, i32 1
+  call void @mbedtls_sha512_free(ptr noundef %27)
+  br label %32
 
-26:                                               ; preds = %1
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %27, i32 0, i32 1
-  call void @mbedtls_sha512_free(ptr noundef %28)
-  br label %30
+28:                                               ; preds = %1, %1, %1, %1
+  %29 = load ptr, ptr %3, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %29, i32 0, i32 1
+  call void @mbedtls_sha3_free(ptr noundef %30)
+  br label %32
 
-29:                                               ; preds = %1
+31:                                               ; preds = %1
   store i32 -137, ptr %2, align 4
-  br label %33
+  br label %35
 
-30:                                               ; preds = %26, %23, %20, %17, %14, %11, %8, %7
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %31, i32 0, i32 0
-  store i32 0, ptr %32, align 8
+32:                                               ; preds = %28, %1, %25, %22, %19, %16, %13, %10, %7
+  %33 = load ptr, ptr %3, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %33, i32 0, i32 0
+  store i32 0, ptr %34, align 8, !tbaa !7
   store i32 0, ptr %2, align 4
-  br label %33
+  br label %35
 
-33:                                               ; preds = %30, %29
-  %34 = load i32, ptr %2, align 4
-  ret i32 %34
+35:                                               ; preds = %32, %31
+  %36 = load i32, ptr %2, align 4
+  ret i32 %36
 }
 
 declare void @mbedtls_md5_free(ptr noundef) #1
@@ -157,142 +102,197 @@ declare void @mbedtls_sha256_free(ptr noundef) #1
 
 declare void @mbedtls_sha512_free(ptr noundef) #1
 
+declare void @mbedtls_sha3_free(ptr noundef) #1
+
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_hash_setup(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 -110, ptr %6, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %7, i32 0, i32 0
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  store i32 -137, ptr %3, align 4
-  br label %74
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  store i32 -110, ptr %6, align 4, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !7
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
-  %13 = load i32, ptr %5, align 4
-  switch i32 %13, label %56 [
-    i32 33554435, label %14
-    i32 33554436, label %20
-    i32 33554437, label %26
-    i32 33554440, label %32
-    i32 33554441, label %38
-    i32 33554442, label %44
-    i32 33554443, label %50
+  store i32 -137, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %99
+
+13:                                               ; preds = %2
+  %14 = load i32, ptr %5, align 4, !tbaa !10
+  switch i32 %14, label %81 [
+    i32 33554435, label %15
+    i32 33554436, label %21
+    i32 33554437, label %27
+    i32 33554440, label %33
+    i32 33554441, label %39
+    i32 33554442, label %45
+    i32 33554443, label %51
+    i32 33554448, label %57
+    i32 33554449, label %63
+    i32 33554450, label %69
+    i32 33554451, label %75
   ]
 
-14:                                               ; preds = %12
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %15, i32 0, i32 1
-  call void @mbedtls_md5_init(ptr noundef %16)
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %17, i32 0, i32 1
-  %19 = call i32 @mbedtls_md5_starts(ptr noundef %18)
-  store i32 %19, ptr %6, align 4
-  br label %61
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %16, i32 0, i32 1
+  call void @mbedtls_md5_init(ptr noundef %17)
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %18, i32 0, i32 1
+  %20 = call i32 @mbedtls_md5_starts(ptr noundef %19)
+  store i32 %20, ptr %6, align 4, !tbaa !10
+  br label %86
 
-20:                                               ; preds = %12
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %21, i32 0, i32 1
-  call void @mbedtls_ripemd160_init(ptr noundef %22)
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %23, i32 0, i32 1
-  %25 = call i32 @mbedtls_ripemd160_starts(ptr noundef %24)
-  store i32 %25, ptr %6, align 4
-  br label %61
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %22, i32 0, i32 1
+  call void @mbedtls_ripemd160_init(ptr noundef %23)
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %24, i32 0, i32 1
+  %26 = call i32 @mbedtls_ripemd160_starts(ptr noundef %25)
+  store i32 %26, ptr %6, align 4, !tbaa !10
+  br label %86
 
-26:                                               ; preds = %12
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %27, i32 0, i32 1
-  call void @mbedtls_sha1_init(ptr noundef %28)
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %29, i32 0, i32 1
-  %31 = call i32 @mbedtls_sha1_starts(ptr noundef %30)
-  store i32 %31, ptr %6, align 4
-  br label %61
+27:                                               ; preds = %13
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %28, i32 0, i32 1
+  call void @mbedtls_sha1_init(ptr noundef %29)
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %30, i32 0, i32 1
+  %32 = call i32 @mbedtls_sha1_starts(ptr noundef %31)
+  store i32 %32, ptr %6, align 4, !tbaa !10
+  br label %86
 
-32:                                               ; preds = %12
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %33, i32 0, i32 1
-  call void @mbedtls_sha256_init(ptr noundef %34)
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %35, i32 0, i32 1
-  %37 = call i32 @mbedtls_sha256_starts(ptr noundef %36, i32 noundef 1)
-  store i32 %37, ptr %6, align 4
-  br label %61
+33:                                               ; preds = %13
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %34, i32 0, i32 1
+  call void @mbedtls_sha256_init(ptr noundef %35)
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %36, i32 0, i32 1
+  %38 = call i32 @mbedtls_sha256_starts(ptr noundef %37, i32 noundef 1)
+  store i32 %38, ptr %6, align 4, !tbaa !10
+  br label %86
 
-38:                                               ; preds = %12
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %39, i32 0, i32 1
-  call void @mbedtls_sha256_init(ptr noundef %40)
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %41, i32 0, i32 1
-  %43 = call i32 @mbedtls_sha256_starts(ptr noundef %42, i32 noundef 0)
-  store i32 %43, ptr %6, align 4
-  br label %61
+39:                                               ; preds = %13
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %40, i32 0, i32 1
+  call void @mbedtls_sha256_init(ptr noundef %41)
+  %42 = load ptr, ptr %4, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %42, i32 0, i32 1
+  %44 = call i32 @mbedtls_sha256_starts(ptr noundef %43, i32 noundef 0)
+  store i32 %44, ptr %6, align 4, !tbaa !10
+  br label %86
 
-44:                                               ; preds = %12
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %45, i32 0, i32 1
-  call void @mbedtls_sha512_init(ptr noundef %46)
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %47, i32 0, i32 1
-  %49 = call i32 @mbedtls_sha512_starts(ptr noundef %48, i32 noundef 1)
-  store i32 %49, ptr %6, align 4
-  br label %61
+45:                                               ; preds = %13
+  %46 = load ptr, ptr %4, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %46, i32 0, i32 1
+  call void @mbedtls_sha512_init(ptr noundef %47)
+  %48 = load ptr, ptr %4, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %48, i32 0, i32 1
+  %50 = call i32 @mbedtls_sha512_starts(ptr noundef %49, i32 noundef 1)
+  store i32 %50, ptr %6, align 4, !tbaa !10
+  br label %86
 
-50:                                               ; preds = %12
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %51, i32 0, i32 1
-  call void @mbedtls_sha512_init(ptr noundef %52)
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %53, i32 0, i32 1
-  %55 = call i32 @mbedtls_sha512_starts(ptr noundef %54, i32 noundef 0)
-  store i32 %55, ptr %6, align 4
-  br label %61
+51:                                               ; preds = %13
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %52, i32 0, i32 1
+  call void @mbedtls_sha512_init(ptr noundef %53)
+  %54 = load ptr, ptr %4, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %54, i32 0, i32 1
+  %56 = call i32 @mbedtls_sha512_starts(ptr noundef %55, i32 noundef 0)
+  store i32 %56, ptr %6, align 4, !tbaa !10
+  br label %86
 
-56:                                               ; preds = %12
-  %57 = load i32, ptr %5, align 4
-  %58 = and i32 %57, 2130706432
-  %59 = icmp eq i32 %58, 33554432
-  %60 = select i1 %59, i32 -134, i32 -135
-  store i32 %60, ptr %3, align 4
-  br label %74
+57:                                               ; preds = %13
+  %58 = load ptr, ptr %4, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %58, i32 0, i32 1
+  call void @mbedtls_sha3_init(ptr noundef %59)
+  %60 = load ptr, ptr %4, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %60, i32 0, i32 1
+  %62 = call i32 @mbedtls_sha3_starts(ptr noundef %61, i32 noundef 1)
+  store i32 %62, ptr %6, align 4, !tbaa !10
+  br label %86
 
-61:                                               ; preds = %50, %44, %38, %32, %26, %20, %14
-  %62 = load i32, ptr %6, align 4
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %68
+63:                                               ; preds = %13
+  %64 = load ptr, ptr %4, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %64, i32 0, i32 1
+  call void @mbedtls_sha3_init(ptr noundef %65)
+  %66 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %66, i32 0, i32 1
+  %68 = call i32 @mbedtls_sha3_starts(ptr noundef %67, i32 noundef 2)
+  store i32 %68, ptr %6, align 4, !tbaa !10
+  br label %86
 
-64:                                               ; preds = %61
-  %65 = load i32, ptr %5, align 4
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %66, i32 0, i32 0
-  store i32 %65, ptr %67, align 8
-  br label %71
+69:                                               ; preds = %13
+  %70 = load ptr, ptr %4, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %70, i32 0, i32 1
+  call void @mbedtls_sha3_init(ptr noundef %71)
+  %72 = load ptr, ptr %4, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %72, i32 0, i32 1
+  %74 = call i32 @mbedtls_sha3_starts(ptr noundef %73, i32 noundef 3)
+  store i32 %74, ptr %6, align 4, !tbaa !10
+  br label %86
 
-68:                                               ; preds = %61
-  %69 = load ptr, ptr %4, align 8
-  %70 = call i32 @mbedtls_psa_hash_abort(ptr noundef %69)
-  br label %71
+75:                                               ; preds = %13
+  %76 = load ptr, ptr %4, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %76, i32 0, i32 1
+  call void @mbedtls_sha3_init(ptr noundef %77)
+  %78 = load ptr, ptr %4, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %78, i32 0, i32 1
+  %80 = call i32 @mbedtls_sha3_starts(ptr noundef %79, i32 noundef 4)
+  store i32 %80, ptr %6, align 4, !tbaa !10
+  br label %86
 
-71:                                               ; preds = %68, %64
-  %72 = load i32, ptr %6, align 4
-  %73 = call i32 @mbedtls_to_psa_error(i32 noundef %72)
-  store i32 %73, ptr %3, align 4
-  br label %74
+81:                                               ; preds = %13
+  %82 = load i32, ptr %5, align 4, !tbaa !10
+  %83 = and i32 %82, 2130706432
+  %84 = icmp eq i32 %83, 33554432
+  %85 = select i1 %84, i32 -134, i32 -135
+  store i32 %85, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %99
 
-74:                                               ; preds = %71, %56, %11
-  %75 = load i32, ptr %3, align 4
-  ret i32 %75
+86:                                               ; preds = %75, %69, %63, %57, %51, %45, %39, %33, %27, %21, %15
+  %87 = load i32, ptr %6, align 4, !tbaa !10
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %93
+
+89:                                               ; preds = %86
+  %90 = load i32, ptr %5, align 4, !tbaa !10
+  %91 = load ptr, ptr %4, align 8, !tbaa !3
+  %92 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %91, i32 0, i32 0
+  store i32 %90, ptr %92, align 8, !tbaa !7
+  br label %96
+
+93:                                               ; preds = %86
+  %94 = load ptr, ptr %4, align 8, !tbaa !3
+  %95 = call i32 @mbedtls_psa_hash_abort(ptr noundef %94)
+  br label %96
+
+96:                                               ; preds = %93, %89
+  %97 = load i32, ptr %6, align 4, !tbaa !10
+  %98 = call i32 @mbedtls_to_psa_error(i32 noundef %97)
+  store i32 %98, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %99
+
+99:                                               ; preds = %96, %81, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %100 = load i32, ptr %3, align 4
+  ret i32 %100
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @mbedtls_md5_init(ptr noundef) #1
 
@@ -314,19 +314,26 @@ declare void @mbedtls_sha512_init(ptr noundef) #1
 
 declare i32 @mbedtls_sha512_starts(ptr noundef, i32 noundef) #1
 
+declare void @mbedtls_sha3_init(ptr noundef) #1
+
+declare i32 @mbedtls_sha3_starts(ptr noundef, i32 noundef) #1
+
 declare i32 @mbedtls_to_psa_error(i32 noundef) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_hash_clone(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %6, i32 0, i32 0
-  %8 = load i32, ptr %7, align 8
-  switch i32 %8, label %45 [
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 8, !tbaa !7
+  switch i32 %8, label %50 [
     i32 0, label %9
     i32 33554435, label %10
     i32 33554436, label %15
@@ -335,85 +342,97 @@ define hidden i32 @mbedtls_psa_hash_clone(ptr noundef %0, ptr noundef %1) #0 {
     i32 33554441, label %30
     i32 33554442, label %35
     i32 33554443, label %40
+    i32 33554448, label %45
+    i32 33554449, label %45
+    i32 33554450, label %45
+    i32 33554451, label %45
   ]
 
 9:                                                ; preds = %2
   store i32 -137, ptr %3, align 4
-  br label %52
+  br label %57
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %13, i32 0, i32 1
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %13, i32 0, i32 1
   call void @mbedtls_md5_clone(ptr noundef %12, ptr noundef %14)
-  br label %46
+  br label %51
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %18, i32 0, i32 1
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %18, i32 0, i32 1
   call void @mbedtls_ripemd160_clone(ptr noundef %17, ptr noundef %19)
-  br label %46
+  br label %51
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %23, i32 0, i32 1
+  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %23, i32 0, i32 1
   call void @mbedtls_sha1_clone(ptr noundef %22, ptr noundef %24)
-  br label %46
+  br label %51
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %28, i32 0, i32 1
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %28, i32 0, i32 1
   call void @mbedtls_sha256_clone(ptr noundef %27, ptr noundef %29)
-  br label %46
+  br label %51
 
 30:                                               ; preds = %2
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %33, i32 0, i32 1
+  %31 = load ptr, ptr %5, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %4, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %33, i32 0, i32 1
   call void @mbedtls_sha256_clone(ptr noundef %32, ptr noundef %34)
-  br label %46
+  br label %51
 
 35:                                               ; preds = %2
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %38, i32 0, i32 1
+  %36 = load ptr, ptr %5, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %38, i32 0, i32 1
   call void @mbedtls_sha512_clone(ptr noundef %37, ptr noundef %39)
-  br label %46
+  br label %51
 
 40:                                               ; preds = %2
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %43, i32 0, i32 1
+  %41 = load ptr, ptr %5, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %4, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %43, i32 0, i32 1
   call void @mbedtls_sha512_clone(ptr noundef %42, ptr noundef %44)
-  br label %46
+  br label %51
 
-45:                                               ; preds = %2
+45:                                               ; preds = %2, %2, %2, %2
+  %46 = load ptr, ptr %5, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %4, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %48, i32 0, i32 1
+  call void @mbedtls_sha3_clone(ptr noundef %47, ptr noundef %49)
+  br label %51
+
+50:                                               ; preds = %2
   store i32 -134, ptr %3, align 4
-  br label %52
+  br label %57
 
-46:                                               ; preds = %40, %35, %30, %25, %20, %15, %10
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %47, i32 0, i32 0
-  %49 = load i32, ptr %48, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %50, i32 0, i32 0
-  store i32 %49, ptr %51, align 8
+51:                                               ; preds = %45, %40, %35, %30, %25, %20, %15, %10
+  %52 = load ptr, ptr %4, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %52, i32 0, i32 0
+  %54 = load i32, ptr %53, align 8, !tbaa !7
+  %55 = load ptr, ptr %5, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %55, i32 0, i32 0
+  store i32 %54, ptr %56, align 8, !tbaa !7
   store i32 0, ptr %3, align 4
-  br label %52
+  br label %57
 
-52:                                               ; preds = %46, %45, %9
-  %53 = load i32, ptr %3, align 4
-  ret i32 %53
+57:                                               ; preds = %51, %50, %9
+  %58 = load i32, ptr %3, align 4
+  ret i32 %58
 }
 
 declare void @mbedtls_md5_clone(ptr noundef, ptr noundef) #1
@@ -426,6 +445,8 @@ declare void @mbedtls_sha256_clone(ptr noundef, ptr noundef) #1
 
 declare void @mbedtls_sha512_clone(ptr noundef, ptr noundef) #1
 
+declare void @mbedtls_sha3_clone(ptr noundef, ptr noundef) #1
+
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_hash_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
@@ -433,99 +454,117 @@ define hidden i32 @mbedtls_psa_hash_update(ptr noundef %0, ptr noundef %1, i64 n
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i32 -110, ptr %8, align 4
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %9, i32 0, i32 0
-  %11 = load i32, ptr %10, align 8
-  switch i32 %11, label %54 [
-    i32 33554435, label %12
-    i32 33554436, label %18
-    i32 33554437, label %24
-    i32 33554440, label %30
-    i32 33554441, label %36
-    i32 33554442, label %42
-    i32 33554443, label %48
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store i64 %2, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 -110, ptr %8, align 4, !tbaa !10
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8, !tbaa !7
+  switch i32 %12, label %61 [
+    i32 33554435, label %13
+    i32 33554436, label %19
+    i32 33554437, label %25
+    i32 33554440, label %31
+    i32 33554441, label %37
+    i32 33554442, label %43
+    i32 33554443, label %49
+    i32 33554448, label %55
+    i32 33554449, label %55
+    i32 33554450, label %55
+    i32 33554451, label %55
   ]
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i64, ptr %7, align 8
-  %17 = call i32 @mbedtls_md5_update(ptr noundef %14, ptr noundef %15, i64 noundef %16)
-  store i32 %17, ptr %8, align 4
-  br label %55
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !11
+  %17 = load i64, ptr %7, align 8, !tbaa !13
+  %18 = call i32 @mbedtls_md5_update(ptr noundef %15, ptr noundef %16, i64 noundef %17)
+  store i32 %18, ptr %8, align 4, !tbaa !10
+  br label %62
 
-18:                                               ; preds = %3
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i64, ptr %7, align 8
-  %23 = call i32 @mbedtls_ripemd160_update(ptr noundef %20, ptr noundef %21, i64 noundef %22)
-  store i32 %23, ptr %8, align 4
-  br label %55
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %6, align 8, !tbaa !11
+  %23 = load i64, ptr %7, align 8, !tbaa !13
+  %24 = call i32 @mbedtls_ripemd160_update(ptr noundef %21, ptr noundef %22, i64 noundef %23)
+  store i32 %24, ptr %8, align 4, !tbaa !10
+  br label %62
 
-24:                                               ; preds = %3
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i64, ptr %7, align 8
-  %29 = call i32 @mbedtls_sha1_update(ptr noundef %26, ptr noundef %27, i64 noundef %28)
-  store i32 %29, ptr %8, align 4
-  br label %55
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %6, align 8, !tbaa !11
+  %29 = load i64, ptr %7, align 8, !tbaa !13
+  %30 = call i32 @mbedtls_sha1_update(ptr noundef %27, ptr noundef %28, i64 noundef %29)
+  store i32 %30, ptr %8, align 4, !tbaa !10
+  br label %62
 
-30:                                               ; preds = %3
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %6, align 8
-  %34 = load i64, ptr %7, align 8
-  %35 = call i32 @mbedtls_sha256_update(ptr noundef %32, ptr noundef %33, i64 noundef %34)
-  store i32 %35, ptr %8, align 4
-  br label %55
+31:                                               ; preds = %3
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %6, align 8, !tbaa !11
+  %35 = load i64, ptr %7, align 8, !tbaa !13
+  %36 = call i32 @mbedtls_sha256_update(ptr noundef %33, ptr noundef %34, i64 noundef %35)
+  store i32 %36, ptr %8, align 4, !tbaa !10
+  br label %62
 
-36:                                               ; preds = %3
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %6, align 8
-  %40 = load i64, ptr %7, align 8
-  %41 = call i32 @mbedtls_sha256_update(ptr noundef %38, ptr noundef %39, i64 noundef %40)
-  store i32 %41, ptr %8, align 4
-  br label %55
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %5, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %6, align 8, !tbaa !11
+  %41 = load i64, ptr %7, align 8, !tbaa !13
+  %42 = call i32 @mbedtls_sha256_update(ptr noundef %39, ptr noundef %40, i64 noundef %41)
+  store i32 %42, ptr %8, align 4, !tbaa !10
+  br label %62
 
-42:                                               ; preds = %3
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %6, align 8
-  %46 = load i64, ptr %7, align 8
-  %47 = call i32 @mbedtls_sha512_update(ptr noundef %44, ptr noundef %45, i64 noundef %46)
-  store i32 %47, ptr %8, align 4
-  br label %55
+43:                                               ; preds = %3
+  %44 = load ptr, ptr %5, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %6, align 8, !tbaa !11
+  %47 = load i64, ptr %7, align 8, !tbaa !13
+  %48 = call i32 @mbedtls_sha512_update(ptr noundef %45, ptr noundef %46, i64 noundef %47)
+  store i32 %48, ptr %8, align 4, !tbaa !10
+  br label %62
 
-48:                                               ; preds = %3
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %49, i32 0, i32 1
-  %51 = load ptr, ptr %6, align 8
-  %52 = load i64, ptr %7, align 8
-  %53 = call i32 @mbedtls_sha512_update(ptr noundef %50, ptr noundef %51, i64 noundef %52)
-  store i32 %53, ptr %8, align 4
-  br label %55
+49:                                               ; preds = %3
+  %50 = load ptr, ptr %5, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %6, align 8, !tbaa !11
+  %53 = load i64, ptr %7, align 8, !tbaa !13
+  %54 = call i32 @mbedtls_sha512_update(ptr noundef %51, ptr noundef %52, i64 noundef %53)
+  store i32 %54, ptr %8, align 4, !tbaa !10
+  br label %62
 
-54:                                               ; preds = %3
+55:                                               ; preds = %3, %3, %3, %3
+  %56 = load ptr, ptr %5, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %6, align 8, !tbaa !11
+  %59 = load i64, ptr %7, align 8, !tbaa !13
+  %60 = call i32 @mbedtls_sha3_update(ptr noundef %57, ptr noundef %58, i64 noundef %59)
+  store i32 %60, ptr %8, align 4, !tbaa !10
+  br label %62
+
+61:                                               ; preds = %3
   store i32 -137, ptr %4, align 4
-  br label %58
+  store i32 1, ptr %9, align 4
+  br label %65
 
-55:                                               ; preds = %48, %42, %36, %30, %24, %18, %12
-  %56 = load i32, ptr %8, align 4
-  %57 = call i32 @mbedtls_to_psa_error(i32 noundef %56)
-  store i32 %57, ptr %4, align 4
-  br label %58
+62:                                               ; preds = %55, %49, %43, %37, %31, %25, %19, %13
+  %63 = load i32, ptr %8, align 4, !tbaa !10
+  %64 = call i32 @mbedtls_to_psa_error(i32 noundef %63)
+  store i32 %64, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %65
 
-58:                                               ; preds = %55, %54
-  %59 = load i32, ptr %4, align 4
-  ret i32 %59
+65:                                               ; preds = %62, %61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %66 = load i32, ptr %4, align 4
+  ret i32 %66
 }
 
 declare i32 @mbedtls_md5_update(ptr noundef, ptr noundef, i64 noundef) #1
@@ -538,6 +577,8 @@ declare i32 @mbedtls_sha256_update(ptr noundef, ptr noundef, i64 noundef) #1
 
 declare i32 @mbedtls_sha512_update(ptr noundef, ptr noundef, i64 noundef) #1
 
+declare i32 @mbedtls_sha3_update(ptr noundef, ptr noundef, i64 noundef) #1
+
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_hash_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
@@ -548,338 +589,360 @@ define hidden i32 @mbedtls_psa_hash_finish(ptr noundef %0, ptr noundef %1, i64 n
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i64 %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store i32 -110, ptr %11, align 4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
-  %16 = and i32 %15, 255
-  %17 = or i32 33554432, %16
-  %18 = icmp eq i32 %17, 33554435
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %4
-  br label %138
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  store i64 %2, ptr %8, align 8, !tbaa !13
+  store ptr %3, ptr %9, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  store i32 -110, ptr %11, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8, !tbaa !7
+  %17 = and i32 %16, 255
+  %18 = or i32 33554432, %17
+  %19 = icmp eq i32 %18, 33554435
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %4
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %21, i32 0, i32 0
-  %23 = load i32, ptr %22, align 8
-  %24 = and i32 %23, 255
-  %25 = or i32 33554432, %24
-  %26 = icmp eq i32 %25, 33554436
-  br i1 %26, label %27, label %28
+  br label %139
 
-27:                                               ; preds = %20
-  br label %136
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !7
+  %25 = and i32 %24, 255
+  %26 = or i32 33554432, %25
+  %27 = icmp eq i32 %26, 33554436
+  br i1 %27, label %28, label %29
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %29, i32 0, i32 0
-  %31 = load i32, ptr %30, align 8
-  %32 = and i32 %31, 255
-  %33 = or i32 33554432, %32
-  %34 = icmp eq i32 %33, 33554437
-  br i1 %34, label %35, label %36
+28:                                               ; preds = %21
+  br label %137
 
-35:                                               ; preds = %28
-  br label %134
+29:                                               ; preds = %21
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %30, i32 0, i32 0
+  %32 = load i32, ptr %31, align 8, !tbaa !7
+  %33 = and i32 %32, 255
+  %34 = or i32 33554432, %33
+  %35 = icmp eq i32 %34, 33554437
+  br i1 %35, label %36, label %37
 
-36:                                               ; preds = %28
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %37, i32 0, i32 0
-  %39 = load i32, ptr %38, align 8
-  %40 = and i32 %39, 255
-  %41 = or i32 33554432, %40
-  %42 = icmp eq i32 %41, 33554440
-  br i1 %42, label %43, label %44
+36:                                               ; preds = %29
+  br label %135
 
-43:                                               ; preds = %36
-  br label %132
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %6, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %38, i32 0, i32 0
+  %40 = load i32, ptr %39, align 8, !tbaa !7
+  %41 = and i32 %40, 255
+  %42 = or i32 33554432, %41
+  %43 = icmp eq i32 %42, 33554440
+  br i1 %43, label %44, label %45
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 8
-  %48 = and i32 %47, 255
-  %49 = or i32 33554432, %48
-  %50 = icmp eq i32 %49, 33554441
-  br i1 %50, label %51, label %52
+44:                                               ; preds = %37
+  br label %133
 
-51:                                               ; preds = %44
-  br label %130
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %6, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %46, i32 0, i32 0
+  %48 = load i32, ptr %47, align 8, !tbaa !7
+  %49 = and i32 %48, 255
+  %50 = or i32 33554432, %49
+  %51 = icmp eq i32 %50, 33554441
+  br i1 %51, label %52, label %53
 
-52:                                               ; preds = %44
-  %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %53, i32 0, i32 0
-  %55 = load i32, ptr %54, align 8
-  %56 = and i32 %55, 255
-  %57 = or i32 33554432, %56
-  %58 = icmp eq i32 %57, 33554442
-  br i1 %58, label %59, label %60
+52:                                               ; preds = %45
+  br label %131
 
-59:                                               ; preds = %52
-  br label %128
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %6, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 8, !tbaa !7
+  %57 = and i32 %56, 255
+  %58 = or i32 33554432, %57
+  %59 = icmp eq i32 %58, 33554442
+  br i1 %59, label %60, label %61
 
-60:                                               ; preds = %52
-  %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %62, align 8
-  %64 = and i32 %63, 255
-  %65 = or i32 33554432, %64
-  %66 = icmp eq i32 %65, 33554443
-  br i1 %66, label %67, label %68
+60:                                               ; preds = %53
+  br label %129
 
-67:                                               ; preds = %60
-  br label %126
+61:                                               ; preds = %53
+  %62 = load ptr, ptr %6, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %62, i32 0, i32 0
+  %64 = load i32, ptr %63, align 8, !tbaa !7
+  %65 = and i32 %64, 255
+  %66 = or i32 33554432, %65
+  %67 = icmp eq i32 %66, 33554443
+  br i1 %67, label %68, label %69
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %70, align 8
-  %72 = and i32 %71, 255
-  %73 = or i32 33554432, %72
-  %74 = icmp eq i32 %73, 33554444
-  br i1 %74, label %75, label %76
+68:                                               ; preds = %61
+  br label %127
 
-75:                                               ; preds = %68
-  br label %124
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %6, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %70, i32 0, i32 0
+  %72 = load i32, ptr %71, align 8, !tbaa !7
+  %73 = and i32 %72, 255
+  %74 = or i32 33554432, %73
+  %75 = icmp eq i32 %74, 33554444
+  br i1 %75, label %76, label %77
 
-76:                                               ; preds = %68
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %77, i32 0, i32 0
-  %79 = load i32, ptr %78, align 8
-  %80 = and i32 %79, 255
-  %81 = or i32 33554432, %80
-  %82 = icmp eq i32 %81, 33554445
-  br i1 %82, label %83, label %84
+76:                                               ; preds = %69
+  br label %125
 
-83:                                               ; preds = %76
-  br label %122
+77:                                               ; preds = %69
+  %78 = load ptr, ptr %6, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %78, i32 0, i32 0
+  %80 = load i32, ptr %79, align 8, !tbaa !7
+  %81 = and i32 %80, 255
+  %82 = or i32 33554432, %81
+  %83 = icmp eq i32 %82, 33554445
+  br i1 %83, label %84, label %85
 
-84:                                               ; preds = %76
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %85, i32 0, i32 0
-  %87 = load i32, ptr %86, align 8
-  %88 = and i32 %87, 255
-  %89 = or i32 33554432, %88
-  %90 = icmp eq i32 %89, 33554448
-  br i1 %90, label %91, label %92
+84:                                               ; preds = %77
+  br label %123
 
-91:                                               ; preds = %84
-  br label %120
+85:                                               ; preds = %77
+  %86 = load ptr, ptr %6, align 8, !tbaa !3
+  %87 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %86, i32 0, i32 0
+  %88 = load i32, ptr %87, align 8, !tbaa !7
+  %89 = and i32 %88, 255
+  %90 = or i32 33554432, %89
+  %91 = icmp eq i32 %90, 33554448
+  br i1 %91, label %92, label %93
 
-92:                                               ; preds = %84
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %93, i32 0, i32 0
-  %95 = load i32, ptr %94, align 8
-  %96 = and i32 %95, 255
-  %97 = or i32 33554432, %96
-  %98 = icmp eq i32 %97, 33554449
-  br i1 %98, label %99, label %100
+92:                                               ; preds = %85
+  br label %121
 
-99:                                               ; preds = %92
-  br label %118
+93:                                               ; preds = %85
+  %94 = load ptr, ptr %6, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %94, i32 0, i32 0
+  %96 = load i32, ptr %95, align 8, !tbaa !7
+  %97 = and i32 %96, 255
+  %98 = or i32 33554432, %97
+  %99 = icmp eq i32 %98, 33554449
+  br i1 %99, label %100, label %101
 
-100:                                              ; preds = %92
-  %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %101, i32 0, i32 0
-  %103 = load i32, ptr %102, align 8
-  %104 = and i32 %103, 255
-  %105 = or i32 33554432, %104
-  %106 = icmp eq i32 %105, 33554450
-  br i1 %106, label %107, label %108
+100:                                              ; preds = %93
+  br label %119
 
-107:                                              ; preds = %100
-  br label %116
+101:                                              ; preds = %93
+  %102 = load ptr, ptr %6, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %102, i32 0, i32 0
+  %104 = load i32, ptr %103, align 8, !tbaa !7
+  %105 = and i32 %104, 255
+  %106 = or i32 33554432, %105
+  %107 = icmp eq i32 %106, 33554450
+  br i1 %107, label %108, label %109
 
-108:                                              ; preds = %100
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %109, i32 0, i32 0
-  %111 = load i32, ptr %110, align 8
-  %112 = and i32 %111, 255
-  %113 = or i32 33554432, %112
-  %114 = icmp eq i32 %113, 33554451
-  %115 = select i1 %114, i32 64, i32 0
-  br label %116
+108:                                              ; preds = %101
+  br label %117
 
-116:                                              ; preds = %108, %107
-  %117 = phi i32 [ 48, %107 ], [ %115, %108 ]
-  br label %118
+109:                                              ; preds = %101
+  %110 = load ptr, ptr %6, align 8, !tbaa !3
+  %111 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %110, i32 0, i32 0
+  %112 = load i32, ptr %111, align 8, !tbaa !7
+  %113 = and i32 %112, 255
+  %114 = or i32 33554432, %113
+  %115 = icmp eq i32 %114, 33554451
+  %116 = select i1 %115, i32 64, i32 0
+  br label %117
 
-118:                                              ; preds = %116, %99
-  %119 = phi i32 [ 32, %99 ], [ %117, %116 ]
-  br label %120
+117:                                              ; preds = %109, %108
+  %118 = phi i32 [ 48, %108 ], [ %116, %109 ]
+  br label %119
 
-120:                                              ; preds = %118, %91
-  %121 = phi i32 [ 28, %91 ], [ %119, %118 ]
-  br label %122
+119:                                              ; preds = %117, %100
+  %120 = phi i32 [ 32, %100 ], [ %118, %117 ]
+  br label %121
 
-122:                                              ; preds = %120, %83
-  %123 = phi i32 [ 32, %83 ], [ %121, %120 ]
-  br label %124
+121:                                              ; preds = %119, %92
+  %122 = phi i32 [ 28, %92 ], [ %120, %119 ]
+  br label %123
 
-124:                                              ; preds = %122, %75
-  %125 = phi i32 [ 28, %75 ], [ %123, %122 ]
-  br label %126
+123:                                              ; preds = %121, %84
+  %124 = phi i32 [ 32, %84 ], [ %122, %121 ]
+  br label %125
 
-126:                                              ; preds = %124, %67
-  %127 = phi i32 [ 64, %67 ], [ %125, %124 ]
-  br label %128
+125:                                              ; preds = %123, %76
+  %126 = phi i32 [ 28, %76 ], [ %124, %123 ]
+  br label %127
 
-128:                                              ; preds = %126, %59
-  %129 = phi i32 [ 48, %59 ], [ %127, %126 ]
-  br label %130
+127:                                              ; preds = %125, %68
+  %128 = phi i32 [ 64, %68 ], [ %126, %125 ]
+  br label %129
 
-130:                                              ; preds = %128, %51
-  %131 = phi i32 [ 32, %51 ], [ %129, %128 ]
-  br label %132
+129:                                              ; preds = %127, %60
+  %130 = phi i32 [ 48, %60 ], [ %128, %127 ]
+  br label %131
 
-132:                                              ; preds = %130, %43
-  %133 = phi i32 [ 28, %43 ], [ %131, %130 ]
-  br label %134
+131:                                              ; preds = %129, %52
+  %132 = phi i32 [ 32, %52 ], [ %130, %129 ]
+  br label %133
 
-134:                                              ; preds = %132, %35
-  %135 = phi i32 [ 20, %35 ], [ %133, %132 ]
-  br label %136
+133:                                              ; preds = %131, %44
+  %134 = phi i32 [ 28, %44 ], [ %132, %131 ]
+  br label %135
 
-136:                                              ; preds = %134, %27
-  %137 = phi i32 [ 20, %27 ], [ %135, %134 ]
-  br label %138
+135:                                              ; preds = %133, %36
+  %136 = phi i32 [ 20, %36 ], [ %134, %133 ]
+  br label %137
 
-138:                                              ; preds = %136, %19
-  %139 = phi i32 [ 16, %19 ], [ %137, %136 ]
-  %140 = sext i32 %139 to i64
-  store i64 %140, ptr %12, align 8
-  %141 = load i64, ptr %8, align 8
-  %142 = load ptr, ptr %9, align 8
-  store i64 %141, ptr %142, align 8
-  %143 = load i64, ptr %8, align 8
-  %144 = icmp ne i64 %143, 0
-  br i1 %144, label %145, label %148
+137:                                              ; preds = %135, %28
+  %138 = phi i32 [ 20, %28 ], [ %136, %135 ]
+  br label %139
 
-145:                                              ; preds = %138
-  %146 = load ptr, ptr %7, align 8
-  %147 = load i64, ptr %8, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %146, i8 33, i64 %147, i1 false)
-  br label %148
+139:                                              ; preds = %137, %20
+  %140 = phi i32 [ 16, %20 ], [ %138, %137 ]
+  %141 = zext i32 %140 to i64
+  store i64 %141, ptr %12, align 8, !tbaa !13
+  %142 = load i64, ptr %8, align 8, !tbaa !13
+  %143 = load ptr, ptr %9, align 8, !tbaa !15
+  store i64 %142, ptr %143, align 8, !tbaa !13
+  %144 = load i64, ptr %8, align 8, !tbaa !13
+  %145 = icmp ne i64 %144, 0
+  br i1 %145, label %146, label %149
 
-148:                                              ; preds = %145, %138
-  %149 = load i64, ptr %8, align 8
-  %150 = load i64, ptr %12, align 8
-  %151 = icmp ult i64 %149, %150
-  br i1 %151, label %152, label %153
+146:                                              ; preds = %139
+  %147 = load ptr, ptr %7, align 8, !tbaa !11
+  %148 = load i64, ptr %8, align 8, !tbaa !13
+  call void @llvm.memset.p0.i64(ptr align 1 %147, i8 33, i64 %148, i1 false)
+  br label %149
 
-152:                                              ; preds = %148
-  store i32 -138, ptr %10, align 4
-  br label %196
+149:                                              ; preds = %146, %139
+  %150 = load i64, ptr %8, align 8, !tbaa !13
+  %151 = load i64, ptr %12, align 8, !tbaa !13
+  %152 = icmp ult i64 %150, %151
+  br i1 %152, label %153, label %154
 
-153:                                              ; preds = %148
-  %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %154, i32 0, i32 0
-  %156 = load i32, ptr %155, align 8
-  switch i32 %156, label %192 [
-    i32 33554435, label %157
-    i32 33554436, label %162
-    i32 33554437, label %167
-    i32 33554440, label %172
-    i32 33554441, label %177
-    i32 33554442, label %182
-    i32 33554443, label %187
+153:                                              ; preds = %149
+  store i32 -138, ptr %10, align 4, !tbaa !10
+  br label %203
+
+154:                                              ; preds = %149
+  %155 = load ptr, ptr %6, align 8, !tbaa !3
+  %156 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %155, i32 0, i32 0
+  %157 = load i32, ptr %156, align 8, !tbaa !7
+  switch i32 %157, label %199 [
+    i32 33554435, label %158
+    i32 33554436, label %163
+    i32 33554437, label %168
+    i32 33554440, label %173
+    i32 33554441, label %178
+    i32 33554442, label %183
+    i32 33554443, label %188
+    i32 33554448, label %193
+    i32 33554449, label %193
+    i32 33554450, label %193
+    i32 33554451, label %193
   ]
 
-157:                                              ; preds = %153
-  %158 = load ptr, ptr %6, align 8
-  %159 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %158, i32 0, i32 1
-  %160 = load ptr, ptr %7, align 8
-  %161 = call i32 @mbedtls_md5_finish(ptr noundef %159, ptr noundef %160)
-  store i32 %161, ptr %11, align 4
-  br label %193
+158:                                              ; preds = %154
+  %159 = load ptr, ptr %6, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %159, i32 0, i32 1
+  %161 = load ptr, ptr %7, align 8, !tbaa !11
+  %162 = call i32 @mbedtls_md5_finish(ptr noundef %160, ptr noundef %161)
+  store i32 %162, ptr %11, align 4, !tbaa !10
+  br label %200
 
-162:                                              ; preds = %153
-  %163 = load ptr, ptr %6, align 8
-  %164 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %163, i32 0, i32 1
-  %165 = load ptr, ptr %7, align 8
-  %166 = call i32 @mbedtls_ripemd160_finish(ptr noundef %164, ptr noundef %165)
-  store i32 %166, ptr %11, align 4
-  br label %193
+163:                                              ; preds = %154
+  %164 = load ptr, ptr %6, align 8, !tbaa !3
+  %165 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %164, i32 0, i32 1
+  %166 = load ptr, ptr %7, align 8, !tbaa !11
+  %167 = call i32 @mbedtls_ripemd160_finish(ptr noundef %165, ptr noundef %166)
+  store i32 %167, ptr %11, align 4, !tbaa !10
+  br label %200
 
-167:                                              ; preds = %153
-  %168 = load ptr, ptr %6, align 8
-  %169 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %168, i32 0, i32 1
-  %170 = load ptr, ptr %7, align 8
-  %171 = call i32 @mbedtls_sha1_finish(ptr noundef %169, ptr noundef %170)
-  store i32 %171, ptr %11, align 4
-  br label %193
+168:                                              ; preds = %154
+  %169 = load ptr, ptr %6, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %169, i32 0, i32 1
+  %171 = load ptr, ptr %7, align 8, !tbaa !11
+  %172 = call i32 @mbedtls_sha1_finish(ptr noundef %170, ptr noundef %171)
+  store i32 %172, ptr %11, align 4, !tbaa !10
+  br label %200
 
-172:                                              ; preds = %153
-  %173 = load ptr, ptr %6, align 8
-  %174 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %173, i32 0, i32 1
-  %175 = load ptr, ptr %7, align 8
-  %176 = call i32 @mbedtls_sha256_finish(ptr noundef %174, ptr noundef %175)
-  store i32 %176, ptr %11, align 4
-  br label %193
+173:                                              ; preds = %154
+  %174 = load ptr, ptr %6, align 8, !tbaa !3
+  %175 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %174, i32 0, i32 1
+  %176 = load ptr, ptr %7, align 8, !tbaa !11
+  %177 = call i32 @mbedtls_sha256_finish(ptr noundef %175, ptr noundef %176)
+  store i32 %177, ptr %11, align 4, !tbaa !10
+  br label %200
 
-177:                                              ; preds = %153
-  %178 = load ptr, ptr %6, align 8
-  %179 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %178, i32 0, i32 1
-  %180 = load ptr, ptr %7, align 8
-  %181 = call i32 @mbedtls_sha256_finish(ptr noundef %179, ptr noundef %180)
-  store i32 %181, ptr %11, align 4
-  br label %193
+178:                                              ; preds = %154
+  %179 = load ptr, ptr %6, align 8, !tbaa !3
+  %180 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %179, i32 0, i32 1
+  %181 = load ptr, ptr %7, align 8, !tbaa !11
+  %182 = call i32 @mbedtls_sha256_finish(ptr noundef %180, ptr noundef %181)
+  store i32 %182, ptr %11, align 4, !tbaa !10
+  br label %200
 
-182:                                              ; preds = %153
-  %183 = load ptr, ptr %6, align 8
-  %184 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %183, i32 0, i32 1
-  %185 = load ptr, ptr %7, align 8
-  %186 = call i32 @mbedtls_sha512_finish(ptr noundef %184, ptr noundef %185)
-  store i32 %186, ptr %11, align 4
-  br label %193
+183:                                              ; preds = %154
+  %184 = load ptr, ptr %6, align 8, !tbaa !3
+  %185 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %184, i32 0, i32 1
+  %186 = load ptr, ptr %7, align 8, !tbaa !11
+  %187 = call i32 @mbedtls_sha512_finish(ptr noundef %185, ptr noundef %186)
+  store i32 %187, ptr %11, align 4, !tbaa !10
+  br label %200
 
-187:                                              ; preds = %153
-  %188 = load ptr, ptr %6, align 8
-  %189 = getelementptr inbounds %struct.mbedtls_psa_hash_operation_t, ptr %188, i32 0, i32 1
-  %190 = load ptr, ptr %7, align 8
-  %191 = call i32 @mbedtls_sha512_finish(ptr noundef %189, ptr noundef %190)
-  store i32 %191, ptr %11, align 4
-  br label %193
+188:                                              ; preds = %154
+  %189 = load ptr, ptr %6, align 8, !tbaa !3
+  %190 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %189, i32 0, i32 1
+  %191 = load ptr, ptr %7, align 8, !tbaa !11
+  %192 = call i32 @mbedtls_sha512_finish(ptr noundef %190, ptr noundef %191)
+  store i32 %192, ptr %11, align 4, !tbaa !10
+  br label %200
 
-192:                                              ; preds = %153
+193:                                              ; preds = %154, %154, %154, %154
+  %194 = load ptr, ptr %6, align 8, !tbaa !3
+  %195 = getelementptr inbounds nuw %struct.mbedtls_psa_hash_operation_t, ptr %194, i32 0, i32 1
+  %196 = load ptr, ptr %7, align 8, !tbaa !11
+  %197 = load i64, ptr %8, align 8, !tbaa !13
+  %198 = call i32 @mbedtls_sha3_finish(ptr noundef %195, ptr noundef %196, i64 noundef %197)
+  store i32 %198, ptr %11, align 4, !tbaa !10
+  br label %200
+
+199:                                              ; preds = %154
   store i32 -137, ptr %5, align 4
-  br label %204
+  store i32 1, ptr %13, align 4
+  br label %211
 
-193:                                              ; preds = %187, %182, %177, %172, %167, %162, %157
-  %194 = load i32, ptr %11, align 4
-  %195 = call i32 @mbedtls_to_psa_error(i32 noundef %194)
-  store i32 %195, ptr %10, align 4
-  br label %196
+200:                                              ; preds = %193, %188, %183, %178, %173, %168, %163, %158
+  %201 = load i32, ptr %11, align 4, !tbaa !10
+  %202 = call i32 @mbedtls_to_psa_error(i32 noundef %201)
+  store i32 %202, ptr %10, align 4, !tbaa !10
+  br label %203
 
-196:                                              ; preds = %193, %152
-  %197 = load i32, ptr %10, align 4
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %199, label %202
+203:                                              ; preds = %200, %153
+  %204 = load i32, ptr %10, align 4, !tbaa !10
+  %205 = icmp eq i32 %204, 0
+  br i1 %205, label %206, label %209
 
-199:                                              ; preds = %196
-  %200 = load i64, ptr %12, align 8
-  %201 = load ptr, ptr %9, align 8
-  store i64 %200, ptr %201, align 8
-  br label %202
+206:                                              ; preds = %203
+  %207 = load i64, ptr %12, align 8, !tbaa !13
+  %208 = load ptr, ptr %9, align 8, !tbaa !15
+  store i64 %207, ptr %208, align 8, !tbaa !13
+  br label %209
 
-202:                                              ; preds = %199, %196
-  %203 = load i32, ptr %10, align 4
-  store i32 %203, ptr %5, align 4
-  br label %204
+209:                                              ; preds = %206, %203
+  %210 = load i32, ptr %10, align 4, !tbaa !10
+  store i32 %210, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %211
 
-204:                                              ; preds = %202, %192
-  %205 = load i32, ptr %5, align 4
-  ret i32 %205
+211:                                              ; preds = %209, %199
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  %212 = load i32, ptr %5, align 4
+  ret i32 %212
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @mbedtls_md5_finish(ptr noundef, ptr noundef) #1
 
@@ -890,6 +953,8 @@ declare i32 @mbedtls_sha1_finish(ptr noundef, ptr noundef) #1
 declare i32 @mbedtls_sha256_finish(ptr noundef, ptr noundef) #1
 
 declare i32 @mbedtls_sha512_finish(ptr noundef, ptr noundef) #1
+
+declare i32 @mbedtls_sha3_finish(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_hash_compute(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
@@ -903,85 +968,109 @@ define hidden i32 @mbedtls_psa_hash_compute(i32 noundef %0, ptr noundef %1, i64 
   %14 = alloca %struct.mbedtls_psa_hash_operation_t, align 8
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store i32 %0, ptr %8, align 4
-  store ptr %1, ptr %9, align 8
-  store i64 %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store i64 %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
+  %17 = alloca i32, align 4
+  store i32 %0, ptr %8, align 4, !tbaa !10
+  store ptr %1, ptr %9, align 8, !tbaa !11
+  store i64 %2, ptr %10, align 8, !tbaa !13
+  store ptr %3, ptr %11, align 8, !tbaa !11
+  store i64 %4, ptr %12, align 8, !tbaa !13
+  store ptr %5, ptr %13, align 8, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 224, ptr %14) #4
   call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 224, i1 false)
-  store i32 -151, ptr %15, align 4
-  store i32 -151, ptr %16, align 4
-  %17 = load i64, ptr %12, align 8
-  %18 = load ptr, ptr %13, align 8
-  store i64 %17, ptr %18, align 8
-  %19 = load i32, ptr %8, align 4
-  %20 = call i32 @mbedtls_psa_hash_setup(ptr noundef %14, i32 noundef %19)
-  store i32 %20, ptr %15, align 4
-  %21 = load i32, ptr %15, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %6
-  br label %40
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  store i32 -151, ptr %15, align 4, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  store i32 -151, ptr %16, align 4, !tbaa !10
+  %18 = load i64, ptr %12, align 8, !tbaa !13
+  %19 = load ptr, ptr %13, align 8, !tbaa !15
+  store i64 %18, ptr %19, align 8, !tbaa !13
+  %20 = load i32, ptr %8, align 4, !tbaa !10
+  %21 = call i32 @mbedtls_psa_hash_setup(ptr noundef %14, i32 noundef %20)
+  store i32 %21, ptr %15, align 4, !tbaa !10
+  %22 = load i32, ptr %15, align 4, !tbaa !10
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %25
 
 24:                                               ; preds = %6
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i64, ptr %10, align 8
-  %27 = call i32 @mbedtls_psa_hash_update(ptr noundef %14, ptr noundef %25, i64 noundef %26)
-  store i32 %27, ptr %15, align 4
-  %28 = load i32, ptr %15, align 4
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %31
+  br label %41
 
-30:                                               ; preds = %24
-  br label %40
+25:                                               ; preds = %6
+  %26 = load ptr, ptr %9, align 8, !tbaa !11
+  %27 = load i64, ptr %10, align 8, !tbaa !13
+  %28 = call i32 @mbedtls_psa_hash_update(ptr noundef %14, ptr noundef %26, i64 noundef %27)
+  store i32 %28, ptr %15, align 4, !tbaa !10
+  %29 = load i32, ptr %15, align 4, !tbaa !10
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %32
 
-31:                                               ; preds = %24
-  %32 = load ptr, ptr %11, align 8
-  %33 = load i64, ptr %12, align 8
-  %34 = load ptr, ptr %13, align 8
-  %35 = call i32 @mbedtls_psa_hash_finish(ptr noundef %14, ptr noundef %32, i64 noundef %33, ptr noundef %34)
-  store i32 %35, ptr %15, align 4
-  %36 = load i32, ptr %15, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %39
+31:                                               ; preds = %25
+  br label %41
 
-38:                                               ; preds = %31
-  br label %40
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %11, align 8, !tbaa !11
+  %34 = load i64, ptr %12, align 8, !tbaa !13
+  %35 = load ptr, ptr %13, align 8, !tbaa !15
+  %36 = call i32 @mbedtls_psa_hash_finish(ptr noundef %14, ptr noundef %33, i64 noundef %34, ptr noundef %35)
+  store i32 %36, ptr %15, align 4, !tbaa !10
+  %37 = load i32, ptr %15, align 4, !tbaa !10
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
 
-39:                                               ; preds = %31
-  br label %40
+39:                                               ; preds = %32
+  br label %41
 
-40:                                               ; preds = %39, %38, %30, %23
-  %41 = call i32 @mbedtls_psa_hash_abort(ptr noundef %14)
-  store i32 %41, ptr %16, align 4
-  %42 = load i32, ptr %15, align 4
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %46
+40:                                               ; preds = %32
+  br label %41
 
-44:                                               ; preds = %40
-  %45 = load i32, ptr %16, align 4
-  store i32 %45, ptr %7, align 4
-  br label %48
+41:                                               ; preds = %40, %39, %31, %24
+  %42 = call i32 @mbedtls_psa_hash_abort(ptr noundef %14)
+  store i32 %42, ptr %16, align 4, !tbaa !10
+  %43 = load i32, ptr %15, align 4, !tbaa !10
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %47
 
-46:                                               ; preds = %40
-  %47 = load i32, ptr %15, align 4
-  store i32 %47, ptr %7, align 4
-  br label %48
+45:                                               ; preds = %41
+  %46 = load i32, ptr %16, align 4, !tbaa !10
+  store i32 %46, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %49
 
-48:                                               ; preds = %46, %44
-  %49 = load i32, ptr %7, align 4
-  ret i32 %49
+47:                                               ; preds = %41
+  %48 = load i32, ptr %15, align 4, !tbaa !10
+  store i32 %48, ptr %7, align 4
+  store i32 1, ptr %17, align 4
+  br label %49
+
+49:                                               ; preds = %47, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 224, ptr %14) #4
+  %50 = load i32, ptr %7, align 4
+  ret i32 %50
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"", !9, i64 0, !5, i64 8}
+!9 = !{!"int", !5, i64 0}
+!10 = !{!9, !9, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 long", !4, i64 0}
