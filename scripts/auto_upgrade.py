@@ -99,6 +99,7 @@ supported_project = [
     "ipopt",
     "nlohmann_json",
     "jsonnet",
+    "libphonenumber",
 ]
 
 modify_only = [
@@ -132,6 +133,7 @@ modify_only = [
     "hyperscan",
     "icu",
     "ipopt",
+    "libphonenumber",
 ]
 
 

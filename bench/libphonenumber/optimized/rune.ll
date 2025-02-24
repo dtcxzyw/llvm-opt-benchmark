@@ -9,7 +9,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr noundef writeonly captures
   br i1 %4, label %59, label %5
 
 5:                                                ; preds = %3
-  %6 = load i8, ptr %1, align 1
+  %6 = load i8, ptr %1, align 1, !tbaa !4
   %7 = zext i8 %6 to i32
   %8 = icmp sgt i8 %6, -1
   br i1 %8, label %59, label %9
@@ -20,7 +20,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr noundef writeonly captures
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %13 = load i8, ptr %12, align 1
+  %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = xor i8 %13, -128
   %15 = zext i8 %14 to i32
   %.not = icmp ult i8 %14, 64
@@ -47,7 +47,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr noundef writeonly captures
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %28 = load i8, ptr %27, align 1
+  %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = xor i8 %28, -128
   %30 = zext i8 %29 to i32
   %.not49 = icmp ult i8 %29, 64
@@ -78,7 +78,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr noundef writeonly captures
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %44 = load i8, ptr %43, align 1
+  %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = xor i8 %44, -128
   %46 = icmp ult i8 %45, 64
   %47 = icmp samesign ult i8 %6, -8
@@ -107,20 +107,20 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr noundef writeonly captures
 59:                                               ; preds = %3, %9, %24, %40, %20, %5, %58, %55, %38
   %.sink = phi i32 [ 65533, %58 ], [ %57, %55 ], [ %39, %38 ], [ %7, %5 ], [ %22, %20 ], [ 65533, %40 ], [ 65533, %24 ], [ 65533, %9 ], [ 65533, %3 ]
   %.0 = phi i32 [ 1, %58 ], [ 4, %55 ], [ 3, %38 ], [ 1, %5 ], [ 2, %20 ], [ 0, %40 ], [ 0, %24 ], [ 0, %9 ], [ 0, %3 ]
-  store i32 %.sink, ptr %0, align 4
+  store i32 %.sink, ptr %0, align 4, !tbaa !7
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 1, 5) i32 @chartorune(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr %1, align 1
+  %3 = load i8, ptr %1, align 1, !tbaa !4
   %4 = zext i8 %3 to i32
   %5 = icmp sgt i8 %3, -1
   br i1 %5, label %50, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %8 = load i8, ptr %7, align 1
+  %8 = load i8, ptr %7, align 1, !tbaa !4
   %9 = xor i8 %8, -128
   %10 = zext i8 %9 to i32
   %.not = icmp ult i8 %9, 64
@@ -143,7 +143,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr noundef writeonly captures(
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %21 = load i8, ptr %20, align 1
+  %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = xor i8 %21, -128
   %23 = zext i8 %22 to i32
   %.not43 = icmp ult i8 %22, 64
@@ -170,7 +170,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr noundef writeonly captures(
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %35 = load i8, ptr %34, align 1
+  %35 = load i8, ptr %34, align 1, !tbaa !4
   %36 = xor i8 %35, -128
   %37 = icmp ult i8 %36, 64
   %38 = icmp samesign ult i8 %3, -8
@@ -199,15 +199,15 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr noundef writeonly captures(
 50:                                               ; preds = %15, %2, %49, %46, %31
   %.sink = phi i32 [ 65533, %49 ], [ %48, %46 ], [ %32, %31 ], [ %4, %2 ], [ %17, %15 ]
   %.0 = phi i32 [ 1, %49 ], [ 4, %46 ], [ 3, %31 ], [ 1, %2 ], [ 2, %15 ]
-  store i32 %.sink, ptr %0, align 4
+  store i32 %.sink, ptr %0, align 4, !tbaa !7
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 2) i32 @isvalidcharntorune(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @charntorune(ptr noundef %2, ptr noundef %0, i32 noundef %1)
-  store i32 %5, ptr %3, align 4
-  %6 = load i32, ptr %2, align 4
+  store i32 %5, ptr %3, align 4, !tbaa !7
+  %6 = load i32, ptr %2, align 4, !tbaa !7
   %.not = icmp ne i32 %6, 65533
   %7 = icmp eq i32 %5, 3
   %narrow = select i1 %.not, i1 true, i1 %7
@@ -217,13 +217,13 @@ define dso_local range(i32 0, 2) i32 @isvalidcharntorune(ptr noundef readonly ca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 1, 5) i32 @runetochar(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 4
+  %3 = load i32, ptr %1, align 4, !tbaa !7
   %4 = icmp ult i32 %3, 128
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = trunc nuw i32 %3 to i8
-  store i8 %6, ptr %0, align 1
+  store i8 %6, ptr %0, align 1, !tbaa !4
   br label %50
 
 7:                                                ; preds = %2
@@ -235,11 +235,11 @@ define dso_local range(i32 1, 5) i32 @runetochar(ptr noundef writeonly captures(
   %11 = lshr i32 %3, 6
   %12 = trunc nuw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
-  store i8 %13, ptr %0, align 1
+  store i8 %13, ptr %0, align 1, !tbaa !4
   %14 = trunc i32 %3 to i8
   %15 = and i8 %14, 63
   %16 = or disjoint i8 %15, -128
-  store i8 %16, ptr %9, align 1
+  store i8 %16, ptr %9, align 1, !tbaa !4
   br label %50
 
 17:                                               ; preds = %7
@@ -256,40 +256,40 @@ define dso_local range(i32 1, 5) i32 @runetochar(ptr noundef writeonly captures(
   %22 = lshr i64 %spec.store.select2, 12
   %23 = trunc nuw i64 %22 to i8
   %24 = or disjoint i8 %23, -32
-  store i8 %24, ptr %0, align 1
+  store i8 %24, ptr %0, align 1, !tbaa !4
   %25 = lshr i64 %spec.store.select2, 6
   %26 = trunc i64 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  store i8 %28, ptr %9, align 1
+  store i8 %28, ptr %9, align 1, !tbaa !4
   %29 = trunc i64 %spec.store.select2 to i8
   %30 = and i8 %29, 63
   %31 = or disjoint i8 %30, -128
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %31, ptr %32, align 1
+  store i8 %31, ptr %32, align 1, !tbaa !4
   br label %50
 
 33:                                               ; preds = %17
   %34 = lshr i64 %spec.store.select2, 18
   %35 = trunc i64 %34 to i8
   %36 = or i8 %35, -16
-  store i8 %36, ptr %0, align 1
+  store i8 %36, ptr %0, align 1, !tbaa !4
   %37 = lshr i64 %spec.store.select2, 12
   %38 = trunc i64 %37 to i8
   %39 = and i8 %38, 63
   %40 = or disjoint i8 %39, -128
-  store i8 %40, ptr %9, align 1
+  store i8 %40, ptr %9, align 1, !tbaa !4
   %41 = lshr i64 %spec.store.select2, 6
   %42 = trunc i64 %41 to i8
   %43 = and i8 %42, 63
   %44 = or disjoint i8 %43, -128
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %44, ptr %45, align 1
+  store i8 %44, ptr %45, align 1, !tbaa !4
   %46 = trunc i64 %spec.store.select2 to i8
   %47 = and i8 %46, 63
   %48 = or disjoint i8 %47, -128
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %48, ptr %49, align 1
+  store i8 %48, ptr %49, align 1, !tbaa !4
   br label %50
 
 50:                                               ; preds = %33, %21, %10, %5
@@ -332,7 +332,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @runenlen(ptr noundef r
   %.0913 = phi i32 [ %12, %11 ], [ 0, %2 ]
   %3 = add nsw i32 %.in, -1
   %4 = getelementptr inbounds nuw i8, ptr %.014, i64 4
-  %5 = load i32, ptr %.014, align 4
+  %5 = load i32, ptr %.014, align 4, !tbaa !7
   %6 = icmp slt i32 %5, 128
   br i1 %6, label %11, label %7
 
@@ -349,7 +349,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @runenlen(ptr noundef r
   %.sink = phi i32 [ 1, %.lr.ph ], [ 2, %7 ], [ %., %9 ]
   %12 = add nuw nsw i32 %.0913, %.sink
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %11, %2
   %.09.lcssa = phi i32 [ 0, %2 ], [ %12, %11 ]
@@ -362,9 +362,9 @@ define dso_local range(i32 0, 2) i32 @fullrune(ptr noundef readonly captures(non
   br i1 %3, label %4, label %15
 
 4:                                                ; preds = %2
-  %5 = load i8, ptr %0, align 1
+  %5 = load i8, ptr %0, align 1, !tbaa !4
   %6 = icmp sgt i8 %5, -1
-  br i1 %6, label %16, label %7
+  br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %4
   %.not = icmp eq i32 %1, 1
@@ -372,7 +372,7 @@ define dso_local range(i32 0, 2) i32 @fullrune(ptr noundef readonly captures(non
 
 8:                                                ; preds = %7
   %9 = icmp samesign ult i8 %5, -32
-  br i1 %9, label %16, label %10
+  br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %8
   %11 = icmp samesign ugt i32 %1, 2
@@ -382,27 +382,31 @@ define dso_local range(i32 0, 2) i32 @fullrune(ptr noundef readonly captures(non
   %13 = icmp samesign ult i8 %5, -16
   %14 = icmp ne i32 %1, 3
   %or.cond = or i1 %14, %13
-  br i1 %or.cond, label %16, label %15
+  br i1 %or.cond, label %.thread, label %15
 
-15:                                               ; preds = %7, %12, %10, %2
-  br label %16
+.thread:                                          ; preds = %4, %8, %12
+  br label %15
 
-16:                                               ; preds = %12, %8, %4, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %4 ], [ 1, %8 ], [ 1, %12 ]
-  ret i32 %.0
+15:                                               ; preds = %2, %7, %12, %10, %.thread
+  %.1 = phi i32 [ 1, %.thread ], [ 0, %10 ], [ 0, %12 ], [ 0, %7 ], [ 0, %2 ]
+  ret i32 %.1
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}

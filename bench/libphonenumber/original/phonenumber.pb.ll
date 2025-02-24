@@ -17,20 +17,21 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i32 }
 %"struct.google::protobuf::internal::ArenaStringPtr" = type { ptr }
-%"struct.google::protobuf::internal::InternalMetadata::Container" = type { %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", %"class.std::__cxx11::basic_string" }
-%"struct.google::protobuf::internal::InternalMetadata::ContainerBase" = type { ptr }
+%"class.google::protobuf::internal::LogMessage" = type { i32, ptr, i32, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.google::protobuf::internal::LogMessage" = type { i32, ptr, i32, %"class.std::__cxx11::basic_string" }
 %"class.google::protobuf::internal::LogFinisher" = type { i8 }
 %"struct.google::protobuf::internal::SCCInfoBase" = type { %"struct.std::atomic", i32, i32, ptr }
 %"class.google::protobuf::internal::ParseContext" = type { %"class.google::protobuf::internal::EpsCopyInputStream", i32, i32, %"struct.google::protobuf::internal::ParseContext::Data" }
 %"class.google::protobuf::internal::EpsCopyInputStream" = type { ptr, ptr, ptr, i32, i32, ptr, [32 x i8], i64, i32, i32 }
 %"struct.google::protobuf::internal::ParseContext::Data" = type { ptr, ptr }
 %"struct.std::pair.5" = type <{ ptr, i32, [4 x i8] }>
+%"struct.google::protobuf::internal::InternalMetadata::Container" = type { %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", %"class.std::__cxx11::basic_string" }
+%"struct.google::protobuf::internal::InternalMetadata::ContainerBase" = type { ptr }
 %"class.google::protobuf::io::EpsCopyOutputStream" = type <{ ptr, ptr, [32 x i8], ptr, i8, i8, i8, [5 x i8] }>
 %"class.std::allocator" = type { i8 }
+%struct._Guard = type { ptr }
 %"class.google::protobuf::Arena" = type { %"class.google::protobuf::internal::ArenaImpl", ptr, ptr, ptr, ptr }
 %"class.google::protobuf::internal::ArenaImpl" = type { %"struct.std::atomic.1", %"struct.std::atomic.1", %"struct.std::atomic.3", ptr, i64, %"struct.google::protobuf::internal::ArenaImpl::Options" }
 %"struct.std::atomic.1" = type { %"struct.std::__atomic_base.2" }
@@ -40,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.google::protobuf::internal::ArenaImpl::Options" = type { i64, i64, ptr, i64, ptr, ptr }
 %"struct.std::pair" = type <{ ptr, i8, [7 x i8] }>
 %"struct.std::pair.8" = type { ptr, i64 }
-%struct._Guard = type { ptr }
+%struct._Guard.10 = type { ptr }
 
 $_ZN6google8protobuf11StringPieceC2EPKcl = comdat any
 
@@ -52,6 +53,8 @@ $_ZN6google8protobuf11StringPieceC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char
 
 $_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE = comdat any
 
+$_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev = comdat any
+
 $_ZN6google8protobuf8internal10CachedSizeC2Ev = comdat any
 
 $_ZN4i18n12phonenumbers11PhoneNumber10SharedCtorEv = comdat any
@@ -61,6 +64,8 @@ $_ZN4i18n12phonenumbers11PhoneNumber17RegisterArenaDtorEPN6google8protobuf5Arena
 $_ZN6google8protobuf11MessageLiteD2Ev = comdat any
 
 $_ZN6google8protobuf11MessageLiteC2Ev = comdat any
+
+$_ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS2_ = comdat any
 
 $_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 
@@ -94,7 +99,13 @@ $_ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE = comdat any
 
 $_ZN4i18n12phonenumbers11PhoneNumber25internal_default_instanceEv = comdat any
 
+$_ZN6google8protobuf8internal7HasBitsILm1EEixEi = comdat any
+
 $_ZN6google8protobuf8internal14ArenaStringPtr22ClearNonDefaultToEmptyEv = comdat any
+
+$_ZN6google8protobuf8internal7HasBitsILm1EE5ClearEv = comdat any
+
+$_ZN6google8protobuf8internal16InternalMetadata5ClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv = comdat any
 
 $_ZN6google8protobuf8internal12ParseContext4DoneEPPKc = comdat any
 
@@ -122,23 +133,39 @@ $_ZN4i18n12phonenumbers11PhoneNumber9_Internal31set_has_number_of_leading_zerosE
 
 $_ZN6google8protobuf8internal18EpsCopyInputStream10SetLastTagEj = comdat any
 
+$_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v = comdat any
+
 $_ZN6google8protobuf8internal7HasBitsILm1EE2OrERKS3_ = comdat any
+
+$_ZNK6google8protobuf8internal7HasBitsILm1EEixEi = comdat any
 
 $_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh = comdat any
 
+$_ZN6google8protobuf8internal14WireFormatLite17WriteInt32ToArrayEiiPh = comdat any
+
 $_ZNK4i18n12phonenumbers11PhoneNumber22_internal_country_codeEv = comdat any
+
+$_ZN6google8protobuf8internal14WireFormatLite18WriteUInt64ToArrayEimPh = comdat any
 
 $_ZNK4i18n12phonenumbers11PhoneNumber25_internal_national_numberEv = comdat any
 
 $_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh = comdat any
 
+$_ZN6google8protobuf8internal14WireFormatLite16WriteBoolToArrayEibPh = comdat any
+
 $_ZNK4i18n12phonenumbers11PhoneNumber30_internal_italian_leading_zeroEv = comdat any
+
+$_ZN6google8protobuf8internal14WireFormatLite16WriteEnumToArrayEiiPh = comdat any
 
 $_ZNK4i18n12phonenumbers11PhoneNumber29_internal_country_code_sourceEv = comdat any
 
 $_ZNK4i18n12phonenumbers11PhoneNumber33_internal_number_of_leading_zerosEv = comdat any
 
+$_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv = comdat any
+
 $_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh = comdat any
+
+$_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE = comdat any
 
 $_ZNK4i18n12phonenumbers11PhoneNumber29_internal_has_national_numberEv = comdat any
 
@@ -164,13 +191,21 @@ $_ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_c
 
 $_ZN4i18n12phonenumbers11PhoneNumber9_Internal21MissingRequiredFieldsERKN6google8protobuf8internal7HasBitsILm1EEE = comdat any
 
+$_ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPS2_ = comdat any
+
 $_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_ = comdat any
+
+$_ZN6google8protobuf8internal14ArenaStringPtr4SwapEPS2_PKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE = comdat any
 
 $_ZN6google8protobuf8internal7memswapILi20EEENSt9enable_ifIXaageT_Lm16EltT_lsLj1ELi31EEvE4typeEPcS6_ = comdat any
 
 $_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_ = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZN6google8protobuf5Arena21CreateMessageInternalIN4i18n12phonenumbers11PhoneNumberEEEPT_PS1_ = comdat any
 
 $_ZNK4i18n12phonenumbers11PhoneNumber3NewEv = comdat any
 
@@ -196,6 +231,50 @@ $_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcS
 
 $_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 
+$_ZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena15CreateNoMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_St17integral_constantIbLb0EEDpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena18CreateMaybeMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena20DoCreateMaybeMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_St17integral_constantIbLb0EEDpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena8DoCreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_bDpOT0_ = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_ = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
+
+$_ZN6google8protobuf5Arena16AllocateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPvb = comdat any
+
 $_ZN6google8protobuf8internal10AlignUpTo8Em = comdat any
 
 $_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom = comdat any
@@ -204,13 +283,19 @@ $_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIc
 
 $_ZNK6google8protobuf8internal14ArenaStringPtr3GetB5cxx11Ev = comdat any
 
+$_ZNK6google8protobuf8internal16InternalMetadata5arenaEv = comdat any
+
 $_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v = comdat any
 
 $_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v = comdat any
 
 $_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 
+$_ZNSt13__atomic_baseIiE5storeEiSt12memory_order = comdat any
+
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
+
+$_ZNKSt13__atomic_baseIiE4loadESt12memory_order = comdat any
 
 $_ZN6google8protobuf8internal18EpsCopyInputStream13DoneWithCheckEPPKci = comdat any
 
@@ -220,15 +305,33 @@ $_ZN6google8protobuf8internal15VarintParseSlowEPKcjPm = comdat any
 
 $_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE = comdat any
 
+$_ZN6google8protobuf8internal14WireFormatLite15WriteTagToArrayEiNS2_8WireTypeEPh = comdat any
+
+$_ZN6google8protobuf8internal14WireFormatLite22WriteInt32NoTagToArrayEiPh = comdat any
+
+$_ZN6google8protobuf2io17CodedOutputStream15WriteTagToArrayEjPh = comdat any
+
 $_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE = comdat any
 
 $_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh = comdat any
+
+$_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_ = comdat any
 
 $_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh = comdat any
 
 $_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh = comdat any
 
+$_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_ = comdat any
+
+$_ZN6google8protobuf8internal14WireFormatLite23WriteUInt64NoTagToArrayEmPh = comdat any
+
 $_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj = comdat any
+
+$_ZN6google8protobuf8internal14WireFormatLite21WriteBoolNoTagToArrayEbPh = comdat any
+
+$_ZN6google8protobuf8internal14WireFormatLite21WriteEnumNoTagToArrayEiPh = comdat any
+
+$_ZNK6google8protobuf8internal16InternalMetadata6PtrTagEv = comdat any
 
 $_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em = comdat any
 
@@ -248,11 +351,11 @@ $_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN4i18n12phonenumbers11Phon
 
 $_ZNK6google8protobuf8internal10CachedSize3GetEv = comdat any
 
+$_ZNSt15__new_allocatorIcEC2Ev = comdat any
+
 $_ZNSt11char_traitsIcE6lengthEPKc = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
-
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
 
 $_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
 
@@ -268,7 +371,21 @@ $_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__c
 
 $_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v = comdat any
 
+$_ZN6google8protobuf5Arena6CreateINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_DpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena15CreateNoMessageINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_DpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena20DoCreateMaybeMessageINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_DpOT0_ = comdat any
+
 $_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev = comdat any
+
+$_ZN6google8protobuf5Arena8DoCreateINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_bDpOT0_ = comdat any
+
+$_ZN6google8protobuf5Arena16AllocateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPvb = comdat any
 
 $_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv = comdat any
 
@@ -277,6 +394,12 @@ $_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_str
 $_ZN6google8protobuf11StringPiece22CheckedSsizeTFromSizeTEm = comdat any
 
 $_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE8max_sizeERKS0_ = comdat any
+
+$_ZNKSt15__new_allocatorIcE8max_sizeEv = comdat any
+
+$_ZNKSt15__new_allocatorIcE11_M_max_sizeEv = comdat any
 
 $_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv = comdat any
 
@@ -292,21 +415,25 @@ $_ZN6google8protobuf8internal9SwapBlockIjEEvPcS3_ = comdat any
 
 $_ZN6google8protobuf8internal7memswapILi0EEENSt9enable_ifIXeqT_Li0EEvE4typeEPcS6_ = comdat any
 
+$_ZN6google8protobuf5Arena15DoCreateMessageIN4i18n12phonenumbers11PhoneNumberEJEEEPT_DpOT0_ = comdat any
+
 $_ZN6google8protobuf5Arena14InternalHelperIN4i18n12phonenumbers11PhoneNumberEE9ConstructIJPS1_EEEPS5_PvDpOT_ = comdat any
+
+$_ZN6google8protobuf5Arena16AllocateInternalIN4i18n12phonenumbers11PhoneNumberEEEPvb = comdat any
 
 $_ZN6google8protobuf8internal21arena_destruct_objectIN4i18n12phonenumbers11PhoneNumberEEEvPv = comdat any
 
+$_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
+
 $_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 
-$_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
+$_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE = comdat any
 
 $_ZTSN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE = comdat any
 
-$_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE = comdat any
-
 $_ZTIN6google8protobuf8internal16InternalMetadata13ContainerBaseE = comdat any
 
-$_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE = comdat any
+$_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -322,25 +449,26 @@ $_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_s
 @.str = private unnamed_addr constant [146 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libphonenumber/libphonenumber/cpp/src/phonenumbers/phonenumber.pb.cc\00", align 1
 @.str.2 = private unnamed_addr constant [34 x i8] c"CHECK failed: (&from) != (this): \00", align 1
 @.str.3 = private unnamed_addr constant [30 x i8] c"i18n.phonenumbers.PhoneNumber\00", align 1
+@_ZTIN4i18n12phonenumbers11PhoneNumberE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers11PhoneNumberE, ptr @_ZTIN6google8protobuf11MessageLiteE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN4i18n12phonenumbers11PhoneNumberE = dso_local constant [35 x i8] c"N4i18n12phonenumbers11PhoneNumberE\00", align 1
 @_ZTIN6google8protobuf11MessageLiteE = external constant ptr
-@_ZTIN4i18n12phonenumbers11PhoneNumberE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4i18n12phonenumbers11PhoneNumberE, ptr @_ZTIN6google8protobuf11MessageLiteE }, align 8
 @_ZTVN6google8protobuf11MessageLiteE = external unnamed_addr constant { [16 x ptr] }, align 8
 @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E = external global %"class.google::protobuf::internal::ExplicitlyConstructed.0", align 8
 @.str.4 = private unnamed_addr constant [52 x i8] c"generated/usr/include/google/protobuf/arenastring.h\00", align 1
 @.str.5 = private unnamed_addr constant [40 x i8] c"CHECK failed: initial_value != __null: \00", align 1
+@_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = linkonce_odr dso_local constant [53 x i8] c"NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE\00", comdat, align 1
-@_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE }, comdat, align 8
 @.str.6 = private unnamed_addr constant [38 x i8] c"CHECK failed: GetArena() == nullptr: \00", align 1
 @.str.7 = private unnamed_addr constant [54 x i8] c"generated/usr/include/google/protobuf/parse_context.h\00", align 1
 @.str.8 = private unnamed_addr constant [21 x i8] c"CHECK failed: *ptr: \00", align 1
 @.str.9 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@_ZTSN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE = linkonce_odr dso_local constant [110 x i8] c"N6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE\00", comdat, align 1
-@_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE = linkonce_odr dso_local constant [61 x i8] c"N6google8protobuf8internal16InternalMetadata13ContainerBaseE\00", comdat, align 1
-@_ZTIN6google8protobuf8internal16InternalMetadata13ContainerBaseE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE }, comdat, align 8
 @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, ptr @_ZTIN6google8protobuf8internal16InternalMetadata13ContainerBaseE }, comdat, align 8
+@_ZTSN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE = linkonce_odr dso_local constant [110 x i8] c"N6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE\00", comdat, align 1
+@_ZTIN6google8protobuf8internal16InternalMetadata13ContainerBaseE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE }, comdat, align 8
+@_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE = linkonce_odr dso_local constant [61 x i8] c"N6google8protobuf8internal16InternalMetadata13ContainerBaseE\00", comdat, align 1
+@.str.10 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_phonenumber.pb.cc, ptr null }]
 
 @_ZN4i18n12phonenumbers11PhoneNumberC1EPN6google8protobuf5ArenaE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5ArenaE
@@ -366,11 +494,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 define internal void @_ZL52InitDefaultsscc_info_PhoneNumber_phonenumber_2eprotov() #4 {
   %1 = alloca ptr, align 8
   call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef @.str)
-  store ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, ptr %1, align 8
-  %2 = load ptr, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
+  store ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, ptr %1, align 8, !tbaa !4
+  %2 = load ptr, ptr %1, align 8, !tbaa !4
   call void @_ZN4i18n12phonenumbers11PhoneNumberC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2)
-  %3 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %1, align 8, !tbaa !4
   call void @_ZN6google8protobuf8internal24OnShutdownDestroyMessageEPKv(ptr noundef %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   call void @_ZN4i18n12phonenumbers11PhoneNumber21InitAsDefaultInstanceEv()
   ret void
 }
@@ -379,8 +509,8 @@ define internal void @_ZL52InitDefaultsscc_info_PhoneNumber_phonenumber_2eprotov
 define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers37PhoneNumber_CountryCodeSource_IsValidEi(i32 noundef %0) #5 {
   %2 = alloca i1, align 1
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  %4 = load i32, ptr %3, align 4, !tbaa !8
   switch i32 %4, label %6 [
     i32 0, label %5
     i32 1, label %5
@@ -405,28 +535,16 @@ define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers37PhoneNumber_Country
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
   call void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, ptr noundef @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 noundef 20)
-  %1 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i32 0, i32 1
-  store i32 20, ptr %1, align 8
-  %2 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 1
-  %3 = getelementptr inbounds i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 20
-  call void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, i64 noundef 29)
-  %4 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 1, i32 1
-  store i32 10, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 2
-  %6 = getelementptr inbounds i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 49
-  call void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6, i64 noundef 20)
-  %7 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 2, i32 1
-  store i32 5, ptr %7, align 8
-  %8 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 3
-  %9 = getelementptr inbounds i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 69
-  call void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9, i64 noundef 26)
-  %10 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 3, i32 1
-  store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 4
-  %12 = getelementptr inbounds i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 95
-  call void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12, i64 noundef 11)
-  %13 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 4, i32 1
-  store i32 0, ptr %13, align 8
+  store i32 20, ptr getelementptr inbounds nuw (%"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i32 0, i32 1), align 8, !tbaa !10
+  call void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 1), ptr noundef getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 20), i64 noundef 29)
+  store i32 10, ptr getelementptr inbounds nuw (%"struct.google::protobuf::internal::EnumEntry", ptr getelementptr inbounds (%"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 1), i32 0, i32 1), align 8, !tbaa !10
+  call void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 2), ptr noundef getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 49), i64 noundef 20)
+  store i32 5, ptr getelementptr inbounds nuw (%"struct.google::protobuf::internal::EnumEntry", ptr getelementptr inbounds (%"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 2), i32 0, i32 1), align 8, !tbaa !10
+  call void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 3), ptr noundef getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 69), i64 noundef 26)
+  store i32 1, ptr getelementptr inbounds nuw (%"struct.google::protobuf::internal::EnumEntry", ptr getelementptr inbounds (%"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 3), i32 0, i32 1), align 8, !tbaa !10
+  call void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 4), ptr noundef getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 95), i64 noundef 11)
+  store i32 0, ptr getelementptr inbounds nuw (%"struct.google::protobuf::internal::EnumEntry", ptr getelementptr inbounds (%"struct.google::protobuf::internal::EnumEntry", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 4), i32 0, i32 1), align 8, !tbaa !10
+  %1 = call ptr @llvm.invariant.start.p0(i64 120, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE)
   ret void
 }
 
@@ -435,18 +553,21 @@ define linkonce_odr dso_local void @_ZN6google8protobuf11StringPieceC2EPKcl(ptr 
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store i64 %2, ptr %6, align 8, !tbaa !18
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::StringPiece", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.google::protobuf::StringPiece", ptr %7, i32 0, i32 1
-  %11 = load i64, ptr %6, align 8
-  store i64 %11, ptr %10, align 8
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::StringPiece", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %9, ptr %8, align 8, !tbaa !19
+  %10 = getelementptr inbounds nuw %"class.google::protobuf::StringPiece", ptr %7, i32 0, i32 1
+  %11 = load i64, ptr %6, align 8, !tbaa !18
+  store i64 %11, ptr %10, align 8, !tbaa !20
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4i18n12phonenumbers34PhoneNumber_CountryCodeSource_NameB5cxx11ENS0_29PhoneNumber_CountryCodeSourceE(i32 noundef %0) #4 personality ptr @__gxx_personality_v0 {
@@ -454,65 +575,68 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4i18n12phon
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !21
   %6 = load atomic i8, ptr @_ZGVZN4i18n12phonenumbers34PhoneNumber_CountryCodeSource_NameB5cxx11ENS0_29PhoneNumber_CountryCodeSourceEE5dummy acquire, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %15, !prof !5
+  br i1 %7, label %8, label %16, !prof !23
 
 8:                                                ; preds = %1
   %9 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4i18n12phonenumbers34PhoneNumber_CountryCodeSource_NameB5cxx11ENS0_29PhoneNumber_CountryCodeSourceEE5dummy) #3
   %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %15
+  br i1 %10, label %11, label %16
 
 11:                                               ; preds = %8
   %12 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal21InitializeEnumStringsEPKNS1_9EnumEntryEPKimPNS1_21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, ptr noundef @_ZN4i18n12phonenumbersL47PhoneNumber_CountryCodeSource_entries_by_numberE, i64 noundef 5, ptr noundef @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_stringsB5cxx11E)
-          to label %13 unwind label %29
+          to label %13 unwind label %30
 
 13:                                               ; preds = %11
   %14 = zext i1 %12 to i8
-  store i8 %14, ptr @_ZZN4i18n12phonenumbers34PhoneNumber_CountryCodeSource_NameB5cxx11ENS0_29PhoneNumber_CountryCodeSourceEE5dummy, align 1
+  store i8 %14, ptr @_ZZN4i18n12phonenumbers34PhoneNumber_CountryCodeSource_NameB5cxx11ENS0_29PhoneNumber_CountryCodeSourceEE5dummy, align 1, !tbaa !24
+  %15 = call ptr @llvm.invariant.start.p0(i64 1, ptr @_ZZN4i18n12phonenumbers34PhoneNumber_CountryCodeSource_NameB5cxx11ENS0_29PhoneNumber_CountryCodeSourceEE5dummy)
   call void @__cxa_guard_release(ptr @_ZGVZN4i18n12phonenumbers34PhoneNumber_CountryCodeSource_NameB5cxx11ENS0_29PhoneNumber_CountryCodeSourceEE5dummy) #3
-  br label %15
+  br label %16
 
-15:                                               ; preds = %13, %8, %1
-  %16 = load i32, ptr %2, align 4
-  %17 = call noundef i32 @_ZN6google8protobuf8internal14LookUpEnumNameEPKNS1_9EnumEntryEPKimi(ptr noundef @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, ptr noundef @_ZN4i18n12phonenumbersL47PhoneNumber_CountryCodeSource_entries_by_numberE, i64 noundef 5, i32 noundef %16)
-  store i32 %17, ptr %5, align 4
-  %18 = load i32, ptr %5, align 4
-  %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %22
+16:                                               ; preds = %13, %8, %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %17 = load i32, ptr %2, align 4, !tbaa !21
+  %18 = call noundef i32 @_ZN6google8protobuf8internal14LookUpEnumNameEPKNS1_9EnumEntryEPKimi(ptr noundef @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, ptr noundef @_ZN4i18n12phonenumbersL47PhoneNumber_CountryCodeSource_entries_by_numberE, i64 noundef 5, i32 noundef %17)
+  store i32 %18, ptr %5, align 4, !tbaa !8
+  %19 = load i32, ptr %5, align 4, !tbaa !8
+  %20 = icmp eq i32 %19, -1
+  br i1 %20, label %21, label %23
 
-20:                                               ; preds = %15
-  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
-  br label %27
+21:                                               ; preds = %16
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
+  br label %28
 
-22:                                               ; preds = %15
-  %23 = load i32, ptr %5, align 4
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [5 x %"class.google::protobuf::internal::ExplicitlyConstructed.0"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_stringsB5cxx11E, i64 0, i64 %24
-  %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(32) %25)
-  br label %27
+23:                                               ; preds = %16
+  %24 = load i32, ptr %5, align 4, !tbaa !8
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds [5 x %"class.google::protobuf::internal::ExplicitlyConstructed.0"], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_stringsB5cxx11E, i64 0, i64 %25
+  %27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(32) %26)
+  br label %28
 
-27:                                               ; preds = %22, %20
-  %28 = phi ptr [ %21, %20 ], [ %26, %22 ]
-  ret ptr %28
+28:                                               ; preds = %23, %21
+  %29 = phi ptr [ %22, %21 ], [ %27, %23 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  ret ptr %29
 
-29:                                               ; preds = %11
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %11
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %3, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %4, align 4
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %3, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %4, align 4
   call void @__cxa_guard_abort(ptr @_ZGVZN4i18n12phonenumbers34PhoneNumber_CountryCodeSource_NameB5cxx11ENS0_29PhoneNumber_CountryCodeSourceEE5dummy) #3
-  br label %33
+  br label %34
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %3, align 8
-  %35 = load i32, ptr %4, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %3, align 8
+  %36 = load i32, ptr %4, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: nounwind
@@ -528,10 +652,13 @@ declare void @__cxa_guard_abort(ptr) #3
 ; Function Attrs: nounwind
 declare void @__cxa_guard_release(ptr) #3
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+
 declare noundef i32 @_ZN6google8protobuf8internal14LookUpEnumNameEPKNS1_9EnumEntryEPKimi(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev() #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev() #7 comdat {
   call void @_ZN6google8protobuf8internal20InitProtobufDefaultsEv()
   %1 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
   ret ptr %1
@@ -540,11 +667,14 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::ExplicitlyConstructed.0", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::ExplicitlyConstructed.0", ptr %3, i32 0, i32 0
   ret ptr %4
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers35PhoneNumber_CountryCodeSource_ParseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_29PhoneNumber_CountryCodeSourceE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #4 {
@@ -553,30 +683,34 @@ define dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers35PhoneNumber_Country
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca %"class.google::protobuf::StringPiece", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #3
+  %8 = load ptr, ptr %3, align 8, !tbaa !28
   call void @_ZN6google8protobuf11StringPieceC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %11 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 1
   %12 = load i64, ptr %11, align 8
   %13 = call noundef zeroext i1 @_ZN6google8protobuf8internal15LookUpEnumValueEPKNS1_9EnumEntryEmNS0_11StringPieceEPi(ptr noundef @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 noundef 5, ptr %10, i64 %12, ptr noundef %5)
   %14 = zext i1 %13 to i8
-  store i8 %14, ptr %6, align 1
-  %15 = load i8, ptr %6, align 1
+  store i8 %14, ptr %6, align 1, !tbaa !24
+  %15 = load i8, ptr %6, align 1, !tbaa !24, !range !30, !noundef !31
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %2
-  %18 = load i32, ptr %5, align 4
-  %19 = load ptr, ptr %4, align 8
-  store i32 %18, ptr %19, align 4
+  %18 = load i32, ptr %5, align 4, !tbaa !8
+  %19 = load ptr, ptr %4, align 8, !tbaa !4
+  store i32 %18, ptr %19, align 4, !tbaa !21
   br label %20
 
 20:                                               ; preds = %17, %2
-  %21 = load i8, ptr %6, align 1
+  %21 = load i8, ptr %6, align 1, !tbaa !24, !range !30, !noundef !31
   %22 = trunc i8 %21 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret i1 %22
 }
 
@@ -586,20 +720,20 @@ declare noundef zeroext i1 @_ZN6google8protobuf8internal15LookUpEnumValueEPKNS1_
 define linkonce_odr dso_local void @_ZN6google8protobuf11StringPieceC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store ptr %1, ptr %4, align 8, !tbaa !28
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.google::protobuf::StringPiece", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::StringPiece", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds %"class.google::protobuf::StringPiece", ptr %5, i32 0, i32 1
-  store i64 0, ptr %9, align 8
-  %10 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %6, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %"class.google::protobuf::StringPiece", ptr %5, i32 0, i32 1
+  store i64 0, ptr %9, align 8, !tbaa !20
+  %10 = load ptr, ptr %4, align 8, !tbaa !28
   %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
   %12 = call noundef i64 @_ZN6google8protobuf11StringPiece22CheckedSsizeTFromSizeTEm(i64 noundef %11)
-  %13 = getelementptr inbounds %"class.google::protobuf::StringPiece", ptr %5, i32 0, i32 1
-  store i64 %12, ptr %13, align 8
+  %13 = getelementptr inbounds nuw %"class.google::protobuf::StringPiece", ptr %5, i32 0, i32 1
+  store i64 %12, ptr %13, align 8, !tbaa !20
   ret void
 }
 
@@ -613,122 +747,123 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  %11 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i32 0, i32 0, i32 2
-  store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %9, i32 0, i32 1
-  store ptr %12, ptr %4, align 8
-  %13 = load ptr, ptr %4, align 8
-  store ptr %13, ptr %3, align 8
-  %14 = load ptr, ptr %3, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %14, i8 0, i64 4, i1 false)
-  br label %15
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !34
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !34
+  call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !36
+  %9 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 1
+  invoke void @_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9)
+          to label %10 unwind label %15
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %9, i32 0, i32 2
-  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %16) #3
-  invoke void @_ZN4i18n12phonenumbers11PhoneNumber10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(72) %9)
-          to label %17 unwind label %20
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 2
+  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #3
+  invoke void @_ZN4i18n12phonenumbers11PhoneNumber10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+          to label %12 unwind label %15
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr %6, align 8
-  invoke void @_ZN4i18n12phonenumbers11PhoneNumber17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %18)
-          to label %19 unwind label %20
+12:                                               ; preds = %10
+  %13 = load ptr, ptr %4, align 8, !tbaa !34
+  invoke void @_ZN4i18n12phonenumbers11PhoneNumber17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef %13)
+          to label %14 unwind label %15
 
-19:                                               ; preds = %17
+14:                                               ; preds = %12
   ret void
 
-20:                                               ; preds = %17, %15
-  %21 = landingpad { ptr, i32 }
+15:                                               ; preds = %12, %10, %2
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %7, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %8, align 4
-  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  br label %24
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %19
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %8, align 4
-  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
-  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
-  resume { ptr, i32 } %28
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i32, ptr %6, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8)
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !36
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !34
+  call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #8 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::CachedSize", ptr %3, i32 0, i32 0
+  call void @_ZN6google8protobuf8internal7HasBitsILm1EE5ClearEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::CachedSize", ptr %3, i32 0, i32 0
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE(ptr noundef @scc_info_PhoneNumber_phonenumber_2eproto)
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 3
   %5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
   call void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5)
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 4
+  %6 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 4
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
   call void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
-  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 5
+  %8 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 5
   %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
   call void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  %10 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 6
-  %11 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 9
-  %12 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 6
+  %10 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 6
+  %11 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 9
+  %12 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 6
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = add i64 %15, 4
   call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %16, i1 false)
-  %17 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 10
-  store i32 1, ptr %17, align 4
+  %17 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 10
+  store i32 1, ptr %17, align 4, !tbaa !44
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber17RegisterArenaDtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !34
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
   ret void
 }
 
@@ -737,322 +872,267 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2ERKS1_(ptr noundef n
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  store ptr %0, ptr %12, align 8
-  store ptr %1, ptr %13, align 8
-  %16 = load ptr, ptr %12, align 8
-  call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  %17 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i32 0, i32 0, i32 2
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 1
-  %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %19, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %20, i64 4, i1 false)
-  %21 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 2
-  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %21) #3
-  %22 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %16, i32 0, i32 1
-  %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %23, i32 0, i32 1
-  store ptr %22, ptr %10, align 8
-  store ptr %24, ptr %11, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = load ptr, ptr %11, align 8
-  store ptr %26, ptr %9, align 8
-  %27 = load ptr, ptr %9, align 8
-  store ptr %27, ptr %3, align 8
-  %28 = load ptr, ptr %3, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, 1
-  %32 = trunc i64 %31 to i32
-  %33 = icmp eq i32 %32, 1
-  br label %34
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !36
+  %8 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8, !tbaa !32
+  %10 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 4, i1 false), !tbaa.struct !53
+  %11 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 2
+  call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #3
+  %12 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %7, i32 0, i32 1
+  %13 = load ptr, ptr %4, align 8, !tbaa !32
+  %14 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %13, i32 0, i32 1
+  invoke void @_ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %15 unwind label %33
 
-34:                                               ; preds = %2
-  br i1 %33, label %35, label %56
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 3
+  %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+          to label %18 unwind label %33
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %11, align 8
-  store ptr %36, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  %37 = load ptr, ptr %7, align 8
-  store ptr %37, ptr %5, align 8
-  %38 = load ptr, ptr %5, align 8
-  store ptr %38, ptr %4, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = and i64 %41, 1
-  %43 = trunc i64 %42 to i32
-  %44 = icmp eq i32 %43, 1
-  br i1 %44, label %45, label %48
+18:                                               ; preds = %15
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %17)
+          to label %19 unwind label %33
 
-45:                                               ; preds = %35
-  %46 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %37)
-  %47 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %46, i32 0, i32 1
-  store ptr %47, ptr %6, align 8
-  br label %52
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %4, align 8, !tbaa !32
+  %21 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber23_internal_has_extensionEv(ptr noundef nonnull align 8 dereferenceable(72) %20)
+          to label %22 unwind label %33
 
-48:                                               ; preds = %35
-  %49 = load ptr, ptr %8, align 8
-  %50 = invoke noundef nonnull align 8 dereferenceable(32) ptr %49()
-          to label %51 unwind label %75
+22:                                               ; preds = %19
+  br i1 %21, label %23, label %37
+
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 3
+  %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+          to label %26 unwind label %33
+
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %4, align 8, !tbaa !32
+  %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %27)
+          to label %29 unwind label %33
+
+29:                                               ; preds = %26
+  %30 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %31 unwind label %33
+
+31:                                               ; preds = %29
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef %30)
+          to label %32 unwind label %33
+
+32:                                               ; preds = %31
+  br label %37
+
+33:                                               ; preds = %71, %69, %66, %63, %59, %58, %55, %53, %51, %48, %45, %41, %40, %37, %31, %29, %26, %23, %19, %18, %15, %2
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %83
+
+37:                                               ; preds = %32, %22
+  %38 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 4
+  %39 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+          to label %40 unwind label %33
+
+40:                                               ; preds = %37
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %39)
+          to label %41 unwind label %33
+
+41:                                               ; preds = %40
+  %42 = load ptr, ptr %4, align 8, !tbaa !32
+  %43 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber23_internal_has_raw_inputEv(ptr noundef nonnull align 8 dereferenceable(72) %42)
+          to label %44 unwind label %33
+
+44:                                               ; preds = %41
+  br i1 %43, label %45, label %55
+
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 4
+  %47 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+          to label %48 unwind label %33
+
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %4, align 8, !tbaa !32
+  %50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %49)
+          to label %51 unwind label %33
 
 51:                                               ; preds = %48
-  store ptr %50, ptr %6, align 8
-  br label %52
+  %52 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %53 unwind label %33
 
-52:                                               ; preds = %51, %45
-  %53 = load ptr, ptr %6, align 8
-  br label %54
+53:                                               ; preds = %51
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef %52)
+          to label %54 unwind label %33
 
-54:                                               ; preds = %52
-  invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(32) %53)
-          to label %55 unwind label %75
+54:                                               ; preds = %53
+  br label %55
 
-55:                                               ; preds = %54
-  br label %56
+55:                                               ; preds = %54, %44
+  %56 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 5
+  %57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+          to label %58 unwind label %33
 
-56:                                               ; preds = %55, %34
-  br label %57
+58:                                               ; preds = %55
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %57)
+          to label %59 unwind label %33
 
-57:                                               ; preds = %56
-  %58 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 3
-  %59 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-          to label %60 unwind label %75
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %4, align 8, !tbaa !32
+  %61 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber45_internal_has_preferred_domestic_carrier_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %60)
+          to label %62 unwind label %33
 
-60:                                               ; preds = %57
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %59)
-          to label %61 unwind label %75
+62:                                               ; preds = %59
+  br i1 %61, label %63, label %73
 
-61:                                               ; preds = %60
-  %62 = load ptr, ptr %13, align 8
-  %63 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber23_internal_has_extensionEv(ptr noundef nonnull align 8 dereferenceable(72) %62)
-          to label %64 unwind label %75
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 5
+  %65 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+          to label %66 unwind label %33
 
-64:                                               ; preds = %61
-  br i1 %63, label %65, label %79
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %4, align 8, !tbaa !32
+  %68 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %67)
+          to label %69 unwind label %33
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 3
-  %67 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-          to label %68 unwind label %75
+69:                                               ; preds = %66
+  %70 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %71 unwind label %33
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %13, align 8
-  %70 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %69)
-          to label %71 unwind label %75
+71:                                               ; preds = %69
+  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef %70)
+          to label %72 unwind label %33
 
-71:                                               ; preds = %68
-  %72 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %73 unwind label %75
+72:                                               ; preds = %71
+  br label %73
 
-73:                                               ; preds = %71
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef %72)
-          to label %74 unwind label %75
-
-74:                                               ; preds = %73
-  br label %79
-
-75:                                               ; preds = %113, %111, %108, %105, %101, %100, %97, %95, %93, %90, %87, %83, %82, %79, %73, %71, %68, %65, %61, %60, %57, %54, %48
-  %76 = landingpad { ptr, i32 }
-          cleanup
-  %77 = extractvalue { ptr, i32 } %76, 0
-  store ptr %77, ptr %14, align 8
-  %78 = extractvalue { ptr, i32 } %76, 1
-  store i32 %78, ptr %15, align 4
-  call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
-  br label %125
-
-79:                                               ; preds = %74, %64
-  %80 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 4
-  %81 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-          to label %82 unwind label %75
-
-82:                                               ; preds = %79
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef %81)
-          to label %83 unwind label %75
-
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %13, align 8
-  %85 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber23_internal_has_raw_inputEv(ptr noundef nonnull align 8 dereferenceable(72) %84)
-          to label %86 unwind label %75
-
-86:                                               ; preds = %83
-  br i1 %85, label %87, label %97
-
-87:                                               ; preds = %86
-  %88 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 4
-  %89 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-          to label %90 unwind label %75
-
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %13, align 8
-  %92 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %91)
-          to label %93 unwind label %75
-
-93:                                               ; preds = %90
-  %94 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %95 unwind label %75
-
-95:                                               ; preds = %93
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef %89, ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef %94)
-          to label %96 unwind label %75
-
-96:                                               ; preds = %95
-  br label %97
-
-97:                                               ; preds = %96, %86
-  %98 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 5
-  %99 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-          to label %100 unwind label %75
-
-100:                                              ; preds = %97
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef %99)
-          to label %101 unwind label %75
-
-101:                                              ; preds = %100
-  %102 = load ptr, ptr %13, align 8
-  %103 = invoke noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber45_internal_has_preferred_domestic_carrier_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %102)
-          to label %104 unwind label %75
-
-104:                                              ; preds = %101
-  br i1 %103, label %105, label %115
-
-105:                                              ; preds = %104
-  %106 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 5
-  %107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-          to label %108 unwind label %75
-
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %13, align 8
-  %110 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %109)
-          to label %111 unwind label %75
-
-111:                                              ; preds = %108
-  %112 = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %113 unwind label %75
-
-113:                                              ; preds = %111
-  invoke void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef %112)
-          to label %114 unwind label %75
-
-114:                                              ; preds = %113
-  br label %115
-
-115:                                              ; preds = %114, %104
-  %116 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 6
-  %117 = load ptr, ptr %13, align 8
-  %118 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %117, i32 0, i32 6
-  %119 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 10
-  %120 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 6
-  %121 = ptrtoint ptr %119 to i64
-  %122 = ptrtoint ptr %120 to i64
-  %123 = sub i64 %121, %122
-  %124 = add i64 %123, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %116, ptr align 8 %118, i64 %124, i1 false)
+73:                                               ; preds = %72, %62
+  %74 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 6
+  %75 = load ptr, ptr %4, align 8, !tbaa !32
+  %76 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %75, i32 0, i32 6
+  %77 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 10
+  %78 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 6
+  %79 = ptrtoint ptr %77 to i64
+  %80 = ptrtoint ptr %78 to i64
+  %81 = sub i64 %79, %80
+  %82 = add i64 %81, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %74, ptr align 8 %76, i64 %82, i1 false)
   ret void
 
-125:                                              ; preds = %75
-  %126 = load ptr, ptr %14, align 8
-  %127 = load i32, ptr %15, align 4
-  %128 = insertvalue { ptr, i32 } poison, ptr %126, 0
-  %129 = insertvalue { ptr, i32 } %128, i32 %127, 1
-  resume { ptr, i32 } %129
+83:                                               ; preds = %33
+  %84 = load ptr, ptr %5, align 8
+  %85 = load i32, ptr %6, align 4
+  %86 = insertvalue { ptr, i32 } poison, ptr %84, 0
+  %87 = insertvalue { ptr, i32 } %86, i32 %85, 1
+  resume { ptr, i32 } %87
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
-  call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  store ptr getelementptr inbounds inrange(-16, 112) ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !36
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !55
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %5, i32 0, i32 0
-  store ptr %6, ptr %7, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !55
+  %7 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %4, align 8, !tbaa !55
+  %10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef null)
+  call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  br label %11
+
+11:                                               ; preds = %8, %2
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev() #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr16UnsafeSetDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !57
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %5, i32 0, i32 0
+  store ptr %6, ptr %7, align 8, !tbaa !59
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev() #9 comdat {
   %1 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E)
   ret ptr %1
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber23_internal_has_extensionEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber23_internal_has_extensionEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %6, i32 0, i32 1
-  store ptr %7, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = load i32, ptr %3, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 1
-  %14 = icmp ne i32 %13, 0
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %5, align 1
-  %16 = load i8, ptr %5, align 1
-  %17 = trunc i8 %16 to i1
-  ret i1 %17
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  %5 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 1
+  %6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  %8 = and i32 %7, 1
+  %9 = icmp ne i32 %8, 0
+  %10 = zext i1 %9 to i8
+  store i8 %10, ptr %3, align 1, !tbaa !24
+  %11 = load i8, ptr %3, align 1, !tbaa !24, !range !30, !noundef !31
+  %12 = trunc i8 %11 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
+  ret i1 %12
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) #7 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !57
+  store ptr %1, ptr %6, align 8, !tbaa !28
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  store ptr %3, ptr %8, align 8, !tbaa !34
   %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !28
+  %11 = load ptr, ptr %7, align 8, !tbaa !28
+  %12 = load ptr, ptr %8, align 8, !tbaa !34
   call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %12)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 3
   %5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal14ArenaStringPtr3GetB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret ptr %5
 }
@@ -1060,108 +1140,69 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %3, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %10, ptr %2, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %14 = and i64 %13, 1
-  %15 = trunc i64 %14 to i32
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %20
-
-17:                                               ; preds = %1
-  %18 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %4, align 8
-  br label %22
-
-20:                                               ; preds = %1
-  %21 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr %21, ptr %4, align 8
-  br label %22
-
-22:                                               ; preds = %20, %17
-  %23 = load ptr, ptr %4, align 8
-  ret ptr %23
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber23_internal_has_raw_inputEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %6, i32 0, i32 1
-  store ptr %7, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = load i32, ptr %3, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 2
-  %14 = icmp ne i32 %13, 0
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %5, align 1
-  %16 = load i8, ptr %5, align 1
-  %17 = trunc i8 %16 to i1
-  ret i1 %17
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 4
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata5arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber23_internal_has_raw_inputEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  %5 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 1
+  %6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  %8 = and i32 %7, 2
+  %9 = icmp ne i32 %8, 0
+  %10 = zext i1 %9 to i8
+  store i8 %10, ptr %3, align 1, !tbaa !24
+  %11 = load i8, ptr %3, align 1, !tbaa !24, !range !30, !noundef !31
+  %12 = trunc i8 %11 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
+  ret i1 %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 4
   %5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal14ArenaStringPtr3GetB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber45_internal_has_preferred_domestic_carrier_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber45_internal_has_preferred_domestic_carrier_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %6, i32 0, i32 1
-  store ptr %7, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = load i32, ptr %3, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 4
-  %14 = icmp ne i32 %13, 0
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %5, align 1
-  %16 = load i8, ptr %5, align 1
-  %17 = trunc i8 %16 to i1
-  ret i1 %17
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  %5 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 1
+  %6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  %8 = and i32 %7, 4
+  %9 = icmp ne i32 %8, 0
+  %10 = zext i1 %9 to i8
+  store i8 %10, ptr %3, align 1, !tbaa !24
+  %11 = load i8, ptr %3, align 1, !tbaa !24, !range !30, !noundef !31
+  %12 = trunc i8 %11 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
+  ret i1 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 5
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 5
   %5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal14ArenaStringPtr3GetB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret ptr %5
 }
@@ -1169,13 +1210,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZN4i18n12phonenumbers11PhoneNumber10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %4 unwind label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
   invoke void @_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %6 unwind label %7
 
@@ -1187,99 +1228,134 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberD2Ev(ptr noundef nonnu
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #13
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %4 = alloca i1, align 1
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  store ptr %0, ptr %2, align 8
-  %8 = load ptr, ptr %2, align 8
-  br label %9
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %9 = load ptr, ptr %2, align 8
+  br label %10
 
-9:                                                ; preds = %21, %1
-  br i1 false, label %10, label %29
+10:                                               ; preds = %25, %1
+  br i1 false, label %11, label %41
 
-10:                                               ; preds = %9
-  %11 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %12 = icmp eq ptr %11, null
+11:                                               ; preds = %10
+  %12 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %13 = icmp eq ptr %12, null
   store i1 false, ptr %4, align 1
-  br i1 %12, label %13, label %14
+  store i1 false, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  br i1 %13, label %14, label %15
 
-13:                                               ; preds = %10
-  br label %18
+14:                                               ; preds = %11
+  br label %19
 
-14:                                               ; preds = %10
-  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 3, ptr noundef @.str, i32 noundef 197)
+15:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 56, ptr %3) #3
   store i1 true, ptr %4, align 1
-  %15 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef @.str.6)
-          to label %16 unwind label %22
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 3, ptr noundef @.str, i32 noundef 197)
+  store i1 true, ptr %5, align 1
+  %16 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef @.str.6)
+          to label %17 unwind label %26
 
-16:                                               ; preds = %14
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(56) %15)
-          to label %17 unwind label %22
+17:                                               ; preds = %15
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(56) %16)
+          to label %18 unwind label %30
 
-17:                                               ; preds = %16
-  br label %18
+18:                                               ; preds = %17
+  br label %19
 
-18:                                               ; preds = %17, %13
-  %19 = load i1, ptr %4, align 1
-  br i1 %19, label %20, label %21
+19:                                               ; preds = %18, %14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  %20 = load i1, ptr %5, align 1
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %18
-  br label %9, !llvm.loop !6
+22:                                               ; preds = %21, %19
+  %23 = load i1, ptr %4, align 1
+  br i1 %23, label %24, label %25
 
-22:                                               ; preds = %16, %14
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 56, ptr %3) #3
+  br label %25
+
+25:                                               ; preds = %24, %22
+  br label %10, !llvm.loop !60
+
+26:                                               ; preds = %15
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %5, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %6, align 4
-  %26 = load i1, ptr %4, align 1
-  br i1 %26, label %27, label %28
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %6, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %7, align 4
+  br label %34
 
-27:                                               ; preds = %22
+30:                                               ; preds = %17
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %6, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  br label %34
+
+34:                                               ; preds = %30, %26
+  %35 = load i1, ptr %5, align 1
+  br i1 %35, label %36, label %37
+
+36:                                               ; preds = %34
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
-  br label %28
+  br label %37
 
-28:                                               ; preds = %27, %22
-  br label %36
+37:                                               ; preds = %36, %34
+  %38 = load i1, ptr %4, align 1
+  br i1 %38, label %39, label %40
 
-29:                                               ; preds = %9
-  %30 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %8, i32 0, i32 3
-  %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %31)
-  %32 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %8, i32 0, i32 4
-  %33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
-  %34 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %8, i32 0, i32 5
-  %35 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %35)
+39:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 56, ptr %3) #3
+  br label %40
+
+40:                                               ; preds = %39, %37
+  br label %48
+
+41:                                               ; preds = %10
+  %42 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %9, i32 0, i32 3
+  %43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %43)
+  %44 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %9, i32 0, i32 4
+  %45 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef %45)
+  %46 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %9, i32 0, i32 5
+  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %47)
   ret void
 
-36:                                               ; preds = %28
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i32, ptr %6, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+48:                                               ; preds = %40
+  %49 = load ptr, ptr %6, align 8
+  %50 = load i32, ptr %7, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #13
+  call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -1290,92 +1366,55 @@ declare void @_ZSt9terminatev()
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %8, align 8
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %7, align 8
-  %10 = load ptr, ptr %7, align 8
-  store ptr %10, ptr %2, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %14 = and i64 %13, 1
-  %15 = trunc i64 %14 to i32
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %39
+  store ptr %0, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br i1 %4, label %5, label %13
 
-17:                                               ; preds = %1
-  store ptr %9, ptr %6, align 8
-  %18 = load ptr, ptr %6, align 8
-  store ptr %18, ptr %4, align 8
-  %19 = load ptr, ptr %4, align 8
-  store ptr %19, ptr %3, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %23 = and i64 %22, 1
-  %24 = trunc i64 %23 to i32
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %26, label %29
+5:                                                ; preds = %1
+  %6 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata5arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %13
 
-26:                                               ; preds = %17
-  %27 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %18)
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %5, align 8
-  br label %31
+8:                                                ; preds = %5
+  %9 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %12, label %11
 
-29:                                               ; preds = %17
-  %30 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %18)
-  store ptr %30, ptr %5, align 8
-  br label %31
+11:                                               ; preds = %8
+  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #3
+  call void @_ZdlPvm(ptr noundef %9, i64 noundef 40) #21
+  br label %12
 
-31:                                               ; preds = %29, %26
-  %32 = load ptr, ptr %5, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %39
+12:                                               ; preds = %11, %8
+  br label %13
 
-34:                                               ; preds = %31
-  %35 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %38, label %37
-
-37:                                               ; preds = %34
-  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %35) #3
-  call void @_ZdlPv(ptr noundef %35) #14
-  br label %38
-
-38:                                               ; preds = %37, %34
-  br label %39
-
-39:                                               ; preds = %38, %31, %1
+13:                                               ; preds = %12, %5, %1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
-  call void @_ZdlPv(ptr noundef %3) #14
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 72) #21
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9ArenaDtorEPv(ptr noundef %0) #5 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  store ptr %4, ptr %3, align 8, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret void
 }
 
@@ -1383,70 +1422,25 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9ArenaDtorEPv(ptr noun
 define dso_local void @_ZNK4i18n12phonenumbers11PhoneNumber13SetCachedSizeEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store i32 %1, ptr %4, align 4, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 2
-  %7 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 2
+  %7 = load i32, ptr %4, align 4, !tbaa !8
   call void @_ZN6google8protobuf8internal10CachedSize3SetEi(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal10CachedSize3SetEi(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal10CachedSize3SetEi(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store i32 %1, ptr %9, align 4
-  %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %"class.google::protobuf::internal::CachedSize", ptr %10, i32 0, i32 0
-  %12 = load i32, ptr %9, align 4
-  store ptr %11, ptr %3, align 8
-  store i32 %12, ptr %4, align 4
-  store i32 0, ptr %5, align 4
-  %13 = load ptr, ptr %3, align 8
-  %14 = load i32, ptr %5, align 4
-  %15 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %14, i32 noundef 65535)
-          to label %16 unwind label %25
-
-16:                                               ; preds = %2
-  store i32 %15, ptr %6, align 4
-  %17 = load i32, ptr %5, align 4
-  %18 = load i32, ptr %4, align 4
-  store i32 %18, ptr %7, align 4
-  switch i32 %17, label %19 [
-    i32 3, label %21
-    i32 5, label %23
-  ]
-
-19:                                               ; preds = %16
-  %20 = load i32, ptr %7, align 4
-  store atomic i32 %20, ptr %13 monotonic, align 4
-  br label %28
-
-21:                                               ; preds = %16
-  %22 = load i32, ptr %7, align 4
-  store atomic i32 %22, ptr %13 release, align 4
-  br label %28
-
-23:                                               ; preds = %16
-  %24 = load i32, ptr %7, align 4
-  store atomic i32 %24, ptr %13 seq_cst, align 4
-  br label %28
-
-25:                                               ; preds = %2
-  %26 = landingpad { ptr, i32 }
-          catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #13
-  unreachable
-
-28:                                               ; preds = %23, %21, %19
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::internal::CachedSize", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  call void @_ZNSt13__atomic_baseIiE5storeEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %7, i32 noundef 0) #3
   ret void
 }
 
@@ -1457,188 +1451,173 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phon
   ret ptr %1
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE(ptr noundef %0) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE(ptr noundef %0) #7 comdat {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %"struct.google::protobuf::internal::SCCInfoBase", ptr %8, i32 0, i32 0
-  store ptr %9, ptr %2, align 8
-  store i32 2, ptr %3, align 4
-  %10 = load ptr, ptr %2, align 8
-  %11 = load i32, ptr %3, align 4
-  %12 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %11, i32 noundef 65535)
-  store i32 %12, ptr %4, align 4
-  %13 = load i32, ptr %3, align 4
-  switch i32 %13, label %14 [
-    i32 1, label %16
-    i32 2, label %16
-    i32 5, label %18
-  ]
+  store ptr %0, ptr %2, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load ptr, ptr %2, align 8, !tbaa !62
+  %5 = getelementptr inbounds nuw %"struct.google::protobuf::internal::SCCInfoBase", ptr %4, i32 0, i32 0
+  %6 = call noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 2) #3
+  store i32 %6, ptr %3, align 4, !tbaa !8
+  %7 = load i32, ptr %3, align 4, !tbaa !8
+  %8 = icmp ne i32 %7, 0
+  %9 = zext i1 %8 to i64
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 0)
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %14
 
-14:                                               ; preds = %1
-  %15 = load atomic i32, ptr %10 monotonic, align 4
-  store i32 %15, ptr %5, align 4
-  br label %20
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %2, align 8, !tbaa !62
+  call void @_ZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseE(ptr noundef %13)
+  br label %14
 
-16:                                               ; preds = %1, %1
-  %17 = load atomic i32, ptr %10 acquire, align 4
-  store i32 %17, ptr %5, align 4
-  br label %20
-
-18:                                               ; preds = %1
-  %19 = load atomic i32, ptr %10 seq_cst, align 4
-  store i32 %19, ptr %5, align 4
-  br label %20
-
-20:                                               ; preds = %18, %16, %14
-  %21 = load i32, ptr %5, align 4
-  store i32 %21, ptr %7, align 4
-  %22 = load i32, ptr %7, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %26
-
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %6, align 8
-  call void @_ZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseE(ptr noundef %25)
-  br label %26
-
-26:                                               ; preds = %24, %20
+14:                                               ; preds = %12, %1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber25internal_default_instanceEv() #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber25internal_default_instanceEv() #9 comdat align 2 {
   ret ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber5ClearEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  %10 = load ptr, ptr %8, align 8
-  store i32 0, ptr %9, align 4
-  %11 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %10, i32 0, i32 1
-  store ptr %11, ptr %6, align 8
-  store i32 0, ptr %7, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i32, ptr %7, align 4
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [1 x i32], ptr %12, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %9, align 4
-  %17 = load i32, ptr %9, align 4
-  %18 = and i32 %17, 7
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %39
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  store i32 0, ptr %3, align 4, !tbaa !8
+  %5 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 1
+  %6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %7, ptr %3, align 4, !tbaa !8
+  %8 = load i32, ptr %3, align 4, !tbaa !8
+  %9 = and i32 %8, 7
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %30
 
-20:                                               ; preds = %1
-  %21 = load i32, ptr %9, align 4
-  %22 = and i32 %21, 1
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %26
+11:                                               ; preds = %1
+  %12 = load i32, ptr %3, align 4, !tbaa !8
+  %13 = and i32 %12, 1
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %17
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %10, i32 0, i32 3
-  call void @_ZN6google8protobuf8internal14ArenaStringPtr22ClearNonDefaultToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
-  br label %26
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 3
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr22ClearNonDefaultToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %16)
+  br label %17
 
-26:                                               ; preds = %24, %20
-  %27 = load i32, ptr %9, align 4
-  %28 = and i32 %27, 2
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %30, label %32
+17:                                               ; preds = %15, %11
+  %18 = load i32, ptr %3, align 4, !tbaa !8
+  %19 = and i32 %18, 2
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %23
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %10, i32 0, i32 4
-  call void @_ZN6google8protobuf8internal14ArenaStringPtr22ClearNonDefaultToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
-  br label %32
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 4
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr22ClearNonDefaultToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
+  br label %23
 
-32:                                               ; preds = %30, %26
-  %33 = load i32, ptr %9, align 4
-  %34 = and i32 %33, 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %38
+23:                                               ; preds = %21, %17
+  %24 = load i32, ptr %3, align 4, !tbaa !8
+  %25 = and i32 %24, 4
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %29
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %10, i32 0, i32 5
-  call void @_ZN6google8protobuf8internal14ArenaStringPtr22ClearNonDefaultToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %37)
-  br label %38
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 5
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr22ClearNonDefaultToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
+  br label %29
 
-38:                                               ; preds = %36, %32
-  br label %39
+29:                                               ; preds = %27, %23
+  br label %30
 
-39:                                               ; preds = %38, %1
-  %40 = load i32, ptr %9, align 4
-  %41 = and i32 %40, 248
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %52
+30:                                               ; preds = %29, %1
+  %31 = load i32, ptr %3, align 4, !tbaa !8
+  %32 = and i32 %31, 248
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %43
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %10, i32 0, i32 6
-  %45 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %10, i32 0, i32 9
-  %46 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %10, i32 0, i32 6
-  %47 = ptrtoint ptr %45 to i64
-  %48 = ptrtoint ptr %46 to i64
-  %49 = sub i64 %47, %48
-  %50 = add i64 %49, 4
-  call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %50, i1 false)
-  %51 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %10, i32 0, i32 10
-  store i32 1, ptr %51, align 4
-  br label %52
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 6
+  %36 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 9
+  %37 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 6
+  %38 = ptrtoint ptr %36 to i64
+  %39 = ptrtoint ptr %37 to i64
+  %40 = sub i64 %38, %39
+  %41 = add i64 %40, 4
+  call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 %41, i1 false)
+  %42 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 10
+  store i32 1, ptr %42, align 4, !tbaa !44
+  br label %43
 
-52:                                               ; preds = %43, %39
-  %53 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %10, i32 0, i32 1
-  store ptr %53, ptr %5, align 8
-  %54 = load ptr, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 4, i1 false)
-  %55 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %10, i32 0, i32 1
-  store ptr %55, ptr %4, align 8
-  %56 = load ptr, ptr %4, align 8
-  store ptr %56, ptr %3, align 8
-  %57 = load ptr, ptr %3, align 8
-  store ptr %57, ptr %2, align 8
-  %58 = load ptr, ptr %2, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = ptrtoint ptr %59 to i64
-  %61 = and i64 %60, 1
-  %62 = trunc i64 %61 to i32
-  %63 = icmp eq i32 %62, 1
-  br i1 %63, label %64, label %65
-
-64:                                               ; preds = %52
-  call void @_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %56)
-  br label %65
-
-65:                                               ; preds = %64, %52
+43:                                               ; preds = %34, %30
+  %44 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal7HasBitsILm1EE5ClearEv(ptr noundef nonnull align 4 dereferenceable(4) %44)
+  %45 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %4, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal16InternalMetadata5ClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %45)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr22ClearNonDefaultToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #13 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::internal::HasBits", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %8
+  ret ptr %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr22ClearNonDefaultToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !59
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal7HasBitsILm1EE5ClearEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #13 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::HasBits", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [1 x i32], ptr %4, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 4, i1 false)
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata5ClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br i1 %4, label %5, label %6
+
+5:                                                ; preds = %1
+  call void @_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  br label %6
+
+6:                                                ; preds = %5, %1
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
@@ -1646,587 +1625,693 @@ define dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber14_InternalPars
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
+  %8 = alloca %"class.google::protobuf::internal::HasBits", align 4
   %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
-  %13 = alloca %"class.google::protobuf::internal::HasBits", align 4
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca i64, align 8
-  %19 = alloca ptr, align 8
-  store ptr %0, ptr %10, align 8
-  store ptr %1, ptr %11, align 8
-  store ptr %2, ptr %12, align 8
-  %20 = load ptr, ptr %10, align 8
-  store ptr %13, ptr %9, align 8
-  %21 = load ptr, ptr %9, align 8
-  store ptr %21, ptr %8, align 8
-  %22 = load ptr, ptr %8, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %22, i8 0, i64 4, i1 false)
-  %23 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
-  store ptr %23, ptr %14, align 8
-  br label %24
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !64
+  %16 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @_ZN6google8protobuf8internal7HasBitsILm1EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %17 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  store ptr %17, ptr %9, align 8, !tbaa !34
+  br label %18
 
-24:                                               ; preds = %234, %197, %179, %159, %131, %111, %92, %72, %55, %3
-  %25 = load ptr, ptr %12, align 8
-  %26 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ParseContext4DoneEPPKc(ptr noundef nonnull align 8 dereferenceable(112) %25, ptr noundef %11)
+18:                                               ; preds = %284, %3
+  %19 = load ptr, ptr %7, align 8, !tbaa !64
+  %20 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ParseContext4DoneEPPKc(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef %6)
+  %21 = xor i1 %20, true
+  br i1 %21, label %22, label %286
+
+22:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %23 = load ptr, ptr %6, align 8, !tbaa !17
+  %24 = call noundef ptr @_ZN6google8protobuf8internal7ReadTagEPKcPjj(ptr noundef %23, ptr noundef %10, i32 noundef 0)
+  store ptr %24, ptr %6, align 8, !tbaa !17
+  %25 = load ptr, ptr %6, align 8, !tbaa !17
+  %26 = icmp ne ptr %25, null
   %27 = xor i1 %26, true
-  br i1 %27, label %28, label %235
+  %28 = zext i1 %27 to i64
+  %29 = call i64 @llvm.expect.i64(i64 %28, i64 0)
+  %30 = icmp ne i64 %29, 0
+  br i1 %30, label %31, label %32
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %11, align 8
-  %30 = call noundef ptr @_ZN6google8protobuf8internal7ReadTagEPKcPjj(ptr noundef %29, ptr noundef %15, i32 noundef 0)
-  store ptr %30, ptr %11, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = icmp ne ptr %31, null
-  %33 = xor i1 %32, true
-  br i1 %33, label %34, label %35
+31:                                               ; preds = %22
+  store i32 4, ptr %11, align 4
+  br label %284
 
-34:                                               ; preds = %28
-  br label %239
-
-35:                                               ; preds = %28
-  %36 = load i32, ptr %15, align 4
-  %37 = lshr i32 %36, 3
-  switch i32 %37, label %198 [
-    i32 1, label %38
-    i32 2, label %56
-    i32 3, label %73
-    i32 4, label %93
-    i32 5, label %112
-    i32 6, label %132
-    i32 7, label %160
-    i32 8, label %180
+32:                                               ; preds = %22
+  %33 = load i32, ptr %10, align 4, !tbaa !8
+  %34 = lshr i32 %33, 3
+  switch i32 %34, label %258 [
+    i32 1, label %35
+    i32 2, label %59
+    i32 3, label %82
+    i32 4, label %111
+    i32 5, label %136
+    i32 6, label %165
+    i32 7, label %205
+    i32 8, label %234
   ]
 
-38:                                               ; preds = %35
-  %39 = load i32, ptr %15, align 4
-  %40 = trunc i32 %39 to i8
-  %41 = zext i8 %40 to i32
-  %42 = icmp eq i32 %41, 8
-  %43 = xor i1 %42, true
-  %44 = xor i1 %43, true
-  br i1 %44, label %45, label %54
+35:                                               ; preds = %32
+  %36 = load i32, ptr %10, align 4, !tbaa !8
+  %37 = trunc i32 %36 to i8
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %38, 8
+  %40 = xor i1 %39, true
+  %41 = xor i1 %40, true
+  %42 = zext i1 %41 to i64
+  %43 = call i64 @llvm.expect.i64(i64 %42, i64 1)
+  %44 = icmp ne i64 %43, 0
+  br i1 %44, label %45, label %57
 
-45:                                               ; preds = %38
-  call void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal20set_has_country_codeEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %13)
-  %46 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %11)
+45:                                               ; preds = %35
+  call void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal20set_has_country_codeEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %8)
+  %46 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %6)
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %20, i32 0, i32 7
-  store i32 %47, ptr %48, align 8
-  %49 = load ptr, ptr %11, align 8
+  %48 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 7
+  store i32 %47, ptr %48, align 8, !tbaa !66
+  %49 = load ptr, ptr %6, align 8, !tbaa !17
   %50 = icmp ne ptr %49, null
   %51 = xor i1 %50, true
-  br i1 %51, label %52, label %53
+  %52 = zext i1 %51 to i64
+  %53 = call i64 @llvm.expect.i64(i64 %52, i64 0)
+  %54 = icmp ne i64 %53, 0
+  br i1 %54, label %55, label %56
 
-52:                                               ; preds = %45
-  br label %239
+55:                                               ; preds = %45
+  store i32 4, ptr %11, align 4
+  br label %284
 
-53:                                               ; preds = %45
-  br label %55
+56:                                               ; preds = %45
+  br label %58
 
-54:                                               ; preds = %38
-  br label %199
+57:                                               ; preds = %35
+  br label %259
 
-55:                                               ; preds = %53
-  br label %24, !llvm.loop !8
+58:                                               ; preds = %56
+  store i32 2, ptr %11, align 4
+  br label %284, !llvm.loop !67
 
-56:                                               ; preds = %35
-  %57 = load i32, ptr %15, align 4
-  %58 = trunc i32 %57 to i8
-  %59 = zext i8 %58 to i32
-  %60 = icmp eq i32 %59, 16
-  %61 = xor i1 %60, true
-  %62 = xor i1 %61, true
-  br i1 %62, label %63, label %71
+59:                                               ; preds = %32
+  %60 = load i32, ptr %10, align 4, !tbaa !8
+  %61 = trunc i32 %60 to i8
+  %62 = zext i8 %61 to i32
+  %63 = icmp eq i32 %62, 16
+  %64 = xor i1 %63, true
+  %65 = xor i1 %64, true
+  %66 = zext i1 %65 to i64
+  %67 = call i64 @llvm.expect.i64(i64 %66, i64 1)
+  %68 = icmp ne i64 %67, 0
+  br i1 %68, label %69, label %80
 
-63:                                               ; preds = %56
-  call void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal23set_has_national_numberEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %13)
-  %64 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %11)
-  %65 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %20, i32 0, i32 6
-  store i64 %64, ptr %65, align 8
-  %66 = load ptr, ptr %11, align 8
-  %67 = icmp ne ptr %66, null
-  %68 = xor i1 %67, true
-  br i1 %68, label %69, label %70
+69:                                               ; preds = %59
+  call void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal23set_has_national_numberEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %8)
+  %70 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %6)
+  %71 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 6
+  store i64 %70, ptr %71, align 8, !tbaa !68
+  %72 = load ptr, ptr %6, align 8, !tbaa !17
+  %73 = icmp ne ptr %72, null
+  %74 = xor i1 %73, true
+  %75 = zext i1 %74 to i64
+  %76 = call i64 @llvm.expect.i64(i64 %75, i64 0)
+  %77 = icmp ne i64 %76, 0
+  br i1 %77, label %78, label %79
 
-69:                                               ; preds = %63
-  br label %239
+78:                                               ; preds = %69
+  store i32 4, ptr %11, align 4
+  br label %284
 
-70:                                               ; preds = %63
-  br label %72
+79:                                               ; preds = %69
+  br label %81
 
-71:                                               ; preds = %56
-  br label %199
+80:                                               ; preds = %59
+  br label %259
 
-72:                                               ; preds = %70
-  br label %24, !llvm.loop !8
+81:                                               ; preds = %79
+  store i32 2, ptr %11, align 4
+  br label %284, !llvm.loop !67
 
-73:                                               ; preds = %35
-  %74 = load i32, ptr %15, align 4
-  %75 = trunc i32 %74 to i8
-  %76 = zext i8 %75 to i32
-  %77 = icmp eq i32 %76, 26
-  %78 = xor i1 %77, true
-  %79 = xor i1 %78, true
-  br i1 %79, label %80, label %91
-
-80:                                               ; preds = %73
-  %81 = call noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %20)
-  store ptr %81, ptr %16, align 8
-  %82 = load ptr, ptr %16, align 8
-  %83 = load ptr, ptr %11, align 8
-  %84 = load ptr, ptr %12, align 8
-  %85 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %82, ptr noundef %83, ptr noundef %84)
-  store ptr %85, ptr %11, align 8
-  %86 = load ptr, ptr %11, align 8
-  %87 = icmp ne ptr %86, null
+82:                                               ; preds = %32
+  %83 = load i32, ptr %10, align 4, !tbaa !8
+  %84 = trunc i32 %83 to i8
+  %85 = zext i8 %84 to i32
+  %86 = icmp eq i32 %85, 26
+  %87 = xor i1 %86, true
   %88 = xor i1 %87, true
-  br i1 %88, label %89, label %90
+  %89 = zext i1 %88 to i64
+  %90 = call i64 @llvm.expect.i64(i64 %89, i64 1)
+  %91 = icmp ne i64 %90, 0
+  br i1 %91, label %92, label %109
 
-89:                                               ; preds = %80
-  br label %239
+92:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %93 = call noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %16)
+  store ptr %93, ptr %12, align 8, !tbaa !28
+  %94 = load ptr, ptr %12, align 8, !tbaa !28
+  %95 = load ptr, ptr %6, align 8, !tbaa !17
+  %96 = load ptr, ptr %7, align 8, !tbaa !64
+  %97 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %94, ptr noundef %95, ptr noundef %96)
+  store ptr %97, ptr %6, align 8, !tbaa !17
+  %98 = load ptr, ptr %6, align 8, !tbaa !17
+  %99 = icmp ne ptr %98, null
+  %100 = xor i1 %99, true
+  %101 = zext i1 %100 to i64
+  %102 = call i64 @llvm.expect.i64(i64 %101, i64 0)
+  %103 = icmp ne i64 %102, 0
+  br i1 %103, label %104, label %105
 
-90:                                               ; preds = %80
-  br label %92
+104:                                              ; preds = %92
+  store i32 4, ptr %11, align 4
+  br label %106
 
-91:                                               ; preds = %73
-  br label %199
+105:                                              ; preds = %92
+  store i32 0, ptr %11, align 4
+  br label %106
 
-92:                                               ; preds = %90
-  br label %24, !llvm.loop !8
+106:                                              ; preds = %104, %105
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  %107 = load i32, ptr %11, align 4
+  switch i32 %107, label %284 [
+    i32 0, label %108
+  ]
 
-93:                                               ; preds = %35
-  %94 = load i32, ptr %15, align 4
-  %95 = trunc i32 %94 to i8
-  %96 = zext i8 %95 to i32
-  %97 = icmp eq i32 %96, 32
-  %98 = xor i1 %97, true
-  %99 = xor i1 %98, true
-  br i1 %99, label %100, label %110
+108:                                              ; preds = %106
+  br label %110
 
-100:                                              ; preds = %93
-  call void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal28set_has_italian_leading_zeroEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %13)
-  %101 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %11)
-  %102 = icmp ne i64 %101, 0
-  %103 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %20, i32 0, i32 8
-  %104 = zext i1 %102 to i8
-  store i8 %104, ptr %103, align 4
-  %105 = load ptr, ptr %11, align 8
-  %106 = icmp ne ptr %105, null
-  %107 = xor i1 %106, true
-  br i1 %107, label %108, label %109
+109:                                              ; preds = %82
+  br label %259
 
-108:                                              ; preds = %100
-  br label %239
+110:                                              ; preds = %108
+  store i32 2, ptr %11, align 4
+  br label %284, !llvm.loop !67
 
-109:                                              ; preds = %100
-  br label %111
-
-110:                                              ; preds = %93
-  br label %199
-
-111:                                              ; preds = %109
-  br label %24, !llvm.loop !8
-
-112:                                              ; preds = %35
-  %113 = load i32, ptr %15, align 4
-  %114 = trunc i32 %113 to i8
-  %115 = zext i8 %114 to i32
-  %116 = icmp eq i32 %115, 42
+111:                                              ; preds = %32
+  %112 = load i32, ptr %10, align 4, !tbaa !8
+  %113 = trunc i32 %112 to i8
+  %114 = zext i8 %113 to i32
+  %115 = icmp eq i32 %114, 32
+  %116 = xor i1 %115, true
   %117 = xor i1 %116, true
-  %118 = xor i1 %117, true
-  br i1 %118, label %119, label %130
+  %118 = zext i1 %117 to i64
+  %119 = call i64 @llvm.expect.i64(i64 %118, i64 1)
+  %120 = icmp ne i64 %119, 0
+  br i1 %120, label %121, label %134
 
-119:                                              ; preds = %112
-  %120 = call noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %20)
-  store ptr %120, ptr %17, align 8
-  %121 = load ptr, ptr %17, align 8
-  %122 = load ptr, ptr %11, align 8
-  %123 = load ptr, ptr %12, align 8
-  %124 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %121, ptr noundef %122, ptr noundef %123)
-  store ptr %124, ptr %11, align 8
-  %125 = load ptr, ptr %11, align 8
-  %126 = icmp ne ptr %125, null
-  %127 = xor i1 %126, true
-  br i1 %127, label %128, label %129
+121:                                              ; preds = %111
+  call void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal28set_has_italian_leading_zeroEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %8)
+  %122 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %6)
+  %123 = icmp ne i64 %122, 0
+  %124 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 8
+  %125 = zext i1 %123 to i8
+  store i8 %125, ptr %124, align 4, !tbaa !69
+  %126 = load ptr, ptr %6, align 8, !tbaa !17
+  %127 = icmp ne ptr %126, null
+  %128 = xor i1 %127, true
+  %129 = zext i1 %128 to i64
+  %130 = call i64 @llvm.expect.i64(i64 %129, i64 0)
+  %131 = icmp ne i64 %130, 0
+  br i1 %131, label %132, label %133
 
-128:                                              ; preds = %119
-  br label %239
+132:                                              ; preds = %121
+  store i32 4, ptr %11, align 4
+  br label %284
 
-129:                                              ; preds = %119
-  br label %131
+133:                                              ; preds = %121
+  br label %135
 
-130:                                              ; preds = %112
+134:                                              ; preds = %111
+  br label %259
+
+135:                                              ; preds = %133
+  store i32 2, ptr %11, align 4
+  br label %284, !llvm.loop !67
+
+136:                                              ; preds = %32
+  %137 = load i32, ptr %10, align 4, !tbaa !8
+  %138 = trunc i32 %137 to i8
+  %139 = zext i8 %138 to i32
+  %140 = icmp eq i32 %139, 42
+  %141 = xor i1 %140, true
+  %142 = xor i1 %141, true
+  %143 = zext i1 %142 to i64
+  %144 = call i64 @llvm.expect.i64(i64 %143, i64 1)
+  %145 = icmp ne i64 %144, 0
+  br i1 %145, label %146, label %163
+
+146:                                              ; preds = %136
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %147 = call noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %16)
+  store ptr %147, ptr %13, align 8, !tbaa !28
+  %148 = load ptr, ptr %13, align 8, !tbaa !28
+  %149 = load ptr, ptr %6, align 8, !tbaa !17
+  %150 = load ptr, ptr %7, align 8, !tbaa !64
+  %151 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %148, ptr noundef %149, ptr noundef %150)
+  store ptr %151, ptr %6, align 8, !tbaa !17
+  %152 = load ptr, ptr %6, align 8, !tbaa !17
+  %153 = icmp ne ptr %152, null
+  %154 = xor i1 %153, true
+  %155 = zext i1 %154 to i64
+  %156 = call i64 @llvm.expect.i64(i64 %155, i64 0)
+  %157 = icmp ne i64 %156, 0
+  br i1 %157, label %158, label %159
+
+158:                                              ; preds = %146
+  store i32 4, ptr %11, align 4
+  br label %160
+
+159:                                              ; preds = %146
+  store i32 0, ptr %11, align 4
+  br label %160
+
+160:                                              ; preds = %158, %159
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  %161 = load i32, ptr %11, align 4
+  switch i32 %161, label %284 [
+    i32 0, label %162
+  ]
+
+162:                                              ; preds = %160
+  br label %164
+
+163:                                              ; preds = %136
+  br label %259
+
+164:                                              ; preds = %162
+  store i32 2, ptr %11, align 4
+  br label %284, !llvm.loop !67
+
+165:                                              ; preds = %32
+  %166 = load i32, ptr %10, align 4, !tbaa !8
+  %167 = trunc i32 %166 to i8
+  %168 = zext i8 %167 to i32
+  %169 = icmp eq i32 %168, 48
+  %170 = xor i1 %169, true
+  %171 = xor i1 %170, true
+  %172 = zext i1 %171 to i64
+  %173 = call i64 @llvm.expect.i64(i64 %172, i64 1)
+  %174 = icmp ne i64 %173, 0
+  br i1 %174, label %175, label %203
+
+175:                                              ; preds = %165
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %176 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %6)
+  store i64 %176, ptr %14, align 8, !tbaa !18
+  %177 = load ptr, ptr %6, align 8, !tbaa !17
+  %178 = icmp ne ptr %177, null
+  %179 = xor i1 %178, true
+  %180 = zext i1 %179 to i64
+  %181 = call i64 @llvm.expect.i64(i64 %180, i64 0)
+  %182 = icmp ne i64 %181, 0
+  br i1 %182, label %183, label %184
+
+183:                                              ; preds = %175
+  store i32 4, ptr %11, align 4
+  br label %200
+
+184:                                              ; preds = %175
+  %185 = load i64, ptr %14, align 8, !tbaa !18
+  %186 = trunc i64 %185 to i32
+  %187 = call noundef zeroext i1 @_ZN4i18n12phonenumbers37PhoneNumber_CountryCodeSource_IsValidEi(i32 noundef %186)
+  %188 = xor i1 %187, true
+  %189 = xor i1 %188, true
+  %190 = zext i1 %189 to i64
+  %191 = call i64 @llvm.expect.i64(i64 %190, i64 1)
+  %192 = icmp ne i64 %191, 0
+  br i1 %192, label %193, label %196
+
+193:                                              ; preds = %184
+  %194 = load i64, ptr %14, align 8, !tbaa !18
+  %195 = trunc i64 %194 to i32
+  call void @_ZN4i18n12phonenumbers11PhoneNumber33_internal_set_country_code_sourceENS0_29PhoneNumber_CountryCodeSourceE(ptr noundef nonnull align 8 dereferenceable(72) %16, i32 noundef %195)
   br label %199
 
-131:                                              ; preds = %129
-  br label %24, !llvm.loop !8
-
-132:                                              ; preds = %35
-  %133 = load i32, ptr %15, align 4
-  %134 = trunc i32 %133 to i8
-  %135 = zext i8 %134 to i32
-  %136 = icmp eq i32 %135, 48
-  %137 = xor i1 %136, true
-  %138 = xor i1 %137, true
-  br i1 %138, label %139, label %158
-
-139:                                              ; preds = %132
-  %140 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %11)
-  store i64 %140, ptr %18, align 8
-  %141 = load ptr, ptr %11, align 8
-  %142 = icmp ne ptr %141, null
-  %143 = xor i1 %142, true
-  br i1 %143, label %144, label %145
-
-144:                                              ; preds = %139
-  br label %239
-
-145:                                              ; preds = %139
-  %146 = load i64, ptr %18, align 8
-  %147 = trunc i64 %146 to i32
-  %148 = call noundef zeroext i1 @_ZN4i18n12phonenumbers37PhoneNumber_CountryCodeSource_IsValidEi(i32 noundef %147)
-  %149 = xor i1 %148, true
-  %150 = xor i1 %149, true
-  br i1 %150, label %151, label %154
-
-151:                                              ; preds = %145
-  %152 = load i64, ptr %18, align 8
-  %153 = trunc i64 %152 to i32
-  call void @_ZN4i18n12phonenumbers11PhoneNumber33_internal_set_country_code_sourceENS0_29PhoneNumber_CountryCodeSourceE(ptr noundef nonnull align 8 dereferenceable(72) %20, i32 noundef %153)
-  br label %157
-
-154:                                              ; preds = %145
-  %155 = load i64, ptr %18, align 8
-  %156 = call noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber22mutable_unknown_fieldsB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %20)
-  call void @_ZN6google8protobuf8internal11WriteVarintEjmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 6, i64 noundef %155, ptr noundef %156)
-  br label %157
-
-157:                                              ; preds = %154, %151
-  br label %159
-
-158:                                              ; preds = %132
+196:                                              ; preds = %184
+  %197 = load i64, ptr %14, align 8, !tbaa !18
+  %198 = call noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber22mutable_unknown_fieldsB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %16)
+  call void @_ZN6google8protobuf8internal11WriteVarintEjmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 6, i64 noundef %197, ptr noundef %198)
   br label %199
 
-159:                                              ; preds = %157
-  br label %24, !llvm.loop !8
+199:                                              ; preds = %196, %193
+  store i32 0, ptr %11, align 4
+  br label %200
 
-160:                                              ; preds = %35
-  %161 = load i32, ptr %15, align 4
-  %162 = trunc i32 %161 to i8
-  %163 = zext i8 %162 to i32
-  %164 = icmp eq i32 %163, 58
-  %165 = xor i1 %164, true
-  %166 = xor i1 %165, true
-  br i1 %166, label %167, label %178
+200:                                              ; preds = %183, %199
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  %201 = load i32, ptr %11, align 4
+  switch i32 %201, label %284 [
+    i32 0, label %202
+  ]
 
-167:                                              ; preds = %160
-  %168 = call noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %20)
-  store ptr %168, ptr %19, align 8
-  %169 = load ptr, ptr %19, align 8
-  %170 = load ptr, ptr %11, align 8
-  %171 = load ptr, ptr %12, align 8
-  %172 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %169, ptr noundef %170, ptr noundef %171)
-  store ptr %172, ptr %11, align 8
-  %173 = load ptr, ptr %11, align 8
-  %174 = icmp ne ptr %173, null
-  %175 = xor i1 %174, true
-  br i1 %175, label %176, label %177
+202:                                              ; preds = %200
+  br label %204
 
-176:                                              ; preds = %167
-  br label %239
+203:                                              ; preds = %165
+  br label %259
 
-177:                                              ; preds = %167
-  br label %179
+204:                                              ; preds = %202
+  store i32 2, ptr %11, align 4
+  br label %284, !llvm.loop !67
 
-178:                                              ; preds = %160
-  br label %199
+205:                                              ; preds = %32
+  %206 = load i32, ptr %10, align 4, !tbaa !8
+  %207 = trunc i32 %206 to i8
+  %208 = zext i8 %207 to i32
+  %209 = icmp eq i32 %208, 58
+  %210 = xor i1 %209, true
+  %211 = xor i1 %210, true
+  %212 = zext i1 %211 to i64
+  %213 = call i64 @llvm.expect.i64(i64 %212, i64 1)
+  %214 = icmp ne i64 %213, 0
+  br i1 %214, label %215, label %232
 
-179:                                              ; preds = %177
-  br label %24, !llvm.loop !8
+215:                                              ; preds = %205
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %216 = call noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %16)
+  store ptr %216, ptr %15, align 8, !tbaa !28
+  %217 = load ptr, ptr %15, align 8, !tbaa !28
+  %218 = load ptr, ptr %6, align 8, !tbaa !17
+  %219 = load ptr, ptr %7, align 8, !tbaa !64
+  %220 = call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %217, ptr noundef %218, ptr noundef %219)
+  store ptr %220, ptr %6, align 8, !tbaa !17
+  %221 = load ptr, ptr %6, align 8, !tbaa !17
+  %222 = icmp ne ptr %221, null
+  %223 = xor i1 %222, true
+  %224 = zext i1 %223 to i64
+  %225 = call i64 @llvm.expect.i64(i64 %224, i64 0)
+  %226 = icmp ne i64 %225, 0
+  br i1 %226, label %227, label %228
 
-180:                                              ; preds = %35
-  %181 = load i32, ptr %15, align 4
-  %182 = trunc i32 %181 to i8
-  %183 = zext i8 %182 to i32
-  %184 = icmp eq i32 %183, 64
-  %185 = xor i1 %184, true
-  %186 = xor i1 %185, true
-  br i1 %186, label %187, label %196
+227:                                              ; preds = %215
+  store i32 4, ptr %11, align 4
+  br label %229
 
-187:                                              ; preds = %180
-  call void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal31set_has_number_of_leading_zerosEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %13)
-  %188 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %11)
-  %189 = trunc i64 %188 to i32
-  %190 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %20, i32 0, i32 10
-  store i32 %189, ptr %190, align 4
-  %191 = load ptr, ptr %11, align 8
-  %192 = icmp ne ptr %191, null
-  %193 = xor i1 %192, true
-  br i1 %193, label %194, label %195
+228:                                              ; preds = %215
+  store i32 0, ptr %11, align 4
+  br label %229
 
-194:                                              ; preds = %187
-  br label %239
+229:                                              ; preds = %227, %228
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  %230 = load i32, ptr %11, align 4
+  switch i32 %230, label %284 [
+    i32 0, label %231
+  ]
 
-195:                                              ; preds = %187
-  br label %197
+231:                                              ; preds = %229
+  br label %233
 
-196:                                              ; preds = %180
-  br label %199
+232:                                              ; preds = %205
+  br label %259
 
-197:                                              ; preds = %195
-  br label %24, !llvm.loop !8
+233:                                              ; preds = %231
+  store i32 2, ptr %11, align 4
+  br label %284, !llvm.loop !67
 
-198:                                              ; preds = %35
-  br label %199
+234:                                              ; preds = %32
+  %235 = load i32, ptr %10, align 4, !tbaa !8
+  %236 = trunc i32 %235 to i8
+  %237 = zext i8 %236 to i32
+  %238 = icmp eq i32 %237, 64
+  %239 = xor i1 %238, true
+  %240 = xor i1 %239, true
+  %241 = zext i1 %240 to i64
+  %242 = call i64 @llvm.expect.i64(i64 %241, i64 1)
+  %243 = icmp ne i64 %242, 0
+  br i1 %243, label %244, label %256
 
-199:                                              ; preds = %198, %196, %178, %158, %130, %110, %91, %71, %54
-  %200 = load i32, ptr %15, align 4
-  %201 = and i32 %200, 7
-  %202 = icmp eq i32 %201, 4
-  br i1 %202, label %206, label %203
+244:                                              ; preds = %234
+  call void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal31set_has_number_of_leading_zerosEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %8)
+  %245 = call noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %6)
+  %246 = trunc i64 %245 to i32
+  %247 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 10
+  store i32 %246, ptr %247, align 4, !tbaa !44
+  %248 = load ptr, ptr %6, align 8, !tbaa !17
+  %249 = icmp ne ptr %248, null
+  %250 = xor i1 %249, true
+  %251 = zext i1 %250 to i64
+  %252 = call i64 @llvm.expect.i64(i64 %251, i64 0)
+  %253 = icmp ne i64 %252, 0
+  br i1 %253, label %254, label %255
 
-203:                                              ; preds = %199
-  %204 = load i32, ptr %15, align 4
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %206, label %209
+254:                                              ; preds = %244
+  store i32 4, ptr %11, align 4
+  br label %284
 
-206:                                              ; preds = %203, %199
-  %207 = load ptr, ptr %12, align 8
-  %208 = load i32, ptr %15, align 4
-  call void @_ZN6google8protobuf8internal18EpsCopyInputStream10SetLastTagEj(ptr noundef nonnull align 8 dereferenceable(88) %207, i32 noundef %208)
-  br label %236
+255:                                              ; preds = %244
+  br label %257
 
-209:                                              ; preds = %203
-  %210 = load i32, ptr %15, align 4
-  %211 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %20, i32 0, i32 1
-  store ptr %211, ptr %7, align 8
-  %212 = load ptr, ptr %7, align 8
-  store ptr %212, ptr %5, align 8
-  %213 = load ptr, ptr %5, align 8
-  store ptr %213, ptr %4, align 8
-  %214 = load ptr, ptr %4, align 8
-  %215 = load ptr, ptr %214, align 8
-  %216 = ptrtoint ptr %215 to i64
-  %217 = and i64 %216, 1
-  %218 = trunc i64 %217 to i32
-  %219 = icmp eq i32 %218, 1
-  br i1 %219, label %220, label %223
+256:                                              ; preds = %234
+  br label %259
 
-220:                                              ; preds = %209
-  %221 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %212)
-  %222 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %221, i32 0, i32 1
-  store ptr %222, ptr %6, align 8
-  br label %225
+257:                                              ; preds = %255
+  store i32 2, ptr %11, align 4
+  br label %284, !llvm.loop !67
 
-223:                                              ; preds = %209
-  %224 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %212)
-  store ptr %224, ptr %6, align 8
-  br label %225
+258:                                              ; preds = %32
+  br label %259
 
-225:                                              ; preds = %223, %220
-  %226 = load ptr, ptr %6, align 8
-  %227 = load ptr, ptr %11, align 8
-  %228 = load ptr, ptr %12, align 8
-  %229 = call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(i32 noundef %210, ptr noundef %226, ptr noundef %227, ptr noundef %228)
-  store ptr %229, ptr %11, align 8
-  %230 = load ptr, ptr %11, align 8
-  %231 = icmp ne ptr %230, null
-  %232 = xor i1 %231, true
-  br i1 %232, label %233, label %234
+259:                                              ; preds = %258, %256, %232, %203, %163, %134, %109, %80, %57
+  %260 = load i32, ptr %10, align 4, !tbaa !8
+  %261 = and i32 %260, 7
+  %262 = icmp eq i32 %261, 4
+  br i1 %262, label %266, label %263
 
-233:                                              ; preds = %225
-  br label %239
+263:                                              ; preds = %259
+  %264 = load i32, ptr %10, align 4, !tbaa !8
+  %265 = icmp eq i32 %264, 0
+  br i1 %265, label %266, label %269
 
-234:                                              ; preds = %225
-  br label %24, !llvm.loop !8
+266:                                              ; preds = %263, %259
+  %267 = load ptr, ptr %7, align 8, !tbaa !64
+  %268 = load i32, ptr %10, align 4, !tbaa !8
+  call void @_ZN6google8protobuf8internal18EpsCopyInputStream10SetLastTagEj(ptr noundef nonnull align 8 dereferenceable(88) %267, i32 noundef %268)
+  store i32 7, ptr %11, align 4
+  br label %284
 
-235:                                              ; preds = %24
-  br label %236
+269:                                              ; preds = %263
+  %270 = load i32, ptr %10, align 4, !tbaa !8
+  %271 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %16, i32 0, i32 1
+  %272 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %271)
+  %273 = load ptr, ptr %6, align 8, !tbaa !17
+  %274 = load ptr, ptr %7, align 8, !tbaa !64
+  %275 = call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(i32 noundef %270, ptr noundef %272, ptr noundef %273, ptr noundef %274)
+  store ptr %275, ptr %6, align 8, !tbaa !17
+  %276 = load ptr, ptr %6, align 8, !tbaa !17
+  %277 = icmp ne ptr %276, null
+  %278 = xor i1 %277, true
+  %279 = zext i1 %278 to i64
+  %280 = call i64 @llvm.expect.i64(i64 %279, i64 0)
+  %281 = icmp ne i64 %280, 0
+  br i1 %281, label %282, label %283
 
-236:                                              ; preds = %239, %235, %206
-  %237 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %20, i32 0, i32 1
-  call void @_ZN6google8protobuf8internal7HasBitsILm1EE2OrERKS3_(ptr noundef nonnull align 4 dereferenceable(4) %237, ptr noundef nonnull align 4 dereferenceable(4) %13)
-  %238 = load ptr, ptr %11, align 8
-  ret ptr %238
+282:                                              ; preds = %269
+  store i32 4, ptr %11, align 4
+  br label %284
 
-239:                                              ; preds = %233, %194, %176, %144, %128, %108, %89, %69, %52, %34
-  store ptr null, ptr %11, align 8
-  br label %236
+283:                                              ; preds = %269
+  store i32 2, ptr %11, align 4
+  br label %284, !llvm.loop !67
+
+284:                                              ; preds = %282, %266, %254, %132, %78, %55, %31, %283, %257, %233, %229, %204, %200, %164, %160, %135, %110, %106, %81, %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %285 = load i32, ptr %11, align 4
+  switch i32 %285, label %291 [
+    i32 2, label %18
+    i32 7, label %287
+    i32 4, label %290
+  ]
+
+286:                                              ; preds = %18
+  br label %287
+
+287:                                              ; preds = %290, %286, %284
+  %288 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %16, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal7HasBitsILm1EE2OrERKS3_(ptr noundef nonnull align 4 dereferenceable(4) %288, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %289 = load ptr, ptr %6, align 8, !tbaa !17
+  store ptr %289, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %291
+
+290:                                              ; preds = %284
+  store ptr null, ptr %6, align 8, !tbaa !17
+  br label %287
+
+291:                                              ; preds = %287, %284
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %292 = load ptr, ptr %4, align 8
+  ret ptr %292
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6google8protobuf8internal12ParseContext4DoneEPPKc(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !64
+  store ptr %1, ptr %4, align 8, !tbaa !70
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %5, i32 0, i32 2
-  %8 = load i32, ptr %7, align 4
+  %6 = load ptr, ptr %4, align 8, !tbaa !70
+  %7 = getelementptr inbounds nuw %"class.google::protobuf::internal::ParseContext", ptr %5, i32 0, i32 2
+  %8 = load i32, ptr %7, align 4, !tbaa !73
   %9 = call noundef zeroext i1 @_ZN6google8protobuf8internal18EpsCopyInputStream13DoneWithCheckEPPKci(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %6, i32 noundef %8)
   ret i1 %9
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal7ReadTagEPKcPjj(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal7ReadTagEPKcPjj(ptr noundef %0, ptr noundef %1, i32 noundef %2) #7 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = alloca %"struct.std::pair.5", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 0
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  store i32 %14, ptr %8, align 4
-  %15 = load i32, ptr %8, align 4
-  %16 = icmp ult i32 %15, 128
-  br i1 %16, label %17, label %22
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.std::pair.5", align 8
+  %12 = alloca { ptr, i32 }, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store ptr %1, ptr %6, align 8, !tbaa !80
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %13 = load ptr, ptr %5, align 8, !tbaa !17
+  %14 = getelementptr inbounds i8, ptr %13, i64 0
+  %15 = load i8, ptr %14, align 1, !tbaa !54
+  %16 = zext i8 %15 to i32
+  store i32 %16, ptr %8, align 4, !tbaa !8
+  %17 = load i32, ptr %8, align 4, !tbaa !8
+  %18 = icmp ult i32 %17, 128
+  br i1 %18, label %19, label %24
 
-17:                                               ; preds = %3
-  %18 = load i32, ptr %8, align 4
-  %19 = load ptr, ptr %6, align 8
-  store i32 %18, ptr %19, align 4
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
-  store ptr %21, ptr %4, align 8
-  br label %52
+19:                                               ; preds = %3
+  %20 = load i32, ptr %8, align 4, !tbaa !8
+  %21 = load ptr, ptr %6, align 8, !tbaa !80
+  store i32 %20, ptr %21, align 4, !tbaa !8
+  %22 = load ptr, ptr %5, align 8, !tbaa !17
+  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  store ptr %23, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %51
 
-22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  store i32 %26, ptr %9, align 4
-  %27 = load i32, ptr %9, align 4
-  %28 = sub i32 %27, 1
-  %29 = shl i32 %28, 7
-  %30 = load i32, ptr %8, align 4
-  %31 = add i32 %30, %29
-  store i32 %31, ptr %8, align 4
-  %32 = load i32, ptr %9, align 4
-  %33 = icmp ult i32 %32, 128
-  br i1 %33, label %34, label %39
+24:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %25 = load ptr, ptr %5, align 8, !tbaa !17
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !54
+  %28 = zext i8 %27 to i32
+  store i32 %28, ptr %10, align 4, !tbaa !8
+  %29 = load i32, ptr %10, align 4, !tbaa !8
+  %30 = sub i32 %29, 1
+  %31 = shl i32 %30, 7
+  %32 = load i32, ptr %8, align 4, !tbaa !8
+  %33 = add i32 %32, %31
+  store i32 %33, ptr %8, align 4, !tbaa !8
+  %34 = load i32, ptr %10, align 4, !tbaa !8
+  %35 = icmp ult i32 %34, 128
+  br i1 %35, label %36, label %41
 
-34:                                               ; preds = %22
-  %35 = load i32, ptr %8, align 4
-  %36 = load ptr, ptr %6, align 8
-  store i32 %35, ptr %36, align 4
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 2
-  store ptr %38, ptr %4, align 8
-  br label %52
+36:                                               ; preds = %24
+  %37 = load i32, ptr %8, align 4, !tbaa !8
+  %38 = load ptr, ptr %6, align 8, !tbaa !80
+  store i32 %37, ptr %38, align 4, !tbaa !8
+  %39 = load ptr, ptr %5, align 8, !tbaa !17
+  %40 = getelementptr inbounds i8, ptr %39, i64 2
+  store ptr %40, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %50
 
-39:                                               ; preds = %22
-  %40 = load ptr, ptr %5, align 8
-  %41 = load i32, ptr %8, align 4
-  %42 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef %40, i32 noundef %41)
-  %43 = getelementptr inbounds { ptr, i32 }, ptr %10, i32 0, i32 0
-  %44 = extractvalue { ptr, i32 } %42, 0
-  store ptr %44, ptr %43, align 8
-  %45 = getelementptr inbounds { ptr, i32 }, ptr %10, i32 0, i32 1
-  %46 = extractvalue { ptr, i32 } %42, 1
-  store i32 %46, ptr %45, align 8
-  %47 = getelementptr inbounds %"struct.std::pair.5", ptr %10, i32 0, i32 1
-  %48 = load i32, ptr %47, align 8
-  %49 = load ptr, ptr %6, align 8
-  store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds %"struct.std::pair.5", ptr %10, i32 0, i32 0
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %4, align 8
-  br label %52
+41:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #3
+  %42 = load ptr, ptr %5, align 8, !tbaa !17
+  %43 = load i32, ptr %8, align 4, !tbaa !8
+  %44 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef %42, i32 noundef %43)
+  store { ptr, i32 } %44, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 12, i1 false)
+  %45 = getelementptr inbounds nuw %"struct.std::pair.5", ptr %11, i32 0, i32 1
+  %46 = load i32, ptr %45, align 8, !tbaa !82
+  %47 = load ptr, ptr %6, align 8, !tbaa !80
+  store i32 %46, ptr %47, align 4, !tbaa !8
+  %48 = getelementptr inbounds nuw %"struct.std::pair.5", ptr %11, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !84
+  store ptr %49, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #3
+  br label %50
 
-52:                                               ; preds = %39, %34, %17
-  %53 = load ptr, ptr %4, align 8
-  ret ptr %53
+50:                                               ; preds = %41, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  br label %51
+
+51:                                               ; preds = %50, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %52 = load ptr, ptr %4, align 8
+  ret ptr %52
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal20set_has_country_codeEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %6 = load ptr, ptr %2, align 8
-  %7 = load i32, ptr %3, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = or i32 %10, 16
-  store i32 %11, ptr %9, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0)
+  %5 = load i32, ptr %4, align 4, !tbaa !8
+  %6 = or i32 %5, 16
+  store i32 %6, ptr %4, align 4, !tbaa !8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %0) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal12ReadVarint64EPPKc(ptr noundef %0) #7 comdat {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %4 = load ptr, ptr %2, align 8, !tbaa !70
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = call noundef ptr @_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_(ptr noundef %5, ptr noundef %3)
-  %7 = load ptr, ptr %2, align 8
-  store ptr %6, ptr %7, align 8
-  %8 = load i64, ptr %3, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !70
+  store ptr %6, ptr %7, align 8, !tbaa !17
+  %8 = load i64, ptr %3, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal23set_has_national_numberEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %6 = load ptr, ptr %2, align 8
-  %7 = load i32, ptr %3, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = or i32 %10, 8
-  store i32 %11, ptr %9, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0)
+  %5 = load i32, ptr %4, align 4, !tbaa !8
+  %6 = or i32 %5, 8
+  store i32 %6, ptr %4, align 4, !tbaa !8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 1
-  store ptr %6, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %7 = load ptr, ptr %2, align 8
-  %8 = load i32, ptr %3, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [1 x i32], ptr %7, i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4
-  %12 = or i32 %11, 1
-  store i32 %12, ptr %10, align 4
-  %13 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 3
-  %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  %15 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %16 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %14, ptr noundef %15)
-  ret ptr %16
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 1
+  %5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0)
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  %7 = or i32 %6, 1
+  store i32 %7, ptr %5, align 4, !tbaa !8
+  %8 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 3
+  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  %10 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %11 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9, ptr noundef %10)
+  ret ptr %11
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) #1
@@ -2234,152 +2319,88 @@ declare noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal28set_has_italian_leading_zeroEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %6 = load ptr, ptr %2, align 8
-  %7 = load i32, ptr %3, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = or i32 %10, 32
-  store i32 %11, ptr %9, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0)
+  %5 = load i32, ptr %4, align 4, !tbaa !8
+  %6 = or i32 %5, 32
+  store i32 %6, ptr %4, align 4, !tbaa !8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 1
-  store ptr %6, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %7 = load ptr, ptr %2, align 8
-  %8 = load i32, ptr %3, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [1 x i32], ptr %7, i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4
-  %12 = or i32 %11, 2
-  store i32 %12, ptr %10, align 4
-  %13 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 4
-  %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  %15 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %16 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %14, ptr noundef %15)
-  ret ptr %16
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 1
+  %5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0)
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  %7 = or i32 %6, 2
+  store i32 %7, ptr %5, align 4, !tbaa !8
+  %8 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 4
+  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  %10 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %11 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9, ptr noundef %10)
+  ret ptr %11
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber33_internal_set_country_code_sourceENS0_29PhoneNumber_CountryCodeSourceE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber33_internal_set_country_code_sourceENS0_29PhoneNumber_CountryCodeSourceE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  store i32 0, ptr %4, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [1 x i32], ptr %9, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %14 = or i32 %13, 64
-  store i32 %14, ptr %12, align 4
-  %15 = load i32, ptr %6, align 4
-  %16 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 9
-  store i32 %15, ptr %16, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store i32 %1, ptr %4, align 4, !tbaa !21
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 1
+  %7 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 0)
+  %8 = load i32, ptr %7, align 4, !tbaa !8
+  %9 = or i32 %8, 64
+  store i32 %9, ptr %7, align 4, !tbaa !8
+  %10 = load i32, ptr %4, align 4, !tbaa !21
+  %11 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 9
+  store i32 %10, ptr %11, align 8, !tbaa !85
   ret void
 }
 
 declare void @_ZN6google8protobuf8internal11WriteVarintEjmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef, i64 noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber22mutable_unknown_fieldsB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber22mutable_unknown_fieldsB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %5, align 8
-  %9 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %3, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %10, ptr %2, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = load ptr, ptr %11, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %14 = and i64 %13, 1
-  %15 = trunc i64 %14 to i32
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %20
-
-17:                                               ; preds = %1
-  %18 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %19 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %18, i32 0, i32 1
-  store ptr %19, ptr %4, align 8
-  br label %22
-
-20:                                               ; preds = %1
-  %21 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr %21, ptr %4, align 8
-  br label %22
-
-22:                                               ; preds = %20, %17
-  %23 = load ptr, ptr %4, align 8
-  ret ptr %23
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 1
-  store ptr %6, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %7 = load ptr, ptr %2, align 8
-  %8 = load i32, ptr %3, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [1 x i32], ptr %7, i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4
-  %12 = or i32 %11, 4
-  store i32 %12, ptr %10, align 4
-  %13 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 5
-  %14 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  %15 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %16 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %14, ptr noundef %15)
-  ret ptr %16
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 1
+  %5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0)
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  %7 = or i32 %6, 4
+  store i32 %7, ptr %5, align 4, !tbaa !8
+  %8 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 5
+  %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  %10 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %11 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9, ptr noundef %10)
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9_Internal31set_has_number_of_leading_zerosEPN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %6 = load ptr, ptr %2, align 8
-  %7 = load i32, ptr %3, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = or i32 %10, 128
-  store i32 %11, ptr %9, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0)
+  %5 = load i32, ptr %4, align 4, !tbaa !8
+  %6 = or i32 %5, 128
+  store i32 %6, ptr %4, align 4, !tbaa !8
   ret void
 }
 
@@ -2387,62 +2408,90 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9_Interna
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal18EpsCopyInputStream10SetLastTagEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !86
+  store i32 %1, ptr %4, align 4, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !8
   %7 = sub i32 %6, 1
-  %8 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %5, i32 0, i32 8
-  store i32 %7, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::internal::EpsCopyInputStream", ptr %5, i32 0, i32 8
+  store i32 %7, ptr %8, align 8, !tbaa !88
   ret void
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %6 = xor i1 %5, true
+  %7 = xor i1 %6, true
+  %8 = zext i1 %7 to i64
+  %9 = call i64 @llvm.expect.i64(i64 %8, i64 1)
+  %10 = icmp ne i64 %9, 0
+  br i1 %10, label %11, label %14
+
+11:                                               ; preds = %1
+  %12 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %13 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %2, align 8
+  br label %16
+
+14:                                               ; preds = %1
+  %15 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store ptr %15, ptr %2, align 8
+  br label %16
+
+16:                                               ; preds = %14, %11
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal7HasBitsILm1EE2OrERKS3_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  store i64 0, ptr %7, align 8
-  br label %9
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  store i64 0, ptr %5, align 8, !tbaa !18
+  br label %7
 
-9:                                                ; preds = %26, %2
-  %10 = load i64, ptr %7, align 8
-  %11 = icmp ult i64 %10, 1
-  br i1 %11, label %12, label %29
+7:                                                ; preds = %22, %2
+  %8 = load i64, ptr %5, align 8, !tbaa !18
+  %9 = icmp ult i64 %8, 1
+  br i1 %9, label %11, label %10
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %6, align 8
-  %14 = load i64, ptr %7, align 8
-  %15 = trunc i64 %14 to i32
-  store ptr %13, ptr %3, align 8
-  store i32 %15, ptr %4, align 4
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i32, ptr %4, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [1 x i32], ptr %16, i64 0, i64 %18
-  %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds %"class.google::protobuf::internal::HasBits", ptr %8, i32 0, i32 0
-  %22 = load i64, ptr %7, align 8
-  %23 = getelementptr inbounds [1 x i32], ptr %21, i64 0, i64 %22
-  %24 = load i32, ptr %23, align 4
-  %25 = or i32 %24, %20
-  store i32 %25, ptr %23, align 4
-  br label %26
+10:                                               ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %25
 
-26:                                               ; preds = %12
-  %27 = load i64, ptr %7, align 8
-  %28 = add i64 %27, 1
-  store i64 %28, ptr %7, align 8
-  br label %9, !llvm.loop !9
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %4, align 8, !tbaa !40
+  %13 = load i64, ptr %5, align 8, !tbaa !18
+  %14 = trunc i64 %13 to i32
+  %15 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %12, i32 noundef %14)
+  %16 = load i32, ptr %15, align 4, !tbaa !8
+  %17 = getelementptr inbounds nuw %"class.google::protobuf::internal::HasBits", ptr %6, i32 0, i32 0
+  %18 = load i64, ptr %5, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw [1 x i32], ptr %17, i64 0, i64 %18
+  %20 = load i32, ptr %19, align 4, !tbaa !8
+  %21 = or i32 %20, %16
+  store i32 %21, ptr %19, align 4, !tbaa !8
+  br label %22
 
-29:                                               ; preds = %9
+22:                                               ; preds = %11
+  %23 = load i64, ptr %5, align 8, !tbaa !18
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %5, align 8, !tbaa !18
+  br label %7, !llvm.loop !89
+
+25:                                               ; preds = %10
   ret void
 }
 
@@ -2452,419 +2501,182 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber18_InternalSer
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i8, align 1
-  %10 = alloca ptr, align 8
-  %11 = alloca i64, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca i32, align 4
-  %18 = alloca ptr, align 8
-  %19 = alloca i32, align 4
-  %20 = alloca ptr, align 8
-  %21 = alloca i32, align 4
-  %22 = alloca ptr, align 8
-  %23 = alloca i32, align 4
-  %24 = alloca ptr, align 8
-  %25 = alloca i32, align 4
-  %26 = alloca ptr, align 8
-  %27 = alloca i32, align 4
-  %28 = alloca i32, align 4
-  %29 = alloca ptr, align 8
-  %30 = alloca i32, align 4
-  %31 = alloca i32, align 4
-  %32 = alloca ptr, align 8
-  %33 = alloca i32, align 4
-  %34 = alloca i32, align 4
-  %35 = alloca ptr, align 8
-  %36 = alloca i32, align 4
-  %37 = alloca i32, align 4
-  %38 = alloca ptr, align 8
-  %39 = alloca i32, align 4
-  %40 = alloca i32, align 4
-  %41 = alloca ptr, align 8
-  %42 = alloca ptr, align 8
-  %43 = alloca ptr, align 8
-  %44 = alloca ptr, align 8
-  %45 = alloca ptr, align 8
-  %46 = alloca ptr, align 8
-  %47 = alloca ptr, align 8
-  %48 = alloca ptr, align 8
-  %49 = alloca ptr, align 8
-  %50 = alloca ptr, align 8
-  %51 = alloca i32, align 4
-  %52 = alloca i32, align 4
-  %53 = alloca ptr, align 8
-  %54 = alloca i32, align 4
-  %55 = alloca i8, align 1
-  %56 = alloca ptr, align 8
-  %57 = alloca i32, align 4
-  %58 = alloca i64, align 8
-  %59 = alloca ptr, align 8
-  %60 = alloca i32, align 4
-  %61 = alloca i32, align 4
-  %62 = alloca ptr, align 8
-  %63 = alloca i32, align 4
-  %64 = alloca i32, align 4
-  %65 = alloca ptr, align 8
-  %66 = alloca ptr, align 8
-  %67 = alloca i32, align 4
-  %68 = alloca ptr, align 8
-  %69 = alloca ptr, align 8
-  %70 = alloca ptr, align 8
-  %71 = alloca i32, align 4
-  store ptr %0, ptr %68, align 8
-  store ptr %1, ptr %69, align 8
-  store ptr %2, ptr %70, align 8
-  %72 = load ptr, ptr %68, align 8
-  store i32 0, ptr %71, align 4
-  %73 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %72, i32 0, i32 1
-  store ptr %73, ptr %66, align 8
-  store i32 0, ptr %67, align 4
-  %74 = load ptr, ptr %66, align 8
-  %75 = load i32, ptr %67, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [1 x i32], ptr %74, i64 0, i64 %76
-  %78 = load i32, ptr %77, align 4
-  store i32 %78, ptr %71, align 4
-  %79 = load i32, ptr %71, align 4
-  %80 = and i32 %79, 16
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %102
+  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !90
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 0, ptr %7, align 4, !tbaa !8
+  %9 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %8, i32 0, i32 1
+  %10 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 0)
+  %11 = load i32, ptr %10, align 4, !tbaa !8
+  store i32 %11, ptr %7, align 4, !tbaa !8
+  %12 = load i32, ptr %7, align 4, !tbaa !8
+  %13 = and i32 %12, 16
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %22
 
-82:                                               ; preds = %3
-  %83 = load ptr, ptr %70, align 8
-  %84 = load ptr, ptr %69, align 8
-  %85 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %83, ptr noundef %84)
-  store ptr %85, ptr %69, align 8
-  %86 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber22_internal_country_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %72)
-  %87 = load ptr, ptr %69, align 8
-  store i32 1, ptr %60, align 4
-  store i32 %86, ptr %61, align 4
-  store ptr %87, ptr %62, align 8
-  %88 = load i32, ptr %60, align 4
-  %89 = load ptr, ptr %62, align 8
-  store i32 %88, ptr %30, align 4
-  store i32 0, ptr %31, align 4
-  store ptr %89, ptr %32, align 8
-  %90 = load i32, ptr %30, align 4
-  %91 = load i32, ptr %31, align 4
-  %92 = call noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %90, i32 noundef %91)
-  %93 = load ptr, ptr %32, align 8
-  store i32 %92, ptr %19, align 4
-  store ptr %93, ptr %20, align 8
-  %94 = load i32, ptr %19, align 4
-  %95 = load ptr, ptr %20, align 8
-  %96 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %94, ptr noundef %95)
-  store ptr %96, ptr %62, align 8
-  %97 = load i32, ptr %61, align 4
-  %98 = load ptr, ptr %62, align 8
-  store i32 %97, ptr %25, align 4
-  store ptr %98, ptr %26, align 8
-  %99 = load i32, ptr %25, align 4
-  %100 = load ptr, ptr %26, align 8
-  %101 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %99, ptr noundef %100)
-  store ptr %101, ptr %69, align 8
-  br label %102
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !90
+  %17 = load ptr, ptr %5, align 8, !tbaa !17
+  %18 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %16, ptr noundef %17)
+  store ptr %18, ptr %5, align 8, !tbaa !17
+  %19 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber22_internal_country_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  %20 = load ptr, ptr %5, align 8, !tbaa !17
+  %21 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite17WriteInt32ToArrayEiiPh(i32 noundef 1, i32 noundef %19, ptr noundef %20)
+  store ptr %21, ptr %5, align 8, !tbaa !17
+  br label %22
 
-102:                                              ; preds = %82, %3
-  %103 = load i32, ptr %71, align 4
-  %104 = and i32 %103, 8
-  %105 = icmp ne i32 %104, 0
-  br i1 %105, label %106, label %126
+22:                                               ; preds = %15, %3
+  %23 = load i32, ptr %7, align 4, !tbaa !8
+  %24 = and i32 %23, 8
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %33
 
-106:                                              ; preds = %102
-  %107 = load ptr, ptr %70, align 8
-  %108 = load ptr, ptr %69, align 8
-  %109 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %107, ptr noundef %108)
-  store ptr %109, ptr %69, align 8
-  %110 = call noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber25_internal_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %72)
-  %111 = load ptr, ptr %69, align 8
-  store i32 2, ptr %57, align 4
-  store i64 %110, ptr %58, align 8
-  store ptr %111, ptr %59, align 8
-  %112 = load i32, ptr %57, align 4
-  %113 = load ptr, ptr %59, align 8
-  store i32 %112, ptr %33, align 4
-  store i32 0, ptr %34, align 4
-  store ptr %113, ptr %35, align 8
-  %114 = load i32, ptr %33, align 4
-  %115 = load i32, ptr %34, align 4
-  %116 = call noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %114, i32 noundef %115)
-  %117 = load ptr, ptr %35, align 8
-  store i32 %116, ptr %17, align 4
-  store ptr %117, ptr %18, align 8
-  %118 = load i32, ptr %17, align 4
-  %119 = load ptr, ptr %18, align 8
-  %120 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %118, ptr noundef %119)
-  store ptr %120, ptr %59, align 8
-  %121 = load i64, ptr %58, align 8
-  %122 = load ptr, ptr %59, align 8
-  store i64 %121, ptr %11, align 8
-  store ptr %122, ptr %12, align 8
-  %123 = load i64, ptr %11, align 8
-  %124 = load ptr, ptr %12, align 8
-  %125 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh(i64 noundef %123, ptr noundef %124)
-  store ptr %125, ptr %69, align 8
-  br label %126
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %6, align 8, !tbaa !90
+  %28 = load ptr, ptr %5, align 8, !tbaa !17
+  %29 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %27, ptr noundef %28)
+  store ptr %29, ptr %5, align 8, !tbaa !17
+  %30 = call noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber25_internal_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  %31 = load ptr, ptr %5, align 8, !tbaa !17
+  %32 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite18WriteUInt64ToArrayEimPh(i32 noundef 2, i64 noundef %30, ptr noundef %31)
+  store ptr %32, ptr %5, align 8, !tbaa !17
+  br label %33
 
-126:                                              ; preds = %106, %102
-  %127 = load i32, ptr %71, align 4
-  %128 = and i32 %127, 1
-  %129 = icmp ne i32 %128, 0
-  br i1 %129, label %130, label %135
+33:                                               ; preds = %26, %22
+  %34 = load i32, ptr %7, align 4, !tbaa !8
+  %35 = and i32 %34, 1
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %37, label %42
 
-130:                                              ; preds = %126
-  %131 = load ptr, ptr %70, align 8
-  %132 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %72)
-  %133 = load ptr, ptr %69, align 8
-  %134 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %131, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef %133)
-  store ptr %134, ptr %69, align 8
-  br label %135
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %6, align 8, !tbaa !90
+  %39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  %40 = load ptr, ptr %5, align 8, !tbaa !17
+  %41 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %38, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef %40)
+  store ptr %41, ptr %5, align 8, !tbaa !17
+  br label %42
 
-135:                                              ; preds = %130, %126
-  %136 = load i32, ptr %71, align 4
-  %137 = and i32 %136, 32
-  %138 = icmp ne i32 %137, 0
-  br i1 %138, label %139, label %164
+42:                                               ; preds = %37, %33
+  %43 = load i32, ptr %7, align 4, !tbaa !8
+  %44 = and i32 %43, 32
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %53
 
-139:                                              ; preds = %135
-  %140 = load ptr, ptr %70, align 8
-  %141 = load ptr, ptr %69, align 8
-  %142 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %140, ptr noundef %141)
-  store ptr %142, ptr %69, align 8
-  %143 = call noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber30_internal_italian_leading_zeroEv(ptr noundef nonnull align 8 dereferenceable(72) %72)
-  %144 = load ptr, ptr %69, align 8
-  store i32 4, ptr %54, align 4
-  %145 = zext i1 %143 to i8
-  store i8 %145, ptr %55, align 1
-  store ptr %144, ptr %56, align 8
-  %146 = load i32, ptr %54, align 4
-  %147 = load ptr, ptr %56, align 8
-  store i32 %146, ptr %36, align 4
-  store i32 0, ptr %37, align 4
-  store ptr %147, ptr %38, align 8
-  %148 = load i32, ptr %36, align 4
-  %149 = load i32, ptr %37, align 4
-  %150 = call noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %148, i32 noundef %149)
-  %151 = load ptr, ptr %38, align 8
-  store i32 %150, ptr %15, align 4
-  store ptr %151, ptr %16, align 8
-  %152 = load i32, ptr %15, align 4
-  %153 = load ptr, ptr %16, align 8
-  %154 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %152, ptr noundef %153)
-  store ptr %154, ptr %56, align 8
-  %155 = load i8, ptr %55, align 1
-  %156 = trunc i8 %155 to i1
-  %157 = load ptr, ptr %56, align 8
-  %158 = zext i1 %156 to i8
-  store i8 %158, ptr %9, align 1
-  store ptr %157, ptr %10, align 8
-  %159 = load i8, ptr %9, align 1
-  %160 = trunc i8 %159 to i1
-  %161 = select i1 %160, i32 1, i32 0
-  %162 = load ptr, ptr %10, align 8
-  %163 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %161, ptr noundef %162)
-  store ptr %163, ptr %69, align 8
-  br label %164
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %6, align 8, !tbaa !90
+  %48 = load ptr, ptr %5, align 8, !tbaa !17
+  %49 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %47, ptr noundef %48)
+  store ptr %49, ptr %5, align 8, !tbaa !17
+  %50 = call noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber30_internal_italian_leading_zeroEv(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  %51 = load ptr, ptr %5, align 8, !tbaa !17
+  %52 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite16WriteBoolToArrayEibPh(i32 noundef 4, i1 noundef zeroext %50, ptr noundef %51)
+  store ptr %52, ptr %5, align 8, !tbaa !17
+  br label %53
 
-164:                                              ; preds = %139, %135
-  %165 = load i32, ptr %71, align 4
-  %166 = and i32 %165, 2
-  %167 = icmp ne i32 %166, 0
-  br i1 %167, label %168, label %173
+53:                                               ; preds = %46, %42
+  %54 = load i32, ptr %7, align 4, !tbaa !8
+  %55 = and i32 %54, 2
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %62
 
-168:                                              ; preds = %164
-  %169 = load ptr, ptr %70, align 8
-  %170 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %72)
-  %171 = load ptr, ptr %69, align 8
-  %172 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %169, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef %171)
-  store ptr %172, ptr %69, align 8
-  br label %173
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %6, align 8, !tbaa !90
+  %59 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  %60 = load ptr, ptr %5, align 8, !tbaa !17
+  %61 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %58, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef %60)
+  store ptr %61, ptr %5, align 8, !tbaa !17
+  br label %62
 
-173:                                              ; preds = %168, %164
-  %174 = load i32, ptr %71, align 4
-  %175 = and i32 %174, 64
-  %176 = icmp ne i32 %175, 0
-  br i1 %176, label %177, label %197
+62:                                               ; preds = %57, %53
+  %63 = load i32, ptr %7, align 4, !tbaa !8
+  %64 = and i32 %63, 64
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %73
 
-177:                                              ; preds = %173
-  %178 = load ptr, ptr %70, align 8
-  %179 = load ptr, ptr %69, align 8
-  %180 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %178, ptr noundef %179)
-  store ptr %180, ptr %69, align 8
-  %181 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber29_internal_country_code_sourceEv(ptr noundef nonnull align 8 dereferenceable(72) %72)
-  %182 = load ptr, ptr %69, align 8
-  store i32 6, ptr %51, align 4
-  store i32 %181, ptr %52, align 4
-  store ptr %182, ptr %53, align 8
-  %183 = load i32, ptr %51, align 4
-  %184 = load ptr, ptr %53, align 8
-  store i32 %183, ptr %39, align 4
-  store i32 0, ptr %40, align 4
-  store ptr %184, ptr %41, align 8
-  %185 = load i32, ptr %39, align 4
-  %186 = load i32, ptr %40, align 4
-  %187 = call noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %185, i32 noundef %186)
-  %188 = load ptr, ptr %41, align 8
-  store i32 %187, ptr %13, align 4
-  store ptr %188, ptr %14, align 8
-  %189 = load i32, ptr %13, align 4
-  %190 = load ptr, ptr %14, align 8
-  %191 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %189, ptr noundef %190)
-  store ptr %191, ptr %53, align 8
-  %192 = load i32, ptr %52, align 4
-  %193 = load ptr, ptr %53, align 8
-  store i32 %192, ptr %7, align 4
-  store ptr %193, ptr %8, align 8
-  %194 = load i32, ptr %7, align 4
-  %195 = load ptr, ptr %8, align 8
-  %196 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %194, ptr noundef %195)
-  store ptr %196, ptr %69, align 8
-  br label %197
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %6, align 8, !tbaa !90
+  %68 = load ptr, ptr %5, align 8, !tbaa !17
+  %69 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %67, ptr noundef %68)
+  store ptr %69, ptr %5, align 8, !tbaa !17
+  %70 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber29_internal_country_code_sourceEv(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  %71 = load ptr, ptr %5, align 8, !tbaa !17
+  %72 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite16WriteEnumToArrayEiiPh(i32 noundef 6, i32 noundef %70, ptr noundef %71)
+  store ptr %72, ptr %5, align 8, !tbaa !17
+  br label %73
 
-197:                                              ; preds = %177, %173
-  %198 = load i32, ptr %71, align 4
-  %199 = and i32 %198, 4
-  %200 = icmp ne i32 %199, 0
-  br i1 %200, label %201, label %206
+73:                                               ; preds = %66, %62
+  %74 = load i32, ptr %7, align 4, !tbaa !8
+  %75 = and i32 %74, 4
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %82
 
-201:                                              ; preds = %197
-  %202 = load ptr, ptr %70, align 8
-  %203 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %72)
-  %204 = load ptr, ptr %69, align 8
-  %205 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %202, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(32) %203, ptr noundef %204)
-  store ptr %205, ptr %69, align 8
-  br label %206
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %6, align 8, !tbaa !90
+  %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  %80 = load ptr, ptr %5, align 8, !tbaa !17
+  %81 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %78, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef %80)
+  store ptr %81, ptr %5, align 8, !tbaa !17
+  br label %82
 
-206:                                              ; preds = %201, %197
-  %207 = load i32, ptr %71, align 4
-  %208 = and i32 %207, 128
-  %209 = icmp ne i32 %208, 0
-  br i1 %209, label %210, label %230
+82:                                               ; preds = %77, %73
+  %83 = load i32, ptr %7, align 4, !tbaa !8
+  %84 = and i32 %83, 128
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %93
 
-210:                                              ; preds = %206
-  %211 = load ptr, ptr %70, align 8
-  %212 = load ptr, ptr %69, align 8
-  %213 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %211, ptr noundef %212)
-  store ptr %213, ptr %69, align 8
-  %214 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber33_internal_number_of_leading_zerosEv(ptr noundef nonnull align 8 dereferenceable(72) %72)
-  %215 = load ptr, ptr %69, align 8
-  store i32 8, ptr %63, align 4
-  store i32 %214, ptr %64, align 4
-  store ptr %215, ptr %65, align 8
-  %216 = load i32, ptr %63, align 4
-  %217 = load ptr, ptr %65, align 8
-  store i32 %216, ptr %27, align 4
-  store i32 0, ptr %28, align 4
-  store ptr %217, ptr %29, align 8
-  %218 = load i32, ptr %27, align 4
-  %219 = load i32, ptr %28, align 4
-  %220 = call noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %218, i32 noundef %219)
-  %221 = load ptr, ptr %29, align 8
-  store i32 %220, ptr %21, align 4
-  store ptr %221, ptr %22, align 8
-  %222 = load i32, ptr %21, align 4
-  %223 = load ptr, ptr %22, align 8
-  %224 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %222, ptr noundef %223)
-  store ptr %224, ptr %65, align 8
-  %225 = load i32, ptr %64, align 4
-  %226 = load ptr, ptr %65, align 8
-  store i32 %225, ptr %23, align 4
-  store ptr %226, ptr %24, align 8
-  %227 = load i32, ptr %23, align 4
-  %228 = load ptr, ptr %24, align 8
-  %229 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %227, ptr noundef %228)
-  store ptr %229, ptr %69, align 8
-  br label %230
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %6, align 8, !tbaa !90
+  %88 = load ptr, ptr %5, align 8, !tbaa !17
+  %89 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh(ptr noundef nonnull align 8 dereferenceable(59) %87, ptr noundef %88)
+  store ptr %89, ptr %5, align 8, !tbaa !17
+  %90 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber33_internal_number_of_leading_zerosEv(ptr noundef nonnull align 8 dereferenceable(72) %8)
+  %91 = load ptr, ptr %5, align 8, !tbaa !17
+  %92 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite17WriteInt32ToArrayEiiPh(i32 noundef 8, i32 noundef %90, ptr noundef %91)
+  store ptr %92, ptr %5, align 8, !tbaa !17
+  br label %93
 
-230:                                              ; preds = %210, %206
-  %231 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %72, i32 0, i32 1
-  store ptr %231, ptr %50, align 8
-  %232 = load ptr, ptr %50, align 8
-  store ptr %232, ptr %4, align 8
-  %233 = load ptr, ptr %4, align 8
-  %234 = load ptr, ptr %233, align 8
-  %235 = ptrtoint ptr %234 to i64
-  %236 = and i64 %235, 1
-  %237 = trunc i64 %236 to i32
-  %238 = icmp eq i32 %237, 1
-  br i1 %238, label %239, label %280
+93:                                               ; preds = %86, %82
+  %94 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %8, i32 0, i32 1
+  %95 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %94)
+  %96 = zext i1 %95 to i64
+  %97 = call i64 @llvm.expect.i64(i64 %96, i64 0)
+  %98 = icmp ne i64 %97, 0
+  br i1 %98, label %99, label %110
 
-239:                                              ; preds = %230
-  %240 = load ptr, ptr %70, align 8
-  %241 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %72, i32 0, i32 1
-  store ptr %241, ptr %44, align 8
-  store ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev, ptr %45, align 8
-  %242 = load ptr, ptr %44, align 8
-  store ptr %242, ptr %42, align 8
-  %243 = load ptr, ptr %42, align 8
-  store ptr %243, ptr %6, align 8
-  %244 = load ptr, ptr %6, align 8
-  %245 = load ptr, ptr %244, align 8
-  %246 = ptrtoint ptr %245 to i64
-  %247 = and i64 %246, 1
-  %248 = trunc i64 %247 to i32
-  %249 = icmp eq i32 %248, 1
-  br i1 %249, label %250, label %253
+99:                                               ; preds = %93
+  %100 = load ptr, ptr %6, align 8, !tbaa !90
+  %101 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %8, i32 0, i32 1
+  %102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev)
+  %103 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %102) #3
+  %104 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %8, i32 0, i32 1
+  %105 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev)
+  %106 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %105) #3
+  %107 = trunc i64 %106 to i32
+  %108 = load ptr, ptr %5, align 8, !tbaa !17
+  %109 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %100, ptr noundef %103, i32 noundef %107, ptr noundef %108)
+  store ptr %109, ptr %5, align 8, !tbaa !17
+  br label %110
 
-250:                                              ; preds = %239
-  %251 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %242)
-  %252 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %251, i32 0, i32 1
-  store ptr %252, ptr %43, align 8
-  br label %256
+110:                                              ; preds = %99, %93
+  %111 = load ptr, ptr %5, align 8, !tbaa !17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  ret ptr %111
+}
 
-253:                                              ; preds = %239
-  %254 = load ptr, ptr %45, align 8
-  %255 = call noundef nonnull align 8 dereferenceable(32) ptr %254()
-  store ptr %255, ptr %43, align 8
-  br label %256
-
-256:                                              ; preds = %253, %250
-  %257 = load ptr, ptr %43, align 8
-  %258 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %257) #3
-  %259 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %72, i32 0, i32 1
-  store ptr %259, ptr %48, align 8
-  store ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev, ptr %49, align 8
-  %260 = load ptr, ptr %48, align 8
-  store ptr %260, ptr %46, align 8
-  %261 = load ptr, ptr %46, align 8
-  store ptr %261, ptr %5, align 8
-  %262 = load ptr, ptr %5, align 8
-  %263 = load ptr, ptr %262, align 8
-  %264 = ptrtoint ptr %263 to i64
-  %265 = and i64 %264, 1
-  %266 = trunc i64 %265 to i32
-  %267 = icmp eq i32 %266, 1
-  br i1 %267, label %268, label %271
-
-268:                                              ; preds = %256
-  %269 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %260)
-  %270 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %269, i32 0, i32 1
-  store ptr %270, ptr %47, align 8
-  br label %274
-
-271:                                              ; preds = %256
-  %272 = load ptr, ptr %49, align 8
-  %273 = call noundef nonnull align 8 dereferenceable(32) ptr %272()
-  store ptr %273, ptr %47, align 8
-  br label %274
-
-274:                                              ; preds = %271, %268
-  %275 = load ptr, ptr %47, align 8
-  %276 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %275) #3
-  %277 = trunc i64 %276 to i32
-  %278 = load ptr, ptr %69, align 8
-  %279 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %240, ptr noundef %258, i32 noundef %277, ptr noundef %278)
-  store ptr %279, ptr %69, align 8
-  br label %280
-
-280:                                              ; preds = %274, %230
-  %281 = load ptr, ptr %69, align 8
-  ret ptr %281
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #13 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::internal::HasBits", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2872,236 +2684,254 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io19EpsCopyOutput
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !90
+  store ptr %1, ptr %5, align 8, !tbaa !17
   %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %6, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %7 = load ptr, ptr %5, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::io::EpsCopyOutputStream", ptr %6, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !92
   %10 = icmp uge ptr %7, %9
-  br i1 %10, label %11, label %14
-
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
-  %13 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %6, ptr noundef %12)
-  store ptr %13, ptr %3, align 8
-  br label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %3, align 8
-  br label %16
+  %15 = load ptr, ptr %5, align 8, !tbaa !17
+  %16 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59) %6, ptr noundef %15)
+  store ptr %16, ptr %3, align 8
+  br label %19
 
-16:                                               ; preds = %14, %11
-  %17 = load ptr, ptr %3, align 8
-  ret ptr %17
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %18, ptr %3, align 8
+  br label %19
+
+19:                                               ; preds = %17, %14
+  %20 = load ptr, ptr %3, align 8
+  ret ptr %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber22_internal_country_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14WireFormatLite17WriteInt32ToArrayEiiPh(i32 noundef %0, i32 noundef %1, ptr noundef %2) #8 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = load ptr, ptr %6, align 8, !tbaa !17
+  %9 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite15WriteTagToArrayEiNS2_8WireTypeEPh(i32 noundef %7, i32 noundef 0, ptr noundef %8)
+  store ptr %9, ptr %6, align 8, !tbaa !17
+  %10 = load i32, ptr %5, align 4, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !17
+  %12 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite22WriteInt32NoTagToArrayEiPh(i32 noundef %10, ptr noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber22_internal_country_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 7
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 7
+  %5 = load i32, ptr %4, align 8, !tbaa !66
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber25_internal_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14WireFormatLite18WriteUInt64ToArrayEimPh(i32 noundef %0, i64 noundef %1, ptr noundef %2) #8 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !18
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = load ptr, ptr %6, align 8, !tbaa !17
+  %9 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite15WriteTagToArrayEiNS2_8WireTypeEPh(i32 noundef %7, i32 noundef 0, ptr noundef %8)
+  store ptr %9, ptr %6, align 8, !tbaa !17
+  %10 = load i64, ptr %5, align 8, !tbaa !18
+  %11 = load ptr, ptr %6, align 8, !tbaa !17
+  %12 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite23WriteUInt64NoTagToArrayEmPh(i64 noundef %10, ptr noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber25_internal_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 6
-  %5 = load i64, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 6
+  %5 = load i64, ptr %4, align 8, !tbaa !68
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) #4 comdat align 2 {
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca i64, align 8
-  store ptr %0, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store ptr %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  %14 = load ptr, ptr %9, align 8
-  %15 = load ptr, ptr %11, align 8
-  %16 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
-  store i64 %16, ptr %13, align 8
-  %17 = load i64, ptr %13, align 8
-  %18 = icmp sge i64 %17, 128
-  br i1 %18, label %35, label %19
+  %10 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !90
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !28
+  store ptr %3, ptr %9, align 8, !tbaa !17
+  %12 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  %13 = load ptr, ptr %8, align 8, !tbaa !28
+  %14 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  store i64 %14, ptr %10, align 8, !tbaa !18
+  %15 = load i64, ptr %10, align 8, !tbaa !18
+  %16 = icmp sge i64 %15, 128
+  br i1 %16, label %33, label %17
 
-19:                                               ; preds = %4
-  %20 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %14, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %12, align 8
-  %23 = ptrtoint ptr %21 to i64
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  %26 = add nsw i64 %25, 16
-  %27 = load i32, ptr %10, align 4
-  %28 = shl i32 %27, 3
-  %29 = call noundef i32 @_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj(i32 noundef %28)
-  %30 = sext i32 %29 to i64
-  %31 = sub nsw i64 %26, %30
-  %32 = sub nsw i64 %31, 1
-  %33 = load i64, ptr %13, align 8
-  %34 = icmp slt i64 %32, %33
-  br label %35
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds nuw %"class.google::protobuf::io::EpsCopyOutputStream", ptr %12, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !92
+  %20 = load ptr, ptr %9, align 8, !tbaa !17
+  %21 = ptrtoint ptr %19 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  %24 = add nsw i64 %23, 16
+  %25 = load i32, ptr %7, align 4, !tbaa !8
+  %26 = shl i32 %25, 3
+  %27 = call noundef i32 @_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj(i32 noundef %26)
+  %28 = sext i32 %27 to i64
+  %29 = sub nsw i64 %24, %28
+  %30 = sub nsw i64 %29, 1
+  %31 = load i64, ptr %10, align 8, !tbaa !18
+  %32 = icmp slt i64 %30, %31
+  br label %33
 
-35:                                               ; preds = %19, %4
-  %36 = phi i1 [ true, %4 ], [ %34, %19 ]
-  br i1 %36, label %37, label %42
+33:                                               ; preds = %17, %4
+  %34 = phi i1 [ true, %4 ], [ %32, %17 ]
+  %35 = zext i1 %34 to i64
+  %36 = call i64 @llvm.expect.i64(i64 %35, i64 0)
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %43
 
-37:                                               ; preds = %35
-  %38 = load i32, ptr %10, align 4
-  %39 = load ptr, ptr %11, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMaybeAliasedOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %14, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef %40)
-  store ptr %41, ptr %8, align 8
-  br label %104
+38:                                               ; preds = %33
+  %39 = load i32, ptr %7, align 4, !tbaa !8
+  %40 = load ptr, ptr %8, align 8, !tbaa !28
+  %41 = load ptr, ptr %9, align 8, !tbaa !17
+  %42 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMaybeAliasedOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59) %12, i32 noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef %41)
+  store ptr %42, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %60
 
-42:                                               ; preds = %35
-  %43 = load i32, ptr %10, align 4
-  %44 = shl i32 %43, 3
-  %45 = or i32 %44, 2
-  %46 = load ptr, ptr %12, align 8
-  store i32 %45, ptr %6, align 4
-  store ptr %46, ptr %7, align 8
-  %47 = load i32, ptr %6, align 4
-  %48 = icmp ult i32 %47, 128
-  br i1 %48, label %49, label %55
+43:                                               ; preds = %33
+  %44 = load i32, ptr %7, align 4, !tbaa !8
+  %45 = shl i32 %44, 3
+  %46 = or i32 %45, 2
+  %47 = load ptr, ptr %9, align 8, !tbaa !17
+  %48 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_(i32 noundef %46, ptr noundef %47)
+  store ptr %48, ptr %9, align 8, !tbaa !17
+  %49 = load i64, ptr %10, align 8, !tbaa !18
+  %50 = trunc i64 %49 to i8
+  %51 = load ptr, ptr %9, align 8, !tbaa !17
+  %52 = getelementptr inbounds nuw i8, ptr %51, i32 1
+  store ptr %52, ptr %9, align 8, !tbaa !17
+  store i8 %50, ptr %51, align 1, !tbaa !54
+  %53 = load ptr, ptr %9, align 8, !tbaa !17
+  %54 = load ptr, ptr %8, align 8, !tbaa !28
+  %55 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #3
+  %56 = load i64, ptr %10, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %55, i64 %56, i1 false)
+  %57 = load ptr, ptr %9, align 8, !tbaa !17
+  %58 = load i64, ptr %10, align 8, !tbaa !18
+  %59 = getelementptr inbounds i8, ptr %57, i64 %58
+  store ptr %59, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %60
 
-49:                                               ; preds = %42
-  %50 = load i32, ptr %6, align 4
-  %51 = trunc i32 %50 to i8
-  %52 = load ptr, ptr %7, align 8
-  store i8 %51, ptr %52, align 1
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
-  store ptr %54, ptr %5, align 8
-  br label %91
-
-55:                                               ; preds = %42
-  %56 = load i32, ptr %6, align 4
-  %57 = or i32 %56, 128
-  %58 = trunc i32 %57 to i8
-  %59 = load ptr, ptr %7, align 8
-  store i8 %58, ptr %59, align 1
-  %60 = load i32, ptr %6, align 4
-  %61 = lshr i32 %60, 7
-  store i32 %61, ptr %6, align 4
-  %62 = load i32, ptr %6, align 4
-  %63 = icmp ult i32 %62, 128
-  br i1 %63, label %64, label %71
-
-64:                                               ; preds = %55
-  %65 = load i32, ptr %6, align 4
-  %66 = trunc i32 %65 to i8
-  %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1
-  store i8 %66, ptr %68, align 1
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 2
-  store ptr %70, ptr %5, align 8
-  br label %91
-
-71:                                               ; preds = %55
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i32 1
-  store ptr %73, ptr %7, align 8
-  br label %74
-
-74:                                               ; preds = %74, %71
-  %75 = load i32, ptr %6, align 4
-  %76 = or i32 %75, 128
-  %77 = trunc i32 %76 to i8
-  %78 = load ptr, ptr %7, align 8
-  store i8 %77, ptr %78, align 1
-  %79 = load i32, ptr %6, align 4
-  %80 = lshr i32 %79, 7
-  store i32 %80, ptr %6, align 4
-  %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i32 1
-  store ptr %82, ptr %7, align 8
-  %83 = load i32, ptr %6, align 4
-  %84 = icmp uge i32 %83, 128
-  br i1 %84, label %74, label %85, !llvm.loop !10
-
-85:                                               ; preds = %74
-  %86 = load i32, ptr %6, align 4
-  %87 = trunc i32 %86 to i8
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i32 1
-  store ptr %89, ptr %7, align 8
-  store i8 %87, ptr %88, align 1
-  %90 = load ptr, ptr %7, align 8
-  store ptr %90, ptr %5, align 8
-  br label %91
-
-91:                                               ; preds = %85, %64, %49
-  %92 = load ptr, ptr %5, align 8
-  store ptr %92, ptr %12, align 8
-  %93 = load i64, ptr %13, align 8
-  %94 = trunc i64 %93 to i8
-  %95 = load ptr, ptr %12, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i32 1
-  store ptr %96, ptr %12, align 8
-  store i8 %94, ptr %95, align 1
-  %97 = load ptr, ptr %12, align 8
-  %98 = load ptr, ptr %11, align 8
-  %99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %98) #3
-  %100 = load i64, ptr %13, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %97, ptr align 1 %99, i64 %100, i1 false)
-  %101 = load ptr, ptr %12, align 8
-  %102 = load i64, ptr %13, align 8
-  %103 = getelementptr inbounds i8, ptr %101, i64 %102
-  store ptr %103, ptr %8, align 8
-  br label %104
-
-104:                                              ; preds = %91, %37
-  %105 = load ptr, ptr %8, align 8
-  ret ptr %105
+60:                                               ; preds = %43, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  %61 = load ptr, ptr %5, align 8
+  ret ptr %61
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber30_internal_italian_leading_zeroEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14WireFormatLite16WriteBoolToArrayEibPh(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2) #8 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !8
+  %7 = zext i1 %1 to i8
+  store i8 %7, ptr %5, align 1, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %8 = load i32, ptr %4, align 4, !tbaa !8
+  %9 = load ptr, ptr %6, align 8, !tbaa !17
+  %10 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite15WriteTagToArrayEiNS2_8WireTypeEPh(i32 noundef %8, i32 noundef 0, ptr noundef %9)
+  store ptr %10, ptr %6, align 8, !tbaa !17
+  %11 = load i8, ptr %5, align 1, !tbaa !24, !range !30, !noundef !31
+  %12 = trunc i8 %11 to i1
+  %13 = load ptr, ptr %6, align 8, !tbaa !17
+  %14 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite21WriteBoolNoTagToArrayEbPh(i1 noundef zeroext %12, ptr noundef %13)
+  ret ptr %14
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber30_internal_italian_leading_zeroEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 8
-  %5 = load i8, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 8
+  %5 = load i8, ptr %4, align 4, !tbaa !69, !range !30, !noundef !31
   %6 = trunc i8 %5 to i1
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber29_internal_country_code_sourceEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14WireFormatLite16WriteEnumToArrayEiiPh(i32 noundef %0, i32 noundef %1, ptr noundef %2) #8 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = load ptr, ptr %6, align 8, !tbaa !17
+  %9 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite15WriteTagToArrayEiNS2_8WireTypeEPh(i32 noundef %7, i32 noundef 0, ptr noundef %8)
+  store ptr %9, ptr %6, align 8, !tbaa !17
+  %10 = load i32, ptr %5, align 4, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !17
+  %12 = call noundef ptr @_ZN6google8protobuf8internal14WireFormatLite21WriteEnumNoTagToArrayEiPh(i32 noundef %10, ptr noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber29_internal_country_code_sourceEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 9
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 9
+  %5 = load i32, ptr %4, align 8, !tbaa !85
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber33_internal_number_of_leading_zerosEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber33_internal_number_of_leading_zerosEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 10
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 10
+  %5 = load i32, ptr %4, align 4, !tbaa !44
   ret i32 %5
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK6google8protobuf8internal16InternalMetadata6PtrTagEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %5 = icmp eq i32 %4, 1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3111,61 +2941,109 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io19EpsCopyOutput
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !90
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store i32 %2, ptr %8, align 4, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !17
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %"class.google::protobuf::io::EpsCopyOutputStream", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !92
+  %13 = load ptr, ptr %9, align 8, !tbaa !17
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
-  %17 = load i32, ptr %8, align 4
+  %17 = load i32, ptr %8, align 4, !tbaa !8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %16, %18
-  br i1 %19, label %20, label %25
+  %20 = zext i1 %19 to i64
+  %21 = call i64 @llvm.expect.i64(i64 %20, i64 0)
+  %22 = icmp ne i64 %21, 0
+  br i1 %22, label %23, label %28
 
-20:                                               ; preds = %4
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr %8, align 4
-  %23 = load ptr, ptr %9, align 8
-  %24 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %10, ptr noundef %21, i32 noundef %22, ptr noundef %23)
-  store ptr %24, ptr %5, align 8
-  br label %34
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %7, align 8, !tbaa !4
+  %25 = load i32, ptr %8, align 4, !tbaa !8
+  %26 = load ptr, ptr %9, align 8, !tbaa !17
+  %27 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(59) %10, ptr noundef %24, i32 noundef %25, ptr noundef %26)
+  store ptr %27, ptr %5, align 8
+  br label %37
 
-25:                                               ; preds = %4
-  %26 = load ptr, ptr %9, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = load i32, ptr %8, align 4
-  %29 = sext i32 %28 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %27, i64 %29, i1 false)
-  %30 = load ptr, ptr %9, align 8
-  %31 = load i32, ptr %8, align 4
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %9, align 8, !tbaa !17
+  %30 = load ptr, ptr %7, align 8, !tbaa !4
+  %31 = load i32, ptr %8, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %30, i64 %32
-  store ptr %33, ptr %5, align 8
-  br label %34
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %30, i64 %32, i1 false)
+  %33 = load ptr, ptr %9, align 8, !tbaa !17
+  %34 = load i32, ptr %8, align 4, !tbaa !8
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i8, ptr %33, i64 %35
+  store ptr %36, ptr %5, align 8
+  br label %37
 
-34:                                               ; preds = %25, %20
-  %35 = load ptr, ptr %5, align 8
-  ret ptr %35
+37:                                               ; preds = %28, %23
+  %38 = load ptr, ptr %5, align 8
+  ret ptr %38
 }
 
-; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !55
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %8 = zext i1 %7 to i64
+  %9 = call i64 @llvm.expect.i64(i64 %8, i64 0)
+  %10 = icmp ne i64 %9, 0
+  br i1 %10, label %11, label %14
 
-; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+11:                                               ; preds = %2
+  %12 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %13 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %12, i32 0, i32 1
+  store ptr %13, ptr %3, align 8
+  br label %17
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = call noundef nonnull align 8 dereferenceable(32) ptr %15()
+  store ptr %16, ptr %3, align 8
+  br label %17
+
+17:                                               ; preds = %14, %11
+  %18 = load ptr, ptr %3, align 8
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !95
+  ret i64 %5
+}
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %4 = load ptr, ptr %2, align 8
-  store i64 0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  store i64 0, ptr %3, align 8, !tbaa !18
   %5 = call noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber29_internal_has_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
   br i1 %5, label %6, label %12
 
@@ -3173,9 +3051,9 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFiel
   %7 = call noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber25_internal_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
   %8 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64SizeEm(i64 noundef %7)
   %9 = add i64 1, %8
-  %10 = load i64, ptr %3, align 8
+  %10 = load i64, ptr %3, align 8, !tbaa !18
   %11 = add i64 %10, %9
-  store i64 %11, ptr %3, align 8
+  store i64 %11, ptr %3, align 8, !tbaa !18
   br label %12
 
 12:                                               ; preds = %6, %1
@@ -3186,80 +3064,71 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFiel
   %15 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber22_internal_country_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
   %16 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %15)
   %17 = add i64 1, %16
-  %18 = load i64, ptr %3, align 8
+  %18 = load i64, ptr %3, align 8, !tbaa !18
   %19 = add i64 %18, %17
-  store i64 %19, ptr %3, align 8
+  store i64 %19, ptr %3, align 8, !tbaa !18
   br label %20
 
 20:                                               ; preds = %14, %12
-  %21 = load i64, ptr %3, align 8
+  %21 = load i64, ptr %3, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret i64 %21
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber29_internal_has_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber29_internal_has_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %6, i32 0, i32 1
-  store ptr %7, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = load i32, ptr %3, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 8
-  %14 = icmp ne i32 %13, 0
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %5, align 1
-  %16 = load i8, ptr %5, align 1
-  %17 = trunc i8 %16 to i1
-  ret i1 %17
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  %5 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 1
+  %6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  %8 = and i32 %7, 8
+  %9 = icmp ne i32 %8, 0
+  %10 = zext i1 %9 to i8
+  store i8 %10, ptr %3, align 1, !tbaa !24
+  %11 = load i8, ptr %3, align 1, !tbaa !24, !range !30, !noundef !31
+  %12 = trunc i8 %11 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
+  ret i1 %12
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64SizeEm(i64 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64SizeEm(i64 noundef %0) #7 comdat align 2 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !18
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = call noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %3)
   ret i64 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber26_internal_has_country_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber26_internal_has_country_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i8, align 1
-  store ptr %0, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %6, i32 0, i32 1
-  store ptr %7, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = load i32, ptr %3, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %10
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 16
-  %14 = icmp ne i32 %13, 0
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %5, align 1
-  %16 = load i8, ptr %5, align 1
-  %17 = trunc i8 %16 to i1
-  ret i1 %17
+  %3 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  %5 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 1
+  %6 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0)
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  %8 = and i32 %7, 16
+  %9 = icmp ne i32 %8, 0
+  %10 = zext i1 %9 to i8
+  store i8 %10, ptr %3, align 1, !tbaa !24
+  %11 = load i8, ptr %3, align 1, !tbaa !24, !range !30, !noundef !31
+  %12 = trunc i8 %11 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
+  ret i1 %12
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %0) #7 comdat align 2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
   %4 = call noundef i64 @_ZN6google8protobuf2io17CodedOutputStream24VarintSize32SignExtendedEi(i32 noundef %3)
   ret i64 %4
 }
@@ -3267,256 +3136,209 @@ define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFor
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca ptr, align 8
-  %14 = alloca i64, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca i32, align 4
-  store ptr %0, ptr %13, align 8
-  %17 = load ptr, ptr %13, align 8
-  store i64 0, ptr %14, align 8
-  %18 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %17, i32 0, i32 1
-  store ptr %18, ptr %9, align 8
-  store i32 0, ptr %10, align 4
-  %19 = load ptr, ptr %9, align 8
-  %20 = load i32, ptr %10, align 4
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [1 x i32], ptr %19, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, 24
-  %25 = xor i32 %24, 24
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %38
+  %3 = alloca i64, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !32
+  %6 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  store i64 0, ptr %3, align 8, !tbaa !18
+  %7 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %6, i32 0, i32 1
+  %8 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0)
+  %9 = load i32, ptr %8, align 4, !tbaa !8
+  %10 = and i32 %9, 24
+  %11 = xor i32 %10, 24
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %24
 
-27:                                               ; preds = %1
-  %28 = call noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber25_internal_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %17)
-  %29 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64SizeEm(i64 noundef %28)
-  %30 = add i64 1, %29
-  %31 = load i64, ptr %14, align 8
-  %32 = add i64 %31, %30
-  store i64 %32, ptr %14, align 8
-  %33 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber22_internal_country_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %17)
-  %34 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %33)
-  %35 = add i64 1, %34
-  %36 = load i64, ptr %14, align 8
-  %37 = add i64 %36, %35
-  store i64 %37, ptr %14, align 8
-  br label %42
+13:                                               ; preds = %1
+  %14 = call noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber25_internal_national_numberEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %15 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt64SizeEm(i64 noundef %14)
+  %16 = add i64 1, %15
+  %17 = load i64, ptr %3, align 8, !tbaa !18
+  %18 = add i64 %17, %16
+  store i64 %18, ptr %3, align 8, !tbaa !18
+  %19 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber22_internal_country_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %20 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %19)
+  %21 = add i64 1, %20
+  %22 = load i64, ptr %3, align 8, !tbaa !18
+  %23 = add i64 %22, %21
+  store i64 %23, ptr %3, align 8, !tbaa !18
+  br label %28
 
-38:                                               ; preds = %1
-  %39 = call noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull align 8 dereferenceable(72) %17)
-  %40 = load i64, ptr %14, align 8
-  %41 = add i64 %40, %39
-  store i64 %41, ptr %14, align 8
-  br label %42
+24:                                               ; preds = %1
+  %25 = call noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %26 = load i64, ptr %3, align 8, !tbaa !18
+  %27 = add i64 %26, %25
+  store i64 %27, ptr %3, align 8, !tbaa !18
+  br label %28
 
-42:                                               ; preds = %38, %27
-  store i32 0, ptr %15, align 4
-  %43 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %17, i32 0, i32 1
-  store ptr %43, ptr %11, align 8
-  store i32 0, ptr %12, align 4
-  %44 = load ptr, ptr %11, align 8
-  %45 = load i32, ptr %12, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [1 x i32], ptr %44, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4
-  store i32 %48, ptr %15, align 4
-  %49 = load i32, ptr %15, align 4
-  %50 = and i32 %49, 7
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %83
+28:                                               ; preds = %24, %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  store i32 0, ptr %4, align 4, !tbaa !8
+  %29 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %6, i32 0, i32 1
+  %30 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %29, i32 noundef 0)
+  %31 = load i32, ptr %30, align 4, !tbaa !8
+  store i32 %31, ptr %4, align 4, !tbaa !8
+  %32 = load i32, ptr %4, align 4, !tbaa !8
+  %33 = and i32 %32, 7
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %66
 
-52:                                               ; preds = %42
-  %53 = load i32, ptr %15, align 4
-  %54 = and i32 %53, 1
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %56, label %62
+35:                                               ; preds = %28
+  %36 = load i32, ptr %4, align 4, !tbaa !8
+  %37 = and i32 %36, 1
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %45
 
-56:                                               ; preds = %52
-  %57 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %17)
-  %58 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %57)
-  %59 = add i64 1, %58
-  %60 = load i64, ptr %14, align 8
-  %61 = add i64 %60, %59
-  store i64 %61, ptr %14, align 8
-  br label %62
+39:                                               ; preds = %35
+  %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %41 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %40)
+  %42 = add i64 1, %41
+  %43 = load i64, ptr %3, align 8, !tbaa !18
+  %44 = add i64 %43, %42
+  store i64 %44, ptr %3, align 8, !tbaa !18
+  br label %45
 
-62:                                               ; preds = %56, %52
-  %63 = load i32, ptr %15, align 4
-  %64 = and i32 %63, 2
-  %65 = icmp ne i32 %64, 0
-  br i1 %65, label %66, label %72
+45:                                               ; preds = %39, %35
+  %46 = load i32, ptr %4, align 4, !tbaa !8
+  %47 = and i32 %46, 2
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %55
 
-66:                                               ; preds = %62
-  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %17)
-  %68 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %67)
-  %69 = add i64 1, %68
-  %70 = load i64, ptr %14, align 8
-  %71 = add i64 %70, %69
-  store i64 %71, ptr %14, align 8
-  br label %72
+49:                                               ; preds = %45
+  %50 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %51 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %50)
+  %52 = add i64 1, %51
+  %53 = load i64, ptr %3, align 8, !tbaa !18
+  %54 = add i64 %53, %52
+  store i64 %54, ptr %3, align 8, !tbaa !18
+  br label %55
 
-72:                                               ; preds = %66, %62
-  %73 = load i32, ptr %15, align 4
-  %74 = and i32 %73, 4
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %82
+55:                                               ; preds = %49, %45
+  %56 = load i32, ptr %4, align 4, !tbaa !8
+  %57 = and i32 %56, 4
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %65
 
-76:                                               ; preds = %72
-  %77 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %17)
-  %78 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %77)
-  %79 = add i64 1, %78
-  %80 = load i64, ptr %14, align 8
-  %81 = add i64 %80, %79
-  store i64 %81, ptr %14, align 8
-  br label %82
+59:                                               ; preds = %55
+  %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %61 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %60)
+  %62 = add i64 1, %61
+  %63 = load i64, ptr %3, align 8, !tbaa !18
+  %64 = add i64 %63, %62
+  store i64 %64, ptr %3, align 8, !tbaa !18
+  br label %65
 
-82:                                               ; preds = %76, %72
-  br label %83
+65:                                               ; preds = %59, %55
+  br label %66
 
-83:                                               ; preds = %82, %42
-  %84 = load i32, ptr %15, align 4
-  %85 = and i32 %84, 224
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %115
+66:                                               ; preds = %65, %28
+  %67 = load i32, ptr %4, align 4, !tbaa !8
+  %68 = and i32 %67, 224
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %98
 
-87:                                               ; preds = %83
-  %88 = load i32, ptr %15, align 4
-  %89 = and i32 %88, 32
+70:                                               ; preds = %66
+  %71 = load i32, ptr %4, align 4, !tbaa !8
+  %72 = and i32 %71, 32
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %77
+
+74:                                               ; preds = %70
+  %75 = load i64, ptr %3, align 8, !tbaa !18
+  %76 = add i64 %75, 2
+  store i64 %76, ptr %3, align 8, !tbaa !18
+  br label %77
+
+77:                                               ; preds = %74, %70
+  %78 = load i32, ptr %4, align 4, !tbaa !8
+  %79 = and i32 %78, 64
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %87
+
+81:                                               ; preds = %77
+  %82 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber29_internal_country_code_sourceEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %83 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi(i32 noundef %82)
+  %84 = add i64 1, %83
+  %85 = load i64, ptr %3, align 8, !tbaa !18
+  %86 = add i64 %85, %84
+  store i64 %86, ptr %3, align 8, !tbaa !18
+  br label %87
+
+87:                                               ; preds = %81, %77
+  %88 = load i32, ptr %4, align 4, !tbaa !8
+  %89 = and i32 %88, 128
   %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %94
+  br i1 %90, label %91, label %97
 
 91:                                               ; preds = %87
-  %92 = load i64, ptr %14, align 8
-  %93 = add i64 %92, 2
-  store i64 %93, ptr %14, align 8
-  br label %94
+  %92 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber33_internal_number_of_leading_zerosEv(ptr noundef nonnull align 8 dereferenceable(72) %6)
+  %93 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %92)
+  %94 = add i64 1, %93
+  %95 = load i64, ptr %3, align 8, !tbaa !18
+  %96 = add i64 %95, %94
+  store i64 %96, ptr %3, align 8, !tbaa !18
+  br label %97
 
-94:                                               ; preds = %91, %87
-  %95 = load i32, ptr %15, align 4
-  %96 = and i32 %95, 64
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %104
+97:                                               ; preds = %91, %87
+  br label %98
 
-98:                                               ; preds = %94
-  %99 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber29_internal_country_code_sourceEv(ptr noundef nonnull align 8 dereferenceable(72) %17)
-  %100 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi(i32 noundef %99)
-  %101 = add i64 1, %100
-  %102 = load i64, ptr %14, align 8
-  %103 = add i64 %102, %101
-  store i64 %103, ptr %14, align 8
-  br label %104
+98:                                               ; preds = %97, %66
+  %99 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %6, i32 0, i32 1
+  %100 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %99)
+  %101 = zext i1 %100 to i64
+  %102 = call i64 @llvm.expect.i64(i64 %101, i64 0)
+  %103 = icmp ne i64 %102, 0
+  br i1 %103, label %104, label %110
 
-104:                                              ; preds = %98, %94
-  %105 = load i32, ptr %15, align 4
-  %106 = and i32 %105, 128
-  %107 = icmp ne i32 %106, 0
-  br i1 %107, label %108, label %114
+104:                                              ; preds = %98
+  %105 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %6, i32 0, i32 1
+  %106 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev)
+  %107 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %106) #3
+  %108 = load i64, ptr %3, align 8, !tbaa !18
+  %109 = add i64 %108, %107
+  store i64 %109, ptr %3, align 8, !tbaa !18
+  br label %110
 
-108:                                              ; preds = %104
-  %109 = call noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber33_internal_number_of_leading_zerosEv(ptr noundef nonnull align 8 dereferenceable(72) %17)
-  %110 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi(i32 noundef %109)
-  %111 = add i64 1, %110
-  %112 = load i64, ptr %14, align 8
-  %113 = add i64 %112, %111
-  store i64 %113, ptr %14, align 8
-  br label %114
-
-114:                                              ; preds = %108, %104
-  br label %115
-
-115:                                              ; preds = %114, %83
-  %116 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %17, i32 0, i32 1
-  store ptr %116, ptr %8, align 8
-  %117 = load ptr, ptr %8, align 8
-  store ptr %117, ptr %2, align 8
-  %118 = load ptr, ptr %2, align 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = ptrtoint ptr %119 to i64
-  %121 = and i64 %120, 1
-  %122 = trunc i64 %121 to i32
-  %123 = icmp eq i32 %122, 1
-  br i1 %123, label %124, label %145
-
-124:                                              ; preds = %115
-  %125 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %17, i32 0, i32 1
-  store ptr %125, ptr %6, align 8
-  store ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev, ptr %7, align 8
-  %126 = load ptr, ptr %6, align 8
-  store ptr %126, ptr %4, align 8
-  %127 = load ptr, ptr %4, align 8
-  store ptr %127, ptr %3, align 8
-  %128 = load ptr, ptr %3, align 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = ptrtoint ptr %129 to i64
-  %131 = and i64 %130, 1
-  %132 = trunc i64 %131 to i32
-  %133 = icmp eq i32 %132, 1
-  br i1 %133, label %134, label %137
-
-134:                                              ; preds = %124
-  %135 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %126)
-  %136 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %135, i32 0, i32 1
-  store ptr %136, ptr %5, align 8
-  br label %140
-
-137:                                              ; preds = %124
-  %138 = load ptr, ptr %7, align 8
-  %139 = call noundef nonnull align 8 dereferenceable(32) ptr %138()
-  store ptr %139, ptr %5, align 8
-  br label %140
-
-140:                                              ; preds = %137, %134
-  %141 = load ptr, ptr %5, align 8
-  %142 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %141) #3
-  %143 = load i64, ptr %14, align 8
-  %144 = add i64 %143, %142
-  store i64 %144, ptr %14, align 8
-  br label %145
-
-145:                                              ; preds = %140, %115
-  %146 = load i64, ptr %14, align 8
-  %147 = call noundef i32 @_ZN6google8protobuf8internal12ToCachedSizeEm(i64 noundef %146)
-  store i32 %147, ptr %16, align 4
-  %148 = load i32, ptr %16, align 4
-  call void @_ZNK4i18n12phonenumbers11PhoneNumber13SetCachedSizeEi(ptr noundef nonnull align 8 dereferenceable(72) %17, i32 noundef %148)
-  %149 = load i64, ptr %14, align 8
-  ret i64 %149
+110:                                              ; preds = %104, %98
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %111 = load i64, ptr %3, align 8, !tbaa !18
+  %112 = call noundef i32 @_ZN6google8protobuf8internal12ToCachedSizeEm(i64 noundef %111)
+  store i32 %112, ptr %5, align 4, !tbaa !8
+  %113 = load i32, ptr %5, align 4, !tbaa !8
+  call void @_ZNK4i18n12phonenumbers11PhoneNumber13SetCachedSizeEi(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %113)
+  %114 = load i64, ptr %3, align 8, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret i64 %114
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   %5 = call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite19LengthDelimitedSizeEm(i64 noundef %4)
   ret i64 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi(i32 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi(i32 noundef %0) #7 comdat align 2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
   %4 = call noundef i64 @_ZN6google8protobuf2io17CodedOutputStream24VarintSize32SignExtendedEi(i32 noundef %3)
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf8internal12ToCachedSizeEm(i64 noundef %0) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf8internal12ToCachedSizeEm(i64 noundef %0) #9 comdat {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !18
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = trunc i64 %3 to i32
   ret i32 %4
 }
@@ -3525,10 +3347,10 @@ define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf8internal12ToCache
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber21CheckTypeAndMergeFromERKN6google8protobuf11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !38
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !38
   %7 = call noundef ptr @_ZN6google8protobuf8internal8DownCastIPKN4i18n12phonenumbers11PhoneNumberEKNS0_11MessageLiteEEET_PT0_(ptr noundef %6)
   call void @_ZN4i18n12phonenumbers11PhoneNumber9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %7)
   ret void
@@ -3538,290 +3360,256 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber21CheckTypeAndMergeFro
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
+  %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %6 = alloca i1, align 1
+  %7 = alloca i1, align 1
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca %"class.google::protobuf::internal::LogMessage", align 8
-  %19 = alloca i1, align 1
-  %20 = alloca ptr, align 8
-  %21 = alloca i32, align 4
-  %22 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %23 = alloca i32, align 4
-  store ptr %0, ptr %16, align 8
-  store ptr %1, ptr %17, align 8
-  %24 = load ptr, ptr %16, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %12 = load ptr, ptr %3, align 8
+  br label %13
+
+13:                                               ; preds = %28, %2
+  br i1 false, label %14, label %44
+
+14:                                               ; preds = %13
+  %15 = load ptr, ptr %4, align 8, !tbaa !32
+  %16 = icmp ne ptr %15, %12
+  store i1 false, ptr %6, align 1
+  store i1 false, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  br label %22
+
+18:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 56, ptr %5) #3
+  store i1 true, ptr %6, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef @.str, i32 noundef 512)
+  store i1 true, ptr %7, align 1
+  %19 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef @.str.2)
+          to label %20 unwind label %29
+
+20:                                               ; preds = %18
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(56) %19)
+          to label %21 unwind label %33
+
+21:                                               ; preds = %20
+  br label %22
+
+22:                                               ; preds = %21, %17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %23 = load i1, ptr %7, align 1
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %22
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
   br label %25
 
-25:                                               ; preds = %37, %2
-  br i1 false, label %26, label %45
+25:                                               ; preds = %24, %22
+  %26 = load i1, ptr %6, align 1
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %17, align 8
-  %28 = icmp ne ptr %27, %24
-  store i1 false, ptr %19, align 1
-  br i1 %28, label %29, label %30
+27:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %28
 
-29:                                               ; preds = %26
-  br label %34
+28:                                               ; preds = %27, %25
+  br label %13, !llvm.loop !98
 
-30:                                               ; preds = %26
-  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %18, i32 noundef 3, ptr noundef @.str, i32 noundef 512)
-  store i1 true, ptr %19, align 1
-  %31 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef @.str.2)
-          to label %32 unwind label %38
-
-32:                                               ; preds = %30
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(56) %31)
-          to label %33 unwind label %38
-
-33:                                               ; preds = %32
-  br label %34
-
-34:                                               ; preds = %33, %29
-  %35 = load i1, ptr %19, align 1
-  br i1 %35, label %36, label %37
-
-36:                                               ; preds = %34
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #3
+29:                                               ; preds = %18
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %8, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %9, align 4
   br label %37
 
-37:                                               ; preds = %36, %34
-  br label %25, !llvm.loop !11
-
-38:                                               ; preds = %32, %30
-  %39 = landingpad { ptr, i32 }
+33:                                               ; preds = %20
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %20, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %21, align 4
-  %42 = load i1, ptr %19, align 1
-  br i1 %42, label %43, label %44
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %8, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  br label %37
 
-43:                                               ; preds = %38
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #3
-  br label %44
+37:                                               ; preds = %33, %29
+  %38 = load i1, ptr %7, align 1
+  br i1 %38, label %39, label %40
 
-44:                                               ; preds = %43, %38
-  br label %165
+39:                                               ; preds = %37
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #3
+  br label %40
 
-45:                                               ; preds = %25
-  %46 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %24, i32 0, i32 1
-  %47 = load ptr, ptr %17, align 8
-  %48 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %47, i32 0, i32 1
-  store ptr %46, ptr %14, align 8
-  store ptr %48, ptr %15, align 8
-  %49 = load ptr, ptr %14, align 8
-  %50 = load ptr, ptr %15, align 8
-  store ptr %50, ptr %9, align 8
-  %51 = load ptr, ptr %9, align 8
-  store ptr %51, ptr %3, align 8
-  %52 = load ptr, ptr %3, align 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %55 = and i64 %54, 1
-  %56 = trunc i64 %55 to i32
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %76
+40:                                               ; preds = %39, %37
+  %41 = load i1, ptr %6, align 1
+  br i1 %41, label %42, label %43
 
-58:                                               ; preds = %45
-  %59 = load ptr, ptr %15, align 8
-  store ptr %59, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  %60 = load ptr, ptr %7, align 8
-  store ptr %60, ptr %5, align 8
-  %61 = load ptr, ptr %5, align 8
-  store ptr %61, ptr %4, align 8
-  %62 = load ptr, ptr %4, align 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = and i64 %64, 1
-  %66 = trunc i64 %65 to i32
-  %67 = icmp eq i32 %66, 1
-  br i1 %67, label %68, label %71
+42:                                               ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 56, ptr %5) #3
+  br label %43
 
-68:                                               ; preds = %58
-  %69 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %60)
-  %70 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %69, i32 0, i32 1
-  store ptr %70, ptr %6, align 8
-  br label %74
+43:                                               ; preds = %42, %40
+  br label %130
 
-71:                                               ; preds = %58
-  %72 = load ptr, ptr %8, align 8
-  %73 = call noundef nonnull align 8 dereferenceable(32) ptr %72()
-  store ptr %73, ptr %6, align 8
-  br label %74
+44:                                               ; preds = %13
+  %45 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %12, i32 0, i32 1
+  %46 = load ptr, ptr %4, align 8, !tbaa !32
+  %47 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %46, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %47)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  store i32 0, ptr %11, align 4, !tbaa !8
+  %48 = load ptr, ptr %4, align 8, !tbaa !32
+  %49 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %48, i32 0, i32 1
+  %50 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %49, i32 noundef 0)
+  %51 = load i32, ptr %50, align 4, !tbaa !8
+  store i32 %51, ptr %11, align 4, !tbaa !8
+  %52 = load i32, ptr %11, align 4, !tbaa !8
+  %53 = and i32 %52, 255
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %129
 
-74:                                               ; preds = %71, %68
-  %75 = load ptr, ptr %6, align 8
-  call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(32) %75)
+55:                                               ; preds = %44
+  %56 = load i32, ptr %11, align 4, !tbaa !8
+  %57 = and i32 %56, 1
+  %58 = icmp ne i32 %57, 0
+  br i1 %58, label %59, label %62
+
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %4, align 8, !tbaa !32
+  %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %60)
+  call void @_ZN4i18n12phonenumbers11PhoneNumber23_internal_set_extensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(32) %61)
+  br label %62
+
+62:                                               ; preds = %59, %55
+  %63 = load i32, ptr %11, align 4, !tbaa !8
+  %64 = and i32 %63, 2
+  %65 = icmp ne i32 %64, 0
+  br i1 %65, label %66, label %69
+
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %4, align 8, !tbaa !32
+  %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %67)
+  call void @_ZN4i18n12phonenumbers11PhoneNumber23_internal_set_raw_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(32) %68)
+  br label %69
+
+69:                                               ; preds = %66, %62
+  %70 = load i32, ptr %11, align 4, !tbaa !8
+  %71 = and i32 %70, 4
+  %72 = icmp ne i32 %71, 0
+  br i1 %72, label %73, label %76
+
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %4, align 8, !tbaa !32
+  %75 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %74)
+  call void @_ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(32) %75)
   br label %76
 
-76:                                               ; preds = %74, %45
-  store i32 0, ptr %23, align 4
-  %77 = load ptr, ptr %17, align 8
-  %78 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %77, i32 0, i32 1
-  store ptr %78, ptr %10, align 8
-  store i32 0, ptr %11, align 4
-  %79 = load ptr, ptr %10, align 8
-  %80 = load i32, ptr %11, align 4
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [1 x i32], ptr %79, i64 0, i64 %81
-  %83 = load i32, ptr %82, align 4
-  store i32 %83, ptr %23, align 4
-  %84 = load i32, ptr %23, align 4
-  %85 = and i32 %84, 255
-  %86 = icmp ne i32 %85, 0
-  br i1 %86, label %87, label %164
+76:                                               ; preds = %73, %69
+  %77 = load i32, ptr %11, align 4, !tbaa !8
+  %78 = and i32 %77, 8
+  %79 = icmp ne i32 %78, 0
+  br i1 %79, label %80, label %85
 
-87:                                               ; preds = %76
-  %88 = load i32, ptr %23, align 4
-  %89 = and i32 %88, 1
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %94
+80:                                               ; preds = %76
+  %81 = load ptr, ptr %4, align 8, !tbaa !32
+  %82 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %81, i32 0, i32 6
+  %83 = load i64, ptr %82, align 8, !tbaa !68
+  %84 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %12, i32 0, i32 6
+  store i64 %83, ptr %84, align 8, !tbaa !68
+  br label %85
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %17, align 8
-  %93 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_extensionB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %92)
-  call void @_ZN4i18n12phonenumbers11PhoneNumber23_internal_set_extensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(32) %93)
+85:                                               ; preds = %80, %76
+  %86 = load i32, ptr %11, align 4, !tbaa !8
+  %87 = and i32 %86, 16
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %94
+
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %4, align 8, !tbaa !32
+  %91 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %90, i32 0, i32 7
+  %92 = load i32, ptr %91, align 8, !tbaa !66
+  %93 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %12, i32 0, i32 7
+  store i32 %92, ptr %93, align 8, !tbaa !66
   br label %94
 
-94:                                               ; preds = %91, %87
-  %95 = load i32, ptr %23, align 4
-  %96 = and i32 %95, 2
+94:                                               ; preds = %89, %85
+  %95 = load i32, ptr %11, align 4, !tbaa !8
+  %96 = and i32 %95, 32
   %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %101
+  br i1 %97, label %98, label %105
 
 98:                                               ; preds = %94
-  %99 = load ptr, ptr %17, align 8
-  %100 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber19_internal_raw_inputB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %99)
-  call void @_ZN4i18n12phonenumbers11PhoneNumber23_internal_set_raw_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(32) %100)
-  br label %101
+  %99 = load ptr, ptr %4, align 8, !tbaa !32
+  %100 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %99, i32 0, i32 8
+  %101 = load i8, ptr %100, align 4, !tbaa !69, !range !30, !noundef !31
+  %102 = trunc i8 %101 to i1
+  %103 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %12, i32 0, i32 8
+  %104 = zext i1 %102 to i8
+  store i8 %104, ptr %103, align 4, !tbaa !69
+  br label %105
 
-101:                                              ; preds = %98, %94
-  %102 = load i32, ptr %23, align 4
-  %103 = and i32 %102, 4
-  %104 = icmp ne i32 %103, 0
-  br i1 %104, label %105, label %108
+105:                                              ; preds = %98, %94
+  %106 = load i32, ptr %11, align 4, !tbaa !8
+  %107 = and i32 %106, 64
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %109, label %114
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %17, align 8
-  %107 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12phonenumbers11PhoneNumber41_internal_preferred_domestic_carrier_codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %106)
-  call void @_ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(32) %107)
-  br label %108
+109:                                              ; preds = %105
+  %110 = load ptr, ptr %4, align 8, !tbaa !32
+  %111 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %110, i32 0, i32 9
+  %112 = load i32, ptr %111, align 8, !tbaa !85
+  %113 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %12, i32 0, i32 9
+  store i32 %112, ptr %113, align 8, !tbaa !85
+  br label %114
 
-108:                                              ; preds = %105, %101
-  %109 = load i32, ptr %23, align 4
-  %110 = and i32 %109, 8
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %117
+114:                                              ; preds = %109, %105
+  %115 = load i32, ptr %11, align 4, !tbaa !8
+  %116 = and i32 %115, 128
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %123
 
-112:                                              ; preds = %108
-  %113 = load ptr, ptr %17, align 8
-  %114 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %113, i32 0, i32 6
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %24, i32 0, i32 6
-  store i64 %115, ptr %116, align 8
-  br label %117
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %4, align 8, !tbaa !32
+  %120 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %119, i32 0, i32 10
+  %121 = load i32, ptr %120, align 4, !tbaa !44
+  %122 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %12, i32 0, i32 10
+  store i32 %121, ptr %122, align 4, !tbaa !44
+  br label %123
 
-117:                                              ; preds = %112, %108
-  %118 = load i32, ptr %23, align 4
-  %119 = and i32 %118, 16
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %126
+123:                                              ; preds = %118, %114
+  %124 = load i32, ptr %11, align 4, !tbaa !8
+  %125 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %12, i32 0, i32 1
+  %126 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %125, i32 noundef 0)
+  %127 = load i32, ptr %126, align 4, !tbaa !8
+  %128 = or i32 %127, %124
+  store i32 %128, ptr %126, align 4, !tbaa !8
+  br label %129
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %17, align 8
-  %123 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %122, i32 0, i32 7
-  %124 = load i32, ptr %123, align 8
-  %125 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %24, i32 0, i32 7
-  store i32 %124, ptr %125, align 8
-  br label %126
-
-126:                                              ; preds = %121, %117
-  %127 = load i32, ptr %23, align 4
-  %128 = and i32 %127, 32
-  %129 = icmp ne i32 %128, 0
-  br i1 %129, label %130, label %137
-
-130:                                              ; preds = %126
-  %131 = load ptr, ptr %17, align 8
-  %132 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %131, i32 0, i32 8
-  %133 = load i8, ptr %132, align 4
-  %134 = trunc i8 %133 to i1
-  %135 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %24, i32 0, i32 8
-  %136 = zext i1 %134 to i8
-  store i8 %136, ptr %135, align 4
-  br label %137
-
-137:                                              ; preds = %130, %126
-  %138 = load i32, ptr %23, align 4
-  %139 = and i32 %138, 64
-  %140 = icmp ne i32 %139, 0
-  br i1 %140, label %141, label %146
-
-141:                                              ; preds = %137
-  %142 = load ptr, ptr %17, align 8
-  %143 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %142, i32 0, i32 9
-  %144 = load i32, ptr %143, align 8
-  %145 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %24, i32 0, i32 9
-  store i32 %144, ptr %145, align 8
-  br label %146
-
-146:                                              ; preds = %141, %137
-  %147 = load i32, ptr %23, align 4
-  %148 = and i32 %147, 128
-  %149 = icmp ne i32 %148, 0
-  br i1 %149, label %150, label %155
-
-150:                                              ; preds = %146
-  %151 = load ptr, ptr %17, align 8
-  %152 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %151, i32 0, i32 10
-  %153 = load i32, ptr %152, align 4
-  %154 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %24, i32 0, i32 10
-  store i32 %153, ptr %154, align 4
-  br label %155
-
-155:                                              ; preds = %150, %146
-  %156 = load i32, ptr %23, align 4
-  %157 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %24, i32 0, i32 1
-  store ptr %157, ptr %12, align 8
-  store i32 0, ptr %13, align 4
-  %158 = load ptr, ptr %12, align 8
-  %159 = load i32, ptr %13, align 4
-  %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds [1 x i32], ptr %158, i64 0, i64 %160
-  %162 = load i32, ptr %161, align 4
-  %163 = or i32 %162, %156
-  store i32 %163, ptr %161, align 4
-  br label %164
-
-164:                                              ; preds = %155, %76
+129:                                              ; preds = %123, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret void
 
-165:                                              ; preds = %44
-  %166 = load ptr, ptr %20, align 8
-  %167 = load i32, ptr %21, align 4
-  %168 = insertvalue { ptr, i32 } poison, ptr %166, 0
-  %169 = insertvalue { ptr, i32 } %168, i32 %167, 1
-  resume { ptr, i32 } %169
+130:                                              ; preds = %43
+  %131 = load ptr, ptr %8, align 8
+  %132 = load i32, ptr %9, align 4
+  %133 = insertvalue { ptr, i32 } poison, ptr %131, 0
+  %134 = insertvalue { ptr, i32 } %133, i32 %132, 1
+  resume { ptr, i32 } %134
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal8DownCastIPKN4i18n12phonenumbers11PhoneNumberEKNS0_11MessageLiteEEET_PT0_(ptr noundef %0) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal8DownCastIPKN4i18n12phonenumbers11PhoneNumberEKNS0_11MessageLiteEEET_PT0_(ptr noundef %0) #7 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = call noundef ptr @_ZN6google8protobuf8internal9down_castIPKN4i18n12phonenumbers11PhoneNumberEKNS0_11MessageLiteEEET_PT0_(ptr noundef %3)
   ret ptr %4
 }
@@ -3835,84 +3623,63 @@ declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr
 ; Function Attrs: nounwind
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber23_internal_set_extensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber23_internal_set_extensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  store i32 0, ptr %4, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [1 x i32], ptr %9, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %14 = or i32 %13, 1
-  store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 3
-  %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  %17 = load ptr, ptr %6, align 8
-  %18 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %18)
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 1
+  %7 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 0)
+  %8 = load i32, ptr %7, align 4, !tbaa !8
+  %9 = or i32 %8, 1
+  store i32 %9, ptr %7, align 4, !tbaa !8
+  %10 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 3
+  %11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %13 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %13)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber23_internal_set_raw_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber23_internal_set_raw_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  store i32 0, ptr %4, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [1 x i32], ptr %9, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %14 = or i32 %13, 2
-  store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 4
-  %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  %17 = load ptr, ptr %6, align 8
-  %18 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %18)
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 1
+  %7 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 0)
+  %8 = load i32, ptr %7, align 4, !tbaa !8
+  %9 = or i32 %8, 2
+  store i32 %9, ptr %7, align 4, !tbaa !8
+  %10 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 4
+  %11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %13 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %13)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 1
-  store ptr %8, ptr %3, align 8
-  store i32 0, ptr %4, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [1 x i32], ptr %9, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %14 = or i32 %13, 4
-  store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %7, i32 0, i32 5
-  %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  %17 = load ptr, ptr %6, align 8
-  %18 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %18)
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 1
+  %7 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 0)
+  %8 = load i32, ptr %7, align 4, !tbaa !8
+  %9 = or i32 %8, 4
+  store i32 %9, ptr %7, align 4, !tbaa !8
+  %10 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 5
+  %11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %13 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %13)
   ret void
 }
 
@@ -3920,10 +3687,10 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber45_intern
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !32
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %8, label %9
 
@@ -3932,7 +3699,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr no
 
 9:                                                ; preds = %2
   call void @_ZN4i18n12phonenumbers11PhoneNumber5ClearEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !32
   call void @_ZN4i18n12phonenumbers11PhoneNumber9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %10)
   br label %11
 
@@ -3944,9 +3711,9 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr no
 define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %4, i32 0, i32 1
   %6 = call noundef zeroext i1 @_ZN4i18n12phonenumbers11PhoneNumber9_Internal21MissingRequiredFieldsERKN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef nonnull align 4 dereferenceable(4) %5)
   br i1 %6, label %7, label %8
 
@@ -3966,198 +3733,124 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber13IsIni
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4i18n12phonenumbers11PhoneNumber9_Internal21MissingRequiredFieldsERKN6google8protobuf8internal7HasBitsILm1EEE(ptr noundef nonnull align 4 dereferenceable(4) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %6 = load ptr, ptr %2, align 8
-  %7 = load i32, ptr %3, align 4
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4
-  %11 = and i32 %10, 24
-  %12 = xor i32 %11, 24
-  %13 = icmp ne i32 %12, 0
-  ret i1 %13
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %4 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0)
+  %5 = load i32, ptr %4, align 4, !tbaa !8
+  %6 = and i32 %5, 24
+  %7 = xor i32 %6, 24
+  %8 = icmp ne i32 %7, 0
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::MessageLite", ptr %7, i32 0, i32 1
+  call void @_ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8)
+  %9 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 1
+  %10 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 0)
+  %11 = load ptr, ptr %4, align 8, !tbaa !32
+  %12 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %11, i32 0, i32 1
+  %13 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN6google8protobuf8internal7HasBitsILm1EEixEi(ptr noundef nonnull align 4 dereferenceable(4) %12, i32 noundef 0)
+  call void @_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %13) #3
+  %14 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 3
+  %15 = load ptr, ptr %4, align 8, !tbaa !32
+  %16 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %15, i32 0, i32 3
+  %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  %18 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr4SwapEPS2_PKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  %19 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 4
+  %20 = load ptr, ptr %4, align 8, !tbaa !32
+  %21 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %20, i32 0, i32 4
+  %22 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  %23 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr4SwapEPS2_PKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %21, ptr noundef %22, ptr noundef %23)
+  %24 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 5
+  %25 = load ptr, ptr %4, align 8, !tbaa !32
+  %26 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %25, i32 0, i32 5
+  %27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
+  %28 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN6google8protobuf8internal14ArenaStringPtr4SwapEPS2_PKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  %29 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 6
+  %30 = load ptr, ptr %4, align 8, !tbaa !32
+  %31 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %30, i32 0, i32 6
+  call void @_ZN6google8protobuf8internal7memswapILi20EEENSt9enable_ifIXaageT_Lm16EltT_lsLj1ELi31EEvE4typeEPcS6_(ptr noundef %29, ptr noundef %31)
+  %32 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %5, i32 0, i32 10
+  %33 = load ptr, ptr %4, align 8, !tbaa !32
+  %34 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %33, i32 0, i32 10
+  call void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(4) %34) #3
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata4SwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %6, label %10, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !55
+  %9 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %7, %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !55
+  %12 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  call void @_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %12)
+  br label %13
+
+13:                                               ; preds = %10, %7
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #9 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !80
+  store ptr %1, ptr %4, align 8, !tbaa !80
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !80
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %7, ptr %5, align 4, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !80
+  %9 = load i32, ptr %8, align 4, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !80
+  store i32 %9, ptr %10, align 4, !tbaa !8
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = load ptr, ptr %4, align 8, !tbaa !80
+  store i32 %11, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr4SwapEPS2_PKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #13 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca ptr, align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca i32, align 4
-  %27 = alloca ptr, align 8
-  %28 = alloca i32, align 4
-  %29 = alloca ptr, align 8
-  %30 = alloca ptr, align 8
-  store ptr %0, ptr %29, align 8
-  store ptr %1, ptr %30, align 8
-  %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %33, i32 0, i32 1
-  store ptr %32, ptr %23, align 8
-  store ptr %34, ptr %24, align 8
-  %35 = load ptr, ptr %23, align 8
-  store ptr %35, ptr %18, align 8
-  %36 = load ptr, ptr %18, align 8
-  store ptr %36, ptr %3, align 8
-  %37 = load ptr, ptr %3, align 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = and i64 %39, 1
-  %41 = trunc i64 %40 to i32
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %52, label %43
-
-43:                                               ; preds = %2
-  %44 = load ptr, ptr %24, align 8
-  store ptr %44, ptr %19, align 8
-  %45 = load ptr, ptr %19, align 8
-  store ptr %45, ptr %4, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %49 = and i64 %48, 1
-  %50 = trunc i64 %49 to i32
-  %51 = icmp eq i32 %50, 1
-  br i1 %51, label %52, label %69
-
-52:                                               ; preds = %43, %2
-  %53 = load ptr, ptr %24, align 8
-  store ptr %53, ptr %22, align 8
-  %54 = load ptr, ptr %22, align 8
-  store ptr %54, ptr %20, align 8
-  %55 = load ptr, ptr %20, align 8
-  store ptr %55, ptr %5, align 8
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = ptrtoint ptr %57 to i64
-  %59 = and i64 %58, 1
-  %60 = trunc i64 %59 to i32
-  %61 = icmp eq i32 %60, 1
-  br i1 %61, label %62, label %65
-
-62:                                               ; preds = %52
-  %63 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %54)
-  %64 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %63, i32 0, i32 1
-  store ptr %64, ptr %21, align 8
-  br label %67
-
-65:                                               ; preds = %52
-  %66 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %54)
-  store ptr %66, ptr %21, align 8
-  br label %67
-
-67:                                               ; preds = %65, %62
-  %68 = load ptr, ptr %21, align 8
-  call void @_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %68)
-  br label %69
-
-69:                                               ; preds = %67, %43
-  %70 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %31, i32 0, i32 1
-  store ptr %70, ptr %25, align 8
-  store i32 0, ptr %26, align 4
-  %71 = load ptr, ptr %25, align 8
-  %72 = load i32, ptr %26, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds [1 x i32], ptr %71, i64 0, i64 %73
-  %75 = load ptr, ptr %30, align 8
-  %76 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %75, i32 0, i32 1
-  store ptr %76, ptr %27, align 8
-  store i32 0, ptr %28, align 4
-  %77 = load ptr, ptr %27, align 8
-  %78 = load i32, ptr %28, align 4
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [1 x i32], ptr %77, i64 0, i64 %79
-  call void @_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %74, ptr noundef nonnull align 4 dereferenceable(4) %80) #3
-  %81 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %31, i32 0, i32 3
-  %82 = load ptr, ptr %30, align 8
-  %83 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %82, i32 0, i32 3
-  %84 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  %85 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
-  store ptr %81, ptr %6, align 8
-  store ptr %83, ptr %7, align 8
-  store ptr %84, ptr %8, align 8
-  store ptr %85, ptr %9, align 8
-  %86 = load ptr, ptr %6, align 8
-  %87 = load ptr, ptr %7, align 8
-  call void @_ZSt4swapIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(8) %87) #3
-  %88 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %31, i32 0, i32 4
-  %89 = load ptr, ptr %30, align 8
-  %90 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %89, i32 0, i32 4
-  %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  %92 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
-  store ptr %88, ptr %10, align 8
-  store ptr %90, ptr %11, align 8
-  store ptr %91, ptr %12, align 8
-  store ptr %92, ptr %13, align 8
-  %93 = load ptr, ptr %10, align 8
-  %94 = load ptr, ptr %11, align 8
-  call void @_ZSt4swapIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(8) %94) #3
-  %95 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %31, i32 0, i32 5
-  %96 = load ptr, ptr %30, align 8
-  %97 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %96, i32 0, i32 5
-  %98 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal27GetEmptyStringAlreadyInitedB5cxx11Ev()
-  %99 = call noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
-  store ptr %95, ptr %14, align 8
-  store ptr %97, ptr %15, align 8
-  store ptr %98, ptr %16, align 8
-  store ptr %99, ptr %17, align 8
-  %100 = load ptr, ptr %14, align 8
-  %101 = load ptr, ptr %15, align 8
-  call void @_ZSt4swapIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull align 8 dereferenceable(8) %101) #3
-  %102 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %31, i32 0, i32 6
-  %103 = load ptr, ptr %30, align 8
-  %104 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %103, i32 0, i32 6
-  call void @_ZN6google8protobuf8internal7memswapILi20EEENSt9enable_ifIXaageT_Lm16EltT_lsLj1ELi31EEvE4typeEPcS6_(ptr noundef %102, ptr noundef %104)
-  %105 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %31, i32 0, i32 10
-  %106 = load ptr, ptr %30, align 8
-  %107 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %106, i32 0, i32 10
-  call void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %105, ptr noundef nonnull align 4 dereferenceable(4) %107) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 comdat {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr %5, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %8, align 4
-  %10 = load ptr, ptr %3, align 8
-  store i32 %9, ptr %10, align 4
-  %11 = load i32, ptr %5, align 4
-  %12 = load ptr, ptr %4, align 8
-  store i32 %11, ptr %12, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !57
+  store ptr %1, ptr %6, align 8, !tbaa !57
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  store ptr %3, ptr %8, align 8, !tbaa !34
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !57
+  %12 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %11, i32 0, i32 0
+  call void @_ZSt4swapIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
   ret void
 }
 
@@ -4165,36 +3858,38 @@ define linkonce_odr dso_local void @_ZSt4swapIjENSt9enable_ifIXsr6__and_ISt6__no
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal7memswapILi20EEENSt9enable_ifIXaageT_Lm16EltT_lsLj1ELi31EEvE4typeEPcS6_(ptr noundef %0, ptr noundef %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8, !tbaa !17
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
   call void @_ZN6google8protobuf8internal9SwapBlockIoEEvPcS3_(ptr noundef %5, ptr noundef %6)
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %4, align 8, !tbaa !17
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @_ZN6google8protobuf8internal7memswapILi4EEENSt9enable_ifIXaageT_Lm4EltT_Li8EEvE4typeEPcS6_(ptr noundef %8, ptr noundef %10)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load i32, ptr %6, align 4
-  store i32 %7, ptr %5, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %8, align 4
-  %10 = load ptr, ptr %3, align 8
-  store i32 %9, ptr %10, align 4
-  %11 = load i32, ptr %5, align 4
-  %12 = load ptr, ptr %4, align 8
-  store i32 %11, ptr %12, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !80
+  store ptr %1, ptr %4, align 8, !tbaa !80
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !80
+  %7 = load i32, ptr %6, align 4, !tbaa !8
+  store i32 %7, ptr %5, align 4, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !80
+  %9 = load i32, ptr %8, align 4, !tbaa !8
+  %10 = load ptr, ptr %3, align 8, !tbaa !80
+  store i32 %9, ptr %10, align 4, !tbaa !8
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = load ptr, ptr %4, align 8, !tbaa !80
+  store i32 %11, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret void
 }
 
@@ -4206,13 +3901,15 @@ define dso_local void @_ZNK4i18n12phonenumbers11PhoneNumber11GetTypeNameB5cxx11E
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  store ptr %1, ptr %4, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %8 unwind label %9
 
 8:                                                ; preds = %2
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
   ret void
 
 9:                                                ; preds = %2
@@ -4222,7 +3919,8 @@ define dso_local void @_ZNK4i18n12phonenumbers11PhoneNumber11GetTypeNameB5cxx11E
   store ptr %11, ptr %6, align 8
   %12 = extractvalue { ptr, i32 } %10, 1
   store i32 %12, ptr %7, align 4
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
   br label %13
 
 13:                                               ; preds = %9
@@ -4233,8 +3931,14 @@ define dso_local void @_ZNK4i18n12phonenumbers11PhoneNumber11GetTypeNameB5cxx11E
   resume { ptr, i32 } %17
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4244,149 +3948,143 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !99
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %13 = load ptr, ptr %6, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  %14 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8, !tbaa !99
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8, !tbaa !17
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.9) #15
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.9) #22
           to label %17 unwind label %18
 
 17:                                               ; preds = %16
   unreachable
 
-18:                                               ; preds = %26, %22, %16
+18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = extractvalue { ptr, i32 } %19, 0
   store ptr %20, ptr %7, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %8, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  br label %31
+  br label %35
 
 22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %23 = load ptr, ptr %5, align 8, !tbaa !17
+  %24 = load ptr, ptr %5, align 8, !tbaa !17
   %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
-          to label %26 unwind label %18
+          to label %26 unwind label %31
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %23, i64 %25
-  store ptr %27, ptr %9, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8, !tbaa !17
+  %28 = load ptr, ptr %5, align 8, !tbaa !17
+  %29 = load ptr, ptr %9, align 8, !tbaa !17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
-          to label %30 unwind label %18
+          to label %30 unwind label %31
 
 30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret void
 
-31:                                               ; preds = %18
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i32, ptr %8, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
+31:                                               ; preds = %26, %22
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %7, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  br label %35
+
+35:                                               ; preds = %31, %18
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  br label %36
+
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
+  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
+  resume { ptr, i32 } %40
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  ret void
+}
 
-; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers11PhoneNumberEJEEEPT_PS1_DpOT0_(ptr noundef %0) #4 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress noinline uwtable
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers11PhoneNumberEJEEEPT_PS1_DpOT0_(ptr noundef %0) #16 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %4 = call noundef ptr @_ZN6google8protobuf5Arena21CreateMessageInternalIN4i18n12phonenumbers11PhoneNumberEEEPT_PS1_(ptr noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena21CreateMessageInternalIN4i18n12phonenumbers11PhoneNumberEEEPT_PS1_(ptr noundef %0) #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = alloca i8, align 1
-  %5 = alloca i64, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  store ptr %0, ptr %12, align 8
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %9, align 8
-  %14 = load ptr, ptr %9, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %27
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  %6 = load ptr, ptr %3, align 8, !tbaa !34
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %15
 
-16:                                               ; preds = %1
-  %17 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #16
-  invoke void @_ZN4i18n12phonenumbers11PhoneNumberC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %17)
-          to label %18 unwind label %19
+8:                                                ; preds = %1
+  %9 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #23
+  invoke void @_ZN4i18n12phonenumbers11PhoneNumberC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %9)
+          to label %10 unwind label %11
 
-18:                                               ; preds = %16
-  store ptr %17, ptr %8, align 8
-  br label %44
+10:                                               ; preds = %8
+  store ptr %9, ptr %2, align 8
+  br label %18
 
-19:                                               ; preds = %16
-  %20 = landingpad { ptr, i32 }
+11:                                               ; preds = %8
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %10, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %17) #14
-  %23 = load ptr, ptr %10, align 8
-  %24 = load i32, ptr %11, align 4
-  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
-  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
-  resume { ptr, i32 } %26
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %4, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %5, align 4
+  call void @_ZdlPvm(ptr noundef %9, i64 noundef 72) #21
+  br label %20
 
-27:                                               ; preds = %1
-  %28 = load ptr, ptr %9, align 8
-  store ptr %28, ptr %6, align 8
-  %29 = load ptr, ptr %6, align 8
-  store ptr %29, ptr %3, align 8
-  store i8 1, ptr %4, align 1
-  %30 = load ptr, ptr %3, align 8
-  %31 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef 72)
-  store i64 %31, ptr %5, align 8
-  %32 = load i64, ptr %5, align 8
-  call void @_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %30, ptr noundef @_ZTIN4i18n12phonenumbers11PhoneNumberE, i64 noundef %32)
-  %33 = load i8, ptr %4, align 1
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %38
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %3, align 8, !tbaa !34
+  %17 = call noundef ptr @_ZN6google8protobuf5Arena15DoCreateMessageIN4i18n12phonenumbers11PhoneNumberEJEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %16)
+  store ptr %17, ptr %2, align 8
+  br label %18
 
-35:                                               ; preds = %27
-  %36 = load i64, ptr %5, align 8
-  %37 = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %30, i64 noundef %36)
-  store ptr %37, ptr %2, align 8
-  br label %41
+18:                                               ; preds = %15, %10
+  %19 = load ptr, ptr %2, align 8
+  ret ptr %19
 
-38:                                               ; preds = %27
-  %39 = load i64, ptr %5, align 8
-  %40 = call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %30, i64 noundef %39, ptr noundef @_ZN6google8protobuf8internal21arena_destruct_objectIN4i18n12phonenumbers11PhoneNumberEEEvPv)
-  store ptr %40, ptr %2, align 8
-  br label %41
-
-41:                                               ; preds = %38, %35
-  %42 = load ptr, ptr %2, align 8
-  store ptr %29, ptr %7, align 8
-  %43 = call noundef ptr @_ZN6google8protobuf5Arena14InternalHelperIN4i18n12phonenumbers11PhoneNumberEE9ConstructIJPS1_EEEPS5_PvDpOT_(ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr %43, ptr %8, align 8
-  br label %44
-
-44:                                               ; preds = %41, %18
-  %45 = load ptr, ptr %8, align 8
-  ret ptr %45
+20:                                               ; preds = %11
+  %21 = load ptr, ptr %4, align 8
+  %22 = load i32, ptr %5, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = call noundef ptr @_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN4i18n12phonenumbers11PhoneNumberEEEPT_PNS0_5ArenaE(ptr noundef null)
   ret ptr %3
 }
@@ -4395,9 +4093,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber3
 define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber3NewEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = call noundef ptr @_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN4i18n12phonenumbers11PhoneNumberEEEPT_PNS0_5ArenaE(ptr noundef %5)
   ret ptr %6
 }
@@ -4407,9 +4105,9 @@ declare void @_ZNK6google8protobuf11MessageLite25InitializationErrorStringB5cxx1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %3, i32 0, i32 2
   %5 = call noundef i32 @_ZNK6google8protobuf8internal10CachedSize3GetEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   ret i32 %5
 }
@@ -4417,26 +4115,26 @@ define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf11MessageLite16InternalGetTableEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
   ret ptr null
 }
 
 declare void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !32
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef null)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal24OnShutdownDestroyMessageEPKv(ptr noundef %0) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal24OnShutdownDestroyMessageEPKv(ptr noundef %0) #7 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef %3)
   ret void
 }
@@ -4451,12 +4149,12 @@ declare void @_ZN6google8protobuf8internal20InitProtobufDefaultsEv() #1
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !34
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !34
+  store ptr %7, ptr %6, align 8, !tbaa !103
   ret void
 }
 
@@ -4464,10 +4162,10 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetada
 define linkonce_odr dso_local void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !104
+  store i32 %1, ptr %4, align 4, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %4, align 4, !tbaa !8
   call void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) #3
   ret void
 }
@@ -4476,52 +4174,52 @@ define linkonce_odr dso_local void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull alig
 define linkonce_odr dso_local void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store i32 %1, ptr %4, align 4, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %4, align 4
-  store i32 %7, ptr %6, align 4
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  store i32 %7, ptr %6, align 4, !tbaa !108
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !103
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) #7 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !57
+  store ptr %1, ptr %6, align 8, !tbaa !28
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  store ptr %3, ptr %8, align 8, !tbaa !34
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !59
+  %12 = load ptr, ptr %6, align 8, !tbaa !28
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8, !tbaa !34
+  %16 = load ptr, ptr %7, align 8, !tbaa !28
   call void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %15, ptr noundef %16)
   br label %22
 
 17:                                               ; preds = %4
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %9, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
+  %18 = load ptr, ptr %7, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %9, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !59
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %18)
   br label %22
 
@@ -4529,236 +4227,978 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca i8, align 1
-  %7 = alloca i64, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.google::protobuf::internal::LogMessage", align 8
+  %8 = alloca i1, align 1
+  %9 = alloca i1, align 1
   %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  %21 = alloca ptr, align 8
-  %22 = alloca ptr, align 8
-  %23 = alloca ptr, align 8
-  %24 = alloca ptr, align 8
-  %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca %"class.google::protobuf::internal::LogMessage", align 8
-  %28 = alloca i1, align 1
-  %29 = alloca ptr, align 8
-  %30 = alloca i32, align 4
-  %31 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  store ptr %0, ptr %24, align 8
-  store ptr %1, ptr %25, align 8
-  store ptr %2, ptr %26, align 8
-  %32 = load ptr, ptr %24, align 8
-  br label %33
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  store ptr %0, ptr %4, align 8, !tbaa !57
+  store ptr %1, ptr %5, align 8, !tbaa !34
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %13 = load ptr, ptr %4, align 8
+  br label %14
 
-33:                                               ; preds = %45, %3
-  br i1 false, label %34, label %53
+14:                                               ; preds = %29, %3
+  br i1 false, label %15, label %45
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %26, align 8
-  %36 = icmp ne ptr %35, null
-  store i1 false, ptr %28, align 1
-  br i1 %36, label %37, label %38
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %6, align 8, !tbaa !28
+  %17 = icmp ne ptr %16, null
+  store i1 false, ptr %8, align 1
+  store i1 false, ptr %9, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  br i1 %17, label %18, label %19
 
-37:                                               ; preds = %34
-  br label %42
+18:                                               ; preds = %15
+  br label %23
 
-38:                                               ; preds = %34
-  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %27, i32 noundef 3, ptr noundef @.str.4, i32 noundef 371)
-  store i1 true, ptr %28, align 1
-  %39 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef @.str.5)
-          to label %40 unwind label %46
+19:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 56, ptr %7) #3
+  store i1 true, ptr %8, align 1
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %7, i32 noundef 3, ptr noundef @.str.4, i32 noundef 371)
+  store i1 true, ptr %9, align 1
+  %20 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef @.str.5)
+          to label %21 unwind label %30
+
+21:                                               ; preds = %19
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(56) %20)
+          to label %22 unwind label %34
+
+22:                                               ; preds = %21
+  br label %23
+
+23:                                               ; preds = %22, %18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  %24 = load i1, ptr %9, align 1
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %23
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #3
+  br label %26
+
+26:                                               ; preds = %25, %23
+  %27 = load i1, ptr %8, align 1
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 56, ptr %7) #3
+  br label %29
+
+29:                                               ; preds = %28, %26
+  br label %14, !llvm.loop !109
+
+30:                                               ; preds = %19
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %10, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %11, align 4
+  br label %38
+
+34:                                               ; preds = %21
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %10, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  br label %38
+
+38:                                               ; preds = %34, %30
+  %39 = load i1, ptr %9, align 1
+  br i1 %39, label %40, label %41
 
 40:                                               ; preds = %38
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 8 dereferenceable(56) %39)
-          to label %41 unwind label %46
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #3
+  br label %41
 
-41:                                               ; preds = %40
-  br label %42
+41:                                               ; preds = %40, %38
+  %42 = load i1, ptr %8, align 1
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %41, %37
-  %43 = load i1, ptr %28, align 1
-  br i1 %43, label %44, label %45
+43:                                               ; preds = %41
+  call void @llvm.lifetime.end.p0(i64 56, ptr %7) #3
+  br label %44
 
-44:                                               ; preds = %42
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #3
-  br label %45
+44:                                               ; preds = %43, %41
+  br label %50
 
-45:                                               ; preds = %44, %42
-  br label %33, !llvm.loop !12
-
-46:                                               ; preds = %40, %38
-  %47 = landingpad { ptr, i32 }
-          cleanup
-  %48 = extractvalue { ptr, i32 } %47, 0
-  store ptr %48, ptr %29, align 8
-  %49 = extractvalue { ptr, i32 } %47, 1
-  store i32 %49, ptr %30, align 4
-  %50 = load i1, ptr %28, align 1
-  br i1 %50, label %51, label %52
-
-51:                                               ; preds = %46
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %27) #3
-  br label %52
-
-52:                                               ; preds = %51, %46
-  br label %102
-
-53:                                               ; preds = %33
-  %54 = load ptr, ptr %25, align 8
-  %55 = load ptr, ptr %26, align 8
-  store ptr %54, ptr %22, align 8
-  store ptr %55, ptr %23, align 8
-  %56 = load ptr, ptr %22, align 8
-  %57 = load ptr, ptr %23, align 8
-  store ptr %56, ptr %20, align 8
-  store ptr %57, ptr %21, align 8
-  %58 = load ptr, ptr %20, align 8
-  %59 = load ptr, ptr %21, align 8
-  store ptr %58, ptr %18, align 8
-  store ptr %59, ptr %19, align 8
-  %60 = load ptr, ptr %18, align 8
-  %61 = load ptr, ptr %19, align 8
-  store ptr %60, ptr %16, align 8
-  store ptr %61, ptr %17, align 8
-  %62 = load ptr, ptr %16, align 8
-  %63 = load ptr, ptr %17, align 8
-  store ptr %62, ptr %12, align 8
-  store ptr %63, ptr %13, align 8
-  %64 = load ptr, ptr %12, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %78
-
-66:                                               ; preds = %53
-  %67 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #16
-  %68 = load ptr, ptr %13, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %68)
-          to label %69 unwind label %70
-
-69:                                               ; preds = %66
-  store ptr %67, ptr %11, align 8
-  br label %99
-
-70:                                               ; preds = %66
-  %71 = landingpad { ptr, i32 }
-          cleanup
-  %72 = extractvalue { ptr, i32 } %71, 0
-  store ptr %72, ptr %14, align 8
-  %73 = extractvalue { ptr, i32 } %71, 1
-  store i32 %73, ptr %15, align 4
-  call void @_ZdlPv(ptr noundef %67) #14
-  %74 = load ptr, ptr %14, align 8
-  %75 = load i32, ptr %15, align 4
-  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
-  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
-  resume { ptr, i32 } %77
-
-78:                                               ; preds = %53
-  %79 = load ptr, ptr %12, align 8
-  %80 = load ptr, ptr %13, align 8
-  store ptr %79, ptr %8, align 8
-  store i8 0, ptr %9, align 1
-  store ptr %80, ptr %10, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = load i8, ptr %9, align 1
-  %83 = trunc i8 %82 to i1
-  store ptr %81, ptr %5, align 8
-  %84 = zext i1 %83 to i8
-  store i8 %84, ptr %6, align 1
-  %85 = load ptr, ptr %5, align 8
-  %86 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef 32)
-  store i64 %86, ptr %7, align 8
-  %87 = load i64, ptr %7, align 8
-  call void @_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %85, ptr noundef @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 noundef %87)
-  %88 = load i8, ptr %6, align 1
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %93
-
-90:                                               ; preds = %78
-  %91 = load i64, ptr %7, align 8
-  %92 = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %85, i64 noundef %91)
-  store ptr %92, ptr %4, align 8
-  br label %96
-
-93:                                               ; preds = %78
-  %94 = load i64, ptr %7, align 8
-  %95 = call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %85, i64 noundef %94, ptr noundef @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
-  store ptr %95, ptr %4, align 8
-  br label %96
-
-96:                                               ; preds = %93, %90
-  %97 = load ptr, ptr %4, align 8
-  %98 = load ptr, ptr %10, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %98)
-  store ptr %97, ptr %11, align 8
-  br label %99
-
-99:                                               ; preds = %96, %69
-  %100 = load ptr, ptr %11, align 8
-  %101 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %32, i32 0, i32 0
-  store ptr %100, ptr %101, align 8
+45:                                               ; preds = %14
+  %46 = load ptr, ptr %5, align 8, !tbaa !34
+  %47 = load ptr, ptr %6, align 8, !tbaa !28
+  %48 = call noundef ptr @_ZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_(ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(32) %47)
+  %49 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %13, i32 0, i32 0
+  store ptr %48, ptr %49, align 8, !tbaa !59
   ret void
 
-102:                                              ; preds = %52
-  %103 = load ptr, ptr %29, align 8
-  %104 = load i32, ptr %30, align 4
-  %105 = insertvalue { ptr, i32 } poison, ptr %103, 0
-  %106 = insertvalue { ptr, i32 } %105, i32 %104, 1
-  resume { ptr, i32 } %106
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %10, align 8
+  %52 = load i32, ptr %11, align 4
+  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
+  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
+  resume { ptr, i32 } %54
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8, !tbaa !34
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = call noundef ptr @_ZN6google8protobuf5Arena15CreateNoMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena15CreateNoMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8, !tbaa !34
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8, !tbaa !34
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = call noundef ptr @_ZN6google8protobuf5Arena20DoCreateMaybeMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena20DoCreateMaybeMessageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8, !tbaa !34
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = call noundef ptr @_ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  %8 = load ptr, ptr %4, align 8, !tbaa !34
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %18
+
+10:                                               ; preds = %2
+  %11 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #23
+  %12 = load ptr, ptr %5, align 8, !tbaa !28
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %10
+  store ptr %11, ptr %3, align 8
+  br label %22
+
+14:                                               ; preds = %10
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %6, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %7, align 4
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef 32) #21
+  br label %24
+
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %4, align 8, !tbaa !34
+  %20 = load ptr, ptr %5, align 8, !tbaa !28
+  %21 = call noundef ptr @_ZN6google8protobuf5Arena8DoCreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_bDpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %19, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  store ptr %21, ptr %3, align 8
+  br label %22
+
+22:                                               ; preds = %18, %13
+  %23 = load ptr, ptr %3, align 8
+  ret ptr %23
+
+24:                                               ; preds = %14
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i32, ptr %7, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
+}
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) #17
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i32 0, i32 0
+  %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  %11 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %13 unwind label %24
+
+13:                                               ; preds = %2
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  %14 = load ptr, ptr %4, align 8, !tbaa !28
+  %15 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %16 unwind label %28
+
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %4, align 8, !tbaa !28
+  %18 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %19 unwind label %28
+
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %4, align 8, !tbaa !28
+  %21 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %15, ptr noundef %22)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %19
+  ret void
+
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %6, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  br label %32
+
+28:                                               ; preds = %19, %16, %13
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %6, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %32
+
+32:                                               ; preds = %28, %24
+  %33 = load ptr, ptr %6, align 8
+  %34 = load i32, ptr %7, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena8DoCreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_bDpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #8 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  %7 = zext i1 %1 to i8
+  store i8 %7, ptr %5, align 1, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i8, ptr %5, align 1, !tbaa !24, !range !30, !noundef !31
+  %10 = trunc i8 %9 to i1
+  %11 = call noundef ptr @_ZN6google8protobuf5Arena16AllocateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPvb(ptr noundef nonnull align 8 dereferenceable(120) %8, i1 noundef zeroext %10)
+  %12 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  ret ptr %11
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef %0) #5 comdat {
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !99
+  %5 = load ptr, ptr %4, align 8, !tbaa !99
+  call void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !110
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !99
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !99
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %10, ptr %9, align 8, !tbaa !112
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %12 = load ptr, ptr %5, align 8, !tbaa !17
+  %13 = load ptr, ptr %6, align 8, !tbaa !17
+  %14 = call noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !18
+  %15 = load i64, ptr %7, align 8, !tbaa !18
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %24 unwind label %30
+
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %5, align 8, !tbaa !17
+  %26 = load ptr, ptr %6, align 8, !tbaa !17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %23, ptr noundef %25, ptr noundef %26) #3
+  %27 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %27, align 8, !tbaa !113
+  %28 = load i64, ptr %7, align 8, !tbaa !18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %28)
+          to label %29 unwind label %30
+
+29:                                               ; preds = %24
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  ret void
+
+30:                                               ; preds = %24, %22
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %9, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %34
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !115
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !95
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !99
+  %5 = load ptr, ptr %4, align 8, !tbaa !99
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !99
+  store ptr %1, ptr %4, align 8, !tbaa !99
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !99
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !101
+  store ptr %1, ptr %4, align 8, !tbaa !101
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %0, ptr noundef %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8, !tbaa !17
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
+  call void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !115
+  ret void
+}
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i64 %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !18
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !54
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !116
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  store ptr %7, ptr %6, align 8, !tbaa !113
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !17
+  %8 = load ptr, ptr %5, align 8, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !17
+  %10 = load ptr, ptr %5, align 8, !tbaa !17
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #20
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i64 %1, ptr %4, align 8, !tbaa !18
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  store i8 0, ptr %5, align 1, !tbaa !54
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !116
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !113
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !113
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #20
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #9 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !17
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #4 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store i64 %2, ptr %6, align 8, !tbaa !18
+  %7 = load i64, ptr %6, align 8, !tbaa !18
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !17
+  %11 = load ptr, ptr %5, align 8, !tbaa !17
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #3
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !17
+  %14 = load ptr, ptr %5, align 8, !tbaa !17
+  %15 = load i64, ptr %6, align 8, !tbaa !18
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %6 = load i8, ptr %5, align 1, !tbaa !54
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  store i8 %6, ptr %7, align 1, !tbaa !54
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store ptr %1, ptr %6, align 8, !tbaa !17
+  store i64 %2, ptr %7, align 8, !tbaa !18
+  %8 = load i64, ptr %7, align 8, !tbaa !18
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !17
+  %14 = load ptr, ptr %6, align 8, !tbaa !17
+  %15 = load i64, ptr %7, align 8, !tbaa !18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #5 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i64 %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !18
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !95
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #3
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #4 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !95
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i64 %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %13
+
+7:                                                ; preds = %2
+  %8 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %9 unwind label %13
+
+9:                                                ; preds = %7
+  %10 = load i64, ptr %4, align 8, !tbaa !18
+  %11 = add i64 %10, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8, i64 noundef %11)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %9
+  ret void
+
+13:                                               ; preds = %9, %7, %2
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #20
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !99
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store i64 %2, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %4, align 8, !tbaa !99
+  %8 = load ptr, ptr %5, align 8, !tbaa !17
+  %9 = load i64, ptr %6, align 8, !tbaa !18
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !101
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store i64 %2, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %5, align 8, !tbaa !17
+  %8 = load i64, ptr %6, align 8, !tbaa !18
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #21
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena16AllocateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPvb(ptr noundef nonnull align 8 dereferenceable(120) %0, i1 noundef zeroext %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  %8 = zext i1 %1 to i8
+  store i8 %8, ptr %5, align 1, !tbaa !24
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %10 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef 32)
+  store i64 %10, ptr %6, align 8, !tbaa !18
+  %11 = load i64, ptr %6, align 8, !tbaa !18
+  call void @_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 noundef %11)
+  %12 = load i8, ptr %5, align 1, !tbaa !24, !range !30, !noundef !31
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
+
+14:                                               ; preds = %2
+  %15 = load i64, ptr %6, align 8, !tbaa !18
+  %16 = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %9, i64 noundef %15)
+  store ptr %16, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %21
+
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw %"class.google::protobuf::Arena", ptr %9, i32 0, i32 0
+  %19 = load i64, ptr %6, align 8, !tbaa !18
+  %20 = call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %18, i64 noundef %19, ptr noundef @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv)
+  store ptr %20, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %21
+
+21:                                               ; preds = %17, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %22 = load ptr, ptr %3, align 8
+  ret ptr %22
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef %0) #9 comdat {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !18
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = add i64 %3, 7
   %5 = and i64 %4, -8
   ret i64 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, i64 noundef %2) #7 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  store ptr %1, ptr %5, align 8, !tbaa !118
+  store i64 %2, ptr %6, align 8, !tbaa !18
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::Arena", ptr %7, i32 0, i32 4
-  %9 = load ptr, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %"class.google::protobuf::Arena", ptr %7, i32 0, i32 4
+  %9 = load ptr, ptr %8, align 8, !tbaa !120
   %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %14
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %17
 
-11:                                               ; preds = %3
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
-  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef %12, i64 noundef %13)
-  br label %14
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !118
+  %16 = load i64, ptr %6, align 8, !tbaa !18
+  call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef %15, i64 noundef %16)
+  br label %17
 
-14:                                               ; preds = %11, %3
+17:                                               ; preds = %14, %3
   ret void
 }
 
@@ -4769,34 +5209,95 @@ declare noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndA
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %0) #5 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   ret void
 }
 
 declare void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, i64 noundef) #1
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal14ArenaStringPtr3GetB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #20
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret ptr %5
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal14ArenaStringPtr3GetB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !59
+  ret ptr %5
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata5arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef zeroext i1 @_ZNK6google8protobuf8internal16InternalMetadata19have_unknown_fieldsEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %6 = zext i1 %5 to i64
+  %7 = call i64 @llvm.expect.i64(i64 %6, i64 0)
+  %8 = icmp ne i64 %7, 0
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %1
+  %10 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %11 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !130
+  store ptr %12, ptr %2, align 8
+  br label %15
+
+13:                                               ; preds = %1
+  %14 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store ptr %14, ptr %2, align 8
+  br label %15
+
+15:                                               ; preds = %13, %9
+  %16 = load ptr, ptr %2, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
@@ -4806,38 +5307,38 @@ define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal16Intern
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !57
+  store ptr %1, ptr %4, align 8, !tbaa !28
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
   %9 = icmp ne ptr %7, %8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %5, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %11 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !59
   %13 = icmp eq ptr %12, null
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  call void @_ZdlPv(ptr noundef %12) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 32) #21
   br label %15
 
 15:                                               ; preds = %14, %10
@@ -4847,22 +5348,179 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
   ret void
 }
 
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt13__atomic_baseIiE5storeEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !106
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !132
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %10 = load i32, ptr %6, align 4, !tbaa !132
+  %11 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %10, i32 noundef 65535)
+          to label %12 unwind label %32
+
+12:                                               ; preds = %3
+  store i32 %11, ptr %7, align 4, !tbaa !132
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %23 = load i32, ptr %6, align 4, !tbaa !132
+  %24 = load i32, ptr %5, align 4, !tbaa !8
+  store i32 %24, ptr %8, align 4, !tbaa !8
+  switch i32 %23, label %25 [
+    i32 3, label %27
+    i32 5, label %29
+  ]
+
+25:                                               ; preds = %21
+  %26 = load i32, ptr %8, align 4
+  store atomic i32 %26, ptr %22 monotonic, align 4
+  br label %31
+
+27:                                               ; preds = %21
+  %28 = load i32, ptr %8, align 4
+  store atomic i32 %28, ptr %22 release, align 4
+  br label %31
+
+29:                                               ; preds = %21
+  %30 = load i32, ptr %8, align 4
+  store atomic i32 %30, ptr %22 seq_cst, align 4
+  br label %31
+
+31:                                               ; preds = %29, %27, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  ret void
+
+32:                                               ; preds = %3
+  %33 = landingpad { ptr, i32 }
+          catch ptr null
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #20
+  unreachable
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #5 comdat {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !132
+  store i32 %1, ptr %4, align 4, !tbaa !134
+  %5 = load i32, ptr %3, align 4, !tbaa !132
+  %6 = load i32, ptr %4, align 4, !tbaa !134
   %7 = and i32 %5, %6
   ret i32 %7
 }
 
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #13 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !106
+  store i32 %1, ptr %4, align 4, !tbaa !132
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %8 = load i32, ptr %4, align 4, !tbaa !132
+  %9 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+  store i32 %9, ptr %5, align 4, !tbaa !132
+  br label %10
+
+10:                                               ; preds = %2
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %7, i32 0, i32 0
+  %17 = load i32, ptr %4, align 4, !tbaa !132
+  switch i32 %17, label %18 [
+    i32 1, label %20
+    i32 2, label %20
+    i32 5, label %22
+  ]
+
+18:                                               ; preds = %15
+  %19 = load atomic i32, ptr %16 monotonic, align 4
+  store i32 %19, ptr %6, align 4
+  br label %24
+
+20:                                               ; preds = %15, %15
+  %21 = load atomic i32, ptr %16 acquire, align 4
+  store i32 %21, ptr %6, align 4
+  br label %24
+
+22:                                               ; preds = %15
+  %23 = load atomic i32, ptr %16 seq_cst, align 4
+  store i32 %23, ptr %6, align 4
+  br label %24
+
+24:                                               ; preds = %22, %20, %18
+  %25 = load i32, ptr %6, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  ret i32 %25
+}
+
 declare void @_ZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseE(ptr noundef) #1
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0)
+          to label %4 unwind label %5
+
+4:                                                ; preds = %1
+  ret void
+
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #20
+  unreachable
+}
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6google8protobuf8internal18EpsCopyInputStream13DoneWithCheckEPPKci(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4872,133 +5530,170 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6google8protobuf8internal18
   %7 = alloca i32, align 4
   %8 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %9 = alloca i1, align 1
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %13 = alloca %"struct.std::pair", align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %14 = load ptr, ptr %5, align 8
-  br label %15
+  %10 = alloca i1, align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
+  %14 = alloca %"struct.std::pair", align 8
+  %15 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !86
+  store ptr %1, ptr %6, align 8, !tbaa !70
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  %16 = load ptr, ptr %5, align 8
+  br label %17
 
-15:                                               ; preds = %28, %3
-  br i1 false, label %16, label %36
+17:                                               ; preds = %33, %3
+  br i1 false, label %18, label %49
 
-16:                                               ; preds = %15
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp ne ptr %18, null
+18:                                               ; preds = %17
+  %19 = load ptr, ptr %6, align 8, !tbaa !70
+  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %21 = icmp ne ptr %20, null
   store i1 false, ptr %9, align 1
-  br i1 %19, label %20, label %21
+  store i1 false, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  br i1 %21, label %22, label %23
 
-20:                                               ; preds = %16
-  br label %25
+22:                                               ; preds = %18
+  br label %27
 
-21:                                               ; preds = %16
-  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 3, ptr noundef @.str.7, i32 noundef 209)
+23:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 56, ptr %8) #3
   store i1 true, ptr %9, align 1
-  %22 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef @.str.8)
-          to label %23 unwind label %29
+  call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 3, ptr noundef @.str.7, i32 noundef 209)
+  store i1 true, ptr %10, align 1
+  %24 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef @.str.8)
+          to label %25 unwind label %34
 
-23:                                               ; preds = %21
-  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(56) %22)
-          to label %24 unwind label %29
+25:                                               ; preds = %23
+  invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(56) %24)
+          to label %26 unwind label %38
 
-24:                                               ; preds = %23
-  br label %25
+26:                                               ; preds = %25
+  br label %27
 
-25:                                               ; preds = %24, %20
-  %26 = load i1, ptr %9, align 1
-  br i1 %26, label %27, label %28
+27:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  %28 = load i1, ptr %10, align 1
+  br i1 %28, label %29, label %30
 
-27:                                               ; preds = %25
+29:                                               ; preds = %27
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
-  br label %28
+  br label %30
 
-28:                                               ; preds = %27, %25
-  br label %15, !llvm.loop !13
+30:                                               ; preds = %29, %27
+  %31 = load i1, ptr %9, align 1
+  br i1 %31, label %32, label %33
 
-29:                                               ; preds = %23, %21
-  %30 = landingpad { ptr, i32 }
+32:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 56, ptr %8) #3
+  br label %33
+
+33:                                               ; preds = %32, %30
+  br label %17, !llvm.loop !136
+
+34:                                               ; preds = %23
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %10, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %11, align 4
-  %33 = load i1, ptr %9, align 1
-  br i1 %33, label %34, label %35
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %11, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %12, align 4
+  br label %42
 
-34:                                               ; preds = %29
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
-  br label %35
+38:                                               ; preds = %25
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %11, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  br label %42
 
-35:                                               ; preds = %34, %29
-  br label %75
-
-36:                                               ; preds = %15
-  %37 = load ptr, ptr %6, align 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %14, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp ult ptr %38, %40
-  %42 = xor i1 %41, true
-  %43 = xor i1 %42, true
+42:                                               ; preds = %38, %34
+  %43 = load i1, ptr %10, align 1
   br i1 %43, label %44, label %45
 
-44:                                               ; preds = %36
+44:                                               ; preds = %42
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #3
+  br label %45
+
+45:                                               ; preds = %44, %42
+  %46 = load i1, ptr %9, align 1
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %45
+  call void @llvm.lifetime.end.p0(i64 56, ptr %8) #3
+  br label %48
+
+48:                                               ; preds = %47, %45
+  br label %87
+
+49:                                               ; preds = %17
+  %50 = load ptr, ptr %6, align 8, !tbaa !70
+  %51 = load ptr, ptr %50, align 8, !tbaa !17
+  %52 = getelementptr inbounds nuw %"class.google::protobuf::internal::EpsCopyInputStream", ptr %16, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !137
+  %54 = icmp ult ptr %51, %53
+  %55 = xor i1 %54, true
+  %56 = xor i1 %55, true
+  %57 = zext i1 %56 to i64
+  %58 = call i64 @llvm.expect.i64(i64 %57, i64 1)
+  %59 = icmp ne i64 %58, 0
+  br i1 %59, label %60, label %61
+
+60:                                               ; preds = %49
   store i1 false, ptr %4, align 1
-  br label %73
+  br label %85
 
-45:                                               ; preds = %36
-  %46 = load ptr, ptr %6, align 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %14, i32 0, i32 1
-  %49 = load ptr, ptr %48, align 8
-  %50 = ptrtoint ptr %47 to i64
-  %51 = ptrtoint ptr %49 to i64
-  %52 = sub i64 %50, %51
-  %53 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %14, i32 0, i32 4
-  %54 = load i32, ptr %53, align 4
-  %55 = sext i32 %54 to i64
-  %56 = icmp eq i64 %52, %55
-  br i1 %56, label %57, label %58
+61:                                               ; preds = %49
+  %62 = load ptr, ptr %6, align 8, !tbaa !70
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
+  %64 = getelementptr inbounds nuw %"class.google::protobuf::internal::EpsCopyInputStream", ptr %16, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8, !tbaa !138
+  %66 = ptrtoint ptr %63 to i64
+  %67 = ptrtoint ptr %65 to i64
+  %68 = sub i64 %66, %67
+  %69 = getelementptr inbounds nuw %"class.google::protobuf::internal::EpsCopyInputStream", ptr %16, i32 0, i32 4
+  %70 = load i32, ptr %69, align 4, !tbaa !139
+  %71 = sext i32 %70 to i64
+  %72 = icmp eq i64 %68, %71
+  br i1 %72, label %73, label %74
 
-57:                                               ; preds = %45
+73:                                               ; preds = %61
   store i1 true, ptr %4, align 1
-  br label %73
+  br label %85
 
-58:                                               ; preds = %45
-  %59 = load ptr, ptr %6, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i32, ptr %7, align 4
-  %62 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef %60, i32 noundef %61)
-  %63 = getelementptr inbounds { ptr, i8 }, ptr %13, i32 0, i32 0
-  %64 = extractvalue { ptr, i8 } %62, 0
-  store ptr %64, ptr %63, align 8
-  %65 = getelementptr inbounds { ptr, i8 }, ptr %13, i32 0, i32 1
-  %66 = extractvalue { ptr, i8 } %62, 1
-  store i8 %66, ptr %65, align 8
-  %67 = getelementptr inbounds %"struct.std::pair", ptr %13, i32 0, i32 0
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %6, align 8
-  store ptr %68, ptr %69, align 8
-  %70 = getelementptr inbounds %"struct.std::pair", ptr %13, i32 0, i32 1
-  %71 = load i8, ptr %70, align 8
-  %72 = trunc i8 %71 to i1
-  store i1 %72, ptr %4, align 1
-  br label %73
+74:                                               ; preds = %61
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #3
+  %75 = load ptr, ptr %6, align 8, !tbaa !70
+  %76 = load ptr, ptr %75, align 8, !tbaa !17
+  %77 = load i32, ptr %7, align 4, !tbaa !8
+  %78 = call { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %76, i32 noundef %77)
+  store { ptr, i8 } %78, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %15, i64 9, i1 false)
+  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %14, i32 0, i32 0
+  %80 = load ptr, ptr %79, align 8, !tbaa !140
+  %81 = load ptr, ptr %6, align 8, !tbaa !70
+  store ptr %80, ptr %81, align 8, !tbaa !17
+  %82 = getelementptr inbounds nuw %"struct.std::pair", ptr %14, i32 0, i32 1
+  %83 = load i8, ptr %82, align 8, !tbaa !142, !range !30, !noundef !31
+  %84 = trunc i8 %83 to i1
+  store i1 %84, ptr %4, align 1
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #3
+  br label %85
 
-73:                                               ; preds = %58, %57, %44
-  %74 = load i1, ptr %4, align 1
-  ret i1 %74
+85:                                               ; preds = %74, %73, %60
+  %86 = load i1, ptr %4, align 1
+  ret i1 %86
 
-75:                                               ; preds = %35
-  %76 = load ptr, ptr %10, align 8
-  %77 = load i32, ptr %11, align 4
-  %78 = insertvalue { ptr, i32 } poison, ptr %76, 0
-  %79 = insertvalue { ptr, i32 } %78, i32 %77, 1
-  resume { ptr, i32 } %79
+87:                                               ; preds = %48
+  %88 = load ptr, ptr %11, align 8
+  %89 = load i32, ptr %12, align 4
+  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 declare { ptr, i8 } @_ZN6google8protobuf8internal18EpsCopyInputStream12DoneFallbackEPKci(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, i32 noundef) #1
@@ -5013,337 +5708,432 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal11VarintP
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 0
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  store i32 %13, ptr %7, align 4
-  %14 = load i32, ptr %7, align 4
-  %15 = and i32 %14, 128
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %23, label %17
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %10 = load ptr, ptr %4, align 8, !tbaa !17
+  store ptr %10, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !17
+  %12 = getelementptr inbounds i8, ptr %11, i64 0
+  %13 = load i8, ptr %12, align 1, !tbaa !54
+  %14 = zext i8 %13 to i32
+  store i32 %14, ptr %7, align 4, !tbaa !8
+  %15 = load i32, ptr %7, align 4, !tbaa !8
+  %16 = and i32 %15, 128
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %24, label %18
 
-17:                                               ; preds = %2
-  %18 = load i32, ptr %7, align 4
-  %19 = zext i32 %18 to i64
-  %20 = load ptr, ptr %5, align 8
-  store i64 %19, ptr %20, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
-  store ptr %22, ptr %3, align 8
-  br label %47
+18:                                               ; preds = %2
+  %19 = load i32, ptr %7, align 4, !tbaa !8
+  %20 = zext i32 %19 to i64
+  %21 = load ptr, ptr %5, align 8, !tbaa !143
+  store i64 %20, ptr %21, align 8, !tbaa !18
+  %22 = load ptr, ptr %4, align 8, !tbaa !17
+  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  store ptr %23, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %49
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
-  %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i32
-  store i32 %27, ptr %8, align 4
-  %28 = load i32, ptr %8, align 4
-  %29 = sub i32 %28, 1
-  %30 = shl i32 %29, 7
-  %31 = load i32, ptr %7, align 4
-  %32 = add i32 %31, %30
-  store i32 %32, ptr %7, align 4
-  %33 = load i32, ptr %8, align 4
-  %34 = and i32 %33, 128
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %42, label %36
+24:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %25 = load ptr, ptr %6, align 8, !tbaa !17
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !54
+  %28 = zext i8 %27 to i32
+  store i32 %28, ptr %9, align 4, !tbaa !8
+  %29 = load i32, ptr %9, align 4, !tbaa !8
+  %30 = sub i32 %29, 1
+  %31 = shl i32 %30, 7
+  %32 = load i32, ptr %7, align 4, !tbaa !8
+  %33 = add i32 %32, %31
+  store i32 %33, ptr %7, align 4, !tbaa !8
+  %34 = load i32, ptr %9, align 4, !tbaa !8
+  %35 = and i32 %34, 128
+  %36 = icmp ne i32 %35, 0
+  br i1 %36, label %43, label %37
 
-36:                                               ; preds = %23
-  %37 = load i32, ptr %7, align 4
-  %38 = zext i32 %37 to i64
-  %39 = load ptr, ptr %5, align 8
-  store i64 %38, ptr %39, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
-  store ptr %41, ptr %3, align 8
-  br label %47
+37:                                               ; preds = %24
+  %38 = load i32, ptr %7, align 4, !tbaa !8
+  %39 = zext i32 %38 to i64
+  %40 = load ptr, ptr %5, align 8, !tbaa !143
+  store i64 %39, ptr %40, align 8, !tbaa !18
+  %41 = load ptr, ptr %4, align 8, !tbaa !17
+  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  store ptr %42, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %48
 
-42:                                               ; preds = %23
-  %43 = load ptr, ptr %4, align 8
-  %44 = load i32, ptr %7, align 4
-  %45 = load ptr, ptr %5, align 8
-  %46 = call noundef ptr @_ZN6google8protobuf8internal15VarintParseSlowEPKcjPm(ptr noundef %43, i32 noundef %44, ptr noundef %45)
-  store ptr %46, ptr %3, align 8
-  br label %47
+43:                                               ; preds = %24
+  %44 = load ptr, ptr %4, align 8, !tbaa !17
+  %45 = load i32, ptr %7, align 4, !tbaa !8
+  %46 = load ptr, ptr %5, align 8, !tbaa !143
+  %47 = call noundef ptr @_ZN6google8protobuf8internal15VarintParseSlowEPKcjPm(ptr noundef %44, i32 noundef %45, ptr noundef %46)
+  store ptr %47, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %48
 
-47:                                               ; preds = %42, %36, %17
-  %48 = load ptr, ptr %3, align 8
-  ret ptr %48
+48:                                               ; preds = %43, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  br label %49
+
+49:                                               ; preds = %48, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %50 = load ptr, ptr %3, align 8
+  ret ptr %50
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal15VarintParseSlowEPKcjPm(ptr noundef %0, i32 noundef %1, ptr noundef %2) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal15VarintParseSlowEPKcjPm(ptr noundef %0, i32 noundef %1, ptr noundef %2) #7 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.std::pair.8", align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !143
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #3
+  %8 = load ptr, ptr %4, align 8, !tbaa !17
+  %9 = load i32, ptr %5, align 4, !tbaa !8
   %10 = call { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef %8, i32 noundef %9)
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 0
+  %11 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 0
   %12 = extractvalue { ptr, i64 } %10, 0
   store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %7, i32 0, i32 1
+  %13 = getelementptr inbounds nuw { ptr, i64 }, ptr %7, i32 0, i32 1
   %14 = extractvalue { ptr, i64 } %10, 1
   store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds %"struct.std::pair.8", ptr %7, i32 0, i32 1
-  %16 = load i64, ptr %15, align 8
-  %17 = load ptr, ptr %6, align 8
-  store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"struct.std::pair.8", ptr %7, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %7, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !145
+  %17 = load ptr, ptr %6, align 8, !tbaa !143
+  store i64 %16, ptr %17, align 8, !tbaa !18
+  %18 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %7, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !147
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #3
   ret ptr %19
 }
 
 declare { ptr, i64 } @_ZN6google8protobuf8internal17VarintParseSlow64EPKcj(ptr noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) #7 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !57
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store ptr %2, ptr %6, align 8, !tbaa !34
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
+  %8 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %10 = load ptr, ptr %5, align 8, !tbaa !28
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8, !tbaa !34
+  %14 = load ptr, ptr %5, align 8, !tbaa !28
   call void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %13, ptr noundef %14)
   br label %15
 
 15:                                               ; preds = %12, %3
-  %16 = getelementptr inbounds %"struct.google::protobuf::internal::ArenaStringPtr", ptr %7, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
+  %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ArenaStringPtr", ptr %7, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !59
   ret ptr %17
 }
 
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59), ptr noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %0, i32 noundef %1) #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14WireFormatLite15WriteTagToArrayEiNS2_8WireTypeEPh(i32 noundef %0, i32 noundef %1, ptr noundef %2) #8 comdat align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !148
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = load i32, ptr %5, align 4, !tbaa !148
+  %9 = call noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %7, i32 noundef %8)
+  %10 = load ptr, ptr %6, align 8, !tbaa !17
+  %11 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream15WriteTagToArrayEjPh(i32 noundef %9, ptr noundef %10)
+  ret ptr %11
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14WireFormatLite22WriteInt32NoTagToArrayEiPh(i32 noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
+  %7 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io17CodedOutputStream15WriteTagToArrayEjPh(i32 noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
+  %7 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf8internal14WireFormatLite7MakeTagEiNS2_8WireTypeE(i32 noundef %0, i32 noundef %1) #9 comdat align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !148
+  %5 = load i32, ptr %3, align 4, !tbaa !8
   %6 = shl i32 %5, 3
-  %7 = load i32, ptr %4, align 4
+  %7 = load i32, ptr %4, align 4, !tbaa !148
   %8 = or i32 %6, %7
   ret i32 %8
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %0, ptr noundef %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %0, ptr noundef %1) #7 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
+  %7 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_(i32 noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_(i32 noundef %0, ptr noundef %1) #13 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  store i32 %0, ptr %6, align 4
-  store ptr %1, ptr %7, align 8
-  %8 = load i32, ptr %6, align 4
-  %9 = load ptr, ptr %7, align 8
-  store i32 %8, ptr %4, align 4
-  store ptr %9, ptr %5, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp ult i32 %10, 128
-  br i1 %11, label %12, label %18
+  store i32 %0, ptr %4, align 4, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = icmp ult i32 %6, 128
+  br i1 %7, label %8, label %15
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %4, align 4
-  %14 = trunc i32 %13 to i8
-  %15 = load ptr, ptr %5, align 8
-  store i8 %14, ptr %15, align 1
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
-  store ptr %17, ptr %3, align 8
-  br label %54
+8:                                                ; preds = %2
+  %9 = load i32, ptr %4, align 4, !tbaa !8
+  %10 = trunc i32 %9 to i8
+  %11 = load ptr, ptr %5, align 8, !tbaa !17
+  %12 = getelementptr inbounds i8, ptr %11, i64 0
+  store i8 %10, ptr %12, align 1, !tbaa !54
+  %13 = load ptr, ptr %5, align 8, !tbaa !17
+  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  store ptr %14, ptr %3, align 8
+  br label %56
 
-18:                                               ; preds = %2
-  %19 = load i32, ptr %4, align 4
-  %20 = or i32 %19, 128
-  %21 = trunc i32 %20 to i8
-  %22 = load ptr, ptr %5, align 8
-  store i8 %21, ptr %22, align 1
-  %23 = load i32, ptr %4, align 4
-  %24 = lshr i32 %23, 7
-  store i32 %24, ptr %4, align 4
-  %25 = load i32, ptr %4, align 4
-  %26 = icmp ult i32 %25, 128
-  br i1 %26, label %27, label %34
+15:                                               ; preds = %2
+  %16 = load i32, ptr %4, align 4, !tbaa !8
+  %17 = or i32 %16, 128
+  %18 = trunc i32 %17 to i8
+  %19 = load ptr, ptr %5, align 8, !tbaa !17
+  %20 = getelementptr inbounds i8, ptr %19, i64 0
+  store i8 %18, ptr %20, align 1, !tbaa !54
+  %21 = load i32, ptr %4, align 4, !tbaa !8
+  %22 = lshr i32 %21, 7
+  store i32 %22, ptr %4, align 4, !tbaa !8
+  %23 = load i32, ptr %4, align 4, !tbaa !8
+  %24 = icmp ult i32 %23, 128
+  br i1 %24, label %25, label %32
 
-27:                                               ; preds = %18
-  %28 = load i32, ptr %4, align 4
-  %29 = trunc i32 %28 to i8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
-  store i8 %29, ptr %31, align 1
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 2
-  store ptr %33, ptr %3, align 8
-  br label %54
+25:                                               ; preds = %15
+  %26 = load i32, ptr %4, align 4, !tbaa !8
+  %27 = trunc i32 %26 to i8
+  %28 = load ptr, ptr %5, align 8, !tbaa !17
+  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  store i8 %27, ptr %29, align 1, !tbaa !54
+  %30 = load ptr, ptr %5, align 8, !tbaa !17
+  %31 = getelementptr inbounds i8, ptr %30, i64 2
+  store ptr %31, ptr %3, align 8
+  br label %56
 
-34:                                               ; preds = %18
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i32 1
-  store ptr %36, ptr %5, align 8
-  br label %37
+32:                                               ; preds = %15
+  %33 = load ptr, ptr %5, align 8, !tbaa !17
+  %34 = getelementptr inbounds nuw i8, ptr %33, i32 1
+  store ptr %34, ptr %5, align 8, !tbaa !17
+  br label %35
 
-37:                                               ; preds = %37, %34
-  %38 = load i32, ptr %4, align 4
-  %39 = or i32 %38, 128
-  %40 = trunc i32 %39 to i8
-  %41 = load ptr, ptr %5, align 8
-  store i8 %40, ptr %41, align 1
-  %42 = load i32, ptr %4, align 4
-  %43 = lshr i32 %42, 7
-  store i32 %43, ptr %4, align 4
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i32 1
-  store ptr %45, ptr %5, align 8
-  %46 = load i32, ptr %4, align 4
-  %47 = icmp uge i32 %46, 128
-  br i1 %47, label %37, label %48, !llvm.loop !10
+35:                                               ; preds = %44, %32
+  %36 = load i32, ptr %4, align 4, !tbaa !8
+  %37 = or i32 %36, 128
+  %38 = trunc i32 %37 to i8
+  %39 = load ptr, ptr %5, align 8, !tbaa !17
+  store i8 %38, ptr %39, align 1, !tbaa !54
+  %40 = load i32, ptr %4, align 4, !tbaa !8
+  %41 = lshr i32 %40, 7
+  store i32 %41, ptr %4, align 4, !tbaa !8
+  %42 = load ptr, ptr %5, align 8, !tbaa !17
+  %43 = getelementptr inbounds nuw i8, ptr %42, i32 1
+  store ptr %43, ptr %5, align 8, !tbaa !17
+  br label %44
 
-48:                                               ; preds = %37
-  %49 = load i32, ptr %4, align 4
-  %50 = trunc i32 %49 to i8
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i32 1
-  store ptr %52, ptr %5, align 8
-  store i8 %50, ptr %51, align 1
-  %53 = load ptr, ptr %5, align 8
-  store ptr %53, ptr %3, align 8
-  br label %54
+44:                                               ; preds = %35
+  %45 = load i32, ptr %4, align 4, !tbaa !8
+  %46 = icmp uge i32 %45, 128
+  %47 = zext i1 %46 to i64
+  %48 = call i64 @llvm.expect.i64(i64 %47, i64 0)
+  %49 = icmp ne i64 %48, 0
+  br i1 %49, label %35, label %50, !llvm.loop !150
 
-54:                                               ; preds = %48, %27, %12
-  %55 = load ptr, ptr %3, align 8
-  ret ptr %55
+50:                                               ; preds = %44
+  %51 = load i32, ptr %4, align 4, !tbaa !8
+  %52 = trunc i32 %51 to i8
+  %53 = load ptr, ptr %5, align 8, !tbaa !17
+  %54 = getelementptr inbounds nuw i8, ptr %53, i32 1
+  store ptr %54, ptr %5, align 8, !tbaa !17
+  store i8 %52, ptr %53, align 1, !tbaa !54
+  %55 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %55, ptr %3, align 8
+  br label %56
+
+56:                                               ; preds = %50, %25, %8
+  %57 = load ptr, ptr %3, align 8
+  ret ptr %57
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %0, ptr noundef %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %0, ptr noundef %1) #7 comdat align 2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load i32, ptr %3, align 4, !tbaa !8
   %6 = sext i32 %5 to i64
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !17
   %8 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh(i64 noundef %6, ptr noundef %7)
   ret ptr %8
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh(i64 noundef %0, ptr noundef %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh(i64 noundef %0, ptr noundef %1) #7 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
+  %7 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_(i64 noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_(i64 noundef %0, ptr noundef %1) #13 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca ptr, align 8
-  store i64 %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  %8 = load i64, ptr %6, align 8
-  %9 = load ptr, ptr %7, align 8
-  store i64 %8, ptr %4, align 8
-  store ptr %9, ptr %5, align 8
-  %10 = load i64, ptr %4, align 8
-  %11 = icmp ult i64 %10, 128
-  br i1 %11, label %12, label %18
+  store i64 %0, ptr %4, align 8, !tbaa !18
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  %6 = load i64, ptr %4, align 8, !tbaa !18
+  %7 = icmp ult i64 %6, 128
+  br i1 %7, label %8, label %15
 
-12:                                               ; preds = %2
-  %13 = load i64, ptr %4, align 8
-  %14 = trunc i64 %13 to i8
-  %15 = load ptr, ptr %5, align 8
-  store i8 %14, ptr %15, align 1
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
-  store ptr %17, ptr %3, align 8
-  br label %54
+8:                                                ; preds = %2
+  %9 = load i64, ptr %4, align 8, !tbaa !18
+  %10 = trunc i64 %9 to i8
+  %11 = load ptr, ptr %5, align 8, !tbaa !17
+  %12 = getelementptr inbounds i8, ptr %11, i64 0
+  store i8 %10, ptr %12, align 1, !tbaa !54
+  %13 = load ptr, ptr %5, align 8, !tbaa !17
+  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  store ptr %14, ptr %3, align 8
+  br label %56
 
-18:                                               ; preds = %2
-  %19 = load i64, ptr %4, align 8
-  %20 = or i64 %19, 128
-  %21 = trunc i64 %20 to i8
-  %22 = load ptr, ptr %5, align 8
-  store i8 %21, ptr %22, align 1
-  %23 = load i64, ptr %4, align 8
-  %24 = lshr i64 %23, 7
-  store i64 %24, ptr %4, align 8
-  %25 = load i64, ptr %4, align 8
-  %26 = icmp ult i64 %25, 128
-  br i1 %26, label %27, label %34
+15:                                               ; preds = %2
+  %16 = load i64, ptr %4, align 8, !tbaa !18
+  %17 = or i64 %16, 128
+  %18 = trunc i64 %17 to i8
+  %19 = load ptr, ptr %5, align 8, !tbaa !17
+  %20 = getelementptr inbounds i8, ptr %19, i64 0
+  store i8 %18, ptr %20, align 1, !tbaa !54
+  %21 = load i64, ptr %4, align 8, !tbaa !18
+  %22 = lshr i64 %21, 7
+  store i64 %22, ptr %4, align 8, !tbaa !18
+  %23 = load i64, ptr %4, align 8, !tbaa !18
+  %24 = icmp ult i64 %23, 128
+  br i1 %24, label %25, label %32
 
-27:                                               ; preds = %18
-  %28 = load i64, ptr %4, align 8
-  %29 = trunc i64 %28 to i8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
-  store i8 %29, ptr %31, align 1
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 2
-  store ptr %33, ptr %3, align 8
-  br label %54
+25:                                               ; preds = %15
+  %26 = load i64, ptr %4, align 8, !tbaa !18
+  %27 = trunc i64 %26 to i8
+  %28 = load ptr, ptr %5, align 8, !tbaa !17
+  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  store i8 %27, ptr %29, align 1, !tbaa !54
+  %30 = load ptr, ptr %5, align 8, !tbaa !17
+  %31 = getelementptr inbounds i8, ptr %30, i64 2
+  store ptr %31, ptr %3, align 8
+  br label %56
 
-34:                                               ; preds = %18
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i32 1
-  store ptr %36, ptr %5, align 8
-  br label %37
+32:                                               ; preds = %15
+  %33 = load ptr, ptr %5, align 8, !tbaa !17
+  %34 = getelementptr inbounds nuw i8, ptr %33, i32 1
+  store ptr %34, ptr %5, align 8, !tbaa !17
+  br label %35
 
-37:                                               ; preds = %37, %34
-  %38 = load i64, ptr %4, align 8
-  %39 = or i64 %38, 128
-  %40 = trunc i64 %39 to i8
-  %41 = load ptr, ptr %5, align 8
-  store i8 %40, ptr %41, align 1
-  %42 = load i64, ptr %4, align 8
-  %43 = lshr i64 %42, 7
-  store i64 %43, ptr %4, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i32 1
-  store ptr %45, ptr %5, align 8
-  %46 = load i64, ptr %4, align 8
-  %47 = icmp uge i64 %46, 128
-  br i1 %47, label %37, label %48, !llvm.loop !14
+35:                                               ; preds = %44, %32
+  %36 = load i64, ptr %4, align 8, !tbaa !18
+  %37 = or i64 %36, 128
+  %38 = trunc i64 %37 to i8
+  %39 = load ptr, ptr %5, align 8, !tbaa !17
+  store i8 %38, ptr %39, align 1, !tbaa !54
+  %40 = load i64, ptr %4, align 8, !tbaa !18
+  %41 = lshr i64 %40, 7
+  store i64 %41, ptr %4, align 8, !tbaa !18
+  %42 = load ptr, ptr %5, align 8, !tbaa !17
+  %43 = getelementptr inbounds nuw i8, ptr %42, i32 1
+  store ptr %43, ptr %5, align 8, !tbaa !17
+  br label %44
 
-48:                                               ; preds = %37
-  %49 = load i64, ptr %4, align 8
-  %50 = trunc i64 %49 to i8
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i32 1
-  store ptr %52, ptr %5, align 8
-  store i8 %50, ptr %51, align 1
-  %53 = load ptr, ptr %5, align 8
-  store ptr %53, ptr %3, align 8
-  br label %54
+44:                                               ; preds = %35
+  %45 = load i64, ptr %4, align 8, !tbaa !18
+  %46 = icmp uge i64 %45, 128
+  %47 = zext i1 %46 to i64
+  %48 = call i64 @llvm.expect.i64(i64 %47, i64 0)
+  %49 = icmp ne i64 %48, 0
+  br i1 %49, label %35, label %50, !llvm.loop !151
 
-54:                                               ; preds = %48, %27, %12
-  %55 = load ptr, ptr %3, align 8
-  ret ptr %55
+50:                                               ; preds = %44
+  %51 = load i64, ptr %4, align 8, !tbaa !18
+  %52 = trunc i64 %51 to i8
+  %53 = load ptr, ptr %5, align 8, !tbaa !17
+  %54 = getelementptr inbounds nuw i8, ptr %53, i32 1
+  store ptr %54, ptr %5, align 8, !tbaa !17
+  store i8 %52, ptr %53, align 1, !tbaa !54
+  %55 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %55, ptr %3, align 8
+  br label %56
+
+56:                                               ; preds = %50, %25, %8
+  %57 = load ptr, ptr %3, align 8
+  ret ptr %57
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14WireFormatLite23WriteUInt64NoTagToArrayEmPh(i64 noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !18
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
+  %7 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh(i64 noundef %5, ptr noundef %6)
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj(i32 noundef %0) #5 comdat align 2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
   %4 = icmp ult i32 %3, 128
   br i1 %4, label %5, label %6
 
@@ -5351,7 +6141,7 @@ define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf2io19EpsCopyOutput
   br label %22
 
 6:                                                ; preds = %1
-  %7 = load i32, ptr %2, align 4
+  %7 = load i32, ptr %2, align 4, !tbaa !8
   %8 = icmp ult i32 %7, 16384
   br i1 %8, label %9, label %10
 
@@ -5359,7 +6149,7 @@ define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf2io19EpsCopyOutput
   br label %20
 
 10:                                               ; preds = %6
-  %11 = load i32, ptr %2, align 4
+  %11 = load i32, ptr %2, align 4, !tbaa !8
   %12 = icmp ult i32 %11, 2097152
   br i1 %12, label %13, label %14
 
@@ -5367,7 +6157,7 @@ define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf2io19EpsCopyOutput
   br label %18
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr %2, align 4
+  %15 = load i32, ptr %2, align 4, !tbaa !8
   %16 = icmp ult i32 %15, 268435456
   %17 = select i1 %16, i32 4, i32 5
   br label %18
@@ -5387,30 +6177,72 @@ define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf2io19EpsCopyOutput
 
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMaybeAliasedOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
 
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14WireFormatLite21WriteBoolNoTagToArrayEbPh(i1 noundef zeroext %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = zext i1 %0 to i8
+  store i8 %5, ptr %3, align 1, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %6 = load i8, ptr %3, align 1, !tbaa !24, !range !30, !noundef !31
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %7, i32 1, i32 0
+  %9 = load ptr, ptr %4, align 8, !tbaa !17
+  %10 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh(i32 noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14WireFormatLite21WriteEnumNoTagToArrayEiPh(i32 noundef %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load i32, ptr %3, align 4, !tbaa !8
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
+  %7 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh(i32 noundef %5, ptr noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal16InternalMetadata6PtrTagEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
+  %6 = ptrtoint ptr %5 to i64
+  %7 = and i64 %6, 1
+  %8 = trunc i64 %7 to i32
+  ret i32 %8
+}
+
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(59), ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %0) #7 comdat align 2 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
-  store i64 %0, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load i64, ptr %2, align 8, !tbaa !18
   %5 = or i64 %4, 1
   %6 = call noundef i32 @_ZN6google8protobuf4Bits18Log2FloorNonZero64Em(i64 noundef %5)
-  store i32 %6, ptr %3, align 4
-  %7 = load i32, ptr %3, align 4
+  store i32 %6, ptr %3, align 4, !tbaa !8
+  %7 = load i32, ptr %3, align 4, !tbaa !8
   %8 = mul i32 %7, 9
   %9 = add i32 %8, 73
   %10 = udiv i32 %9, 64
   %11 = zext i32 %10 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
   ret i64 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf4Bits18Log2FloorNonZero64Em(i64 noundef %0) #5 comdat align 2 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !18
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = call i64 @llvm.ctlz.i64(i64 %3, i1 true)
   %5 = trunc i64 %4 to i32
   %6 = xor i32 63, %5
@@ -5418,14 +6250,14 @@ define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf4Bits18Log2FloorNo
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf2io17CodedOutputStream24VarintSize32SignExtendedEi(i32 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf2io17CodedOutputStream24VarintSize32SignExtendedEi(i32 noundef %0) #7 comdat align 2 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  %4 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !8
+  %4 = load i32, ptr %3, align 4, !tbaa !8
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %7
 
@@ -5434,7 +6266,7 @@ define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf2io17CodedOutputSt
   br label %10
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %3, align 4
+  %8 = load i32, ptr %3, align 4, !tbaa !8
   %9 = call noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize32Ej(i32 noundef %8)
   store i64 %9, ptr %2, align 8
   br label %10
@@ -5444,73 +6276,77 @@ define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf2io17CodedOutputSt
   ret i64 %11
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize32Ej(i32 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize32Ej(i32 noundef %0) #7 comdat align 2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %4 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #3
+  %4 = load i32, ptr %2, align 4, !tbaa !8
   %5 = or i32 %4, 1
   %6 = call noundef i32 @_ZN6google8protobuf4Bits16Log2FloorNonZeroEj(i32 noundef %5)
-  store i32 %6, ptr %3, align 4
-  %7 = load i32, ptr %3, align 4
+  store i32 %6, ptr %3, align 4, !tbaa !8
+  %7 = load i32, ptr %3, align 4, !tbaa !8
   %8 = mul i32 %7, 9
   %9 = add i32 %8, 73
   %10 = udiv i32 %9, 64
   %11 = zext i32 %10 to i64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #3
   ret i64 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN6google8protobuf4Bits16Log2FloorNonZeroEj(i32 noundef %0) #5 comdat align 2 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !8
+  %3 = load i32, ptr %2, align 4, !tbaa !8
   %4 = call i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %5 = xor i32 31, %4
   ret i32 %5
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #18
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite19LengthDelimitedSizeEm(i64 noundef %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf8internal14WireFormatLite19LengthDelimitedSizeEm(i64 noundef %0) #7 comdat align 2 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
-  %4 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !18
+  %3 = load i64, ptr %2, align 8, !tbaa !18
+  %4 = load i64, ptr %2, align 8, !tbaa !18
   %5 = trunc i64 %4 to i32
   %6 = call noundef i64 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize32Ej(i32 noundef %5)
   %7 = add i64 %3, %6
   ret i64 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt4swapIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt4swapIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %12, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !152
+  store ptr %1, ptr %4, align 8, !tbaa !152
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !152
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
+  store ptr %7, ptr %5, align 8, !tbaa !28
+  %8 = load ptr, ptr %4, align 8, !tbaa !152
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %10 = load ptr, ptr %3, align 8, !tbaa !152
+  store ptr %9, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %5, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !152
+  store ptr %11, ptr %12, align 8, !tbaa !28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN4i18n12phonenumbers11PhoneNumberEEEPT_PNS0_5ArenaE(ptr noundef %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers11PhoneNumberEJEEEPT_PS1_DpOT0_(ptr noundef %3)
   ret ptr %4
 }
@@ -5518,58 +6354,45 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf11MessageLite18Cre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal10CachedSize3GetEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.google::protobuf::internal::CachedSize", ptr %7, i32 0, i32 0
-  store ptr %8, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %9 = load ptr, ptr %2, align 8
-  %10 = load i32, ptr %3, align 4
-  %11 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %10, i32 noundef 65535)
-  store i32 %11, ptr %4, align 4
-  %12 = load i32, ptr %3, align 4
-  switch i32 %12, label %13 [
-    i32 1, label %15
-    i32 2, label %15
-    i32 5, label %17
-  ]
-
-13:                                               ; preds = %1
-  %14 = load atomic i32, ptr %9 monotonic, align 4
-  store i32 %14, ptr %5, align 4
-  br label %19
-
-15:                                               ; preds = %1, %1
-  %16 = load atomic i32, ptr %9 acquire, align 4
-  store i32 %16, ptr %5, align 4
-  br label %19
-
-17:                                               ; preds = %1
-  %18 = load atomic i32, ptr %9 seq_cst, align 4
-  store i32 %18, ptr %5, align 4
-  br label %19
-
-19:                                               ; preds = %17, %15, %13
-  %20 = load i32, ptr %5, align 4
-  ret i32 %20
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::CachedSize", ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #3
+  ret i32 %5
 }
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZNSt15__new_allocatorIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  ret void
+}
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !110
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !99
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !99
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #3
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %10, ptr %9, align 8, !tbaa !112
+  ret void
+}
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #12
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = call i64 @strlen(ptr noundef %3) #3
   ret i64 %4
 }
@@ -5579,147 +6402,144 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca %struct._Guard, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %13, ptr noundef %14)
-  store i64 %15, ptr %8, align 8
-  %16 = load i64, ptr %8, align 8
-  %17 = icmp ugt i64 %16, 15
-  br i1 %17, label %18, label %21
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard.10, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %12 = load ptr, ptr %5, align 8, !tbaa !17
+  %13 = load ptr, ptr %6, align 8, !tbaa !17
+  %14 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !18
+  %15 = load i64, ptr %7, align 8, !tbaa !18
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
 
-18:                                               ; preds = %3
-  %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %19)
-  %20 = load i64, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %20)
-  br label %28
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
 
-21:                                               ; preds = %3
-  store ptr %12, ptr %4, align 8
-  %22 = load ptr, ptr %4, align 8
-  %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
-          to label %27 unwind label %24
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %22
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
-          catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #13
-  unreachable
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %24 = load ptr, ptr %5, align 8, !tbaa !17
+  %25 = load ptr, ptr %6, align 8, !tbaa !17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %23, ptr noundef %24, ptr noundef %25) #3
+  %26 = getelementptr inbounds nuw %struct._Guard.10, ptr %8, i32 0, i32 0
+  store ptr null, ptr %26, align 8, !tbaa !154
+  %27 = load i64, ptr %7, align 8, !tbaa !18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %27)
+          to label %28 unwind label %29
 
-27:                                               ; preds = %21
-  br label %28
-
-28:                                               ; preds = %27, %18
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
-  %29 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %30 unwind label %36
-
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef %31, ptr noundef %32) #3
-  %33 = getelementptr inbounds %struct._Guard, ptr %9, i32 0, i32 0
-  store ptr null, ptr %33, align 8
-  %34 = load i64, ptr %8, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %34)
-          to label %35 unwind label %36
-
-35:                                               ; preds = %30
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+28:                                               ; preds = %22
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret void
 
-36:                                               ; preds = %30, %28
-  %37 = landingpad { ptr, i32 }
+29:                                               ; preds = %22
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %38 = extractvalue { ptr, i32 } %37, 0
-  store ptr %38, ptr %10, align 8
-  %39 = extractvalue { ptr, i32 } %37, 1
-  store i32 %39, ptr %11, align 4
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %40
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %9, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %33
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i32, ptr %11, align 4
-  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
-  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
-  resume { ptr, i32 } %44
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  ret void
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
 ; Function Attrs: nounwind
 declare i64 @strlen(ptr noundef) #2
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #7 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8, !tbaa !17
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
   call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
   ret i64 %7
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
-
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !156
+  store ptr %1, ptr %4, align 8, !tbaa !28
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._Guard, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard.10, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  store ptr %7, ptr %6, align 8, !tbaa !154
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !17
+  %8 = load ptr, ptr %5, align 8, !tbaa !17
+  %9 = load ptr, ptr %6, align 8, !tbaa !17
+  %10 = load ptr, ptr %5, align 8, !tbaa !17
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
 
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+14:                                               ; preds = %3
+  ret void
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #20
+  unreachable
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !156
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._Guard, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard.10, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !154
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct._Guard, ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %struct._Guard.10, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !154
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %10 unwind label %12
 
@@ -5733,370 +6553,433 @@ define linkonce_odr dso_local void @_ZZNSt7__cxx1112basic_stringIcSt11char_trait
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #13
+  call void @__clang_call_terminate(ptr %14) #20
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %6 = load ptr, ptr %3, align 8, !tbaa !17
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   ret i64 %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #9 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !70
   ret void
 }
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
   ret ptr %8
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress noinline uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #16 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = alloca i8, align 1
-  %5 = alloca i64, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i8, align 1
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
-  %17 = alloca ptr, align 8
-  %18 = alloca ptr, align 8
-  %19 = alloca ptr, align 8
-  %20 = alloca ptr, align 8
-  store ptr %0, ptr %18, align 8
-  %21 = load ptr, ptr %18, align 8
-  store ptr %21, ptr %17, align 8
-  %22 = load ptr, ptr %17, align 8
-  store ptr %22, ptr %15, align 8
-  %23 = load ptr, ptr %15, align 8
-  store ptr %23, ptr %14, align 8
-  %24 = load ptr, ptr %14, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, 1
-  %28 = trunc i64 %27 to i32
-  %29 = icmp eq i32 %28, 1
-  br i1 %29, label %30, label %33
-
-30:                                               ; preds = %1
-  %31 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_13ContainerBaseEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %22)
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %16, align 8
-  br label %35
-
-33:                                               ; preds = %1
-  %34 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS0_5ArenaEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %22)
-  store ptr %34, ptr %16, align 8
-  br label %35
-
-35:                                               ; preds = %33, %30
-  %36 = load ptr, ptr %16, align 8
-  store ptr %36, ptr %19, align 8
-  %37 = load ptr, ptr %19, align 8
-  store ptr %37, ptr %13, align 8
-  %38 = load ptr, ptr %13, align 8
-  store ptr %38, ptr %12, align 8
-  %39 = load ptr, ptr %12, align 8
-  store ptr %39, ptr %11, align 8
-  %40 = load ptr, ptr %11, align 8
-  store ptr %40, ptr %10, align 8
-  %41 = load ptr, ptr %10, align 8
-  store ptr %41, ptr %9, align 8
-  %42 = load ptr, ptr %9, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %46
-
-44:                                               ; preds = %35
-  %45 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #16
-  call void @llvm.memset.p0.i64(ptr align 16 %45, i8 0, i64 40, i1 false)
-  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %45) #3
-  store ptr %45, ptr %8, align 8
-  br label %65
-
-46:                                               ; preds = %35
-  %47 = load ptr, ptr %9, align 8
-  store ptr %47, ptr %6, align 8
-  store i8 0, ptr %7, align 1
-  %48 = load ptr, ptr %6, align 8
-  %49 = load i8, ptr %7, align 1
-  %50 = trunc i8 %49 to i1
-  store ptr %48, ptr %3, align 8
-  %51 = zext i1 %50 to i8
-  store i8 %51, ptr %4, align 1
-  %52 = load ptr, ptr %3, align 8
-  %53 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef 40)
-  store i64 %53, ptr %5, align 8
-  %54 = load i64, ptr %5, align 8
-  call void @_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %52, ptr noundef @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 noundef %54)
-  %55 = load i8, ptr %4, align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %60
-
-57:                                               ; preds = %46
-  %58 = load i64, ptr %5, align 8
-  %59 = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %52, i64 noundef %58)
-  store ptr %59, ptr %2, align 8
-  br label %63
-
-60:                                               ; preds = %46
-  %61 = load i64, ptr %5, align 8
-  %62 = call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %52, i64 noundef %61, ptr noundef @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
-  store ptr %62, ptr %2, align 8
-  br label %63
-
-63:                                               ; preds = %60, %57
-  %64 = load ptr, ptr %2, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %64, i8 0, i64 40, i1 false)
-  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %64) #3
-  store ptr %64, ptr %8, align 8
-  br label %65
-
-65:                                               ; preds = %63, %44
-  %66 = load ptr, ptr %8, align 8
-  store ptr %66, ptr %20, align 8
-  %67 = load ptr, ptr %20, align 8
-  %68 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %21, i32 0, i32 0
-  store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %21, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %70 to i64
-  %72 = or i64 %71, 1
-  %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds %"class.google::protobuf::internal::InternalMetadata", ptr %21, i32 0, i32 0
-  store ptr %73, ptr %74, align 8
-  %75 = load ptr, ptr %19, align 8
-  %76 = load ptr, ptr %20, align 8
-  %77 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", ptr %76, i32 0, i32 0
-  store ptr %75, ptr %77, align 8
-  %78 = load ptr, ptr %20, align 8
-  %79 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %78, i32 0, i32 1
-  ret ptr %79
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  %6 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata5arenaEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  store ptr %6, ptr %3, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  %7 = load ptr, ptr %3, align 8, !tbaa !34
+  %8 = call noundef ptr @_ZN6google8protobuf5Arena6CreateINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_DpOT0_(ptr noundef %7)
+  store ptr %8, ptr %4, align 8, !tbaa !158
+  %9 = load ptr, ptr %4, align 8, !tbaa !158
+  %10 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %5, i32 0, i32 0
+  store ptr %9, ptr %10, align 8, !tbaa !103
+  %11 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !103
+  %13 = ptrtoint ptr %12 to i64
+  %14 = or i64 %13, 1
+  %15 = inttoptr i64 %14 to ptr
+  %16 = getelementptr inbounds nuw %"class.google::protobuf::internal::InternalMetadata", ptr %5, i32 0, i32 0
+  store ptr %15, ptr %16, align 8, !tbaa !103
+  %17 = load ptr, ptr %3, align 8, !tbaa !34
+  %18 = load ptr, ptr %4, align 8, !tbaa !158
+  %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", ptr %18, i32 0, i32 0
+  store ptr %17, ptr %19, align 8, !tbaa !130
+  %20 = load ptr, ptr %4, align 8, !tbaa !158
+  %21 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %20, i32 0, i32 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret ptr %21
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena6CreateINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_DpOT0_(ptr noundef %0) #8 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %4 = call noundef ptr @_ZN6google8protobuf5Arena15CreateNoMessageINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena15CreateNoMessageINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %4 = call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_DpOT0_(ptr noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_DpOT0_(ptr noundef %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %4 = call noundef ptr @_ZN6google8protobuf5Arena20DoCreateMaybeMessageINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena20DoCreateMaybeMessageINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_(ptr noundef %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %4 = call noundef ptr @_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_DpOT0_(ptr noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_PS1_DpOT0_(ptr noundef %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %8
+
+6:                                                ; preds = %1
+  %7 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #23
+  call void @llvm.memset.p0.i64(ptr align 16 %7, i8 0, i64 40, i1 false)
+  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #3
+  store ptr %7, ptr %2, align 8
+  br label %11
+
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8, !tbaa !34
+  %10 = call noundef ptr @_ZN6google8protobuf5Arena8DoCreateINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_bDpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %9, i1 noundef zeroext false)
+  store ptr %10, ptr %2, align 8
+  br label %11
+
+11:                                               ; preds = %8, %6
+  %12 = load ptr, ptr %2, align 8
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !158
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena8DoCreateINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJEEEPT_bDpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0, i1 noundef zeroext %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !24
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i8, ptr %4, align 1, !tbaa !24, !range !30, !noundef !31
+  %8 = trunc i8 %7 to i1
+  %9 = call noundef ptr @_ZN6google8protobuf5Arena16AllocateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPvb(ptr noundef nonnull align 8 dereferenceable(120) %6, i1 noundef zeroext %8)
+  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 40, i1 false)
+  call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #3
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.std::allocator", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %7 unwind label %10
+
+7:                                                ; preds = %1
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
+  %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %7
+  ret void
+
+10:                                               ; preds = %7, %1
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #20
+  unreachable
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena16AllocateInternalINS0_8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPvb(ptr noundef nonnull align 8 dereferenceable(120) %0, i1 noundef zeroext %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  %8 = zext i1 %1 to i8
+  store i8 %8, ptr %5, align 1, !tbaa !24
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %10 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef 40)
+  store i64 %10, ptr %6, align 8, !tbaa !18
+  %11 = load i64, ptr %6, align 8, !tbaa !18
+  call void @_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 noundef %11)
+  %12 = load i8, ptr %5, align 1, !tbaa !24, !range !30, !noundef !31
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
+
+14:                                               ; preds = %2
+  %15 = load i64, ptr %6, align 8, !tbaa !18
+  %16 = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %9, i64 noundef %15)
+  store ptr %16, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %21
+
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw %"class.google::protobuf::Arena", ptr %9, i32 0, i32 0
+  %19 = load i64, ptr %6, align 8, !tbaa !18
+  %20 = call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %18, i64 noundef %19, ptr noundef @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv)
+  store ptr %20, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %21
+
+21:                                               ; preds = %17, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %22 = load ptr, ptr %3, align 8
+  ret ptr %22
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv(ptr noundef %0) #5 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   call void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !158
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %3, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %4 = getelementptr inbounds nuw %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf11StringPiece22CheckedSsizeTFromSizeTEm(i64 noundef %0) #5 comdat align 2 {
   %2 = alloca i64, align 8
-  store i64 %0, ptr %2, align 8
-  %3 = load i64, ptr %2, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !18
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   ret i64 %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  %9 = load ptr, ptr %7, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %3, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %16 = trunc i64 %15 to i32
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %21
-
-18:                                               ; preds = %2
-  %19 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %20 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %19, i32 0, i32 1
-  store ptr %20, ptr %5, align 8
-  br label %23
-
-21:                                               ; preds = %2
-  %22 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  store ptr %22, ptr %5, align 8
-  br label %23
-
-23:                                               ; preds = %21, %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25)
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
-  %2 = alloca ptr, align 8
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) #4 align 2 {
+  %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  store ptr %8, ptr %3, align 8
-  %9 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %2, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %13 = and i64 %12, 1
-  %14 = trunc i64 %13 to i32
-  %15 = icmp eq i32 %14, 1
-  br i1 %15, label %16, label %19
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store i64 %2, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %6, align 8, !tbaa !18
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i64 noundef %8, ptr noundef @.str.10)
+  %9 = load ptr, ptr %5, align 8, !tbaa !17
+  %10 = load i64, ptr %6, align 8, !tbaa !18
+  %11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %9, i64 noundef %10)
+  ret ptr %11
+}
 
-16:                                               ; preds = %1
-  %17 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %18 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %17, i32 0, i32 1
-  store ptr %18, ptr %4, align 8
-  br label %21
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #4 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store i64 %1, ptr %6, align 8, !tbaa !18
+  store i64 %2, ptr %7, align 8, !tbaa !18
+  store ptr %3, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  %12 = load i64, ptr %6, align 8, !tbaa !18
+  %13 = sub i64 %11, %12
+  %14 = sub i64 %10, %13
+  %15 = load i64, ptr %7, align 8, !tbaa !18
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %17, label %19
 
-19:                                               ; preds = %1
-  %20 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr %20, ptr %4, align 8
-  br label %21
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %8, align 8, !tbaa !17
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %18) #22
+  unreachable
 
-21:                                               ; preds = %19, %16
-  %22 = load ptr, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
+19:                                               ; preds = %4
   ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %5 = call noundef i64 @_ZNSt16allocator_traitsISaIcEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  %6 = sub i64 %5, 1
+  %7 = udiv i64 %6, 2
+  ret i64 %7
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #19
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNSt16allocator_traitsISaIcEE8max_sizeERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIcE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal9down_castIPKN4i18n12phonenumbers11PhoneNumberEKNS0_11MessageLiteEEET_PT0_(ptr noundef %0) #5 comdat {
+define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorIcE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
   %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIcE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef i64 @_ZNKSt15__new_allocatorIcE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  ret i64 9223372036854775807
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal9down_castIPKN4i18n12phonenumbers11PhoneNumberEKNS0_11MessageLiteEEET_PT0_(ptr noundef %0) #9 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  %9 = load ptr, ptr %7, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  store ptr %10, ptr %4, align 8
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %3, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %16 = trunc i64 %15 to i32
-  %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %21
-
-18:                                               ; preds = %2
-  %19 = call noundef ptr @_ZNK6google8protobuf8internal16InternalMetadata8PtrValueINS2_9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %20 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %19, i32 0, i32 1
-  store ptr %20, ptr %5, align 8
-  br label %23
-
-21:                                               ; preds = %2
-  %22 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  store ptr %22, ptr %5, align 8
-  br label %23
-
-23:                                               ; preds = %21, %18
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %8, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25) #3
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef ptr @_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   ret void
 }
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal9SwapBlockIoEEvPcS3_(ptr noundef %0, ptr noundef %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal9SwapBlockIoEEvPcS3_(ptr noundef %0, ptr noundef %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i128, align 16
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %5, ptr align 1 %6, i64 16, i1 false)
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = load ptr, ptr %4, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 16, i1 false)
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 16 %5, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
   ret void
 }
 
@@ -6104,63 +6987,120 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal9SwapBlockIoEEvP
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal7memswapILi4EEENSt9enable_ifIXaageT_Lm4EltT_Li8EEvE4typeEPcS6_(ptr noundef %0, ptr noundef %1) #4 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8, !tbaa !17
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
   call void @_ZN6google8protobuf8internal9SwapBlockIjEEvPcS3_(ptr noundef %5, ptr noundef %6)
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = load ptr, ptr %4, align 8, !tbaa !17
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @_ZN6google8protobuf8internal7memswapILi0EEENSt9enable_ifIXeqT_Li0EEvE4typeEPcS6_(ptr noundef %8, ptr noundef %10)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal9SwapBlockIjEEvPcS3_(ptr noundef %0, ptr noundef %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal9SwapBlockIjEEvPcS3_(ptr noundef %0, ptr noundef %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  %6 = load ptr, ptr %3, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 1 %6, i64 4, i1 false)
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = load ptr, ptr %4, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 4, i1 false)
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 4 %5, i64 4, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal7memswapILi0EEENSt9enable_ifIXeqT_Li0EEvE4typeEPcS6_(ptr noundef %0, ptr noundef %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal7memswapILi0EEENSt9enable_ifIXeqT_Li0EEvE4typeEPcS6_(ptr noundef %0, ptr noundef %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena15DoCreateMessageIN4i18n12phonenumbers11PhoneNumberEJEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(120) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef ptr @_ZN6google8protobuf5Arena16AllocateInternalIN4i18n12phonenumbers11PhoneNumberEEEPvb(ptr noundef nonnull align 8 dereferenceable(120) %4, i1 noundef zeroext true)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  store ptr %4, ptr %3, align 8, !tbaa !34
+  %6 = call noundef ptr @_ZN6google8protobuf5Arena14InternalHelperIN4i18n12phonenumbers11PhoneNumberEE9ConstructIJPS1_EEEPS5_PvDpOT_(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena14InternalHelperIN4i18n12phonenumbers11PhoneNumberEE9ConstructIJPS1_EEEPS5_PvDpOT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !160
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !160
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   call void @_ZN4i18n12phonenumbers11PhoneNumberC1EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef %7)
   ret ptr %5
+}
+
+; Function Attrs: alwaysinline mustprogress uwtable
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf5Arena16AllocateInternalIN4i18n12phonenumbers11PhoneNumberEEEPvb(ptr noundef nonnull align 8 dereferenceable(120) %0, i1 noundef zeroext %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !34
+  %8 = zext i1 %1 to i8
+  store i8 %8, ptr %5, align 1, !tbaa !24
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %10 = call noundef i64 @_ZN6google8protobuf8internal10AlignUpTo8Em(i64 noundef 72)
+  store i64 %10, ptr %6, align 8, !tbaa !18
+  %11 = load i64, ptr %6, align 8, !tbaa !18
+  call void @_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef @_ZTIN4i18n12phonenumbers11PhoneNumberE, i64 noundef %11)
+  %12 = load i8, ptr %5, align 1, !tbaa !24, !range !30, !noundef !31
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
+
+14:                                               ; preds = %2
+  %15 = load i64, ptr %6, align 8, !tbaa !18
+  %16 = call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %9, i64 noundef %15)
+  store ptr %16, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %21
+
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw %"class.google::protobuf::Arena", ptr %9, i32 0, i32 0
+  %19 = load i64, ptr %6, align 8, !tbaa !18
+  %20 = call noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndAddCleanupEmPFvPvE(ptr noundef nonnull align 8 dereferenceable(88) %18, i64 noundef %19, ptr noundef @_ZN6google8protobuf8internal21arena_destruct_objectIN4i18n12phonenumbers11PhoneNumberEEEvPv)
+  store ptr %20, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %21
+
+21:                                               ; preds = %17, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %22 = load ptr, ptr %3, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal21arena_destruct_objectIN4i18n12phonenumbers11PhoneNumberEEEvPv(ptr noundef %0) #5 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
   ret void
 }
@@ -6172,38 +7112,192 @@ define internal void @_GLOBAL__sub_I_phonenumber.pb.cc() #0 section ".text.start
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { builtin allocsize(0) }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { alwaysinline mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind }
+attributes #22 = { noreturn }
+attributes #23 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"branch_weights", i32 1, i32 1048575}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !9, i64 16}
+!11 = !{!"_ZTSN6google8protobuf8internal9EnumEntryE", !12, i64 0, !9, i64 16}
+!12 = !{!"_ZTSN6google8protobuf11StringPieceE", !13, i64 0, !14, i64 8}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTSN6google8protobuf11StringPieceE", !5, i64 0}
+!17 = !{!13, !13, i64 0}
+!18 = !{!14, !14, i64 0}
+!19 = !{!12, !13, i64 0}
+!20 = !{!12, !14, i64 8}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"_ZTSN4i18n12phonenumbers29PhoneNumber_CountryCodeSourceE", !6, i64 0}
+!23 = !{!"branch_weights", i32 1, i32 1048575}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"bool", !6, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !5, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTSN4i18n12phonenumbers11PhoneNumberE", !5, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"vtable pointer", !7, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSN6google8protobuf11MessageLiteE", !5, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSN6google8protobuf8internal7HasBitsILm1EEE", !5, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSN6google8protobuf8internal10CachedSizeE", !5, i64 0}
+!44 = !{!45, !9, i64 68}
+!45 = !{!"_ZTSN4i18n12phonenumbers11PhoneNumberE", !46, i64 0, !48, i64 16, !49, i64 20, !52, i64 24, !52, i64 32, !52, i64 40, !14, i64 48, !9, i64 56, !25, i64 60, !9, i64 64, !9, i64 68}
+!46 = !{!"_ZTSN6google8protobuf11MessageLiteE", !47, i64 8}
+!47 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !5, i64 0}
+!48 = !{!"_ZTSN6google8protobuf8internal7HasBitsILm1EEE", !6, i64 0}
+!49 = !{!"_ZTSN6google8protobuf8internal10CachedSizeE", !50, i64 0}
+!50 = !{!"_ZTSSt6atomicIiE", !51, i64 0}
+!51 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
+!52 = !{!"_ZTSN6google8protobuf8internal14ArenaStringPtrE", !29, i64 0}
+!53 = !{i64 0, i64 4, !54}
+!54 = !{!6, !6, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTSN6google8protobuf8internal16InternalMetadataE", !5, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTSN6google8protobuf8internal14ArenaStringPtrE", !5, i64 0}
+!59 = !{!52, !29, i64 0}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.mustprogress"}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTSN6google8protobuf8internal11SCCInfoBaseE", !5, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTSN6google8protobuf8internal12ParseContextE", !5, i64 0}
+!66 = !{!45, !9, i64 56}
+!67 = distinct !{!67, !61}
+!68 = !{!45, !14, i64 48}
+!69 = !{!45, !25, i64 60}
+!70 = !{!71, !71, i64 0}
+!71 = !{!"p2 omnipotent char", !72, i64 0}
+!72 = !{!"any p2 pointer", !5, i64 0}
+!73 = !{!74, !9, i64 92}
+!74 = !{!"_ZTSN6google8protobuf8internal12ParseContextE", !75, i64 0, !9, i64 88, !9, i64 92, !77, i64 96}
+!75 = !{!"_ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !13, i64 0, !13, i64 8, !13, i64 16, !9, i64 24, !9, i64 28, !76, i64 32, !6, i64 40, !14, i64 72, !9, i64 80, !9, i64 84}
+!76 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !5, i64 0}
+!77 = !{!"_ZTSN6google8protobuf8internal12ParseContext4DataE", !78, i64 0, !79, i64 8}
+!78 = !{!"p1 _ZTSN6google8protobuf14DescriptorPoolE", !5, i64 0}
+!79 = !{!"p1 _ZTSN6google8protobuf14MessageFactoryE", !5, i64 0}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 int", !5, i64 0}
+!82 = !{!83, !9, i64 8}
+!83 = !{!"_ZTSSt4pairIPKcjE", !13, i64 0, !9, i64 8}
+!84 = !{!83, !13, i64 0}
+!85 = !{!45, !9, i64 64}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !5, i64 0}
+!88 = !{!75, !9, i64 80}
+!89 = distinct !{!89, !61}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !5, i64 0}
+!92 = !{!93, !13, i64 0}
+!93 = !{!"_ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !13, i64 0, !13, i64 8, !6, i64 16, !94, i64 48, !25, i64 56, !25, i64 57, !25, i64 58}
+!94 = !{!"p1 _ZTSN6google8protobuf2io20ZeroCopyOutputStreamE", !5, i64 0}
+!95 = !{!96, !14, i64 8}
+!96 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !97, i64 0, !14, i64 8, !6, i64 16}
+!97 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !13, i64 0}
+!98 = distinct !{!98, !61}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!103 = !{!47, !5, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTSSt6atomicIiE", !5, i64 0}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 _ZTSSt13__atomic_baseIiE", !5, i64 0}
+!108 = !{!51, !9, i64 0}
+!109 = distinct !{!109, !61}
+!110 = !{!111, !111, i64 0}
+!111 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!112 = !{!97, !13, i64 0}
+!113 = !{!114, !29, i64 0}
+!114 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !29, i64 0}
+!115 = !{!96, !13, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSSt9type_info", !5, i64 0}
+!120 = !{!121, !5, i64 112}
+!121 = !{!"_ZTSN6google8protobuf5ArenaE", !122, i64 0, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112}
+!122 = !{!"_ZTSN6google8protobuf8internal9ArenaImplE", !123, i64 0, !123, i64 8, !126, i64 16, !128, i64 24, !14, i64 32, !129, i64 40}
+!123 = !{!"_ZTSSt6atomicIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !124, i64 0}
+!124 = !{!"_ZTSSt13__atomic_baseIPN6google8protobuf8internal9ArenaImpl11SerialArenaEE", !125, i64 0}
+!125 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl11SerialArenaE", !5, i64 0}
+!126 = !{!"_ZTSSt6atomicImE", !127, i64 0}
+!127 = !{!"_ZTSSt13__atomic_baseImE", !14, i64 0}
+!128 = !{!"p1 _ZTSN6google8protobuf8internal9ArenaImpl5BlockE", !5, i64 0}
+!129 = !{!"_ZTSN6google8protobuf8internal9ArenaImpl7OptionsE", !14, i64 0, !14, i64 8, !13, i64 16, !14, i64 24, !5, i64 32, !5, i64 40}
+!130 = !{!131, !35, i64 0}
+!131 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !35, i64 0}
+!132 = !{!133, !133, i64 0}
+!133 = !{!"_ZTSSt12memory_order", !6, i64 0}
+!134 = !{!135, !135, i64 0}
+!135 = !{!"_ZTSSt23__memory_order_modifier", !6, i64 0}
+!136 = distinct !{!136, !61}
+!137 = !{!75, !13, i64 0}
+!138 = !{!75, !13, i64 8}
+!139 = !{!75, !9, i64 28}
+!140 = !{!141, !13, i64 0}
+!141 = !{!"_ZTSSt4pairIPKcbE", !13, i64 0, !25, i64 8}
+!142 = !{!141, !25, i64 8}
+!143 = !{!144, !144, i64 0}
+!144 = !{!"p1 long", !5, i64 0}
+!145 = !{!146, !14, i64 8}
+!146 = !{!"_ZTSSt4pairIPKcmE", !13, i64 0, !14, i64 8}
+!147 = !{!146, !13, i64 0}
+!148 = !{!149, !149, i64 0}
+!149 = !{!"_ZTSN6google8protobuf8internal14WireFormatLite8WireTypeE", !6, i64 0}
+!150 = distinct !{!150, !61}
+!151 = distinct !{!151, !61}
+!152 = !{!153, !153, i64 0}
+!153 = !{!"p2 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !72, i64 0}
+!154 = !{!155, !29, i64 0}
+!155 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !29, i64 0}
+!156 = !{!157, !157, i64 0}
+!157 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!158 = !{!159, !159, i64 0}
+!159 = !{!"p1 _ZTSN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !5, i64 0}
+!160 = !{!161, !161, i64 0}
+!161 = !{!"p2 _ZTSN6google8protobuf5ArenaE", !72, i64 0}
