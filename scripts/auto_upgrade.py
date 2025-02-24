@@ -91,6 +91,7 @@ supported_project = [
     "glog",
     "gromacs",
     "grpc",
+    "ms-gsl",
 ]
 
 modify_only = [
