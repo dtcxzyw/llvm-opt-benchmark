@@ -97,6 +97,7 @@ supported_project = [
     "icu",
     "imgui",
     "ipopt",
+    "nlohmann_json",
 ]
 
 modify_only = [
