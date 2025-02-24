@@ -95,6 +95,7 @@ supported_project = [
     "harfbuzz",
     "hyperscan",
     "icu",
+    "imgui",
 ]
 
 modify_only = [
