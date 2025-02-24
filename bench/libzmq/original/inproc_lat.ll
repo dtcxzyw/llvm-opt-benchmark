@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.zmq_msg_t = type { [64 x i8] }
 
@@ -26,488 +26,558 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [27 x i8] c"error in zmq_msg_init: %s\0A\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %argc.addr = alloca i32, align 4
-  %argv.addr = alloca ptr, align 8
-  %local_thread = alloca i64, align 8
-  %ctx = alloca ptr, align 8
-  %s = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %i = alloca i32, align 4
-  %msg = alloca %struct.zmq_msg_t, align 8
-  %watch = alloca ptr, align 8
-  %elapsed = alloca i64, align 8
-  %latency = alloca double, align 8
-  store i32 0, ptr %retval, align 4
-  store i32 %argc, ptr %argc.addr, align 4
-  store ptr %argv, ptr %argv.addr, align 8
-  %0 = load i32, ptr %argc.addr, align 4
-  %cmp = icmp ne i32 %0, 3
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca %struct.zmq_msg_t, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca double, align 8
+  %15 = alloca i32, align 4
+  store i32 0, ptr %3, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 64, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  %16 = load i32, ptr %4, align 4, !tbaa !4
+  %17 = icmp ne i32 %16, 3
+  br i1 %17, label %18, label %20
 
-if.then:                                          ; preds = %entry
-  %call = call i32 (ptr, ...) @printf(ptr noundef @.str)
-  store i32 1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %2
+  %19 = call i32 (ptr, ...) @printf(ptr noundef @.str)
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %argv.addr, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 1
-  %2 = load ptr, ptr %arrayidx, align 8
-  %call1 = call i32 @atoi(ptr noundef %2) #8
-  %conv = sext i32 %call1 to i64
-  store i64 %conv, ptr @_ZL12message_size, align 8
-  %3 = load ptr, ptr %argv.addr, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %3, i64 2
-  %4 = load ptr, ptr %arrayidx2, align 8
-  %call3 = call i32 @atoi(ptr noundef %4) #8
-  store i32 %call3, ptr @_ZL15roundtrip_count, align 4
-  %call4 = call ptr @zmq_init(i32 noundef 1)
-  store ptr %call4, ptr %ctx, align 8
-  %5 = load ptr, ptr %ctx, align 8
-  %tobool = icmp ne ptr %5, null
-  br i1 %tobool, label %if.end9, label %if.then5
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %5, align 8, !tbaa !8
+  %22 = getelementptr inbounds ptr, ptr %21, i64 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !12
+  %24 = call i32 @atoi(ptr noundef %23) #10
+  %25 = sext i32 %24 to i64
+  store i64 %25, ptr @_ZL12message_size, align 8, !tbaa !14
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = getelementptr inbounds ptr, ptr %26, i64 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !12
+  %29 = call i32 @atoi(ptr noundef %28) #10
+  store i32 %29, ptr @_ZL15roundtrip_count, align 4, !tbaa !4
+  %30 = call ptr @zmq_init(i32 noundef 1)
+  store ptr %30, ptr %7, align 8, !tbaa !16
+  %31 = load ptr, ptr %7, align 8, !tbaa !16
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %38, label %33
 
-if.then5:                                         ; preds = %if.end
-  %call6 = call ptr @__errno_location() #9
-  %6 = load i32, ptr %call6, align 4
-  %call7 = call ptr @zmq_strerror(i32 noundef %6)
-  %call8 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %call7)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %20
+  %34 = call ptr @__errno_location() #11
+  %35 = load i32, ptr %34, align 4, !tbaa !4
+  %36 = call ptr @zmq_strerror(i32 noundef %35)
+  %37 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %36)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end9:                                          ; preds = %if.end
-  %7 = load ptr, ptr %ctx, align 8
-  %call10 = call ptr @zmq_socket(ptr noundef %7, i32 noundef 3)
-  store ptr %call10, ptr %s, align 8
-  %8 = load ptr, ptr %s, align 8
-  %tobool11 = icmp ne ptr %8, null
-  br i1 %tobool11, label %if.end16, label %if.then12
+38:                                               ; preds = %20
+  %39 = load ptr, ptr %7, align 8, !tbaa !16
+  %40 = call ptr @zmq_socket(ptr noundef %39, i32 noundef 3)
+  store ptr %40, ptr %8, align 8, !tbaa !16
+  %41 = load ptr, ptr %8, align 8, !tbaa !16
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %48, label %43
 
-if.then12:                                        ; preds = %if.end9
-  %call13 = call ptr @__errno_location() #9
-  %9 = load i32, ptr %call13, align 4
-  %call14 = call ptr @zmq_strerror(i32 noundef %9)
-  %call15 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, ptr noundef %call14)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+43:                                               ; preds = %38
+  %44 = call ptr @__errno_location() #11
+  %45 = load i32, ptr %44, align 4, !tbaa !4
+  %46 = call ptr @zmq_strerror(i32 noundef %45)
+  %47 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, ptr noundef %46)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end16:                                         ; preds = %if.end9
-  %10 = load ptr, ptr %s, align 8
-  %call17 = call i32 @zmq_bind(ptr noundef %10, ptr noundef @.str.3)
-  store i32 %call17, ptr %rc, align 4
-  %11 = load i32, ptr %rc, align 4
-  %cmp18 = icmp ne i32 %11, 0
-  br i1 %cmp18, label %if.then19, label %if.end23
+48:                                               ; preds = %38
+  %49 = load ptr, ptr %8, align 8, !tbaa !16
+  %50 = call i32 @zmq_bind(ptr noundef %49, ptr noundef @.str.3)
+  store i32 %50, ptr %9, align 4, !tbaa !4
+  %51 = load i32, ptr %9, align 4, !tbaa !4
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %58
 
-if.then19:                                        ; preds = %if.end16
-  %call20 = call ptr @__errno_location() #9
-  %12 = load i32, ptr %call20, align 4
-  %call21 = call ptr @zmq_strerror(i32 noundef %12)
-  %call22 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %call21)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+53:                                               ; preds = %48
+  %54 = call ptr @__errno_location() #11
+  %55 = load i32, ptr %54, align 4, !tbaa !4
+  %56 = call ptr @zmq_strerror(i32 noundef %55)
+  %57 = call i32 (ptr, ...) @printf(ptr noundef @.str.4, ptr noundef %56)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end23:                                         ; preds = %if.end16
-  %13 = load ptr, ptr %ctx, align 8
-  %call24 = call i32 @pthread_create(ptr noundef %local_thread, ptr noundef null, ptr noundef @_ZL6workerPv, ptr noundef %13) #10
-  store i32 %call24, ptr %rc, align 4
-  %14 = load i32, ptr %rc, align 4
-  %cmp25 = icmp ne i32 %14, 0
-  br i1 %cmp25, label %if.then26, label %if.end29
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %7, align 8, !tbaa !16
+  %60 = call i32 @pthread_create(ptr noundef %6, ptr noundef null, ptr noundef @_ZL6workerPv, ptr noundef %59) #9
+  store i32 %60, ptr %9, align 4, !tbaa !4
+  %61 = load i32, ptr %9, align 4, !tbaa !4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %67
 
-if.then26:                                        ; preds = %if.end23
-  %15 = load i32, ptr %rc, align 4
-  %call27 = call ptr @zmq_strerror(i32 noundef %15)
-  %call28 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %call27)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+63:                                               ; preds = %58
+  %64 = load i32, ptr %9, align 4, !tbaa !4
+  %65 = call ptr @zmq_strerror(i32 noundef %64)
+  %66 = call i32 (ptr, ...) @printf(ptr noundef @.str.5, ptr noundef %65)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end29:                                         ; preds = %if.end23
-  %16 = load i64, ptr @_ZL12message_size, align 8
-  %call30 = call i32 @zmq_msg_init_size(ptr noundef %msg, i64 noundef %16)
-  store i32 %call30, ptr %rc, align 4
-  %17 = load i32, ptr %rc, align 4
-  %cmp31 = icmp ne i32 %17, 0
-  br i1 %cmp31, label %if.then32, label %if.end36
+67:                                               ; preds = %58
+  %68 = load i64, ptr @_ZL12message_size, align 8, !tbaa !14
+  %69 = call i32 @zmq_msg_init_size(ptr noundef %11, i64 noundef %68)
+  store i32 %69, ptr %9, align 4, !tbaa !4
+  %70 = load i32, ptr %9, align 4, !tbaa !4
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %77
 
-if.then32:                                        ; preds = %if.end29
-  %call33 = call ptr @__errno_location() #9
-  %18 = load i32, ptr %call33, align 4
-  %call34 = call ptr @zmq_strerror(i32 noundef %18)
-  %call35 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, ptr noundef %call34)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+72:                                               ; preds = %67
+  %73 = call ptr @__errno_location() #11
+  %74 = load i32, ptr %73, align 4, !tbaa !4
+  %75 = call ptr @zmq_strerror(i32 noundef %74)
+  %76 = call i32 (ptr, ...) @printf(ptr noundef @.str.6, ptr noundef %75)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end36:                                         ; preds = %if.end29
-  %call37 = call ptr @zmq_msg_data(ptr noundef %msg)
-  %19 = load i64, ptr @_ZL12message_size, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %call37, i8 0, i64 %19, i1 false)
-  %20 = load i64, ptr @_ZL12message_size, align 8
-  %conv38 = trunc i64 %20 to i32
-  %call39 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %conv38)
-  %21 = load i32, ptr @_ZL15roundtrip_count, align 4
-  %call40 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, i32 noundef %21)
-  %call41 = call ptr @zmq_stopwatch_start()
-  store ptr %call41, ptr %watch, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+77:                                               ; preds = %67
+  %78 = call ptr @zmq_msg_data(ptr noundef %11)
+  %79 = load i64, ptr @_ZL12message_size, align 8, !tbaa !14
+  call void @llvm.memset.p0.i64(ptr align 1 %78, i8 0, i64 %79, i1 false)
+  %80 = load i64, ptr @_ZL12message_size, align 8, !tbaa !14
+  %81 = trunc i64 %80 to i32
+  %82 = call i32 (ptr, ...) @printf(ptr noundef @.str.7, i32 noundef %81)
+  %83 = load i32, ptr @_ZL15roundtrip_count, align 4, !tbaa !4
+  %84 = call i32 (ptr, ...) @printf(ptr noundef @.str.8, i32 noundef %83)
+  %85 = call ptr @zmq_stopwatch_start()
+  store ptr %85, ptr %12, align 8, !tbaa !16
+  store i32 0, ptr %10, align 4, !tbaa !4
+  br label %86
 
-for.cond:                                         ; preds = %for.inc, %if.end36
-  %22 = load i32, ptr %i, align 4
-  %23 = load i32, ptr @_ZL15roundtrip_count, align 4
-  %cmp42 = icmp ne i32 %22, %23
-  br i1 %cmp42, label %for.body, label %for.end
+86:                                               ; preds = %117, %77
+  %87 = load i32, ptr %10, align 4, !tbaa !4
+  %88 = load i32, ptr @_ZL15roundtrip_count, align 4, !tbaa !4
+  %89 = icmp ne i32 %87, %88
+  br i1 %89, label %90, label %120
 
-for.body:                                         ; preds = %for.cond
-  %24 = load ptr, ptr %s, align 8
-  %call43 = call i32 @zmq_sendmsg(ptr noundef %24, ptr noundef %msg, i32 noundef 0)
-  store i32 %call43, ptr %rc, align 4
-  %25 = load i32, ptr %rc, align 4
-  %cmp44 = icmp slt i32 %25, 0
-  br i1 %cmp44, label %if.then45, label %if.end49
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %8, align 8, !tbaa !16
+  %92 = call i32 @zmq_sendmsg(ptr noundef %91, ptr noundef %11, i32 noundef 0)
+  store i32 %92, ptr %9, align 4, !tbaa !4
+  %93 = load i32, ptr %9, align 4, !tbaa !4
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %95, label %100
 
-if.then45:                                        ; preds = %for.body
-  %call46 = call ptr @__errno_location() #9
-  %26 = load i32, ptr %call46, align 4
-  %call47 = call ptr @zmq_strerror(i32 noundef %26)
-  %call48 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, ptr noundef %call47)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+95:                                               ; preds = %90
+  %96 = call ptr @__errno_location() #11
+  %97 = load i32, ptr %96, align 4, !tbaa !4
+  %98 = call ptr @zmq_strerror(i32 noundef %97)
+  %99 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, ptr noundef %98)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end49:                                         ; preds = %for.body
-  %27 = load ptr, ptr %s, align 8
-  %call50 = call i32 @zmq_recvmsg(ptr noundef %27, ptr noundef %msg, i32 noundef 0)
-  store i32 %call50, ptr %rc, align 4
-  %28 = load i32, ptr %rc, align 4
-  %cmp51 = icmp slt i32 %28, 0
-  br i1 %cmp51, label %if.then52, label %if.end56
+100:                                              ; preds = %90
+  %101 = load ptr, ptr %8, align 8, !tbaa !16
+  %102 = call i32 @zmq_recvmsg(ptr noundef %101, ptr noundef %11, i32 noundef 0)
+  store i32 %102, ptr %9, align 4, !tbaa !4
+  %103 = load i32, ptr %9, align 4, !tbaa !4
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %110
 
-if.then52:                                        ; preds = %if.end49
-  %call53 = call ptr @__errno_location() #9
-  %29 = load i32, ptr %call53, align 4
-  %call54 = call ptr @zmq_strerror(i32 noundef %29)
-  %call55 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, ptr noundef %call54)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+105:                                              ; preds = %100
+  %106 = call ptr @__errno_location() #11
+  %107 = load i32, ptr %106, align 4, !tbaa !4
+  %108 = call ptr @zmq_strerror(i32 noundef %107)
+  %109 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, ptr noundef %108)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end56:                                         ; preds = %if.end49
-  %call57 = call i64 @zmq_msg_size(ptr noundef %msg)
-  %30 = load i64, ptr @_ZL12message_size, align 8
-  %cmp58 = icmp ne i64 %call57, %30
-  br i1 %cmp58, label %if.then59, label %if.end61
+110:                                              ; preds = %100
+  %111 = call i64 @zmq_msg_size(ptr noundef %11)
+  %112 = load i64, ptr @_ZL12message_size, align 8, !tbaa !14
+  %113 = icmp ne i64 %111, %112
+  br i1 %113, label %114, label %116
 
-if.then59:                                        ; preds = %if.end56
-  %call60 = call i32 (ptr, ...) @printf(ptr noundef @.str.11)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+114:                                              ; preds = %110
+  %115 = call i32 (ptr, ...) @printf(ptr noundef @.str.11)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end61:                                         ; preds = %if.end56
-  br label %for.inc
+116:                                              ; preds = %110
+  br label %117
 
-for.inc:                                          ; preds = %if.end61
-  %31 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %31, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+117:                                              ; preds = %116
+  %118 = load i32, ptr %10, align 4, !tbaa !4
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %10, align 4, !tbaa !4
+  br label %86, !llvm.loop !17
 
-for.end:                                          ; preds = %for.cond
-  %32 = load ptr, ptr %watch, align 8
-  %call62 = call i64 @zmq_stopwatch_stop(ptr noundef %32)
-  store i64 %call62, ptr %elapsed, align 8
-  %call63 = call i32 @zmq_msg_close(ptr noundef %msg)
-  store i32 %call63, ptr %rc, align 4
-  %33 = load i32, ptr %rc, align 4
-  %cmp64 = icmp ne i32 %33, 0
-  br i1 %cmp64, label %if.then65, label %if.end69
+120:                                              ; preds = %86
+  %121 = load ptr, ptr %12, align 8, !tbaa !16
+  %122 = call i64 @zmq_stopwatch_stop(ptr noundef %121)
+  store i64 %122, ptr %13, align 8, !tbaa !14
+  %123 = call i32 @zmq_msg_close(ptr noundef %11)
+  store i32 %123, ptr %9, align 4, !tbaa !4
+  %124 = load i32, ptr %9, align 4, !tbaa !4
+  %125 = icmp ne i32 %124, 0
+  br i1 %125, label %126, label %131
 
-if.then65:                                        ; preds = %for.end
-  %call66 = call ptr @__errno_location() #9
-  %34 = load i32, ptr %call66, align 4
-  %call67 = call ptr @zmq_strerror(i32 noundef %34)
-  %call68 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, ptr noundef %call67)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+126:                                              ; preds = %120
+  %127 = call ptr @__errno_location() #11
+  %128 = load i32, ptr %127, align 4, !tbaa !4
+  %129 = call ptr @zmq_strerror(i32 noundef %128)
+  %130 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, ptr noundef %129)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end69:                                         ; preds = %for.end
-  %35 = load i64, ptr %elapsed, align 8
-  %conv70 = uitofp i64 %35 to double
-  %36 = load i32, ptr @_ZL15roundtrip_count, align 4
-  %mul = mul nsw i32 %36, 2
-  %conv71 = sitofp i32 %mul to double
-  %div = fdiv double %conv70, %conv71
-  store double %div, ptr %latency, align 8
-  %37 = load i64, ptr %local_thread, align 8
-  %call72 = call i32 @pthread_join(i64 noundef %37, ptr noundef null)
-  store i32 %call72, ptr %rc, align 4
-  %38 = load i32, ptr %rc, align 4
-  %cmp73 = icmp ne i32 %38, 0
-  br i1 %cmp73, label %if.then74, label %if.end77
+131:                                              ; preds = %120
+  %132 = load i64, ptr %13, align 8, !tbaa !14
+  %133 = uitofp i64 %132 to double
+  %134 = load i32, ptr @_ZL15roundtrip_count, align 4, !tbaa !4
+  %135 = mul nsw i32 %134, 2
+  %136 = sitofp i32 %135 to double
+  %137 = fdiv double %133, %136
+  store double %137, ptr %14, align 8, !tbaa !19
+  %138 = load i64, ptr %6, align 8, !tbaa !14
+  %139 = call i32 @pthread_join(i64 noundef %138, ptr noundef null)
+  store i32 %139, ptr %9, align 4, !tbaa !4
+  %140 = load i32, ptr %9, align 4, !tbaa !4
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %142, label %146
 
-if.then74:                                        ; preds = %if.end69
-  %39 = load i32, ptr %rc, align 4
-  %call75 = call ptr @zmq_strerror(i32 noundef %39)
-  %call76 = call i32 (ptr, ...) @printf(ptr noundef @.str.13, ptr noundef %call75)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+142:                                              ; preds = %131
+  %143 = load i32, ptr %9, align 4, !tbaa !4
+  %144 = call ptr @zmq_strerror(i32 noundef %143)
+  %145 = call i32 (ptr, ...) @printf(ptr noundef @.str.13, ptr noundef %144)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end77:                                         ; preds = %if.end69
-  %40 = load double, ptr %latency, align 8
-  %call78 = call i32 (ptr, ...) @printf(ptr noundef @.str.14, double noundef %40)
-  %41 = load ptr, ptr %s, align 8
-  %call79 = call i32 @zmq_close(ptr noundef %41)
-  store i32 %call79, ptr %rc, align 4
-  %42 = load i32, ptr %rc, align 4
-  %cmp80 = icmp ne i32 %42, 0
-  br i1 %cmp80, label %if.then81, label %if.end85
+146:                                              ; preds = %131
+  %147 = load double, ptr %14, align 8, !tbaa !19
+  %148 = call i32 (ptr, ...) @printf(ptr noundef @.str.14, double noundef %147)
+  %149 = load ptr, ptr %8, align 8, !tbaa !16
+  %150 = call i32 @zmq_close(ptr noundef %149)
+  store i32 %150, ptr %9, align 4, !tbaa !4
+  %151 = load i32, ptr %9, align 4, !tbaa !4
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %153, label %158
 
-if.then81:                                        ; preds = %if.end77
-  %call82 = call ptr @__errno_location() #9
-  %43 = load i32, ptr %call82, align 4
-  %call83 = call ptr @zmq_strerror(i32 noundef %43)
-  %call84 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, ptr noundef %call83)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+153:                                              ; preds = %146
+  %154 = call ptr @__errno_location() #11
+  %155 = load i32, ptr %154, align 4, !tbaa !4
+  %156 = call ptr @zmq_strerror(i32 noundef %155)
+  %157 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, ptr noundef %156)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end85:                                         ; preds = %if.end77
-  %44 = load ptr, ptr %ctx, align 8
-  %call86 = call i32 @zmq_ctx_term(ptr noundef %44)
-  store i32 %call86, ptr %rc, align 4
-  %45 = load i32, ptr %rc, align 4
-  %cmp87 = icmp ne i32 %45, 0
-  br i1 %cmp87, label %if.then88, label %if.end92
+158:                                              ; preds = %146
+  %159 = load ptr, ptr %7, align 8, !tbaa !16
+  %160 = call i32 @zmq_ctx_term(ptr noundef %159)
+  store i32 %160, ptr %9, align 4, !tbaa !4
+  %161 = load i32, ptr %9, align 4, !tbaa !4
+  %162 = icmp ne i32 %161, 0
+  br i1 %162, label %163, label %168
 
-if.then88:                                        ; preds = %if.end85
-  %call89 = call ptr @__errno_location() #9
-  %46 = load i32, ptr %call89, align 4
-  %call90 = call ptr @zmq_strerror(i32 noundef %46)
-  %call91 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, ptr noundef %call90)
-  store i32 -1, ptr %retval, align 4
-  br label %return
+163:                                              ; preds = %158
+  %164 = call ptr @__errno_location() #11
+  %165 = load i32, ptr %164, align 4, !tbaa !4
+  %166 = call ptr @zmq_strerror(i32 noundef %165)
+  %167 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, ptr noundef %166)
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-if.end92:                                         ; preds = %if.end85
-  store i32 0, ptr %retval, align 4
-  br label %return
+168:                                              ; preds = %158
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %15, align 4
+  br label %169
 
-return:                                           ; preds = %if.end92, %if.then88, %if.then81, %if.then74, %if.then65, %if.then59, %if.then52, %if.then45, %if.then32, %if.then26, %if.then19, %if.then12, %if.then5, %if.then
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
+169:                                              ; preds = %168, %163, %153, %142, %126, %114, %105, %95, %72, %63, %53, %43, %33, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 64, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %170 = load i32, ptr %3, align 4
+  ret i32 %170
 }
 
-declare i32 @printf(ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #2
+declare i32 @printf(ptr noundef, ...) #2
 
-declare ptr @zmq_init(i32 noundef) #1
+; Function Attrs: inlinehint mustprogress nounwind willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #9
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
 
-declare ptr @zmq_strerror(i32 noundef) #1
+declare ptr @zmq_init(i32 noundef) #2
+
+declare ptr @zmq_strerror(i32 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
+declare ptr @__errno_location() #4
 
-declare ptr @zmq_socket(ptr noundef, i32 noundef) #1
+declare ptr @zmq_socket(ptr noundef, i32 noundef) #2
 
-declare i32 @zmq_bind(ptr noundef, ptr noundef) #1
+declare i32 @zmq_bind(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL6workerPv(ptr noundef %ctx_) #5 {
-entry:
-  %ctx_.addr = alloca ptr, align 8
-  %s = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %i = alloca i32, align 4
-  %msg = alloca %struct.zmq_msg_t, align 8
-  store ptr %ctx_, ptr %ctx_.addr, align 8
-  %0 = load ptr, ptr %ctx_.addr, align 8
-  %call = call ptr @zmq_socket(ptr noundef %0, i32 noundef 4)
-  store ptr %call, ptr %s, align 8
-  %1 = load ptr, ptr %s, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.end, label %if.then
+define internal noundef ptr @_ZL6workerPv(ptr noundef %0) #6 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca %struct.zmq_msg_t, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 64, ptr %6) #9
+  %7 = load ptr, ptr %2, align 8, !tbaa !16
+  %8 = call ptr @zmq_socket(ptr noundef %7, i32 noundef 4)
+  store ptr %8, ptr %3, align 8, !tbaa !16
+  %9 = load ptr, ptr %3, align 8, !tbaa !16
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %16, label %11
 
-if.then:                                          ; preds = %entry
-  %call1 = call ptr @__errno_location() #9
-  %2 = load i32, ptr %call1, align 4
-  %call2 = call ptr @zmq_strerror(i32 noundef %2)
-  %call3 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, ptr noundef %call2)
-  call void @exit(i32 noundef 1) #11
+11:                                               ; preds = %1
+  %12 = call ptr @__errno_location() #11
+  %13 = load i32, ptr %12, align 4, !tbaa !4
+  %14 = call ptr @zmq_strerror(i32 noundef %13)
+  %15 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, ptr noundef %14)
+  call void @exit(i32 noundef 1) #12
   unreachable
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %s, align 8
-  %call4 = call i32 @zmq_connect(ptr noundef %3, ptr noundef @.str.3)
-  store i32 %call4, ptr %rc, align 4
-  %4 = load i32, ptr %rc, align 4
-  %cmp = icmp ne i32 %4, 0
-  br i1 %cmp, label %if.then5, label %if.end9
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8, !tbaa !16
+  %18 = call i32 @zmq_connect(ptr noundef %17, ptr noundef @.str.3)
+  store i32 %18, ptr %4, align 4, !tbaa !4
+  %19 = load i32, ptr %4, align 4, !tbaa !4
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %26
 
-if.then5:                                         ; preds = %if.end
-  %call6 = call ptr @__errno_location() #9
-  %5 = load i32, ptr %call6, align 4
-  %call7 = call ptr @zmq_strerror(i32 noundef %5)
-  %call8 = call i32 (ptr, ...) @printf(ptr noundef @.str.17, ptr noundef %call7)
-  call void @exit(i32 noundef 1) #11
+21:                                               ; preds = %16
+  %22 = call ptr @__errno_location() #11
+  %23 = load i32, ptr %22, align 4, !tbaa !4
+  %24 = call ptr @zmq_strerror(i32 noundef %23)
+  %25 = call i32 (ptr, ...) @printf(ptr noundef @.str.17, ptr noundef %24)
+  call void @exit(i32 noundef 1) #12
   unreachable
 
-if.end9:                                          ; preds = %if.end
-  %call10 = call i32 @zmq_msg_init(ptr noundef %msg)
-  store i32 %call10, ptr %rc, align 4
-  %6 = load i32, ptr %rc, align 4
-  %cmp11 = icmp ne i32 %6, 0
-  br i1 %cmp11, label %if.then12, label %if.end16
+26:                                               ; preds = %16
+  %27 = call i32 @zmq_msg_init(ptr noundef %6)
+  store i32 %27, ptr %4, align 4, !tbaa !4
+  %28 = load i32, ptr %4, align 4, !tbaa !4
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %35
 
-if.then12:                                        ; preds = %if.end9
-  %call13 = call ptr @__errno_location() #9
-  %7 = load i32, ptr %call13, align 4
-  %call14 = call ptr @zmq_strerror(i32 noundef %7)
-  %call15 = call i32 (ptr, ...) @printf(ptr noundef @.str.18, ptr noundef %call14)
-  call void @exit(i32 noundef 1) #11
+30:                                               ; preds = %26
+  %31 = call ptr @__errno_location() #11
+  %32 = load i32, ptr %31, align 4, !tbaa !4
+  %33 = call ptr @zmq_strerror(i32 noundef %32)
+  %34 = call i32 (ptr, ...) @printf(ptr noundef @.str.18, ptr noundef %33)
+  call void @exit(i32 noundef 1) #12
   unreachable
 
-if.end16:                                         ; preds = %if.end9
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+35:                                               ; preds = %26
+  store i32 0, ptr %5, align 4, !tbaa !4
+  br label %36
 
-for.cond:                                         ; preds = %for.inc, %if.end16
-  %8 = load i32, ptr %i, align 4
-  %9 = load i32, ptr @_ZL15roundtrip_count, align 4
-  %cmp17 = icmp ne i32 %8, %9
-  br i1 %cmp17, label %for.body, label %for.end
+36:                                               ; preds = %61, %35
+  %37 = load i32, ptr %5, align 4, !tbaa !4
+  %38 = load i32, ptr @_ZL15roundtrip_count, align 4, !tbaa !4
+  %39 = icmp ne i32 %37, %38
+  br i1 %39, label %40, label %64
 
-for.body:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %s, align 8
-  %call18 = call i32 @zmq_recvmsg(ptr noundef %10, ptr noundef %msg, i32 noundef 0)
-  store i32 %call18, ptr %rc, align 4
-  %11 = load i32, ptr %rc, align 4
-  %cmp19 = icmp slt i32 %11, 0
-  br i1 %cmp19, label %if.then20, label %if.end24
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %3, align 8, !tbaa !16
+  %42 = call i32 @zmq_recvmsg(ptr noundef %41, ptr noundef %6, i32 noundef 0)
+  store i32 %42, ptr %4, align 4, !tbaa !4
+  %43 = load i32, ptr %4, align 4, !tbaa !4
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %45, label %50
 
-if.then20:                                        ; preds = %for.body
-  %call21 = call ptr @__errno_location() #9
-  %12 = load i32, ptr %call21, align 4
-  %call22 = call ptr @zmq_strerror(i32 noundef %12)
-  %call23 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, ptr noundef %call22)
-  call void @exit(i32 noundef 1) #11
+45:                                               ; preds = %40
+  %46 = call ptr @__errno_location() #11
+  %47 = load i32, ptr %46, align 4, !tbaa !4
+  %48 = call ptr @zmq_strerror(i32 noundef %47)
+  %49 = call i32 (ptr, ...) @printf(ptr noundef @.str.10, ptr noundef %48)
+  call void @exit(i32 noundef 1) #12
   unreachable
 
-if.end24:                                         ; preds = %for.body
-  %13 = load ptr, ptr %s, align 8
-  %call25 = call i32 @zmq_sendmsg(ptr noundef %13, ptr noundef %msg, i32 noundef 0)
-  store i32 %call25, ptr %rc, align 4
-  %14 = load i32, ptr %rc, align 4
-  %cmp26 = icmp slt i32 %14, 0
-  br i1 %cmp26, label %if.then27, label %if.end31
+50:                                               ; preds = %40
+  %51 = load ptr, ptr %3, align 8, !tbaa !16
+  %52 = call i32 @zmq_sendmsg(ptr noundef %51, ptr noundef %6, i32 noundef 0)
+  store i32 %52, ptr %4, align 4, !tbaa !4
+  %53 = load i32, ptr %4, align 4, !tbaa !4
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %55, label %60
 
-if.then27:                                        ; preds = %if.end24
-  %call28 = call ptr @__errno_location() #9
-  %15 = load i32, ptr %call28, align 4
-  %call29 = call ptr @zmq_strerror(i32 noundef %15)
-  %call30 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, ptr noundef %call29)
-  call void @exit(i32 noundef 1) #11
+55:                                               ; preds = %50
+  %56 = call ptr @__errno_location() #11
+  %57 = load i32, ptr %56, align 4, !tbaa !4
+  %58 = call ptr @zmq_strerror(i32 noundef %57)
+  %59 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, ptr noundef %58)
+  call void @exit(i32 noundef 1) #12
   unreachable
 
-if.end31:                                         ; preds = %if.end24
-  br label %for.inc
+60:                                               ; preds = %50
+  br label %61
 
-for.inc:                                          ; preds = %if.end31
-  %16 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %16, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+61:                                               ; preds = %60
+  %62 = load i32, ptr %5, align 4, !tbaa !4
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %5, align 4, !tbaa !4
+  br label %36, !llvm.loop !21
 
-for.end:                                          ; preds = %for.cond
-  %call32 = call i32 @zmq_msg_close(ptr noundef %msg)
-  store i32 %call32, ptr %rc, align 4
-  %17 = load i32, ptr %rc, align 4
-  %cmp33 = icmp ne i32 %17, 0
-  br i1 %cmp33, label %if.then34, label %if.end38
+64:                                               ; preds = %36
+  %65 = call i32 @zmq_msg_close(ptr noundef %6)
+  store i32 %65, ptr %4, align 4, !tbaa !4
+  %66 = load i32, ptr %4, align 4, !tbaa !4
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %73
 
-if.then34:                                        ; preds = %for.end
-  %call35 = call ptr @__errno_location() #9
-  %18 = load i32, ptr %call35, align 4
-  %call36 = call ptr @zmq_strerror(i32 noundef %18)
-  %call37 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, ptr noundef %call36)
-  call void @exit(i32 noundef 1) #11
+68:                                               ; preds = %64
+  %69 = call ptr @__errno_location() #11
+  %70 = load i32, ptr %69, align 4, !tbaa !4
+  %71 = call ptr @zmq_strerror(i32 noundef %70)
+  %72 = call i32 (ptr, ...) @printf(ptr noundef @.str.12, ptr noundef %71)
+  call void @exit(i32 noundef 1) #12
   unreachable
 
-if.end38:                                         ; preds = %for.end
-  %19 = load ptr, ptr %s, align 8
-  %call39 = call i32 @zmq_close(ptr noundef %19)
-  store i32 %call39, ptr %rc, align 4
-  %20 = load i32, ptr %rc, align 4
-  %cmp40 = icmp ne i32 %20, 0
-  br i1 %cmp40, label %if.then41, label %if.end45
+73:                                               ; preds = %64
+  %74 = load ptr, ptr %3, align 8, !tbaa !16
+  %75 = call i32 @zmq_close(ptr noundef %74)
+  store i32 %75, ptr %4, align 4, !tbaa !4
+  %76 = load i32, ptr %4, align 4, !tbaa !4
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %83
 
-if.then41:                                        ; preds = %if.end38
-  %call42 = call ptr @__errno_location() #9
-  %21 = load i32, ptr %call42, align 4
-  %call43 = call ptr @zmq_strerror(i32 noundef %21)
-  %call44 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, ptr noundef %call43)
-  call void @exit(i32 noundef 1) #11
+78:                                               ; preds = %73
+  %79 = call ptr @__errno_location() #11
+  %80 = load i32, ptr %79, align 4, !tbaa !4
+  %81 = call ptr @zmq_strerror(i32 noundef %80)
+  %82 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, ptr noundef %81)
+  call void @exit(i32 noundef 1) #12
   unreachable
 
-if.end45:                                         ; preds = %if.end38
+83:                                               ; preds = %73
+  call void @llvm.lifetime.end.p0(i64 64, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
   ret ptr null
 }
 
-declare i32 @zmq_msg_init_size(ptr noundef, i64 noundef) #1
+declare i32 @zmq_msg_init_size(ptr noundef, i64 noundef) #2
 
-declare ptr @zmq_msg_data(ptr noundef) #1
+declare ptr @zmq_msg_data(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare ptr @zmq_stopwatch_start() #1
+declare ptr @zmq_stopwatch_start() #2
 
-declare i32 @zmq_sendmsg(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @zmq_sendmsg(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @zmq_recvmsg(ptr noundef, ptr noundef, i32 noundef) #1
+declare i32 @zmq_recvmsg(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i64 @zmq_msg_size(ptr noundef) #1
+declare i64 @zmq_msg_size(ptr noundef) #2
 
-declare i64 @zmq_stopwatch_stop(ptr noundef) #1
+declare i64 @zmq_stopwatch_stop(ptr noundef) #2
 
-declare i32 @zmq_msg_close(ptr noundef) #1
+declare i32 @zmq_msg_close(ptr noundef) #2
 
-declare i32 @pthread_join(i64 noundef, ptr noundef) #1
+declare i32 @pthread_join(i64 noundef, ptr noundef) #2
 
-declare i32 @zmq_close(ptr noundef) #1
+declare i32 @zmq_close(ptr noundef) #2
 
-declare i32 @zmq_ctx_term(ptr noundef) #1
+declare i32 @zmq_ctx_term(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #5
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #7
+declare void @exit(i32 noundef) #8
 
-declare i32 @zmq_connect(ptr noundef, ptr noundef) #1
+declare i32 @zmq_connect(ptr noundef, ptr noundef) #2
 
-declare i32 @zmq_msg_init(ptr noundef) #1
+declare i32 @zmq_msg_init(ptr noundef) #2
 
-attributes #0 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p2 omnipotent char", !10, i64 0}
+!10 = !{!"any p2 pointer", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !11, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!11, !11, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"double", !6, i64 0}
+!21 = distinct !{!21, !18}

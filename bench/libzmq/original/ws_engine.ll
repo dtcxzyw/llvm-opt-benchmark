@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
 %"class.zmq::ws_engine_t" = type { %"class.zmq::stream_engine_base_t.base", i8, %"class.zmq::ws_address_t", i32, i32, [8192 x i8], [8192 x i8], [1025 x i8], i32, [2049 x i8], i32, i8, i8, [256 x i8], [2049 x i8], [2049 x i8], i32, %"class.zmq::msg_t" }
@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.zmq::io_object_t" = type { %"struct.zmq::i_poll_events", ptr }
 %"struct.zmq::i_poll_events" = type { ptr }
 %"struct.zmq::i_engine" = type { ptr }
-%"struct.zmq::options_t" = type { i32, i32, i64, i8, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, %"struct.zmq::atomic_value_t", i32, i32, i32, i32, i32, i32, i64, i32, i32, i8, i32, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i32, %"class.std::vector", %"class.std::set", %"class.std::set", %"class.std::set.6", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [32 x i8], [32 x i8], [32 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i8, i32, i8, i32, i8, i16, i32, i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i32, %"class.std::map", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
+%"struct.zmq::options_t" = type { i32, i32, i64, i8, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, %"struct.zmq::atomic_value_t", i32, i32, i32, i32, i32, i32, i64, i32, i32, i8, i32, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i32, %"class.std::vector", %"class.std::set", %"class.std::set", %"class.std::set.6", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [32 x i8], [32 x i8], [32 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i8, i32, i8, i32, i8, i16, i32, i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i32, %"class.std::map", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector.17", i8, %"class.std::vector.17", i8, %"class.std::vector.17", i8, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
 %"struct.zmq::atomic_value_t" = type { %"struct.std::atomic" }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i32 }
@@ -17,23 +17,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::set" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.std::set.6" = type { %"class.std::_Rb_tree.7" }
 %"class.std::_Rb_tree.7" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.11", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.11" = type { %"struct.std::less.12" }
-%"struct.std::less.12" = type { i8 }
-%"class.std::map" = type { %"class.std::_Rb_tree.14" }
-%"class.std::_Rb_tree.14" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.18", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.18" = type { %"struct.std::less.19" }
-%"struct.std::less.19" = type { i8 }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
+%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"class.std::map" = type { %"class.std::_Rb_tree.12" }
+%"class.std::_Rb_tree.12" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
+%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.zmq::endpoint_uri_pair_t" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
@@ -43,14 +37,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.zmq::ws_address_t" = type { %"union.zmq::ip_addr_t", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"union.zmq::ip_addr_t" = type { %struct.sockaddr_in6 }
 %struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.34 }
-%union.anon.34 = type { [4 x i32] }
-%"class.zmq::msg_t" = type { %union.anon.26 }
-%union.anon.26 = type { %struct.anon }
+%struct.in6_addr = type { %union.anon.30 }
+%union.anon.30 = type { [4 x i32] }
+%"class.zmq::msg_t" = type { %union.anon.22 }
+%union.anon.22 = type { %struct.anon }
 %struct.anon = type { ptr, [34 x i8], i8, i8, i32, %"union.zmq::msg_t::group_t" }
-%"union.zmq::msg_t::group_t" = type { %struct.anon.28 }
-%struct.anon.28 = type { i8, ptr }
+%"union.zmq::msg_t::group_t" = type { %struct.anon.24 }
+%struct.anon.24 = type { i8, ptr }
 %"class.zmq::stream_engine_base_t" = type <{ %"class.zmq::io_object_t", %"struct.zmq::i_engine", %"struct.zmq::options_t", ptr, i64, ptr, ptr, i64, ptr, ptr, { i64, i64 }, { i64, i64 }, ptr, i8, i8, [6 x i8], %"struct.zmq::endpoint_uri_pair_t", i8, i8, i8, i8, [4 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8], ptr, i8, i8, [6 x i8], %"class.zmq::msg_t", i8, [7 x i8], ptr, ptr, i8, [7 x i8] }>
+%"class.std::allocator" = type { i8 }
+%struct._Guard = type { ptr }
 
 $_ZN3zmq12ws_address_tC2ERKS0_ = comdat any
 
@@ -71,6 +67,38 @@ $_ZN3zmq20stream_engine_base_t19has_handshake_stageEv = comdat any
 $_ZN3zmq20stream_engine_base_t25process_heartbeat_messageEPNS_5msg_tE = comdat any
 
 $_ZThn16_N3zmq20stream_engine_base_t19has_handshake_stageEv = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_ = comdat any
+
+$_ZNSt15__new_allocatorIcEC2ERKS0_ = comdat any
+
+$_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
 
 @_ZTVN3zmq11ws_engine_tE = unnamed_addr constant { [24 x ptr], [11 x ptr] } { [24 x ptr] [ptr null, ptr @_ZTIN3zmq11ws_engine_tE, ptr @_ZN3zmq11ws_engine_tD1Ev, ptr @_ZN3zmq11ws_engine_tD0Ev, ptr @_ZN3zmq20stream_engine_base_t8in_eventEv, ptr @_ZN3zmq20stream_engine_base_t9out_eventEv, ptr @_ZN3zmq20stream_engine_base_t11timer_eventEi, ptr @_ZN3zmq20stream_engine_base_t19has_handshake_stageEv, ptr @_ZN3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE, ptr @_ZN3zmq20stream_engine_base_t9terminateEv, ptr @_ZN3zmq20stream_engine_base_t13restart_inputEv, ptr @_ZN3zmq20stream_engine_base_t14restart_outputEv, ptr @_ZN3zmq20stream_engine_base_t17zap_msg_availableEv, ptr @_ZNK3zmq20stream_engine_base_t12get_endpointEv, ptr @_ZN3zmq20stream_engine_base_t5errorENS_8i_engine14error_reason_tE, ptr @_ZN3zmq11ws_engine_t15decode_and_pushEPNS_5msg_tE, ptr @_ZN3zmq11ws_engine_t9handshakeEv, ptr @_ZN3zmq11ws_engine_t13plug_internalEv, ptr @_ZN3zmq11ws_engine_t23process_command_messageEPNS_5msg_tE, ptr @_ZN3zmq11ws_engine_t20produce_ping_messageEPNS_5msg_tE, ptr @_ZN3zmq20stream_engine_base_t25process_heartbeat_messageEPNS_5msg_tE, ptr @_ZN3zmq11ws_engine_t20produce_pong_messageEPNS_5msg_tE, ptr @_ZN3zmq20stream_engine_base_t4readEPvm, ptr @_ZN3zmq20stream_engine_base_t5writeEPKvm], [11 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN3zmq11ws_engine_tE, ptr @_ZThn16_N3zmq11ws_engine_tD1Ev, ptr @_ZThn16_N3zmq11ws_engine_tD0Ev, ptr @_ZThn16_N3zmq20stream_engine_base_t19has_handshake_stageEv, ptr @_ZThn16_N3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE, ptr @_ZThn16_N3zmq20stream_engine_base_t9terminateEv, ptr @_ZThn16_N3zmq20stream_engine_base_t13restart_inputEv, ptr @_ZThn16_N3zmq20stream_engine_base_t14restart_outputEv, ptr @_ZThn16_N3zmq20stream_engine_base_t17zap_msg_availableEv, ptr @_ZThn16_NK3zmq20stream_engine_base_t12get_endpointEv] }, align 8
 @.str = private unnamed_addr constant [19 x i8] c"ZWS2.0/NULL,ZWS2.0\00", align 1
@@ -95,10 +123,10 @@ $_ZThn16_N3zmq20stream_engine_base_t19has_handshake_stageEv = comdat any
 @.str.17 = private unnamed_addr constant [21 x i8] c"Sec-WebSocket-Accept\00", align 1
 @.str.18 = private unnamed_addr constant [30 x i8] c"Assertion failed: %s (%s:%d)\0A\00", align 1
 @.str.19 = private unnamed_addr constant [19 x i8] c"_mechanism != NULL\00", align 1
+@_ZTIN3zmq11ws_engine_tE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq11ws_engine_tE, ptr @_ZTIN3zmq20stream_engine_base_tE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3zmq11ws_engine_tE = constant [20 x i8] c"N3zmq11ws_engine_tE\00", align 1
 @_ZTIN3zmq20stream_engine_base_tE = external constant ptr
-@_ZTIN3zmq11ws_engine_tE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq11ws_engine_tE, ptr @_ZTIN3zmq20stream_engine_base_tE }, align 8
 @_ZZL13encode_base64PKhiPciE13base64enc_tab = internal constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 16
 @.str.20 = private unnamed_addr constant [37 x i8] c"258EAFA5-E914-47DA-95CA-C5AB0DC85B11\00", align 1
 
@@ -106,189 +134,185 @@ $_ZThn16_N3zmq20stream_engine_base_t19has_handshake_stageEv = comdat any
 @_ZN3zmq11ws_engine_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq11ws_engine_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq11ws_engine_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tERKNS_12ws_address_tEb(ptr noundef nonnull align 8 dereferenceable(25696) %this, i32 noundef %fd_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, ptr noundef nonnull align 8 dereferenceable(68) %endpoint_uri_pair_, ptr noundef nonnull align 8 dereferenceable(96) %address_, i1 noundef zeroext %client_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %fd_.addr = alloca i32, align 4
-  %options_.addr = alloca ptr, align 8
-  %endpoint_uri_pair_.addr = alloca ptr, align 8
-  %address_.addr = alloca ptr, align 8
-  %client_.addr = alloca i8, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %fd_, ptr %fd_.addr, align 4
-  store ptr %options_, ptr %options_.addr, align 8
-  store ptr %endpoint_uri_pair_, ptr %endpoint_uri_pair_.addr, align 8
-  store ptr %address_, ptr %address_.addr, align 8
-  %frombool = zext i1 %client_ to i8
-  store i8 %frombool, ptr %client_.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %fd_.addr, align 4
-  %1 = load ptr, ptr %options_.addr, align 8
-  %2 = load ptr, ptr %endpoint_uri_pair_.addr, align 8
-  call void @_ZN3zmq20stream_engine_base_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tEb(ptr noundef nonnull align 8 dereferenceable(1689) %this1, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(1336) %1, ptr noundef nonnull align 8 dereferenceable(68) %2, i1 noundef zeroext true)
-  %3 = getelementptr inbounds { [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 0, i32 2
-  store ptr %3, ptr %this1, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  %4 = getelementptr inbounds { [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 1, i32 2
-  store ptr %4, ptr %add.ptr, align 8
-  %_client = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 1
-  %5 = load i8, ptr %client_.addr, align 1
-  %tobool = trunc i8 %5 to i1
-  %frombool2 = zext i1 %tobool to i8
-  store i8 %frombool2, ptr %_client, align 1
-  %_address = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %address_.addr, align 8
-  invoke void @_ZN3zmq12ws_address_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %_address, ptr noundef nonnull align 8 dereferenceable(96) %6)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN3zmq11ws_engine_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tERKNS_12ws_address_tEb(ptr noundef nonnull align 8 dereferenceable(25696) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(1336) %2, ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i32 %1, ptr %8, align 4, !tbaa !8
+  store ptr %2, ptr %9, align 8, !tbaa !10
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store ptr %4, ptr %11, align 8, !tbaa !14
+  %15 = zext i1 %5 to i8
+  store i8 %15, ptr %12, align 1, !tbaa !16
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %8, align 4, !tbaa !8
+  %18 = load ptr, ptr %9, align 8, !tbaa !10
+  %19 = load ptr, ptr %10, align 8, !tbaa !12
+  call void @_ZN3zmq20stream_engine_base_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tEb(ptr noundef nonnull align 8 dereferenceable(1689) %16, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(1336) %18, ptr noundef nonnull align 8 dereferenceable(68) %19, i1 noundef zeroext true)
+  store ptr getelementptr inbounds inrange(-16, 176) ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 0, i32 2), ptr %16, align 8, !tbaa !18
+  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  store ptr getelementptr inbounds inrange(-16, 72) ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 1, i32 2), ptr %20, align 8, !tbaa !18
+  %21 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 1
+  %22 = load i8, ptr %12, align 1, !tbaa !16, !range !20, !noundef !21
+  %23 = trunc i8 %22 to i1
+  %24 = zext i1 %23 to i8
+  store i8 %24, ptr %21, align 1, !tbaa !22
+  %25 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 2
+  %26 = load ptr, ptr %11, align 8, !tbaa !14
+  invoke void @_ZN3zmq12ws_address_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(96) %26)
+          to label %27 unwind label %63
 
-invoke.cont:                                      ; preds = %entry
-  %_client_handshake_state = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 0, ptr %_client_handshake_state, align 8
-  %_server_handshake_state = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 0, ptr %_server_handshake_state, align 4
-  %_header_name_position = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  store i32 0, ptr %_header_name_position, align 4
-  %_header_value_position = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  store i32 0, ptr %_header_value_position, align 4
-  %_header_upgrade_websocket = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 11
-  store i8 0, ptr %_header_upgrade_websocket, align 8
-  %_header_connection_upgrade = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 12
-  store i8 0, ptr %_header_connection_upgrade, align 1
-  %_heartbeat_timeout = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 16
-  store i32 0, ptr %_heartbeat_timeout, align 4
-  %_websocket_key = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 14
-  %arraydecay = getelementptr inbounds [2049 x i8], ptr %_websocket_key, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 2 %arraydecay, i8 0, i64 2049, i1 false)
-  %_websocket_accept = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 15
-  %arraydecay3 = getelementptr inbounds [2049 x i8], ptr %_websocket_accept, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 1 %arraydecay3, i8 0, i64 2049, i1 false)
-  %_websocket_protocol = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 13
-  %arraydecay4 = getelementptr inbounds [256 x i8], ptr %_websocket_protocol, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 2 %arraydecay4, i8 0, i64 256, i1 false)
-  %_next_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 10
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t22next_handshake_commandEPNS_5msg_tE to i64), i64 0 }, ptr %_next_msg, align 8
-  %_process_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 11
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t25process_handshake_commandEPNS_5msg_tE to i64), i64 0 }, ptr %_process_msg, align 8
-  %_close_msg5 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 17
-  %call = invoke noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %_close_msg5)
-          to label %invoke.cont7 unwind label %lpad6
+27:                                               ; preds = %6
+  %28 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 3
+  store i32 0, ptr %28, align 8, !tbaa !78
+  %29 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 4
+  store i32 0, ptr %29, align 4, !tbaa !79
+  %30 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 8
+  store i32 0, ptr %30, align 4, !tbaa !80
+  %31 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 10
+  store i32 0, ptr %31, align 4, !tbaa !81
+  %32 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 11
+  store i8 0, ptr %32, align 8, !tbaa !82
+  %33 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 12
+  store i8 0, ptr %33, align 1, !tbaa !83
+  %34 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 16
+  store i32 0, ptr %34, align 4, !tbaa !84
+  %35 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 14
+  %36 = getelementptr inbounds [2049 x i8], ptr %35, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 2 %36, i8 0, i64 2049, i1 false)
+  %37 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 15
+  %38 = getelementptr inbounds [2049 x i8], ptr %37, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 2049, i1 false)
+  %39 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 13
+  %40 = getelementptr inbounds [256 x i8], ptr %39, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 2 %40, i8 0, i64 256, i1 false)
+  %41 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %16, i32 0, i32 10
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t22next_handshake_commandEPNS_5msg_tE to i64), i64 0 }, ptr %41, align 8, !tbaa !85
+  %42 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %16, i32 0, i32 11
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t25process_handshake_commandEPNS_5msg_tE to i64), i64 0 }, ptr %42, align 8, !tbaa !86
+  %43 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 17
+  %44 = invoke noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %43)
+          to label %45 unwind label %67
 
-invoke.cont7:                                     ; preds = %invoke.cont
-  %_options = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %heartbeat_interval = getelementptr inbounds %"struct.zmq::options_t", ptr %_options, i32 0, i32 60
-  %7 = load i32, ptr %heartbeat_interval, align 4
-  %cmp = icmp sgt i32 %7, 0
-  br i1 %cmp, label %if.then, label %if.end16
+45:                                               ; preds = %27
+  %46 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %16, i32 0, i32 2
+  %47 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %46, i32 0, i32 60
+  %48 = load i32, ptr %47, align 4, !tbaa !87
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %50, label %72
 
-if.then:                                          ; preds = %invoke.cont7
-  %_options8 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %heartbeat_timeout = getelementptr inbounds %"struct.zmq::options_t", ptr %_options8, i32 0, i32 61
-  %8 = load i32, ptr %heartbeat_timeout, align 8
-  %_heartbeat_timeout9 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 16
-  store i32 %8, ptr %_heartbeat_timeout9, align 4
-  %_heartbeat_timeout10 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 16
-  %9 = load i32, ptr %_heartbeat_timeout10, align 4
-  %cmp11 = icmp eq i32 %9, -1
-  br i1 %cmp11, label %if.then12, label %if.end
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %16, i32 0, i32 2
+  %52 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %51, i32 0, i32 61
+  %53 = load i32, ptr %52, align 8, !tbaa !88
+  %54 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 16
+  store i32 %53, ptr %54, align 4, !tbaa !84
+  %55 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 16
+  %56 = load i32, ptr %55, align 4, !tbaa !84
+  %57 = icmp eq i32 %56, -1
+  br i1 %57, label %58, label %71
 
-if.then12:                                        ; preds = %if.then
-  %_options13 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %heartbeat_interval14 = getelementptr inbounds %"struct.zmq::options_t", ptr %_options13, i32 0, i32 60
-  %10 = load i32, ptr %heartbeat_interval14, align 4
-  %_heartbeat_timeout15 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 16
-  store i32 %10, ptr %_heartbeat_timeout15, align 4
-  br label %if.end
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %16, i32 0, i32 2
+  %60 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %59, i32 0, i32 60
+  %61 = load i32, ptr %60, align 4, !tbaa !87
+  %62 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %16, i32 0, i32 16
+  store i32 %61, ptr %62, align 4, !tbaa !84
+  br label %71
 
-lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+63:                                               ; preds = %6
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %13, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %14, align 4
+  br label %73
 
-lpad6:                                            ; preds = %invoke.cont
-  %14 = landingpad { ptr, i32 }
+67:                                               ; preds = %27
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
-  call void @_ZN3zmq12ws_address_tD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %_address) #13
-  br label %ehcleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %13, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %14, align 4
+  call void @_ZN3zmq12ws_address_tD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #18
+  br label %73
 
-if.end:                                           ; preds = %if.then12, %if.then
-  br label %if.end16
+71:                                               ; preds = %58, %50
+  br label %72
 
-if.end16:                                         ; preds = %if.end, %invoke.cont7
+72:                                               ; preds = %71, %45
   ret void
 
-ehcleanup:                                        ; preds = %lpad6, %lpad
-  call void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689) %this1) #13
-  br label %eh.resume
+73:                                               ; preds = %67, %63
+  call void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689) %16) #18
+  br label %74
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val17 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val17
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %13, align 8
+  %76 = load i32, ptr %14, align 4
+  %77 = insertvalue { ptr, i32 } poison, ptr %75, 0
+  %78 = insertvalue { ptr, i32 } %77, i32 %76, 1
+  resume { ptr, i32 } %78
 }
 
 declare void @_ZN3zmq20stream_engine_base_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tEb(ptr noundef nonnull align 8 dereferenceable(1689), i32 noundef, ptr noundef nonnull align 8 dereferenceable(1336), ptr noundef nonnull align 8 dereferenceable(68), i1 noundef zeroext) unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3zmq12ws_address_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_address = getelementptr inbounds %"class.zmq::ws_address_t", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %_address2 = getelementptr inbounds %"class.zmq::ws_address_t", ptr %1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_address, ptr align 8 %_address2, i64 28, i1 false)
-  %_host = getelementptr inbounds %"class.zmq::ws_address_t", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %_host3 = getelementptr inbounds %"class.zmq::ws_address_t", ptr %2, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_host, ptr noundef nonnull align 8 dereferenceable(32) %_host3)
-  %_path = getelementptr inbounds %"class.zmq::ws_address_t", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %.addr, align 8
-  %_path4 = getelementptr inbounds %"class.zmq::ws_address_t", ptr %3, i32 0, i32 2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_path, ptr noundef nonnull align 8 dereferenceable(32) %_path4)
-          to label %invoke.cont unwind label %lpad
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3zmq12ws_address_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.zmq::ws_address_t", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8, !tbaa !14
+  %10 = getelementptr inbounds nuw %"class.zmq::ws_address_t", ptr %9, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %10, i64 28, i1 false), !tbaa.struct !89
+  %11 = getelementptr inbounds nuw %"class.zmq::ws_address_t", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8, !tbaa !14
+  %13 = getelementptr inbounds nuw %"class.zmq::ws_address_t", ptr %12, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  %14 = getelementptr inbounds nuw %"class.zmq::ws_address_t", ptr %7, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8, !tbaa !14
+  %16 = getelementptr inbounds nuw %"class.zmq::ws_address_t", ptr %15, i32 0, i32 2
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %17 unwind label %18
 
-invoke.cont:                                      ; preds = %entry
+17:                                               ; preds = %2
   ret void
 
-lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_host) #13
-  br label %eh.resume
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
+  br label %22
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i32, ptr %6, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare noundef i32 @_ZN3zmq20stream_engine_base_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef) #1
 
@@ -296,57 +320,53 @@ declare noundef i32 @_ZN3zmq20stream_engine_base_t25process_handshake_commandEPN
 
 declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq12ws_address_tD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_path = getelementptr inbounds %"class.zmq::ws_address_t", ptr %this1, i32 0, i32 2
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_path) #13
-  %_host = getelementptr inbounds %"class.zmq::ws_address_t", ptr %this1, i32 0, i32 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_host) #13
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3zmq12ws_address_tD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::ws_address_t", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  %5 = getelementptr inbounds nuw %"class.zmq::ws_address_t", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689)) unnamed_addr #4
+declare void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq11ws_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(25696) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  %1 = getelementptr inbounds { [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 1, i32 2
-  store ptr %1, ptr %add.ptr, align 8
-  %_close_msg = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 17
-  %call = invoke noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %_close_msg)
-          to label %invoke.cont unwind label %terminate.lpad
+define void @_ZN3zmq11ws_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(25696) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 176) ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !18
+  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr getelementptr inbounds inrange(-16, 72) ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq11ws_engine_tE, i32 0, i32 1, i32 2), ptr %4, align 8, !tbaa !18
+  %5 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %3, i32 0, i32 17
+  %6 = invoke noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
+          to label %7 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
-  %_address = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 2
-  call void @_ZN3zmq12ws_address_tD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %_address) #13
-  call void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689) %this1) #13
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %3, i32 0, i32 2
+  call void @_ZN3zmq12ws_address_tD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #18
+  call void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689) %3) #18
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #19
   unreachable
 }
 
 declare noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64)) #1
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #13
-  call void @_ZSt9terminatev() #14
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #18
+  call void @_ZSt9terminatev() #19
   unreachable
 }
 
@@ -355,439 +375,494 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N3zmq11ws_engine_tD1Ev(ptr noundef %this) unnamed_addr #6 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds i8, ptr %this1, i64 -16
-  tail call void @_ZN3zmq11ws_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(25696) %0) #13
+define void @_ZThn16_N3zmq11ws_engine_tD1Ev(ptr noundef %0) unnamed_addr #8 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 -16
+  tail call void @_ZN3zmq11ws_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(25696) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq11ws_engine_tD0Ev(ptr noundef nonnull align 8 dereferenceable(25696) %this) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3zmq11ws_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(25696) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #15
+define void @_ZN3zmq11ws_engine_tD0Ev(ptr noundef nonnull align 8 dereferenceable(25696) %0) unnamed_addr #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3zmq11ws_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(25696) %3) #18
+  call void @_ZdlPv(ptr noundef %3) #20
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #7
+declare void @_ZdlPv(ptr noundef) #9
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N3zmq11ws_engine_tD0Ev(ptr noundef %this) unnamed_addr #6 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds i8, ptr %this1, i64 -16
-  tail call void @_ZN3zmq11ws_engine_tD0Ev(ptr noundef nonnull align 8 dereferenceable(25696) %0) #13
+define void @_ZThn16_N3zmq11ws_engine_tD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 -16
+  tail call void @_ZN3zmq11ws_engine_tD0Ev(ptr noundef nonnull align 8 dereferenceable(25696) %4) #18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq11ws_engine_t18start_ws_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %protocol = alloca ptr, align 8
-  %nonce = alloca [16 x i8], align 16
-  %p = alloca ptr, align 8
-  %size = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_client = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %_client, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end26
+define void @_ZN3zmq11ws_engine_t18start_ws_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca [16 x i8], align 16
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 1
+  %9 = load i8, ptr %8, align 1, !tbaa !22, !range !20, !noundef !21
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %58
 
-if.then:                                          ; preds = %entry
-  %_options = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %mechanism = getelementptr inbounds %"struct.zmq::options_t", ptr %_options, i32 0, i32 42
-  %1 = load i32, ptr %mechanism, align 8
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then2, label %if.else
+11:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #18
+  %12 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %12, i32 0, i32 42
+  %14 = load i32, ptr %13, align 8, !tbaa !91
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %17
 
-if.then2:                                         ; preds = %if.then
-  store ptr @.str, ptr %protocol, align 8
-  br label %if.end8
+16:                                               ; preds = %11
+  store ptr @.str, ptr %3, align 8, !tbaa !92
+  br label %25
 
-if.else:                                          ; preds = %if.then
-  %_options3 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %mechanism4 = getelementptr inbounds %"struct.zmq::options_t", ptr %_options3, i32 0, i32 42
-  %2 = load i32, ptr %mechanism4, align 8
-  %cmp5 = icmp eq i32 %2, 1
-  br i1 %cmp5, label %if.then6, label %if.else7
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %18, i32 0, i32 42
+  %20 = load i32, ptr %19, align 8, !tbaa !91
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %22, label %23
 
-if.then6:                                         ; preds = %if.else
-  store ptr @.str.1, ptr %protocol, align 8
-  br label %if.end
+22:                                               ; preds = %17
+  store ptr @.str.1, ptr %3, align 8, !tbaa !92
+  br label %24
 
-if.else7:                                         ; preds = %if.else
-  store ptr @.str.2, ptr %protocol, align 8
-  br label %if.end
+23:                                               ; preds = %17
+  store ptr @.str.2, ptr %3, align 8, !tbaa !92
+  br label %24
 
-if.end:                                           ; preds = %if.else7, %if.then6
-  br label %if.end8
+24:                                               ; preds = %23, %22
+  br label %25
 
-if.end8:                                          ; preds = %if.end, %if.then2
-  %arraydecay = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 0
-  store ptr %arraydecay, ptr %p, align 8
-  %call = call noundef i32 @_ZN3zmq15generate_randomEv()
-  %3 = load ptr, ptr %p, align 8
-  store i32 %call, ptr %3, align 4
-  %call9 = call noundef i32 @_ZN3zmq15generate_randomEv()
-  %4 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %4, i64 1
-  store i32 %call9, ptr %add.ptr, align 4
-  %call10 = call noundef i32 @_ZN3zmq15generate_randomEv()
-  %5 = load ptr, ptr %p, align 8
-  %add.ptr11 = getelementptr inbounds i32, ptr %5, i64 2
-  store i32 %call10, ptr %add.ptr11, align 4
-  %call12 = call noundef i32 @_ZN3zmq15generate_randomEv()
-  %6 = load ptr, ptr %p, align 8
-  %add.ptr13 = getelementptr inbounds i32, ptr %6, i64 3
-  store i32 %call12, ptr %add.ptr13, align 4
-  %arraydecay14 = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 0
-  %_websocket_key = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 14
-  %arraydecay15 = getelementptr inbounds [2049 x i8], ptr %_websocket_key, i64 0, i64 0
-  %call16 = call noundef i32 @_ZL13encode_base64PKhiPci(ptr noundef %arraydecay14, i32 noundef 16, ptr noundef %arraydecay15, i32 noundef 2048)
-  store i32 %call16, ptr %size, align 4
-  %_write_buffer = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 6
-  %arraydecay17 = getelementptr inbounds [8192 x i8], ptr %_write_buffer, i64 0, i64 0
-  %_address = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 2
-  %call18 = call noundef ptr @_ZNK3zmq12ws_address_t4pathEv(ptr noundef nonnull align 8 dereferenceable(96) %_address)
-  %_address19 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 2
-  %call20 = call noundef ptr @_ZNK3zmq12ws_address_t4hostEv(ptr noundef nonnull align 8 dereferenceable(96) %_address19)
-  %_websocket_key21 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 14
-  %arraydecay22 = getelementptr inbounds [2049 x i8], ptr %_websocket_key21, i64 0, i64 0
-  %7 = load ptr, ptr %protocol, align 8
-  %call23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay17, i64 noundef 8192, ptr noundef @.str.3, ptr noundef %call18, ptr noundef %call20, ptr noundef %arraydecay22, ptr noundef %7) #13
-  store i32 %call23, ptr %size, align 4
-  %_write_buffer24 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 6
-  %arraydecay25 = getelementptr inbounds [8192 x i8], ptr %_write_buffer24, i64 0, i64 0
-  %_outpos = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 6
-  store ptr %arraydecay25, ptr %_outpos, align 8
-  %8 = load i32, ptr %size, align 4
-  %conv = sext i32 %8 to i64
-  %_outsize = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 7
-  store i64 %conv, ptr %_outsize, align 8
-  call void @_ZN3zmq20stream_engine_base_t11set_polloutEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  br label %if.end26
+25:                                               ; preds = %24, %16
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  %26 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  store ptr %26, ptr %5, align 8, !tbaa !93
+  %27 = call noundef i32 @_ZN3zmq15generate_randomEv()
+  %28 = load ptr, ptr %5, align 8, !tbaa !93
+  store i32 %27, ptr %28, align 4, !tbaa !8
+  %29 = call noundef i32 @_ZN3zmq15generate_randomEv()
+  %30 = load ptr, ptr %5, align 8, !tbaa !93
+  %31 = getelementptr inbounds i32, ptr %30, i64 1
+  store i32 %29, ptr %31, align 4, !tbaa !8
+  %32 = call noundef i32 @_ZN3zmq15generate_randomEv()
+  %33 = load ptr, ptr %5, align 8, !tbaa !93
+  %34 = getelementptr inbounds i32, ptr %33, i64 2
+  store i32 %32, ptr %34, align 4, !tbaa !8
+  %35 = call noundef i32 @_ZN3zmq15generate_randomEv()
+  %36 = load ptr, ptr %5, align 8, !tbaa !93
+  %37 = getelementptr inbounds i32, ptr %36, i64 3
+  store i32 %35, ptr %37, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #18
+  %38 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %39 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 14
+  %40 = getelementptr inbounds [2049 x i8], ptr %39, i64 0, i64 0
+  %41 = call noundef i32 @_ZL13encode_base64PKhiPci(ptr noundef %38, i32 noundef 16, ptr noundef %40, i32 noundef 2048)
+  store i32 %41, ptr %6, align 4, !tbaa !8
+  %42 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 6
+  %43 = getelementptr inbounds [8192 x i8], ptr %42, i64 0, i64 0
+  %44 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 2
+  %45 = call noundef ptr @_ZNK3zmq12ws_address_t4pathEv(ptr noundef nonnull align 8 dereferenceable(96) %44)
+  %46 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 2
+  %47 = call noundef ptr @_ZNK3zmq12ws_address_t4hostEv(ptr noundef nonnull align 8 dereferenceable(96) %46)
+  %48 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 14
+  %49 = getelementptr inbounds [2049 x i8], ptr %48, i64 0, i64 0
+  %50 = load ptr, ptr %3, align 8, !tbaa !92
+  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %43, i64 noundef 8192, ptr noundef @.str.3, ptr noundef %45, ptr noundef %47, ptr noundef %49, ptr noundef %50) #18
+  store i32 %51, ptr %6, align 4, !tbaa !8
+  %52 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 6
+  %53 = getelementptr inbounds [8192 x i8], ptr %52, i64 0, i64 0
+  %54 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 6
+  store ptr %53, ptr %54, align 8, !tbaa !95
+  %55 = load i32, ptr %6, align 4, !tbaa !8
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 7
+  store i64 %56, ptr %57, align 8, !tbaa !96
+  call void @_ZN3zmq20stream_engine_base_t11set_polloutEv(ptr noundef nonnull align 8 dereferenceable(1689) %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #18
+  br label %58
 
-if.end26:                                         ; preds = %if.end8, %entry
+58:                                               ; preds = %25, %1
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 declare noundef i32 @_ZN3zmq15generate_randomEv() #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL13encode_base64PKhiPci(ptr noundef %in_, i32 noundef %in_len_, ptr noundef %out_, i32 noundef %out_len_) #3 {
-entry:
-  %retval = alloca i32, align 4
-  %in_.addr = alloca ptr, align 8
-  %in_len_.addr = alloca i32, align 4
-  %out_.addr = alloca ptr, align 8
-  %out_len_.addr = alloca i32, align 4
-  %io = alloca i32, align 4
-  %v = alloca i32, align 4
-  %rem = alloca i32, align 4
-  %ii = alloca i32, align 4
-  %ch = alloca i8, align 1
-  store ptr %in_, ptr %in_.addr, align 8
-  store i32 %in_len_, ptr %in_len_.addr, align 4
-  store ptr %out_, ptr %out_.addr, align 8
-  store i32 %out_len_, ptr %out_len_.addr, align 4
-  store i32 0, ptr %io, align 4
-  store i32 0, ptr %v, align 4
-  store i32 0, ptr %rem, align 4
-  store i32 0, ptr %ii, align 4
-  br label %for.cond
+define internal noundef i32 @_ZL13encode_base64PKhiPci(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #6 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8, !tbaa !92
+  store i32 %1, ptr %7, align 4, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !92
+  store i32 %3, ptr %9, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #18
+  store i32 0, ptr %10, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #18
+  store i32 0, ptr %11, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #18
+  store i32 0, ptr %12, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #18
+  store i32 0, ptr %13, align 4, !tbaa !8
+  br label %16
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %ii, align 4
-  %1 = load i32, ptr %in_len_.addr, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+16:                                               ; preds = %61, %4
+  %17 = load i32, ptr %13, align 4, !tbaa !8
+  %18 = load i32, ptr %7, align 4, !tbaa !8
+  %19 = icmp slt i32 %17, %18
+  br i1 %19, label %21, label %20
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %in_.addr, align 8
-  %3 = load i32, ptr %ii, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %idxprom
-  %4 = load i8, ptr %arrayidx, align 1
-  store i8 %4, ptr %ch, align 1
-  %5 = load i32, ptr %v, align 4
-  %shl = shl i32 %5, 8
-  %6 = load i8, ptr %ch, align 1
-  %conv = zext i8 %6 to i32
-  %or = or i32 %shl, %conv
-  store i32 %or, ptr %v, align 4
-  %7 = load i32, ptr %rem, align 4
-  %add = add nsw i32 %7, 8
-  store i32 %add, ptr %rem, align 4
-  br label %while.cond
+20:                                               ; preds = %16
+  store i32 2, ptr %14, align 4
+  br label %64
 
-while.cond:                                       ; preds = %if.end, %for.body
-  %8 = load i32, ptr %rem, align 4
-  %cmp1 = icmp sge i32 %8, 6
-  br i1 %cmp1, label %while.body, label %while.end
+21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #18
+  %22 = load ptr, ptr %6, align 8, !tbaa !92
+  %23 = load i32, ptr %13, align 4, !tbaa !8
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %22, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !90
+  store i8 %26, ptr %15, align 1, !tbaa !90
+  %27 = load i32, ptr %11, align 4, !tbaa !8
+  %28 = shl i32 %27, 8
+  %29 = load i8, ptr %15, align 1, !tbaa !90
+  %30 = zext i8 %29 to i32
+  %31 = or i32 %28, %30
+  store i32 %31, ptr %11, align 4, !tbaa !8
+  %32 = load i32, ptr %12, align 4, !tbaa !8
+  %33 = add nsw i32 %32, 8
+  store i32 %33, ptr %12, align 4, !tbaa !8
+  br label %34
 
-while.body:                                       ; preds = %while.cond
-  %9 = load i32, ptr %rem, align 4
-  %sub = sub nsw i32 %9, 6
-  store i32 %sub, ptr %rem, align 4
-  %10 = load i32, ptr %io, align 4
-  %11 = load i32, ptr %out_len_.addr, align 4
-  %cmp2 = icmp sge i32 %10, %11
-  br i1 %cmp2, label %if.then, label %if.end
+34:                                               ; preds = %44, %21
+  %35 = load i32, ptr %12, align 4, !tbaa !8
+  %36 = icmp sge i32 %35, 6
+  br i1 %36, label %37, label %57
 
-if.then:                                          ; preds = %while.body
-  store i32 -1, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %34
+  %38 = load i32, ptr %12, align 4, !tbaa !8
+  %39 = sub nsw i32 %38, 6
+  store i32 %39, ptr %12, align 4, !tbaa !8
+  %40 = load i32, ptr %10, align 4, !tbaa !8
+  %41 = load i32, ptr %9, align 4, !tbaa !8
+  %42 = icmp sge i32 %40, %41
+  br i1 %42, label %43, label %44
 
-if.end:                                           ; preds = %while.body
-  %12 = load i32, ptr %v, align 4
-  %13 = load i32, ptr %rem, align 4
-  %shr = lshr i32 %12, %13
-  %and = and i32 %shr, 63
-  %idxprom3 = zext i32 %and to i64
-  %arrayidx4 = getelementptr inbounds [65 x i8], ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 0, i64 %idxprom3
-  %14 = load i8, ptr %arrayidx4, align 1
-  %15 = load ptr, ptr %out_.addr, align 8
-  %16 = load i32, ptr %io, align 4
-  %inc = add nsw i32 %16, 1
-  store i32 %inc, ptr %io, align 4
-  %idxprom5 = sext i32 %16 to i64
-  %arrayidx6 = getelementptr inbounds i8, ptr %15, i64 %idxprom5
-  store i8 %14, ptr %arrayidx6, align 1
-  br label %while.cond, !llvm.loop !4
+43:                                               ; preds = %37
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %58
 
-while.end:                                        ; preds = %while.cond
-  br label %for.inc
+44:                                               ; preds = %37
+  %45 = load i32, ptr %11, align 4, !tbaa !8
+  %46 = load i32, ptr %12, align 4, !tbaa !8
+  %47 = lshr i32 %45, %46
+  %48 = and i32 %47, 63
+  %49 = zext i32 %48 to i64
+  %50 = getelementptr inbounds nuw [65 x i8], ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 0, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !90
+  %52 = load ptr, ptr %8, align 8, !tbaa !92
+  %53 = load i32, ptr %10, align 4, !tbaa !8
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %10, align 4, !tbaa !8
+  %55 = sext i32 %53 to i64
+  %56 = getelementptr inbounds i8, ptr %52, i64 %55
+  store i8 %51, ptr %56, align 1, !tbaa !90
+  br label %34, !llvm.loop !97
 
-for.inc:                                          ; preds = %while.end
-  %17 = load i32, ptr %ii, align 4
-  %inc7 = add nsw i32 %17, 1
-  store i32 %inc7, ptr %ii, align 4
-  br label %for.cond, !llvm.loop !6
+57:                                               ; preds = %34
+  store i32 0, ptr %14, align 4
+  br label %58
 
-for.end:                                          ; preds = %for.cond
-  %18 = load i32, ptr %rem, align 4
-  %tobool = icmp ne i32 %18, 0
-  br i1 %tobool, label %if.then8, label %if.end20
+58:                                               ; preds = %57, %43
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #18
+  %59 = load i32, ptr %14, align 4
+  switch i32 %59, label %64 [
+    i32 0, label %60
+  ]
 
-if.then8:                                         ; preds = %for.end
-  %19 = load i32, ptr %rem, align 4
-  %sub9 = sub nsw i32 6, %19
-  %20 = load i32, ptr %v, align 4
-  %shl10 = shl i32 %20, %sub9
-  store i32 %shl10, ptr %v, align 4
-  %21 = load i32, ptr %io, align 4
-  %22 = load i32, ptr %out_len_.addr, align 4
-  %cmp11 = icmp sge i32 %21, %22
-  br i1 %cmp11, label %if.then12, label %if.end13
+60:                                               ; preds = %58
+  br label %61
 
-if.then12:                                        ; preds = %if.then8
-  store i32 -1, ptr %retval, align 4
-  br label %return
+61:                                               ; preds = %60
+  %62 = load i32, ptr %13, align 4, !tbaa !8
+  %63 = add nsw i32 %62, 1
+  store i32 %63, ptr %13, align 4, !tbaa !8
+  br label %16, !llvm.loop !99
 
-if.end13:                                         ; preds = %if.then8
-  %23 = load i32, ptr %v, align 4
-  %and14 = and i32 %23, 63
-  %idxprom15 = zext i32 %and14 to i64
-  %arrayidx16 = getelementptr inbounds [65 x i8], ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 0, i64 %idxprom15
-  %24 = load i8, ptr %arrayidx16, align 1
-  %25 = load ptr, ptr %out_.addr, align 8
-  %26 = load i32, ptr %io, align 4
-  %inc17 = add nsw i32 %26, 1
-  store i32 %inc17, ptr %io, align 4
-  %idxprom18 = sext i32 %26 to i64
-  %arrayidx19 = getelementptr inbounds i8, ptr %25, i64 %idxprom18
-  store i8 %24, ptr %arrayidx19, align 1
-  br label %if.end20
+64:                                               ; preds = %58, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #18
+  %65 = load i32, ptr %14, align 4
+  switch i32 %65, label %116 [
+    i32 2, label %66
+  ]
 
-if.end20:                                         ; preds = %if.end13, %for.end
-  br label %while.cond21
+66:                                               ; preds = %64
+  %67 = load i32, ptr %12, align 4, !tbaa !8
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %89
 
-while.cond21:                                     ; preds = %if.end27, %if.end20
-  %27 = load i32, ptr %io, align 4
-  %and22 = and i32 %27, 3
-  %tobool23 = icmp ne i32 %and22, 0
-  br i1 %tobool23, label %while.body24, label %while.end31
+69:                                               ; preds = %66
+  %70 = load i32, ptr %12, align 4, !tbaa !8
+  %71 = sub nsw i32 6, %70
+  %72 = load i32, ptr %11, align 4, !tbaa !8
+  %73 = shl i32 %72, %71
+  store i32 %73, ptr %11, align 4, !tbaa !8
+  %74 = load i32, ptr %10, align 4, !tbaa !8
+  %75 = load i32, ptr %9, align 4, !tbaa !8
+  %76 = icmp sge i32 %74, %75
+  br i1 %76, label %77, label %78
 
-while.body24:                                     ; preds = %while.cond21
-  %28 = load i32, ptr %io, align 4
-  %29 = load i32, ptr %out_len_.addr, align 4
-  %cmp25 = icmp sge i32 %28, %29
-  br i1 %cmp25, label %if.then26, label %if.end27
+77:                                               ; preds = %69
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %116
 
-if.then26:                                        ; preds = %while.body24
-  store i32 -1, ptr %retval, align 4
-  br label %return
+78:                                               ; preds = %69
+  %79 = load i32, ptr %11, align 4, !tbaa !8
+  %80 = and i32 %79, 63
+  %81 = zext i32 %80 to i64
+  %82 = getelementptr inbounds nuw [65 x i8], ptr @_ZZL13encode_base64PKhiPciE13base64enc_tab, i64 0, i64 %81
+  %83 = load i8, ptr %82, align 1, !tbaa !90
+  %84 = load ptr, ptr %8, align 8, !tbaa !92
+  %85 = load i32, ptr %10, align 4, !tbaa !8
+  %86 = add nsw i32 %85, 1
+  store i32 %86, ptr %10, align 4, !tbaa !8
+  %87 = sext i32 %85 to i64
+  %88 = getelementptr inbounds i8, ptr %84, i64 %87
+  store i8 %83, ptr %88, align 1, !tbaa !90
+  br label %89
 
-if.end27:                                         ; preds = %while.body24
-  %30 = load ptr, ptr %out_.addr, align 8
-  %31 = load i32, ptr %io, align 4
-  %inc28 = add nsw i32 %31, 1
-  store i32 %inc28, ptr %io, align 4
-  %idxprom29 = sext i32 %31 to i64
-  %arrayidx30 = getelementptr inbounds i8, ptr %30, i64 %idxprom29
-  store i8 61, ptr %arrayidx30, align 1
-  br label %while.cond21, !llvm.loop !7
+89:                                               ; preds = %78, %66
+  br label %90
 
-while.end31:                                      ; preds = %while.cond21
-  %32 = load i32, ptr %io, align 4
-  %33 = load i32, ptr %out_len_.addr, align 4
-  %cmp32 = icmp sge i32 %32, %33
-  br i1 %cmp32, label %if.then33, label %if.end34
+90:                                               ; preds = %99, %89
+  %91 = load i32, ptr %10, align 4, !tbaa !8
+  %92 = and i32 %91, 3
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %105
 
-if.then33:                                        ; preds = %while.end31
-  store i32 -1, ptr %retval, align 4
-  br label %return
+94:                                               ; preds = %90
+  %95 = load i32, ptr %10, align 4, !tbaa !8
+  %96 = load i32, ptr %9, align 4, !tbaa !8
+  %97 = icmp sge i32 %95, %96
+  br i1 %97, label %98, label %99
 
-if.end34:                                         ; preds = %while.end31
-  %34 = load ptr, ptr %out_.addr, align 8
-  %35 = load i32, ptr %io, align 4
-  %idxprom35 = sext i32 %35 to i64
-  %arrayidx36 = getelementptr inbounds i8, ptr %34, i64 %idxprom35
-  store i8 0, ptr %arrayidx36, align 1
-  %36 = load i32, ptr %io, align 4
-  store i32 %36, ptr %retval, align 4
-  br label %return
+98:                                               ; preds = %94
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %116
 
-return:                                           ; preds = %if.end34, %if.then33, %if.then26, %if.then12, %if.then
-  %37 = load i32, ptr %retval, align 4
-  ret i32 %37
+99:                                               ; preds = %94
+  %100 = load ptr, ptr %8, align 8, !tbaa !92
+  %101 = load i32, ptr %10, align 4, !tbaa !8
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %10, align 4, !tbaa !8
+  %103 = sext i32 %101 to i64
+  %104 = getelementptr inbounds i8, ptr %100, i64 %103
+  store i8 61, ptr %104, align 1, !tbaa !90
+  br label %90, !llvm.loop !100
+
+105:                                              ; preds = %90
+  %106 = load i32, ptr %10, align 4, !tbaa !8
+  %107 = load i32, ptr %9, align 4, !tbaa !8
+  %108 = icmp sge i32 %106, %107
+  br i1 %108, label %109, label %110
+
+109:                                              ; preds = %105
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %116
+
+110:                                              ; preds = %105
+  %111 = load ptr, ptr %8, align 8, !tbaa !92
+  %112 = load i32, ptr %10, align 4, !tbaa !8
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %111, i64 %113
+  store i8 0, ptr %114, align 1, !tbaa !90
+  %115 = load i32, ptr %10, align 4, !tbaa !8
+  store i32 %115, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %116
+
+116:                                              ; preds = %110, %109, %98, %77, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #18
+  %117 = load i32, ptr %5, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #4
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #5
 
 declare noundef ptr @_ZNK3zmq12ws_address_t4pathEv(ptr noundef nonnull align 8 dereferenceable(96)) #1
 
 declare noundef ptr @_ZNK3zmq12ws_address_t4hostEv(ptr noundef nonnull align 8 dereferenceable(96)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3zmq20stream_engine_base_t11set_polloutEv(ptr noundef nonnull align 8 dereferenceable(1689) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_handle = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 25
-  %0 = load ptr, ptr %_handle, align 8
-  call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
+define linkonce_odr void @_ZN3zmq20stream_engine_base_t11set_polloutEv(ptr noundef nonnull align 8 dereferenceable(1689) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %3, i32 0, i32 25
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
+  call void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %5)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3zmq11ws_engine_t13plug_internalEv(ptr noundef nonnull align 8 dereferenceable(25696) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3zmq11ws_engine_t18start_ws_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %3)
+  call void @_ZN3zmq20stream_engine_base_t10set_pollinEv(ptr noundef nonnull align 8 dereferenceable(1689) %3)
+  call void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1689) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq11ws_engine_t13plug_internalEv(ptr noundef nonnull align 8 dereferenceable(25696) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3zmq11ws_engine_t18start_ws_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this1)
-  call void @_ZN3zmq20stream_engine_base_t10set_pollinEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  call void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3zmq20stream_engine_base_t10set_pollinEv(ptr noundef nonnull align 8 dereferenceable(1689) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_handle = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 25
-  %0 = load ptr, ptr %_handle, align 8
-  call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
+define linkonce_odr void @_ZN3zmq20stream_engine_base_t10set_pollinEv(ptr noundef nonnull align 8 dereferenceable(1689) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %3, i32 0, i32 25
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
+  call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %5)
   ret void
 }
 
 declare void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1689)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t14routing_id_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %msg_.addr, align 8
-  %_options = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %routing_id_size = getelementptr inbounds %"struct.zmq::options_t", ptr %_options, i32 0, i32 3
-  %1 = load i8, ptr %routing_id_size, align 8
-  %conv = zext i8 %1 to i64
-  %call = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %conv)
-  store i32 %call, ptr %rc, align 4
-  br label %do.body
+define noundef i32 @_ZN3zmq11ws_engine_t14routing_id_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %8 = load ptr, ptr %4, align 8, !tbaa !104
+  %9 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %9, i32 0, i32 3
+  %11 = load i8, ptr %10, align 8, !tbaa !106
+  %12 = zext i8 %11 to i64
+  %13 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %8, i64 noundef %12)
+  store i32 %13, ptr %5, align 4, !tbaa !8
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %2 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %2, 0
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+14:                                               ; preds = %2
+  %15 = load i32, ptr %5, align 4, !tbaa !8
+  %16 = icmp eq i32 %15, 0
+  %17 = xor i1 %16, true
+  %18 = zext i1 %17 to i64
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 0)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %31
 
-if.then:                                          ; preds = %do.body
-  %call3 = call ptr @__errno_location() #16
-  %3 = load i32, ptr %call3, align 4
-  %call4 = call ptr @strerror(i32 noundef %3) #13
-  store ptr %call4, ptr %errstr, align 8
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load ptr, ptr %errstr, align 8
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str.4, ptr noundef %5, ptr noundef @.str.5, i32 noundef 157)
-  %6 = load ptr, ptr @stderr, align 8
-  %call6 = call i32 @fflush(ptr noundef %6)
-  %7 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %7)
-  br label %if.end
+21:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %22 = call ptr @__errno_location() #21
+  %23 = load i32, ptr %22, align 4, !tbaa !8
+  %24 = call ptr @strerror(i32 noundef %23) #18
+  store ptr %24, ptr %6, align 8, !tbaa !92
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %26 = load ptr, ptr %6, align 8, !tbaa !92
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str.4, ptr noundef %26, ptr noundef @.str.5, i32 noundef 157) #18
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %29 = call i32 @fflush(ptr noundef %28)
+  %30 = load ptr, ptr %6, align 8, !tbaa !92
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  br label %31
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+31:                                               ; preds = %21, %14
+  br label %32
 
-do.end:                                           ; preds = %if.end
-  %_options7 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %routing_id_size8 = getelementptr inbounds %"struct.zmq::options_t", ptr %_options7, i32 0, i32 3
-  %8 = load i8, ptr %routing_id_size8, align 8
-  %conv9 = zext i8 %8 to i32
-  %cmp10 = icmp sgt i32 %conv9, 0
-  br i1 %cmp10, label %if.then11, label %if.end17
+32:                                               ; preds = %31
+  br label %33
 
-if.then11:                                        ; preds = %do.end
-  %9 = load ptr, ptr %msg_.addr, align 8
-  %call12 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
-  %_options13 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %routing_id = getelementptr inbounds %"struct.zmq::options_t", ptr %_options13, i32 0, i32 4
-  %arraydecay = getelementptr inbounds [256 x i8], ptr %routing_id, i64 0, i64 0
-  %_options14 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %routing_id_size15 = getelementptr inbounds %"struct.zmq::options_t", ptr %_options14, i32 0, i32 3
-  %10 = load i8, ptr %routing_id_size15, align 8
-  %conv16 = zext i8 %10 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call12, ptr align 1 %arraydecay, i64 %conv16, i1 false)
-  br label %if.end17
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 2
+  %35 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %34, i32 0, i32 3
+  %36 = load i8, ptr %35, align 8, !tbaa !106
+  %37 = zext i8 %36 to i32
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %39, label %49
 
-if.end17:                                         ; preds = %if.then11, %do.end
-  %_next_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 10
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t21pull_msg_from_sessionEPNS_5msg_tE to i64), i64 0 }, ptr %_next_msg, align 8
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %4, align 8, !tbaa !104
+  %41 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %40)
+  %42 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 2
+  %43 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %42, i32 0, i32 4
+  %44 = getelementptr inbounds [256 x i8], ptr %43, i64 0, i64 0
+  %45 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 2
+  %46 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %45, i32 0, i32 3
+  %47 = load i8, ptr %46, align 8, !tbaa !106
+  %48 = zext i8 %47 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %44, i64 %48, i1 false)
+  br label %49
+
+49:                                               ; preds = %39, %33
+  %50 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 10
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t21pull_msg_from_sessionEPNS_5msg_tE to i64), i64 0 }, ptr %50, align 8, !tbaa !85
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
   ret i32 0
 }
 
 declare noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #11
+
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #4
+declare ptr @strerror(i32 noundef) #5
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #8
+declare ptr @__errno_location() #12
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
 
 declare i32 @fflush(ptr noundef) #1
 
@@ -796,2840 +871,2938 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) #1
 declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare noundef i32 @_ZN3zmq20stream_engine_base_t21pull_msg_from_sessionEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t22process_routing_id_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  %rc8 = alloca i32, align 4
-  %errstr14 = alloca ptr, align 8
-  %errstr26 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_options = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %recv_routing_id = getelementptr inbounds %"struct.zmq::options_t", ptr %_options, i32 0, i32 28
-  %0 = load i8, ptr %recv_routing_id, align 2
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.else
+define noundef i32 @_ZN3zmq11ws_engine_t22process_routing_id_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %11, i32 0, i32 28
+  %13 = load i8, ptr %12, align 2, !tbaa !109, !range !20, !noundef !21
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %43
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %msg_.addr, align 8
-  call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef zeroext 64)
-  %call = call noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  %2 = load ptr, ptr %msg_.addr, align 8
-  %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 29
-  %3 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(1624) %call, ptr noundef %2)
-  store i32 %call2, ptr %rc, align 4
-  br label %do.body
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !104
+  call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 noundef zeroext 64)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %17 = call noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %10)
+  %18 = load ptr, ptr %4, align 8, !tbaa !104
+  %19 = load ptr, ptr %17, align 8, !tbaa !18
+  %20 = getelementptr inbounds ptr, ptr %19, i64 29
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(1624) %17, ptr noundef %18)
+  store i32 %22, ptr %5, align 4, !tbaa !8
+  br label %23
 
-do.body:                                          ; preds = %if.then
-  %4 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %4, 0
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then3, label %if.end
+23:                                               ; preds = %15
+  %24 = load i32, ptr %5, align 4, !tbaa !8
+  %25 = icmp eq i32 %24, 0
+  %26 = xor i1 %25, true
+  %27 = zext i1 %26 to i64
+  %28 = call i64 @llvm.expect.i64(i64 %27, i64 0)
+  %29 = icmp ne i64 %28, 0
+  br i1 %29, label %30, label %40
 
-if.then3:                                         ; preds = %do.body
-  %call4 = call ptr @__errno_location() #16
-  %5 = load i32, ptr %call4, align 4
-  %call5 = call ptr @strerror(i32 noundef %5) #13
-  store ptr %call5, ptr %errstr, align 8
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = load ptr, ptr %errstr, align 8
-  %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.4, ptr noundef %7, ptr noundef @.str.5, i32 noundef 170)
-  %8 = load ptr, ptr @stderr, align 8
-  %call7 = call i32 @fflush(ptr noundef %8)
-  %9 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %9)
-  br label %if.end
+30:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %31 = call ptr @__errno_location() #21
+  %32 = load i32, ptr %31, align 4, !tbaa !8
+  %33 = call ptr @strerror(i32 noundef %32) #18
+  store ptr %33, ptr %6, align 8, !tbaa !92
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %35 = load ptr, ptr %6, align 8, !tbaa !92
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef @.str.4, ptr noundef %35, ptr noundef @.str.5, i32 noundef 170) #18
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %38 = call i32 @fflush(ptr noundef %37)
+  %39 = load ptr, ptr %6, align 8, !tbaa !92
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  br label %40
 
-if.end:                                           ; preds = %if.then3, %do.body
-  br label %do.end
+40:                                               ; preds = %30, %23
+  br label %41
 
-do.end:                                           ; preds = %if.end
-  br label %if.end33
+41:                                               ; preds = %40
+  br label %42
 
-if.else:                                          ; preds = %entry
-  %10 = load ptr, ptr %msg_.addr, align 8
-  %call9 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
-  store i32 %call9, ptr %rc8, align 4
-  br label %do.body10
+42:                                               ; preds = %41
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  br label %88
 
-do.body10:                                        ; preds = %if.else
-  %11 = load i32, ptr %rc8, align 4
-  %cmp11 = icmp eq i32 %11, 0
-  %lnot12 = xor i1 %cmp11, true
-  br i1 %lnot12, label %if.then13, label %if.end19
+43:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #18
+  %44 = load ptr, ptr %4, align 8, !tbaa !104
+  %45 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %44)
+  store i32 %45, ptr %7, align 4, !tbaa !8
+  br label %46
 
-if.then13:                                        ; preds = %do.body10
-  %call15 = call ptr @__errno_location() #16
-  %12 = load i32, ptr %call15, align 4
-  %call16 = call ptr @strerror(i32 noundef %12) #13
-  store ptr %call16, ptr %errstr14, align 8
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = load ptr, ptr %errstr14, align 8
-  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.4, ptr noundef %14, ptr noundef @.str.5, i32 noundef 173)
-  %15 = load ptr, ptr @stderr, align 8
-  %call18 = call i32 @fflush(ptr noundef %15)
-  %16 = load ptr, ptr %errstr14, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %16)
-  br label %if.end19
+46:                                               ; preds = %43
+  %47 = load i32, ptr %7, align 4, !tbaa !8
+  %48 = icmp eq i32 %47, 0
+  %49 = xor i1 %48, true
+  %50 = zext i1 %49 to i64
+  %51 = call i64 @llvm.expect.i64(i64 %50, i64 0)
+  %52 = icmp ne i64 %51, 0
+  br i1 %52, label %53, label %63
 
-if.end19:                                         ; preds = %if.then13, %do.body10
-  br label %do.end20
+53:                                               ; preds = %46
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %54 = call ptr @__errno_location() #21
+  %55 = load i32, ptr %54, align 4, !tbaa !8
+  %56 = call ptr @strerror(i32 noundef %55) #18
+  store ptr %56, ptr %8, align 8, !tbaa !92
+  %57 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %58 = load ptr, ptr %8, align 8, !tbaa !92
+  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef @.str.4, ptr noundef %58, ptr noundef @.str.5, i32 noundef 173) #18
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %61 = call i32 @fflush(ptr noundef %60)
+  %62 = load ptr, ptr %8, align 8, !tbaa !92
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %62)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  br label %63
 
-do.end20:                                         ; preds = %if.end19
-  %17 = load ptr, ptr %msg_.addr, align 8
-  %call21 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
-  store i32 %call21, ptr %rc8, align 4
-  br label %do.body22
+63:                                               ; preds = %53, %46
+  br label %64
 
-do.body22:                                        ; preds = %do.end20
-  %18 = load i32, ptr %rc8, align 4
-  %cmp23 = icmp eq i32 %18, 0
-  %lnot24 = xor i1 %cmp23, true
-  br i1 %lnot24, label %if.then25, label %if.end31
+64:                                               ; preds = %63
+  br label %65
 
-if.then25:                                        ; preds = %do.body22
-  %call27 = call ptr @__errno_location() #16
-  %19 = load i32, ptr %call27, align 4
-  %call28 = call ptr @strerror(i32 noundef %19) #13
-  store ptr %call28, ptr %errstr26, align 8
-  %20 = load ptr, ptr @stderr, align 8
-  %21 = load ptr, ptr %errstr26, align 8
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef @.str.4, ptr noundef %21, ptr noundef @.str.5, i32 noundef 175)
-  %22 = load ptr, ptr @stderr, align 8
-  %call30 = call i32 @fflush(ptr noundef %22)
-  %23 = load ptr, ptr %errstr26, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %23)
-  br label %if.end31
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %4, align 8, !tbaa !104
+  %67 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %66)
+  store i32 %67, ptr %7, align 4, !tbaa !8
+  br label %68
 
-if.end31:                                         ; preds = %if.then25, %do.body22
-  br label %do.end32
+68:                                               ; preds = %65
+  %69 = load i32, ptr %7, align 4, !tbaa !8
+  %70 = icmp eq i32 %69, 0
+  %71 = xor i1 %70, true
+  %72 = zext i1 %71 to i64
+  %73 = call i64 @llvm.expect.i64(i64 %72, i64 0)
+  %74 = icmp ne i64 %73, 0
+  br i1 %74, label %75, label %85
 
-do.end32:                                         ; preds = %if.end31
-  br label %if.end33
+75:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  %76 = call ptr @__errno_location() #21
+  %77 = load i32, ptr %76, align 4, !tbaa !8
+  %78 = call ptr @strerror(i32 noundef %77) #18
+  store ptr %78, ptr %9, align 8, !tbaa !92
+  %79 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %80 = load ptr, ptr %9, align 8, !tbaa !92
+  %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef @.str.4, ptr noundef %80, ptr noundef @.str.5, i32 noundef 175) #18
+  %82 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %83 = call i32 @fflush(ptr noundef %82)
+  %84 = load ptr, ptr %9, align 8, !tbaa !92
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %84)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  br label %85
 
-if.end33:                                         ; preds = %do.end32, %do.end
-  %_process_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 11
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t19push_msg_to_sessionEPNS_5msg_tE to i64), i64 0 }, ptr %_process_msg, align 8
+85:                                               ; preds = %75, %68
+  br label %86
+
+86:                                               ; preds = %85
+  br label %87
+
+87:                                               ; preds = %86
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #18
+  br label %88
+
+88:                                               ; preds = %87, %42
+  %89 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 11
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t19push_msg_to_sessionEPNS_5msg_tE to i64), i64 0 }, ptr %89, align 8, !tbaa !86
   ret i32 0
 }
 
 declare void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef zeroext) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_session = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 32
-  %0 = load ptr, ptr %_session, align 8
-  ret ptr %0
+define linkonce_odr noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %3, i32 0, i32 32
+  %5 = load ptr, ptr %4, align 8, !tbaa !110
+  ret ptr %5
 }
 
 declare noundef i32 @_ZN3zmq20stream_engine_base_t19push_msg_to_sessionEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %protocol_) #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %protocol_.addr = alloca ptr, align 8
-  %saved-rvalue = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %saved-rvalue41 = alloca ptr, align 8
-  %cleanup.cond42 = alloca i1, align 1
-  %saved-rvalue62 = alloca ptr, align 8
-  %cleanup.cond63 = alloca i1, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %protocol_, ptr %protocol_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_options = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %mechanism = getelementptr inbounds %"struct.zmq::options_t", ptr %_options, i32 0, i32 42
-  %0 = load i32, ptr %mechanism, align 8
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end10
+define noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i1, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca i1, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %15, i32 0, i32 42
+  %17 = load i32, ptr %16, align 8, !tbaa !91
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %40
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %protocol_.addr, align 8
-  %call = call i32 @strcmp(ptr noundef @.str.6, ptr noundef %1) #17
-  %cmp2 = icmp eq i32 %call, 0
-  br i1 %cmp2, label %if.then, label %if.end10
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %5, align 8, !tbaa !92
+  %21 = call i32 @strcmp(ptr noundef @.str.6, ptr noundef %20) #22
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %40
 
-if.then:                                          ; preds = %land.lhs.true
-  %_next_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 10
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t14routing_id_msgEPNS_5msg_tE to i64), i64 0 }, ptr %_next_msg, align 8
-  %_process_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 11
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t22process_routing_id_msgEPNS_5msg_tE to i64), i64 0 }, ptr %_process_msg, align 8
-  %_options3 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %heartbeat_interval = getelementptr inbounds %"struct.zmq::options_t", ptr %_options3, i32 0, i32 60
-  %2 = load i32, ptr %heartbeat_interval, align 4
-  %cmp4 = icmp sgt i32 %2, 0
-  br i1 %cmp4, label %land.lhs.true5, label %if.end
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 10
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t14routing_id_msgEPNS_5msg_tE to i64), i64 0 }, ptr %24, align 8, !tbaa !85
+  %25 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 11
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t22process_routing_id_msgEPNS_5msg_tE to i64), i64 0 }, ptr %25, align 8, !tbaa !86
+  %26 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %26, i32 0, i32 60
+  %28 = load i32, ptr %27, align 4, !tbaa !87
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %30, label %39
 
-land.lhs.true5:                                   ; preds = %if.then
-  %_has_heartbeat_timer = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 20
-  %3 = load i8, ptr %_has_heartbeat_timer, align 1
-  %tobool = trunc i8 %3 to i1
-  br i1 %tobool, label %if.end, label %if.then6
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 20
+  %32 = load i8, ptr %31, align 1, !tbaa !111, !range !20, !noundef !21
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %39, label %34
 
-if.then6:                                         ; preds = %land.lhs.true5
-  %_options7 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %heartbeat_interval8 = getelementptr inbounds %"struct.zmq::options_t", ptr %_options7, i32 0, i32 60
-  %4 = load i32, ptr %heartbeat_interval8, align 4
-  call void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %4, i32 noundef 128)
-  %_has_heartbeat_timer9 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 20
-  store i8 1, ptr %_has_heartbeat_timer9, align 1
-  br label %if.end
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 2
+  %36 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %35, i32 0, i32 60
+  %37 = load i32, ptr %36, align 4, !tbaa !87
+  call void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %37, i32 noundef 128)
+  %38 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 20
+  store i8 1, ptr %38, align 1, !tbaa !111
+  br label %39
 
-if.end:                                           ; preds = %if.then6, %land.lhs.true5, %if.then
-  store i1 true, ptr %retval, align 1
-  br label %return
+39:                                               ; preds = %34, %30, %23
+  store i1 true, ptr %3, align 1
+  br label %165
 
-if.end10:                                         ; preds = %land.lhs.true, %entry
-  %_options11 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %mechanism12 = getelementptr inbounds %"struct.zmq::options_t", ptr %_options11, i32 0, i32 42
-  %5 = load i32, ptr %mechanism12, align 8
-  %cmp13 = icmp eq i32 %5, 0
-  br i1 %cmp13, label %land.lhs.true14, label %if.else
+40:                                               ; preds = %19, %2
+  %41 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 2
+  %42 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %41, i32 0, i32 42
+  %43 = load i32, ptr %42, align 8, !tbaa !91
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %89
 
-land.lhs.true14:                                  ; preds = %if.end10
-  %6 = load ptr, ptr %protocol_.addr, align 8
-  %call15 = call i32 @strcmp(ptr noundef @.str.7, ptr noundef %6) #17
-  %cmp16 = icmp eq i32 %call15, 0
-  br i1 %cmp16, label %if.then17, label %if.else
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %5, align 8, !tbaa !92
+  %47 = call i32 @strcmp(ptr noundef @.str.7, ptr noundef %46) #22
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %89
 
-if.then17:                                        ; preds = %land.lhs.true14
-  %call18 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1576, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #18
-  %new.isnull = icmp eq ptr %call18, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+49:                                               ; preds = %45
+  %50 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1576, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
+  %51 = icmp eq ptr %50, null
+  store i1 false, ptr %7, align 1
+  br i1 %51, label %58, label %52
 
-new.notnull:                                      ; preds = %if.then17
-  store ptr %call18, ptr %saved-rvalue, align 8
-  store i1 true, ptr %cleanup.cond, align 1
-  %call19 = invoke noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-          to label %invoke.cont unwind label %lpad
+52:                                               ; preds = %49
+  store ptr %50, ptr %6, align 8
+  store i1 true, ptr %7, align 1
+  %53 = invoke noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %14)
+          to label %54 unwind label %79
 
-invoke.cont:                                      ; preds = %new.notnull
-  %_peer_address = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 22
-  %_options20 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  invoke void @_ZN3zmq16null_mechanism_tC1EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1576) %call18, ptr noundef %call19, ptr noundef nonnull align 8 dereferenceable(32) %_peer_address, ptr noundef nonnull align 8 dereferenceable(1336) %_options20)
-          to label %invoke.cont21 unwind label %lpad
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 22
+  %56 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 2
+  invoke void @_ZN3zmq16null_mechanism_tC1EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1576) %50, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(1336) %56)
+          to label %57 unwind label %79
 
-invoke.cont21:                                    ; preds = %invoke.cont
-  br label %new.cont
+57:                                               ; preds = %54
+  br label %58
 
-new.cont:                                         ; preds = %invoke.cont21, %if.then17
-  %7 = phi ptr [ %call18, %invoke.cont21 ], [ null, %if.then17 ]
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %cast.end, label %cast.notnull
+58:                                               ; preds = %57, %49
+  %59 = phi ptr [ %50, %57 ], [ null, %49 ]
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %63, label %61
 
-cast.notnull:                                     ; preds = %new.cont
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 80
-  br label %cast.end
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %59, i64 80
+  br label %63
 
-cast.end:                                         ; preds = %cast.notnull, %new.cont
-  %cast.result = phi ptr [ %add.ptr, %cast.notnull ], [ null, %new.cont ]
-  %_mechanism = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 9
-  store ptr %cast.result, ptr %_mechanism, align 8
-  br label %do.body
+63:                                               ; preds = %61, %58
+  %64 = phi ptr [ %62, %61 ], [ null, %58 ]
+  %65 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 9
+  store ptr %64, ptr %65, align 8, !tbaa !112
+  br label %66
 
-do.body:                                          ; preds = %cast.end
-  %_mechanism22 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 9
-  %9 = load ptr, ptr %_mechanism22, align 8
-  %tobool23 = icmp ne ptr %9, null
-  %lnot = xor i1 %tobool23, true
-  br i1 %lnot, label %if.then24, label %if.end27
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 9
+  %68 = load ptr, ptr %67, align 8, !tbaa !112
+  %69 = icmp ne ptr %68, null
+  %70 = xor i1 %69, true
+  %71 = zext i1 %70 to i64
+  %72 = call i64 @llvm.expect.i64(i64 %71, i64 0)
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %87
 
-if.then24:                                        ; preds = %do.body
-  %10 = load ptr, ptr @stderr, align 8
-  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.8, ptr noundef @.str.5, i32 noundef 203)
-  %11 = load ptr, ptr @stderr, align 8
-  %call26 = call i32 @fflush(ptr noundef %11)
+74:                                               ; preds = %66
+  %75 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef @.str.8, ptr noundef @.str.5, i32 noundef 203) #18
+  %77 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %78 = call i32 @fflush(ptr noundef %77)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.9)
-  br label %if.end27
+  br label %87
 
-lpad:                                             ; preds = %invoke.cont, %new.notnull
-  %12 = landingpad { ptr, i32 }
+79:                                               ; preds = %54, %52
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %8, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %9, align 4
+  %83 = load i1, ptr %7, align 1
+  br i1 %83, label %84, label %86
 
-cleanup.action:                                   ; preds = %lpad
-  %15 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %15, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
-  br label %cleanup.done
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %6, align 8
+  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %85, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
+  br label %86
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %eh.resume
+86:                                               ; preds = %84, %79
+  br label %167
 
-if.end27:                                         ; preds = %if.then24, %do.body
-  br label %do.end
+87:                                               ; preds = %74, %66
+  br label %88
 
-do.end:                                           ; preds = %if.end27
-  store i1 true, ptr %retval, align 1
-  br label %return
+88:                                               ; preds = %87
+  store i1 true, ptr %3, align 1
+  br label %165
 
-if.else:                                          ; preds = %land.lhs.true14, %if.end10
-  %_options28 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %mechanism29 = getelementptr inbounds %"struct.zmq::options_t", ptr %_options28, i32 0, i32 42
-  %16 = load i32, ptr %mechanism29, align 8
-  %cmp30 = icmp eq i32 %16, 1
-  br i1 %cmp30, label %land.lhs.true31, label %if.end84
+89:                                               ; preds = %45, %40
+  %90 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 2
+  %91 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %90, i32 0, i32 42
+  %92 = load i32, ptr %91, align 8, !tbaa !91
+  %93 = icmp eq i32 %92, 1
+  br i1 %93, label %94, label %163
 
-land.lhs.true31:                                  ; preds = %if.else
-  %17 = load ptr, ptr %protocol_.addr, align 8
-  %call32 = call i32 @strcmp(ptr noundef @.str.1, ptr noundef %17) #17
-  %cmp33 = icmp eq i32 %call32, 0
-  br i1 %cmp33, label %if.then34, label %if.end84
+94:                                               ; preds = %89
+  %95 = load ptr, ptr %5, align 8, !tbaa !92
+  %96 = call i32 @strcmp(ptr noundef @.str.1, ptr noundef %95) #22
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %163
 
-if.then34:                                        ; preds = %land.lhs.true31
-  %_options35 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %as_server = getelementptr inbounds %"struct.zmq::options_t", ptr %_options35, i32 0, i32 43
-  %18 = load i32, ptr %as_server, align 4
-  %tobool36 = icmp ne i32 %18, 0
-  br i1 %tobool36, label %if.then37, label %if.else58
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 2
+  %100 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %99, i32 0, i32 43
+  %101 = load i32, ptr %100, align 4, !tbaa !113
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %128
 
-if.then37:                                        ; preds = %if.then34
-  %call38 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1576, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #18
-  %new.isnull39 = icmp eq ptr %call38, null
-  store i1 false, ptr %cleanup.cond42, align 1
-  br i1 %new.isnull39, label %new.cont52, label %new.notnull40
+103:                                              ; preds = %98
+  %104 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1576, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
+  %105 = icmp eq ptr %104, null
+  store i1 false, ptr %11, align 1
+  br i1 %105, label %112, label %106
 
-new.notnull40:                                    ; preds = %if.then37
-  store ptr %call38, ptr %saved-rvalue41, align 8
-  store i1 true, ptr %cleanup.cond42, align 1
-  %call45 = invoke noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-          to label %invoke.cont44 unwind label %lpad43
+106:                                              ; preds = %103
+  store ptr %104, ptr %10, align 8
+  store i1 true, ptr %11, align 1
+  %107 = invoke noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %14)
+          to label %108 unwind label %120
 
-invoke.cont44:                                    ; preds = %new.notnull40
-  %_peer_address46 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 22
-  %_options47 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  invoke void @_ZN3zmq14plain_server_tC1EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1576) %call38, ptr noundef %call45, ptr noundef nonnull align 8 dereferenceable(32) %_peer_address46, ptr noundef nonnull align 8 dereferenceable(1336) %_options47)
-          to label %invoke.cont48 unwind label %lpad43
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 22
+  %110 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 2
+  invoke void @_ZN3zmq14plain_server_tC1EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1576) %104, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(1336) %110)
+          to label %111 unwind label %120
 
-invoke.cont48:                                    ; preds = %invoke.cont44
-  br label %new.cont52
+111:                                              ; preds = %108
+  br label %112
 
-new.cont52:                                       ; preds = %invoke.cont48, %if.then37
-  %19 = phi ptr [ %call38, %invoke.cont48 ], [ null, %if.then37 ]
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %cast.end55, label %cast.notnull53
+112:                                              ; preds = %111, %103
+  %113 = phi ptr [ %104, %111 ], [ null, %103 ]
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %117, label %115
 
-cast.notnull53:                                   ; preds = %new.cont52
-  %add.ptr54 = getelementptr inbounds i8, ptr %19, i64 80
-  br label %cast.end55
+115:                                              ; preds = %112
+  %116 = getelementptr inbounds i8, ptr %113, i64 80
+  br label %117
 
-cast.end55:                                       ; preds = %cast.notnull53, %new.cont52
-  %cast.result56 = phi ptr [ %add.ptr54, %cast.notnull53 ], [ null, %new.cont52 ]
-  %_mechanism57 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 9
-  store ptr %cast.result56, ptr %_mechanism57, align 8
-  br label %if.end74
+117:                                              ; preds = %115, %112
+  %118 = phi ptr [ %116, %115 ], [ null, %112 ]
+  %119 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 9
+  store ptr %118, ptr %119, align 8, !tbaa !112
+  br label %147
 
-lpad43:                                           ; preds = %invoke.cont44, %new.notnull40
-  %21 = landingpad { ptr, i32 }
+120:                                              ; preds = %108, %106
+  %121 = landingpad { ptr, i32 }
           cleanup
-  %22 = extractvalue { ptr, i32 } %21, 0
-  store ptr %22, ptr %exn.slot, align 8
-  %23 = extractvalue { ptr, i32 } %21, 1
-  store i32 %23, ptr %ehselector.slot, align 4
-  %cleanup.is_active49 = load i1, ptr %cleanup.cond42, align 1
-  br i1 %cleanup.is_active49, label %cleanup.action50, label %cleanup.done51
+  %122 = extractvalue { ptr, i32 } %121, 0
+  store ptr %122, ptr %8, align 8
+  %123 = extractvalue { ptr, i32 } %121, 1
+  store i32 %123, ptr %9, align 4
+  %124 = load i1, ptr %11, align 1
+  br i1 %124, label %125, label %127
 
-cleanup.action50:                                 ; preds = %lpad43
-  %24 = load ptr, ptr %saved-rvalue41, align 8
-  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
-  br label %cleanup.done51
+125:                                              ; preds = %120
+  %126 = load ptr, ptr %10, align 8
+  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %126, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
+  br label %127
 
-cleanup.done51:                                   ; preds = %cleanup.action50, %lpad43
-  br label %eh.resume
+127:                                              ; preds = %125, %120
+  br label %167
 
-if.else58:                                        ; preds = %if.then34
-  %call59 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1504, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #18
-  %new.isnull60 = icmp eq ptr %call59, null
-  store i1 false, ptr %cleanup.cond63, align 1
-  br i1 %new.isnull60, label %new.cont72, label %new.notnull61
+128:                                              ; preds = %98
+  %129 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 1504, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
+  %130 = icmp eq ptr %129, null
+  store i1 false, ptr %13, align 1
+  br i1 %130, label %136, label %131
 
-new.notnull61:                                    ; preds = %if.else58
-  store ptr %call59, ptr %saved-rvalue62, align 8
-  store i1 true, ptr %cleanup.cond63, align 1
-  %call66 = invoke noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-          to label %invoke.cont65 unwind label %lpad64
+131:                                              ; preds = %128
+  store ptr %129, ptr %12, align 8
+  store i1 true, ptr %13, align 1
+  %132 = invoke noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %14)
+          to label %133 unwind label %139
 
-invoke.cont65:                                    ; preds = %new.notnull61
-  %_options67 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  invoke void @_ZN3zmq14plain_client_tC1EPNS_14session_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1504) %call59, ptr noundef %call66, ptr noundef nonnull align 8 dereferenceable(1336) %_options67)
-          to label %invoke.cont68 unwind label %lpad64
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 2
+  invoke void @_ZN3zmq14plain_client_tC1EPNS_14session_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1504) %129, ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(1336) %134)
+          to label %135 unwind label %139
 
-invoke.cont68:                                    ; preds = %invoke.cont65
-  br label %new.cont72
+135:                                              ; preds = %133
+  br label %136
 
-new.cont72:                                       ; preds = %invoke.cont68, %if.else58
-  %25 = phi ptr [ %call59, %invoke.cont68 ], [ null, %if.else58 ]
-  %_mechanism73 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 9
-  store ptr %25, ptr %_mechanism73, align 8
-  br label %if.end74
+136:                                              ; preds = %135, %128
+  %137 = phi ptr [ %129, %135 ], [ null, %128 ]
+  %138 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 9
+  store ptr %137, ptr %138, align 8, !tbaa !112
+  br label %147
 
-lpad64:                                           ; preds = %invoke.cont65, %new.notnull61
-  %26 = landingpad { ptr, i32 }
+139:                                              ; preds = %133, %131
+  %140 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
-  %cleanup.is_active69 = load i1, ptr %cleanup.cond63, align 1
-  br i1 %cleanup.is_active69, label %cleanup.action70, label %cleanup.done71
+  %141 = extractvalue { ptr, i32 } %140, 0
+  store ptr %141, ptr %8, align 8
+  %142 = extractvalue { ptr, i32 } %140, 1
+  store i32 %142, ptr %9, align 4
+  %143 = load i1, ptr %13, align 1
+  br i1 %143, label %144, label %146
 
-cleanup.action70:                                 ; preds = %lpad64
-  %29 = load ptr, ptr %saved-rvalue62, align 8
-  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
-  br label %cleanup.done71
+144:                                              ; preds = %139
+  %145 = load ptr, ptr %12, align 8
+  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %145, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
+  br label %146
 
-cleanup.done71:                                   ; preds = %cleanup.action70, %lpad64
-  br label %eh.resume
+146:                                              ; preds = %144, %139
+  br label %167
 
-if.end74:                                         ; preds = %new.cont72, %cast.end55
-  br label %do.body75
+147:                                              ; preds = %136, %117
+  br label %148
 
-do.body75:                                        ; preds = %if.end74
-  %_mechanism76 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 9
-  %30 = load ptr, ptr %_mechanism76, align 8
-  %tobool77 = icmp ne ptr %30, null
-  %lnot78 = xor i1 %tobool77, true
-  br i1 %lnot78, label %if.then79, label %if.end82
+148:                                              ; preds = %147
+  %149 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 9
+  %150 = load ptr, ptr %149, align 8, !tbaa !112
+  %151 = icmp ne ptr %150, null
+  %152 = xor i1 %151, true
+  %153 = zext i1 %152 to i64
+  %154 = call i64 @llvm.expect.i64(i64 %153, i64 0)
+  %155 = icmp ne i64 %154, 0
+  br i1 %155, label %156, label %161
 
-if.then79:                                        ; preds = %do.body75
-  %31 = load ptr, ptr @stderr, align 8
-  %call80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.8, ptr noundef @.str.5, i32 noundef 213)
-  %32 = load ptr, ptr @stderr, align 8
-  %call81 = call i32 @fflush(ptr noundef %32)
+156:                                              ; preds = %148
+  %157 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef @.str.8, ptr noundef @.str.5, i32 noundef 213) #18
+  %159 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %160 = call i32 @fflush(ptr noundef %159)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.9)
-  br label %if.end82
+  br label %161
 
-if.end82:                                         ; preds = %if.then79, %do.body75
-  br label %do.end83
+161:                                              ; preds = %156, %148
+  br label %162
 
-do.end83:                                         ; preds = %if.end82
-  store i1 true, ptr %retval, align 1
-  br label %return
+162:                                              ; preds = %161
+  store i1 true, ptr %3, align 1
+  br label %165
 
-if.end84:                                         ; preds = %land.lhs.true31, %if.else
-  br label %if.end85
+163:                                              ; preds = %94, %89
+  br label %164
 
-if.end85:                                         ; preds = %if.end84
-  store i1 false, ptr %retval, align 1
-  br label %return
+164:                                              ; preds = %163
+  store i1 false, ptr %3, align 1
+  br label %165
 
-return:                                           ; preds = %if.end85, %do.end83, %do.end, %if.end
-  %33 = load i1, ptr %retval, align 1
-  ret i1 %33
+165:                                              ; preds = %164, %162, %88, %39
+  %166 = load i1, ptr %3, align 1
+  ret i1 %166
 
-eh.resume:                                        ; preds = %cleanup.done71, %cleanup.done51, %cleanup.done
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val86 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val86
+167:                                              ; preds = %146, %127, %86
+  %168 = load ptr, ptr %8, align 8
+  %169 = load i32, ptr %9, align 4
+  %170 = insertvalue { ptr, i32 } poison, ptr %168, 0
+  %171 = insertvalue { ptr, i32 } %170, i32 %169, 1
+  resume { ptr, i32 } %171
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #10
+declare i32 @strcmp(ptr noundef, ptr noundef) #14
 
 declare void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nobuiltin nounwind allocsize(0)
-declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) #11
+declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) #15
 
 declare void @_ZN3zmq16null_mechanism_tC1EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1576), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(1336)) unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) #7
+declare void @_ZdlPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) #9
 
 declare void @_ZN3zmq14plain_server_tC1EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1576), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(1336)) unnamed_addr #1
 
 declare void @_ZN3zmq14plain_client_tC1EPNS_14session_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1504), ptr noundef, ptr noundef nonnull align 8 dereferenceable(1336)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq11ws_engine_t9handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %complete = alloca i8, align 1
-  %saved-rvalue = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %saved-rvalue19 = alloca ptr, align 8
-  %cleanup.cond20 = alloca i1, align 1
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_client = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %_client, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.else
+define noundef zeroext i1 @_ZN3zmq11ws_engine_t9handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i1, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %10 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #18
+  %11 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %10, i32 0, i32 1
+  %12 = load i8, ptr %11, align 1, !tbaa !22, !range !20, !noundef !21
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %17
 
-if.then:                                          ; preds = %entry
-  %call = call noundef zeroext i1 @_ZN3zmq11ws_engine_t16client_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this1)
-  %frombool = zext i1 %call to i8
-  store i8 %frombool, ptr %complete, align 1
-  br label %if.end
+14:                                               ; preds = %1
+  %15 = call noundef zeroext i1 @_ZN3zmq11ws_engine_t16client_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %10)
+  %16 = zext i1 %15 to i8
+  store i8 %16, ptr %3, align 1, !tbaa !16
+  br label %20
 
-if.else:                                          ; preds = %entry
-  %call2 = call noundef zeroext i1 @_ZN3zmq11ws_engine_t16server_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this1)
-  %frombool3 = zext i1 %call2 to i8
-  store i8 %frombool3, ptr %complete, align 1
-  br label %if.end
+17:                                               ; preds = %1
+  %18 = call noundef zeroext i1 @_ZN3zmq11ws_engine_t16server_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %10)
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %3, align 1, !tbaa !16
+  br label %20
 
-if.end:                                           ; preds = %if.else, %if.then
-  %1 = load i8, ptr %complete, align 1
-  %tobool4 = trunc i8 %1 to i1
-  br i1 %tobool4, label %if.then5, label %if.end46
+20:                                               ; preds = %17, %14
+  %21 = load i8, ptr %3, align 1, !tbaa !16, !range !20, !noundef !21
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %110
 
-if.then5:                                         ; preds = %if.end
-  %call6 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 168, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #18
-  %new.isnull = icmp eq ptr %call6, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+23:                                               ; preds = %20
+  %24 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 168, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
+  %25 = icmp eq ptr %24, null
+  store i1 false, ptr %5, align 1
+  br i1 %25, label %35, label %26
 
-new.notnull:                                      ; preds = %if.then5
-  store ptr %call6, ptr %saved-rvalue, align 8
-  store i1 true, ptr %cleanup.cond, align 1
-  %_options = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %out_batch_size = getelementptr inbounds %"struct.zmq::options_t", ptr %_options, i32 0, i32 68
-  %2 = load i32, ptr %out_batch_size, align 8
-  %conv = sext i32 %2 to i64
-  %_client7 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 1
-  %3 = load i8, ptr %_client7, align 1
-  %tobool8 = trunc i8 %3 to i1
-  invoke void @_ZN3zmq12ws_encoder_tC1Emb(ptr noundef nonnull align 8 dereferenceable(168) %call6, i64 noundef %conv, i1 noundef zeroext %tobool8)
-          to label %invoke.cont unwind label %lpad
+26:                                               ; preds = %23
+  store ptr %24, ptr %4, align 8
+  store i1 true, ptr %5, align 1
+  %27 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %27, i32 0, i32 68
+  %29 = load i32, ptr %28, align 8, !tbaa !114
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %10, i32 0, i32 1
+  %32 = load i8, ptr %31, align 1, !tbaa !22, !range !20, !noundef !21
+  %33 = trunc i8 %32 to i1
+  invoke void @_ZN3zmq12ws_encoder_tC1Emb(ptr noundef nonnull align 8 dereferenceable(168) %24, i64 noundef %30, i1 noundef zeroext %33)
+          to label %34 unwind label %51
 
-invoke.cont:                                      ; preds = %new.notnull
-  br label %new.cont
+34:                                               ; preds = %26
+  br label %35
 
-new.cont:                                         ; preds = %invoke.cont, %if.then5
-  %4 = phi ptr [ %call6, %invoke.cont ], [ null, %if.then5 ]
-  %_encoder = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 8
-  store ptr %4, ptr %_encoder, align 8
-  br label %do.body
+35:                                               ; preds = %34, %23
+  %36 = phi ptr [ %24, %34 ], [ null, %23 ]
+  %37 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 8
+  store ptr %36, ptr %37, align 8, !tbaa !115
+  br label %38
 
-do.body:                                          ; preds = %new.cont
-  %_encoder9 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 8
-  %5 = load ptr, ptr %_encoder9, align 8
-  %tobool10 = icmp ne ptr %5, null
-  %lnot = xor i1 %tobool10, true
-  br i1 %lnot, label %if.then12, label %if.end15
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !115
+  %41 = icmp ne ptr %40, null
+  %42 = xor i1 %41, true
+  %43 = zext i1 %42 to i64
+  %44 = call i64 @llvm.expect.i64(i64 %43, i64 0)
+  %45 = icmp ne i64 %44, 0
+  br i1 %45, label %46, label %59
 
-if.then12:                                        ; preds = %do.body
-  %6 = load ptr, ptr @stderr, align 8
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.8, ptr noundef @.str.5, i32 noundef 245)
-  %7 = load ptr, ptr @stderr, align 8
-  %call14 = call i32 @fflush(ptr noundef %7)
+46:                                               ; preds = %38
+  %47 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef @.str.8, ptr noundef @.str.5, i32 noundef 245) #18
+  %49 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %50 = call i32 @fflush(ptr noundef %49)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.9)
-  br label %if.end15
+  br label %59
 
-lpad:                                             ; preds = %new.notnull
-  %8 = landingpad { ptr, i32 }
+51:                                               ; preds = %26
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %6, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %7, align 4
+  %55 = load i1, ptr %5, align 1
+  br i1 %55, label %56, label %58
 
-cleanup.action:                                   ; preds = %lpad
-  %11 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
-  br label %cleanup.done
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %4, align 8
+  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
+  br label %58
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %eh.resume
+58:                                               ; preds = %56, %51
+  br label %113
 
-if.end15:                                         ; preds = %if.then12, %do.body
-  br label %do.end
+59:                                               ; preds = %46, %38
+  br label %60
 
-do.end:                                           ; preds = %if.end15
-  %call16 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 208, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #18
-  %new.isnull17 = icmp eq ptr %call16, null
-  store i1 false, ptr %cleanup.cond20, align 1
-  br i1 %new.isnull17, label %new.cont34, label %new.notnull18
+60:                                               ; preds = %59
+  br label %61
 
-new.notnull18:                                    ; preds = %do.end
-  store ptr %call16, ptr %saved-rvalue19, align 8
-  store i1 true, ptr %cleanup.cond20, align 1
-  %_options21 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %in_batch_size = getelementptr inbounds %"struct.zmq::options_t", ptr %_options21, i32 0, i32 67
-  %12 = load i32, ptr %in_batch_size, align 4
-  %conv22 = sext i32 %12 to i64
-  %_options23 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %maxmsgsize = getelementptr inbounds %"struct.zmq::options_t", ptr %_options23, i32 0, i32 21
-  %13 = load i64, ptr %maxmsgsize, align 8
-  %_options24 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 2
-  %zero_copy = getelementptr inbounds %"struct.zmq::options_t", ptr %_options24, i32 0, i32 69
-  %14 = load i8, ptr %zero_copy, align 4
-  %tobool25 = trunc i8 %14 to i1
-  %_client26 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 1
-  %15 = load i8, ptr %_client26, align 1
-  %tobool27 = trunc i8 %15 to i1
-  %lnot28 = xor i1 %tobool27, true
-  invoke void @_ZN3zmq12ws_decoder_tC1Emlbb(ptr noundef nonnull align 8 dereferenceable(208) %call16, i64 noundef %conv22, i64 noundef %13, i1 noundef zeroext %tobool25, i1 noundef zeroext %lnot28)
-          to label %invoke.cont30 unwind label %lpad29
+61:                                               ; preds = %60
+  %62 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef 208, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
+  %63 = icmp eq ptr %62, null
+  store i1 false, ptr %9, align 1
+  br i1 %63, label %81, label %64
 
-invoke.cont30:                                    ; preds = %new.notnull18
-  br label %new.cont34
+64:                                               ; preds = %61
+  store ptr %62, ptr %8, align 8
+  store i1 true, ptr %9, align 1
+  %65 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 2
+  %66 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %65, i32 0, i32 67
+  %67 = load i32, ptr %66, align 4, !tbaa !116
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 2
+  %70 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %69, i32 0, i32 21
+  %71 = load i64, ptr %70, align 8, !tbaa !117
+  %72 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 2
+  %73 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %72, i32 0, i32 69
+  %74 = load i8, ptr %73, align 4, !tbaa !118, !range !20, !noundef !21
+  %75 = trunc i8 %74 to i1
+  %76 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %10, i32 0, i32 1
+  %77 = load i8, ptr %76, align 1, !tbaa !22, !range !20, !noundef !21
+  %78 = trunc i8 %77 to i1
+  %79 = xor i1 %78, true
+  invoke void @_ZN3zmq12ws_decoder_tC1Emlbb(ptr noundef nonnull align 8 dereferenceable(208) %62, i64 noundef %68, i64 noundef %71, i1 noundef zeroext %75, i1 noundef zeroext %79)
+          to label %80 unwind label %97
 
-new.cont34:                                       ; preds = %invoke.cont30, %do.end
-  %16 = phi ptr [ %call16, %invoke.cont30 ], [ null, %do.end ]
-  %_decoder = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 5
-  store ptr %16, ptr %_decoder, align 8
-  br label %do.body35
+80:                                               ; preds = %64
+  br label %81
 
-do.body35:                                        ; preds = %new.cont34
-  %_decoder36 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 5
-  %17 = load ptr, ptr %_decoder36, align 8
-  %tobool37 = icmp ne ptr %17, null
-  %lnot38 = xor i1 %tobool37, true
-  br i1 %lnot38, label %if.then40, label %if.end43
+81:                                               ; preds = %80, %61
+  %82 = phi ptr [ %62, %80 ], [ null, %61 ]
+  %83 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 5
+  store ptr %82, ptr %83, align 8, !tbaa !119
+  br label %84
 
-if.then40:                                        ; preds = %do.body35
-  %18 = load ptr, ptr @stderr, align 8
-  %call41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.8, ptr noundef @.str.5, i32 noundef 250)
-  %19 = load ptr, ptr @stderr, align 8
-  %call42 = call i32 @fflush(ptr noundef %19)
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 5
+  %86 = load ptr, ptr %85, align 8, !tbaa !119
+  %87 = icmp ne ptr %86, null
+  %88 = xor i1 %87, true
+  %89 = zext i1 %88 to i64
+  %90 = call i64 @llvm.expect.i64(i64 %89, i64 0)
+  %91 = icmp ne i64 %90, 0
+  br i1 %91, label %92, label %105
+
+92:                                               ; preds = %84
+  %93 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef @.str.8, ptr noundef @.str.5, i32 noundef 250) #18
+  %95 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %96 = call i32 @fflush(ptr noundef %95)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.9)
-  br label %if.end43
+  br label %105
 
-lpad29:                                           ; preds = %new.notnull18
-  %20 = landingpad { ptr, i32 }
+97:                                               ; preds = %64
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
-  %cleanup.is_active31 = load i1, ptr %cleanup.cond20, align 1
-  br i1 %cleanup.is_active31, label %cleanup.action32, label %cleanup.done33
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %6, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %7, align 4
+  %101 = load i1, ptr %9, align 1
+  br i1 %101, label %102, label %104
 
-cleanup.action32:                                 ; preds = %lpad29
-  %23 = load ptr, ptr %saved-rvalue19, align 8
-  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
-  br label %cleanup.done33
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %8, align 8
+  call void @_ZdlPvRKSt9nothrow_t(ptr noundef %103, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
+  br label %104
 
-cleanup.done33:                                   ; preds = %cleanup.action32, %lpad29
-  br label %eh.resume
+104:                                              ; preds = %102, %97
+  br label %113
 
-if.end43:                                         ; preds = %if.then40, %do.body35
-  br label %do.end44
+105:                                              ; preds = %92, %84
+  br label %106
 
-do.end44:                                         ; preds = %if.end43
-  %call45 = call noundef ptr @_ZN3zmq20stream_engine_base_t6socketEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  %_endpoint_uri_pair = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 16
-  call void @_ZN3zmq13socket_base_t25event_handshake_succeededERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call45, ptr noundef nonnull align 8 dereferenceable(68) %_endpoint_uri_pair, i32 noundef 0)
-  call void @_ZN3zmq20stream_engine_base_t11set_polloutEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  br label %if.end46
+106:                                              ; preds = %105
+  br label %107
 
-if.end46:                                         ; preds = %do.end44, %if.end
-  %24 = load i8, ptr %complete, align 1
-  %tobool47 = trunc i8 %24 to i1
-  ret i1 %tobool47
+107:                                              ; preds = %106
+  %108 = call noundef ptr @_ZN3zmq20stream_engine_base_t6socketEv(ptr noundef nonnull align 8 dereferenceable(1689) %10)
+  %109 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %10, i32 0, i32 16
+  call void @_ZN3zmq13socket_base_t25event_handshake_succeededERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %108, ptr noundef nonnull align 8 dereferenceable(68) %109, i32 noundef 0)
+  call void @_ZN3zmq20stream_engine_base_t11set_polloutEv(ptr noundef nonnull align 8 dereferenceable(1689) %10)
+  br label %110
 
-eh.resume:                                        ; preds = %cleanup.done33, %cleanup.done
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val48 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val48
+110:                                              ; preds = %107, %20
+  %111 = load i8, ptr %3, align 1, !tbaa !16, !range !20, !noundef !21
+  %112 = trunc i8 %111 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #18
+  ret i1 %112
+
+113:                                              ; preds = %104, %58
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #18
+  br label %114
+
+114:                                              ; preds = %113
+  %115 = load ptr, ptr %6, align 8
+  %116 = load i32, ptr %7, align 4
+  %117 = insertvalue { ptr, i32 } poison, ptr %115, 0
+  %118 = insertvalue { ptr, i32 } %117, i32 %116, 1
+  resume { ptr, i32 } %118
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq11ws_engine_t16client_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this) #0 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %nbytes = alloca i32, align 4
-  %c = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_read_buffer = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [8192 x i8], ptr %_read_buffer, i64 0, i64 0
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
-  %0 = load ptr, ptr %vfn, align 8
-  %call = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(1689) %this1, ptr noundef %arraydecay, i64 noundef 8192)
-  store i32 %call, ptr %nbytes, align 4
-  %1 = load i32, ptr %nbytes, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %if.then, label %if.end7
+define noundef zeroext i1 @_ZN3zmq11ws_engine_t16client_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #18
+  %8 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 5
+  %9 = getelementptr inbounds [8192 x i8], ptr %8, i64 0, i64 0
+  %10 = load ptr, ptr %7, align 8, !tbaa !18
+  %11 = getelementptr inbounds ptr, ptr %10, i64 20
+  %12 = load ptr, ptr %11, align 8
+  %13 = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(1689) %7, ptr noundef %9, i64 noundef 8192)
+  store i32 %13, ptr %4, align 4, !tbaa !8
+  %14 = load i32, ptr %4, align 4, !tbaa !8
+  %15 = icmp eq i32 %14, -1
+  br i1 %15, label %16, label %25
 
-if.then:                                          ; preds = %entry
-  %call2 = call ptr @__errno_location() #16
-  %2 = load i32, ptr %call2, align 4
-  %cmp3 = icmp ne i32 %2, 11
-  br i1 %cmp3, label %if.then4, label %if.end
+16:                                               ; preds = %1
+  %17 = call ptr @__errno_location() #21
+  %18 = load i32, ptr %17, align 4, !tbaa !8
+  %19 = icmp ne i32 %18, 11
+  br i1 %19, label %20, label %24
 
-if.then4:                                         ; preds = %if.then
-  %vtable5 = load ptr, ptr %this1, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 12
-  %3 = load ptr, ptr %vfn6, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(1689) %this1, i32 noundef 1)
-  br label %if.end
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8, !tbaa !18
+  %22 = getelementptr inbounds ptr, ptr %21, i64 12
+  %23 = load ptr, ptr %22, align 8
+  call void %23(ptr noundef nonnull align 8 dereferenceable(1689) %7, i32 noundef 1)
+  br label %24
 
-if.end:                                           ; preds = %if.then4, %if.then
-  store i1 false, ptr %retval, align 1
-  br label %return
+24:                                               ; preds = %20, %16
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %609
 
-if.end7:                                          ; preds = %entry
-  %_read_buffer8 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 5
-  %arraydecay9 = getelementptr inbounds [8192 x i8], ptr %_read_buffer8, i64 0, i64 0
-  %_inpos = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 3
-  store ptr %arraydecay9, ptr %_inpos, align 8
-  %4 = load i32, ptr %nbytes, align 4
-  %conv = sext i32 %4 to i64
-  %_insize = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 4
-  store i64 %conv, ptr %_insize, align 8
-  br label %while.cond
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 5
+  %27 = getelementptr inbounds [8192 x i8], ptr %26, i64 0, i64 0
+  %28 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 3
+  store ptr %27, ptr %28, align 8, !tbaa !120
+  %29 = load i32, ptr %4, align 4, !tbaa !8
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 4
+  store i64 %30, ptr %31, align 8, !tbaa !121
+  br label %32
 
-while.cond:                                       ; preds = %if.end481, %if.end7
-  %_insize10 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 4
-  %5 = load i64, ptr %_insize10, align 8
-  %cmp11 = icmp ugt i64 %5, 0
-  br i1 %cmp11, label %while.body, label %while.end
+32:                                               ; preds = %607, %25
+  %33 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 4
+  %34 = load i64, ptr %33, align 8, !tbaa !121
+  %35 = icmp ugt i64 %34, 0
+  br i1 %35, label %36, label %608
 
-while.body:                                       ; preds = %while.cond
-  %_inpos12 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %_inpos12, align 8
-  %7 = load i8, ptr %6, align 1
-  store i8 %7, ptr %c, align 1
-  %_client_handshake_state = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  %8 = load i32, ptr %_client_handshake_state, align 8
-  switch i32 %8, label %sw.default469 [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb19
-    i32 2, label %sw.bb27
-    i32 3, label %sw.bb35
-    i32 4, label %sw.bb43
-    i32 5, label %sw.bb51
-    i32 6, label %sw.bb59
-    i32 7, label %sw.bb67
-    i32 8, label %sw.bb75
-    i32 9, label %sw.bb83
-    i32 10, label %sw.bb97
-    i32 11, label %sw.bb105
-    i32 12, label %sw.bb113
-    i32 13, label %sw.bb121
-    i32 14, label %sw.bb135
-    i32 15, label %sw.bb143
-    i32 16, label %sw.bb151
-    i32 17, label %sw.bb159
-    i32 18, label %sw.bb167
-    i32 19, label %sw.bb175
-    i32 20, label %sw.bb183
-    i32 21, label %sw.bb191
-    i32 22, label %sw.bb199
-    i32 23, label %sw.bb207
-    i32 24, label %sw.bb215
-    i32 25, label %sw.bb223
-    i32 26, label %sw.bb231
-    i32 27, label %sw.bb239
-    i32 28, label %sw.bb247
-    i32 29, label %sw.bb255
-    i32 30, label %sw.bb263
-    i32 31, label %sw.bb271
-    i32 32, label %sw.bb279
-    i32 33, label %sw.bb287
-    i32 34, label %sw.bb295
-    i32 35, label %sw.bb302
-    i32 36, label %sw.bb332
-    i32 37, label %sw.bb332
-    i32 38, label %sw.bb353
-    i32 39, label %sw.bb434
-    i32 40, label %sw.bb442
+36:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #18
+  %37 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 3
+  %38 = load ptr, ptr %37, align 8, !tbaa !120
+  %39 = load i8, ptr %38, align 1, !tbaa !90
+  store i8 %39, ptr %6, align 1, !tbaa !90
+  %40 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  %41 = load i32, ptr %40, align 8, !tbaa !78
+  switch i32 %41, label %587 [
+    i32 0, label %42
+    i32 1, label %51
+    i32 2, label %60
+    i32 3, label %69
+    i32 4, label %78
+    i32 5, label %87
+    i32 6, label %96
+    i32 7, label %105
+    i32 8, label %114
+    i32 9, label %123
+    i32 10, label %139
+    i32 11, label %148
+    i32 12, label %157
+    i32 13, label %166
+    i32 14, label %182
+    i32 15, label %191
+    i32 16, label %200
+    i32 17, label %209
+    i32 18, label %218
+    i32 19, label %227
+    i32 20, label %236
+    i32 21, label %245
+    i32 22, label %254
+    i32 23, label %263
+    i32 24, label %272
+    i32 25, label %281
+    i32 26, label %290
+    i32 27, label %299
+    i32 28, label %308
+    i32 29, label %317
+    i32 30, label %326
+    i32 31, label %335
+    i32 32, label %344
+    i32 33, label %353
+    i32 34, label %362
+    i32 35, label %376
+    i32 36, label %418
+    i32 37, label %418
+    i32 38, label %445
+    i32 39, label %541
+    i32 40, label %550
   ]
 
-sw.bb:                                            ; preds = %while.body
-  %9 = load i8, ptr %c, align 1
-  %conv13 = sext i8 %9 to i32
-  %cmp14 = icmp eq i32 %conv13, 72
-  br i1 %cmp14, label %if.then15, label %if.else
-
-if.then15:                                        ; preds = %sw.bb
-  %_client_handshake_state16 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 1, ptr %_client_handshake_state16, align 8
-  br label %if.end18
-
-if.else:                                          ; preds = %sw.bb
-  %_client_handshake_state17 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state17, align 8
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.else, %if.then15
-  br label %sw.epilog470
-
-sw.bb19:                                          ; preds = %while.body
-  %10 = load i8, ptr %c, align 1
-  %conv20 = sext i8 %10 to i32
-  %cmp21 = icmp eq i32 %conv20, 84
-  br i1 %cmp21, label %if.then22, label %if.else24
-
-if.then22:                                        ; preds = %sw.bb19
-  %_client_handshake_state23 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 2, ptr %_client_handshake_state23, align 8
-  br label %if.end26
-
-if.else24:                                        ; preds = %sw.bb19
-  %_client_handshake_state25 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state25, align 8
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.else24, %if.then22
-  br label %sw.epilog470
-
-sw.bb27:                                          ; preds = %while.body
-  %11 = load i8, ptr %c, align 1
-  %conv28 = sext i8 %11 to i32
-  %cmp29 = icmp eq i32 %conv28, 84
-  br i1 %cmp29, label %if.then30, label %if.else32
-
-if.then30:                                        ; preds = %sw.bb27
-  %_client_handshake_state31 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 3, ptr %_client_handshake_state31, align 8
-  br label %if.end34
-
-if.else32:                                        ; preds = %sw.bb27
-  %_client_handshake_state33 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state33, align 8
-  br label %if.end34
-
-if.end34:                                         ; preds = %if.else32, %if.then30
-  br label %sw.epilog470
-
-sw.bb35:                                          ; preds = %while.body
-  %12 = load i8, ptr %c, align 1
-  %conv36 = sext i8 %12 to i32
-  %cmp37 = icmp eq i32 %conv36, 80
-  br i1 %cmp37, label %if.then38, label %if.else40
-
-if.then38:                                        ; preds = %sw.bb35
-  %_client_handshake_state39 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 4, ptr %_client_handshake_state39, align 8
-  br label %if.end42
-
-if.else40:                                        ; preds = %sw.bb35
-  %_client_handshake_state41 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state41, align 8
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.else40, %if.then38
-  br label %sw.epilog470
-
-sw.bb43:                                          ; preds = %while.body
-  %13 = load i8, ptr %c, align 1
-  %conv44 = sext i8 %13 to i32
-  %cmp45 = icmp eq i32 %conv44, 47
-  br i1 %cmp45, label %if.then46, label %if.else48
-
-if.then46:                                        ; preds = %sw.bb43
-  %_client_handshake_state47 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 5, ptr %_client_handshake_state47, align 8
-  br label %if.end50
-
-if.else48:                                        ; preds = %sw.bb43
-  %_client_handshake_state49 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state49, align 8
-  br label %if.end50
-
-if.end50:                                         ; preds = %if.else48, %if.then46
-  br label %sw.epilog470
-
-sw.bb51:                                          ; preds = %while.body
-  %14 = load i8, ptr %c, align 1
-  %conv52 = sext i8 %14 to i32
-  %cmp53 = icmp eq i32 %conv52, 49
-  br i1 %cmp53, label %if.then54, label %if.else56
-
-if.then54:                                        ; preds = %sw.bb51
-  %_client_handshake_state55 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 6, ptr %_client_handshake_state55, align 8
-  br label %if.end58
-
-if.else56:                                        ; preds = %sw.bb51
-  %_client_handshake_state57 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state57, align 8
-  br label %if.end58
-
-if.end58:                                         ; preds = %if.else56, %if.then54
-  br label %sw.epilog470
-
-sw.bb59:                                          ; preds = %while.body
-  %15 = load i8, ptr %c, align 1
-  %conv60 = sext i8 %15 to i32
-  %cmp61 = icmp eq i32 %conv60, 46
-  br i1 %cmp61, label %if.then62, label %if.else64
-
-if.then62:                                        ; preds = %sw.bb59
-  %_client_handshake_state63 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 7, ptr %_client_handshake_state63, align 8
-  br label %if.end66
-
-if.else64:                                        ; preds = %sw.bb59
-  %_client_handshake_state65 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state65, align 8
-  br label %if.end66
-
-if.end66:                                         ; preds = %if.else64, %if.then62
-  br label %sw.epilog470
-
-sw.bb67:                                          ; preds = %while.body
-  %16 = load i8, ptr %c, align 1
-  %conv68 = sext i8 %16 to i32
-  %cmp69 = icmp eq i32 %conv68, 49
-  br i1 %cmp69, label %if.then70, label %if.else72
-
-if.then70:                                        ; preds = %sw.bb67
-  %_client_handshake_state71 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 8, ptr %_client_handshake_state71, align 8
-  br label %if.end74
-
-if.else72:                                        ; preds = %sw.bb67
-  %_client_handshake_state73 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state73, align 8
-  br label %if.end74
-
-if.end74:                                         ; preds = %if.else72, %if.then70
-  br label %sw.epilog470
-
-sw.bb75:                                          ; preds = %while.body
-  %17 = load i8, ptr %c, align 1
-  %conv76 = sext i8 %17 to i32
-  %cmp77 = icmp eq i32 %conv76, 32
-  br i1 %cmp77, label %if.then78, label %if.else80
-
-if.then78:                                        ; preds = %sw.bb75
-  %_client_handshake_state79 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 9, ptr %_client_handshake_state79, align 8
-  br label %if.end82
-
-if.else80:                                        ; preds = %sw.bb75
-  %_client_handshake_state81 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state81, align 8
-  br label %if.end82
-
-if.end82:                                         ; preds = %if.else80, %if.then78
-  br label %sw.epilog470
-
-sw.bb83:                                          ; preds = %while.body
-  %18 = load i8, ptr %c, align 1
-  %conv84 = sext i8 %18 to i32
-  %cmp85 = icmp eq i32 %conv84, 32
-  br i1 %cmp85, label %if.then86, label %if.else88
-
-if.then86:                                        ; preds = %sw.bb83
-  %_client_handshake_state87 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 9, ptr %_client_handshake_state87, align 8
-  br label %if.end96
-
-if.else88:                                        ; preds = %sw.bb83
-  %19 = load i8, ptr %c, align 1
-  %conv89 = sext i8 %19 to i32
-  %cmp90 = icmp eq i32 %conv89, 49
-  br i1 %cmp90, label %if.then91, label %if.else93
-
-if.then91:                                        ; preds = %if.else88
-  %_client_handshake_state92 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 10, ptr %_client_handshake_state92, align 8
-  br label %if.end95
-
-if.else93:                                        ; preds = %if.else88
-  %_client_handshake_state94 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state94, align 8
-  br label %if.end95
-
-if.end95:                                         ; preds = %if.else93, %if.then91
-  br label %if.end96
-
-if.end96:                                         ; preds = %if.end95, %if.then86
-  br label %sw.epilog470
-
-sw.bb97:                                          ; preds = %while.body
-  %20 = load i8, ptr %c, align 1
-  %conv98 = sext i8 %20 to i32
-  %cmp99 = icmp eq i32 %conv98, 48
-  br i1 %cmp99, label %if.then100, label %if.else102
-
-if.then100:                                       ; preds = %sw.bb97
-  %_client_handshake_state101 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 11, ptr %_client_handshake_state101, align 8
-  br label %if.end104
-
-if.else102:                                       ; preds = %sw.bb97
-  %_client_handshake_state103 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state103, align 8
-  br label %if.end104
-
-if.end104:                                        ; preds = %if.else102, %if.then100
-  br label %sw.epilog470
-
-sw.bb105:                                         ; preds = %while.body
-  %21 = load i8, ptr %c, align 1
-  %conv106 = sext i8 %21 to i32
-  %cmp107 = icmp eq i32 %conv106, 49
-  br i1 %cmp107, label %if.then108, label %if.else110
-
-if.then108:                                       ; preds = %sw.bb105
-  %_client_handshake_state109 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 12, ptr %_client_handshake_state109, align 8
-  br label %if.end112
-
-if.else110:                                       ; preds = %sw.bb105
-  %_client_handshake_state111 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state111, align 8
-  br label %if.end112
-
-if.end112:                                        ; preds = %if.else110, %if.then108
-  br label %sw.epilog470
-
-sw.bb113:                                         ; preds = %while.body
-  %22 = load i8, ptr %c, align 1
-  %conv114 = sext i8 %22 to i32
-  %cmp115 = icmp eq i32 %conv114, 32
-  br i1 %cmp115, label %if.then116, label %if.else118
-
-if.then116:                                       ; preds = %sw.bb113
-  %_client_handshake_state117 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 13, ptr %_client_handshake_state117, align 8
-  br label %if.end120
-
-if.else118:                                       ; preds = %sw.bb113
-  %_client_handshake_state119 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state119, align 8
-  br label %if.end120
-
-if.end120:                                        ; preds = %if.else118, %if.then116
-  br label %sw.epilog470
-
-sw.bb121:                                         ; preds = %while.body
-  %23 = load i8, ptr %c, align 1
-  %conv122 = sext i8 %23 to i32
-  %cmp123 = icmp eq i32 %conv122, 32
-  br i1 %cmp123, label %if.then124, label %if.else126
-
-if.then124:                                       ; preds = %sw.bb121
-  %_client_handshake_state125 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 13, ptr %_client_handshake_state125, align 8
-  br label %if.end134
-
-if.else126:                                       ; preds = %sw.bb121
-  %24 = load i8, ptr %c, align 1
-  %conv127 = sext i8 %24 to i32
-  %cmp128 = icmp eq i32 %conv127, 83
-  br i1 %cmp128, label %if.then129, label %if.else131
-
-if.then129:                                       ; preds = %if.else126
-  %_client_handshake_state130 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 14, ptr %_client_handshake_state130, align 8
-  br label %if.end133
-
-if.else131:                                       ; preds = %if.else126
-  %_client_handshake_state132 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state132, align 8
-  br label %if.end133
-
-if.end133:                                        ; preds = %if.else131, %if.then129
-  br label %if.end134
-
-if.end134:                                        ; preds = %if.end133, %if.then124
-  br label %sw.epilog470
-
-sw.bb135:                                         ; preds = %while.body
-  %25 = load i8, ptr %c, align 1
-  %conv136 = sext i8 %25 to i32
-  %cmp137 = icmp eq i32 %conv136, 119
-  br i1 %cmp137, label %if.then138, label %if.else140
-
-if.then138:                                       ; preds = %sw.bb135
-  %_client_handshake_state139 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 15, ptr %_client_handshake_state139, align 8
-  br label %if.end142
-
-if.else140:                                       ; preds = %sw.bb135
-  %_client_handshake_state141 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state141, align 8
-  br label %if.end142
-
-if.end142:                                        ; preds = %if.else140, %if.then138
-  br label %sw.epilog470
-
-sw.bb143:                                         ; preds = %while.body
-  %26 = load i8, ptr %c, align 1
-  %conv144 = sext i8 %26 to i32
-  %cmp145 = icmp eq i32 %conv144, 105
-  br i1 %cmp145, label %if.then146, label %if.else148
-
-if.then146:                                       ; preds = %sw.bb143
-  %_client_handshake_state147 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 16, ptr %_client_handshake_state147, align 8
-  br label %if.end150
-
-if.else148:                                       ; preds = %sw.bb143
-  %_client_handshake_state149 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state149, align 8
-  br label %if.end150
-
-if.end150:                                        ; preds = %if.else148, %if.then146
-  br label %sw.epilog470
-
-sw.bb151:                                         ; preds = %while.body
-  %27 = load i8, ptr %c, align 1
-  %conv152 = sext i8 %27 to i32
-  %cmp153 = icmp eq i32 %conv152, 116
-  br i1 %cmp153, label %if.then154, label %if.else156
-
-if.then154:                                       ; preds = %sw.bb151
-  %_client_handshake_state155 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 17, ptr %_client_handshake_state155, align 8
-  br label %if.end158
-
-if.else156:                                       ; preds = %sw.bb151
-  %_client_handshake_state157 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state157, align 8
-  br label %if.end158
-
-if.end158:                                        ; preds = %if.else156, %if.then154
-  br label %sw.epilog470
-
-sw.bb159:                                         ; preds = %while.body
-  %28 = load i8, ptr %c, align 1
-  %conv160 = sext i8 %28 to i32
-  %cmp161 = icmp eq i32 %conv160, 99
-  br i1 %cmp161, label %if.then162, label %if.else164
-
-if.then162:                                       ; preds = %sw.bb159
-  %_client_handshake_state163 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 18, ptr %_client_handshake_state163, align 8
-  br label %if.end166
-
-if.else164:                                       ; preds = %sw.bb159
-  %_client_handshake_state165 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state165, align 8
-  br label %if.end166
-
-if.end166:                                        ; preds = %if.else164, %if.then162
-  br label %sw.epilog470
-
-sw.bb167:                                         ; preds = %while.body
-  %29 = load i8, ptr %c, align 1
-  %conv168 = sext i8 %29 to i32
-  %cmp169 = icmp eq i32 %conv168, 104
-  br i1 %cmp169, label %if.then170, label %if.else172
-
-if.then170:                                       ; preds = %sw.bb167
-  %_client_handshake_state171 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 19, ptr %_client_handshake_state171, align 8
-  br label %if.end174
-
-if.else172:                                       ; preds = %sw.bb167
-  %_client_handshake_state173 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state173, align 8
-  br label %if.end174
-
-if.end174:                                        ; preds = %if.else172, %if.then170
-  br label %sw.epilog470
-
-sw.bb175:                                         ; preds = %while.body
-  %30 = load i8, ptr %c, align 1
-  %conv176 = sext i8 %30 to i32
-  %cmp177 = icmp eq i32 %conv176, 105
-  br i1 %cmp177, label %if.then178, label %if.else180
-
-if.then178:                                       ; preds = %sw.bb175
-  %_client_handshake_state179 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 20, ptr %_client_handshake_state179, align 8
-  br label %if.end182
-
-if.else180:                                       ; preds = %sw.bb175
-  %_client_handshake_state181 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state181, align 8
-  br label %if.end182
-
-if.end182:                                        ; preds = %if.else180, %if.then178
-  br label %sw.epilog470
-
-sw.bb183:                                         ; preds = %while.body
-  %31 = load i8, ptr %c, align 1
-  %conv184 = sext i8 %31 to i32
-  %cmp185 = icmp eq i32 %conv184, 110
-  br i1 %cmp185, label %if.then186, label %if.else188
-
-if.then186:                                       ; preds = %sw.bb183
-  %_client_handshake_state187 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 21, ptr %_client_handshake_state187, align 8
-  br label %if.end190
-
-if.else188:                                       ; preds = %sw.bb183
-  %_client_handshake_state189 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state189, align 8
-  br label %if.end190
-
-if.end190:                                        ; preds = %if.else188, %if.then186
-  br label %sw.epilog470
-
-sw.bb191:                                         ; preds = %while.body
-  %32 = load i8, ptr %c, align 1
-  %conv192 = sext i8 %32 to i32
-  %cmp193 = icmp eq i32 %conv192, 103
-  br i1 %cmp193, label %if.then194, label %if.else196
-
-if.then194:                                       ; preds = %sw.bb191
-  %_client_handshake_state195 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 22, ptr %_client_handshake_state195, align 8
-  br label %if.end198
-
-if.else196:                                       ; preds = %sw.bb191
-  %_client_handshake_state197 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state197, align 8
-  br label %if.end198
-
-if.end198:                                        ; preds = %if.else196, %if.then194
-  br label %sw.epilog470
-
-sw.bb199:                                         ; preds = %while.body
-  %33 = load i8, ptr %c, align 1
-  %conv200 = sext i8 %33 to i32
-  %cmp201 = icmp eq i32 %conv200, 32
-  br i1 %cmp201, label %if.then202, label %if.else204
-
-if.then202:                                       ; preds = %sw.bb199
-  %_client_handshake_state203 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 23, ptr %_client_handshake_state203, align 8
-  br label %if.end206
-
-if.else204:                                       ; preds = %sw.bb199
-  %_client_handshake_state205 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state205, align 8
-  br label %if.end206
-
-if.end206:                                        ; preds = %if.else204, %if.then202
-  br label %sw.epilog470
-
-sw.bb207:                                         ; preds = %while.body
-  %34 = load i8, ptr %c, align 1
-  %conv208 = sext i8 %34 to i32
-  %cmp209 = icmp eq i32 %conv208, 80
-  br i1 %cmp209, label %if.then210, label %if.else212
-
-if.then210:                                       ; preds = %sw.bb207
-  %_client_handshake_state211 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 24, ptr %_client_handshake_state211, align 8
-  br label %if.end214
-
-if.else212:                                       ; preds = %sw.bb207
-  %_client_handshake_state213 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state213, align 8
-  br label %if.end214
-
-if.end214:                                        ; preds = %if.else212, %if.then210
-  br label %sw.epilog470
-
-sw.bb215:                                         ; preds = %while.body
-  %35 = load i8, ptr %c, align 1
-  %conv216 = sext i8 %35 to i32
-  %cmp217 = icmp eq i32 %conv216, 114
-  br i1 %cmp217, label %if.then218, label %if.else220
-
-if.then218:                                       ; preds = %sw.bb215
-  %_client_handshake_state219 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 25, ptr %_client_handshake_state219, align 8
-  br label %if.end222
-
-if.else220:                                       ; preds = %sw.bb215
-  %_client_handshake_state221 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state221, align 8
-  br label %if.end222
-
-if.end222:                                        ; preds = %if.else220, %if.then218
-  br label %sw.epilog470
-
-sw.bb223:                                         ; preds = %while.body
-  %36 = load i8, ptr %c, align 1
-  %conv224 = sext i8 %36 to i32
-  %cmp225 = icmp eq i32 %conv224, 111
-  br i1 %cmp225, label %if.then226, label %if.else228
-
-if.then226:                                       ; preds = %sw.bb223
-  %_client_handshake_state227 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 26, ptr %_client_handshake_state227, align 8
-  br label %if.end230
-
-if.else228:                                       ; preds = %sw.bb223
-  %_client_handshake_state229 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state229, align 8
-  br label %if.end230
-
-if.end230:                                        ; preds = %if.else228, %if.then226
-  br label %sw.epilog470
-
-sw.bb231:                                         ; preds = %while.body
-  %37 = load i8, ptr %c, align 1
-  %conv232 = sext i8 %37 to i32
-  %cmp233 = icmp eq i32 %conv232, 116
-  br i1 %cmp233, label %if.then234, label %if.else236
-
-if.then234:                                       ; preds = %sw.bb231
-  %_client_handshake_state235 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 27, ptr %_client_handshake_state235, align 8
-  br label %if.end238
-
-if.else236:                                       ; preds = %sw.bb231
-  %_client_handshake_state237 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state237, align 8
-  br label %if.end238
-
-if.end238:                                        ; preds = %if.else236, %if.then234
-  br label %sw.epilog470
-
-sw.bb239:                                         ; preds = %while.body
-  %38 = load i8, ptr %c, align 1
-  %conv240 = sext i8 %38 to i32
-  %cmp241 = icmp eq i32 %conv240, 111
-  br i1 %cmp241, label %if.then242, label %if.else244
-
-if.then242:                                       ; preds = %sw.bb239
-  %_client_handshake_state243 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 28, ptr %_client_handshake_state243, align 8
-  br label %if.end246
-
-if.else244:                                       ; preds = %sw.bb239
-  %_client_handshake_state245 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state245, align 8
-  br label %if.end246
-
-if.end246:                                        ; preds = %if.else244, %if.then242
-  br label %sw.epilog470
-
-sw.bb247:                                         ; preds = %while.body
-  %39 = load i8, ptr %c, align 1
-  %conv248 = sext i8 %39 to i32
-  %cmp249 = icmp eq i32 %conv248, 99
-  br i1 %cmp249, label %if.then250, label %if.else252
-
-if.then250:                                       ; preds = %sw.bb247
-  %_client_handshake_state251 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 29, ptr %_client_handshake_state251, align 8
-  br label %if.end254
-
-if.else252:                                       ; preds = %sw.bb247
-  %_client_handshake_state253 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state253, align 8
-  br label %if.end254
-
-if.end254:                                        ; preds = %if.else252, %if.then250
-  br label %sw.epilog470
-
-sw.bb255:                                         ; preds = %while.body
-  %40 = load i8, ptr %c, align 1
-  %conv256 = sext i8 %40 to i32
-  %cmp257 = icmp eq i32 %conv256, 111
-  br i1 %cmp257, label %if.then258, label %if.else260
-
-if.then258:                                       ; preds = %sw.bb255
-  %_client_handshake_state259 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 30, ptr %_client_handshake_state259, align 8
-  br label %if.end262
-
-if.else260:                                       ; preds = %sw.bb255
-  %_client_handshake_state261 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state261, align 8
-  br label %if.end262
-
-if.end262:                                        ; preds = %if.else260, %if.then258
-  br label %sw.epilog470
-
-sw.bb263:                                         ; preds = %while.body
-  %41 = load i8, ptr %c, align 1
-  %conv264 = sext i8 %41 to i32
-  %cmp265 = icmp eq i32 %conv264, 108
-  br i1 %cmp265, label %if.then266, label %if.else268
-
-if.then266:                                       ; preds = %sw.bb263
-  %_client_handshake_state267 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 31, ptr %_client_handshake_state267, align 8
-  br label %if.end270
-
-if.else268:                                       ; preds = %sw.bb263
-  %_client_handshake_state269 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state269, align 8
-  br label %if.end270
-
-if.end270:                                        ; preds = %if.else268, %if.then266
-  br label %sw.epilog470
-
-sw.bb271:                                         ; preds = %while.body
-  %42 = load i8, ptr %c, align 1
-  %conv272 = sext i8 %42 to i32
-  %cmp273 = icmp eq i32 %conv272, 115
-  br i1 %cmp273, label %if.then274, label %if.else276
-
-if.then274:                                       ; preds = %sw.bb271
-  %_client_handshake_state275 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 32, ptr %_client_handshake_state275, align 8
-  br label %if.end278
-
-if.else276:                                       ; preds = %sw.bb271
-  %_client_handshake_state277 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state277, align 8
-  br label %if.end278
-
-if.end278:                                        ; preds = %if.else276, %if.then274
-  br label %sw.epilog470
-
-sw.bb279:                                         ; preds = %while.body
-  %43 = load i8, ptr %c, align 1
-  %conv280 = sext i8 %43 to i32
-  %cmp281 = icmp eq i32 %conv280, 13
-  br i1 %cmp281, label %if.then282, label %if.else284
-
-if.then282:                                       ; preds = %sw.bb279
-  %_client_handshake_state283 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 33, ptr %_client_handshake_state283, align 8
-  br label %if.end286
-
-if.else284:                                       ; preds = %sw.bb279
-  %_client_handshake_state285 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state285, align 8
-  br label %if.end286
-
-if.end286:                                        ; preds = %if.else284, %if.then282
-  br label %sw.epilog470
-
-sw.bb287:                                         ; preds = %while.body
-  %44 = load i8, ptr %c, align 1
-  %conv288 = sext i8 %44 to i32
-  %cmp289 = icmp eq i32 %conv288, 10
-  br i1 %cmp289, label %if.then290, label %if.else292
-
-if.then290:                                       ; preds = %sw.bb287
-  %_client_handshake_state291 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 34, ptr %_client_handshake_state291, align 8
-  br label %if.end294
-
-if.else292:                                       ; preds = %sw.bb287
-  %_client_handshake_state293 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state293, align 8
-  br label %if.end294
-
-if.end294:                                        ; preds = %if.else292, %if.then290
-  br label %sw.epilog470
-
-sw.bb295:                                         ; preds = %while.body
-  %45 = load i8, ptr %c, align 1
-  %conv296 = sext i8 %45 to i32
-  switch i32 %conv296, label %sw.default [
-    i32 13, label %sw.bb297
-    i32 10, label %sw.bb299
+42:                                               ; preds = %36
+  %43 = load i8, ptr %6, align 1, !tbaa !90
+  %44 = sext i8 %43 to i32
+  %45 = icmp eq i32 %44, 72
+  br i1 %45, label %46, label %48
+
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 1, ptr %47, align 8, !tbaa !78
+  br label %50
+
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %49, align 8, !tbaa !78
+  br label %50
+
+50:                                               ; preds = %48, %46
+  br label %588
+
+51:                                               ; preds = %36
+  %52 = load i8, ptr %6, align 1, !tbaa !90
+  %53 = sext i8 %52 to i32
+  %54 = icmp eq i32 %53, 84
+  br i1 %54, label %55, label %57
+
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 2, ptr %56, align 8, !tbaa !78
+  br label %59
+
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %58, align 8, !tbaa !78
+  br label %59
+
+59:                                               ; preds = %57, %55
+  br label %588
+
+60:                                               ; preds = %36
+  %61 = load i8, ptr %6, align 1, !tbaa !90
+  %62 = sext i8 %61 to i32
+  %63 = icmp eq i32 %62, 84
+  br i1 %63, label %64, label %66
+
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 3, ptr %65, align 8, !tbaa !78
+  br label %68
+
+66:                                               ; preds = %60
+  %67 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %67, align 8, !tbaa !78
+  br label %68
+
+68:                                               ; preds = %66, %64
+  br label %588
+
+69:                                               ; preds = %36
+  %70 = load i8, ptr %6, align 1, !tbaa !90
+  %71 = sext i8 %70 to i32
+  %72 = icmp eq i32 %71, 80
+  br i1 %72, label %73, label %75
+
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 4, ptr %74, align 8, !tbaa !78
+  br label %77
+
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %76, align 8, !tbaa !78
+  br label %77
+
+77:                                               ; preds = %75, %73
+  br label %588
+
+78:                                               ; preds = %36
+  %79 = load i8, ptr %6, align 1, !tbaa !90
+  %80 = sext i8 %79 to i32
+  %81 = icmp eq i32 %80, 47
+  br i1 %81, label %82, label %84
+
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 5, ptr %83, align 8, !tbaa !78
+  br label %86
+
+84:                                               ; preds = %78
+  %85 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %85, align 8, !tbaa !78
+  br label %86
+
+86:                                               ; preds = %84, %82
+  br label %588
+
+87:                                               ; preds = %36
+  %88 = load i8, ptr %6, align 1, !tbaa !90
+  %89 = sext i8 %88 to i32
+  %90 = icmp eq i32 %89, 49
+  br i1 %90, label %91, label %93
+
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 6, ptr %92, align 8, !tbaa !78
+  br label %95
+
+93:                                               ; preds = %87
+  %94 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %94, align 8, !tbaa !78
+  br label %95
+
+95:                                               ; preds = %93, %91
+  br label %588
+
+96:                                               ; preds = %36
+  %97 = load i8, ptr %6, align 1, !tbaa !90
+  %98 = sext i8 %97 to i32
+  %99 = icmp eq i32 %98, 46
+  br i1 %99, label %100, label %102
+
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 7, ptr %101, align 8, !tbaa !78
+  br label %104
+
+102:                                              ; preds = %96
+  %103 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %103, align 8, !tbaa !78
+  br label %104
+
+104:                                              ; preds = %102, %100
+  br label %588
+
+105:                                              ; preds = %36
+  %106 = load i8, ptr %6, align 1, !tbaa !90
+  %107 = sext i8 %106 to i32
+  %108 = icmp eq i32 %107, 49
+  br i1 %108, label %109, label %111
+
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 8, ptr %110, align 8, !tbaa !78
+  br label %113
+
+111:                                              ; preds = %105
+  %112 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %112, align 8, !tbaa !78
+  br label %113
+
+113:                                              ; preds = %111, %109
+  br label %588
+
+114:                                              ; preds = %36
+  %115 = load i8, ptr %6, align 1, !tbaa !90
+  %116 = sext i8 %115 to i32
+  %117 = icmp eq i32 %116, 32
+  br i1 %117, label %118, label %120
+
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 9, ptr %119, align 8, !tbaa !78
+  br label %122
+
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %121, align 8, !tbaa !78
+  br label %122
+
+122:                                              ; preds = %120, %118
+  br label %588
+
+123:                                              ; preds = %36
+  %124 = load i8, ptr %6, align 1, !tbaa !90
+  %125 = sext i8 %124 to i32
+  %126 = icmp eq i32 %125, 32
+  br i1 %126, label %127, label %129
+
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 9, ptr %128, align 8, !tbaa !78
+  br label %138
+
+129:                                              ; preds = %123
+  %130 = load i8, ptr %6, align 1, !tbaa !90
+  %131 = sext i8 %130 to i32
+  %132 = icmp eq i32 %131, 49
+  br i1 %132, label %133, label %135
+
+133:                                              ; preds = %129
+  %134 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 10, ptr %134, align 8, !tbaa !78
+  br label %137
+
+135:                                              ; preds = %129
+  %136 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %136, align 8, !tbaa !78
+  br label %137
+
+137:                                              ; preds = %135, %133
+  br label %138
+
+138:                                              ; preds = %137, %127
+  br label %588
+
+139:                                              ; preds = %36
+  %140 = load i8, ptr %6, align 1, !tbaa !90
+  %141 = sext i8 %140 to i32
+  %142 = icmp eq i32 %141, 48
+  br i1 %142, label %143, label %145
+
+143:                                              ; preds = %139
+  %144 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 11, ptr %144, align 8, !tbaa !78
+  br label %147
+
+145:                                              ; preds = %139
+  %146 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %146, align 8, !tbaa !78
+  br label %147
+
+147:                                              ; preds = %145, %143
+  br label %588
+
+148:                                              ; preds = %36
+  %149 = load i8, ptr %6, align 1, !tbaa !90
+  %150 = sext i8 %149 to i32
+  %151 = icmp eq i32 %150, 49
+  br i1 %151, label %152, label %154
+
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 12, ptr %153, align 8, !tbaa !78
+  br label %156
+
+154:                                              ; preds = %148
+  %155 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %155, align 8, !tbaa !78
+  br label %156
+
+156:                                              ; preds = %154, %152
+  br label %588
+
+157:                                              ; preds = %36
+  %158 = load i8, ptr %6, align 1, !tbaa !90
+  %159 = sext i8 %158 to i32
+  %160 = icmp eq i32 %159, 32
+  br i1 %160, label %161, label %163
+
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 13, ptr %162, align 8, !tbaa !78
+  br label %165
+
+163:                                              ; preds = %157
+  %164 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %164, align 8, !tbaa !78
+  br label %165
+
+165:                                              ; preds = %163, %161
+  br label %588
+
+166:                                              ; preds = %36
+  %167 = load i8, ptr %6, align 1, !tbaa !90
+  %168 = sext i8 %167 to i32
+  %169 = icmp eq i32 %168, 32
+  br i1 %169, label %170, label %172
+
+170:                                              ; preds = %166
+  %171 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 13, ptr %171, align 8, !tbaa !78
+  br label %181
+
+172:                                              ; preds = %166
+  %173 = load i8, ptr %6, align 1, !tbaa !90
+  %174 = sext i8 %173 to i32
+  %175 = icmp eq i32 %174, 83
+  br i1 %175, label %176, label %178
+
+176:                                              ; preds = %172
+  %177 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 14, ptr %177, align 8, !tbaa !78
+  br label %180
+
+178:                                              ; preds = %172
+  %179 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %179, align 8, !tbaa !78
+  br label %180
+
+180:                                              ; preds = %178, %176
+  br label %181
+
+181:                                              ; preds = %180, %170
+  br label %588
+
+182:                                              ; preds = %36
+  %183 = load i8, ptr %6, align 1, !tbaa !90
+  %184 = sext i8 %183 to i32
+  %185 = icmp eq i32 %184, 119
+  br i1 %185, label %186, label %188
+
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 15, ptr %187, align 8, !tbaa !78
+  br label %190
+
+188:                                              ; preds = %182
+  %189 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %189, align 8, !tbaa !78
+  br label %190
+
+190:                                              ; preds = %188, %186
+  br label %588
+
+191:                                              ; preds = %36
+  %192 = load i8, ptr %6, align 1, !tbaa !90
+  %193 = sext i8 %192 to i32
+  %194 = icmp eq i32 %193, 105
+  br i1 %194, label %195, label %197
+
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 16, ptr %196, align 8, !tbaa !78
+  br label %199
+
+197:                                              ; preds = %191
+  %198 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %198, align 8, !tbaa !78
+  br label %199
+
+199:                                              ; preds = %197, %195
+  br label %588
+
+200:                                              ; preds = %36
+  %201 = load i8, ptr %6, align 1, !tbaa !90
+  %202 = sext i8 %201 to i32
+  %203 = icmp eq i32 %202, 116
+  br i1 %203, label %204, label %206
+
+204:                                              ; preds = %200
+  %205 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 17, ptr %205, align 8, !tbaa !78
+  br label %208
+
+206:                                              ; preds = %200
+  %207 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %207, align 8, !tbaa !78
+  br label %208
+
+208:                                              ; preds = %206, %204
+  br label %588
+
+209:                                              ; preds = %36
+  %210 = load i8, ptr %6, align 1, !tbaa !90
+  %211 = sext i8 %210 to i32
+  %212 = icmp eq i32 %211, 99
+  br i1 %212, label %213, label %215
+
+213:                                              ; preds = %209
+  %214 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 18, ptr %214, align 8, !tbaa !78
+  br label %217
+
+215:                                              ; preds = %209
+  %216 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %216, align 8, !tbaa !78
+  br label %217
+
+217:                                              ; preds = %215, %213
+  br label %588
+
+218:                                              ; preds = %36
+  %219 = load i8, ptr %6, align 1, !tbaa !90
+  %220 = sext i8 %219 to i32
+  %221 = icmp eq i32 %220, 104
+  br i1 %221, label %222, label %224
+
+222:                                              ; preds = %218
+  %223 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 19, ptr %223, align 8, !tbaa !78
+  br label %226
+
+224:                                              ; preds = %218
+  %225 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %225, align 8, !tbaa !78
+  br label %226
+
+226:                                              ; preds = %224, %222
+  br label %588
+
+227:                                              ; preds = %36
+  %228 = load i8, ptr %6, align 1, !tbaa !90
+  %229 = sext i8 %228 to i32
+  %230 = icmp eq i32 %229, 105
+  br i1 %230, label %231, label %233
+
+231:                                              ; preds = %227
+  %232 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 20, ptr %232, align 8, !tbaa !78
+  br label %235
+
+233:                                              ; preds = %227
+  %234 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %234, align 8, !tbaa !78
+  br label %235
+
+235:                                              ; preds = %233, %231
+  br label %588
+
+236:                                              ; preds = %36
+  %237 = load i8, ptr %6, align 1, !tbaa !90
+  %238 = sext i8 %237 to i32
+  %239 = icmp eq i32 %238, 110
+  br i1 %239, label %240, label %242
+
+240:                                              ; preds = %236
+  %241 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 21, ptr %241, align 8, !tbaa !78
+  br label %244
+
+242:                                              ; preds = %236
+  %243 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %243, align 8, !tbaa !78
+  br label %244
+
+244:                                              ; preds = %242, %240
+  br label %588
+
+245:                                              ; preds = %36
+  %246 = load i8, ptr %6, align 1, !tbaa !90
+  %247 = sext i8 %246 to i32
+  %248 = icmp eq i32 %247, 103
+  br i1 %248, label %249, label %251
+
+249:                                              ; preds = %245
+  %250 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 22, ptr %250, align 8, !tbaa !78
+  br label %253
+
+251:                                              ; preds = %245
+  %252 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %252, align 8, !tbaa !78
+  br label %253
+
+253:                                              ; preds = %251, %249
+  br label %588
+
+254:                                              ; preds = %36
+  %255 = load i8, ptr %6, align 1, !tbaa !90
+  %256 = sext i8 %255 to i32
+  %257 = icmp eq i32 %256, 32
+  br i1 %257, label %258, label %260
+
+258:                                              ; preds = %254
+  %259 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 23, ptr %259, align 8, !tbaa !78
+  br label %262
+
+260:                                              ; preds = %254
+  %261 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %261, align 8, !tbaa !78
+  br label %262
+
+262:                                              ; preds = %260, %258
+  br label %588
+
+263:                                              ; preds = %36
+  %264 = load i8, ptr %6, align 1, !tbaa !90
+  %265 = sext i8 %264 to i32
+  %266 = icmp eq i32 %265, 80
+  br i1 %266, label %267, label %269
+
+267:                                              ; preds = %263
+  %268 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 24, ptr %268, align 8, !tbaa !78
+  br label %271
+
+269:                                              ; preds = %263
+  %270 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %270, align 8, !tbaa !78
+  br label %271
+
+271:                                              ; preds = %269, %267
+  br label %588
+
+272:                                              ; preds = %36
+  %273 = load i8, ptr %6, align 1, !tbaa !90
+  %274 = sext i8 %273 to i32
+  %275 = icmp eq i32 %274, 114
+  br i1 %275, label %276, label %278
+
+276:                                              ; preds = %272
+  %277 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 25, ptr %277, align 8, !tbaa !78
+  br label %280
+
+278:                                              ; preds = %272
+  %279 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %279, align 8, !tbaa !78
+  br label %280
+
+280:                                              ; preds = %278, %276
+  br label %588
+
+281:                                              ; preds = %36
+  %282 = load i8, ptr %6, align 1, !tbaa !90
+  %283 = sext i8 %282 to i32
+  %284 = icmp eq i32 %283, 111
+  br i1 %284, label %285, label %287
+
+285:                                              ; preds = %281
+  %286 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 26, ptr %286, align 8, !tbaa !78
+  br label %289
+
+287:                                              ; preds = %281
+  %288 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %288, align 8, !tbaa !78
+  br label %289
+
+289:                                              ; preds = %287, %285
+  br label %588
+
+290:                                              ; preds = %36
+  %291 = load i8, ptr %6, align 1, !tbaa !90
+  %292 = sext i8 %291 to i32
+  %293 = icmp eq i32 %292, 116
+  br i1 %293, label %294, label %296
+
+294:                                              ; preds = %290
+  %295 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 27, ptr %295, align 8, !tbaa !78
+  br label %298
+
+296:                                              ; preds = %290
+  %297 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %297, align 8, !tbaa !78
+  br label %298
+
+298:                                              ; preds = %296, %294
+  br label %588
+
+299:                                              ; preds = %36
+  %300 = load i8, ptr %6, align 1, !tbaa !90
+  %301 = sext i8 %300 to i32
+  %302 = icmp eq i32 %301, 111
+  br i1 %302, label %303, label %305
+
+303:                                              ; preds = %299
+  %304 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 28, ptr %304, align 8, !tbaa !78
+  br label %307
+
+305:                                              ; preds = %299
+  %306 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %306, align 8, !tbaa !78
+  br label %307
+
+307:                                              ; preds = %305, %303
+  br label %588
+
+308:                                              ; preds = %36
+  %309 = load i8, ptr %6, align 1, !tbaa !90
+  %310 = sext i8 %309 to i32
+  %311 = icmp eq i32 %310, 99
+  br i1 %311, label %312, label %314
+
+312:                                              ; preds = %308
+  %313 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 29, ptr %313, align 8, !tbaa !78
+  br label %316
+
+314:                                              ; preds = %308
+  %315 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %315, align 8, !tbaa !78
+  br label %316
+
+316:                                              ; preds = %314, %312
+  br label %588
+
+317:                                              ; preds = %36
+  %318 = load i8, ptr %6, align 1, !tbaa !90
+  %319 = sext i8 %318 to i32
+  %320 = icmp eq i32 %319, 111
+  br i1 %320, label %321, label %323
+
+321:                                              ; preds = %317
+  %322 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 30, ptr %322, align 8, !tbaa !78
+  br label %325
+
+323:                                              ; preds = %317
+  %324 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %324, align 8, !tbaa !78
+  br label %325
+
+325:                                              ; preds = %323, %321
+  br label %588
+
+326:                                              ; preds = %36
+  %327 = load i8, ptr %6, align 1, !tbaa !90
+  %328 = sext i8 %327 to i32
+  %329 = icmp eq i32 %328, 108
+  br i1 %329, label %330, label %332
+
+330:                                              ; preds = %326
+  %331 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 31, ptr %331, align 8, !tbaa !78
+  br label %334
+
+332:                                              ; preds = %326
+  %333 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %333, align 8, !tbaa !78
+  br label %334
+
+334:                                              ; preds = %332, %330
+  br label %588
+
+335:                                              ; preds = %36
+  %336 = load i8, ptr %6, align 1, !tbaa !90
+  %337 = sext i8 %336 to i32
+  %338 = icmp eq i32 %337, 115
+  br i1 %338, label %339, label %341
+
+339:                                              ; preds = %335
+  %340 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 32, ptr %340, align 8, !tbaa !78
+  br label %343
+
+341:                                              ; preds = %335
+  %342 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %342, align 8, !tbaa !78
+  br label %343
+
+343:                                              ; preds = %341, %339
+  br label %588
+
+344:                                              ; preds = %36
+  %345 = load i8, ptr %6, align 1, !tbaa !90
+  %346 = sext i8 %345 to i32
+  %347 = icmp eq i32 %346, 13
+  br i1 %347, label %348, label %350
+
+348:                                              ; preds = %344
+  %349 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 33, ptr %349, align 8, !tbaa !78
+  br label %352
+
+350:                                              ; preds = %344
+  %351 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %351, align 8, !tbaa !78
+  br label %352
+
+352:                                              ; preds = %350, %348
+  br label %588
+
+353:                                              ; preds = %36
+  %354 = load i8, ptr %6, align 1, !tbaa !90
+  %355 = sext i8 %354 to i32
+  %356 = icmp eq i32 %355, 10
+  br i1 %356, label %357, label %359
+
+357:                                              ; preds = %353
+  %358 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 34, ptr %358, align 8, !tbaa !78
+  br label %361
+
+359:                                              ; preds = %353
+  %360 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %360, align 8, !tbaa !78
+  br label %361
+
+361:                                              ; preds = %359, %357
+  br label %588
+
+362:                                              ; preds = %36
+  %363 = load i8, ptr %6, align 1, !tbaa !90
+  %364 = sext i8 %363 to i32
+  switch i32 %364, label %369 [
+    i32 13, label %365
+    i32 10, label %367
   ]
 
-sw.bb297:                                         ; preds = %sw.bb295
-  %_client_handshake_state298 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 40, ptr %_client_handshake_state298, align 8
-  br label %sw.epilog
-
-sw.bb299:                                         ; preds = %sw.bb295
-  %_client_handshake_state300 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state300, align 8
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %sw.bb295
-  %46 = load i8, ptr %c, align 1
-  %_header_name = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arrayidx = getelementptr inbounds [1025 x i8], ptr %_header_name, i64 0, i64 0
-  store i8 %46, ptr %arrayidx, align 8
-  %_header_name_position = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  store i32 1, ptr %_header_name_position, align 4
-  %_client_handshake_state301 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 35, ptr %_client_handshake_state301, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.default, %sw.bb299, %sw.bb297
-  br label %sw.epilog470
-
-sw.bb302:                                         ; preds = %while.body
-  %47 = load i8, ptr %c, align 1
-  %conv303 = sext i8 %47 to i32
-  %cmp304 = icmp eq i32 %conv303, 13
-  br i1 %cmp304, label %if.then307, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %sw.bb302
-  %48 = load i8, ptr %c, align 1
-  %conv305 = sext i8 %48 to i32
-  %cmp306 = icmp eq i32 %conv305, 10
-  br i1 %cmp306, label %if.then307, label %if.else309
-
-if.then307:                                       ; preds = %lor.lhs.false, %sw.bb302
-  %_client_handshake_state308 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state308, align 8
-  br label %if.end331
-
-if.else309:                                       ; preds = %lor.lhs.false
-  %49 = load i8, ptr %c, align 1
-  %conv310 = sext i8 %49 to i32
-  %cmp311 = icmp eq i32 %conv310, 58
-  br i1 %cmp311, label %if.then312, label %if.else317
-
-if.then312:                                       ; preds = %if.else309
-  %_header_name313 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %_header_name_position314 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  %50 = load i32, ptr %_header_name_position314, align 4
-  %idxprom = sext i32 %50 to i64
-  %arrayidx315 = getelementptr inbounds [1025 x i8], ptr %_header_name313, i64 0, i64 %idxprom
-  store i8 0, ptr %arrayidx315, align 1
-  %_client_handshake_state316 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 36, ptr %_client_handshake_state316, align 8
-  br label %if.end330
-
-if.else317:                                       ; preds = %if.else309
-  %_header_name_position318 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  %51 = load i32, ptr %_header_name_position318, align 4
-  %add = add nsw i32 %51, 1
-  %cmp319 = icmp sgt i32 %add, 1024
-  br i1 %cmp319, label %if.then320, label %if.else322
-
-if.then320:                                       ; preds = %if.else317
-  %_client_handshake_state321 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state321, align 8
-  br label %if.end329
-
-if.else322:                                       ; preds = %if.else317
-  %52 = load i8, ptr %c, align 1
-  %_header_name323 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %_header_name_position324 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  %53 = load i32, ptr %_header_name_position324, align 4
-  %idxprom325 = sext i32 %53 to i64
-  %arrayidx326 = getelementptr inbounds [1025 x i8], ptr %_header_name323, i64 0, i64 %idxprom325
-  store i8 %52, ptr %arrayidx326, align 1
-  %_header_name_position327 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  %54 = load i32, ptr %_header_name_position327, align 4
-  %inc = add nsw i32 %54, 1
-  store i32 %inc, ptr %_header_name_position327, align 4
-  %_client_handshake_state328 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 35, ptr %_client_handshake_state328, align 8
-  br label %if.end329
-
-if.end329:                                        ; preds = %if.else322, %if.then320
-  br label %if.end330
-
-if.end330:                                        ; preds = %if.end329, %if.then312
-  br label %if.end331
-
-if.end331:                                        ; preds = %if.end330, %if.then307
-  br label %sw.epilog470
-
-sw.bb332:                                         ; preds = %while.body, %while.body
-  %55 = load i8, ptr %c, align 1
-  %conv333 = sext i8 %55 to i32
-  %cmp334 = icmp eq i32 %conv333, 10
-  br i1 %cmp334, label %if.then335, label %if.else337
-
-if.then335:                                       ; preds = %sw.bb332
-  %_client_handshake_state336 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state336, align 8
-  br label %if.end352
-
-if.else337:                                       ; preds = %sw.bb332
-  %56 = load i8, ptr %c, align 1
-  %conv338 = sext i8 %56 to i32
-  %cmp339 = icmp eq i32 %conv338, 13
-  br i1 %cmp339, label %if.then340, label %if.else342
-
-if.then340:                                       ; preds = %if.else337
-  %_client_handshake_state341 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 39, ptr %_client_handshake_state341, align 8
-  br label %if.end351
-
-if.else342:                                       ; preds = %if.else337
-  %57 = load i8, ptr %c, align 1
-  %conv343 = sext i8 %57 to i32
-  %cmp344 = icmp eq i32 %conv343, 32
-  br i1 %cmp344, label %if.then345, label %if.else347
-
-if.then345:                                       ; preds = %if.else342
-  %_client_handshake_state346 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 37, ptr %_client_handshake_state346, align 8
-  br label %if.end350
-
-if.else347:                                       ; preds = %if.else342
-  %58 = load i8, ptr %c, align 1
-  %_header_value = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arrayidx348 = getelementptr inbounds [2049 x i8], ptr %_header_value, i64 0, i64 0
-  store i8 %58, ptr %arrayidx348, align 8
-  %_header_value_position = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  store i32 1, ptr %_header_value_position, align 4
-  %_client_handshake_state349 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 38, ptr %_client_handshake_state349, align 8
-  br label %if.end350
-
-if.end350:                                        ; preds = %if.else347, %if.then345
-  br label %if.end351
-
-if.end351:                                        ; preds = %if.end350, %if.then340
-  br label %if.end352
-
-if.end352:                                        ; preds = %if.end351, %if.then335
-  br label %sw.epilog470
-
-sw.bb353:                                         ; preds = %while.body
-  %59 = load i8, ptr %c, align 1
-  %conv354 = sext i8 %59 to i32
-  %cmp355 = icmp eq i32 %conv354, 10
-  br i1 %cmp355, label %if.then356, label %if.else358
-
-if.then356:                                       ; preds = %sw.bb353
-  %_client_handshake_state357 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state357, align 8
-  br label %if.end433
-
-if.else358:                                       ; preds = %sw.bb353
-  %60 = load i8, ptr %c, align 1
-  %conv359 = sext i8 %60 to i32
-  %cmp360 = icmp eq i32 %conv359, 13
-  br i1 %cmp360, label %if.then361, label %if.else417
-
-if.then361:                                       ; preds = %if.else358
-  %_header_value362 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %_header_value_position363 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  %61 = load i32, ptr %_header_value_position363, align 4
-  %idxprom364 = sext i32 %61 to i64
-  %arrayidx365 = getelementptr inbounds [2049 x i8], ptr %_header_value362, i64 0, i64 %idxprom364
-  store i8 0, ptr %arrayidx365, align 1
-  %_header_name366 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arraydecay367 = getelementptr inbounds [1025 x i8], ptr %_header_name366, i64 0, i64 0
-  %call368 = call i32 @strcasecmp(ptr noundef @.str.10, ptr noundef %arraydecay367) #17
-  %cmp369 = icmp eq i32 %call368, 0
-  br i1 %cmp369, label %if.then370, label %if.else375
-
-if.then370:                                       ; preds = %if.then361
-  %_header_value371 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arraydecay372 = getelementptr inbounds [2049 x i8], ptr %_header_value371, i64 0, i64 0
-  %call373 = call i32 @strcasecmp(ptr noundef @.str.11, ptr noundef %arraydecay372) #17
-  %cmp374 = icmp eq i32 %call373, 0
-  %_header_upgrade_websocket = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 11
-  %frombool = zext i1 %cmp374 to i8
-  store i8 %frombool, ptr %_header_upgrade_websocket, align 8
-  br label %if.end415
-
-if.else375:                                       ; preds = %if.then361
-  %_header_name376 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arraydecay377 = getelementptr inbounds [1025 x i8], ptr %_header_name376, i64 0, i64 0
-  %call378 = call i32 @strcasecmp(ptr noundef @.str.12, ptr noundef %arraydecay377) #17
-  %cmp379 = icmp eq i32 %call378, 0
-  br i1 %cmp379, label %if.then380, label %if.else386
-
-if.then380:                                       ; preds = %if.else375
-  %_header_value381 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arraydecay382 = getelementptr inbounds [2049 x i8], ptr %_header_value381, i64 0, i64 0
-  %call383 = call i32 @strcasecmp(ptr noundef @.str.10, ptr noundef %arraydecay382) #17
-  %cmp384 = icmp eq i32 %call383, 0
-  %_header_connection_upgrade = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 12
-  %frombool385 = zext i1 %cmp384 to i8
-  store i8 %frombool385, ptr %_header_connection_upgrade, align 1
-  br label %if.end414
-
-if.else386:                                       ; preds = %if.else375
-  %_header_name387 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arraydecay388 = getelementptr inbounds [1025 x i8], ptr %_header_name387, i64 0, i64 0
-  %call389 = call i32 @strcasecmp(ptr noundef @.str.17, ptr noundef %arraydecay388) #17
-  %cmp390 = icmp eq i32 %call389, 0
-  br i1 %cmp390, label %if.then391, label %if.else395
-
-if.then391:                                       ; preds = %if.else386
-  %_websocket_accept = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 15
-  %_header_value392 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arraydecay393 = getelementptr inbounds [2049 x i8], ptr %_header_value392, i64 0, i64 0
-  %call394 = call noundef i32 @_ZL8strcpy_sILm2049EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(2049) %_websocket_accept, ptr noundef %arraydecay393)
-  br label %if.end413
-
-if.else395:                                       ; preds = %if.else386
-  %_header_name396 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arraydecay397 = getelementptr inbounds [1025 x i8], ptr %_header_name396, i64 0, i64 0
-  %call398 = call i32 @strcasecmp(ptr noundef @.str.15, ptr noundef %arraydecay397) #17
-  %cmp399 = icmp eq i32 %call398, 0
-  br i1 %cmp399, label %if.then400, label %if.end412
-
-if.then400:                                       ; preds = %if.else395
-  %_mechanism = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 9
-  %62 = load ptr, ptr %_mechanism, align 8
-  %tobool = icmp ne ptr %62, null
-  br i1 %tobool, label %if.then401, label %if.end403
-
-if.then401:                                       ; preds = %if.then400
-  %_client_handshake_state402 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state402, align 8
-  br label %sw.epilog470
-
-if.end403:                                        ; preds = %if.then400
-  %_header_value404 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arraydecay405 = getelementptr inbounds [2049 x i8], ptr %_header_value404, i64 0, i64 0
-  %call406 = call noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef nonnull align 8 dereferenceable(25696) %this1, ptr noundef %arraydecay405)
-  br i1 %call406, label %if.then407, label %if.end411
-
-if.then407:                                       ; preds = %if.end403
-  %_websocket_protocol = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 13
-  %_header_value408 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arraydecay409 = getelementptr inbounds [2049 x i8], ptr %_header_value408, i64 0, i64 0
-  %call410 = call noundef i32 @_ZL8strcpy_sILm256EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(256) %_websocket_protocol, ptr noundef %arraydecay409)
-  br label %if.end411
-
-if.end411:                                        ; preds = %if.then407, %if.end403
-  br label %if.end412
-
-if.end412:                                        ; preds = %if.end411, %if.else395
-  br label %if.end413
-
-if.end413:                                        ; preds = %if.end412, %if.then391
-  br label %if.end414
-
-if.end414:                                        ; preds = %if.end413, %if.then380
-  br label %if.end415
-
-if.end415:                                        ; preds = %if.end414, %if.then370
-  %_client_handshake_state416 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 39, ptr %_client_handshake_state416, align 8
-  br label %if.end432
-
-if.else417:                                       ; preds = %if.else358
-  %_header_value_position418 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  %63 = load i32, ptr %_header_value_position418, align 4
-  %add419 = add nsw i32 %63, 1
-  %cmp420 = icmp sgt i32 %add419, 2048
-  br i1 %cmp420, label %if.then421, label %if.else423
-
-if.then421:                                       ; preds = %if.else417
-  %_client_handshake_state422 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state422, align 8
-  br label %if.end431
-
-if.else423:                                       ; preds = %if.else417
-  %64 = load i8, ptr %c, align 1
-  %_header_value424 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %_header_value_position425 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  %65 = load i32, ptr %_header_value_position425, align 4
-  %idxprom426 = sext i32 %65 to i64
-  %arrayidx427 = getelementptr inbounds [2049 x i8], ptr %_header_value424, i64 0, i64 %idxprom426
-  store i8 %64, ptr %arrayidx427, align 1
-  %_header_value_position428 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  %66 = load i32, ptr %_header_value_position428, align 4
-  %inc429 = add nsw i32 %66, 1
-  store i32 %inc429, ptr %_header_value_position428, align 4
-  %_client_handshake_state430 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 38, ptr %_client_handshake_state430, align 8
-  br label %if.end431
-
-if.end431:                                        ; preds = %if.else423, %if.then421
-  br label %if.end432
-
-if.end432:                                        ; preds = %if.end431, %if.end415
-  br label %if.end433
-
-if.end433:                                        ; preds = %if.end432, %if.then356
-  br label %sw.epilog470
-
-sw.bb434:                                         ; preds = %while.body
-  %67 = load i8, ptr %c, align 1
-  %conv435 = sext i8 %67 to i32
-  %cmp436 = icmp eq i32 %conv435, 10
-  br i1 %cmp436, label %if.then437, label %if.else439
-
-if.then437:                                       ; preds = %sw.bb434
-  %_client_handshake_state438 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 34, ptr %_client_handshake_state438, align 8
-  br label %if.end441
-
-if.else439:                                       ; preds = %sw.bb434
-  %_client_handshake_state440 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state440, align 8
-  br label %if.end441
-
-if.end441:                                        ; preds = %if.else439, %if.then437
-  br label %sw.epilog470
-
-sw.bb442:                                         ; preds = %while.body
-  %68 = load i8, ptr %c, align 1
-  %conv443 = sext i8 %68 to i32
-  %cmp444 = icmp eq i32 %conv443, 10
-  br i1 %cmp444, label %if.then445, label %if.else466
-
-if.then445:                                       ; preds = %sw.bb442
-  %_header_connection_upgrade446 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 12
-  %69 = load i8, ptr %_header_connection_upgrade446, align 1
-  %tobool447 = trunc i8 %69 to i1
-  br i1 %tobool447, label %land.lhs.true, label %if.end464
-
-land.lhs.true:                                    ; preds = %if.then445
-  %_header_upgrade_websocket448 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 11
-  %70 = load i8, ptr %_header_upgrade_websocket448, align 8
-  %tobool449 = trunc i8 %70 to i1
-  br i1 %tobool449, label %land.lhs.true450, label %if.end464
-
-land.lhs.true450:                                 ; preds = %land.lhs.true
-  %_websocket_protocol451 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 13
-  %arrayidx452 = getelementptr inbounds [256 x i8], ptr %_websocket_protocol451, i64 0, i64 0
-  %71 = load i8, ptr %arrayidx452, align 2
-  %conv453 = sext i8 %71 to i32
-  %cmp454 = icmp ne i32 %conv453, 0
-  br i1 %cmp454, label %land.lhs.true455, label %if.end464
-
-land.lhs.true455:                                 ; preds = %land.lhs.true450
-  %_websocket_accept456 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 15
-  %arrayidx457 = getelementptr inbounds [2049 x i8], ptr %_websocket_accept456, i64 0, i64 0
-  %72 = load i8, ptr %arrayidx457, align 1
-  %conv458 = sext i8 %72 to i32
-  %cmp459 = icmp ne i32 %conv458, 0
-  br i1 %cmp459, label %if.then460, label %if.end464
-
-if.then460:                                       ; preds = %land.lhs.true455
-  %_client_handshake_state461 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 41, ptr %_client_handshake_state461, align 8
-  %_inpos462 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 3
-  %73 = load ptr, ptr %_inpos462, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %73, i32 1
-  store ptr %incdec.ptr, ptr %_inpos462, align 8
-  %_insize463 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 4
-  %74 = load i64, ptr %_insize463, align 8
-  %dec = add i64 %74, -1
-  store i64 %dec, ptr %_insize463, align 8
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end464:                                        ; preds = %land.lhs.true455, %land.lhs.true450, %land.lhs.true, %if.then445
-  %_client_handshake_state465 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state465, align 8
-  br label %if.end468
-
-if.else466:                                       ; preds = %sw.bb442
-  %_client_handshake_state467 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  store i32 -1, ptr %_client_handshake_state467, align 8
-  br label %if.end468
-
-if.end468:                                        ; preds = %if.else466, %if.end464
-  br label %sw.epilog470
-
-sw.default469:                                    ; preds = %while.body
-  br label %sw.epilog470
-
-sw.epilog470:                                     ; preds = %sw.default469, %if.end468, %if.end441, %if.end433, %if.then401, %if.end352, %if.end331, %sw.epilog, %if.end294, %if.end286, %if.end278, %if.end270, %if.end262, %if.end254, %if.end246, %if.end238, %if.end230, %if.end222, %if.end214, %if.end206, %if.end198, %if.end190, %if.end182, %if.end174, %if.end166, %if.end158, %if.end150, %if.end142, %if.end134, %if.end120, %if.end112, %if.end104, %if.end96, %if.end82, %if.end74, %if.end66, %if.end58, %if.end50, %if.end42, %if.end34, %if.end26, %if.end18
-  %_inpos471 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 3
-  %75 = load ptr, ptr %_inpos471, align 8
-  %incdec.ptr472 = getelementptr inbounds i8, ptr %75, i32 1
-  store ptr %incdec.ptr472, ptr %_inpos471, align 8
-  %_insize473 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 4
-  %76 = load i64, ptr %_insize473, align 8
-  %dec474 = add i64 %76, -1
-  store i64 %dec474, ptr %_insize473, align 8
-  %_client_handshake_state475 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 3
-  %77 = load i32, ptr %_client_handshake_state475, align 8
-  %cmp476 = icmp eq i32 %77, -1
-  br i1 %cmp476, label %if.then477, label %if.end481
-
-if.then477:                                       ; preds = %sw.epilog470
-  %call478 = call noundef ptr @_ZN3zmq20stream_engine_base_t6socketEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  %_endpoint_uri_pair = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 16
-  call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call478, ptr noundef nonnull align 8 dereferenceable(68) %_endpoint_uri_pair, i32 noundef 805306368)
-  %vtable479 = load ptr, ptr %this1, align 8
-  %vfn480 = getelementptr inbounds ptr, ptr %vtable479, i64 12
-  %78 = load ptr, ptr %vfn480, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(1689) %this1, i32 noundef 0)
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end481:                                        ; preds = %sw.epilog470
-  br label %while.cond, !llvm.loop !8
-
-while.end:                                        ; preds = %while.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then477, %if.then460, %if.end
-  %79 = load i1, ptr %retval, align 1
-  ret i1 %79
+365:                                              ; preds = %362
+  %366 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 40, ptr %366, align 8, !tbaa !78
+  br label %375
+
+367:                                              ; preds = %362
+  %368 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %368, align 8, !tbaa !78
+  br label %375
+
+369:                                              ; preds = %362
+  %370 = load i8, ptr %6, align 1, !tbaa !90
+  %371 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 7
+  %372 = getelementptr inbounds [1025 x i8], ptr %371, i64 0, i64 0
+  store i8 %370, ptr %372, align 8, !tbaa !90
+  %373 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 8
+  store i32 1, ptr %373, align 4, !tbaa !80
+  %374 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 35, ptr %374, align 8, !tbaa !78
+  br label %375
+
+375:                                              ; preds = %369, %367, %365
+  br label %588
+
+376:                                              ; preds = %36
+  %377 = load i8, ptr %6, align 1, !tbaa !90
+  %378 = sext i8 %377 to i32
+  %379 = icmp eq i32 %378, 13
+  br i1 %379, label %384, label %380
+
+380:                                              ; preds = %376
+  %381 = load i8, ptr %6, align 1, !tbaa !90
+  %382 = sext i8 %381 to i32
+  %383 = icmp eq i32 %382, 10
+  br i1 %383, label %384, label %386
+
+384:                                              ; preds = %380, %376
+  %385 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %385, align 8, !tbaa !78
+  br label %417
+
+386:                                              ; preds = %380
+  %387 = load i8, ptr %6, align 1, !tbaa !90
+  %388 = sext i8 %387 to i32
+  %389 = icmp eq i32 %388, 58
+  br i1 %389, label %390, label %397
+
+390:                                              ; preds = %386
+  %391 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 7
+  %392 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 8
+  %393 = load i32, ptr %392, align 4, !tbaa !80
+  %394 = sext i32 %393 to i64
+  %395 = getelementptr inbounds [1025 x i8], ptr %391, i64 0, i64 %394
+  store i8 0, ptr %395, align 1, !tbaa !90
+  %396 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 36, ptr %396, align 8, !tbaa !78
+  br label %416
+
+397:                                              ; preds = %386
+  %398 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 8
+  %399 = load i32, ptr %398, align 4, !tbaa !80
+  %400 = add nsw i32 %399, 1
+  %401 = icmp sgt i32 %400, 1024
+  br i1 %401, label %402, label %404
+
+402:                                              ; preds = %397
+  %403 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %403, align 8, !tbaa !78
+  br label %415
+
+404:                                              ; preds = %397
+  %405 = load i8, ptr %6, align 1, !tbaa !90
+  %406 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 7
+  %407 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 8
+  %408 = load i32, ptr %407, align 4, !tbaa !80
+  %409 = sext i32 %408 to i64
+  %410 = getelementptr inbounds [1025 x i8], ptr %406, i64 0, i64 %409
+  store i8 %405, ptr %410, align 1, !tbaa !90
+  %411 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 8
+  %412 = load i32, ptr %411, align 4, !tbaa !80
+  %413 = add nsw i32 %412, 1
+  store i32 %413, ptr %411, align 4, !tbaa !80
+  %414 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 35, ptr %414, align 8, !tbaa !78
+  br label %415
+
+415:                                              ; preds = %404, %402
+  br label %416
+
+416:                                              ; preds = %415, %390
+  br label %417
+
+417:                                              ; preds = %416, %384
+  br label %588
+
+418:                                              ; preds = %36, %36
+  %419 = load i8, ptr %6, align 1, !tbaa !90
+  %420 = sext i8 %419 to i32
+  %421 = icmp eq i32 %420, 10
+  br i1 %421, label %422, label %424
+
+422:                                              ; preds = %418
+  %423 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %423, align 8, !tbaa !78
+  br label %444
+
+424:                                              ; preds = %418
+  %425 = load i8, ptr %6, align 1, !tbaa !90
+  %426 = sext i8 %425 to i32
+  %427 = icmp eq i32 %426, 13
+  br i1 %427, label %428, label %430
+
+428:                                              ; preds = %424
+  %429 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 39, ptr %429, align 8, !tbaa !78
+  br label %443
+
+430:                                              ; preds = %424
+  %431 = load i8, ptr %6, align 1, !tbaa !90
+  %432 = sext i8 %431 to i32
+  %433 = icmp eq i32 %432, 32
+  br i1 %433, label %434, label %436
+
+434:                                              ; preds = %430
+  %435 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 37, ptr %435, align 8, !tbaa !78
+  br label %442
+
+436:                                              ; preds = %430
+  %437 = load i8, ptr %6, align 1, !tbaa !90
+  %438 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 9
+  %439 = getelementptr inbounds [2049 x i8], ptr %438, i64 0, i64 0
+  store i8 %437, ptr %439, align 8, !tbaa !90
+  %440 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 10
+  store i32 1, ptr %440, align 4, !tbaa !81
+  %441 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 38, ptr %441, align 8, !tbaa !78
+  br label %442
+
+442:                                              ; preds = %436, %434
+  br label %443
+
+443:                                              ; preds = %442, %428
+  br label %444
+
+444:                                              ; preds = %443, %422
+  br label %588
+
+445:                                              ; preds = %36
+  %446 = load i8, ptr %6, align 1, !tbaa !90
+  %447 = sext i8 %446 to i32
+  %448 = icmp eq i32 %447, 10
+  br i1 %448, label %449, label %451
+
+449:                                              ; preds = %445
+  %450 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %450, align 8, !tbaa !78
+  br label %540
+
+451:                                              ; preds = %445
+  %452 = load i8, ptr %6, align 1, !tbaa !90
+  %453 = sext i8 %452 to i32
+  %454 = icmp eq i32 %453, 13
+  br i1 %454, label %455, label %520
+
+455:                                              ; preds = %451
+  %456 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 9
+  %457 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 10
+  %458 = load i32, ptr %457, align 4, !tbaa !81
+  %459 = sext i32 %458 to i64
+  %460 = getelementptr inbounds [2049 x i8], ptr %456, i64 0, i64 %459
+  store i8 0, ptr %460, align 1, !tbaa !90
+  %461 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 7
+  %462 = getelementptr inbounds [1025 x i8], ptr %461, i64 0, i64 0
+  %463 = call i32 @strcasecmp(ptr noundef @.str.10, ptr noundef %462) #22
+  %464 = icmp eq i32 %463, 0
+  br i1 %464, label %465, label %472
+
+465:                                              ; preds = %455
+  %466 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 9
+  %467 = getelementptr inbounds [2049 x i8], ptr %466, i64 0, i64 0
+  %468 = call i32 @strcasecmp(ptr noundef @.str.11, ptr noundef %467) #22
+  %469 = icmp eq i32 %468, 0
+  %470 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 11
+  %471 = zext i1 %469 to i8
+  store i8 %471, ptr %470, align 8, !tbaa !82
+  br label %518
+
+472:                                              ; preds = %455
+  %473 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 7
+  %474 = getelementptr inbounds [1025 x i8], ptr %473, i64 0, i64 0
+  %475 = call i32 @strcasecmp(ptr noundef @.str.12, ptr noundef %474) #22
+  %476 = icmp eq i32 %475, 0
+  br i1 %476, label %477, label %484
+
+477:                                              ; preds = %472
+  %478 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 9
+  %479 = getelementptr inbounds [2049 x i8], ptr %478, i64 0, i64 0
+  %480 = call i32 @strcasecmp(ptr noundef @.str.10, ptr noundef %479) #22
+  %481 = icmp eq i32 %480, 0
+  %482 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 12
+  %483 = zext i1 %481 to i8
+  store i8 %483, ptr %482, align 1, !tbaa !83
+  br label %517
+
+484:                                              ; preds = %472
+  %485 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 7
+  %486 = getelementptr inbounds [1025 x i8], ptr %485, i64 0, i64 0
+  %487 = call i32 @strcasecmp(ptr noundef @.str.17, ptr noundef %486) #22
+  %488 = icmp eq i32 %487, 0
+  br i1 %488, label %489, label %494
+
+489:                                              ; preds = %484
+  %490 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 15
+  %491 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 9
+  %492 = getelementptr inbounds [2049 x i8], ptr %491, i64 0, i64 0
+  %493 = call noundef i32 @_ZL8strcpy_sILm2049EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(2049) %490, ptr noundef %492)
+  br label %516
+
+494:                                              ; preds = %484
+  %495 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 7
+  %496 = getelementptr inbounds [1025 x i8], ptr %495, i64 0, i64 0
+  %497 = call i32 @strcasecmp(ptr noundef @.str.15, ptr noundef %496) #22
+  %498 = icmp eq i32 %497, 0
+  br i1 %498, label %499, label %515
+
+499:                                              ; preds = %494
+  %500 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 9
+  %501 = load ptr, ptr %500, align 8, !tbaa !112
+  %502 = icmp ne ptr %501, null
+  br i1 %502, label %503, label %505
+
+503:                                              ; preds = %499
+  %504 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %504, align 8, !tbaa !78
+  br label %588
+
+505:                                              ; preds = %499
+  %506 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 9
+  %507 = getelementptr inbounds [2049 x i8], ptr %506, i64 0, i64 0
+  %508 = call noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef nonnull align 8 dereferenceable(25696) %7, ptr noundef %507)
+  br i1 %508, label %509, label %514
+
+509:                                              ; preds = %505
+  %510 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 13
+  %511 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 9
+  %512 = getelementptr inbounds [2049 x i8], ptr %511, i64 0, i64 0
+  %513 = call noundef i32 @_ZL8strcpy_sILm256EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(256) %510, ptr noundef %512)
+  br label %514
+
+514:                                              ; preds = %509, %505
+  br label %515
+
+515:                                              ; preds = %514, %494
+  br label %516
+
+516:                                              ; preds = %515, %489
+  br label %517
+
+517:                                              ; preds = %516, %477
+  br label %518
+
+518:                                              ; preds = %517, %465
+  %519 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 39, ptr %519, align 8, !tbaa !78
+  br label %539
+
+520:                                              ; preds = %451
+  %521 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 10
+  %522 = load i32, ptr %521, align 4, !tbaa !81
+  %523 = add nsw i32 %522, 1
+  %524 = icmp sgt i32 %523, 2048
+  br i1 %524, label %525, label %527
+
+525:                                              ; preds = %520
+  %526 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %526, align 8, !tbaa !78
+  br label %538
+
+527:                                              ; preds = %520
+  %528 = load i8, ptr %6, align 1, !tbaa !90
+  %529 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 9
+  %530 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 10
+  %531 = load i32, ptr %530, align 4, !tbaa !81
+  %532 = sext i32 %531 to i64
+  %533 = getelementptr inbounds [2049 x i8], ptr %529, i64 0, i64 %532
+  store i8 %528, ptr %533, align 1, !tbaa !90
+  %534 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 10
+  %535 = load i32, ptr %534, align 4, !tbaa !81
+  %536 = add nsw i32 %535, 1
+  store i32 %536, ptr %534, align 4, !tbaa !81
+  %537 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 38, ptr %537, align 8, !tbaa !78
+  br label %538
+
+538:                                              ; preds = %527, %525
+  br label %539
+
+539:                                              ; preds = %538, %518
+  br label %540
+
+540:                                              ; preds = %539, %449
+  br label %588
+
+541:                                              ; preds = %36
+  %542 = load i8, ptr %6, align 1, !tbaa !90
+  %543 = sext i8 %542 to i32
+  %544 = icmp eq i32 %543, 10
+  br i1 %544, label %545, label %547
+
+545:                                              ; preds = %541
+  %546 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 34, ptr %546, align 8, !tbaa !78
+  br label %549
+
+547:                                              ; preds = %541
+  %548 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %548, align 8, !tbaa !78
+  br label %549
+
+549:                                              ; preds = %547, %545
+  br label %588
+
+550:                                              ; preds = %36
+  %551 = load i8, ptr %6, align 1, !tbaa !90
+  %552 = sext i8 %551 to i32
+  %553 = icmp eq i32 %552, 10
+  br i1 %553, label %554, label %584
+
+554:                                              ; preds = %550
+  %555 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 12
+  %556 = load i8, ptr %555, align 1, !tbaa !83, !range !20, !noundef !21
+  %557 = trunc i8 %556 to i1
+  br i1 %557, label %558, label %582
+
+558:                                              ; preds = %554
+  %559 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 11
+  %560 = load i8, ptr %559, align 8, !tbaa !82, !range !20, !noundef !21
+  %561 = trunc i8 %560 to i1
+  br i1 %561, label %562, label %582
+
+562:                                              ; preds = %558
+  %563 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 13
+  %564 = getelementptr inbounds [256 x i8], ptr %563, i64 0, i64 0
+  %565 = load i8, ptr %564, align 2, !tbaa !90
+  %566 = sext i8 %565 to i32
+  %567 = icmp ne i32 %566, 0
+  br i1 %567, label %568, label %582
+
+568:                                              ; preds = %562
+  %569 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 15
+  %570 = getelementptr inbounds [2049 x i8], ptr %569, i64 0, i64 0
+  %571 = load i8, ptr %570, align 1, !tbaa !90
+  %572 = sext i8 %571 to i32
+  %573 = icmp ne i32 %572, 0
+  br i1 %573, label %574, label %582
+
+574:                                              ; preds = %568
+  %575 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 41, ptr %575, align 8, !tbaa !78
+  %576 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 3
+  %577 = load ptr, ptr %576, align 8, !tbaa !120
+  %578 = getelementptr inbounds nuw i8, ptr %577, i32 1
+  store ptr %578, ptr %576, align 8, !tbaa !120
+  %579 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 4
+  %580 = load i64, ptr %579, align 8, !tbaa !121
+  %581 = add i64 %580, -1
+  store i64 %581, ptr %579, align 8, !tbaa !121
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %605
+
+582:                                              ; preds = %568, %562, %558, %554
+  %583 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %583, align 8, !tbaa !78
+  br label %586
+
+584:                                              ; preds = %550
+  %585 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  store i32 -1, ptr %585, align 8, !tbaa !78
+  br label %586
+
+586:                                              ; preds = %584, %582
+  br label %588
+
+587:                                              ; preds = %36
+  br label %588
+
+588:                                              ; preds = %587, %586, %549, %540, %503, %444, %417, %375, %361, %352, %343, %334, %325, %316, %307, %298, %289, %280, %271, %262, %253, %244, %235, %226, %217, %208, %199, %190, %181, %165, %156, %147, %138, %122, %113, %104, %95, %86, %77, %68, %59, %50
+  %589 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 3
+  %590 = load ptr, ptr %589, align 8, !tbaa !120
+  %591 = getelementptr inbounds nuw i8, ptr %590, i32 1
+  store ptr %591, ptr %589, align 8, !tbaa !120
+  %592 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 4
+  %593 = load i64, ptr %592, align 8, !tbaa !121
+  %594 = add i64 %593, -1
+  store i64 %594, ptr %592, align 8, !tbaa !121
+  %595 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 3
+  %596 = load i32, ptr %595, align 8, !tbaa !78
+  %597 = icmp eq i32 %596, -1
+  br i1 %597, label %598, label %604
+
+598:                                              ; preds = %588
+  %599 = call noundef ptr @_ZN3zmq20stream_engine_base_t6socketEv(ptr noundef nonnull align 8 dereferenceable(1689) %7)
+  %600 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 16
+  call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %599, ptr noundef nonnull align 8 dereferenceable(68) %600, i32 noundef 805306368)
+  %601 = load ptr, ptr %7, align 8, !tbaa !18
+  %602 = getelementptr inbounds ptr, ptr %601, i64 12
+  %603 = load ptr, ptr %602, align 8
+  call void %603(ptr noundef nonnull align 8 dereferenceable(1689) %7, i32 noundef 0)
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %605
+
+604:                                              ; preds = %588
+  store i32 0, ptr %5, align 4
+  br label %605
+
+605:                                              ; preds = %604, %598, %574
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #18
+  %606 = load i32, ptr %5, align 4
+  switch i32 %606, label %609 [
+    i32 0, label %607
+  ]
+
+607:                                              ; preds = %605
+  br label %32, !llvm.loop !122
+
+608:                                              ; preds = %32
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %609
+
+609:                                              ; preds = %608, %605, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #18
+  %610 = load i1, ptr %2, align 1
+  ret i1 %610
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3zmq11ws_engine_t16server_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this) #0 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %nbytes = alloca i32, align 4
-  %c = alloca i8, align 1
-  %rest = alloca ptr, align 8
-  %element = alloca ptr, align 8
-  %rest277 = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %hash = alloca [20 x i8], align 16
-  %accept_key_len = alloca i32, align 4
-  %written = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_read_buffer = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [8192 x i8], ptr %_read_buffer, i64 0, i64 0
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
-  %0 = load ptr, ptr %vfn, align 8
-  %call = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(1689) %this1, ptr noundef %arraydecay, i64 noundef 8192)
-  store i32 %call, ptr %nbytes, align 4
-  %1 = load i32, ptr %nbytes, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %if.then, label %if.end7
+define noundef zeroext i1 @_ZN3zmq11ws_engine_t16server_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca [20 x i8], align 16
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %14 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #18
+  %15 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 5
+  %16 = getelementptr inbounds [8192 x i8], ptr %15, i64 0, i64 0
+  %17 = load ptr, ptr %14, align 8, !tbaa !18
+  %18 = getelementptr inbounds ptr, ptr %17, i64 20
+  %19 = load ptr, ptr %18, align 8
+  %20 = call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(1689) %14, ptr noundef %16, i64 noundef 8192)
+  store i32 %20, ptr %4, align 4, !tbaa !8
+  %21 = load i32, ptr %4, align 4, !tbaa !8
+  %22 = icmp eq i32 %21, -1
+  br i1 %22, label %23, label %32
 
-if.then:                                          ; preds = %entry
-  %call2 = call ptr @__errno_location() #16
-  %2 = load i32, ptr %call2, align 4
-  %cmp3 = icmp ne i32 %2, 11
-  br i1 %cmp3, label %if.then4, label %if.end
+23:                                               ; preds = %1
+  %24 = call ptr @__errno_location() #21
+  %25 = load i32, ptr %24, align 4, !tbaa !8
+  %26 = icmp ne i32 %25, 11
+  br i1 %26, label %27, label %31
 
-if.then4:                                         ; preds = %if.then
-  %vtable5 = load ptr, ptr %this1, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 12
-  %3 = load ptr, ptr %vfn6, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(1689) %this1, i32 noundef 1)
-  br label %if.end
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %14, align 8, !tbaa !18
+  %29 = getelementptr inbounds ptr, ptr %28, i64 12
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(1689) %14, i32 noundef 1)
+  br label %31
 
-if.end:                                           ; preds = %if.then4, %if.then
-  store i1 false, ptr %retval, align 1
-  br label %return
+31:                                               ; preds = %27, %23
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %519
 
-if.end7:                                          ; preds = %entry
-  %_read_buffer8 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 5
-  %arraydecay9 = getelementptr inbounds [8192 x i8], ptr %_read_buffer8, i64 0, i64 0
-  %_inpos = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 3
-  store ptr %arraydecay9, ptr %_inpos, align 8
-  %4 = load i32, ptr %nbytes, align 4
-  %conv = sext i32 %4 to i64
-  %_insize = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 4
-  store i64 %conv, ptr %_insize, align 8
-  br label %while.cond
+32:                                               ; preds = %1
+  %33 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 5
+  %34 = getelementptr inbounds [8192 x i8], ptr %33, i64 0, i64 0
+  %35 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 3
+  store ptr %34, ptr %35, align 8, !tbaa !120
+  %36 = load i32, ptr %4, align 4, !tbaa !8
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 4
+  store i64 %37, ptr %38, align 8, !tbaa !121
+  br label %39
 
-while.cond:                                       ; preds = %if.end384, %if.end7
-  %_insize10 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 4
-  %5 = load i64, ptr %_insize10, align 8
-  %cmp11 = icmp ugt i64 %5, 0
-  br i1 %cmp11, label %while.body, label %while.end385
+39:                                               ; preds = %517, %32
+  %40 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 4
+  %41 = load i64, ptr %40, align 8, !tbaa !121
+  %42 = icmp ugt i64 %41, 0
+  br i1 %42, label %43, label %518
 
-while.body:                                       ; preds = %while.cond
-  %_inpos12 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %_inpos12, align 8
-  %7 = load i8, ptr %6, align 1
-  store i8 %7, ptr %c, align 1
-  %_server_handshake_state = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  %8 = load i32, ptr %_server_handshake_state, align 4
-  switch i32 %8, label %sw.default372 [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb19
-    i32 2, label %sw.bb27
-    i32 3, label %sw.bb35
-    i32 4, label %sw.bb43
-    i32 5, label %sw.bb58
-    i32 6, label %sw.bb75
-    i32 7, label %sw.bb83
-    i32 8, label %sw.bb91
-    i32 9, label %sw.bb99
-    i32 10, label %sw.bb107
-    i32 11, label %sw.bb115
-    i32 12, label %sw.bb123
-    i32 13, label %sw.bb131
-    i32 14, label %sw.bb139
-    i32 15, label %sw.bb147
-    i32 16, label %sw.bb155
-    i32 17, label %sw.bb162
-    i32 18, label %sw.bb193
-    i32 19, label %sw.bb193
-    i32 20, label %sw.bb214
-    i32 21, label %sw.bb319
-    i32 22, label %sw.bb327
+43:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #18
+  %44 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 3
+  %45 = load ptr, ptr %44, align 8, !tbaa !120
+  %46 = load i8, ptr %45, align 1, !tbaa !90
+  store i8 %46, ptr %6, align 1, !tbaa !90
+  %47 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  %48 = load i32, ptr %47, align 4, !tbaa !79
+  switch i32 %48, label %497 [
+    i32 0, label %49
+    i32 1, label %58
+    i32 2, label %67
+    i32 3, label %76
+    i32 4, label %85
+    i32 5, label %104
+    i32 6, label %124
+    i32 7, label %133
+    i32 8, label %142
+    i32 9, label %151
+    i32 10, label %160
+    i32 11, label %169
+    i32 12, label %178
+    i32 13, label %187
+    i32 14, label %196
+    i32 15, label %205
+    i32 16, label %214
+    i32 17, label %228
+    i32 18, label %270
+    i32 19, label %270
+    i32 20, label %297
+    i32 21, label %427
+    i32 22, label %436
   ]
 
-sw.bb:                                            ; preds = %while.body
-  %9 = load i8, ptr %c, align 1
-  %conv13 = sext i8 %9 to i32
-  %cmp14 = icmp eq i32 %conv13, 71
-  br i1 %cmp14, label %if.then15, label %if.else
-
-if.then15:                                        ; preds = %sw.bb
-  %_server_handshake_state16 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 1, ptr %_server_handshake_state16, align 4
-  br label %if.end18
-
-if.else:                                          ; preds = %sw.bb
-  %_server_handshake_state17 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state17, align 4
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.else, %if.then15
-  br label %sw.epilog373
-
-sw.bb19:                                          ; preds = %while.body
-  %10 = load i8, ptr %c, align 1
-  %conv20 = sext i8 %10 to i32
-  %cmp21 = icmp eq i32 %conv20, 69
-  br i1 %cmp21, label %if.then22, label %if.else24
-
-if.then22:                                        ; preds = %sw.bb19
-  %_server_handshake_state23 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 2, ptr %_server_handshake_state23, align 4
-  br label %if.end26
-
-if.else24:                                        ; preds = %sw.bb19
-  %_server_handshake_state25 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state25, align 4
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.else24, %if.then22
-  br label %sw.epilog373
-
-sw.bb27:                                          ; preds = %while.body
-  %11 = load i8, ptr %c, align 1
-  %conv28 = sext i8 %11 to i32
-  %cmp29 = icmp eq i32 %conv28, 84
-  br i1 %cmp29, label %if.then30, label %if.else32
-
-if.then30:                                        ; preds = %sw.bb27
-  %_server_handshake_state31 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 3, ptr %_server_handshake_state31, align 4
-  br label %if.end34
-
-if.else32:                                        ; preds = %sw.bb27
-  %_server_handshake_state33 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state33, align 4
-  br label %if.end34
-
-if.end34:                                         ; preds = %if.else32, %if.then30
-  br label %sw.epilog373
-
-sw.bb35:                                          ; preds = %while.body
-  %12 = load i8, ptr %c, align 1
-  %conv36 = sext i8 %12 to i32
-  %cmp37 = icmp eq i32 %conv36, 32
-  br i1 %cmp37, label %if.then38, label %if.else40
-
-if.then38:                                        ; preds = %sw.bb35
-  %_server_handshake_state39 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 4, ptr %_server_handshake_state39, align 4
-  br label %if.end42
-
-if.else40:                                        ; preds = %sw.bb35
-  %_server_handshake_state41 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state41, align 4
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.else40, %if.then38
-  br label %sw.epilog373
-
-sw.bb43:                                          ; preds = %while.body
-  %13 = load i8, ptr %c, align 1
-  %conv44 = sext i8 %13 to i32
-  %cmp45 = icmp eq i32 %conv44, 13
-  br i1 %cmp45, label %if.then48, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %sw.bb43
-  %14 = load i8, ptr %c, align 1
-  %conv46 = sext i8 %14 to i32
-  %cmp47 = icmp eq i32 %conv46, 10
-  br i1 %cmp47, label %if.then48, label %if.end50
-
-if.then48:                                        ; preds = %lor.lhs.false, %sw.bb43
-  %_server_handshake_state49 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state49, align 4
-  br label %if.end50
-
-if.end50:                                         ; preds = %if.then48, %lor.lhs.false
-  %15 = load i8, ptr %c, align 1
-  %conv51 = sext i8 %15 to i32
-  %cmp52 = icmp ne i32 %conv51, 32
-  br i1 %cmp52, label %if.then53, label %if.else55
-
-if.then53:                                        ; preds = %if.end50
-  %_server_handshake_state54 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 5, ptr %_server_handshake_state54, align 4
-  br label %if.end57
-
-if.else55:                                        ; preds = %if.end50
-  %_server_handshake_state56 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 4, ptr %_server_handshake_state56, align 4
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.else55, %if.then53
-  br label %sw.epilog373
-
-sw.bb58:                                          ; preds = %while.body
-  %16 = load i8, ptr %c, align 1
-  %conv59 = sext i8 %16 to i32
-  %cmp60 = icmp eq i32 %conv59, 13
-  br i1 %cmp60, label %if.then64, label %lor.lhs.false61
-
-lor.lhs.false61:                                  ; preds = %sw.bb58
-  %17 = load i8, ptr %c, align 1
-  %conv62 = sext i8 %17 to i32
-  %cmp63 = icmp eq i32 %conv62, 10
-  br i1 %cmp63, label %if.then64, label %if.else66
-
-if.then64:                                        ; preds = %lor.lhs.false61, %sw.bb58
-  %_server_handshake_state65 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state65, align 4
-  br label %if.end74
-
-if.else66:                                        ; preds = %lor.lhs.false61
-  %18 = load i8, ptr %c, align 1
-  %conv67 = sext i8 %18 to i32
-  %cmp68 = icmp eq i32 %conv67, 32
-  br i1 %cmp68, label %if.then69, label %if.else71
-
-if.then69:                                        ; preds = %if.else66
-  %_server_handshake_state70 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 6, ptr %_server_handshake_state70, align 4
-  br label %if.end73
-
-if.else71:                                        ; preds = %if.else66
-  %_server_handshake_state72 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 5, ptr %_server_handshake_state72, align 4
-  br label %if.end73
-
-if.end73:                                         ; preds = %if.else71, %if.then69
-  br label %if.end74
-
-if.end74:                                         ; preds = %if.end73, %if.then64
-  br label %sw.epilog373
-
-sw.bb75:                                          ; preds = %while.body
-  %19 = load i8, ptr %c, align 1
-  %conv76 = sext i8 %19 to i32
-  %cmp77 = icmp eq i32 %conv76, 72
-  br i1 %cmp77, label %if.then78, label %if.else80
-
-if.then78:                                        ; preds = %sw.bb75
-  %_server_handshake_state79 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 7, ptr %_server_handshake_state79, align 4
-  br label %if.end82
-
-if.else80:                                        ; preds = %sw.bb75
-  %_server_handshake_state81 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state81, align 4
-  br label %if.end82
-
-if.end82:                                         ; preds = %if.else80, %if.then78
-  br label %sw.epilog373
-
-sw.bb83:                                          ; preds = %while.body
-  %20 = load i8, ptr %c, align 1
-  %conv84 = sext i8 %20 to i32
-  %cmp85 = icmp eq i32 %conv84, 84
-  br i1 %cmp85, label %if.then86, label %if.else88
-
-if.then86:                                        ; preds = %sw.bb83
-  %_server_handshake_state87 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 8, ptr %_server_handshake_state87, align 4
-  br label %if.end90
-
-if.else88:                                        ; preds = %sw.bb83
-  %_server_handshake_state89 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state89, align 4
-  br label %if.end90
-
-if.end90:                                         ; preds = %if.else88, %if.then86
-  br label %sw.epilog373
-
-sw.bb91:                                          ; preds = %while.body
-  %21 = load i8, ptr %c, align 1
-  %conv92 = sext i8 %21 to i32
-  %cmp93 = icmp eq i32 %conv92, 84
-  br i1 %cmp93, label %if.then94, label %if.else96
-
-if.then94:                                        ; preds = %sw.bb91
-  %_server_handshake_state95 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 9, ptr %_server_handshake_state95, align 4
-  br label %if.end98
-
-if.else96:                                        ; preds = %sw.bb91
-  %_server_handshake_state97 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state97, align 4
-  br label %if.end98
-
-if.end98:                                         ; preds = %if.else96, %if.then94
-  br label %sw.epilog373
-
-sw.bb99:                                          ; preds = %while.body
-  %22 = load i8, ptr %c, align 1
-  %conv100 = sext i8 %22 to i32
-  %cmp101 = icmp eq i32 %conv100, 80
-  br i1 %cmp101, label %if.then102, label %if.else104
-
-if.then102:                                       ; preds = %sw.bb99
-  %_server_handshake_state103 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 10, ptr %_server_handshake_state103, align 4
-  br label %if.end106
-
-if.else104:                                       ; preds = %sw.bb99
-  %_server_handshake_state105 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state105, align 4
-  br label %if.end106
-
-if.end106:                                        ; preds = %if.else104, %if.then102
-  br label %sw.epilog373
-
-sw.bb107:                                         ; preds = %while.body
-  %23 = load i8, ptr %c, align 1
-  %conv108 = sext i8 %23 to i32
-  %cmp109 = icmp eq i32 %conv108, 47
-  br i1 %cmp109, label %if.then110, label %if.else112
-
-if.then110:                                       ; preds = %sw.bb107
-  %_server_handshake_state111 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 11, ptr %_server_handshake_state111, align 4
-  br label %if.end114
-
-if.else112:                                       ; preds = %sw.bb107
-  %_server_handshake_state113 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state113, align 4
-  br label %if.end114
-
-if.end114:                                        ; preds = %if.else112, %if.then110
-  br label %sw.epilog373
-
-sw.bb115:                                         ; preds = %while.body
-  %24 = load i8, ptr %c, align 1
-  %conv116 = sext i8 %24 to i32
-  %cmp117 = icmp eq i32 %conv116, 49
-  br i1 %cmp117, label %if.then118, label %if.else120
-
-if.then118:                                       ; preds = %sw.bb115
-  %_server_handshake_state119 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 12, ptr %_server_handshake_state119, align 4
-  br label %if.end122
-
-if.else120:                                       ; preds = %sw.bb115
-  %_server_handshake_state121 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state121, align 4
-  br label %if.end122
-
-if.end122:                                        ; preds = %if.else120, %if.then118
-  br label %sw.epilog373
-
-sw.bb123:                                         ; preds = %while.body
-  %25 = load i8, ptr %c, align 1
-  %conv124 = sext i8 %25 to i32
-  %cmp125 = icmp eq i32 %conv124, 46
-  br i1 %cmp125, label %if.then126, label %if.else128
-
-if.then126:                                       ; preds = %sw.bb123
-  %_server_handshake_state127 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 13, ptr %_server_handshake_state127, align 4
-  br label %if.end130
-
-if.else128:                                       ; preds = %sw.bb123
-  %_server_handshake_state129 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state129, align 4
-  br label %if.end130
-
-if.end130:                                        ; preds = %if.else128, %if.then126
-  br label %sw.epilog373
-
-sw.bb131:                                         ; preds = %while.body
-  %26 = load i8, ptr %c, align 1
-  %conv132 = sext i8 %26 to i32
-  %cmp133 = icmp eq i32 %conv132, 49
-  br i1 %cmp133, label %if.then134, label %if.else136
-
-if.then134:                                       ; preds = %sw.bb131
-  %_server_handshake_state135 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 14, ptr %_server_handshake_state135, align 4
-  br label %if.end138
-
-if.else136:                                       ; preds = %sw.bb131
-  %_server_handshake_state137 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state137, align 4
-  br label %if.end138
-
-if.end138:                                        ; preds = %if.else136, %if.then134
-  br label %sw.epilog373
-
-sw.bb139:                                         ; preds = %while.body
-  %27 = load i8, ptr %c, align 1
-  %conv140 = sext i8 %27 to i32
-  %cmp141 = icmp eq i32 %conv140, 13
-  br i1 %cmp141, label %if.then142, label %if.else144
-
-if.then142:                                       ; preds = %sw.bb139
-  %_server_handshake_state143 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 15, ptr %_server_handshake_state143, align 4
-  br label %if.end146
-
-if.else144:                                       ; preds = %sw.bb139
-  %_server_handshake_state145 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state145, align 4
-  br label %if.end146
-
-if.end146:                                        ; preds = %if.else144, %if.then142
-  br label %sw.epilog373
-
-sw.bb147:                                         ; preds = %while.body
-  %28 = load i8, ptr %c, align 1
-  %conv148 = sext i8 %28 to i32
-  %cmp149 = icmp eq i32 %conv148, 10
-  br i1 %cmp149, label %if.then150, label %if.else152
-
-if.then150:                                       ; preds = %sw.bb147
-  %_server_handshake_state151 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 16, ptr %_server_handshake_state151, align 4
-  br label %if.end154
-
-if.else152:                                       ; preds = %sw.bb147
-  %_server_handshake_state153 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state153, align 4
-  br label %if.end154
-
-if.end154:                                        ; preds = %if.else152, %if.then150
-  br label %sw.epilog373
-
-sw.bb155:                                         ; preds = %while.body
-  %29 = load i8, ptr %c, align 1
-  %conv156 = sext i8 %29 to i32
-  switch i32 %conv156, label %sw.default [
-    i32 13, label %sw.bb157
-    i32 10, label %sw.bb159
+49:                                               ; preds = %43
+  %50 = load i8, ptr %6, align 1, !tbaa !90
+  %51 = sext i8 %50 to i32
+  %52 = icmp eq i32 %51, 71
+  br i1 %52, label %53, label %55
+
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 1, ptr %54, align 4, !tbaa !79
+  br label %57
+
+55:                                               ; preds = %49
+  %56 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %56, align 4, !tbaa !79
+  br label %57
+
+57:                                               ; preds = %55, %53
+  br label %498
+
+58:                                               ; preds = %43
+  %59 = load i8, ptr %6, align 1, !tbaa !90
+  %60 = sext i8 %59 to i32
+  %61 = icmp eq i32 %60, 69
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 2, ptr %63, align 4, !tbaa !79
+  br label %66
+
+64:                                               ; preds = %58
+  %65 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %65, align 4, !tbaa !79
+  br label %66
+
+66:                                               ; preds = %64, %62
+  br label %498
+
+67:                                               ; preds = %43
+  %68 = load i8, ptr %6, align 1, !tbaa !90
+  %69 = sext i8 %68 to i32
+  %70 = icmp eq i32 %69, 84
+  br i1 %70, label %71, label %73
+
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 3, ptr %72, align 4, !tbaa !79
+  br label %75
+
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %74, align 4, !tbaa !79
+  br label %75
+
+75:                                               ; preds = %73, %71
+  br label %498
+
+76:                                               ; preds = %43
+  %77 = load i8, ptr %6, align 1, !tbaa !90
+  %78 = sext i8 %77 to i32
+  %79 = icmp eq i32 %78, 32
+  br i1 %79, label %80, label %82
+
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 4, ptr %81, align 4, !tbaa !79
+  br label %84
+
+82:                                               ; preds = %76
+  %83 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %83, align 4, !tbaa !79
+  br label %84
+
+84:                                               ; preds = %82, %80
+  br label %498
+
+85:                                               ; preds = %43
+  %86 = load i8, ptr %6, align 1, !tbaa !90
+  %87 = sext i8 %86 to i32
+  %88 = icmp eq i32 %87, 13
+  br i1 %88, label %93, label %89
+
+89:                                               ; preds = %85
+  %90 = load i8, ptr %6, align 1, !tbaa !90
+  %91 = sext i8 %90 to i32
+  %92 = icmp eq i32 %91, 10
+  br i1 %92, label %93, label %95
+
+93:                                               ; preds = %89, %85
+  %94 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %94, align 4, !tbaa !79
+  br label %95
+
+95:                                               ; preds = %93, %89
+  %96 = load i8, ptr %6, align 1, !tbaa !90
+  %97 = sext i8 %96 to i32
+  %98 = icmp ne i32 %97, 32
+  br i1 %98, label %99, label %101
+
+99:                                               ; preds = %95
+  %100 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 5, ptr %100, align 4, !tbaa !79
+  br label %103
+
+101:                                              ; preds = %95
+  %102 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 4, ptr %102, align 4, !tbaa !79
+  br label %103
+
+103:                                              ; preds = %101, %99
+  br label %498
+
+104:                                              ; preds = %43
+  %105 = load i8, ptr %6, align 1, !tbaa !90
+  %106 = sext i8 %105 to i32
+  %107 = icmp eq i32 %106, 13
+  br i1 %107, label %112, label %108
+
+108:                                              ; preds = %104
+  %109 = load i8, ptr %6, align 1, !tbaa !90
+  %110 = sext i8 %109 to i32
+  %111 = icmp eq i32 %110, 10
+  br i1 %111, label %112, label %114
+
+112:                                              ; preds = %108, %104
+  %113 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %113, align 4, !tbaa !79
+  br label %123
+
+114:                                              ; preds = %108
+  %115 = load i8, ptr %6, align 1, !tbaa !90
+  %116 = sext i8 %115 to i32
+  %117 = icmp eq i32 %116, 32
+  br i1 %117, label %118, label %120
+
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 6, ptr %119, align 4, !tbaa !79
+  br label %122
+
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 5, ptr %121, align 4, !tbaa !79
+  br label %122
+
+122:                                              ; preds = %120, %118
+  br label %123
+
+123:                                              ; preds = %122, %112
+  br label %498
+
+124:                                              ; preds = %43
+  %125 = load i8, ptr %6, align 1, !tbaa !90
+  %126 = sext i8 %125 to i32
+  %127 = icmp eq i32 %126, 72
+  br i1 %127, label %128, label %130
+
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 7, ptr %129, align 4, !tbaa !79
+  br label %132
+
+130:                                              ; preds = %124
+  %131 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %131, align 4, !tbaa !79
+  br label %132
+
+132:                                              ; preds = %130, %128
+  br label %498
+
+133:                                              ; preds = %43
+  %134 = load i8, ptr %6, align 1, !tbaa !90
+  %135 = sext i8 %134 to i32
+  %136 = icmp eq i32 %135, 84
+  br i1 %136, label %137, label %139
+
+137:                                              ; preds = %133
+  %138 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 8, ptr %138, align 4, !tbaa !79
+  br label %141
+
+139:                                              ; preds = %133
+  %140 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %140, align 4, !tbaa !79
+  br label %141
+
+141:                                              ; preds = %139, %137
+  br label %498
+
+142:                                              ; preds = %43
+  %143 = load i8, ptr %6, align 1, !tbaa !90
+  %144 = sext i8 %143 to i32
+  %145 = icmp eq i32 %144, 84
+  br i1 %145, label %146, label %148
+
+146:                                              ; preds = %142
+  %147 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 9, ptr %147, align 4, !tbaa !79
+  br label %150
+
+148:                                              ; preds = %142
+  %149 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %149, align 4, !tbaa !79
+  br label %150
+
+150:                                              ; preds = %148, %146
+  br label %498
+
+151:                                              ; preds = %43
+  %152 = load i8, ptr %6, align 1, !tbaa !90
+  %153 = sext i8 %152 to i32
+  %154 = icmp eq i32 %153, 80
+  br i1 %154, label %155, label %157
+
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 10, ptr %156, align 4, !tbaa !79
+  br label %159
+
+157:                                              ; preds = %151
+  %158 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %158, align 4, !tbaa !79
+  br label %159
+
+159:                                              ; preds = %157, %155
+  br label %498
+
+160:                                              ; preds = %43
+  %161 = load i8, ptr %6, align 1, !tbaa !90
+  %162 = sext i8 %161 to i32
+  %163 = icmp eq i32 %162, 47
+  br i1 %163, label %164, label %166
+
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 11, ptr %165, align 4, !tbaa !79
+  br label %168
+
+166:                                              ; preds = %160
+  %167 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %167, align 4, !tbaa !79
+  br label %168
+
+168:                                              ; preds = %166, %164
+  br label %498
+
+169:                                              ; preds = %43
+  %170 = load i8, ptr %6, align 1, !tbaa !90
+  %171 = sext i8 %170 to i32
+  %172 = icmp eq i32 %171, 49
+  br i1 %172, label %173, label %175
+
+173:                                              ; preds = %169
+  %174 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 12, ptr %174, align 4, !tbaa !79
+  br label %177
+
+175:                                              ; preds = %169
+  %176 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %176, align 4, !tbaa !79
+  br label %177
+
+177:                                              ; preds = %175, %173
+  br label %498
+
+178:                                              ; preds = %43
+  %179 = load i8, ptr %6, align 1, !tbaa !90
+  %180 = sext i8 %179 to i32
+  %181 = icmp eq i32 %180, 46
+  br i1 %181, label %182, label %184
+
+182:                                              ; preds = %178
+  %183 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 13, ptr %183, align 4, !tbaa !79
+  br label %186
+
+184:                                              ; preds = %178
+  %185 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %185, align 4, !tbaa !79
+  br label %186
+
+186:                                              ; preds = %184, %182
+  br label %498
+
+187:                                              ; preds = %43
+  %188 = load i8, ptr %6, align 1, !tbaa !90
+  %189 = sext i8 %188 to i32
+  %190 = icmp eq i32 %189, 49
+  br i1 %190, label %191, label %193
+
+191:                                              ; preds = %187
+  %192 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 14, ptr %192, align 4, !tbaa !79
+  br label %195
+
+193:                                              ; preds = %187
+  %194 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %194, align 4, !tbaa !79
+  br label %195
+
+195:                                              ; preds = %193, %191
+  br label %498
+
+196:                                              ; preds = %43
+  %197 = load i8, ptr %6, align 1, !tbaa !90
+  %198 = sext i8 %197 to i32
+  %199 = icmp eq i32 %198, 13
+  br i1 %199, label %200, label %202
+
+200:                                              ; preds = %196
+  %201 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 15, ptr %201, align 4, !tbaa !79
+  br label %204
+
+202:                                              ; preds = %196
+  %203 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %203, align 4, !tbaa !79
+  br label %204
+
+204:                                              ; preds = %202, %200
+  br label %498
+
+205:                                              ; preds = %43
+  %206 = load i8, ptr %6, align 1, !tbaa !90
+  %207 = sext i8 %206 to i32
+  %208 = icmp eq i32 %207, 10
+  br i1 %208, label %209, label %211
+
+209:                                              ; preds = %205
+  %210 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 16, ptr %210, align 4, !tbaa !79
+  br label %213
+
+211:                                              ; preds = %205
+  %212 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %212, align 4, !tbaa !79
+  br label %213
+
+213:                                              ; preds = %211, %209
+  br label %498
+
+214:                                              ; preds = %43
+  %215 = load i8, ptr %6, align 1, !tbaa !90
+  %216 = sext i8 %215 to i32
+  switch i32 %216, label %221 [
+    i32 13, label %217
+    i32 10, label %219
   ]
 
-sw.bb157:                                         ; preds = %sw.bb155
-  %_server_handshake_state158 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 22, ptr %_server_handshake_state158, align 4
-  br label %sw.epilog
-
-sw.bb159:                                         ; preds = %sw.bb155
-  %_server_handshake_state160 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state160, align 4
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %sw.bb155
-  %30 = load i8, ptr %c, align 1
-  %_header_name = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arrayidx = getelementptr inbounds [1025 x i8], ptr %_header_name, i64 0, i64 0
-  store i8 %30, ptr %arrayidx, align 8
-  %_header_name_position = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  store i32 1, ptr %_header_name_position, align 4
-  %_server_handshake_state161 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 17, ptr %_server_handshake_state161, align 4
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.default, %sw.bb159, %sw.bb157
-  br label %sw.epilog373
-
-sw.bb162:                                         ; preds = %while.body
-  %31 = load i8, ptr %c, align 1
-  %conv163 = sext i8 %31 to i32
-  %cmp164 = icmp eq i32 %conv163, 13
-  br i1 %cmp164, label %if.then168, label %lor.lhs.false165
-
-lor.lhs.false165:                                 ; preds = %sw.bb162
-  %32 = load i8, ptr %c, align 1
-  %conv166 = sext i8 %32 to i32
-  %cmp167 = icmp eq i32 %conv166, 10
-  br i1 %cmp167, label %if.then168, label %if.else170
-
-if.then168:                                       ; preds = %lor.lhs.false165, %sw.bb162
-  %_server_handshake_state169 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state169, align 4
-  br label %if.end192
-
-if.else170:                                       ; preds = %lor.lhs.false165
-  %33 = load i8, ptr %c, align 1
-  %conv171 = sext i8 %33 to i32
-  %cmp172 = icmp eq i32 %conv171, 58
-  br i1 %cmp172, label %if.then173, label %if.else178
-
-if.then173:                                       ; preds = %if.else170
-  %_header_name174 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %_header_name_position175 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  %34 = load i32, ptr %_header_name_position175, align 4
-  %idxprom = sext i32 %34 to i64
-  %arrayidx176 = getelementptr inbounds [1025 x i8], ptr %_header_name174, i64 0, i64 %idxprom
-  store i8 0, ptr %arrayidx176, align 1
-  %_server_handshake_state177 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 18, ptr %_server_handshake_state177, align 4
-  br label %if.end191
-
-if.else178:                                       ; preds = %if.else170
-  %_header_name_position179 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  %35 = load i32, ptr %_header_name_position179, align 4
-  %add = add nsw i32 %35, 1
-  %cmp180 = icmp sgt i32 %add, 1024
-  br i1 %cmp180, label %if.then181, label %if.else183
-
-if.then181:                                       ; preds = %if.else178
-  %_server_handshake_state182 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state182, align 4
-  br label %if.end190
-
-if.else183:                                       ; preds = %if.else178
-  %36 = load i8, ptr %c, align 1
-  %_header_name184 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %_header_name_position185 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  %37 = load i32, ptr %_header_name_position185, align 4
-  %idxprom186 = sext i32 %37 to i64
-  %arrayidx187 = getelementptr inbounds [1025 x i8], ptr %_header_name184, i64 0, i64 %idxprom186
-  store i8 %36, ptr %arrayidx187, align 1
-  %_header_name_position188 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 8
-  %38 = load i32, ptr %_header_name_position188, align 4
-  %inc = add nsw i32 %38, 1
-  store i32 %inc, ptr %_header_name_position188, align 4
-  %_server_handshake_state189 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 17, ptr %_server_handshake_state189, align 4
-  br label %if.end190
-
-if.end190:                                        ; preds = %if.else183, %if.then181
-  br label %if.end191
-
-if.end191:                                        ; preds = %if.end190, %if.then173
-  br label %if.end192
-
-if.end192:                                        ; preds = %if.end191, %if.then168
-  br label %sw.epilog373
-
-sw.bb193:                                         ; preds = %while.body, %while.body
-  %39 = load i8, ptr %c, align 1
-  %conv194 = sext i8 %39 to i32
-  %cmp195 = icmp eq i32 %conv194, 10
-  br i1 %cmp195, label %if.then196, label %if.else198
-
-if.then196:                                       ; preds = %sw.bb193
-  %_server_handshake_state197 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state197, align 4
-  br label %if.end213
-
-if.else198:                                       ; preds = %sw.bb193
-  %40 = load i8, ptr %c, align 1
-  %conv199 = sext i8 %40 to i32
-  %cmp200 = icmp eq i32 %conv199, 13
-  br i1 %cmp200, label %if.then201, label %if.else203
-
-if.then201:                                       ; preds = %if.else198
-  %_server_handshake_state202 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 21, ptr %_server_handshake_state202, align 4
-  br label %if.end212
-
-if.else203:                                       ; preds = %if.else198
-  %41 = load i8, ptr %c, align 1
-  %conv204 = sext i8 %41 to i32
-  %cmp205 = icmp eq i32 %conv204, 32
-  br i1 %cmp205, label %if.then206, label %if.else208
-
-if.then206:                                       ; preds = %if.else203
-  %_server_handshake_state207 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 19, ptr %_server_handshake_state207, align 4
-  br label %if.end211
-
-if.else208:                                       ; preds = %if.else203
-  %42 = load i8, ptr %c, align 1
-  %_header_value = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arrayidx209 = getelementptr inbounds [2049 x i8], ptr %_header_value, i64 0, i64 0
-  store i8 %42, ptr %arrayidx209, align 8
-  %_header_value_position = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  store i32 1, ptr %_header_value_position, align 4
-  %_server_handshake_state210 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 20, ptr %_server_handshake_state210, align 4
-  br label %if.end211
-
-if.end211:                                        ; preds = %if.else208, %if.then206
-  br label %if.end212
-
-if.end212:                                        ; preds = %if.end211, %if.then201
-  br label %if.end213
-
-if.end213:                                        ; preds = %if.end212, %if.then196
-  br label %sw.epilog373
-
-sw.bb214:                                         ; preds = %while.body
-  %43 = load i8, ptr %c, align 1
-  %conv215 = sext i8 %43 to i32
-  %cmp216 = icmp eq i32 %conv215, 10
-  br i1 %cmp216, label %if.then217, label %if.else219
-
-if.then217:                                       ; preds = %sw.bb214
-  %_server_handshake_state218 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state218, align 4
-  br label %if.end318
-
-if.else219:                                       ; preds = %sw.bb214
-  %44 = load i8, ptr %c, align 1
-  %conv220 = sext i8 %44 to i32
-  %cmp221 = icmp eq i32 %conv220, 13
-  br i1 %cmp221, label %if.then222, label %if.else302
-
-if.then222:                                       ; preds = %if.else219
-  %_header_value223 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %_header_value_position224 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  %45 = load i32, ptr %_header_value_position224, align 4
-  %idxprom225 = sext i32 %45 to i64
-  %arrayidx226 = getelementptr inbounds [2049 x i8], ptr %_header_value223, i64 0, i64 %idxprom225
-  store i8 0, ptr %arrayidx226, align 1
-  %_header_name227 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arraydecay228 = getelementptr inbounds [1025 x i8], ptr %_header_name227, i64 0, i64 0
-  %call229 = call i32 @strcasecmp(ptr noundef @.str.10, ptr noundef %arraydecay228) #17
-  %cmp230 = icmp eq i32 %call229, 0
-  br i1 %cmp230, label %if.then231, label %if.else236
-
-if.then231:                                       ; preds = %if.then222
-  %_header_value232 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arraydecay233 = getelementptr inbounds [2049 x i8], ptr %_header_value232, i64 0, i64 0
-  %call234 = call i32 @strcasecmp(ptr noundef @.str.11, ptr noundef %arraydecay233) #17
-  %cmp235 = icmp eq i32 %call234, 0
-  %_header_upgrade_websocket = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 11
-  %frombool = zext i1 %cmp235 to i8
-  store i8 %frombool, ptr %_header_upgrade_websocket, align 8
-  br label %if.end300
-
-if.else236:                                       ; preds = %if.then222
-  %_header_name237 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arraydecay238 = getelementptr inbounds [1025 x i8], ptr %_header_name237, i64 0, i64 0
-  %call239 = call i32 @strcasecmp(ptr noundef @.str.12, ptr noundef %arraydecay238) #17
-  %cmp240 = icmp eq i32 %call239, 0
-  br i1 %cmp240, label %if.then241, label %if.else258
-
-if.then241:                                       ; preds = %if.else236
-  store ptr null, ptr %rest, align 8
-  %_header_value242 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arraydecay243 = getelementptr inbounds [2049 x i8], ptr %_header_value242, i64 0, i64 0
-  %call244 = call ptr @strtok_r(ptr noundef %arraydecay243, ptr noundef @.str.13, ptr noundef %rest) #13
-  store ptr %call244, ptr %element, align 8
-  br label %while.cond245
-
-while.cond245:                                    ; preds = %if.end255, %if.then241
-  %46 = load ptr, ptr %element, align 8
-  %cmp246 = icmp ne ptr %46, null
-  br i1 %cmp246, label %while.body247, label %while.end257
-
-while.body247:                                    ; preds = %while.cond245
-  br label %while.cond248
-
-while.cond248:                                    ; preds = %while.body251, %while.body247
-  %47 = load ptr, ptr %element, align 8
-  %48 = load i8, ptr %47, align 1
-  %conv249 = sext i8 %48 to i32
-  %cmp250 = icmp eq i32 %conv249, 32
-  br i1 %cmp250, label %while.body251, label %while.end
-
-while.body251:                                    ; preds = %while.cond248
-  %49 = load ptr, ptr %element, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %49, i32 1
-  store ptr %incdec.ptr, ptr %element, align 8
-  br label %while.cond248, !llvm.loop !9
-
-while.end:                                        ; preds = %while.cond248
-  %50 = load ptr, ptr %element, align 8
-  %call252 = call i32 @strcasecmp(ptr noundef @.str.10, ptr noundef %50) #17
-  %cmp253 = icmp eq i32 %call252, 0
-  br i1 %cmp253, label %if.then254, label %if.end255
-
-if.then254:                                       ; preds = %while.end
-  %_header_connection_upgrade = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 12
-  store i8 1, ptr %_header_connection_upgrade, align 1
-  br label %while.end257
-
-if.end255:                                        ; preds = %while.end
-  %call256 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.13, ptr noundef %rest) #13
-  store ptr %call256, ptr %element, align 8
-  br label %while.cond245, !llvm.loop !10
-
-while.end257:                                     ; preds = %if.then254, %while.cond245
-  br label %if.end299
-
-if.else258:                                       ; preds = %if.else236
-  %_header_name259 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arraydecay260 = getelementptr inbounds [1025 x i8], ptr %_header_name259, i64 0, i64 0
-  %call261 = call i32 @strcasecmp(ptr noundef @.str.14, ptr noundef %arraydecay260) #17
-  %cmp262 = icmp eq i32 %call261, 0
-  br i1 %cmp262, label %if.then263, label %if.else267
-
-if.then263:                                       ; preds = %if.else258
-  %_websocket_key = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 14
-  %_header_value264 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arraydecay265 = getelementptr inbounds [2049 x i8], ptr %_header_value264, i64 0, i64 0
-  %call266 = call noundef i32 @_ZL8strcpy_sILm2049EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(2049) %_websocket_key, ptr noundef %arraydecay265)
-  br label %if.end298
-
-if.else267:                                       ; preds = %if.else258
-  %_header_name268 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 7
-  %arraydecay269 = getelementptr inbounds [1025 x i8], ptr %_header_name268, i64 0, i64 0
-  %call270 = call i32 @strcasecmp(ptr noundef @.str.15, ptr noundef %arraydecay269) #17
-  %cmp271 = icmp eq i32 %call270, 0
-  br i1 %cmp271, label %if.then272, label %if.end297
-
-if.then272:                                       ; preds = %if.else267
-  %_websocket_protocol = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 13
-  %arrayidx273 = getelementptr inbounds [256 x i8], ptr %_websocket_protocol, i64 0, i64 0
-  %51 = load i8, ptr %arrayidx273, align 2
-  %conv274 = sext i8 %51 to i32
-  %cmp275 = icmp eq i32 %conv274, 0
-  br i1 %cmp275, label %if.then276, label %if.end296
-
-if.then276:                                       ; preds = %if.then272
-  store ptr null, ptr %rest277, align 8
-  %_header_value278 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %arraydecay279 = getelementptr inbounds [2049 x i8], ptr %_header_value278, i64 0, i64 0
-  %call280 = call ptr @strtok_r(ptr noundef %arraydecay279, ptr noundef @.str.13, ptr noundef %rest277) #13
-  store ptr %call280, ptr %p, align 8
-  br label %while.cond281
-
-while.cond281:                                    ; preds = %if.end293, %if.then276
-  %52 = load ptr, ptr %p, align 8
-  %cmp282 = icmp ne ptr %52, null
-  br i1 %cmp282, label %while.body283, label %while.end295
-
-while.body283:                                    ; preds = %while.cond281
-  %53 = load ptr, ptr %p, align 8
-  %54 = load i8, ptr %53, align 1
-  %conv284 = sext i8 %54 to i32
-  %cmp285 = icmp eq i32 %conv284, 32
-  br i1 %cmp285, label %if.then286, label %if.end288
-
-if.then286:                                       ; preds = %while.body283
-  %55 = load ptr, ptr %p, align 8
-  %incdec.ptr287 = getelementptr inbounds i8, ptr %55, i32 1
-  store ptr %incdec.ptr287, ptr %p, align 8
-  br label %if.end288
-
-if.end288:                                        ; preds = %if.then286, %while.body283
-  %56 = load ptr, ptr %p, align 8
-  %call289 = call noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef nonnull align 8 dereferenceable(25696) %this1, ptr noundef %56)
-  br i1 %call289, label %if.then290, label %if.end293
-
-if.then290:                                       ; preds = %if.end288
-  %_websocket_protocol291 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 13
-  %57 = load ptr, ptr %p, align 8
-  %call292 = call noundef i32 @_ZL8strcpy_sILm256EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(256) %_websocket_protocol291, ptr noundef %57)
-  br label %while.end295
-
-if.end293:                                        ; preds = %if.end288
-  %call294 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.13, ptr noundef %rest277) #13
-  store ptr %call294, ptr %p, align 8
-  br label %while.cond281, !llvm.loop !11
-
-while.end295:                                     ; preds = %if.then290, %while.cond281
-  br label %if.end296
-
-if.end296:                                        ; preds = %while.end295, %if.then272
-  br label %if.end297
-
-if.end297:                                        ; preds = %if.end296, %if.else267
-  br label %if.end298
-
-if.end298:                                        ; preds = %if.end297, %if.then263
-  br label %if.end299
-
-if.end299:                                        ; preds = %if.end298, %while.end257
-  br label %if.end300
-
-if.end300:                                        ; preds = %if.end299, %if.then231
-  %_server_handshake_state301 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 21, ptr %_server_handshake_state301, align 4
-  br label %if.end317
-
-if.else302:                                       ; preds = %if.else219
-  %_header_value_position303 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  %58 = load i32, ptr %_header_value_position303, align 4
-  %add304 = add nsw i32 %58, 1
-  %cmp305 = icmp sgt i32 %add304, 2048
-  br i1 %cmp305, label %if.then306, label %if.else308
-
-if.then306:                                       ; preds = %if.else302
-  %_server_handshake_state307 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state307, align 4
-  br label %if.end316
-
-if.else308:                                       ; preds = %if.else302
-  %59 = load i8, ptr %c, align 1
-  %_header_value309 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 9
-  %_header_value_position310 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  %60 = load i32, ptr %_header_value_position310, align 4
-  %idxprom311 = sext i32 %60 to i64
-  %arrayidx312 = getelementptr inbounds [2049 x i8], ptr %_header_value309, i64 0, i64 %idxprom311
-  store i8 %59, ptr %arrayidx312, align 1
-  %_header_value_position313 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 10
-  %61 = load i32, ptr %_header_value_position313, align 4
-  %inc314 = add nsw i32 %61, 1
-  store i32 %inc314, ptr %_header_value_position313, align 4
-  %_server_handshake_state315 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 20, ptr %_server_handshake_state315, align 4
-  br label %if.end316
-
-if.end316:                                        ; preds = %if.else308, %if.then306
-  br label %if.end317
-
-if.end317:                                        ; preds = %if.end316, %if.end300
-  br label %if.end318
-
-if.end318:                                        ; preds = %if.end317, %if.then217
-  br label %sw.epilog373
-
-sw.bb319:                                         ; preds = %while.body
-  %62 = load i8, ptr %c, align 1
-  %conv320 = sext i8 %62 to i32
-  %cmp321 = icmp eq i32 %conv320, 10
-  br i1 %cmp321, label %if.then322, label %if.else324
-
-if.then322:                                       ; preds = %sw.bb319
-  %_server_handshake_state323 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 16, ptr %_server_handshake_state323, align 4
-  br label %if.end326
-
-if.else324:                                       ; preds = %sw.bb319
-  %_server_handshake_state325 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state325, align 4
-  br label %if.end326
-
-if.end326:                                        ; preds = %if.else324, %if.then322
-  br label %sw.epilog373
-
-sw.bb327:                                         ; preds = %while.body
-  %63 = load i8, ptr %c, align 1
-  %conv328 = sext i8 %63 to i32
-  %cmp329 = icmp eq i32 %conv328, 10
-  br i1 %cmp329, label %if.then330, label %if.else369
-
-if.then330:                                       ; preds = %sw.bb327
-  %_header_connection_upgrade331 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 12
-  %64 = load i8, ptr %_header_connection_upgrade331, align 1
-  %tobool = trunc i8 %64 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.end367
-
-land.lhs.true:                                    ; preds = %if.then330
-  %_header_upgrade_websocket332 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 11
-  %65 = load i8, ptr %_header_upgrade_websocket332, align 8
-  %tobool333 = trunc i8 %65 to i1
-  br i1 %tobool333, label %land.lhs.true334, label %if.end367
-
-land.lhs.true334:                                 ; preds = %land.lhs.true
-  %_websocket_protocol335 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 13
-  %arrayidx336 = getelementptr inbounds [256 x i8], ptr %_websocket_protocol335, i64 0, i64 0
-  %66 = load i8, ptr %arrayidx336, align 2
-  %conv337 = sext i8 %66 to i32
-  %cmp338 = icmp ne i32 %conv337, 0
-  br i1 %cmp338, label %land.lhs.true339, label %if.end367
-
-land.lhs.true339:                                 ; preds = %land.lhs.true334
-  %_websocket_key340 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 14
-  %arrayidx341 = getelementptr inbounds [2049 x i8], ptr %_websocket_key340, i64 0, i64 0
-  %67 = load i8, ptr %arrayidx341, align 2
-  %conv342 = sext i8 %67 to i32
-  %cmp343 = icmp ne i32 %conv342, 0
-  br i1 %cmp343, label %if.then344, label %if.end367
-
-if.then344:                                       ; preds = %land.lhs.true339
-  %_server_handshake_state345 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 23, ptr %_server_handshake_state345, align 4
-  %_websocket_key346 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 14
-  %arraydecay347 = getelementptr inbounds [2049 x i8], ptr %_websocket_key346, i64 0, i64 0
-  %arraydecay348 = getelementptr inbounds [20 x i8], ptr %hash, i64 0, i64 0
-  call void @_ZL18compute_accept_keyPcPh(ptr noundef %arraydecay347, ptr noundef %arraydecay348)
-  %arraydecay349 = getelementptr inbounds [20 x i8], ptr %hash, i64 0, i64 0
-  %_websocket_accept = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 15
-  %arraydecay350 = getelementptr inbounds [2049 x i8], ptr %_websocket_accept, i64 0, i64 0
-  %call351 = call noundef i32 @_ZL13encode_base64PKhiPci(ptr noundef %arraydecay349, i32 noundef 20, ptr noundef %arraydecay350, i32 noundef 2048)
-  store i32 %call351, ptr %accept_key_len, align 4
-  %_websocket_accept352 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 15
-  %68 = load i32, ptr %accept_key_len, align 4
-  %idxprom353 = sext i32 %68 to i64
-  %arrayidx354 = getelementptr inbounds [2049 x i8], ptr %_websocket_accept352, i64 0, i64 %idxprom353
-  store i8 0, ptr %arrayidx354, align 1
-  %_write_buffer = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 6
-  %arraydecay355 = getelementptr inbounds [8192 x i8], ptr %_write_buffer, i64 0, i64 0
-  %_websocket_accept356 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 15
-  %arraydecay357 = getelementptr inbounds [2049 x i8], ptr %_websocket_accept356, i64 0, i64 0
-  %_websocket_protocol358 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 13
-  %arraydecay359 = getelementptr inbounds [256 x i8], ptr %_websocket_protocol358, i64 0, i64 0
-  %call360 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %arraydecay355, i64 noundef 8192, ptr noundef @.str.16, ptr noundef %arraydecay357, ptr noundef %arraydecay359) #13
-  store i32 %call360, ptr %written, align 4
-  %_write_buffer361 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 6
-  %arraydecay362 = getelementptr inbounds [8192 x i8], ptr %_write_buffer361, i64 0, i64 0
-  %_outpos = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 6
-  store ptr %arraydecay362, ptr %_outpos, align 8
-  %69 = load i32, ptr %written, align 4
-  %conv363 = sext i32 %69 to i64
-  %_outsize = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 7
-  store i64 %conv363, ptr %_outsize, align 8
-  %_inpos364 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 3
-  %70 = load ptr, ptr %_inpos364, align 8
-  %incdec.ptr365 = getelementptr inbounds i8, ptr %70, i32 1
-  store ptr %incdec.ptr365, ptr %_inpos364, align 8
-  %_insize366 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 4
-  %71 = load i64, ptr %_insize366, align 8
-  %dec = add i64 %71, -1
-  store i64 %dec, ptr %_insize366, align 8
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end367:                                        ; preds = %land.lhs.true339, %land.lhs.true334, %land.lhs.true, %if.then330
-  %_server_handshake_state368 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state368, align 4
-  br label %if.end371
-
-if.else369:                                       ; preds = %sw.bb327
-  %_server_handshake_state370 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  store i32 -1, ptr %_server_handshake_state370, align 4
-  br label %if.end371
-
-if.end371:                                        ; preds = %if.else369, %if.end367
-  br label %sw.epilog373
-
-sw.default372:                                    ; preds = %while.body
-  br label %sw.epilog373
-
-sw.epilog373:                                     ; preds = %sw.default372, %if.end371, %if.end326, %if.end318, %if.end213, %if.end192, %sw.epilog, %if.end154, %if.end146, %if.end138, %if.end130, %if.end122, %if.end114, %if.end106, %if.end98, %if.end90, %if.end82, %if.end74, %if.end57, %if.end42, %if.end34, %if.end26, %if.end18
-  %_inpos374 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 3
-  %72 = load ptr, ptr %_inpos374, align 8
-  %incdec.ptr375 = getelementptr inbounds i8, ptr %72, i32 1
-  store ptr %incdec.ptr375, ptr %_inpos374, align 8
-  %_insize376 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 4
-  %73 = load i64, ptr %_insize376, align 8
-  %dec377 = add i64 %73, -1
-  store i64 %dec377, ptr %_insize376, align 8
-  %_server_handshake_state378 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 4
-  %74 = load i32, ptr %_server_handshake_state378, align 4
-  %cmp379 = icmp eq i32 %74, -1
-  br i1 %cmp379, label %if.then380, label %if.end384
-
-if.then380:                                       ; preds = %sw.epilog373
-  %call381 = call noundef ptr @_ZN3zmq20stream_engine_base_t6socketEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  %_endpoint_uri_pair = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 16
-  call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call381, ptr noundef nonnull align 8 dereferenceable(68) %_endpoint_uri_pair, i32 noundef 805306368)
-  %vtable382 = load ptr, ptr %this1, align 8
-  %vfn383 = getelementptr inbounds ptr, ptr %vtable382, i64 12
-  %75 = load ptr, ptr %vfn383, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(1689) %this1, i32 noundef 0)
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end384:                                        ; preds = %sw.epilog373
-  br label %while.cond, !llvm.loop !12
-
-while.end385:                                     ; preds = %while.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %while.end385, %if.then380, %if.then344, %if.end
-  %76 = load i1, ptr %retval, align 1
-  ret i1 %76
+217:                                              ; preds = %214
+  %218 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 22, ptr %218, align 4, !tbaa !79
+  br label %227
+
+219:                                              ; preds = %214
+  %220 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %220, align 4, !tbaa !79
+  br label %227
+
+221:                                              ; preds = %214
+  %222 = load i8, ptr %6, align 1, !tbaa !90
+  %223 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 7
+  %224 = getelementptr inbounds [1025 x i8], ptr %223, i64 0, i64 0
+  store i8 %222, ptr %224, align 8, !tbaa !90
+  %225 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 8
+  store i32 1, ptr %225, align 4, !tbaa !80
+  %226 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 17, ptr %226, align 4, !tbaa !79
+  br label %227
+
+227:                                              ; preds = %221, %219, %217
+  br label %498
+
+228:                                              ; preds = %43
+  %229 = load i8, ptr %6, align 1, !tbaa !90
+  %230 = sext i8 %229 to i32
+  %231 = icmp eq i32 %230, 13
+  br i1 %231, label %236, label %232
+
+232:                                              ; preds = %228
+  %233 = load i8, ptr %6, align 1, !tbaa !90
+  %234 = sext i8 %233 to i32
+  %235 = icmp eq i32 %234, 10
+  br i1 %235, label %236, label %238
+
+236:                                              ; preds = %232, %228
+  %237 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %237, align 4, !tbaa !79
+  br label %269
+
+238:                                              ; preds = %232
+  %239 = load i8, ptr %6, align 1, !tbaa !90
+  %240 = sext i8 %239 to i32
+  %241 = icmp eq i32 %240, 58
+  br i1 %241, label %242, label %249
+
+242:                                              ; preds = %238
+  %243 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 7
+  %244 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 8
+  %245 = load i32, ptr %244, align 4, !tbaa !80
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr inbounds [1025 x i8], ptr %243, i64 0, i64 %246
+  store i8 0, ptr %247, align 1, !tbaa !90
+  %248 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 18, ptr %248, align 4, !tbaa !79
+  br label %268
+
+249:                                              ; preds = %238
+  %250 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 8
+  %251 = load i32, ptr %250, align 4, !tbaa !80
+  %252 = add nsw i32 %251, 1
+  %253 = icmp sgt i32 %252, 1024
+  br i1 %253, label %254, label %256
+
+254:                                              ; preds = %249
+  %255 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %255, align 4, !tbaa !79
+  br label %267
+
+256:                                              ; preds = %249
+  %257 = load i8, ptr %6, align 1, !tbaa !90
+  %258 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 7
+  %259 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 8
+  %260 = load i32, ptr %259, align 4, !tbaa !80
+  %261 = sext i32 %260 to i64
+  %262 = getelementptr inbounds [1025 x i8], ptr %258, i64 0, i64 %261
+  store i8 %257, ptr %262, align 1, !tbaa !90
+  %263 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 8
+  %264 = load i32, ptr %263, align 4, !tbaa !80
+  %265 = add nsw i32 %264, 1
+  store i32 %265, ptr %263, align 4, !tbaa !80
+  %266 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 17, ptr %266, align 4, !tbaa !79
+  br label %267
+
+267:                                              ; preds = %256, %254
+  br label %268
+
+268:                                              ; preds = %267, %242
+  br label %269
+
+269:                                              ; preds = %268, %236
+  br label %498
+
+270:                                              ; preds = %43, %43
+  %271 = load i8, ptr %6, align 1, !tbaa !90
+  %272 = sext i8 %271 to i32
+  %273 = icmp eq i32 %272, 10
+  br i1 %273, label %274, label %276
+
+274:                                              ; preds = %270
+  %275 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %275, align 4, !tbaa !79
+  br label %296
+
+276:                                              ; preds = %270
+  %277 = load i8, ptr %6, align 1, !tbaa !90
+  %278 = sext i8 %277 to i32
+  %279 = icmp eq i32 %278, 13
+  br i1 %279, label %280, label %282
+
+280:                                              ; preds = %276
+  %281 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 21, ptr %281, align 4, !tbaa !79
+  br label %295
+
+282:                                              ; preds = %276
+  %283 = load i8, ptr %6, align 1, !tbaa !90
+  %284 = sext i8 %283 to i32
+  %285 = icmp eq i32 %284, 32
+  br i1 %285, label %286, label %288
+
+286:                                              ; preds = %282
+  %287 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 19, ptr %287, align 4, !tbaa !79
+  br label %294
+
+288:                                              ; preds = %282
+  %289 = load i8, ptr %6, align 1, !tbaa !90
+  %290 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 9
+  %291 = getelementptr inbounds [2049 x i8], ptr %290, i64 0, i64 0
+  store i8 %289, ptr %291, align 8, !tbaa !90
+  %292 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 10
+  store i32 1, ptr %292, align 4, !tbaa !81
+  %293 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 20, ptr %293, align 4, !tbaa !79
+  br label %294
+
+294:                                              ; preds = %288, %286
+  br label %295
+
+295:                                              ; preds = %294, %280
+  br label %296
+
+296:                                              ; preds = %295, %274
+  br label %498
+
+297:                                              ; preds = %43
+  %298 = load i8, ptr %6, align 1, !tbaa !90
+  %299 = sext i8 %298 to i32
+  %300 = icmp eq i32 %299, 10
+  br i1 %300, label %301, label %303
+
+301:                                              ; preds = %297
+  %302 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %302, align 4, !tbaa !79
+  br label %426
+
+303:                                              ; preds = %297
+  %304 = load i8, ptr %6, align 1, !tbaa !90
+  %305 = sext i8 %304 to i32
+  %306 = icmp eq i32 %305, 13
+  br i1 %306, label %307, label %406
+
+307:                                              ; preds = %303
+  %308 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 9
+  %309 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 10
+  %310 = load i32, ptr %309, align 4, !tbaa !81
+  %311 = sext i32 %310 to i64
+  %312 = getelementptr inbounds [2049 x i8], ptr %308, i64 0, i64 %311
+  store i8 0, ptr %312, align 1, !tbaa !90
+  %313 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 7
+  %314 = getelementptr inbounds [1025 x i8], ptr %313, i64 0, i64 0
+  %315 = call i32 @strcasecmp(ptr noundef @.str.10, ptr noundef %314) #22
+  %316 = icmp eq i32 %315, 0
+  br i1 %316, label %317, label %324
+
+317:                                              ; preds = %307
+  %318 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 9
+  %319 = getelementptr inbounds [2049 x i8], ptr %318, i64 0, i64 0
+  %320 = call i32 @strcasecmp(ptr noundef @.str.11, ptr noundef %319) #22
+  %321 = icmp eq i32 %320, 0
+  %322 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 11
+  %323 = zext i1 %321 to i8
+  store i8 %323, ptr %322, align 8, !tbaa !82
+  br label %404
+
+324:                                              ; preds = %307
+  %325 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 7
+  %326 = getelementptr inbounds [1025 x i8], ptr %325, i64 0, i64 0
+  %327 = call i32 @strcasecmp(ptr noundef @.str.12, ptr noundef %326) #22
+  %328 = icmp eq i32 %327, 0
+  br i1 %328, label %329, label %354
+
+329:                                              ; preds = %324
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  store ptr null, ptr %7, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  %330 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 9
+  %331 = getelementptr inbounds [2049 x i8], ptr %330, i64 0, i64 0
+  %332 = call ptr @strtok_r(ptr noundef %331, ptr noundef @.str.13, ptr noundef %7) #18
+  store ptr %332, ptr %8, align 8, !tbaa !92
+  br label %333
+
+333:                                              ; preds = %351, %329
+  %334 = load ptr, ptr %8, align 8, !tbaa !92
+  %335 = icmp ne ptr %334, null
+  br i1 %335, label %336, label %353
+
+336:                                              ; preds = %333
+  br label %337
+
+337:                                              ; preds = %342, %336
+  %338 = load ptr, ptr %8, align 8, !tbaa !92
+  %339 = load i8, ptr %338, align 1, !tbaa !90
+  %340 = sext i8 %339 to i32
+  %341 = icmp eq i32 %340, 32
+  br i1 %341, label %342, label %345
+
+342:                                              ; preds = %337
+  %343 = load ptr, ptr %8, align 8, !tbaa !92
+  %344 = getelementptr inbounds nuw i8, ptr %343, i32 1
+  store ptr %344, ptr %8, align 8, !tbaa !92
+  br label %337, !llvm.loop !123
+
+345:                                              ; preds = %337
+  %346 = load ptr, ptr %8, align 8, !tbaa !92
+  %347 = call i32 @strcasecmp(ptr noundef @.str.10, ptr noundef %346) #22
+  %348 = icmp eq i32 %347, 0
+  br i1 %348, label %349, label %351
+
+349:                                              ; preds = %345
+  %350 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 12
+  store i8 1, ptr %350, align 1, !tbaa !83
+  br label %353
+
+351:                                              ; preds = %345
+  %352 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.13, ptr noundef %7) #18
+  store ptr %352, ptr %8, align 8, !tbaa !92
+  br label %333, !llvm.loop !124
+
+353:                                              ; preds = %349, %333
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  br label %403
+
+354:                                              ; preds = %324
+  %355 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 7
+  %356 = getelementptr inbounds [1025 x i8], ptr %355, i64 0, i64 0
+  %357 = call i32 @strcasecmp(ptr noundef @.str.14, ptr noundef %356) #22
+  %358 = icmp eq i32 %357, 0
+  br i1 %358, label %359, label %364
+
+359:                                              ; preds = %354
+  %360 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 14
+  %361 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 9
+  %362 = getelementptr inbounds [2049 x i8], ptr %361, i64 0, i64 0
+  %363 = call noundef i32 @_ZL8strcpy_sILm2049EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(2049) %360, ptr noundef %362)
+  br label %402
+
+364:                                              ; preds = %354
+  %365 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 7
+  %366 = getelementptr inbounds [1025 x i8], ptr %365, i64 0, i64 0
+  %367 = call i32 @strcasecmp(ptr noundef @.str.15, ptr noundef %366) #22
+  %368 = icmp eq i32 %367, 0
+  br i1 %368, label %369, label %401
+
+369:                                              ; preds = %364
+  %370 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 13
+  %371 = getelementptr inbounds [256 x i8], ptr %370, i64 0, i64 0
+  %372 = load i8, ptr %371, align 2, !tbaa !90
+  %373 = sext i8 %372 to i32
+  %374 = icmp eq i32 %373, 0
+  br i1 %374, label %375, label %400
+
+375:                                              ; preds = %369
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #18
+  store ptr null, ptr %9, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #18
+  %376 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 9
+  %377 = getelementptr inbounds [2049 x i8], ptr %376, i64 0, i64 0
+  %378 = call ptr @strtok_r(ptr noundef %377, ptr noundef @.str.13, ptr noundef %9) #18
+  store ptr %378, ptr %10, align 8, !tbaa !92
+  br label %379
+
+379:                                              ; preds = %397, %375
+  %380 = load ptr, ptr %10, align 8, !tbaa !92
+  %381 = icmp ne ptr %380, null
+  br i1 %381, label %382, label %399
+
+382:                                              ; preds = %379
+  %383 = load ptr, ptr %10, align 8, !tbaa !92
+  %384 = load i8, ptr %383, align 1, !tbaa !90
+  %385 = sext i8 %384 to i32
+  %386 = icmp eq i32 %385, 32
+  br i1 %386, label %387, label %390
+
+387:                                              ; preds = %382
+  %388 = load ptr, ptr %10, align 8, !tbaa !92
+  %389 = getelementptr inbounds nuw i8, ptr %388, i32 1
+  store ptr %389, ptr %10, align 8, !tbaa !92
+  br label %390
+
+390:                                              ; preds = %387, %382
+  %391 = load ptr, ptr %10, align 8, !tbaa !92
+  %392 = call noundef zeroext i1 @_ZN3zmq11ws_engine_t15select_protocolEPKc(ptr noundef nonnull align 8 dereferenceable(25696) %14, ptr noundef %391)
+  br i1 %392, label %393, label %397
+
+393:                                              ; preds = %390
+  %394 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 13
+  %395 = load ptr, ptr %10, align 8, !tbaa !92
+  %396 = call noundef i32 @_ZL8strcpy_sILm256EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(256) %394, ptr noundef %395)
+  br label %399
+
+397:                                              ; preds = %390
+  %398 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.13, ptr noundef %9) #18
+  store ptr %398, ptr %10, align 8, !tbaa !92
+  br label %379, !llvm.loop !125
+
+399:                                              ; preds = %393, %379
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #18
+  br label %400
+
+400:                                              ; preds = %399, %369
+  br label %401
+
+401:                                              ; preds = %400, %364
+  br label %402
+
+402:                                              ; preds = %401, %359
+  br label %403
+
+403:                                              ; preds = %402, %353
+  br label %404
+
+404:                                              ; preds = %403, %317
+  %405 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 21, ptr %405, align 4, !tbaa !79
+  br label %425
+
+406:                                              ; preds = %303
+  %407 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 10
+  %408 = load i32, ptr %407, align 4, !tbaa !81
+  %409 = add nsw i32 %408, 1
+  %410 = icmp sgt i32 %409, 2048
+  br i1 %410, label %411, label %413
+
+411:                                              ; preds = %406
+  %412 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %412, align 4, !tbaa !79
+  br label %424
+
+413:                                              ; preds = %406
+  %414 = load i8, ptr %6, align 1, !tbaa !90
+  %415 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 9
+  %416 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 10
+  %417 = load i32, ptr %416, align 4, !tbaa !81
+  %418 = sext i32 %417 to i64
+  %419 = getelementptr inbounds [2049 x i8], ptr %415, i64 0, i64 %418
+  store i8 %414, ptr %419, align 1, !tbaa !90
+  %420 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 10
+  %421 = load i32, ptr %420, align 4, !tbaa !81
+  %422 = add nsw i32 %421, 1
+  store i32 %422, ptr %420, align 4, !tbaa !81
+  %423 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 20, ptr %423, align 4, !tbaa !79
+  br label %424
+
+424:                                              ; preds = %413, %411
+  br label %425
+
+425:                                              ; preds = %424, %404
+  br label %426
+
+426:                                              ; preds = %425, %301
+  br label %498
+
+427:                                              ; preds = %43
+  %428 = load i8, ptr %6, align 1, !tbaa !90
+  %429 = sext i8 %428 to i32
+  %430 = icmp eq i32 %429, 10
+  br i1 %430, label %431, label %433
+
+431:                                              ; preds = %427
+  %432 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 16, ptr %432, align 4, !tbaa !79
+  br label %435
+
+433:                                              ; preds = %427
+  %434 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %434, align 4, !tbaa !79
+  br label %435
+
+435:                                              ; preds = %433, %431
+  br label %498
+
+436:                                              ; preds = %43
+  %437 = load i8, ptr %6, align 1, !tbaa !90
+  %438 = sext i8 %437 to i32
+  %439 = icmp eq i32 %438, 10
+  br i1 %439, label %440, label %494
+
+440:                                              ; preds = %436
+  %441 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 12
+  %442 = load i8, ptr %441, align 1, !tbaa !83, !range !20, !noundef !21
+  %443 = trunc i8 %442 to i1
+  br i1 %443, label %444, label %492
+
+444:                                              ; preds = %440
+  %445 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 11
+  %446 = load i8, ptr %445, align 8, !tbaa !82, !range !20, !noundef !21
+  %447 = trunc i8 %446 to i1
+  br i1 %447, label %448, label %492
+
+448:                                              ; preds = %444
+  %449 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 13
+  %450 = getelementptr inbounds [256 x i8], ptr %449, i64 0, i64 0
+  %451 = load i8, ptr %450, align 2, !tbaa !90
+  %452 = sext i8 %451 to i32
+  %453 = icmp ne i32 %452, 0
+  br i1 %453, label %454, label %492
+
+454:                                              ; preds = %448
+  %455 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 14
+  %456 = getelementptr inbounds [2049 x i8], ptr %455, i64 0, i64 0
+  %457 = load i8, ptr %456, align 2, !tbaa !90
+  %458 = sext i8 %457 to i32
+  %459 = icmp ne i32 %458, 0
+  br i1 %459, label %460, label %492
+
+460:                                              ; preds = %454
+  %461 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 23, ptr %461, align 4, !tbaa !79
+  call void @llvm.lifetime.start.p0(i64 20, ptr %11) #18
+  %462 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 14
+  %463 = getelementptr inbounds [2049 x i8], ptr %462, i64 0, i64 0
+  %464 = getelementptr inbounds [20 x i8], ptr %11, i64 0, i64 0
+  call void @_ZL18compute_accept_keyPcPh(ptr noundef %463, ptr noundef %464)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #18
+  %465 = getelementptr inbounds [20 x i8], ptr %11, i64 0, i64 0
+  %466 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 15
+  %467 = getelementptr inbounds [2049 x i8], ptr %466, i64 0, i64 0
+  %468 = call noundef i32 @_ZL13encode_base64PKhiPci(ptr noundef %465, i32 noundef 20, ptr noundef %467, i32 noundef 2048)
+  store i32 %468, ptr %12, align 4, !tbaa !8
+  %469 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 15
+  %470 = load i32, ptr %12, align 4, !tbaa !8
+  %471 = sext i32 %470 to i64
+  %472 = getelementptr inbounds [2049 x i8], ptr %469, i64 0, i64 %471
+  store i8 0, ptr %472, align 1, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #18
+  %473 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 6
+  %474 = getelementptr inbounds [8192 x i8], ptr %473, i64 0, i64 0
+  %475 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 15
+  %476 = getelementptr inbounds [2049 x i8], ptr %475, i64 0, i64 0
+  %477 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 13
+  %478 = getelementptr inbounds [256 x i8], ptr %477, i64 0, i64 0
+  %479 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %474, i64 noundef 8192, ptr noundef @.str.16, ptr noundef %476, ptr noundef %478) #18
+  store i32 %479, ptr %13, align 4, !tbaa !8
+  %480 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 6
+  %481 = getelementptr inbounds [8192 x i8], ptr %480, i64 0, i64 0
+  %482 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 6
+  store ptr %481, ptr %482, align 8, !tbaa !95
+  %483 = load i32, ptr %13, align 4, !tbaa !8
+  %484 = sext i32 %483 to i64
+  %485 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 7
+  store i64 %484, ptr %485, align 8, !tbaa !96
+  %486 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 3
+  %487 = load ptr, ptr %486, align 8, !tbaa !120
+  %488 = getelementptr inbounds nuw i8, ptr %487, i32 1
+  store ptr %488, ptr %486, align 8, !tbaa !120
+  %489 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 4
+  %490 = load i64, ptr %489, align 8, !tbaa !121
+  %491 = add i64 %490, -1
+  store i64 %491, ptr %489, align 8, !tbaa !121
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #18
+  call void @llvm.lifetime.end.p0(i64 20, ptr %11) #18
+  br label %515
+
+492:                                              ; preds = %454, %448, %444, %440
+  %493 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %493, align 4, !tbaa !79
+  br label %496
+
+494:                                              ; preds = %436
+  %495 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  store i32 -1, ptr %495, align 4, !tbaa !79
+  br label %496
+
+496:                                              ; preds = %494, %492
+  br label %498
+
+497:                                              ; preds = %43
+  br label %498
+
+498:                                              ; preds = %497, %496, %435, %426, %296, %269, %227, %213, %204, %195, %186, %177, %168, %159, %150, %141, %132, %123, %103, %84, %75, %66, %57
+  %499 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 3
+  %500 = load ptr, ptr %499, align 8, !tbaa !120
+  %501 = getelementptr inbounds nuw i8, ptr %500, i32 1
+  store ptr %501, ptr %499, align 8, !tbaa !120
+  %502 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 4
+  %503 = load i64, ptr %502, align 8, !tbaa !121
+  %504 = add i64 %503, -1
+  store i64 %504, ptr %502, align 8, !tbaa !121
+  %505 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %14, i32 0, i32 4
+  %506 = load i32, ptr %505, align 4, !tbaa !79
+  %507 = icmp eq i32 %506, -1
+  br i1 %507, label %508, label %514
+
+508:                                              ; preds = %498
+  %509 = call noundef ptr @_ZN3zmq20stream_engine_base_t6socketEv(ptr noundef nonnull align 8 dereferenceable(1689) %14)
+  %510 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %14, i32 0, i32 16
+  call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %509, ptr noundef nonnull align 8 dereferenceable(68) %510, i32 noundef 805306368)
+  %511 = load ptr, ptr %14, align 8, !tbaa !18
+  %512 = getelementptr inbounds ptr, ptr %511, i64 12
+  %513 = load ptr, ptr %512, align 8
+  call void %513(ptr noundef nonnull align 8 dereferenceable(1689) %14, i32 noundef 0)
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %515
+
+514:                                              ; preds = %498
+  store i32 0, ptr %5, align 4
+  br label %515
+
+515:                                              ; preds = %514, %508, %460
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #18
+  %516 = load i32, ptr %5, align 4
+  switch i32 %516, label %519 [
+    i32 0, label %517
+  ]
+
+517:                                              ; preds = %515
+  br label %39, !llvm.loop !126
+
+518:                                              ; preds = %39
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %519
+
+519:                                              ; preds = %518, %515, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #18
+  %520 = load i1, ptr %2, align 1
+  ret i1 %520
 }
 
 declare void @_ZN3zmq12ws_encoder_tC1Emb(ptr noundef nonnull align 8 dereferenceable(168), i64 noundef, i1 noundef zeroext) unnamed_addr #1
@@ -3637,257 +3810,263 @@ declare void @_ZN3zmq12ws_encoder_tC1Emb(ptr noundef nonnull align 8 dereference
 declare void @_ZN3zmq12ws_decoder_tC1Emlbb(ptr noundef nonnull align 8 dereferenceable(208), i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN3zmq20stream_engine_base_t6socketEv(ptr noundef nonnull align 8 dereferenceable(1689) %this) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_socket = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 33
-  %0 = load ptr, ptr %_socket, align 8
-  ret ptr %0
+define linkonce_odr noundef ptr @_ZN3zmq20stream_engine_base_t6socketEv(ptr noundef nonnull align 8 dereferenceable(1689) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %3, i32 0, i32 33
+  %5 = load ptr, ptr %4, align 8, !tbaa !127
+  ret ptr %5
 }
 
 declare void @_ZN3zmq13socket_base_t25event_handshake_succeededERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825), ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef, ptr noundef) #10
+declare i32 @strcasecmp(ptr noundef, ptr noundef) #14
 
 ; Function Attrs: nounwind
-declare ptr @strtok_r(ptr noundef, ptr noundef, ptr noundef) #4
+declare ptr @strtok_r(ptr noundef, ptr noundef, ptr noundef) #5
 
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL8strcpy_sILm2049EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(2049) %dest_, ptr noundef %src_) #0 {
-entry:
-  %dest_.addr = alloca ptr, align 8
-  %src_.addr = alloca ptr, align 8
-  %res = alloca i64, align 8
-  store ptr %dest_, ptr %dest_.addr, align 8
-  store ptr %src_, ptr %src_.addr, align 8
-  %0 = load ptr, ptr %dest_.addr, align 8
-  %arraydecay = getelementptr inbounds [2049 x i8], ptr %0, i64 0, i64 0
-  %1 = load ptr, ptr %src_.addr, align 8
-  %call = call noundef i64 @_ZL7strlcpyPcPKcm(ptr noundef %arraydecay, ptr noundef %1, i64 noundef 2049)
-  store i64 %call, ptr %res, align 8
-  %2 = load i64, ptr %res, align 8
-  %cmp = icmp uge i64 %2, 2049
-  %cond = select i1 %cmp, i32 34, i32 0
-  ret i32 %cond
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef i32 @_ZL8strcpy_sILm2049EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(2049) %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  %6 = load ptr, ptr %3, align 8, !tbaa !92
+  %7 = getelementptr inbounds [2049 x i8], ptr %6, i64 0, i64 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !92
+  %9 = call i64 @strlcpy(ptr noundef %7, ptr noundef %8, i64 noundef 2049)
+  store i64 %9, ptr %5, align 8, !tbaa !128
+  %10 = load i64, ptr %5, align 8, !tbaa !128
+  %11 = icmp uge i64 %10, 2049
+  %12 = select i1 %11, i32 34, i32 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
+  ret i32 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL8strcpy_sILm256EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(256) %dest_, ptr noundef %src_) #3 {
-entry:
-  %dest_.addr = alloca ptr, align 8
-  %src_.addr = alloca ptr, align 8
-  %res = alloca i64, align 8
-  store ptr %dest_, ptr %dest_.addr, align 8
-  store ptr %src_, ptr %src_.addr, align 8
-  %0 = load ptr, ptr %dest_.addr, align 8
-  %arraydecay = getelementptr inbounds [256 x i8], ptr %0, i64 0, i64 0
-  %1 = load ptr, ptr %src_.addr, align 8
-  %call = call noundef i64 @_ZL7strlcpyPcPKcm(ptr noundef %arraydecay, ptr noundef %1, i64 noundef 256)
-  store i64 %call, ptr %res, align 8
-  %2 = load i64, ptr %res, align 8
-  %cmp = icmp uge i64 %2, 256
-  %cond = select i1 %cmp, i32 34, i32 0
-  ret i32 %cond
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef i32 @_ZL8strcpy_sILm256EEiRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(256) %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  %6 = load ptr, ptr %3, align 8, !tbaa !92
+  %7 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !92
+  %9 = call i64 @strlcpy(ptr noundef %7, ptr noundef %8, i64 noundef 256)
+  store i64 %9, ptr %5, align 8, !tbaa !128
+  %10 = load i64, ptr %5, align 8, !tbaa !128
+  %11 = icmp uge i64 %10, 256
+  %12 = select i1 %11, i32 34, i32 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18compute_accept_keyPcPh(ptr noundef %key_, ptr noundef %hash_) #0 {
-entry:
-  %key_.addr = alloca ptr, align 8
-  %hash_.addr = alloca ptr, align 8
-  %magic_string = alloca ptr, align 8
-  %hd = alloca ptr, align 8
-  store ptr %key_, ptr %key_.addr, align 8
-  store ptr %hash_, ptr %hash_.addr, align 8
-  store ptr @.str.20, ptr %magic_string, align 8
-  %call = call i32 @gnutls_hash_init(ptr noundef %hd, i32 noundef 3)
-  %0 = load ptr, ptr %hd, align 8
-  %1 = load ptr, ptr %key_.addr, align 8
-  %2 = load ptr, ptr %key_.addr, align 8
-  %call1 = call i64 @strlen(ptr noundef %2) #17
-  %call2 = call i32 @gnutls_hash(ptr noundef %0, ptr noundef %1, i64 noundef %call1)
-  %3 = load ptr, ptr %hd, align 8
-  %4 = load ptr, ptr %magic_string, align 8
-  %5 = load ptr, ptr %magic_string, align 8
-  %call3 = call i64 @strlen(ptr noundef %5) #17
-  %call4 = call i32 @gnutls_hash(ptr noundef %3, ptr noundef %4, i64 noundef %call3)
-  %6 = load ptr, ptr %hd, align 8
-  %7 = load ptr, ptr %hash_.addr, align 8
-  call void @gnutls_hash_deinit(ptr noundef %6, ptr noundef %7)
+define internal void @_ZL18compute_accept_keyPcPh(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #18
+  store ptr @.str.20, ptr %5, align 8, !tbaa !92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %7 = call i32 @gnutls_hash_init(ptr noundef %6, i32 noundef 3)
+  %8 = load ptr, ptr %6, align 8, !tbaa !129
+  %9 = load ptr, ptr %3, align 8, !tbaa !92
+  %10 = load ptr, ptr %3, align 8, !tbaa !92
+  %11 = call i64 @strlen(ptr noundef %10) #22
+  %12 = call i32 @gnutls_hash(ptr noundef %8, ptr noundef %9, i64 noundef %11)
+  %13 = load ptr, ptr %6, align 8, !tbaa !129
+  %14 = load ptr, ptr %5, align 8, !tbaa !92
+  %15 = load ptr, ptr %5, align 8, !tbaa !92
+  %16 = call i64 @strlen(ptr noundef %15) #22
+  %17 = call i32 @gnutls_hash(ptr noundef %13, ptr noundef %14, i64 noundef %16)
+  %18 = load ptr, ptr %6, align 8, !tbaa !129
+  %19 = load ptr, ptr %4, align 8, !tbaa !92
+  call void @gnutls_hash_deinit(ptr noundef %18, ptr noundef %19)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #18
   ret void
 }
 
 declare void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825), ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t15decode_and_pushEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
+define noundef i32 @_ZN3zmq11ws_engine_t15decode_and_pushEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !104
+  %6 = load ptr, ptr %4, align 8
+  br label %7
 
-do.body:                                          ; preds = %entry
-  %_mechanism = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 9
-  %0 = load ptr, ptr %_mechanism, align 8
-  %cmp = icmp ne ptr %0, null
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %6, i32 0, i32 9
+  %9 = load ptr, ptr %8, align 8, !tbaa !112
+  %10 = icmp ne ptr %9, null
+  %11 = xor i1 %10, true
+  %12 = zext i1 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 0)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %20
 
-if.then:                                          ; preds = %do.body
-  %1 = load ptr, ptr @stderr, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.18, ptr noundef @.str.19, ptr noundef @.str.5, i32 noundef 888)
-  %2 = load ptr, ptr @stderr, align 8
-  %call2 = call i32 @fflush(ptr noundef %2)
+15:                                               ; preds = %7
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.18, ptr noundef @.str.19, ptr noundef @.str.5, i32 noundef 888) #18
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %19 = call i32 @fflush(ptr noundef %18)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.19)
-  br label %if.end
+  br label %20
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+20:                                               ; preds = %15, %7
+  br label %21
 
-do.end:                                           ; preds = %if.end
-  %3 = load ptr, ptr %msg_.addr, align 8
-  %call3 = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pingEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  br i1 %call3, label %if.then7, label %lor.lhs.false
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %5, align 8, !tbaa !104
+  %23 = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pingEv(ptr noundef nonnull align 8 dereferenceable(64) %22)
+  br i1 %23, label %30, label %24
 
-lor.lhs.false:                                    ; preds = %do.end
-  %4 = load ptr, ptr %msg_.addr, align 8
-  %call4 = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pongEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-  br i1 %call4, label %if.then7, label %lor.lhs.false5
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %5, align 8, !tbaa !104
+  %26 = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pongEv(ptr noundef nonnull align 8 dereferenceable(64) %25)
+  br i1 %26, label %30, label %27
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %msg_.addr, align 8
-  %call6 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_close_cmdEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  br i1 %call6, label %if.then7, label %if.else
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %5, align 8, !tbaa !104
+  %29 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_close_cmdEv(ptr noundef nonnull align 8 dereferenceable(64) %28)
+  br i1 %29, label %30, label %39
 
-if.then7:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %do.end
-  %6 = load ptr, ptr %msg_.addr, align 8
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
-  %7 = load ptr, ptr %vfn, align 8
-  %call8 = call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(25696) %this1, ptr noundef %6)
-  %cmp9 = icmp eq i32 %call8, -1
-  br i1 %cmp9, label %if.then10, label %if.end11
+30:                                               ; preds = %27, %24, %21
+  %31 = load ptr, ptr %5, align 8, !tbaa !104
+  %32 = load ptr, ptr %6, align 8, !tbaa !18
+  %33 = getelementptr inbounds ptr, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(25696) %6, ptr noundef %31)
+  %36 = icmp eq i32 %35, -1
+  br i1 %36, label %37, label %38
 
-if.then10:                                        ; preds = %if.then7
-  store i32 -1, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %30
+  store i32 -1, ptr %3, align 4
+  br label %101
 
-if.end11:                                         ; preds = %if.then7
-  br label %if.end19
+38:                                               ; preds = %30
+  br label %50
 
-if.else:                                          ; preds = %lor.lhs.false5
-  %_mechanism12 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 9
-  %8 = load ptr, ptr %_mechanism12, align 8
-  %9 = load ptr, ptr %msg_.addr, align 8
-  %vtable13 = load ptr, ptr %8, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 5
-  %10 = load ptr, ptr %vfn14, align 8
-  %call15 = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(1488) %8, ptr noundef %9)
-  %cmp16 = icmp eq i32 %call15, -1
-  br i1 %cmp16, label %if.then17, label %if.end18
+39:                                               ; preds = %27
+  %40 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %6, i32 0, i32 9
+  %41 = load ptr, ptr %40, align 8, !tbaa !112
+  %42 = load ptr, ptr %5, align 8, !tbaa !104
+  %43 = load ptr, ptr %41, align 8, !tbaa !18
+  %44 = getelementptr inbounds ptr, ptr %43, i64 5
+  %45 = load ptr, ptr %44, align 8
+  %46 = call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(1488) %41, ptr noundef %42)
+  %47 = icmp eq i32 %46, -1
+  br i1 %47, label %48, label %49
 
-if.then17:                                        ; preds = %if.else
-  store i32 -1, ptr %retval, align 4
-  br label %return
+48:                                               ; preds = %39
+  store i32 -1, ptr %3, align 4
+  br label %101
 
-if.end18:                                         ; preds = %if.else
-  br label %if.end19
+49:                                               ; preds = %39
+  br label %50
 
-if.end19:                                         ; preds = %if.end18, %if.end11
-  %_has_timeout_timer = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 19
-  %11 = load i8, ptr %_has_timeout_timer, align 2
-  %tobool = trunc i8 %11 to i1
-  br i1 %tobool, label %if.then20, label %if.end22
+50:                                               ; preds = %49, %38
+  %51 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %6, i32 0, i32 19
+  %52 = load i8, ptr %51, align 2, !tbaa !131, !range !20, !noundef !21
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %56
 
-if.then20:                                        ; preds = %if.end19
-  %_has_timeout_timer21 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 19
-  store i8 0, ptr %_has_timeout_timer21, align 2
-  call void @_ZN3zmq11io_object_t12cancel_timerEi(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef 129)
-  br label %if.end22
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %6, i32 0, i32 19
+  store i8 0, ptr %55, align 2, !tbaa !131
+  call void @_ZN3zmq11io_object_t12cancel_timerEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 129)
+  br label %56
 
-if.end22:                                         ; preds = %if.then20, %if.end19
-  %12 = load ptr, ptr %msg_.addr, align 8
-  %call23 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
-  %conv = zext i8 %call23 to i32
-  %and = and i32 %conv, 2
-  %tobool24 = icmp ne i32 %and, 0
-  br i1 %tobool24, label %land.lhs.true, label %if.end34
+56:                                               ; preds = %54, %50
+  %57 = load ptr, ptr %5, align 8, !tbaa !104
+  %58 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %57)
+  %59 = zext i8 %58 to i32
+  %60 = and i32 %59, 2
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %77
 
-land.lhs.true:                                    ; preds = %if.end22
-  %13 = load ptr, ptr %msg_.addr, align 8
-  %call25 = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pingEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
-  br i1 %call25, label %if.end34, label %land.lhs.true26
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %5, align 8, !tbaa !104
+  %64 = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pingEv(ptr noundef nonnull align 8 dereferenceable(64) %63)
+  br i1 %64, label %77, label %65
 
-land.lhs.true26:                                  ; preds = %land.lhs.true
-  %14 = load ptr, ptr %msg_.addr, align 8
-  %call27 = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pongEv(ptr noundef nonnull align 8 dereferenceable(64) %14)
-  br i1 %call27, label %if.end34, label %land.lhs.true28
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %5, align 8, !tbaa !104
+  %67 = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pongEv(ptr noundef nonnull align 8 dereferenceable(64) %66)
+  br i1 %67, label %77, label %68
 
-land.lhs.true28:                                  ; preds = %land.lhs.true26
-  %15 = load ptr, ptr %msg_.addr, align 8
-  %call29 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_close_cmdEv(ptr noundef nonnull align 8 dereferenceable(64) %15)
-  br i1 %call29, label %if.end34, label %if.then30
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %5, align 8, !tbaa !104
+  %70 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_close_cmdEv(ptr noundef nonnull align 8 dereferenceable(64) %69)
+  br i1 %70, label %77, label %71
 
-if.then30:                                        ; preds = %land.lhs.true28
-  %16 = load ptr, ptr %msg_.addr, align 8
-  %vtable31 = load ptr, ptr %this1, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 16
-  %17 = load ptr, ptr %vfn32, align 8
-  %call33 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(25696) %this1, ptr noundef %16)
-  br label %if.end34
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %5, align 8, !tbaa !104
+  %73 = load ptr, ptr %6, align 8, !tbaa !18
+  %74 = getelementptr inbounds ptr, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(25696) %6, ptr noundef %72)
+  br label %77
 
-if.end34:                                         ; preds = %if.then30, %land.lhs.true28, %land.lhs.true26, %land.lhs.true, %if.end22
-  %_metadata = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 12
-  %18 = load ptr, ptr %_metadata, align 8
-  %tobool35 = icmp ne ptr %18, null
-  br i1 %tobool35, label %if.then36, label %if.end38
+77:                                               ; preds = %71, %68, %65, %62, %56
+  %78 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %6, i32 0, i32 12
+  %79 = load ptr, ptr %78, align 8, !tbaa !132
+  %80 = icmp ne ptr %79, null
+  br i1 %80, label %81, label %85
 
-if.then36:                                        ; preds = %if.end34
-  %19 = load ptr, ptr %msg_.addr, align 8
-  %_metadata37 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 12
-  %20 = load ptr, ptr %_metadata37, align 8
-  call void @_ZN3zmq5msg_t12set_metadataEPNS_10metadata_tE(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef %20)
-  br label %if.end38
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %5, align 8, !tbaa !104
+  %83 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %6, i32 0, i32 12
+  %84 = load ptr, ptr %83, align 8, !tbaa !132
+  call void @_ZN3zmq5msg_t12set_metadataEPNS_10metadata_tE(ptr noundef nonnull align 8 dereferenceable(64) %82, ptr noundef %84)
+  br label %85
 
-if.end38:                                         ; preds = %if.then36, %if.end34
-  %call39 = call noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  %21 = load ptr, ptr %msg_.addr, align 8
-  %vtable40 = load ptr, ptr %call39, align 8
-  %vfn41 = getelementptr inbounds ptr, ptr %vtable40, i64 29
-  %22 = load ptr, ptr %vfn41, align 8
-  %call42 = call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(1624) %call39, ptr noundef %21)
-  %cmp43 = icmp eq i32 %call42, -1
-  br i1 %cmp43, label %if.then44, label %if.end49
+85:                                               ; preds = %81, %77
+  %86 = call noundef ptr @_ZN3zmq20stream_engine_base_t7sessionEv(ptr noundef nonnull align 8 dereferenceable(1689) %6)
+  %87 = load ptr, ptr %5, align 8, !tbaa !104
+  %88 = load ptr, ptr %86, align 8, !tbaa !18
+  %89 = getelementptr inbounds ptr, ptr %88, i64 29
+  %90 = load ptr, ptr %89, align 8
+  %91 = call noundef i32 %90(ptr noundef nonnull align 8 dereferenceable(1624) %86, ptr noundef %87)
+  %92 = icmp eq i32 %91, -1
+  br i1 %92, label %93, label %100
 
-if.then44:                                        ; preds = %if.end38
-  %call45 = call ptr @__errno_location() #16
-  %23 = load i32, ptr %call45, align 4
-  %cmp46 = icmp eq i32 %23, 11
-  br i1 %cmp46, label %if.then47, label %if.end48
+93:                                               ; preds = %85
+  %94 = call ptr @__errno_location() #21
+  %95 = load i32, ptr %94, align 4, !tbaa !8
+  %96 = icmp eq i32 %95, 11
+  br i1 %96, label %97, label %99
 
-if.then47:                                        ; preds = %if.then44
-  %_process_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 11
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t29push_one_then_decode_and_pushEPNS_5msg_tE to i64), i64 0 }, ptr %_process_msg, align 8
-  br label %if.end48
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %6, i32 0, i32 11
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t29push_one_then_decode_and_pushEPNS_5msg_tE to i64), i64 0 }, ptr %98, align 8, !tbaa !86
+  br label %99
 
-if.end48:                                         ; preds = %if.then47, %if.then44
-  store i32 -1, ptr %retval, align 4
-  br label %return
+99:                                               ; preds = %97, %93
+  store i32 -1, ptr %3, align 4
+  br label %101
 
-if.end49:                                         ; preds = %if.end38
-  store i32 0, ptr %retval, align 4
-  br label %return
+100:                                              ; preds = %85
+  store i32 0, ptr %3, align 4
+  br label %101
 
-return:                                           ; preds = %if.end49, %if.end48, %if.then17, %if.then10
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+101:                                              ; preds = %100, %99, %48, %37
+  %102 = load i32, ptr %3, align 4
+  ret i32 %102
 }
 
 declare noundef zeroext i1 @_ZNK3zmq5msg_t7is_pingEv(ptr noundef nonnull align 8 dereferenceable(64)) #1
@@ -3905,272 +4084,306 @@ declare void @_ZN3zmq5msg_t12set_metadataEPNS_10metadata_tE(ptr noundef nonnull 
 declare noundef i32 @_ZN3zmq20stream_engine_base_t29push_one_then_decode_and_pushEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t21produce_close_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %msg_.addr, align 8
-  %_close_msg = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 17
-  %call = call noundef i32 @_ZN3zmq5msg_t4moveERS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %_close_msg)
-  store i32 %call, ptr %rc, align 4
-  br label %do.body
+define noundef i32 @_ZN3zmq11ws_engine_t21produce_close_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %8 = load ptr, ptr %4, align 8, !tbaa !104
+  %9 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 17
+  %10 = call noundef i32 @_ZN3zmq5msg_t4moveERS0_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9)
+  store i32 %10, ptr %5, align 4, !tbaa !8
+  br label %11
 
-do.body:                                          ; preds = %entry
-  %1 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %1, 0
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = load i32, ptr %5, align 4, !tbaa !8
+  %13 = icmp eq i32 %12, 0
+  %14 = xor i1 %13, true
+  %15 = zext i1 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %28
 
-if.then:                                          ; preds = %do.body
-  %call2 = call ptr @__errno_location() #16
-  %2 = load i32, ptr %call2, align 4
-  %call3 = call ptr @strerror(i32 noundef %2) #13
-  store ptr %call3, ptr %errstr, align 8
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load ptr, ptr %errstr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.4, ptr noundef %4, ptr noundef @.str.5, i32 noundef 919)
-  %5 = load ptr, ptr @stderr, align 8
-  %call5 = call i32 @fflush(ptr noundef %5)
-  %6 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %6)
-  br label %if.end
+18:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %19 = call ptr @__errno_location() #21
+  %20 = load i32, ptr %19, align 4, !tbaa !8
+  %21 = call ptr @strerror(i32 noundef %20) #18
+  store ptr %21, ptr %6, align 8, !tbaa !92
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %23 = load ptr, ptr %6, align 8, !tbaa !92
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef @.str.4, ptr noundef %23, ptr noundef @.str.5, i32 noundef 919) #18
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %26 = call i32 @fflush(ptr noundef %25)
+  %27 = load ptr, ptr %6, align 8, !tbaa !92
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %27)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  br label %28
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+28:                                               ; preds = %18, %11
+  br label %29
 
-do.end:                                           ; preds = %if.end
-  %_next_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 10
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t26produce_no_msg_after_closeEPNS_5msg_tE to i64), i64 0 }, ptr %_next_msg, align 8
-  %7 = load i32, ptr %rc, align 4
-  ret i32 %7
+29:                                               ; preds = %28
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 10
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t26produce_no_msg_after_closeEPNS_5msg_tE to i64), i64 0 }, ptr %31, align 8, !tbaa !85
+  %32 = load i32, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  ret i32 %32
 }
 
 declare noundef i32 @_ZN3zmq5msg_t4moveERS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t26produce_no_msg_after_closeEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_next_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 10
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t28close_connection_after_closeEPNS_5msg_tE to i64), i64 0 }, ptr %_next_msg, align 8
-  %call = call ptr @__errno_location() #16
-  store i32 11, ptr %call, align 4
+define noundef i32 @_ZN3zmq11ws_engine_t26produce_no_msg_after_closeEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) #6 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %5, i32 0, i32 10
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t28close_connection_after_closeEPNS_5msg_tE to i64), i64 0 }, ptr %6, align 8, !tbaa !85
+  %7 = call ptr @__errno_location() #21
+  store i32 11, ptr %7, align 4, !tbaa !8
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t28close_connection_after_closeEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
-  %0 = load ptr, ptr %vfn, align 8
-  call void %0(ptr noundef nonnull align 8 dereferenceable(1689) %this1, i32 noundef 1)
-  %call = call ptr @__errno_location() #16
-  store i32 104, ptr %call, align 4
+define noundef i32 @_ZN3zmq11ws_engine_t28close_connection_after_closeEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !18
+  %7 = getelementptr inbounds ptr, ptr %6, i64 12
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(1689) %5, i32 noundef 1)
+  %9 = call ptr @__errno_location() #21
+  store i32 104, ptr %9, align 4, !tbaa !8
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t20produce_ping_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %msg_.addr, align 8
-  %call = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  store i32 %call, ptr %rc, align 4
-  br label %do.body
+define noundef i32 @_ZN3zmq11ws_engine_t20produce_ping_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %8 = load ptr, ptr %4, align 8, !tbaa !104
+  %9 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  store i32 %9, ptr %5, align 4, !tbaa !8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %1 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %1, 0
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+10:                                               ; preds = %2
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = icmp eq i32 %11, 0
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 0)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %27
 
-if.then:                                          ; preds = %do.body
-  %call2 = call ptr @__errno_location() #16
-  %2 = load i32, ptr %call2, align 4
-  %call3 = call ptr @strerror(i32 noundef %2) #13
-  store ptr %call3, ptr %errstr, align 8
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load ptr, ptr %errstr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.4, ptr noundef %4, ptr noundef @.str.5, i32 noundef 948)
-  %5 = load ptr, ptr @stderr, align 8
-  %call5 = call i32 @fflush(ptr noundef %5)
-  %6 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %6)
-  br label %if.end
+17:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %18 = call ptr @__errno_location() #21
+  %19 = load i32, ptr %18, align 4, !tbaa !8
+  %20 = call ptr @strerror(i32 noundef %19) #18
+  store ptr %20, ptr %6, align 8, !tbaa !92
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %22 = load ptr, ptr %6, align 8, !tbaa !92
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.4, ptr noundef %22, ptr noundef @.str.5, i32 noundef 948) #18
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %25 = call i32 @fflush(ptr noundef %24)
+  %26 = load ptr, ptr %6, align 8, !tbaa !92
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  br label %27
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+27:                                               ; preds = %17, %10
+  br label %28
 
-do.end:                                           ; preds = %if.end
-  %7 = load ptr, ptr %msg_.addr, align 8
-  call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef zeroext 6)
-  %_next_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 10
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE to i64), i64 0 }, ptr %_next_msg, align 8
-  %_has_timeout_timer = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 19
-  %8 = load i8, ptr %_has_timeout_timer, align 2
-  %tobool = trunc i8 %8 to i1
-  br i1 %tobool, label %if.end10, label %land.lhs.true
+28:                                               ; preds = %27
+  br label %29
 
-land.lhs.true:                                    ; preds = %do.end
-  %_heartbeat_timeout = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 16
-  %9 = load i32, ptr %_heartbeat_timeout, align 4
-  %cmp6 = icmp sgt i32 %9, 0
-  br i1 %cmp6, label %if.then7, label %if.end10
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %4, align 8, !tbaa !104
+  call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %30, i8 noundef zeroext 6)
+  %31 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 10
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE to i64), i64 0 }, ptr %31, align 8, !tbaa !85
+  %32 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 19
+  %33 = load i8, ptr %32, align 2, !tbaa !131, !range !20, !noundef !21
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %43, label %35
 
-if.then7:                                         ; preds = %land.lhs.true
-  %_heartbeat_timeout8 = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 16
-  %10 = load i32, ptr %_heartbeat_timeout8, align 4
-  call void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %10, i32 noundef 129)
-  %_has_timeout_timer9 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 19
-  store i8 1, ptr %_has_timeout_timer9, align 2
-  br label %if.end10
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 16
+  %37 = load i32, ptr %36, align 4, !tbaa !84
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %39, label %43
 
-if.end10:                                         ; preds = %if.then7, %land.lhs.true, %do.end
-  %11 = load i32, ptr %rc, align 4
-  ret i32 %11
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 16
+  %41 = load i32, ptr %40, align 4, !tbaa !84
+  call void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %41, i32 noundef 129)
+  %42 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 19
+  store i8 1, ptr %42, align 2, !tbaa !131
+  br label %43
+
+43:                                               ; preds = %39, %35, %29
+  %44 = load i32, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  ret i32 %44
 }
 
 declare noundef i32 @_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t20produce_pong_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %msg_.addr, align 8
-  %call = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  store i32 %call, ptr %rc, align 4
-  br label %do.body
+define noundef i32 @_ZN3zmq11ws_engine_t20produce_pong_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %8 = load ptr, ptr %4, align 8, !tbaa !104
+  %9 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  store i32 %9, ptr %5, align 4, !tbaa !8
+  br label %10
 
-do.body:                                          ; preds = %entry
-  %1 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %1, 0
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+10:                                               ; preds = %2
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = icmp eq i32 %11, 0
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 0)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %27
 
-if.then:                                          ; preds = %do.body
-  %call2 = call ptr @__errno_location() #16
-  %2 = load i32, ptr %call2, align 4
-  %call3 = call ptr @strerror(i32 noundef %2) #13
-  store ptr %call3, ptr %errstr, align 8
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load ptr, ptr %errstr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str.4, ptr noundef %4, ptr noundef @.str.5, i32 noundef 964)
-  %5 = load ptr, ptr @stderr, align 8
-  %call5 = call i32 @fflush(ptr noundef %5)
-  %6 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %6)
-  br label %if.end
+17:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %18 = call ptr @__errno_location() #21
+  %19 = load i32, ptr %18, align 4, !tbaa !8
+  %20 = call ptr @strerror(i32 noundef %19) #18
+  store ptr %20, ptr %6, align 8, !tbaa !92
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %22 = load ptr, ptr %6, align 8, !tbaa !92
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef @.str.4, ptr noundef %22, ptr noundef @.str.5, i32 noundef 964) #18
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %25 = call i32 @fflush(ptr noundef %24)
+  %26 = load ptr, ptr %6, align 8, !tbaa !92
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  br label %27
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+27:                                               ; preds = %17, %10
+  br label %28
 
-do.end:                                           ; preds = %if.end
-  %7 = load ptr, ptr %msg_.addr, align 8
-  call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef zeroext 10)
-  %_next_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 10
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE to i64), i64 0 }, ptr %_next_msg, align 8
-  %8 = load i32, ptr %rc, align 4
-  ret i32 %8
+28:                                               ; preds = %27
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %4, align 8, !tbaa !104
+  call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %30, i8 noundef zeroext 10)
+  %31 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 10
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE to i64), i64 0 }, ptr %31, align 8, !tbaa !85
+  %32 = load i32, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  ret i32 %32
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t23process_command_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %msg_.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pingEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  br i1 %call, label %if.then, label %if.else
+define noundef i32 @_ZN3zmq11ws_engine_t23process_command_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !104
+  %9 = call noundef zeroext i1 @_ZNK3zmq5msg_t7is_pingEv(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  br i1 %9, label %10, label %15
 
-if.then:                                          ; preds = %entry
-  %_next_msg = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 10
-  store { i64, i64 } { i64 153, i64 0 }, ptr %_next_msg, align 8
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  br label %if.end14
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 10
+  store { i64, i64 } { i64 153, i64 0 }, ptr %11, align 8, !tbaa !85
+  %12 = load ptr, ptr %7, align 8, !tbaa !18
+  %13 = getelementptr inbounds ptr, ptr %12, i64 3
+  %14 = load ptr, ptr %13, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(1689) %7)
+  br label %47
 
-if.else:                                          ; preds = %entry
-  %2 = load ptr, ptr %msg_.addr, align 8
-  %call2 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_close_cmdEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
-  br i1 %call2, label %if.then3, label %if.end13
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !104
+  %17 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_close_cmdEv(ptr noundef nonnull align 8 dereferenceable(64) %16)
+  br i1 %17, label %18, label %46
 
-if.then3:                                         ; preds = %if.else
-  %_close_msg = getelementptr inbounds %"class.zmq::ws_engine_t", ptr %this1, i32 0, i32 17
-  %3 = load ptr, ptr %msg_.addr, align 8
-  %call4 = call noundef i32 @_ZN3zmq5msg_t4copyERS0_(ptr noundef nonnull align 8 dereferenceable(64) %_close_msg, ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store i32 %call4, ptr %rc, align 4
-  br label %do.body
+18:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #18
+  %19 = getelementptr inbounds nuw %"class.zmq::ws_engine_t", ptr %7, i32 0, i32 17
+  %20 = load ptr, ptr %4, align 8, !tbaa !104
+  %21 = call noundef i32 @_ZN3zmq5msg_t4copyERS0_(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %20)
+  store i32 %21, ptr %5, align 4, !tbaa !8
+  br label %22
 
-do.body:                                          ; preds = %if.then3
-  %4 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %4, 0
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then5, label %if.end
+22:                                               ; preds = %18
+  %23 = load i32, ptr %5, align 4, !tbaa !8
+  %24 = icmp eq i32 %23, 0
+  %25 = xor i1 %24, true
+  %26 = zext i1 %25 to i64
+  %27 = call i64 @llvm.expect.i64(i64 %26, i64 0)
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %39
 
-if.then5:                                         ; preds = %do.body
-  %call6 = call ptr @__errno_location() #16
-  %5 = load i32, ptr %call6, align 4
-  %call7 = call ptr @strerror(i32 noundef %5) #13
-  store ptr %call7, ptr %errstr, align 8
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = load ptr, ptr %errstr, align 8
-  %call8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str.4, ptr noundef %7, ptr noundef @.str.5, i32 noundef 980)
-  %8 = load ptr, ptr @stderr, align 8
-  %call9 = call i32 @fflush(ptr noundef %8)
-  %9 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %9)
-  br label %if.end
+29:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #18
+  %30 = call ptr @__errno_location() #21
+  %31 = load i32, ptr %30, align 4, !tbaa !8
+  %32 = call ptr @strerror(i32 noundef %31) #18
+  store ptr %32, ptr %6, align 8, !tbaa !92
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %34 = load ptr, ptr %6, align 8, !tbaa !92
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef @.str.4, ptr noundef %34, ptr noundef @.str.5, i32 noundef 980) #18
+  %36 = load ptr, ptr @stderr, align 8, !tbaa !107
+  %37 = call i32 @fflush(ptr noundef %36)
+  %38 = load ptr, ptr %6, align 8, !tbaa !92
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %38)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #18
+  br label %39
 
-if.end:                                           ; preds = %if.then5, %do.body
-  br label %do.end
+39:                                               ; preds = %29, %22
+  br label %40
 
-do.end:                                           ; preds = %if.end
-  %_next_msg10 = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 10
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t21produce_close_messageEPNS_5msg_tE to i64), i64 0 }, ptr %_next_msg10, align 8
-  %vtable11 = load ptr, ptr %this1, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 3
-  %10 = load ptr, ptr %vfn12, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(1689) %this1)
-  br label %if.end13
+40:                                               ; preds = %39
+  br label %41
 
-if.end13:                                         ; preds = %do.end, %if.else
-  br label %if.end14
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %7, i32 0, i32 10
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t21produce_close_messageEPNS_5msg_tE to i64), i64 0 }, ptr %42, align 8, !tbaa !85
+  %43 = load ptr, ptr %7, align 8, !tbaa !18
+  %44 = getelementptr inbounds ptr, ptr %43, i64 3
+  %45 = load ptr, ptr %44, align 8
+  call void %45(ptr noundef nonnull align 8 dereferenceable(1689) %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #18
+  br label %46
 
-if.end14:                                         ; preds = %if.end13, %if.then
+46:                                               ; preds = %41, %15
+  br label %47
+
+47:                                               ; preds = %46, %10
   ret i32 0
 }
 
@@ -4181,15 +4394,14 @@ declare void @_ZN3zmq20stream_engine_base_t9out_eventEv(ptr noundef nonnull alig
 declare void @_ZN3zmq20stream_engine_base_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(1689), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef nonnull align 8 dereferenceable(1689) %this) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_has_handshake_stage = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this1, i32 0, i32 34
-  %0 = load i8, ptr %_has_handshake_stage, align 8
-  %tobool = trunc i8 %0 to i1
-  ret i1 %tobool
+define linkonce_odr noundef zeroext i1 @_ZN3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef nonnull align 8 dereferenceable(1689) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::stream_engine_base_t", ptr %3, i32 0, i32 34
+  %5 = load i8, ptr %4, align 8, !tbaa !133, !range !20, !noundef !21
+  %6 = trunc i8 %5 to i1
+  ret i1 %6
 }
 
 declare void @_ZN3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef, ptr noundef) unnamed_addr #1
@@ -4207,12 +4419,11 @@ declare noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq20stream_engine
 declare void @_ZN3zmq20stream_engine_base_t5errorENS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(1689), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN3zmq20stream_engine_base_t25process_heartbeat_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %msg_) unnamed_addr #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
+define linkonce_odr noundef i32 @_ZN3zmq20stream_engine_base_t25process_heartbeat_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !101
+  store ptr %1, ptr %4, align 8, !tbaa !104
   ret i32 -1
 }
 
@@ -4221,32 +4432,761 @@ declare noundef i32 @_ZN3zmq20stream_engine_base_t4readEPvm(ptr noundef nonnull 
 declare noundef i32 @_ZN3zmq20stream_engine_base_t5writeEPKvm(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define linkonce_odr noundef zeroext i1 @_ZThn16_N3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef %this) unnamed_addr #12 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds i8, ptr %this1, i64 -16
-  %call = tail call noundef zeroext i1 @_ZN3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef nonnull align 8 dereferenceable(1689) %0)
-  ret i1 %call
+define linkonce_odr noundef zeroext i1 @_ZThn16_N3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef %0) unnamed_addr #16 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 -16
+  %5 = tail call noundef zeroext i1 @_ZN3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef nonnull align 8 dereferenceable(1689) %4)
+  ret i1 %5
 }
 
-declare void @_ZThn16_N3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE(ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+define available_externally void @_ZThn16_N3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #16 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !101
+  store ptr %1, ptr %5, align 8, !tbaa !134
+  store ptr %2, ptr %6, align 8, !tbaa !136
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 -16
+  %9 = load ptr, ptr %5, align 8, !tbaa !134
+  %10 = load ptr, ptr %6, align 8, !tbaa !136
+  tail call void @_ZN3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE(ptr noundef nonnull align 8 dereferenceable(1689) %8, ptr noundef %9, ptr noundef %10)
+  ret void
+}
 
-declare void @_ZThn16_N3zmq20stream_engine_base_t9terminateEv(ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+define available_externally void @_ZThn16_N3zmq20stream_engine_base_t9terminateEv(ptr noundef %0) unnamed_addr #16 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 -16
+  tail call void @_ZN3zmq20stream_engine_base_t9terminateEv(ptr noundef nonnull align 8 dereferenceable(1689) %4)
+  ret void
+}
 
-declare noundef zeroext i1 @_ZThn16_N3zmq20stream_engine_base_t13restart_inputEv(ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+define available_externally noundef zeroext i1 @_ZThn16_N3zmq20stream_engine_base_t13restart_inputEv(ptr noundef %0) unnamed_addr #16 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 -16
+  %5 = tail call noundef zeroext i1 @_ZN3zmq20stream_engine_base_t13restart_inputEv(ptr noundef nonnull align 8 dereferenceable(1689) %4)
+  ret i1 %5
+}
 
-declare void @_ZThn16_N3zmq20stream_engine_base_t14restart_outputEv(ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+define available_externally void @_ZThn16_N3zmq20stream_engine_base_t14restart_outputEv(ptr noundef %0) unnamed_addr #16 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 -16
+  tail call void @_ZN3zmq20stream_engine_base_t14restart_outputEv(ptr noundef nonnull align 8 dereferenceable(1689) %4)
+  ret void
+}
 
-declare void @_ZThn16_N3zmq20stream_engine_base_t17zap_msg_availableEv(ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+define available_externally void @_ZThn16_N3zmq20stream_engine_base_t17zap_msg_availableEv(ptr noundef %0) unnamed_addr #16 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 -16
+  tail call void @_ZN3zmq20stream_engine_base_t17zap_msg_availableEv(ptr noundef nonnull align 8 dereferenceable(1689) %4)
+  ret void
+}
 
-declare noundef ptr @_ZThn16_NK3zmq20stream_engine_base_t12get_endpointEv(ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+define available_externally noundef ptr @_ZThn16_NK3zmq20stream_engine_base_t12get_endpointEv(ptr noundef %0) unnamed_addr #16 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 -16
+  %5 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq20stream_engine_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1689) %4)
+  ret ptr %5
+}
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i32 0, i32 0
+  %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  %11 = load ptr, ptr %4, align 8, !tbaa !137
+  %12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %13 unwind label %24
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
+13:                                               ; preds = %2
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
+  %14 = load ptr, ptr %4, align 8, !tbaa !137
+  %15 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %16 unwind label %28
+
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %4, align 8, !tbaa !137
+  %18 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %19 unwind label %28
+
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %4, align 8, !tbaa !137
+  %21 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #18
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %15, ptr noundef %22)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %19
+  ret void
+
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %6, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
+  br label %32
+
+28:                                               ; preds = %19, %16, %13
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %6, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #18
+  br label %32
+
+32:                                               ; preds = %28, %24
+  %33 = load ptr, ptr %6, align 8
+  %34 = load i32, ptr %7, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !139
+  %5 = load ptr, ptr %4, align 8, !tbaa !139
+  call void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC2EPcOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !141
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store ptr %2, ptr %6, align 8, !tbaa !139
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !139
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #18
+  %9 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8, !tbaa !92
+  store ptr %10, ptr %9, align 8, !tbaa !143
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca %struct._Guard, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !137
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store ptr %2, ptr %6, align 8, !tbaa !92
+  %11 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #18
+  %12 = load ptr, ptr %5, align 8, !tbaa !92
+  %13 = load ptr, ptr %6, align 8, !tbaa !92
+  %14 = call noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %12, ptr noundef %13)
+  store i64 %14, ptr %7, align 8, !tbaa !128
+  %15 = load i64, ptr %7, align 8, !tbaa !128
+  %16 = icmp ugt i64 %15, 15
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %3
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %18)
+  %19 = load i64, ptr %7, align 8, !tbaa !128
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %19)
+  br label %22
+
+20:                                               ; preds = %3
+  %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
+  br label %22
+
+22:                                               ; preds = %20, %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #18
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
+  %23 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %24 unwind label %30
+
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %5, align 8, !tbaa !92
+  %26 = load ptr, ptr %6, align 8, !tbaa !92
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %23, ptr noundef %25, ptr noundef %26) #18
+  %27 = getelementptr inbounds nuw %struct._Guard, ptr %8, i32 0, i32 0
+  store ptr null, ptr %27, align 8, !tbaa !144
+  %28 = load i64, ptr %7, align 8, !tbaa !128
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %28)
+          to label %29 unwind label %30
+
+29:                                               ; preds = %24
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  ret void
+
+30:                                               ; preds = %24, %22
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %9, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %10, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #18
+  br label %34
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !146
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !147
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !148
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !92
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !139
+  %5 = load ptr, ptr %4, align 8, !tbaa !139
+  call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #6 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !139
+  store ptr %1, ptr %4, align 8, !tbaa !139
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !139
+  call void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcEC2ERKS0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !148
+  store ptr %1, ptr %4, align 8, !tbaa !148
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(ptr noundef %0, ptr noundef %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %3, align 8, !tbaa !92
+  %6 = load ptr, ptr %4, align 8, !tbaa !92
+  call void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #6 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !92
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !146
+  ret void
+}
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #6 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  store i64 %1, ptr %4, align 8, !tbaa !128
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !128
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !90
+  ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !150
+  store ptr %1, ptr %4, align 8, !tbaa !137
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !137
+  store ptr %7, ptr %6, align 8, !tbaa !144
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !92
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store ptr %2, ptr %6, align 8, !tbaa !92
+  %7 = load ptr, ptr %4, align 8, !tbaa !92
+  %8 = load ptr, ptr %5, align 8, !tbaa !92
+  %9 = load ptr, ptr %6, align 8, !tbaa !92
+  %10 = load ptr, ptr %5, align 8, !tbaa !92
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %7, ptr noundef %8, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  store i64 %1, ptr %4, align 8, !tbaa !128
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !128
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !128
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #18
+  store i8 0, ptr %5, align 1, !tbaa !90
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #18
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !150
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !144
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !144
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %4, align 8, !tbaa !92
+  %6 = load ptr, ptr %3, align 8, !tbaa !92
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !92
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store i64 %2, ptr %6, align 8, !tbaa !128
+  %7 = load i64, ptr %6, align 8, !tbaa !128
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !92
+  %11 = load ptr, ptr %5, align 8, !tbaa !92
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #18
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !92
+  %14 = load ptr, ptr %5, align 8, !tbaa !92
+  %15 = load i64, ptr %6, align 8, !tbaa !128
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %4, align 8, !tbaa !92
+  %6 = load i8, ptr %5, align 1, !tbaa !90
+  %7 = load ptr, ptr %3, align 8, !tbaa !92
+  store i8 %6, ptr %7, align 1, !tbaa !90
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !92
+  store ptr %1, ptr %6, align 8, !tbaa !92
+  store i64 %2, ptr %7, align 8, !tbaa !128
+  %8 = load i64, ptr %7, align 8, !tbaa !128
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !92
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !92
+  %14 = load ptr, ptr %6, align 8, !tbaa !92
+  %15 = load i64, ptr %7, align 8, !tbaa !128
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #6 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  store i64 %1, ptr %4, align 8, !tbaa !128
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !128
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !147
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !90
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #18
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !147
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #6 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  store i64 %1, ptr %4, align 8, !tbaa !128
+  %7 = load ptr, ptr %3, align 8
+  %8 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %9 unwind label %15
+
+9:                                                ; preds = %2
+  %10 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %11 unwind label %15
+
+11:                                               ; preds = %9
+  %12 = load i64, ptr %4, align 8, !tbaa !128
+  %13 = add i64 %12, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %10, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %11
+  ret void
+
+15:                                               ; preds = %11, %9, %2
+  %16 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  call void @__cxa_call_unexpected(ptr %20) #24
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !92
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !139
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store i64 %2, ptr %6, align 8, !tbaa !128
+  %7 = load ptr, ptr %4, align 8, !tbaa !139
+  %8 = load ptr, ptr %5, align 8, !tbaa !92
+  %9 = load i64, ptr %6, align 8, !tbaa !128
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !137
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+declare void @__cxa_call_unexpected(ptr)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !148
+  store ptr %1, ptr %5, align 8, !tbaa !92
+  store i64 %2, ptr %6, align 8, !tbaa !128
+  %7 = load ptr, ptr %5, align 8, !tbaa !92
+  call void @_ZdlPv(ptr noundef %7) #20
+  ret void
+}
 
 declare void @_ZN3zmq11io_object_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
 
@@ -4257,98 +5197,192 @@ declare i32 @gnutls_hash_init(ptr noundef, i32 noundef) #1
 declare i32 @gnutls_hash(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #10
+declare i64 @strlen(ptr noundef) #14
 
 declare void @gnutls_hash_deinit(ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZL7strlcpyPcPKcm(ptr noundef %dest_, ptr noundef %src_, i64 noundef %dest_size_) #3 {
-entry:
-  %dest_.addr = alloca ptr, align 8
-  %src_.addr = alloca ptr, align 8
-  %dest_size_.addr = alloca i64, align 8
-  %remain = alloca i64, align 8
-  store ptr %dest_, ptr %dest_.addr, align 8
-  store ptr %src_, ptr %src_.addr, align 8
-  store i64 %dest_size_, ptr %dest_size_.addr, align 8
-  %0 = load i64, ptr %dest_size_.addr, align 8
-  store i64 %0, ptr %remain, align 8
-  br label %for.cond
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) #1
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i64, ptr %remain, align 8
-  %tobool = icmp ne i64 %1, 0
-  br i1 %tobool, label %land.rhs, label %land.end
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #12 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { builtin nounwind }
+attributes #21 = { nounwind willreturn memory(none) }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { builtin nounwind allocsize(0) }
+attributes #24 = { noreturn }
 
-land.rhs:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %src_.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %tobool1 = icmp ne i8 %3, 0
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %4 = phi i1 [ false, %for.cond ], [ %tobool1, %land.rhs ]
-  br i1 %4, label %for.body, label %for.end
-
-for.body:                                         ; preds = %land.end
-  %5 = load ptr, ptr %src_.addr, align 8
-  %6 = load i8, ptr %5, align 1
-  %7 = load ptr, ptr %dest_.addr, align 8
-  store i8 %6, ptr %7, align 1
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %remain, align 8
-  %dec = add i64 %8, -1
-  store i64 %dec, ptr %remain, align 8
-  %9 = load ptr, ptr %src_.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %9, i32 1
-  store ptr %incdec.ptr, ptr %src_.addr, align 8
-  %10 = load ptr, ptr %dest_.addr, align 8
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %10, i32 1
-  store ptr %incdec.ptr2, ptr %dest_.addr, align 8
-  br label %for.cond, !llvm.loop !13
-
-for.end:                                          ; preds = %land.end
-  %11 = load i64, ptr %dest_size_.addr, align 8
-  %12 = load i64, ptr %remain, align 8
-  %sub = sub i64 %11, %12
-  ret i64 %sub
-}
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { builtin nounwind }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { builtin nounwind allocsize(0) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3zmq11ws_engine_tE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN3zmq9options_tE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN3zmq19endpoint_uri_pair_tE", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN3zmq12ws_address_tE", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"bool", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"vtable pointer", !7, i64 0}
+!20 = !{i8 0, i8 2}
+!21 = !{}
+!22 = !{!23, !17, i64 1689}
+!23 = !{!"_ZTSN3zmq11ws_engine_tE", !24, i64 0, !17, i64 1689, !75, i64 1696, !76, i64 1792, !77, i64 1796, !6, i64 1800, !6, i64 9992, !6, i64 18184, !9, i64 19212, !6, i64 19216, !9, i64 21268, !17, i64 21272, !17, i64 21273, !6, i64 21274, !6, i64 21530, !6, i64 23579, !9, i64 25628, !72, i64 25632}
+!24 = !{!"_ZTSN3zmq20stream_engine_base_tE", !25, i64 0, !28, i64 16, !29, i64 24, !36, i64 1360, !30, i64 1368, !66, i64 1376, !36, i64 1384, !30, i64 1392, !67, i64 1400, !68, i64 1408, !6, i64 1416, !6, i64 1432, !69, i64 1448, !17, i64 1456, !17, i64 1457, !70, i64 1464, !17, i64 1536, !17, i64 1537, !17, i64 1538, !17, i64 1539, !34, i64 1544, !9, i64 1576, !5, i64 1584, !17, i64 1592, !17, i64 1593, !72, i64 1600, !17, i64 1664, !73, i64 1672, !74, i64 1680, !17, i64 1688}
+!25 = !{!"_ZTSN3zmq11io_object_tE", !26, i64 0, !27, i64 8}
+!26 = !{!"_ZTSN3zmq13i_poll_eventsE"}
+!27 = !{!"p1 _ZTSN3zmq7epoll_tE", !5, i64 0}
+!28 = !{!"_ZTSN3zmq8i_engineE"}
+!29 = !{!"_ZTSN3zmq9options_tE", !9, i64 0, !9, i64 4, !30, i64 8, !6, i64 16, !6, i64 17, !9, i64 276, !9, i64 280, !9, i64 284, !9, i64 288, !9, i64 292, !9, i64 296, !9, i64 300, !9, i64 304, !6, i64 308, !31, i64 312, !9, i64 316, !9, i64 320, !9, i64 324, !9, i64 328, !9, i64 332, !9, i64 336, !30, i64 344, !9, i64 352, !9, i64 356, !17, i64 360, !9, i64 364, !17, i64 368, !17, i64 369, !17, i64 370, !17, i64 371, !17, i64 372, !34, i64 376, !34, i64 408, !34, i64 440, !9, i64 472, !9, i64 476, !9, i64 480, !9, i64 484, !37, i64 488, !42, i64 512, !42, i64 560, !51, i64 608, !9, i64 656, !9, i64 660, !34, i64 664, !34, i64 696, !34, i64 728, !6, i64 760, !6, i64 792, !6, i64 824, !34, i64 856, !34, i64 888, !9, i64 920, !9, i64 924, !17, i64 928, !9, i64 932, !17, i64 936, !9, i64 940, !17, i64 944, !56, i64 946, !9, i64 948, !9, i64 952, !9, i64 956, !34, i64 960, !17, i64 992, !17, i64 993, !17, i64 994, !9, i64 996, !9, i64 1000, !17, i64 1004, !9, i64 1008, !57, i64 1016, !9, i64 1064, !34, i64 1072, !34, i64 1104, !34, i64 1136, !34, i64 1168, !17, i64 1200, !62, i64 1208, !17, i64 1232, !62, i64 1240, !17, i64 1264, !62, i64 1272, !17, i64 1296, !9, i64 1300, !17, i64 1304, !9, i64 1308, !9, i64 1312, !9, i64 1316, !9, i64 1320, !9, i64 1324, !17, i64 1328, !9, i64 1332}
+!30 = !{!"long", !6, i64 0}
+!31 = !{!"_ZTSN3zmq14atomic_value_tE", !32, i64 0}
+!32 = !{!"_ZTSSt6atomicIiE", !33, i64 0}
+!33 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
+!34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !35, i64 0, !30, i64 8, !6, i64 16}
+!35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !36, i64 0}
+!36 = !{!"p1 omnipotent char", !5, i64 0}
+!37 = !{!"_ZTSSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE", !38, i64 0}
+!38 = !{!"_ZTSSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE", !39, i64 0}
+!39 = !{!"_ZTSNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE12_Vector_implE", !40, i64 0}
+!40 = !{!"_ZTSNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE17_Vector_impl_dataE", !41, i64 0, !41, i64 8, !41, i64 16}
+!41 = !{!"p1 _ZTSN3zmq18tcp_address_mask_tE", !5, i64 0}
+!42 = !{!"_ZTSSt3setIjSt4lessIjESaIjEE", !43, i64 0}
+!43 = !{!"_ZTSSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE", !44, i64 0}
+!44 = !{!"_ZTSNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE13_Rb_tree_implIS3_Lb1EEE", !45, i64 0, !47, i64 8}
+!45 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIjEE", !46, i64 0}
+!46 = !{!"_ZTSSt4lessIjE"}
+!47 = !{!"_ZTSSt15_Rb_tree_header", !48, i64 0, !30, i64 32}
+!48 = !{!"_ZTSSt18_Rb_tree_node_base", !49, i64 0, !50, i64 8, !50, i64 16, !50, i64 24}
+!49 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
+!50 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !5, i64 0}
+!51 = !{!"_ZTSSt3setIiSt4lessIiESaIiEE", !52, i64 0}
+!52 = !{!"_ZTSSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE", !53, i64 0}
+!53 = !{!"_ZTSNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EEE", !54, i64 0, !47, i64 8}
+!54 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIiEE", !55, i64 0}
+!55 = !{!"_ZTSSt4lessIiE"}
+!56 = !{!"short", !6, i64 0}
+!57 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE", !58, i64 0}
+!58 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE", !59, i64 0}
+!59 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !60, i64 0, !47, i64 8}
+!60 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !61, i64 0}
+!61 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
+!62 = !{!"_ZTSSt6vectorIhSaIhEE", !63, i64 0}
+!63 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !64, i64 0}
+!64 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !65, i64 0}
+!65 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !36, i64 0, !36, i64 8, !36, i64 16}
+!66 = !{!"p1 _ZTSN3zmq9i_decoderE", !5, i64 0}
+!67 = !{!"p1 _ZTSN3zmq9i_encoderE", !5, i64 0}
+!68 = !{!"p1 _ZTSN3zmq11mechanism_tE", !5, i64 0}
+!69 = !{!"p1 _ZTSN3zmq10metadata_tE", !5, i64 0}
+!70 = !{!"_ZTSN3zmq19endpoint_uri_pair_tE", !34, i64 0, !34, i64 32, !71, i64 64}
+!71 = !{!"_ZTSN3zmq15endpoint_type_tE", !6, i64 0}
+!72 = !{!"_ZTSN3zmq5msg_tE", !6, i64 0}
+!73 = !{!"p1 _ZTSN3zmq14session_base_tE", !5, i64 0}
+!74 = !{!"p1 _ZTSN3zmq13socket_base_tE", !5, i64 0}
+!75 = !{!"_ZTSN3zmq12ws_address_tE", !6, i64 0, !34, i64 32, !34, i64 64}
+!76 = !{!"_ZTSN3zmq27ws_client_handshake_state_tE", !6, i64 0}
+!77 = !{!"_ZTSN3zmq27ws_server_handshake_state_tE", !6, i64 0}
+!78 = !{!23, !76, i64 1792}
+!79 = !{!23, !77, i64 1796}
+!80 = !{!23, !9, i64 19212}
+!81 = !{!23, !9, i64 21268}
+!82 = !{!23, !17, i64 21272}
+!83 = !{!23, !17, i64 21273}
+!84 = !{!23, !9, i64 25628}
+!85 = !{!24, !6, i64 1416}
+!86 = !{!24, !6, i64 1432}
+!87 = !{!24, !9, i64 972}
+!88 = !{!24, !9, i64 976}
+!89 = !{i64 0, i64 28, !90}
+!90 = !{!6, !6, i64 0}
+!91 = !{!24, !9, i64 680}
+!92 = !{!36, !36, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 int", !5, i64 0}
+!95 = !{!24, !36, i64 1384}
+!96 = !{!24, !30, i64 1392}
+!97 = distinct !{!97, !98}
+!98 = !{!"llvm.loop.mustprogress"}
+!99 = distinct !{!99, !98}
+!100 = distinct !{!100, !98}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 _ZTSN3zmq20stream_engine_base_tE", !5, i64 0}
+!103 = !{!24, !5, i64 1584}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTSN3zmq5msg_tE", !5, i64 0}
+!106 = !{!24, !6, i64 40}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!109 = !{!24, !17, i64 394}
+!110 = !{!24, !73, i64 1672}
+!111 = !{!24, !17, i64 1539}
+!112 = !{!24, !68, i64 1408}
+!113 = !{!24, !9, i64 684}
+!114 = !{!24, !9, i64 1024}
+!115 = !{!24, !67, i64 1400}
+!116 = !{!24, !9, i64 1020}
+!117 = !{!24, !30, i64 368}
+!118 = !{!24, !17, i64 1028}
+!119 = !{!24, !66, i64 1376}
+!120 = !{!24, !36, i64 1360}
+!121 = !{!24, !30, i64 1368}
+!122 = distinct !{!122, !98}
+!123 = distinct !{!123, !98}
+!124 = distinct !{!124, !98}
+!125 = distinct !{!125, !98}
+!126 = distinct !{!126, !98}
+!127 = !{!24, !74, i64 1680}
+!128 = !{!30, !30, i64 0}
+!129 = !{!130, !130, i64 0}
+!130 = !{!"p1 _ZTS10hash_hd_st", !5, i64 0}
+!131 = !{!24, !17, i64 1538}
+!132 = !{!24, !69, i64 1448}
+!133 = !{!24, !17, i64 1688}
+!134 = !{!135, !135, i64 0}
+!135 = !{!"p1 _ZTSN3zmq11io_thread_tE", !5, i64 0}
+!136 = !{!73, !73, i64 0}
+!137 = !{!138, !138, i64 0}
+!138 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!139 = !{!140, !140, i64 0}
+!140 = !{!"p1 _ZTSSaIcE", !5, i64 0}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!143 = !{!35, !36, i64 0}
+!144 = !{!145, !138, i64 0}
+!145 = !{!"_ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !138, i64 0}
+!146 = !{!34, !36, i64 0}
+!147 = !{!34, !30, i64 8}
+!148 = !{!149, !149, i64 0}
+!149 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!150 = !{!151, !151, i64 0}
+!151 = !{!"p1 _ZTSZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tagE6_Guard", !5, i64 0}
+!152 = !{!153, !153, i64 0}
+!153 = !{!"p2 omnipotent char", !154, i64 0}
+!154 = !{!"any p2 pointer", !5, i64 0}

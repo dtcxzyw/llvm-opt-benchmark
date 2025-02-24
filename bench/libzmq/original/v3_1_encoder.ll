@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.zmq::encoder_base_t" = type { %"struct.zmq::i_encoder", ptr, i64, { i64, i64 }, i8, i64, ptr, ptr }
 %"struct.zmq::i_encoder" = type { ptr }
@@ -38,13 +38,13 @@ $_ZN3zmq9i_encoderD0Ev = comdat any
 
 $_ZSt3minImERKT_S2_S2_ = comdat any
 
-$_ZTSN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = comdat any
+$_ZTIN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = comdat any
 
-$_ZTSN3zmq9i_encoderE = comdat any
+$_ZTSN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = comdat any
 
 $_ZTIN3zmq9i_encoderE = comdat any
 
-$_ZTIN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = comdat any
+$_ZTSN3zmq9i_encoderE = comdat any
 
 $_ZTVN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = comdat any
 
@@ -53,14 +53,14 @@ $_ZTVN3zmq9i_encoderE = comdat any
 @_ZTVN3zmq14v3_1_encoder_tE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3zmq14v3_1_encoder_tE, ptr @_ZN3zmq14v3_1_encoder_tD1Ev, ptr @_ZN3zmq14v3_1_encoder_tD0Ev, ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE6encodeEPPhm, ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE8load_msgEPNS_5msg_tE] }, align 8
 @_ZN3zmqL12sub_cmd_nameE = internal constant [11 x i8] c"\09SUBSCRIBE\00", align 1
 @_ZN3zmqL15cancel_cmd_nameE = internal constant [8 x i8] c"\06CANCEL\00", align 1
+@_ZTIN3zmq14v3_1_encoder_tE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq14v3_1_encoder_tE, ptr @_ZTIN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3zmq14v3_1_encoder_tE = constant [23 x i8] c"N3zmq14v3_1_encoder_tE\00", align 1
+@_ZTIN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE, ptr @_ZTIN3zmq9i_encoderE }, comdat, align 8
 @_ZTSN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = linkonce_odr constant [45 x i8] c"N3zmq14encoder_base_tINS_14v3_1_encoder_tEEE\00", comdat, align 1
+@_ZTIN3zmq9i_encoderE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3zmq9i_encoderE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN3zmq9i_encoderE = linkonce_odr constant [17 x i8] c"N3zmq9i_encoderE\00", comdat, align 1
-@_ZTIN3zmq9i_encoderE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3zmq9i_encoderE }, comdat, align 8
-@_ZTIN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE, ptr @_ZTIN3zmq9i_encoderE }, comdat, align 8
-@_ZTIN3zmq14v3_1_encoder_tE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq14v3_1_encoder_tE, ptr @_ZTIN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE }, align 8
 @_ZTVN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = linkonce_odr unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE, ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED2Ev, ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED0Ev, ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE6encodeEPPhm, ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE8load_msgEPNS_5msg_tE] }, comdat, align 8
 @stderr = external global ptr, align 8
 @.str = private unnamed_addr constant [36 x i8] c"FATAL ERROR: OUT OF MEMORY (%s:%d)\0A\00", align 1
@@ -75,945 +75,1022 @@ $_ZTVN3zmq9i_encoderE = comdat any
 @_ZN3zmq14v3_1_encoder_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq14v3_1_encoder_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14v3_1_encoder_tC2Em(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %bufsize_.addr = alloca i64, align 8
-  %coerce = alloca { i64, i64 }, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %bufsize_, ptr %bufsize_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %bufsize_.addr, align 8
-  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEEC2Em(ptr noundef nonnull align 8 dereferenceable(72) %this1, i64 noundef %0)
-  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3zmq14v3_1_encoder_tE, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq14v3_1_encoder_t13message_readyEv to i64), i64 0 }, ptr %coerce, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
-  %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  invoke void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef null, i64 noundef 0, i64 %3, i64 %5, i1 noundef zeroext true)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN3zmq14v3_1_encoder_tC2Em(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca { i64, i64 }, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8
+  %9 = load i64, ptr %4, align 8, !tbaa !8
+  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEEC2Em(ptr noundef nonnull align 8 dereferenceable(72) %8, i64 noundef %9)
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3zmq14v3_1_encoder_tE, i32 0, i32 0, i32 2), ptr %8, align 8, !tbaa !10
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq14v3_1_encoder_t13message_readyEv to i64), i64 0 }, ptr %5, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  invoke void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef null, i64 noundef 0, i64 %11, i64 %13, i1 noundef zeroext true)
+          to label %14 unwind label %15
 
-invoke.cont:                                      ; preds = %entry
+14:                                               ; preds = %2
   ret void
 
-lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+15:                                               ; preds = %2
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #9
-  br label %eh.resume
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %6, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %7, align 4
+  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %8) #12
+  br label %19
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i32, ptr %7, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEEC2Em(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %bufsize_) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %bufsize_.addr = alloca i64, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %bufsize_, ptr %bufsize_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3zmq9i_encoderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %_write_pos = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %_write_pos, align 8
-  %_to_write = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 2
-  store i64 0, ptr %_to_write, align 8
-  %_next = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 3
-  store { i64, i64 } zeroinitializer, ptr %_next, align 8
-  %_new_msg_flag = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 4
-  store i8 0, ptr %_new_msg_flag, align 8
-  %_buf_size = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 5
-  %1 = load i64, ptr %bufsize_.addr, align 8
-  store i64 %1, ptr %_buf_size, align 8
-  %_buf = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 6
-  %2 = load i64, ptr %bufsize_.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef %2) #10
-  store ptr %call, ptr %_buf, align 8
-  %_in_progress = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 7
-  store ptr null, ptr %_in_progress, align 8
-  br label %do.body
+define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEEC2Em(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN3zmq9i_encoderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %7, i32 0, i32 1
+  store ptr null, ptr %8, align 8, !tbaa !15
+  %9 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %7, i32 0, i32 2
+  store i64 0, ptr %9, align 8, !tbaa !21
+  %10 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %7, i32 0, i32 3
+  store { i64, i64 } zeroinitializer, ptr %10, align 8, !tbaa !22
+  %11 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %7, i32 0, i32 4
+  store i8 0, ptr %11, align 8, !tbaa !23
+  %12 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %7, i32 0, i32 5
+  %13 = load i64, ptr %4, align 8, !tbaa !8
+  store i64 %13, ptr %12, align 8, !tbaa !24
+  %14 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %7, i32 0, i32 6
+  %15 = load i64, ptr %4, align 8, !tbaa !8
+  %16 = call noalias ptr @malloc(i64 noundef %15) #13
+  store ptr %16, ptr %14, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %7, i32 0, i32 7
+  store ptr null, ptr %17, align 8, !tbaa !26
+  br label %18
 
-do.body:                                          ; preds = %entry
-  %_buf2 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 6
-  %3 = load ptr, ptr %_buf2, align 8
-  %tobool = icmp ne ptr %3, null
-  %lnot = xor i1 %tobool, true
-  br i1 %lnot, label %if.then, label %if.end
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %7, i32 0, i32 6
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %21 = icmp ne ptr %20, null
+  %22 = xor i1 %21, true
+  %23 = zext i1 %22 to i64
+  %24 = call i64 @llvm.expect.i64(i64 %23, i64 0)
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %26, label %37
 
-if.then:                                          ; preds = %do.body
-  %4 = load ptr, ptr @stderr, align 8
-  %call3 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 39)
-          to label %invoke.cont unwind label %lpad
+26:                                               ; preds = %18
+  %27 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef @.str, ptr noundef @.str.1, i32 noundef 39) #12
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %30 = invoke i32 @fflush(ptr noundef %29)
+          to label %31 unwind label %33
 
-invoke.cont:                                      ; preds = %if.then
-  %5 = load ptr, ptr @stderr, align 8
-  %call5 = invoke i32 @fflush(ptr noundef %5)
-          to label %invoke.cont4 unwind label %lpad
-
-invoke.cont4:                                     ; preds = %invoke.cont
+31:                                               ; preds = %26
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.2)
-          to label %invoke.cont6 unwind label %lpad
+          to label %32 unwind label %33
 
-invoke.cont6:                                     ; preds = %invoke.cont4
-  br label %if.end
+32:                                               ; preds = %31
+  br label %37
 
-lpad:                                             ; preds = %invoke.cont4, %invoke.cont, %if.then
-  %6 = landingpad { ptr, i32 }
+33:                                               ; preds = %31, %26
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  call void @_ZN3zmq9i_encoderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  br label %eh.resume
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  call void @_ZN3zmq9i_encoderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br label %40
 
-if.end:                                           ; preds = %invoke.cont6, %do.body
-  br label %do.cond
+37:                                               ; preds = %32, %18
+  br label %38
 
-do.cond:                                          ; preds = %if.end
-  br label %do.end
+38:                                               ; preds = %37
+  br label %39
 
-do.end:                                           ; preds = %do.cond
+39:                                               ; preds = %38
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val7
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %5, align 8
+  %42 = load i32, ptr %6, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %write_pos_, i64 noundef %to_write_, i64 %next_.coerce0, i64 %next_.coerce1, i1 noundef zeroext %new_msg_flag_) #1 comdat align 2 {
-entry:
-  %next_ = alloca { i64, i64 }, align 8
-  %this.addr = alloca ptr, align 8
-  %write_pos_.addr = alloca ptr, align 8
-  %to_write_.addr = alloca i64, align 8
-  %next_.addr = alloca { i64, i64 }, align 8
-  %new_msg_flag_.addr = alloca i8, align 1
-  %0 = getelementptr inbounds { i64, i64 }, ptr %next_, i32 0, i32 0
-  store i64 %next_.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %next_, i32 0, i32 1
-  store i64 %next_.coerce1, ptr %1, align 8
-  %next_1 = load { i64, i64 }, ptr %next_, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %write_pos_, ptr %write_pos_.addr, align 8
-  store i64 %to_write_, ptr %to_write_.addr, align 8
-  store { i64, i64 } %next_1, ptr %next_.addr, align 8
-  %frombool = zext i1 %new_msg_flag_ to i8
-  store i8 %frombool, ptr %new_msg_flag_.addr, align 1
-  %this2 = load ptr, ptr %this.addr, align 8
-  %2 = load ptr, ptr %write_pos_.addr, align 8
-  %_write_pos = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this2, i32 0, i32 1
-  store ptr %2, ptr %_write_pos, align 8
-  %3 = load i64, ptr %to_write_.addr, align 8
-  %_to_write = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this2, i32 0, i32 2
-  store i64 %3, ptr %_to_write, align 8
-  %4 = load { i64, i64 }, ptr %next_.addr, align 8
-  %_next = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this2, i32 0, i32 3
-  store { i64, i64 } %4, ptr %_next, align 8
-  %5 = load i8, ptr %new_msg_flag_.addr, align 1
-  %tobool = trunc i8 %5 to i1
-  %_new_msg_flag = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this2, i32 0, i32 4
-  %frombool3 = zext i1 %tobool to i8
-  store i8 %frombool3, ptr %_new_msg_flag, align 8
+define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i64 noundef %2, i64 %3, i64 %4, i1 noundef zeroext %5) #1 comdat align 2 {
+  %7 = alloca { i64, i64 }, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca { i64, i64 }, align 8
+  %12 = alloca i8, align 1
+  %13 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
+  store i64 %3, ptr %13, align 8
+  %14 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
+  store i64 %4, ptr %14, align 8
+  %15 = load { i64, i64 }, ptr %7, align 8, !tbaa !12
+  store ptr %0, ptr %8, align 8, !tbaa !13
+  store ptr %1, ptr %9, align 8, !tbaa !29
+  store i64 %2, ptr %10, align 8, !tbaa !8
+  store { i64, i64 } %15, ptr %11, align 8, !tbaa !12
+  %16 = zext i1 %5 to i8
+  store i8 %16, ptr %12, align 1, !tbaa !30
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8, !tbaa !29
+  %19 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 1
+  store ptr %18, ptr %19, align 8, !tbaa !15
+  %20 = load i64, ptr %10, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 2
+  store i64 %20, ptr %21, align 8, !tbaa !21
+  %22 = load { i64, i64 }, ptr %11, align 8, !tbaa !12
+  %23 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 3
+  store { i64, i64 } %22, ptr %23, align 8, !tbaa !22
+  %24 = load i8, ptr %12, align 1, !tbaa !30, !range !31, !noundef !32
+  %25 = trunc i8 %24 to i1
+  %26 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 4
+  %27 = zext i1 %25 to i8
+  store i8 %27, ptr %26, align 8, !tbaa !23
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14v3_1_encoder_t13message_readyEv(ptr noundef nonnull align 8 dereferenceable(96) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size = alloca i64, align 8
-  %header_size = alloca i64, align 8
-  %protocol_flags = alloca ptr, align 8
-  %coerce = alloca { i64, i64 }, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call2 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %call)
-  store i64 %call2, ptr %size, align 8
-  store i64 2, ptr %header_size, align 8
-  %_tmp_buf = getelementptr inbounds %"class.zmq::v3_1_encoder_t", ptr %this1, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [19 x i8], ptr %_tmp_buf, i64 0, i64 0
-  store ptr %arrayidx, ptr %protocol_flags, align 8
-  %0 = load ptr, ptr %protocol_flags, align 8
-  store i8 0, ptr %0, align 1
-  %call3 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call4 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %call3)
-  %conv = zext i8 %call4 to i32
-  %and = and i32 %conv, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @_ZN3zmq14v3_1_encoder_t13message_readyEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca { i64, i64 }, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  %8 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  %9 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  store i64 %9, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  store i64 2, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %10 = getelementptr inbounds nuw %"class.zmq::v3_1_encoder_t", ptr %7, i32 0, i32 1
+  %11 = getelementptr inbounds [19 x i8], ptr %10, i64 0, i64 0
+  store ptr %11, ptr %5, align 8, !tbaa !33
+  %12 = load ptr, ptr %5, align 8, !tbaa !33
+  store i8 0, ptr %12, align 1, !tbaa !12
+  %13 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  %14 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
+  %15 = zext i8 %14 to i32
+  %16 = and i32 %15, 1
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %24
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %protocol_flags, align 8
-  %2 = load i8, ptr %1, align 1
-  %conv5 = zext i8 %2 to i32
-  %or = or i32 %conv5, 1
-  %conv6 = trunc i32 %or to i8
-  store i8 %conv6, ptr %1, align 1
-  br label %if.end
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %5, align 8, !tbaa !33
+  %20 = load i8, ptr %19, align 1, !tbaa !12
+  %21 = zext i8 %20 to i32
+  %22 = or i32 %21, 1
+  %23 = trunc i32 %22 to i8
+  store i8 %23, ptr %19, align 1, !tbaa !12
+  br label %24
 
-if.end:                                           ; preds = %if.then, %entry
-  %call7 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call8 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %call7)
-  %conv9 = zext i8 %call8 to i32
-  %and10 = and i32 %conv9, 2
-  %tobool11 = icmp ne i32 %and10, 0
-  br i1 %tobool11, label %if.then17, label %lor.lhs.false
+24:                                               ; preds = %18, %1
+  %25 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  %26 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %25)
+  %27 = zext i8 %26 to i32
+  %28 = and i32 %27, 2
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %36, label %30
 
-lor.lhs.false:                                    ; preds = %if.end
-  %call12 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call13 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_subscribeEv(ptr noundef nonnull align 8 dereferenceable(64) %call12)
-  br i1 %call13, label %if.then17, label %lor.lhs.false14
+30:                                               ; preds = %24
+  %31 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  %32 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_subscribeEv(ptr noundef nonnull align 8 dereferenceable(64) %31)
+  br i1 %32, label %36, label %33
 
-lor.lhs.false14:                                  ; preds = %lor.lhs.false
-  %call15 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call16 = call noundef zeroext i1 @_ZNK3zmq5msg_t9is_cancelEv(ptr noundef nonnull align 8 dereferenceable(64) %call15)
-  br i1 %call16, label %if.then17, label %if.end30
+33:                                               ; preds = %30
+  %34 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  %35 = call noundef zeroext i1 @_ZNK3zmq5msg_t9is_cancelEv(ptr noundef nonnull align 8 dereferenceable(64) %34)
+  br i1 %35, label %36, label %55
 
-if.then17:                                        ; preds = %lor.lhs.false14, %lor.lhs.false, %if.end
-  %3 = load ptr, ptr %protocol_flags, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv18 = zext i8 %4 to i32
-  %or19 = or i32 %conv18, 4
-  %conv20 = trunc i32 %or19 to i8
-  store i8 %conv20, ptr %3, align 1
-  %call21 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call22 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_subscribeEv(ptr noundef nonnull align 8 dereferenceable(64) %call21)
-  br i1 %call22, label %if.then23, label %if.else
+36:                                               ; preds = %33, %30, %24
+  %37 = load ptr, ptr %5, align 8, !tbaa !33
+  %38 = load i8, ptr %37, align 1, !tbaa !12
+  %39 = zext i8 %38 to i32
+  %40 = or i32 %39, 4
+  %41 = trunc i32 %40 to i8
+  store i8 %41, ptr %37, align 1, !tbaa !12
+  %42 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  %43 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_subscribeEv(ptr noundef nonnull align 8 dereferenceable(64) %42)
+  br i1 %43, label %44, label %47
 
-if.then23:                                        ; preds = %if.then17
-  %5 = load i64, ptr %size, align 8
-  %add = add i64 %5, 10
-  store i64 %add, ptr %size, align 8
-  br label %if.end29
+44:                                               ; preds = %36
+  %45 = load i64, ptr %3, align 8, !tbaa !8
+  %46 = add i64 %45, 10
+  store i64 %46, ptr %3, align 8, !tbaa !8
+  br label %54
 
-if.else:                                          ; preds = %if.then17
-  %call24 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call25 = call noundef zeroext i1 @_ZNK3zmq5msg_t9is_cancelEv(ptr noundef nonnull align 8 dereferenceable(64) %call24)
-  br i1 %call25, label %if.then26, label %if.end28
+47:                                               ; preds = %36
+  %48 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  %49 = call noundef zeroext i1 @_ZNK3zmq5msg_t9is_cancelEv(ptr noundef nonnull align 8 dereferenceable(64) %48)
+  br i1 %49, label %50, label %53
 
-if.then26:                                        ; preds = %if.else
-  %6 = load i64, ptr %size, align 8
-  %add27 = add i64 %6, 7
-  store i64 %add27, ptr %size, align 8
-  br label %if.end28
+50:                                               ; preds = %47
+  %51 = load i64, ptr %3, align 8, !tbaa !8
+  %52 = add i64 %51, 7
+  store i64 %52, ptr %3, align 8, !tbaa !8
+  br label %53
 
-if.end28:                                         ; preds = %if.then26, %if.else
-  br label %if.end29
+53:                                               ; preds = %50, %47
+  br label %54
 
-if.end29:                                         ; preds = %if.end28, %if.then23
-  br label %if.end30
+54:                                               ; preds = %53, %44
+  br label %55
 
-if.end30:                                         ; preds = %if.end29, %lor.lhs.false14
-  %7 = load i64, ptr %size, align 8
-  %cmp = icmp ugt i64 %7, 255
-  br i1 %cmp, label %if.then31, label %if.end35
+55:                                               ; preds = %54, %33
+  %56 = load i64, ptr %3, align 8, !tbaa !8
+  %57 = icmp ugt i64 %56, 255
+  br i1 %57, label %58, label %64
 
-if.then31:                                        ; preds = %if.end30
-  %8 = load ptr, ptr %protocol_flags, align 8
-  %9 = load i8, ptr %8, align 1
-  %conv32 = zext i8 %9 to i32
-  %or33 = or i32 %conv32, 2
-  %conv34 = trunc i32 %or33 to i8
-  store i8 %conv34, ptr %8, align 1
-  br label %if.end35
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %5, align 8, !tbaa !33
+  %60 = load i8, ptr %59, align 1, !tbaa !12
+  %61 = zext i8 %60 to i32
+  %62 = or i32 %61, 2
+  %63 = trunc i32 %62 to i8
+  store i8 %63, ptr %59, align 1, !tbaa !12
+  br label %64
 
-if.end35:                                         ; preds = %if.then31, %if.end30
-  %10 = load i64, ptr %size, align 8
-  %cmp36 = icmp ugt i64 %10, 255
-  br i1 %cmp36, label %if.then38, label %if.else40
+64:                                               ; preds = %58, %55
+  %65 = load i64, ptr %3, align 8, !tbaa !8
+  %66 = icmp ugt i64 %65, 255
+  %67 = zext i1 %66 to i64
+  %68 = call i64 @llvm.expect.i64(i64 %67, i64 0)
+  %69 = icmp ne i64 %68, 0
+  br i1 %69, label %70, label %75
 
-if.then38:                                        ; preds = %if.end35
-  %_tmp_buf39 = getelementptr inbounds %"class.zmq::v3_1_encoder_t", ptr %this1, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [19 x i8], ptr %_tmp_buf39, i64 0, i64 0
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 1
-  %11 = load i64, ptr %size, align 8
-  call void @_ZN3zmq10put_uint64EPhm(ptr noundef %add.ptr, i64 noundef %11)
-  store i64 9, ptr %header_size, align 8
-  br label %if.end44
+70:                                               ; preds = %64
+  %71 = getelementptr inbounds nuw %"class.zmq::v3_1_encoder_t", ptr %7, i32 0, i32 1
+  %72 = getelementptr inbounds [19 x i8], ptr %71, i64 0, i64 0
+  %73 = getelementptr inbounds i8, ptr %72, i64 1
+  %74 = load i64, ptr %3, align 8, !tbaa !8
+  call void @_ZN3zmq10put_uint64EPhm(ptr noundef %73, i64 noundef %74)
+  store i64 9, ptr %4, align 8, !tbaa !8
+  br label %80
 
-if.else40:                                        ; preds = %if.end35
-  %12 = load i64, ptr %size, align 8
-  %conv41 = trunc i64 %12 to i8
-  %_tmp_buf42 = getelementptr inbounds %"class.zmq::v3_1_encoder_t", ptr %this1, i32 0, i32 1
-  %arrayidx43 = getelementptr inbounds [19 x i8], ptr %_tmp_buf42, i64 0, i64 1
-  store i8 %conv41, ptr %arrayidx43, align 1
-  br label %if.end44
+75:                                               ; preds = %64
+  %76 = load i64, ptr %3, align 8, !tbaa !8
+  %77 = trunc i64 %76 to i8
+  %78 = getelementptr inbounds nuw %"class.zmq::v3_1_encoder_t", ptr %7, i32 0, i32 1
+  %79 = getelementptr inbounds [19 x i8], ptr %78, i64 0, i64 1
+  store i8 %77, ptr %79, align 1, !tbaa !12
+  br label %80
 
-if.end44:                                         ; preds = %if.else40, %if.then38
-  %call45 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call46 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_subscribeEv(ptr noundef nonnull align 8 dereferenceable(64) %call45)
-  br i1 %call46, label %if.then47, label %if.else52
+80:                                               ; preds = %75, %70
+  %81 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  %82 = call noundef zeroext i1 @_ZNK3zmq5msg_t12is_subscribeEv(ptr noundef nonnull align 8 dereferenceable(64) %81)
+  br i1 %82, label %83, label %90
 
-if.then47:                                        ; preds = %if.end44
-  %_tmp_buf48 = getelementptr inbounds %"class.zmq::v3_1_encoder_t", ptr %this1, i32 0, i32 1
-  %arraydecay49 = getelementptr inbounds [19 x i8], ptr %_tmp_buf48, i64 0, i64 0
-  %13 = load i64, ptr %header_size, align 8
-  %add.ptr50 = getelementptr inbounds i8, ptr %arraydecay49, i64 %13
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr50, ptr align 1 @_ZN3zmqL12sub_cmd_nameE, i64 10, i1 false)
-  %14 = load i64, ptr %header_size, align 8
-  %add51 = add i64 %14, 10
-  store i64 %add51, ptr %header_size, align 8
-  br label %if.end61
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw %"class.zmq::v3_1_encoder_t", ptr %7, i32 0, i32 1
+  %85 = getelementptr inbounds [19 x i8], ptr %84, i64 0, i64 0
+  %86 = load i64, ptr %4, align 8, !tbaa !8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %86
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr align 1 @_ZN3zmqL12sub_cmd_nameE, i64 10, i1 false)
+  %88 = load i64, ptr %4, align 8, !tbaa !8
+  %89 = add i64 %88, 10
+  store i64 %89, ptr %4, align 8, !tbaa !8
+  br label %101
 
-if.else52:                                        ; preds = %if.end44
-  %call53 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call54 = call noundef zeroext i1 @_ZNK3zmq5msg_t9is_cancelEv(ptr noundef nonnull align 8 dereferenceable(64) %call53)
-  br i1 %call54, label %if.then55, label %if.end60
+90:                                               ; preds = %80
+  %91 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+  %92 = call noundef zeroext i1 @_ZNK3zmq5msg_t9is_cancelEv(ptr noundef nonnull align 8 dereferenceable(64) %91)
+  br i1 %92, label %93, label %100
 
-if.then55:                                        ; preds = %if.else52
-  %_tmp_buf56 = getelementptr inbounds %"class.zmq::v3_1_encoder_t", ptr %this1, i32 0, i32 1
-  %arraydecay57 = getelementptr inbounds [19 x i8], ptr %_tmp_buf56, i64 0, i64 0
-  %15 = load i64, ptr %header_size, align 8
-  %add.ptr58 = getelementptr inbounds i8, ptr %arraydecay57, i64 %15
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr58, ptr align 1 @_ZN3zmqL15cancel_cmd_nameE, i64 7, i1 false)
-  %16 = load i64, ptr %header_size, align 8
-  %add59 = add i64 %16, 7
-  store i64 %add59, ptr %header_size, align 8
-  br label %if.end60
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds nuw %"class.zmq::v3_1_encoder_t", ptr %7, i32 0, i32 1
+  %95 = getelementptr inbounds [19 x i8], ptr %94, i64 0, i64 0
+  %96 = load i64, ptr %4, align 8, !tbaa !8
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %96
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %97, ptr align 1 @_ZN3zmqL15cancel_cmd_nameE, i64 7, i1 false)
+  %98 = load i64, ptr %4, align 8, !tbaa !8
+  %99 = add i64 %98, 7
+  store i64 %99, ptr %4, align 8, !tbaa !8
+  br label %100
 
-if.end60:                                         ; preds = %if.then55, %if.else52
-  br label %if.end61
+100:                                              ; preds = %93, %90
+  br label %101
 
-if.end61:                                         ; preds = %if.end60, %if.then47
-  %_tmp_buf62 = getelementptr inbounds %"class.zmq::v3_1_encoder_t", ptr %this1, i32 0, i32 1
-  %arraydecay63 = getelementptr inbounds [19 x i8], ptr %_tmp_buf62, i64 0, i64 0
-  %17 = load i64, ptr %header_size, align 8
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq14v3_1_encoder_t10size_readyEv to i64), i64 0 }, ptr %coerce, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %arraydecay63, i64 noundef %17, i64 %19, i64 %21, i1 noundef zeroext false)
+101:                                              ; preds = %100, %83
+  %102 = getelementptr inbounds nuw %"class.zmq::v3_1_encoder_t", ptr %7, i32 0, i32 1
+  %103 = getelementptr inbounds [19 x i8], ptr %102, i64 0, i64 0
+  %104 = load i64, ptr %4, align 8, !tbaa !8
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq14v3_1_encoder_t10size_readyEv to i64), i64 0 }, ptr %6, align 8, !tbaa !12
+  %105 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 0
+  %106 = load i64, ptr %105, align 8
+  %107 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i32 0, i32 1
+  %108 = load i64, ptr %107, align 8
+  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef %103, i64 noundef %104, i64 %106, i64 %108, i1 noundef zeroext false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq14v3_1_encoder_tD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #9
+define void @_ZN3zmq14v3_1_encoder_tD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq14v3_1_encoder_tD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3zmq14v3_1_encoder_tD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #9
-  call void @_ZdlPv(ptr noundef %this1) #11
+define void @_ZN3zmq14v3_1_encoder_tD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3zmq14v3_1_encoder_tD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
+  call void @_ZdlPv(ptr noundef %3) #14
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_in_progress = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %_in_progress, align 8
-  ret ptr %0
+define linkonce_odr noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %3, i32 0, i32 7
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  ret ptr %5
 }
 
-declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64)) #3
+declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64)) #4
 
-declare noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64)) #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK3zmq5msg_t12is_subscribeEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_u = getelementptr inbounds %"class.zmq::msg_t", ptr %this1, i32 0, i32 0
-  %flags = getelementptr inbounds %struct.anon, ptr %_u, i32 0, i32 3
-  %0 = load i8, ptr %flags, align 1
-  %conv = zext i8 %0 to i32
-  %and = and i32 %conv, 28
-  %cmp = icmp eq i32 %and, 12
-  ret i1 %cmp
-}
+declare noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK3zmq5msg_t9is_cancelEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_u = getelementptr inbounds %"class.zmq::msg_t", ptr %this1, i32 0, i32 0
-  %flags = getelementptr inbounds %struct.anon, ptr %_u, i32 0, i32 3
-  %0 = load i8, ptr %flags, align 1
-  %conv = zext i8 %0 to i32
-  %and = and i32 %conv, 28
-  %cmp = icmp eq i32 %and, 16
-  ret i1 %cmp
+define linkonce_odr noundef zeroext i1 @_ZNK3zmq5msg_t12is_subscribeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::msg_t", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.anon, ptr %4, i32 0, i32 3
+  %6 = load i8, ptr %5, align 1, !tbaa !12
+  %7 = zext i8 %6 to i32
+  %8 = and i32 %7, 28
+  %9 = icmp eq i32 %8, 12
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq10put_uint64EPhm(ptr noundef %buffer_, i64 noundef %value_) #1 comdat {
-entry:
-  %buffer_.addr = alloca ptr, align 8
-  %value_.addr = alloca i64, align 8
-  store ptr %buffer_, ptr %buffer_.addr, align 8
-  store i64 %value_, ptr %value_.addr, align 8
-  %0 = load i64, ptr %value_.addr, align 8
-  %shr = lshr i64 %0, 56
-  %and = and i64 %shr, 255
-  %conv = trunc i64 %and to i8
-  %1 = load ptr, ptr %buffer_.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 0
-  store i8 %conv, ptr %arrayidx, align 1
-  %2 = load i64, ptr %value_.addr, align 8
-  %shr1 = lshr i64 %2, 48
-  %and2 = and i64 %shr1, 255
-  %conv3 = trunc i64 %and2 to i8
-  %3 = load ptr, ptr %buffer_.addr, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %conv3, ptr %arrayidx4, align 1
-  %4 = load i64, ptr %value_.addr, align 8
-  %shr5 = lshr i64 %4, 40
-  %and6 = and i64 %shr5, 255
-  %conv7 = trunc i64 %and6 to i8
-  %5 = load ptr, ptr %buffer_.addr, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %5, i64 2
-  store i8 %conv7, ptr %arrayidx8, align 1
-  %6 = load i64, ptr %value_.addr, align 8
-  %shr9 = lshr i64 %6, 32
-  %and10 = and i64 %shr9, 255
-  %conv11 = trunc i64 %and10 to i8
-  %7 = load ptr, ptr %buffer_.addr, align 8
-  %arrayidx12 = getelementptr inbounds i8, ptr %7, i64 3
-  store i8 %conv11, ptr %arrayidx12, align 1
-  %8 = load i64, ptr %value_.addr, align 8
-  %shr13 = lshr i64 %8, 24
-  %and14 = and i64 %shr13, 255
-  %conv15 = trunc i64 %and14 to i8
-  %9 = load ptr, ptr %buffer_.addr, align 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %9, i64 4
-  store i8 %conv15, ptr %arrayidx16, align 1
-  %10 = load i64, ptr %value_.addr, align 8
-  %shr17 = lshr i64 %10, 16
-  %and18 = and i64 %shr17, 255
-  %conv19 = trunc i64 %and18 to i8
-  %11 = load ptr, ptr %buffer_.addr, align 8
-  %arrayidx20 = getelementptr inbounds i8, ptr %11, i64 5
-  store i8 %conv19, ptr %arrayidx20, align 1
-  %12 = load i64, ptr %value_.addr, align 8
-  %shr21 = lshr i64 %12, 8
-  %and22 = and i64 %shr21, 255
-  %conv23 = trunc i64 %and22 to i8
-  %13 = load ptr, ptr %buffer_.addr, align 8
-  %arrayidx24 = getelementptr inbounds i8, ptr %13, i64 6
-  store i8 %conv23, ptr %arrayidx24, align 1
-  %14 = load i64, ptr %value_.addr, align 8
-  %and25 = and i64 %14, 255
-  %conv26 = trunc i64 %and25 to i8
-  %15 = load ptr, ptr %buffer_.addr, align 8
-  %arrayidx27 = getelementptr inbounds i8, ptr %15, i64 7
-  store i8 %conv26, ptr %arrayidx27, align 1
+define linkonce_odr noundef zeroext i1 @_ZNK3zmq5msg_t9is_cancelEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::msg_t", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.anon, ptr %4, i32 0, i32 3
+  %6 = load i8, ptr %5, align 1, !tbaa !12
+  %7 = zext i8 %6 to i32
+  %8 = and i32 %7, 28
+  %9 = icmp eq i32 %8, 16
+  ret i1 %9
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3zmq10put_uint64EPhm(ptr noundef %0, i64 noundef %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load i64, ptr %4, align 8, !tbaa !8
+  %6 = lshr i64 %5, 56
+  %7 = and i64 %6, 255
+  %8 = trunc i64 %7 to i8
+  %9 = load ptr, ptr %3, align 8, !tbaa !33
+  %10 = getelementptr inbounds i8, ptr %9, i64 0
+  store i8 %8, ptr %10, align 1, !tbaa !12
+  %11 = load i64, ptr %4, align 8, !tbaa !8
+  %12 = lshr i64 %11, 48
+  %13 = and i64 %12, 255
+  %14 = trunc i64 %13 to i8
+  %15 = load ptr, ptr %3, align 8, !tbaa !33
+  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  store i8 %14, ptr %16, align 1, !tbaa !12
+  %17 = load i64, ptr %4, align 8, !tbaa !8
+  %18 = lshr i64 %17, 40
+  %19 = and i64 %18, 255
+  %20 = trunc i64 %19 to i8
+  %21 = load ptr, ptr %3, align 8, !tbaa !33
+  %22 = getelementptr inbounds i8, ptr %21, i64 2
+  store i8 %20, ptr %22, align 1, !tbaa !12
+  %23 = load i64, ptr %4, align 8, !tbaa !8
+  %24 = lshr i64 %23, 32
+  %25 = and i64 %24, 255
+  %26 = trunc i64 %25 to i8
+  %27 = load ptr, ptr %3, align 8, !tbaa !33
+  %28 = getelementptr inbounds i8, ptr %27, i64 3
+  store i8 %26, ptr %28, align 1, !tbaa !12
+  %29 = load i64, ptr %4, align 8, !tbaa !8
+  %30 = lshr i64 %29, 24
+  %31 = and i64 %30, 255
+  %32 = trunc i64 %31 to i8
+  %33 = load ptr, ptr %3, align 8, !tbaa !33
+  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  store i8 %32, ptr %34, align 1, !tbaa !12
+  %35 = load i64, ptr %4, align 8, !tbaa !8
+  %36 = lshr i64 %35, 16
+  %37 = and i64 %36, 255
+  %38 = trunc i64 %37 to i8
+  %39 = load ptr, ptr %3, align 8, !tbaa !33
+  %40 = getelementptr inbounds i8, ptr %39, i64 5
+  store i8 %38, ptr %40, align 1, !tbaa !12
+  %41 = load i64, ptr %4, align 8, !tbaa !8
+  %42 = lshr i64 %41, 8
+  %43 = and i64 %42, 255
+  %44 = trunc i64 %43 to i8
+  %45 = load ptr, ptr %3, align 8, !tbaa !33
+  %46 = getelementptr inbounds i8, ptr %45, i64 6
+  store i8 %44, ptr %46, align 1, !tbaa !12
+  %47 = load i64, ptr %4, align 8, !tbaa !8
+  %48 = and i64 %47, 255
+  %49 = trunc i64 %48 to i8
+  %50 = load ptr, ptr %3, align 8, !tbaa !33
+  %51 = getelementptr inbounds i8, ptr %50, i64 7
+  store i8 %49, ptr %51, align 1, !tbaa !12
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14v3_1_encoder_t10size_readyEv(ptr noundef nonnull align 8 dereferenceable(96) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %coerce = alloca { i64, i64 }, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call2 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %call)
-  %call3 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %call4 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %call3)
-  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq14v3_1_encoder_t13message_readyEv to i64), i64 0 }, ptr %coerce, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
-  %1 = load i64, ptr %0, align 8
-  %2 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 1
-  %3 = load i64, ptr %2, align 8
-  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %call2, i64 noundef %call4, i64 %1, i64 %3, i1 noundef zeroext true)
+define void @_ZN3zmq14v3_1_encoder_t10size_readyEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca { i64, i64 }, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
+  %6 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %7 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
+  %8 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
+  store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq14v3_1_encoder_t13message_readyEv to i64), i64 0 }, ptr %3, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 0
+  %10 = load i64, ptr %9, align 8
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %3, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE9next_stepEPvmMS1_FvvEb(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %6, i64 noundef %8, i64 %10, i64 %12, i1 noundef zeroext true)
   ret void
 }
 
-declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64)) #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64)) #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE6encodeEPPhm(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 comdat align 2 {
-entry:
-  %retval = alloca i64, align 8
-  %this.addr = alloca ptr, align 8
-  %data_.addr = alloca ptr, align 8
-  %size_.addr = alloca i64, align 8
-  %buffer = alloca ptr, align 8
-  %buffersize = alloca i64, align 8
-  %pos = alloca i64, align 8
-  %rc = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  %errstr26 = alloca ptr, align 8
-  %to_copy = alloca i64, align 8
-  %ref.tmp = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data_, ptr %data_.addr, align 8
-  store i64 %size_, ptr %size_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %data_.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %cond.false, label %cond.true
+define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE6encodeEPPhm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store ptr %1, ptr %6, align 8, !tbaa !35
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  %17 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %18 = load ptr, ptr %6, align 8, !tbaa !35
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %24, label %21
 
-cond.true:                                        ; preds = %entry
-  %_buf = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 6
-  %2 = load ptr, ptr %_buf, align 8
-  br label %cond.end
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 6
+  %23 = load ptr, ptr %22, align 8, !tbaa !25
+  br label %27
 
-cond.false:                                       ; preds = %entry
-  %3 = load ptr, ptr %data_.addr, align 8
-  %4 = load ptr, ptr %3, align 8
-  br label %cond.end
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %6, align 8, !tbaa !35
+  %26 = load ptr, ptr %25, align 8, !tbaa !33
+  br label %27
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %2, %cond.true ], [ %4, %cond.false ]
-  store ptr %cond, ptr %buffer, align 8
-  %5 = load ptr, ptr %data_.addr, align 8
-  %6 = load ptr, ptr %5, align 8
-  %tobool2 = icmp ne ptr %6, null
-  br i1 %tobool2, label %cond.false4, label %cond.true3
+27:                                               ; preds = %24, %21
+  %28 = phi ptr [ %23, %21 ], [ %26, %24 ]
+  store ptr %28, ptr %8, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %29 = load ptr, ptr %6, align 8, !tbaa !35
+  %30 = load ptr, ptr %29, align 8, !tbaa !33
+  %31 = icmp ne ptr %30, null
+  br i1 %31, label %35, label %32
 
-cond.true3:                                       ; preds = %cond.end
-  %_buf_size = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 5
-  %7 = load i64, ptr %_buf_size, align 8
-  br label %cond.end5
+32:                                               ; preds = %27
+  %33 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 5
+  %34 = load i64, ptr %33, align 8, !tbaa !24
+  br label %37
 
-cond.false4:                                      ; preds = %cond.end
-  %8 = load i64, ptr %size_.addr, align 8
-  br label %cond.end5
+35:                                               ; preds = %27
+  %36 = load i64, ptr %7, align 8, !tbaa !8
+  br label %37
 
-cond.end5:                                        ; preds = %cond.false4, %cond.true3
-  %cond6 = phi i64 [ %7, %cond.true3 ], [ %8, %cond.false4 ]
-  store i64 %cond6, ptr %buffersize, align 8
-  %call = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.then, label %if.end
+37:                                               ; preds = %35, %32
+  %38 = phi i64 [ %34, %32 ], [ %36, %35 ]
+  store i64 %38, ptr %9, align 8, !tbaa !8
+  %39 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %17)
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %42
 
-if.then:                                          ; preds = %cond.end5
-  store i64 0, ptr %retval, align 8
-  br label %return
+41:                                               ; preds = %37
+  store i64 0, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %170
 
-if.end:                                           ; preds = %cond.end5
-  store i64 0, ptr %pos, align 8
-  br label %while.cond
+42:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store i64 0, ptr %11, align 8, !tbaa !8
+  br label %43
 
-while.cond:                                       ; preds = %if.end45, %if.end
-  %9 = load i64, ptr %pos, align 8
-  %10 = load i64, ptr %buffersize, align 8
-  %cmp7 = icmp ult i64 %9, %10
-  br i1 %cmp7, label %while.body, label %while.end
+43:                                               ; preds = %141, %42
+  %44 = load i64, ptr %11, align 8, !tbaa !8
+  %45 = load i64, ptr %9, align 8, !tbaa !8
+  %46 = icmp ult i64 %44, %45
+  br i1 %46, label %47, label %165
 
-while.body:                                       ; preds = %while.cond
-  %_to_write = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 2
-  %11 = load i64, ptr %_to_write, align 8
-  %tobool8 = icmp ne i64 %11, 0
-  br i1 %tobool8, label %if.end35, label %if.then9
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 2
+  %49 = load i64, ptr %48, align 8, !tbaa !21
+  %50 = icmp ne i64 %49, 0
+  br i1 %50, label %120, label %51
 
-if.then9:                                         ; preds = %while.body
-  %_new_msg_flag = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 4
-  %12 = load i8, ptr %_new_msg_flag, align 8
-  %tobool10 = trunc i8 %12 to i1
-  br i1 %tobool10, label %if.then11, label %if.end34
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 4
+  %53 = load i8, ptr %52, align 8, !tbaa !23, !range !31, !noundef !32
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %103
 
-if.then11:                                        ; preds = %if.then9
-  %_in_progress = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 7
-  %13 = load ptr, ptr %_in_progress, align 8
-  %call12 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
-  store i32 %call12, ptr %rc, align 4
-  br label %do.body
+55:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #12
+  %56 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 7
+  %57 = load ptr, ptr %56, align 8, !tbaa !26
+  %58 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %57)
+  store i32 %58, ptr %12, align 4, !tbaa !38
+  br label %59
 
-do.body:                                          ; preds = %if.then11
-  %14 = load i32, ptr %rc, align 4
-  %cmp13 = icmp eq i32 %14, 0
-  %lnot = xor i1 %cmp13, true
-  br i1 %lnot, label %if.then14, label %if.end19
+59:                                               ; preds = %55
+  %60 = load i32, ptr %12, align 4, !tbaa !38
+  %61 = icmp eq i32 %60, 0
+  %62 = xor i1 %61, true
+  %63 = zext i1 %62 to i64
+  %64 = call i64 @llvm.expect.i64(i64 %63, i64 0)
+  %65 = icmp ne i64 %64, 0
+  br i1 %65, label %66, label %76
 
-if.then14:                                        ; preds = %do.body
-  %call15 = call ptr @__errno_location() #12
-  %15 = load i32, ptr %call15, align 4
-  %call16 = call ptr @strerror(i32 noundef %15) #9
-  store ptr %call16, ptr %errstr, align 8
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = load ptr, ptr %errstr, align 8
-  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.3, ptr noundef %17, ptr noundef @.str.1, i32 noundef 63)
-  %18 = load ptr, ptr @stderr, align 8
-  %call18 = call i32 @fflush(ptr noundef %18)
-  %19 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %19)
-  br label %if.end19
+66:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  %67 = call ptr @__errno_location() #15
+  %68 = load i32, ptr %67, align 4, !tbaa !38
+  %69 = call ptr @strerror(i32 noundef %68) #12
+  store ptr %69, ptr %13, align 8, !tbaa !33
+  %70 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %71 = load ptr, ptr %13, align 8, !tbaa !33
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef @.str.3, ptr noundef %71, ptr noundef @.str.1, i32 noundef 63) #12
+  %73 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %74 = call i32 @fflush(ptr noundef %73)
+  %75 = load ptr, ptr %13, align 8, !tbaa !33
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %75)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  br label %76
 
-if.end19:                                         ; preds = %if.then14, %do.body
-  br label %do.end
+76:                                               ; preds = %66, %59
+  br label %77
 
-do.end:                                           ; preds = %if.end19
-  %_in_progress20 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 7
-  %20 = load ptr, ptr %_in_progress20, align 8
-  %call21 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %20)
-  store i32 %call21, ptr %rc, align 4
-  br label %do.body22
+77:                                               ; preds = %76
+  br label %78
 
-do.body22:                                        ; preds = %do.end
-  %21 = load i32, ptr %rc, align 4
-  %cmp23 = icmp eq i32 %21, 0
-  %lnot24 = xor i1 %cmp23, true
-  br i1 %lnot24, label %if.then25, label %if.end31
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 7
+  %80 = load ptr, ptr %79, align 8, !tbaa !26
+  %81 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %80)
+  store i32 %81, ptr %12, align 4, !tbaa !38
+  br label %82
 
-if.then25:                                        ; preds = %do.body22
-  %call27 = call ptr @__errno_location() #12
-  %22 = load i32, ptr %call27, align 4
-  %call28 = call ptr @strerror(i32 noundef %22) #9
-  store ptr %call28, ptr %errstr26, align 8
-  %23 = load ptr, ptr @stderr, align 8
-  %24 = load ptr, ptr %errstr26, align 8
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef @.str.3, ptr noundef %24, ptr noundef @.str.1, i32 noundef 65)
-  %25 = load ptr, ptr @stderr, align 8
-  %call30 = call i32 @fflush(ptr noundef %25)
-  %26 = load ptr, ptr %errstr26, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %26)
-  br label %if.end31
+82:                                               ; preds = %78
+  %83 = load i32, ptr %12, align 4, !tbaa !38
+  %84 = icmp eq i32 %83, 0
+  %85 = xor i1 %84, true
+  %86 = zext i1 %85 to i64
+  %87 = call i64 @llvm.expect.i64(i64 %86, i64 0)
+  %88 = icmp ne i64 %87, 0
+  br i1 %88, label %89, label %99
 
-if.end31:                                         ; preds = %if.then25, %do.body22
-  br label %do.end32
+89:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #12
+  %90 = call ptr @__errno_location() #15
+  %91 = load i32, ptr %90, align 4, !tbaa !38
+  %92 = call ptr @strerror(i32 noundef %91) #12
+  store ptr %92, ptr %14, align 8, !tbaa !33
+  %93 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %94 = load ptr, ptr %14, align 8, !tbaa !33
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef @.str.3, ptr noundef %94, ptr noundef @.str.1, i32 noundef 65) #12
+  %96 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %97 = call i32 @fflush(ptr noundef %96)
+  %98 = load ptr, ptr %14, align 8, !tbaa !33
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %98)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #12
+  br label %99
 
-do.end32:                                         ; preds = %if.end31
-  %_in_progress33 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 7
-  store ptr null, ptr %_in_progress33, align 8
-  br label %while.end
+99:                                               ; preds = %89, %82
+  br label %100
 
-if.end34:                                         ; preds = %if.then9
-  %_next = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 3
-  %27 = load { i64, i64 }, ptr %_next, align 8
-  %memptr.adj = extractvalue { i64, i64 } %27, 1
-  %28 = getelementptr inbounds i8, ptr %this1, i64 %memptr.adj
-  %memptr.ptr = extractvalue { i64, i64 } %27, 0
-  %29 = and i64 %memptr.ptr, 1
-  %memptr.isvirtual = icmp ne i64 %29, 0
-  br i1 %memptr.isvirtual, label %memptr.virtual, label %memptr.nonvirtual
+100:                                              ; preds = %99
+  br label %101
 
-memptr.virtual:                                   ; preds = %if.end34
-  %vtable = load ptr, ptr %28, align 8
-  %30 = sub i64 %memptr.ptr, 1
-  %31 = getelementptr i8, ptr %vtable, i64 %30, !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %31, align 8, !nosanitize !4
-  br label %memptr.end
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 7
+  store ptr null, ptr %102, align 8, !tbaa !26
+  store i32 3, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #12
+  br label %165
 
-memptr.nonvirtual:                                ; preds = %if.end34
-  %memptr.nonvirtualfn = inttoptr i64 %memptr.ptr to ptr
-  br label %memptr.end
+103:                                              ; preds = %51
+  %104 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 3
+  %105 = load { i64, i64 }, ptr %104, align 8, !tbaa !22
+  %106 = extractvalue { i64, i64 } %105, 1
+  %107 = getelementptr inbounds i8, ptr %17, i64 %106
+  %108 = extractvalue { i64, i64 } %105, 0
+  %109 = and i64 %108, 1
+  %110 = icmp ne i64 %109, 0
+  br i1 %110, label %111, label %116
 
-memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %32 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
-  call void %32(ptr noundef nonnull align 8 dereferenceable(96) %28)
-  br label %if.end35
+111:                                              ; preds = %103
+  %112 = load ptr, ptr %107, align 8, !tbaa !10
+  %113 = sub i64 %108, 1
+  %114 = getelementptr i8, ptr %112, i64 %113, !nosanitize !32
+  %115 = load ptr, ptr %114, align 8, !nosanitize !32
+  br label %118
 
-if.end35:                                         ; preds = %memptr.end, %while.body
-  %33 = load i64, ptr %pos, align 8
-  %tobool36 = icmp ne i64 %33, 0
-  br i1 %tobool36, label %if.end45, label %land.lhs.true
+116:                                              ; preds = %103
+  %117 = inttoptr i64 %108 to ptr
+  br label %118
 
-land.lhs.true:                                    ; preds = %if.end35
-  %34 = load ptr, ptr %data_.addr, align 8
-  %35 = load ptr, ptr %34, align 8
-  %tobool37 = icmp ne ptr %35, null
-  br i1 %tobool37, label %if.end45, label %land.lhs.true38
+118:                                              ; preds = %116, %111
+  %119 = phi ptr [ %115, %111 ], [ %117, %116 ]
+  call void %119(ptr noundef nonnull align 8 dereferenceable(96) %107)
+  br label %120
 
-land.lhs.true38:                                  ; preds = %land.lhs.true
-  %_to_write39 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 2
-  %36 = load i64, ptr %_to_write39, align 8
-  %37 = load i64, ptr %buffersize, align 8
-  %cmp40 = icmp uge i64 %36, %37
-  br i1 %cmp40, label %if.then41, label %if.end45
+120:                                              ; preds = %118, %47
+  %121 = load i64, ptr %11, align 8, !tbaa !8
+  %122 = icmp ne i64 %121, 0
+  br i1 %122, label %141, label %123
 
-if.then41:                                        ; preds = %land.lhs.true38
-  %_write_pos = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 1
-  %38 = load ptr, ptr %_write_pos, align 8
-  %39 = load ptr, ptr %data_.addr, align 8
-  store ptr %38, ptr %39, align 8
-  %_to_write42 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 2
-  %40 = load i64, ptr %_to_write42, align 8
-  store i64 %40, ptr %pos, align 8
-  %_write_pos43 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %_write_pos43, align 8
-  %_to_write44 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 2
-  store i64 0, ptr %_to_write44, align 8
-  %41 = load i64, ptr %pos, align 8
-  store i64 %41, ptr %retval, align 8
-  br label %return
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %6, align 8, !tbaa !35
+  %125 = load ptr, ptr %124, align 8, !tbaa !33
+  %126 = icmp ne ptr %125, null
+  br i1 %126, label %141, label %127
 
-if.end45:                                         ; preds = %land.lhs.true38, %land.lhs.true, %if.end35
-  %_to_write46 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 2
-  %42 = load i64, ptr %buffersize, align 8
-  %43 = load i64, ptr %pos, align 8
-  %sub = sub i64 %42, %43
-  store i64 %sub, ptr %ref.tmp, align 8
-  %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %_to_write46, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %44 = load i64, ptr %call47, align 8
-  store i64 %44, ptr %to_copy, align 8
-  %45 = load ptr, ptr %buffer, align 8
-  %46 = load i64, ptr %pos, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %45, i64 %46
-  %_write_pos48 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 1
-  %47 = load ptr, ptr %_write_pos48, align 8
-  %48 = load i64, ptr %to_copy, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %47, i64 %48, i1 false)
-  %49 = load i64, ptr %to_copy, align 8
-  %50 = load i64, ptr %pos, align 8
-  %add = add i64 %50, %49
-  store i64 %add, ptr %pos, align 8
-  %51 = load i64, ptr %to_copy, align 8
-  %_write_pos49 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 1
-  %52 = load ptr, ptr %_write_pos49, align 8
-  %add.ptr50 = getelementptr inbounds i8, ptr %52, i64 %51
-  store ptr %add.ptr50, ptr %_write_pos49, align 8
-  %53 = load i64, ptr %to_copy, align 8
-  %_to_write51 = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 2
-  %54 = load i64, ptr %_to_write51, align 8
-  %sub52 = sub i64 %54, %53
-  store i64 %sub52, ptr %_to_write51, align 8
-  br label %while.cond, !llvm.loop !5
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 2
+  %129 = load i64, ptr %128, align 8, !tbaa !21
+  %130 = load i64, ptr %9, align 8, !tbaa !8
+  %131 = icmp uge i64 %129, %130
+  br i1 %131, label %132, label %141
 
-while.end:                                        ; preds = %do.end32, %while.cond
-  %55 = load ptr, ptr %buffer, align 8
-  %56 = load ptr, ptr %data_.addr, align 8
-  store ptr %55, ptr %56, align 8
-  %57 = load i64, ptr %pos, align 8
-  store i64 %57, ptr %retval, align 8
-  br label %return
+132:                                              ; preds = %127
+  %133 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 1
+  %134 = load ptr, ptr %133, align 8, !tbaa !15
+  %135 = load ptr, ptr %6, align 8, !tbaa !35
+  store ptr %134, ptr %135, align 8, !tbaa !33
+  %136 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 2
+  %137 = load i64, ptr %136, align 8, !tbaa !21
+  store i64 %137, ptr %11, align 8, !tbaa !8
+  %138 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 1
+  store ptr null, ptr %138, align 8, !tbaa !15
+  %139 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 2
+  store i64 0, ptr %139, align 8, !tbaa !21
+  %140 = load i64, ptr %11, align 8, !tbaa !8
+  store i64 %140, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %169
 
-return:                                           ; preds = %while.end, %if.then41, %if.then
-  %58 = load i64, ptr %retval, align 8
-  ret i64 %58
+141:                                              ; preds = %127, %123, %120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  %142 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  %143 = load i64, ptr %9, align 8, !tbaa !8
+  %144 = load i64, ptr %11, align 8, !tbaa !8
+  %145 = sub i64 %143, %144
+  store i64 %145, ptr %16, align 8, !tbaa !8
+  %146 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %147 = load i64, ptr %146, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  store i64 %147, ptr %15, align 8, !tbaa !8
+  %148 = load ptr, ptr %8, align 8, !tbaa !33
+  %149 = load i64, ptr %11, align 8, !tbaa !8
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 %149
+  %151 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 1
+  %152 = load ptr, ptr %151, align 8, !tbaa !15
+  %153 = load i64, ptr %15, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %150, ptr align 1 %152, i64 %153, i1 false)
+  %154 = load i64, ptr %15, align 8, !tbaa !8
+  %155 = load i64, ptr %11, align 8, !tbaa !8
+  %156 = add i64 %155, %154
+  store i64 %156, ptr %11, align 8, !tbaa !8
+  %157 = load i64, ptr %15, align 8, !tbaa !8
+  %158 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 1
+  %159 = load ptr, ptr %158, align 8, !tbaa !15
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 %157
+  store ptr %160, ptr %158, align 8, !tbaa !15
+  %161 = load i64, ptr %15, align 8, !tbaa !8
+  %162 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %17, i32 0, i32 2
+  %163 = load i64, ptr %162, align 8, !tbaa !21
+  %164 = sub i64 %163, %161
+  store i64 %164, ptr %162, align 8, !tbaa !21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  br label %43, !llvm.loop !40
+
+165:                                              ; preds = %101, %43
+  %166 = load ptr, ptr %8, align 8, !tbaa !33
+  %167 = load ptr, ptr %6, align 8, !tbaa !35
+  store ptr %166, ptr %167, align 8, !tbaa !33
+  %168 = load i64, ptr %11, align 8, !tbaa !8
+  store i64 %168, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %169
+
+169:                                              ; preds = %165, %132
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  br label %170
+
+170:                                              ; preds = %169, %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %171 = load i64, ptr %4, align 8
+  ret i64 %171
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE8load_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %msg_) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %msg_.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %msg_, ptr %msg_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %do.body
+define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE8load_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store ptr %1, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %3, align 8
+  br label %6
 
-do.body:                                          ; preds = %entry
-  %call = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  %cmp = icmp eq ptr %call, null
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+6:                                                ; preds = %2
+  %7 = call noundef ptr @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEE11in_progressEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
+  %8 = icmp eq ptr %7, null
+  %9 = xor i1 %8, true
+  %10 = zext i1 %9 to i64
+  %11 = call i64 @llvm.expect.i64(i64 %10, i64 0)
+  %12 = icmp ne i64 %11, 0
+  br i1 %12, label %13, label %18
 
-if.then:                                          ; preds = %do.body
-  %0 = load ptr, ptr @stderr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 104)
-  %1 = load ptr, ptr @stderr, align 8
-  %call3 = call i32 @fflush(ptr noundef %1)
+13:                                               ; preds = %6
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.4, ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 104) #12
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !27
+  %17 = call i32 @fflush(ptr noundef %16)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.5)
-  br label %if.end
+  br label %18
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+18:                                               ; preds = %13, %6
+  br label %19
 
-do.end:                                           ; preds = %if.end
-  %2 = load ptr, ptr %msg_.addr, align 8
-  %_in_progress = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 7
-  store ptr %2, ptr %_in_progress, align 8
-  %_next = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 3
-  %3 = load { i64, i64 }, ptr %_next, align 8
-  %memptr.adj = extractvalue { i64, i64 } %3, 1
-  %4 = getelementptr inbounds i8, ptr %this1, i64 %memptr.adj
-  %memptr.ptr = extractvalue { i64, i64 } %3, 0
-  %5 = and i64 %memptr.ptr, 1
-  %memptr.isvirtual = icmp ne i64 %5, 0
-  br i1 %memptr.isvirtual, label %memptr.virtual, label %memptr.nonvirtual
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %4, align 8, !tbaa !34
+  %21 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %5, i32 0, i32 7
+  store ptr %20, ptr %21, align 8, !tbaa !26
+  %22 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %5, i32 0, i32 3
+  %23 = load { i64, i64 }, ptr %22, align 8, !tbaa !22
+  %24 = extractvalue { i64, i64 } %23, 1
+  %25 = getelementptr inbounds i8, ptr %5, i64 %24
+  %26 = extractvalue { i64, i64 } %23, 0
+  %27 = and i64 %26, 1
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %34
 
-memptr.virtual:                                   ; preds = %do.end
-  %vtable = load ptr, ptr %4, align 8
-  %6 = sub i64 %memptr.ptr, 1
-  %7 = getelementptr i8, ptr %vtable, i64 %6, !nosanitize !4
-  %memptr.virtualfn = load ptr, ptr %7, align 8, !nosanitize !4
-  br label %memptr.end
+29:                                               ; preds = %19
+  %30 = load ptr, ptr %25, align 8, !tbaa !10
+  %31 = sub i64 %26, 1
+  %32 = getelementptr i8, ptr %30, i64 %31, !nosanitize !32
+  %33 = load ptr, ptr %32, align 8, !nosanitize !32
+  br label %36
 
-memptr.nonvirtual:                                ; preds = %do.end
-  %memptr.nonvirtualfn = inttoptr i64 %memptr.ptr to ptr
-  br label %memptr.end
+34:                                               ; preds = %19
+  %35 = inttoptr i64 %26 to ptr
+  br label %36
 
-memptr.end:                                       ; preds = %memptr.nonvirtual, %memptr.virtual
-  %8 = phi ptr [ %memptr.virtualfn, %memptr.virtual ], [ %memptr.nonvirtualfn, %memptr.nonvirtual ]
-  call void %8(ptr noundef nonnull align 8 dereferenceable(96) %4)
+36:                                               ; preds = %34, %29
+  %37 = phi ptr [ %33, %29 ], [ %35, %34 ]
+  call void %37(ptr noundef nonnull align 8 dereferenceable(96) %25)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq9i_encoderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3zmq9i_encoderE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3zmq9i_encoderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3zmq9i_encoderE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #5
+declare noalias ptr @malloc(i64 noundef) #8
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #9
 
-declare i32 @fflush(ptr noundef) #3
+declare i32 @fflush(ptr noundef) #4
 
-declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) #3
+declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %_buf = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 6
-  %1 = load ptr, ptr %_buf, align 8
-  call void @free(ptr noundef %1) #9
-  call void @_ZN3zmq9i_encoderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
+define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !10
+  %4 = getelementptr inbounds nuw %"class.zmq::encoder_base_t", ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  call void @free(ptr noundef %5) #12
+  call void @_ZN3zmq9i_encoderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #9
-  call void @_ZdlPv(ptr noundef %this1) #11
+define linkonce_odr void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
+  call void @_ZdlPv(ptr noundef %3) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq9i_encoderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN3zmq9i_encoderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3zmq9i_encoderD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #13
+define linkonce_odr void @_ZN3zmq9i_encoderD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  call void @llvm.trap() #16
   unreachable
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
+declare void @llvm.trap() #10
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #7
+declare void @free(ptr noundef) #9
 
-declare noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64)) #3
+declare noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64)) #4
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #7
+declare ptr @strerror(i32 noundef) #9
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #8
+declare ptr @__errno_location() #11
 
-declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64)) #3
+declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64)) #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #1 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = load ptr, ptr %__a.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !44
+  store ptr %1, ptr %5, align 8, !tbaa !44
+  %6 = load ptr, ptr %5, align 8, !tbaa !44
+  %7 = load i64, ptr %6, align 8, !tbaa !8
+  %8 = load ptr, ptr %4, align 8, !tbaa !44
+  %9 = load i64, ptr %8, align 8, !tbaa !8
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !44
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !44
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
-attributes #11 = { builtin nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { noreturn nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { builtin nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3zmq14v3_1_encoder_tE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"vtable pointer", !7, i64 0}
+!12 = !{!6, !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTSN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE", !5, i64 0}
+!15 = !{!16, !18, i64 8}
+!16 = !{!"_ZTSN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE", !17, i64 0, !18, i64 8, !9, i64 16, !6, i64 24, !19, i64 40, !9, i64 48, !18, i64 56, !20, i64 64}
+!17 = !{!"_ZTSN3zmq9i_encoderE"}
+!18 = !{!"p1 omnipotent char", !5, i64 0}
+!19 = !{!"bool", !6, i64 0}
+!20 = !{!"p1 _ZTSN3zmq5msg_tE", !5, i64 0}
+!21 = !{!16, !9, i64 16}
+!22 = !{!16, !6, i64 24}
+!23 = !{!16, !19, i64 40}
+!24 = !{!16, !9, i64 48}
+!25 = !{!16, !18, i64 56}
+!26 = !{!16, !20, i64 64}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!29 = !{!5, !5, i64 0}
+!30 = !{!19, !19, i64 0}
+!31 = !{i8 0, i8 2}
+!32 = !{}
+!33 = !{!18, !18, i64 0}
+!34 = !{!20, !20, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p2 omnipotent char", !37, i64 0}
+!37 = !{!"any p2 pointer", !5, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"int", !6, i64 0}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSN3zmq9i_encoderE", !5, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 long", !5, i64 0}

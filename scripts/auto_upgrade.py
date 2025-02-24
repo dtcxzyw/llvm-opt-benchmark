@@ -100,6 +100,7 @@ supported_project = [
     "nlohmann_json",
     "jsonnet",
     "libphonenumber",
+    "libzmq",
 ]
 
 modify_only = [
@@ -134,6 +135,7 @@ modify_only = [
     "icu",
     "ipopt",
     "libphonenumber",
+    "libzmq",
 ]
 
 

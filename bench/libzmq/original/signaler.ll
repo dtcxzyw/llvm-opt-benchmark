@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.zmq::signaler_t" = type { i32, i32, i32 }
 %struct.pollfd = type { i32, i16, i16 }
@@ -22,30 +22,29 @@ $_ZSt3maxIjERKT_S2_S2_ = comdat any
 @_ZN3zmq10signaler_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq10signaler_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq10signaler_tC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_r = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %_w = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZN3zmq11make_fdpairEPiS0_(ptr noundef %_r, ptr noundef %_w)
-  %cmp = icmp eq i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN3zmq10signaler_tC2Ev(ptr noundef nonnull align 4 dereferenceable(12) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 0
+  %6 = call noundef i32 @_ZN3zmq11make_fdpairEPiS0_(ptr noundef %4, ptr noundef %5)
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %13
 
-if.then:                                          ; preds = %entry
-  %_w2 = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %_w2, align 4
-  call void @_ZN3zmq14unblock_socketEi(i32 noundef %0)
-  %_r3 = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %_r3, align 4
-  call void @_ZN3zmq14unblock_socketEi(i32 noundef %1)
-  br label %if.end
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 0
+  %10 = load i32, ptr %9, align 4, !tbaa !8
+  call void @_ZN3zmq14unblock_socketEi(i32 noundef %10)
+  %11 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4, !tbaa !11
+  call void @_ZN3zmq14unblock_socketEi(i32 noundef %12)
+  br label %13
 
-if.end:                                           ; preds = %if.then, %entry
-  %call4 = call i32 @getpid() #6
-  %pid = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 2
-  store i32 %call4, ptr %pid, align 4
+13:                                               ; preds = %8, %1
+  %14 = call i32 @getpid() #9
+  %15 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 2
+  store i32 %14, ptr %15, align 4, !tbaa !12
   ret void
 }
 
@@ -57,161 +56,181 @@ declare void @_ZN3zmq14unblock_socketEi(i32 noundef) #1
 declare i32 @getpid() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq10signaler_tD2Ev(ptr noundef nonnull align 4 dereferenceable(12) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_r = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %_r, align 4
-  %cmp = icmp eq i32 %0, -1
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN3zmq10signaler_tD2Ev(ptr noundef nonnull align 4 dereferenceable(12) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 4, !tbaa !11
+  %8 = icmp eq i32 %7, -1
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  br label %do.end
+9:                                                ; preds = %1
+  br label %37
 
-if.end:                                           ; preds = %entry
-  %_r2 = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %_r2, align 4
-  %call = invoke noundef i32 @_ZL13close_wait_msij(i32 noundef %1, i32 noundef 2000)
-          to label %invoke.cont unwind label %terminate.lpad
+10:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  %11 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %5, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4, !tbaa !11
+  %13 = invoke noundef i32 @_ZL13close_wait_msij(i32 noundef %12, i32 noundef 2000)
+          to label %14 unwind label %38
 
-invoke.cont:                                      ; preds = %if.end
-  store i32 %call, ptr %rc, align 4
-  br label %do.body
+14:                                               ; preds = %10
+  store i32 %13, ptr %3, align 4, !tbaa !13
+  br label %15
 
-do.body:                                          ; preds = %invoke.cont
-  %2 = load i32, ptr %rc, align 4
-  %cmp3 = icmp eq i32 %2, 0
-  %lnot = xor i1 %cmp3, true
-  br i1 %lnot, label %if.then4, label %if.end12
+15:                                               ; preds = %14
+  %16 = load i32, ptr %3, align 4, !tbaa !13
+  %17 = icmp eq i32 %16, 0
+  %18 = xor i1 %17, true
+  %19 = zext i1 %18 to i64
+  %20 = call i64 @llvm.expect.i64(i64 %19, i64 0)
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %34
 
-if.then4:                                         ; preds = %do.body
-  %call5 = call ptr @__errno_location() #7
-  %3 = load i32, ptr %call5, align 4
-  %call6 = call ptr @strerror(i32 noundef %3) #6
-  store ptr %call6, ptr %errstr, align 8
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load ptr, ptr %errstr, align 8
-  %call8 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str, ptr noundef %5, ptr noundef @.str.1, i32 noundef 111)
-          to label %invoke.cont7 unwind label %terminate.lpad
+22:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %23 = call ptr @__errno_location() #10
+  %24 = load i32, ptr %23, align 4, !tbaa !13
+  %25 = call ptr @strerror(i32 noundef %24) #9
+  store ptr %25, ptr %4, align 8, !tbaa !14
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %27 = load ptr, ptr %4, align 8, !tbaa !14
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef @.str, ptr noundef %27, ptr noundef @.str.1, i32 noundef 111) #9
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %30 = invoke i32 @fflush(ptr noundef %29)
+          to label %31 unwind label %38
 
-invoke.cont7:                                     ; preds = %if.then4
-  %6 = load ptr, ptr @stderr, align 8
-  %call10 = invoke i32 @fflush(ptr noundef %6)
-          to label %invoke.cont9 unwind label %terminate.lpad
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %4, align 8, !tbaa !14
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %32)
+          to label %33 unwind label %38
 
-invoke.cont9:                                     ; preds = %invoke.cont7
-  %7 = load ptr, ptr %errstr, align 8
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %7)
-          to label %invoke.cont11 unwind label %terminate.lpad
+33:                                               ; preds = %31
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  br label %34
 
-invoke.cont11:                                    ; preds = %invoke.cont9
-  br label %if.end12
+34:                                               ; preds = %33, %15
+  br label %35
 
-if.end12:                                         ; preds = %invoke.cont11, %do.body
-  br label %do.cond
+35:                                               ; preds = %34
+  br label %36
 
-do.cond:                                          ; preds = %if.end12
-  br label %do.end
+36:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
+  br label %37
 
-do.end:                                           ; preds = %do.cond, %if.then
+37:                                               ; preds = %36, %9
   ret void
 
-terminate.lpad:                                   ; preds = %invoke.cont9, %invoke.cont7, %if.then4, %if.end
-  %8 = landingpad { ptr, i32 }
+38:                                               ; preds = %31, %22, %10
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #8
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #11
   unreachable
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL13close_wait_msij(i32 noundef %fd_, i32 noundef %max_ms_) #0 {
-entry:
-  %fd_.addr = alloca i32, align 4
-  %max_ms_.addr = alloca i32, align 4
-  %ms_so_far = alloca i32, align 4
-  %min_step_ms = alloca i32, align 4
-  %max_step_ms = alloca i32, align 4
-  %step_ms = alloca i32, align 4
-  %ref.tmp = alloca i32, align 4
-  %rc = alloca i32, align 4
-  store i32 %fd_, ptr %fd_.addr, align 4
-  store i32 %max_ms_, ptr %max_ms_.addr, align 4
-  store i32 0, ptr %ms_so_far, align 4
-  store i32 1, ptr %min_step_ms, align 4
-  store i32 100, ptr %max_step_ms, align 4
-  %0 = load i32, ptr %max_ms_.addr, align 4
-  %div = udiv i32 %0, 10
-  store i32 %div, ptr %ref.tmp, align 4
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %min_step_ms, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  %call1 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %call, ptr noundef nonnull align 4 dereferenceable(4) %max_step_ms)
-  %1 = load i32, ptr %call1, align 4
-  store i32 %1, ptr %step_ms, align 4
-  store i32 0, ptr %rc, align 4
-  br label %do.body
+define internal noundef i32 @_ZL13close_wait_msij(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  store i32 0, ptr %5, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  store i32 1, ptr %6, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  store i32 100, ptr %7, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %11 = load i32, ptr %4, align 4, !tbaa !13
+  %12 = udiv i32 %11, 10
+  store i32 %12, ptr %9, align 4, !tbaa !13
+  %13 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %14 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %15 = load i32, ptr %14, align 4, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  store i32 %15, ptr %8, align 4, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  store i32 0, ptr %10, align 4, !tbaa !13
+  br label %16
 
-do.body:                                          ; preds = %land.end, %entry
-  %2 = load i32, ptr %rc, align 4
-  %cmp = icmp eq i32 %2, -1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+16:                                               ; preds = %43, %2
+  %17 = load i32, ptr %10, align 4, !tbaa !13
+  %18 = icmp eq i32 %17, -1
+  br i1 %18, label %19, label %29
 
-land.lhs.true:                                    ; preds = %do.body
-  %call2 = call ptr @__errno_location() #7
-  %3 = load i32, ptr %call2, align 4
-  %cmp3 = icmp eq i32 %3, 11
-  br i1 %cmp3, label %if.then, label %if.end
+19:                                               ; preds = %16
+  %20 = call ptr @__errno_location() #10
+  %21 = load i32, ptr %20, align 4, !tbaa !13
+  %22 = icmp eq i32 %21, 11
+  br i1 %22, label %23, label %29
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load i32, ptr %step_ms, align 4
-  %call4 = call noundef i32 @_ZL8sleep_msj(i32 noundef %4)
-  %5 = load i32, ptr %step_ms, align 4
-  %6 = load i32, ptr %ms_so_far, align 4
-  %add = add i32 %6, %5
-  store i32 %add, ptr %ms_so_far, align 4
-  br label %if.end
+23:                                               ; preds = %19
+  %24 = load i32, ptr %8, align 4, !tbaa !13
+  %25 = call noundef i32 @_ZL8sleep_msj(i32 noundef %24)
+  %26 = load i32, ptr %8, align 4, !tbaa !13
+  %27 = load i32, ptr %5, align 4, !tbaa !13
+  %28 = add i32 %27, %26
+  store i32 %28, ptr %5, align 4, !tbaa !13
+  br label %29
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %do.body
-  %7 = load i32, ptr %fd_.addr, align 4
-  %call5 = call i32 @close(i32 noundef %7)
-  store i32 %call5, ptr %rc, align 4
-  br label %do.cond
+29:                                               ; preds = %23, %19, %16
+  %30 = load i32, ptr %3, align 4, !tbaa !13
+  %31 = call i32 @close(i32 noundef %30)
+  store i32 %31, ptr %10, align 4, !tbaa !13
+  br label %32
 
-do.cond:                                          ; preds = %if.end
-  %8 = load i32, ptr %ms_so_far, align 4
-  %9 = load i32, ptr %max_ms_.addr, align 4
-  %cmp6 = icmp ult i32 %8, %9
-  br i1 %cmp6, label %land.lhs.true7, label %land.end
+32:                                               ; preds = %29
+  %33 = load i32, ptr %5, align 4, !tbaa !13
+  %34 = load i32, ptr %4, align 4, !tbaa !13
+  %35 = icmp ult i32 %33, %34
+  br i1 %35, label %36, label %43
 
-land.lhs.true7:                                   ; preds = %do.cond
-  %10 = load i32, ptr %rc, align 4
-  %cmp8 = icmp eq i32 %10, -1
-  br i1 %cmp8, label %land.rhs, label %land.end
+36:                                               ; preds = %32
+  %37 = load i32, ptr %10, align 4, !tbaa !13
+  %38 = icmp eq i32 %37, -1
+  br i1 %38, label %39, label %43
 
-land.rhs:                                         ; preds = %land.lhs.true7
-  %call9 = call ptr @__errno_location() #7
-  %11 = load i32, ptr %call9, align 4
-  %cmp10 = icmp eq i32 %11, 11
-  br label %land.end
+39:                                               ; preds = %36
+  %40 = call ptr @__errno_location() #10
+  %41 = load i32, ptr %40, align 4, !tbaa !13
+  %42 = icmp eq i32 %41, 11
+  br label %43
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true7, %do.cond
-  %12 = phi i1 [ false, %land.lhs.true7 ], [ false, %do.cond ], [ %cmp10, %land.rhs ]
-  br i1 %12, label %do.body, label %do.end, !llvm.loop !4
+43:                                               ; preds = %39, %36, %32
+  %44 = phi i1 [ false, %36 ], [ false, %32 ], [ %42, %39 ]
+  br i1 %44, label %16, label %45, !llvm.loop !18
 
-do.end:                                           ; preds = %land.end
-  %13 = load i32, ptr %rc, align 4
-  ret i32 %13
+45:                                               ; preds = %43
+  %46 = load i32, ptr %10, align 4, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  ret i32 %46
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #4 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #6
-  call void @_ZSt9terminatev() #8
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #9
+  call void @_ZSt9terminatev() #11
   unreachable
 }
 
@@ -219,624 +238,803 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #6
+
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #5
+declare ptr @__errno_location() #7
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
 declare i32 @fflush(ptr noundef) #1
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 dereferenceable(12) %this) #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_r = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %_r, align 4
-  ret i32 %0
+define noundef i32 @_ZNK3zmq10signaler_t6get_fdEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !11
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq10signaler_t4sendEv(ptr noundef nonnull align 4 dereferenceable(12) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %inc = alloca i64, align 8
-  %sz = alloca i64, align 8
-  %errstr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %pid = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %pid, align 4
-  %call = call i32 @getpid() #6
-  %cmp = icmp ne i32 %0, %call
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN3zmq10signaler_t4sendEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %6, i32 0, i32 2
+  %8 = load i32, ptr %7, align 4, !tbaa !12
+  %9 = call i32 @getpid() #9
+  %10 = icmp ne i32 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  br label %do.end
+14:                                               ; preds = %1
+  br label %39
 
-if.end:                                           ; preds = %entry
-  store i64 1, ptr %inc, align 8
-  %_w = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_w, align 4
-  %call2 = call i64 @write(i32 noundef %1, ptr noundef %inc, i64 noundef 8)
-  store i64 %call2, ptr %sz, align 8
-  br label %do.body
+15:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  store i64 1, ptr %3, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %16 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %6, i32 0, i32 0
+  %17 = load i32, ptr %16, align 4, !tbaa !8
+  %18 = call i64 @write(i32 noundef %17, ptr noundef %3, i64 noundef 8)
+  store i64 %18, ptr %4, align 8, !tbaa !20
+  br label %19
 
-do.body:                                          ; preds = %if.end
-  %2 = load i64, ptr %sz, align 8
-  %cmp3 = icmp eq i64 %2, 8
-  %lnot = xor i1 %cmp3, true
-  br i1 %lnot, label %if.then4, label %if.end9
+19:                                               ; preds = %15
+  %20 = load i64, ptr %4, align 8, !tbaa !20
+  %21 = icmp eq i64 %20, 8
+  %22 = xor i1 %21, true
+  %23 = zext i1 %22 to i64
+  %24 = call i64 @llvm.expect.i64(i64 %23, i64 0)
+  %25 = icmp ne i64 %24, 0
+  br i1 %25, label %26, label %36
 
-if.then4:                                         ; preds = %do.body
-  %call5 = call ptr @__errno_location() #7
-  %3 = load i32, ptr %call5, align 4
-  %call6 = call ptr @strerror(i32 noundef %3) #6
-  store ptr %call6, ptr %errstr, align 8
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load ptr, ptr %errstr, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str, ptr noundef %5, ptr noundef @.str.1, i32 noundef 157)
-  %6 = load ptr, ptr @stderr, align 8
-  %call8 = call i32 @fflush(ptr noundef %6)
-  %7 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %7)
-  br label %if.end9
+26:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %27 = call ptr @__errno_location() #10
+  %28 = load i32, ptr %27, align 4, !tbaa !13
+  %29 = call ptr @strerror(i32 noundef %28) #9
+  store ptr %29, ptr %5, align 8, !tbaa !14
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %31 = load ptr, ptr %5, align 8, !tbaa !14
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef @.str, ptr noundef %31, ptr noundef @.str.1, i32 noundef 157) #9
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %34 = call i32 @fflush(ptr noundef %33)
+  %35 = load ptr, ptr %5, align 8, !tbaa !14
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %35)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  br label %36
 
-if.end9:                                          ; preds = %if.then4, %do.body
-  br label %do.end
+36:                                               ; preds = %26, %19
+  br label %37
 
-do.end:                                           ; preds = %if.end9, %if.then
+37:                                               ; preds = %36
+  br label %38
+
+38:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  br label %39
+
+39:                                               ; preds = %38, %14
   ret void
 }
 
 declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3zmq10signaler_t4waitEi(ptr noundef nonnull align 4 dereferenceable(12) %this, i32 noundef %timeout_) #0 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %timeout_.addr = alloca i32, align 4
-  %pfd = alloca %struct.pollfd, align 4
-  %rc = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %timeout_, ptr %timeout_.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %pid = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %pid, align 4
-  %call = call i32 @getpid() #6
-  %cmp = icmp ne i32 %0, %call
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZNK3zmq10signaler_t4waitEi(ptr noundef nonnull align 4 dereferenceable(12) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %struct.pollfd, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !13
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %10, i32 0, i32 2
+  %12 = load i32, ptr %11, align 4, !tbaa !12
+  %13 = call i32 @getpid() #9
+  %14 = icmp ne i32 %12, %13
+  %15 = zext i1 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %20
 
-if.then:                                          ; preds = %entry
-  %call2 = call ptr @__errno_location() #7
-  store i32 4, ptr %call2, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %2
+  %19 = call ptr @__errno_location() #10
+  store i32 4, ptr %19, align 4, !tbaa !13
+  store i32 -1, ptr %3, align 4
+  br label %107
 
-if.end:                                           ; preds = %entry
-  %_r = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %_r, align 4
-  %fd = getelementptr inbounds %struct.pollfd, ptr %pfd, i32 0, i32 0
-  store i32 %1, ptr %fd, align 4
-  %events = getelementptr inbounds %struct.pollfd, ptr %pfd, i32 0, i32 1
-  store i16 1, ptr %events, align 4
-  %2 = load i32, ptr %timeout_.addr, align 4
-  %call3 = call i32 @poll(ptr noundef %pfd, i64 noundef 1, i32 noundef %2)
-  store i32 %call3, ptr %rc, align 4
-  %3 = load i32, ptr %rc, align 4
-  %cmp4 = icmp slt i32 %3, 0
-  br i1 %cmp4, label %if.then5, label %if.end14
+20:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %21 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %10, i32 0, i32 1
+  %22 = load i32, ptr %21, align 4, !tbaa !11
+  %23 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i32 0, i32 0
+  store i32 %22, ptr %23, align 4, !tbaa !22
+  %24 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i32 0, i32 1
+  store i16 1, ptr %24, align 4, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %25 = load i32, ptr %5, align 4, !tbaa !13
+  %26 = call i32 @poll(ptr noundef %6, i64 noundef 1, i32 noundef %25)
+  store i32 %26, ptr %7, align 4, !tbaa !13
+  %27 = load i32, ptr %7, align 4, !tbaa !13
+  %28 = icmp slt i32 %27, 0
+  %29 = zext i1 %28 to i64
+  %30 = call i64 @llvm.expect.i64(i64 %29, i64 0)
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %54
 
-if.then5:                                         ; preds = %if.end
-  br label %do.body
+32:                                               ; preds = %20
+  br label %33
 
-do.body:                                          ; preds = %if.then5
-  %call6 = call ptr @__errno_location() #7
-  %4 = load i32, ptr %call6, align 4
-  %cmp7 = icmp eq i32 %4, 4
-  %lnot = xor i1 %cmp7, true
-  br i1 %lnot, label %if.then8, label %if.end13
+33:                                               ; preds = %32
+  %34 = call ptr @__errno_location() #10
+  %35 = load i32, ptr %34, align 4, !tbaa !13
+  %36 = icmp eq i32 %35, 4
+  %37 = xor i1 %36, true
+  %38 = zext i1 %37 to i64
+  %39 = call i64 @llvm.expect.i64(i64 %38, i64 0)
+  %40 = icmp ne i64 %39, 0
+  br i1 %40, label %41, label %51
 
-if.then8:                                         ; preds = %do.body
-  %call9 = call ptr @__errno_location() #7
-  %5 = load i32, ptr %call9, align 4
-  %call10 = call ptr @strerror(i32 noundef %5) #6
-  store ptr %call10, ptr %errstr, align 8
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = load ptr, ptr %errstr, align 8
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef @.str, ptr noundef %7, ptr noundef @.str.1, i32 noundef 221)
-  %8 = load ptr, ptr @stderr, align 8
-  %call12 = call i32 @fflush(ptr noundef %8)
-  %9 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %9)
-  br label %if.end13
+41:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %42 = call ptr @__errno_location() #10
+  %43 = load i32, ptr %42, align 4, !tbaa !13
+  %44 = call ptr @strerror(i32 noundef %43) #9
+  store ptr %44, ptr %8, align 8, !tbaa !14
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %46 = load ptr, ptr %8, align 8, !tbaa !14
+  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef @.str, ptr noundef %46, ptr noundef @.str.1, i32 noundef 221) #9
+  %48 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %49 = call i32 @fflush(ptr noundef %48)
+  %50 = load ptr, ptr %8, align 8, !tbaa !14
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %50)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  br label %51
 
-if.end13:                                         ; preds = %if.then8, %do.body
-  br label %do.end
+51:                                               ; preds = %41, %33
+  br label %52
 
-do.end:                                           ; preds = %if.end13
-  store i32 -1, ptr %retval, align 4
-  br label %return
+52:                                               ; preds = %51
+  br label %53
 
-if.end14:                                         ; preds = %if.end
-  %10 = load i32, ptr %rc, align 4
-  %cmp15 = icmp eq i32 %10, 0
-  br i1 %cmp15, label %if.then16, label %if.end18
+53:                                               ; preds = %52
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %106
 
-if.then16:                                        ; preds = %if.end14
-  %call17 = call ptr @__errno_location() #7
-  store i32 11, ptr %call17, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+54:                                               ; preds = %20
+  %55 = load i32, ptr %7, align 4, !tbaa !13
+  %56 = icmp eq i32 %55, 0
+  %57 = zext i1 %56 to i64
+  %58 = call i64 @llvm.expect.i64(i64 %57, i64 0)
+  %59 = icmp ne i64 %58, 0
+  br i1 %59, label %60, label %62
 
-if.end18:                                         ; preds = %if.end14
-  %pid19 = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 2
-  %11 = load i32, ptr %pid19, align 4
-  %call20 = call i32 @getpid() #6
-  %cmp21 = icmp ne i32 %11, %call20
-  br i1 %cmp21, label %if.then22, label %if.end24
+60:                                               ; preds = %54
+  %61 = call ptr @__errno_location() #10
+  store i32 11, ptr %61, align 4, !tbaa !13
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %106
 
-if.then22:                                        ; preds = %if.end18
-  %call23 = call ptr @__errno_location() #7
-  store i32 4, ptr %call23, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+62:                                               ; preds = %54
+  %63 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %10, i32 0, i32 2
+  %64 = load i32, ptr %63, align 4, !tbaa !12
+  %65 = call i32 @getpid() #9
+  %66 = icmp ne i32 %64, %65
+  %67 = zext i1 %66 to i64
+  %68 = call i64 @llvm.expect.i64(i64 %67, i64 0)
+  %69 = icmp ne i64 %68, 0
+  br i1 %69, label %70, label %72
 
-if.end24:                                         ; preds = %if.end18
-  br label %do.body25
+70:                                               ; preds = %62
+  %71 = call ptr @__errno_location() #10
+  store i32 4, ptr %71, align 4, !tbaa !13
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %106
 
-do.body25:                                        ; preds = %if.end24
-  %12 = load i32, ptr %rc, align 4
-  %cmp26 = icmp eq i32 %12, 1
-  %lnot27 = xor i1 %cmp26, true
-  br i1 %lnot27, label %if.then28, label %if.end31
+72:                                               ; preds = %62
+  br label %73
 
-if.then28:                                        ; preds = %do.body25
-  %13 = load ptr, ptr @stderr, align 8
-  %call29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 237)
-  %14 = load ptr, ptr @stderr, align 8
-  %call30 = call i32 @fflush(ptr noundef %14)
+73:                                               ; preds = %72
+  %74 = load i32, ptr %7, align 4, !tbaa !13
+  %75 = icmp eq i32 %74, 1
+  %76 = xor i1 %75, true
+  %77 = zext i1 %76 to i64
+  %78 = call i64 @llvm.expect.i64(i64 %77, i64 0)
+  %79 = icmp ne i64 %78, 0
+  br i1 %79, label %80, label %85
+
+80:                                               ; preds = %73
+  %81 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef @.str.2, ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 237) #9
+  %83 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %84 = call i32 @fflush(ptr noundef %83)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.3)
-  br label %if.end31
+  br label %85
 
-if.end31:                                         ; preds = %if.then28, %do.body25
-  br label %do.end32
+85:                                               ; preds = %80, %73
+  br label %86
 
-do.end32:                                         ; preds = %if.end31
-  br label %do.body33
+86:                                               ; preds = %85
+  br label %87
 
-do.body33:                                        ; preds = %do.end32
-  %revents = getelementptr inbounds %struct.pollfd, ptr %pfd, i32 0, i32 2
-  %15 = load i16, ptr %revents, align 2
-  %conv = sext i16 %15 to i32
-  %and = and i32 %conv, 1
-  %tobool = icmp ne i32 %and, 0
-  %lnot34 = xor i1 %tobool, true
-  br i1 %lnot34, label %if.then36, label %if.end39
+87:                                               ; preds = %86
+  br label %88
 
-if.then36:                                        ; preds = %do.body33
-  %16 = load ptr, ptr @stderr, align 8
-  %call37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef @.str.2, ptr noundef @.str.4, ptr noundef @.str.1, i32 noundef 238)
-  %17 = load ptr, ptr @stderr, align 8
-  %call38 = call i32 @fflush(ptr noundef %17)
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds nuw %struct.pollfd, ptr %6, i32 0, i32 2
+  %90 = load i16, ptr %89, align 2, !tbaa !26
+  %91 = sext i16 %90 to i32
+  %92 = and i32 %91, 1
+  %93 = icmp ne i32 %92, 0
+  %94 = xor i1 %93, true
+  %95 = zext i1 %94 to i64
+  %96 = call i64 @llvm.expect.i64(i64 %95, i64 0)
+  %97 = icmp ne i64 %96, 0
+  br i1 %97, label %98, label %103
+
+98:                                               ; preds = %88
+  %99 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef @.str.2, ptr noundef @.str.4, ptr noundef @.str.1, i32 noundef 238) #9
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %102 = call i32 @fflush(ptr noundef %101)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.4)
-  br label %if.end39
+  br label %103
 
-if.end39:                                         ; preds = %if.then36, %do.body33
-  br label %do.end40
+103:                                              ; preds = %98, %88
+  br label %104
 
-do.end40:                                         ; preds = %if.end39
-  store i32 0, ptr %retval, align 4
-  br label %return
+104:                                              ; preds = %103
+  br label %105
 
-return:                                           ; preds = %do.end40, %if.then22, %if.then16, %do.end, %if.then
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
+105:                                              ; preds = %104
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
+  br label %106
+
+106:                                              ; preds = %105, %70, %60, %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  br label %107
+
+107:                                              ; preds = %106, %18
+  %108 = load i32, ptr %3, align 4
+  ret i32 %108
 }
 
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq10signaler_t4recvEv(ptr noundef nonnull align 4 dereferenceable(12) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %dummy = alloca i64, align 8
-  %sz = alloca i64, align 8
-  %errstr = alloca ptr, align 8
-  %inc = alloca i64, align 8
-  %sz2 = alloca i64, align 8
-  %errstr13 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_r = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %_r, align 4
-  %call = call i64 @read(i32 noundef %0, ptr noundef %dummy, i64 noundef 8)
-  store i64 %call, ptr %sz, align 8
-  br label %do.body
+define void @_ZN3zmq10signaler_t4recvEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %10 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %11 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4, !tbaa !11
+  %13 = call i64 @read(i32 noundef %12, ptr noundef %3, i64 noundef 8)
+  store i64 %13, ptr %4, align 8, !tbaa !20
+  br label %14
 
-do.body:                                          ; preds = %entry
-  %1 = load i64, ptr %sz, align 8
-  %cmp = icmp eq i64 %1, 8
-  %lnot = xor i1 %cmp, true
-  br i1 %lnot, label %if.then, label %if.end
+14:                                               ; preds = %1
+  %15 = load i64, ptr %4, align 8, !tbaa !20
+  %16 = icmp eq i64 %15, 8
+  %17 = xor i1 %16, true
+  %18 = zext i1 %17 to i64
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 0)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %31
 
-if.then:                                          ; preds = %do.body
-  %call2 = call ptr @__errno_location() #7
-  %2 = load i32, ptr %call2, align 4
-  %call3 = call ptr @strerror(i32 noundef %2) #6
-  store ptr %call3, ptr %errstr, align 8
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = load ptr, ptr %errstr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef @.str, ptr noundef %4, ptr noundef @.str.1, i32 noundef 281)
-  %5 = load ptr, ptr @stderr, align 8
-  %call5 = call i32 @fflush(ptr noundef %5)
-  %6 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %6)
-  br label %if.end
+21:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %22 = call ptr @__errno_location() #10
+  %23 = load i32, ptr %22, align 4, !tbaa !13
+  %24 = call ptr @strerror(i32 noundef %23) #9
+  store ptr %24, ptr %5, align 8, !tbaa !14
+  %25 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %26 = load ptr, ptr %5, align 8, !tbaa !14
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef @.str, ptr noundef %26, ptr noundef @.str.1, i32 noundef 281) #9
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %29 = call i32 @fflush(ptr noundef %28)
+  %30 = load ptr, ptr %5, align 8, !tbaa !14
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  br label %31
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.end
+31:                                               ; preds = %21, %14
+  br label %32
 
-do.end:                                           ; preds = %if.end
-  %7 = load i64, ptr %dummy, align 8
-  %cmp6 = icmp ugt i64 %7, 1
-  br i1 %cmp6, label %if.then7, label %if.end20
+32:                                               ; preds = %31
+  br label %33
 
-if.then7:                                         ; preds = %do.end
-  %8 = load i64, ptr %dummy, align 8
-  %sub = sub i64 %8, 1
-  store i64 %sub, ptr %inc, align 8
-  %_w = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 0
-  %9 = load i32, ptr %_w, align 4
-  %call8 = call i64 @write(i32 noundef %9, ptr noundef %inc, i64 noundef 8)
-  store i64 %call8, ptr %sz2, align 8
-  br label %do.body9
+33:                                               ; preds = %32
+  %34 = load i64, ptr %3, align 8, !tbaa !20
+  %35 = icmp ugt i64 %34, 1
+  %36 = zext i1 %35 to i64
+  %37 = call i64 @llvm.expect.i64(i64 %36, i64 0)
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %65
 
-do.body9:                                         ; preds = %if.then7
-  %10 = load i64, ptr %sz2, align 8
-  %cmp10 = icmp eq i64 %10, 8
-  %lnot11 = xor i1 %cmp10, true
-  br i1 %lnot11, label %if.then12, label %if.end18
+39:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %40 = load i64, ptr %3, align 8, !tbaa !20
+  %41 = sub i64 %40, 1
+  store i64 %41, ptr %6, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %42 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %10, i32 0, i32 0
+  %43 = load i32, ptr %42, align 4, !tbaa !8
+  %44 = call i64 @write(i32 noundef %43, ptr noundef %6, i64 noundef 8)
+  store i64 %44, ptr %7, align 8, !tbaa !20
+  br label %45
 
-if.then12:                                        ; preds = %do.body9
-  %call14 = call ptr @__errno_location() #7
-  %11 = load i32, ptr %call14, align 4
-  %call15 = call ptr @strerror(i32 noundef %11) #6
-  store ptr %call15, ptr %errstr13, align 8
-  %12 = load ptr, ptr @stderr, align 8
-  %13 = load ptr, ptr %errstr13, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef @.str, ptr noundef %13, ptr noundef @.str.1, i32 noundef 288)
-  %14 = load ptr, ptr @stderr, align 8
-  %call17 = call i32 @fflush(ptr noundef %14)
-  %15 = load ptr, ptr %errstr13, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %15)
-  br label %if.end18
+45:                                               ; preds = %39
+  %46 = load i64, ptr %7, align 8, !tbaa !20
+  %47 = icmp eq i64 %46, 8
+  %48 = xor i1 %47, true
+  %49 = zext i1 %48 to i64
+  %50 = call i64 @llvm.expect.i64(i64 %49, i64 0)
+  %51 = icmp ne i64 %50, 0
+  br i1 %51, label %52, label %62
 
-if.end18:                                         ; preds = %if.then12, %do.body9
-  br label %do.end19
+52:                                               ; preds = %45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %53 = call ptr @__errno_location() #10
+  %54 = load i32, ptr %53, align 4, !tbaa !13
+  %55 = call ptr @strerror(i32 noundef %54) #9
+  store ptr %55, ptr %8, align 8, !tbaa !14
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %57 = load ptr, ptr %8, align 8, !tbaa !14
+  %58 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef @.str, ptr noundef %57, ptr noundef @.str.1, i32 noundef 288) #9
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %60 = call i32 @fflush(ptr noundef %59)
+  %61 = load ptr, ptr %8, align 8, !tbaa !14
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %61)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  br label %62
 
-do.end19:                                         ; preds = %if.end18
-  br label %do.end28
+62:                                               ; preds = %52, %45
+  br label %63
 
-if.end20:                                         ; preds = %do.end
-  br label %do.body21
+63:                                               ; preds = %62
+  br label %64
 
-do.body21:                                        ; preds = %if.end20
-  %16 = load i64, ptr %dummy, align 8
-  %cmp22 = icmp eq i64 %16, 1
-  %lnot23 = xor i1 %cmp22, true
-  br i1 %lnot23, label %if.then24, label %if.end27
+64:                                               ; preds = %63
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  br label %81
 
-if.then24:                                        ; preds = %do.body21
-  %17 = load ptr, ptr @stderr, align 8
-  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef @.str.2, ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 292)
-  %18 = load ptr, ptr @stderr, align 8
-  %call26 = call i32 @fflush(ptr noundef %18)
+65:                                               ; preds = %33
+  br label %66
+
+66:                                               ; preds = %65
+  %67 = load i64, ptr %3, align 8, !tbaa !20
+  %68 = icmp eq i64 %67, 1
+  %69 = xor i1 %68, true
+  %70 = zext i1 %69 to i64
+  %71 = call i64 @llvm.expect.i64(i64 %70, i64 0)
+  %72 = icmp ne i64 %71, 0
+  br i1 %72, label %73, label %78
+
+73:                                               ; preds = %66
+  %74 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %75 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %74, ptr noundef @.str.2, ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 292) #9
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %77 = call i32 @fflush(ptr noundef %76)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.5)
-  br label %if.end27
+  br label %78
 
-if.end27:                                         ; preds = %if.then24, %do.body21
-  br label %do.end28
+78:                                               ; preds = %73, %66
+  br label %79
 
-do.end28:                                         ; preds = %if.end27, %do.end19
+79:                                               ; preds = %78
+  br label %80
+
+80:                                               ; preds = %79
+  store i32 0, ptr %9, align 4
+  br label %81
+
+81:                                               ; preds = %80, %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  %82 = load i32, ptr %9, align 4
+  switch i32 %82, label %84 [
+    i32 0, label %83
+    i32 1, label %83
+  ]
+
+83:                                               ; preds = %81, %81
   ret void
+
+84:                                               ; preds = %81
+  unreachable
 }
 
 declare i64 @read(i32 noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq10signaler_t13recv_failableEv(ptr noundef nonnull align 4 dereferenceable(12) %this) #0 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %dummy = alloca i64, align 8
-  %sz = alloca i64, align 8
-  %errstr = alloca ptr, align 8
-  %errstr14 = alloca ptr, align 8
-  %inc = alloca i64, align 8
-  %sz2 = alloca i64, align 8
-  %errstr28 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_r = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %_r, align 4
-  %call = call i64 @read(i32 noundef %0, ptr noundef %dummy, i64 noundef 8)
-  store i64 %call, ptr %sz, align 8
-  %1 = load i64, ptr %sz, align 8
-  %cmp = icmp eq i64 %1, -1
-  br i1 %cmp, label %if.then, label %if.end9
+define noundef i32 @_ZN3zmq10signaler_t13recv_failableEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #0 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %12 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %13 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 4, !tbaa !11
+  %15 = call i64 @read(i32 noundef %14, ptr noundef %4, i64 noundef 8)
+  store i64 %15, ptr %5, align 8, !tbaa !20
+  %16 = load i64, ptr %5, align 8, !tbaa !20
+  %17 = icmp eq i64 %16, -1
+  br i1 %17, label %18, label %40
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+18:                                               ; preds = %1
+  br label %19
 
-do.body:                                          ; preds = %if.then
-  %call2 = call ptr @__errno_location() #7
-  %2 = load i32, ptr %call2, align 4
-  %cmp3 = icmp eq i32 %2, 11
-  %lnot = xor i1 %cmp3, true
-  br i1 %lnot, label %if.then4, label %if.end
+19:                                               ; preds = %18
+  %20 = call ptr @__errno_location() #10
+  %21 = load i32, ptr %20, align 4, !tbaa !13
+  %22 = icmp eq i32 %21, 11
+  %23 = xor i1 %22, true
+  %24 = zext i1 %23 to i64
+  %25 = call i64 @llvm.expect.i64(i64 %24, i64 0)
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %37
 
-if.then4:                                         ; preds = %do.body
-  %call5 = call ptr @__errno_location() #7
-  %3 = load i32, ptr %call5, align 4
-  %call6 = call ptr @strerror(i32 noundef %3) #6
-  store ptr %call6, ptr %errstr, align 8
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load ptr, ptr %errstr, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str, ptr noundef %5, ptr noundef @.str.1, i32 noundef 318)
-  %6 = load ptr, ptr @stderr, align 8
-  %call8 = call i32 @fflush(ptr noundef %6)
-  %7 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %7)
-  br label %if.end
+27:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %28 = call ptr @__errno_location() #10
+  %29 = load i32, ptr %28, align 4, !tbaa !13
+  %30 = call ptr @strerror(i32 noundef %29) #9
+  store ptr %30, ptr %6, align 8, !tbaa !14
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %32 = load ptr, ptr %6, align 8, !tbaa !14
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str, ptr noundef %32, ptr noundef @.str.1, i32 noundef 318) #9
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %35 = call i32 @fflush(ptr noundef %34)
+  %36 = load ptr, ptr %6, align 8, !tbaa !14
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %36)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  br label %37
 
-if.end:                                           ; preds = %if.then4, %do.body
-  br label %do.end
+37:                                               ; preds = %27, %19
+  br label %38
 
-do.end:                                           ; preds = %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %37
+  br label %39
 
-if.end9:                                          ; preds = %entry
-  br label %do.body10
+39:                                               ; preds = %38
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %108
 
-do.body10:                                        ; preds = %if.end9
-  %8 = load i64, ptr %sz, align 8
-  %cmp11 = icmp eq i64 %8, 8
-  %lnot12 = xor i1 %cmp11, true
-  br i1 %lnot12, label %if.then13, label %if.end19
+40:                                               ; preds = %1
+  br label %41
 
-if.then13:                                        ; preds = %do.body10
-  %call15 = call ptr @__errno_location() #7
-  %9 = load i32, ptr %call15, align 4
-  %call16 = call ptr @strerror(i32 noundef %9) #6
-  store ptr %call16, ptr %errstr14, align 8
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = load ptr, ptr %errstr14, align 8
-  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str, ptr noundef %11, ptr noundef @.str.1, i32 noundef 321)
-  %12 = load ptr, ptr @stderr, align 8
-  %call18 = call i32 @fflush(ptr noundef %12)
-  %13 = load ptr, ptr %errstr14, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %13)
-  br label %if.end19
+41:                                               ; preds = %40
+  %42 = load i64, ptr %5, align 8, !tbaa !20
+  %43 = icmp eq i64 %42, 8
+  %44 = xor i1 %43, true
+  %45 = zext i1 %44 to i64
+  %46 = call i64 @llvm.expect.i64(i64 %45, i64 0)
+  %47 = icmp ne i64 %46, 0
+  br i1 %47, label %48, label %58
 
-if.end19:                                         ; preds = %if.then13, %do.body10
-  br label %do.end20
+48:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %49 = call ptr @__errno_location() #10
+  %50 = load i32, ptr %49, align 4, !tbaa !13
+  %51 = call ptr @strerror(i32 noundef %50) #9
+  store ptr %51, ptr %8, align 8, !tbaa !14
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %53 = load ptr, ptr %8, align 8, !tbaa !14
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef @.str, ptr noundef %53, ptr noundef @.str.1, i32 noundef 321) #9
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %56 = call i32 @fflush(ptr noundef %55)
+  %57 = load ptr, ptr %8, align 8, !tbaa !14
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %57)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  br label %58
 
-do.end20:                                         ; preds = %if.end19
-  %14 = load i64, ptr %dummy, align 8
-  %cmp21 = icmp ugt i64 %14, 1
-  br i1 %cmp21, label %if.then22, label %if.end35
+58:                                               ; preds = %48, %41
+  br label %59
 
-if.then22:                                        ; preds = %do.end20
-  %15 = load i64, ptr %dummy, align 8
-  %sub = sub i64 %15, 1
-  store i64 %sub, ptr %inc, align 8
-  %_w = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 0
-  %16 = load i32, ptr %_w, align 4
-  %call23 = call i64 @write(i32 noundef %16, ptr noundef %inc, i64 noundef 8)
-  store i64 %call23, ptr %sz2, align 8
-  br label %do.body24
+59:                                               ; preds = %58
+  br label %60
 
-do.body24:                                        ; preds = %if.then22
-  %17 = load i64, ptr %sz2, align 8
-  %cmp25 = icmp eq i64 %17, 8
-  %lnot26 = xor i1 %cmp25, true
-  br i1 %lnot26, label %if.then27, label %if.end33
+60:                                               ; preds = %59
+  %61 = load i64, ptr %4, align 8, !tbaa !20
+  %62 = icmp ugt i64 %61, 1
+  %63 = zext i1 %62 to i64
+  %64 = call i64 @llvm.expect.i64(i64 %63, i64 0)
+  %65 = icmp ne i64 %64, 0
+  br i1 %65, label %66, label %92
 
-if.then27:                                        ; preds = %do.body24
-  %call29 = call ptr @__errno_location() #7
-  %18 = load i32, ptr %call29, align 4
-  %call30 = call ptr @strerror(i32 noundef %18) #6
-  store ptr %call30, ptr %errstr28, align 8
-  %19 = load ptr, ptr @stderr, align 8
-  %20 = load ptr, ptr %errstr28, align 8
-  %call31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str, ptr noundef %20, ptr noundef @.str.1, i32 noundef 328)
-  %21 = load ptr, ptr @stderr, align 8
-  %call32 = call i32 @fflush(ptr noundef %21)
-  %22 = load ptr, ptr %errstr28, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %22)
-  br label %if.end33
+66:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %67 = load i64, ptr %4, align 8, !tbaa !20
+  %68 = sub i64 %67, 1
+  store i64 %68, ptr %9, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %69 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %12, i32 0, i32 0
+  %70 = load i32, ptr %69, align 4, !tbaa !8
+  %71 = call i64 @write(i32 noundef %70, ptr noundef %9, i64 noundef 8)
+  store i64 %71, ptr %10, align 8, !tbaa !20
+  br label %72
 
-if.end33:                                         ; preds = %if.then27, %do.body24
-  br label %do.end34
+72:                                               ; preds = %66
+  %73 = load i64, ptr %10, align 8, !tbaa !20
+  %74 = icmp eq i64 %73, 8
+  %75 = xor i1 %74, true
+  %76 = zext i1 %75 to i64
+  %77 = call i64 @llvm.expect.i64(i64 %76, i64 0)
+  %78 = icmp ne i64 %77, 0
+  br i1 %78, label %79, label %89
 
-do.end34:                                         ; preds = %if.end33
-  store i32 0, ptr %retval, align 4
-  br label %return
+79:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %80 = call ptr @__errno_location() #10
+  %81 = load i32, ptr %80, align 4, !tbaa !13
+  %82 = call ptr @strerror(i32 noundef %81) #9
+  store ptr %82, ptr %11, align 8, !tbaa !14
+  %83 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %84 = load ptr, ptr %11, align 8, !tbaa !14
+  %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef @.str, ptr noundef %84, ptr noundef @.str.1, i32 noundef 328) #9
+  %86 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %87 = call i32 @fflush(ptr noundef %86)
+  %88 = load ptr, ptr %11, align 8, !tbaa !14
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %88)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  br label %89
 
-if.end35:                                         ; preds = %do.end20
-  br label %do.body36
+89:                                               ; preds = %79, %72
+  br label %90
 
-do.body36:                                        ; preds = %if.end35
-  %23 = load i64, ptr %dummy, align 8
-  %cmp37 = icmp eq i64 %23, 1
-  %lnot38 = xor i1 %cmp37, true
-  br i1 %lnot38, label %if.then39, label %if.end42
+90:                                               ; preds = %89
+  br label %91
 
-if.then39:                                        ; preds = %do.body36
-  %24 = load ptr, ptr @stderr, align 8
-  %call40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef @.str.2, ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 332)
-  %25 = load ptr, ptr @stderr, align 8
-  %call41 = call i32 @fflush(ptr noundef %25)
+91:                                               ; preds = %90
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  br label %108
+
+92:                                               ; preds = %60
+  br label %93
+
+93:                                               ; preds = %92
+  %94 = load i64, ptr %4, align 8, !tbaa !20
+  %95 = icmp eq i64 %94, 1
+  %96 = xor i1 %95, true
+  %97 = zext i1 %96 to i64
+  %98 = call i64 @llvm.expect.i64(i64 %97, i64 0)
+  %99 = icmp ne i64 %98, 0
+  br i1 %99, label %100, label %105
+
+100:                                              ; preds = %93
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef @.str.2, ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 332) #9
+  %103 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %104 = call i32 @fflush(ptr noundef %103)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef @.str.5)
-  br label %if.end42
+  br label %105
 
-if.end42:                                         ; preds = %if.then39, %do.body36
-  br label %do.end43
+105:                                              ; preds = %100, %93
+  br label %106
 
-do.end43:                                         ; preds = %if.end42
-  store i32 0, ptr %retval, align 4
-  br label %return
+106:                                              ; preds = %105
+  br label %107
 
-return:                                           ; preds = %do.end43, %do.end34, %do.end
-  %26 = load i32, ptr %retval, align 4
-  ret i32 %26
+107:                                              ; preds = %106
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %108
+
+108:                                              ; preds = %107, %91, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  %109 = load i32, ptr %2, align 4
+  ret i32 %109
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3zmq10signaler_t5validEv(ptr noundef nonnull align 4 dereferenceable(12) %this) #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_w = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %_w, align 4
-  %cmp = icmp ne i32 %0, -1
-  ret i1 %cmp
+define noundef zeroext i1 @_ZNK3zmq10signaler_t5validEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !8
+  %6 = icmp ne i32 %5, -1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq10signaler_t6forkedEv(ptr noundef nonnull align 4 dereferenceable(12) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_r = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %_r, align 4
-  %call = call i32 @close(i32 noundef %0)
-  %_w = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 0
-  %1 = load i32, ptr %_w, align 4
-  %call2 = call i32 @close(i32 noundef %1)
-  %_r3 = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 1
-  %_w4 = getelementptr inbounds %"class.zmq::signaler_t", ptr %this1, i32 0, i32 0
-  %call5 = call noundef i32 @_ZN3zmq11make_fdpairEPiS0_(ptr noundef %_r3, ptr noundef %_w4)
+define void @_ZN3zmq10signaler_t6forkedEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !11
+  %6 = call i32 @close(i32 noundef %5)
+  %7 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 0
+  %8 = load i32, ptr %7, align 4, !tbaa !8
+  %9 = call i32 @close(i32 noundef %8)
+  %10 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %"class.zmq::signaler_t", ptr %3, i32 0, i32 0
+  %12 = call noundef i32 @_ZN3zmq11make_fdpairEPiS0_(ptr noundef %10, ptr noundef %11)
   ret void
 }
 
 declare i32 @close(i32 noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %__a, ptr noundef nonnull align 4 dereferenceable(4) %__b) #3 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %2 = load ptr, ptr %__a.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %cmp = icmp ult i32 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3minIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #8 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %8 = load ptr, ptr %4, align 8, !tbaa !27
+  %9 = load i32, ptr %8, align 4, !tbaa !13
+  %10 = icmp ult i32 %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !27
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %__a, ptr noundef nonnull align 4 dereferenceable(4) %__b) #3 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %2 = load ptr, ptr %__b.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %cmp = icmp ult i32 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIjERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #8 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !27
+  store ptr %1, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %4, align 8, !tbaa !27
+  %7 = load i32, ptr %6, align 4, !tbaa !13
+  %8 = load ptr, ptr %5, align 8, !tbaa !27
+  %9 = load i32, ptr %8, align 4, !tbaa !13
+  %10 = icmp ult i32 %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !27
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL8sleep_msj(i32 noundef %ms_) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ms_.addr = alloca i32, align 4
-  store i32 %ms_, ptr %ms_.addr, align 4
-  %0 = load i32, ptr %ms_.addr, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal noundef i32 @_ZL8sleep_msj(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !13
+  %4 = load i32, ptr %3, align 4, !tbaa !13
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+6:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %ms_.addr, align 4
-  %mul = mul i32 %1, 1000
-  %call = call i32 @usleep(i32 noundef %mul)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %1
+  %8 = load i32, ptr %3, align 4, !tbaa !13
+  %9 = mul i32 %8, 1000
+  %10 = call i32 @usleep(i32 noundef %9)
+  store i32 %10, ptr %2, align 4
+  br label %11
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+11:                                               ; preds = %7, %6
+  %12 = load i32, ptr %2, align 4
+  ret i32 %12
 }
 
 declare i32 @usleep(i32 noundef) #1
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { noreturn nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
+attributes #11 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3zmq10signaler_tE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"_ZTSN3zmq10signaler_tE", !10, i64 0, !10, i64 4, !10, i64 8}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!9, !10, i64 4}
+!12 = !{!9, !10, i64 8}
+!13 = !{!10, !10, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !6, i64 0}
+!22 = !{!23, !10, i64 0}
+!23 = !{!"_ZTS6pollfd", !10, i64 0, !24, i64 4, !24, i64 6}
+!24 = !{!"short", !6, i64 0}
+!25 = !{!23, !24, i64 4}
+!26 = !{!23, !24, i64 6}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 int", !5, i64 0}

@@ -1,7 +1,7 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"struct.zmq::options_t" = type { i32, i32, i64, i8, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, %"struct.zmq::atomic_value_t", i32, i32, i32, i32, i32, i32, i64, i32, i32, i8, i32, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i32, %"class.std::vector", %"class.std::set", %"class.std::set", %"class.std::set.7", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [32 x i8], [32 x i8], [32 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i8, i32, i8, i32, i8, i16, i32, i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i32, %"class.std::map", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector.22", i8, %"class.std::vector.22", i8, %"class.std::vector.22", i8, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
+%"struct.zmq::options_t" = type { i32, i32, i64, i8, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, %"struct.zmq::atomic_value_t", i32, i32, i32, i32, i32, i32, i64, i32, i32, i8, i32, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i32, %"class.std::vector", %"class.std::set", %"class.std::set", %"class.std::set.7", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [32 x i8], [32 x i8], [32 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i8, i32, i8, i32, i8, i16, i32, i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i32, %"class.std::map", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector.18", i8, %"class.std::vector.18", i8, %"class.std::vector.18", i8, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
 %"struct.zmq::atomic_value_t" = type { %"struct.std::atomic" }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i32 }
@@ -11,26 +11,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::set" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.std::set.7" = type { %"class.std::_Rb_tree.8" }
 %"class.std::_Rb_tree.8" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.12", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.12" = type { %"struct.std::less.13" }
-%"struct.std::less.13" = type { i8 }
-%"class.std::map" = type { %"class.std::_Rb_tree.15" }
-%"class.std::_Rb_tree.15" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.19", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.19" = type { %"struct.std::less.20" }
-%"struct.std::less.20" = type { i8 }
+%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"class.std::map" = type { %"class.std::_Rb_tree.13" }
+%"class.std::_Rb_tree.13" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.0 = type { i64, [8 x i8] }
-%"class.std::vector.22" = type { %"struct.std::_Vector_base.23" }
-%"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
+%"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
+%"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
@@ -39,814 +33,1014 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [103 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libzmq/libzmq/src/tcp.cpp\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15tune_tcp_socketEi(i32 noundef %s_) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %s_.addr = alloca i32, align 4
-  %nodelay = alloca i32, align 4
-  %rc = alloca i32, align 4
-  store i32 %s_, ptr %s_.addr, align 4
-  store i32 1, ptr %nodelay, align 4
-  %0 = load i32, ptr %s_.addr, align 4
-  %call = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef %nodelay, i32 noundef 4) #5
-  store i32 %call, ptr %rc, align 4
-  %1 = load i32, ptr %s_.addr, align 4
-  %2 = load i32, ptr %rc, align 4
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %1, i32 noundef %2)
-  %3 = load i32, ptr %rc, align 4
-  %cmp = icmp ne i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN3zmq15tune_tcp_socketEi(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  store i32 1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %7 = load i32, ptr %3, align 4, !tbaa !3
+  %8 = call i32 @setsockopt(i32 noundef %7, i32 noundef 6, i32 noundef 1, ptr noundef %4, i32 noundef 4) #7
+  store i32 %8, ptr %5, align 4, !tbaa !3
+  %9 = load i32, ptr %3, align 4, !tbaa !3
+  %10 = load i32, ptr %5, align 4, !tbaa !3
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %9, i32 noundef %10)
+  %11 = load i32, ptr %5, align 4, !tbaa !3
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %13, label %15
 
-if.then:                                          ; preds = %entry
-  %4 = load i32, ptr %rc, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %1
+  %14 = load i32, ptr %5, align 4, !tbaa !3
+  store i32 %14, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %17
 
-if.end:                                           ; preds = %entry
-  %5 = load i32, ptr %rc, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
+15:                                               ; preds = %1
+  %16 = load i32, ptr %5, align 4, !tbaa !3
+  store i32 %16, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %17
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+17:                                               ; preds = %15, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  %18 = load i32, ptr %2, align 4
+  ret i32 %18
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef, i32 noundef) #2
+declare void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef, i32 noundef) #3
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq19set_tcp_send_bufferEii(i32 noundef %sockfd_, i32 noundef %bufsize_) #0 {
-entry:
-  %sockfd_.addr = alloca i32, align 4
-  %bufsize_.addr = alloca i32, align 4
-  %rc = alloca i32, align 4
-  store i32 %sockfd_, ptr %sockfd_.addr, align 4
-  store i32 %bufsize_, ptr %bufsize_.addr, align 4
-  %0 = load i32, ptr %sockfd_.addr, align 4
-  %call = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 7, ptr noundef %bufsize_.addr, i32 noundef 4) #5
-  store i32 %call, ptr %rc, align 4
-  %1 = load i32, ptr %sockfd_.addr, align 4
-  %2 = load i32, ptr %rc, align 4
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %1, i32 noundef %2)
-  %3 = load i32, ptr %rc, align 4
-  ret i32 %3
-}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq22set_tcp_receive_bufferEii(i32 noundef %sockfd_, i32 noundef %bufsize_) #0 {
-entry:
-  %sockfd_.addr = alloca i32, align 4
-  %bufsize_.addr = alloca i32, align 4
-  %rc = alloca i32, align 4
-  store i32 %sockfd_, ptr %sockfd_.addr, align 4
-  store i32 %bufsize_, ptr %bufsize_.addr, align 4
-  %0 = load i32, ptr %sockfd_.addr, align 4
-  %call = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 8, ptr noundef %bufsize_.addr, i32 noundef 4) #5
-  store i32 %call, ptr %rc, align 4
-  %1 = load i32, ptr %sockfd_.addr, align 4
-  %2 = load i32, ptr %rc, align 4
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %1, i32 noundef %2)
-  %3 = load i32, ptr %rc, align 4
-  ret i32 %3
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq19tune_tcp_keepalivesEiiiii(i32 noundef %s_, i32 noundef %keepalive_, i32 noundef %keepalive_cnt_, i32 noundef %keepalive_idle_, i32 noundef %keepalive_intvl_) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %s_.addr = alloca i32, align 4
-  %keepalive_.addr = alloca i32, align 4
-  %keepalive_cnt_.addr = alloca i32, align 4
-  %keepalive_idle_.addr = alloca i32, align 4
-  %keepalive_intvl_.addr = alloca i32, align 4
-  %rc = alloca i32, align 4
-  %rc5 = alloca i32, align 4
-  %rc13 = alloca i32, align 4
-  %rc21 = alloca i32, align 4
-  store i32 %s_, ptr %s_.addr, align 4
-  store i32 %keepalive_, ptr %keepalive_.addr, align 4
-  store i32 %keepalive_cnt_, ptr %keepalive_cnt_.addr, align 4
-  store i32 %keepalive_idle_, ptr %keepalive_idle_.addr, align 4
-  store i32 %keepalive_intvl_, ptr %keepalive_intvl_.addr, align 4
-  %0 = load i32, ptr %keepalive_.addr, align 4
-  %cmp = icmp ne i32 %0, -1
-  br i1 %cmp, label %if.then, label %if.end27
-
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %s_.addr, align 4
-  %call = call i32 @setsockopt(i32 noundef %1, i32 noundef 1, i32 noundef 9, ptr noundef %keepalive_.addr, i32 noundef 4) #5
-  store i32 %call, ptr %rc, align 4
-  %2 = load i32, ptr %s_.addr, align 4
-  %3 = load i32, ptr %rc, align 4
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %2, i32 noundef %3)
-  %4 = load i32, ptr %rc, align 4
-  %cmp1 = icmp ne i32 %4, 0
-  br i1 %cmp1, label %if.then2, label %if.end
-
-if.then2:                                         ; preds = %if.then
-  %5 = load i32, ptr %rc, align 4
-  store i32 %5, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  %6 = load i32, ptr %keepalive_cnt_.addr, align 4
-  %cmp3 = icmp ne i32 %6, -1
-  br i1 %cmp3, label %if.then4, label %if.end10
-
-if.then4:                                         ; preds = %if.end
-  %7 = load i32, ptr %s_.addr, align 4
-  %call6 = call i32 @setsockopt(i32 noundef %7, i32 noundef 6, i32 noundef 6, ptr noundef %keepalive_cnt_.addr, i32 noundef 4) #5
-  store i32 %call6, ptr %rc5, align 4
-  %8 = load i32, ptr %s_.addr, align 4
-  %9 = load i32, ptr %rc5, align 4
+define noundef i32 @_ZN3zmq19set_tcp_send_bufferEii(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %6 = load i32, ptr %3, align 4, !tbaa !3
+  %7 = call i32 @setsockopt(i32 noundef %6, i32 noundef 1, i32 noundef 7, ptr noundef %4, i32 noundef 4) #7
+  store i32 %7, ptr %5, align 4, !tbaa !3
+  %8 = load i32, ptr %3, align 4, !tbaa !3
+  %9 = load i32, ptr %5, align 4, !tbaa !3
   call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %8, i32 noundef %9)
-  %10 = load i32, ptr %rc5, align 4
-  %cmp7 = icmp ne i32 %10, 0
-  br i1 %cmp7, label %if.then8, label %if.end9
-
-if.then8:                                         ; preds = %if.then4
-  %11 = load i32, ptr %rc5, align 4
-  store i32 %11, ptr %retval, align 4
-  br label %return
-
-if.end9:                                          ; preds = %if.then4
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.end9, %if.end
-  %12 = load i32, ptr %keepalive_idle_.addr, align 4
-  %cmp11 = icmp ne i32 %12, -1
-  br i1 %cmp11, label %if.then12, label %if.end18
-
-if.then12:                                        ; preds = %if.end10
-  %13 = load i32, ptr %s_.addr, align 4
-  %call14 = call i32 @setsockopt(i32 noundef %13, i32 noundef 6, i32 noundef 4, ptr noundef %keepalive_idle_.addr, i32 noundef 4) #5
-  store i32 %call14, ptr %rc13, align 4
-  %14 = load i32, ptr %s_.addr, align 4
-  %15 = load i32, ptr %rc13, align 4
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %14, i32 noundef %15)
-  %16 = load i32, ptr %rc13, align 4
-  %cmp15 = icmp ne i32 %16, 0
-  br i1 %cmp15, label %if.then16, label %if.end17
-
-if.then16:                                        ; preds = %if.then12
-  %17 = load i32, ptr %rc13, align 4
-  store i32 %17, ptr %retval, align 4
-  br label %return
-
-if.end17:                                         ; preds = %if.then12
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.end17, %if.end10
-  %18 = load i32, ptr %keepalive_intvl_.addr, align 4
-  %cmp19 = icmp ne i32 %18, -1
-  br i1 %cmp19, label %if.then20, label %if.end26
-
-if.then20:                                        ; preds = %if.end18
-  %19 = load i32, ptr %s_.addr, align 4
-  %call22 = call i32 @setsockopt(i32 noundef %19, i32 noundef 6, i32 noundef 5, ptr noundef %keepalive_intvl_.addr, i32 noundef 4) #5
-  store i32 %call22, ptr %rc21, align 4
-  %20 = load i32, ptr %s_.addr, align 4
-  %21 = load i32, ptr %rc21, align 4
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %20, i32 noundef %21)
-  %22 = load i32, ptr %rc21, align 4
-  %cmp23 = icmp ne i32 %22, 0
-  br i1 %cmp23, label %if.then24, label %if.end25
-
-if.then24:                                        ; preds = %if.then20
-  %23 = load i32, ptr %rc21, align 4
-  store i32 %23, ptr %retval, align 4
-  br label %return
-
-if.end25:                                         ; preds = %if.then20
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end25, %if.end18
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.end26, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end27, %if.then24, %if.then16, %if.then8, %if.then2
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+  %10 = load i32, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq14tune_tcp_maxrtEii(i32 noundef %sockfd_, i32 noundef %timeout_) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %sockfd_.addr = alloca i32, align 4
-  %timeout_.addr = alloca i32, align 4
-  %rc = alloca i32, align 4
-  store i32 %sockfd_, ptr %sockfd_.addr, align 4
-  store i32 %timeout_, ptr %timeout_.addr, align 4
-  %0 = load i32, ptr %timeout_.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %sockfd_.addr, align 4
-  %call = call i32 @setsockopt(i32 noundef %1, i32 noundef 6, i32 noundef 18, ptr noundef %timeout_.addr, i32 noundef 4) #5
-  store i32 %call, ptr %rc, align 4
-  %2 = load i32, ptr %sockfd_.addr, align 4
-  %3 = load i32, ptr %rc, align 4
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %2, i32 noundef %3)
-  %4 = load i32, ptr %rc, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+define noundef i32 @_ZN3zmq22set_tcp_receive_bufferEii(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %6 = load i32, ptr %3, align 4, !tbaa !3
+  %7 = call i32 @setsockopt(i32 noundef %6, i32 noundef 1, i32 noundef 8, ptr noundef %4, i32 noundef 4) #7
+  store i32 %7, ptr %5, align 4, !tbaa !3
+  %8 = load i32, ptr %3, align 4, !tbaa !3
+  %9 = load i32, ptr %5, align 4, !tbaa !3
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %8, i32 noundef %9)
+  %10 = load i32, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq9tcp_writeEiPKvm(i32 noundef %s_, ptr noundef %data_, i64 noundef %size_) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %s_.addr = alloca i32, align 4
-  %data_.addr = alloca ptr, align 8
-  %size_.addr = alloca i64, align 8
-  %nbytes = alloca i64, align 8
-  %errstr = alloca ptr, align 8
-  store i32 %s_, ptr %s_.addr, align 4
-  store ptr %data_, ptr %data_.addr, align 8
-  store i64 %size_, ptr %size_.addr, align 8
-  %0 = load i32, ptr %s_.addr, align 4
-  %1 = load ptr, ptr %data_.addr, align 8
-  %2 = load i64, ptr %size_.addr, align 8
-  %call = call i64 @send(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
-  store i64 %call, ptr %nbytes, align 8
-  %3 = load i64, ptr %nbytes, align 8
-  %cmp = icmp eq i64 %3, -1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define noundef i32 @_ZN3zmq19tune_tcp_keepalivesEiiiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store i32 %0, ptr %7, align 4, !tbaa !3
+  store i32 %1, ptr %8, align 4, !tbaa !3
+  store i32 %2, ptr %9, align 4, !tbaa !3
+  store i32 %3, ptr %10, align 4, !tbaa !3
+  store i32 %4, ptr %11, align 4, !tbaa !3
+  %17 = load i32, ptr %8, align 4, !tbaa !3
+  %18 = icmp ne i32 %17, -1
+  br i1 %18, label %19, label %80
 
-land.lhs.true:                                    ; preds = %entry
-  %call1 = call ptr @__errno_location() #6
-  %4 = load i32, ptr %call1, align 4
-  %cmp2 = icmp eq i32 %4, 11
-  br i1 %cmp2, label %if.then, label %lor.lhs.false
+19:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  %20 = load i32, ptr %7, align 4, !tbaa !3
+  %21 = call i32 @setsockopt(i32 noundef %20, i32 noundef 1, i32 noundef 9, ptr noundef %8, i32 noundef 4) #7
+  store i32 %21, ptr %12, align 4, !tbaa !3
+  %22 = load i32, ptr %7, align 4, !tbaa !3
+  %23 = load i32, ptr %12, align 4, !tbaa !3
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %22, i32 noundef %23)
+  %24 = load i32, ptr %12, align 4, !tbaa !3
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %28
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %call3 = call ptr @__errno_location() #6
-  %5 = load i32, ptr %call3, align 4
-  %cmp4 = icmp eq i32 %5, 11
-  br i1 %cmp4, label %if.then, label %lor.lhs.false5
+26:                                               ; preds = %19
+  %27 = load i32, ptr %12, align 4, !tbaa !3
+  store i32 %27, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %77
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %call6 = call ptr @__errno_location() #6
-  %6 = load i32, ptr %call6, align 4
-  %cmp7 = icmp eq i32 %6, 4
-  br i1 %cmp7, label %if.then, label %if.end
+28:                                               ; preds = %19
+  %29 = load i32, ptr %9, align 4, !tbaa !3
+  %30 = icmp ne i32 %29, -1
+  br i1 %30, label %31, label %44
 
-if.then:                                          ; preds = %lor.lhs.false5, %lor.lhs.false, %land.lhs.true
-  store i32 0, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %32 = load i32, ptr %7, align 4, !tbaa !3
+  %33 = call i32 @setsockopt(i32 noundef %32, i32 noundef 6, i32 noundef 6, ptr noundef %9, i32 noundef 4) #7
+  store i32 %33, ptr %14, align 4, !tbaa !3
+  %34 = load i32, ptr %7, align 4, !tbaa !3
+  %35 = load i32, ptr %14, align 4, !tbaa !3
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %34, i32 noundef %35)
+  %36 = load i32, ptr %14, align 4, !tbaa !3
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %40
 
-if.end:                                           ; preds = %lor.lhs.false5, %entry
-  %7 = load i64, ptr %nbytes, align 8
-  %cmp8 = icmp eq i64 %7, -1
-  br i1 %cmp8, label %if.then9, label %if.end41
+38:                                               ; preds = %31
+  %39 = load i32, ptr %14, align 4, !tbaa !3
+  store i32 %39, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %41
 
-if.then9:                                         ; preds = %if.end
-  br label %do.body
+40:                                               ; preds = %31
+  store i32 0, ptr %13, align 4
+  br label %41
 
-do.body:                                          ; preds = %if.then9
-  %call10 = call ptr @__errno_location() #6
-  %8 = load i32, ptr %call10, align 4
-  %cmp11 = icmp ne i32 %8, 13
-  br i1 %cmp11, label %land.lhs.true12, label %land.end
+41:                                               ; preds = %40, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  %42 = load i32, ptr %13, align 4
+  switch i32 %42, label %77 [
+    i32 0, label %43
+  ]
 
-land.lhs.true12:                                  ; preds = %do.body
-  %call13 = call ptr @__errno_location() #6
-  %9 = load i32, ptr %call13, align 4
-  %cmp14 = icmp ne i32 %9, 9
-  br i1 %cmp14, label %land.lhs.true15, label %land.end
+43:                                               ; preds = %41
+  br label %44
 
-land.lhs.true15:                                  ; preds = %land.lhs.true12
-  %call16 = call ptr @__errno_location() #6
-  %10 = load i32, ptr %call16, align 4
-  %cmp17 = icmp ne i32 %10, 89
-  br i1 %cmp17, label %land.lhs.true18, label %land.end
+44:                                               ; preds = %43, %28
+  %45 = load i32, ptr %10, align 4, !tbaa !3
+  %46 = icmp ne i32 %45, -1
+  br i1 %46, label %47, label %60
 
-land.lhs.true18:                                  ; preds = %land.lhs.true15
-  %call19 = call ptr @__errno_location() #6
-  %11 = load i32, ptr %call19, align 4
-  %cmp20 = icmp ne i32 %11, 14
-  br i1 %cmp20, label %land.lhs.true21, label %land.end
+47:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  %48 = load i32, ptr %7, align 4, !tbaa !3
+  %49 = call i32 @setsockopt(i32 noundef %48, i32 noundef 6, i32 noundef 4, ptr noundef %10, i32 noundef 4) #7
+  store i32 %49, ptr %15, align 4, !tbaa !3
+  %50 = load i32, ptr %7, align 4, !tbaa !3
+  %51 = load i32, ptr %15, align 4, !tbaa !3
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %50, i32 noundef %51)
+  %52 = load i32, ptr %15, align 4, !tbaa !3
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %56
 
-land.lhs.true21:                                  ; preds = %land.lhs.true18
-  %call22 = call ptr @__errno_location() #6
-  %12 = load i32, ptr %call22, align 4
-  %cmp23 = icmp ne i32 %12, 106
-  br i1 %cmp23, label %land.lhs.true24, label %land.end
+54:                                               ; preds = %47
+  %55 = load i32, ptr %15, align 4, !tbaa !3
+  store i32 %55, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %57
 
-land.lhs.true24:                                  ; preds = %land.lhs.true21
-  %call25 = call ptr @__errno_location() #6
-  %13 = load i32, ptr %call25, align 4
-  %cmp26 = icmp ne i32 %13, 90
-  br i1 %cmp26, label %land.lhs.true27, label %land.end
+56:                                               ; preds = %47
+  store i32 0, ptr %13, align 4
+  br label %57
 
-land.lhs.true27:                                  ; preds = %land.lhs.true24
-  %call28 = call ptr @__errno_location() #6
-  %14 = load i32, ptr %call28, align 4
-  %cmp29 = icmp ne i32 %14, 12
-  br i1 %cmp29, label %land.lhs.true30, label %land.end
+57:                                               ; preds = %56, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  %58 = load i32, ptr %13, align 4
+  switch i32 %58, label %77 [
+    i32 0, label %59
+  ]
 
-land.lhs.true30:                                  ; preds = %land.lhs.true27
-  %call31 = call ptr @__errno_location() #6
-  %15 = load i32, ptr %call31, align 4
-  %cmp32 = icmp ne i32 %15, 88
-  br i1 %cmp32, label %land.rhs, label %land.end
+59:                                               ; preds = %57
+  br label %60
 
-land.rhs:                                         ; preds = %land.lhs.true30
-  %call33 = call ptr @__errno_location() #6
-  %16 = load i32, ptr %call33, align 4
-  %cmp34 = icmp ne i32 %16, 95
-  br label %land.end
+60:                                               ; preds = %59, %44
+  %61 = load i32, ptr %11, align 4, !tbaa !3
+  %62 = icmp ne i32 %61, -1
+  br i1 %62, label %63, label %76
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true30, %land.lhs.true27, %land.lhs.true24, %land.lhs.true21, %land.lhs.true18, %land.lhs.true15, %land.lhs.true12, %do.body
-  %17 = phi i1 [ false, %land.lhs.true30 ], [ false, %land.lhs.true27 ], [ false, %land.lhs.true24 ], [ false, %land.lhs.true21 ], [ false, %land.lhs.true18 ], [ false, %land.lhs.true15 ], [ false, %land.lhs.true12 ], [ false, %do.body ], [ %cmp34, %land.rhs ]
-  %lnot = xor i1 %17, true
-  br i1 %lnot, label %if.then35, label %if.end40
+63:                                               ; preds = %60
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  %64 = load i32, ptr %7, align 4, !tbaa !3
+  %65 = call i32 @setsockopt(i32 noundef %64, i32 noundef 6, i32 noundef 5, ptr noundef %11, i32 noundef 4) #7
+  store i32 %65, ptr %16, align 4, !tbaa !3
+  %66 = load i32, ptr %7, align 4, !tbaa !3
+  %67 = load i32, ptr %16, align 4, !tbaa !3
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %66, i32 noundef %67)
+  %68 = load i32, ptr %16, align 4, !tbaa !3
+  %69 = icmp ne i32 %68, 0
+  br i1 %69, label %70, label %72
 
-if.then35:                                        ; preds = %land.end
-  %call36 = call ptr @__errno_location() #6
-  %18 = load i32, ptr %call36, align 4
-  %call37 = call ptr @strerror(i32 noundef %18) #5
-  store ptr %call37, ptr %errstr, align 8
-  %19 = load ptr, ptr @stderr, align 8
-  %20 = load ptr, ptr %errstr, align 8
-  %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef @.str, ptr noundef %20, ptr noundef @.str.1, i32 noundef 230)
-  %21 = load ptr, ptr @stderr, align 8
-  %call39 = call i32 @fflush(ptr noundef %21)
-  %22 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %22)
-  br label %if.end40
+70:                                               ; preds = %63
+  %71 = load i32, ptr %16, align 4, !tbaa !3
+  store i32 %71, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %73
 
-if.end40:                                         ; preds = %if.then35, %land.end
-  br label %do.end
+72:                                               ; preds = %63
+  store i32 0, ptr %13, align 4
+  br label %73
 
-do.end:                                           ; preds = %if.end40
-  store i32 -1, ptr %retval, align 4
-  br label %return
+73:                                               ; preds = %72, %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  %74 = load i32, ptr %13, align 4
+  switch i32 %74, label %77 [
+    i32 0, label %75
+  ]
 
-if.end41:                                         ; preds = %if.end
-  %23 = load i64, ptr %nbytes, align 8
-  %conv = trunc i64 %23 to i32
-  store i32 %conv, ptr %retval, align 4
-  br label %return
+75:                                               ; preds = %73
+  br label %76
 
-return:                                           ; preds = %if.end41, %do.end, %if.then
-  %24 = load i32, ptr %retval, align 4
-  ret i32 %24
+76:                                               ; preds = %75, %60
+  store i32 0, ptr %13, align 4
+  br label %77
+
+77:                                               ; preds = %76, %73, %57, %41, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  %78 = load i32, ptr %13, align 4
+  switch i32 %78, label %83 [
+    i32 0, label %79
+    i32 1, label %81
+  ]
+
+79:                                               ; preds = %77
+  br label %80
+
+80:                                               ; preds = %79, %5
+  store i32 0, ptr %6, align 4
+  br label %81
+
+81:                                               ; preds = %80, %77
+  %82 = load i32, ptr %6, align 4
+  ret i32 %82
+
+83:                                               ; preds = %77
+  unreachable
 }
 
-declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) #2
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN3zmq14tune_tcp_maxrtEii(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  %7 = load i32, ptr %5, align 4, !tbaa !3
+  %8 = icmp sle i32 %7, 0
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %16
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  %12 = call i32 @setsockopt(i32 noundef %11, i32 noundef 6, i32 noundef 18, ptr noundef %5, i32 noundef 4) #7
+  store i32 %12, ptr %6, align 4, !tbaa !3
+  %13 = load i32, ptr %4, align 4, !tbaa !3
+  %14 = load i32, ptr %6, align 4, !tbaa !3
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %13, i32 noundef %14)
+  %15 = load i32, ptr %6, align 4, !tbaa !3
+  store i32 %15, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  br label %16
+
+16:                                               ; preds = %10, %9
+  %17 = load i32, ptr %3, align 4
+  ret i32 %17
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN3zmq9tcp_writeEiPKvm(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store i32 %0, ptr %5, align 4, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store i64 %2, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %11 = load i32, ptr %5, align 4, !tbaa !3
+  %12 = load ptr, ptr %6, align 8, !tbaa !7
+  %13 = load i64, ptr %7, align 8, !tbaa !9
+  %14 = call i64 @send(i32 noundef %11, ptr noundef %12, i64 noundef %13, i32 noundef 0)
+  store i64 %14, ptr %8, align 8, !tbaa !9
+  %15 = load i64, ptr %8, align 8, !tbaa !9
+  %16 = icmp eq i64 %15, -1
+  br i1 %16, label %17, label %30
+
+17:                                               ; preds = %3
+  %18 = call ptr @__errno_location() #8
+  %19 = load i32, ptr %18, align 4, !tbaa !3
+  %20 = icmp eq i32 %19, 11
+  br i1 %20, label %29, label %21
+
+21:                                               ; preds = %17
+  %22 = call ptr @__errno_location() #8
+  %23 = load i32, ptr %22, align 4, !tbaa !3
+  %24 = icmp eq i32 %23, 11
+  br i1 %24, label %29, label %25
+
+25:                                               ; preds = %21
+  %26 = call ptr @__errno_location() #8
+  %27 = load i32, ptr %26, align 4, !tbaa !3
+  %28 = icmp eq i32 %27, 4
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %25, %21, %17
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %92
+
+30:                                               ; preds = %25, %3
+  %31 = load i64, ptr %8, align 8, !tbaa !9
+  %32 = icmp eq i64 %31, -1
+  br i1 %32, label %33, label %89
+
+33:                                               ; preds = %30
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = call ptr @__errno_location() #8
+  %36 = load i32, ptr %35, align 4, !tbaa !3
+  %37 = icmp ne i32 %36, 13
+  br i1 %37, label %38, label %70
+
+38:                                               ; preds = %34
+  %39 = call ptr @__errno_location() #8
+  %40 = load i32, ptr %39, align 4, !tbaa !3
+  %41 = icmp ne i32 %40, 9
+  br i1 %41, label %42, label %70
+
+42:                                               ; preds = %38
+  %43 = call ptr @__errno_location() #8
+  %44 = load i32, ptr %43, align 4, !tbaa !3
+  %45 = icmp ne i32 %44, 89
+  br i1 %45, label %46, label %70
+
+46:                                               ; preds = %42
+  %47 = call ptr @__errno_location() #8
+  %48 = load i32, ptr %47, align 4, !tbaa !3
+  %49 = icmp ne i32 %48, 14
+  br i1 %49, label %50, label %70
+
+50:                                               ; preds = %46
+  %51 = call ptr @__errno_location() #8
+  %52 = load i32, ptr %51, align 4, !tbaa !3
+  %53 = icmp ne i32 %52, 106
+  br i1 %53, label %54, label %70
+
+54:                                               ; preds = %50
+  %55 = call ptr @__errno_location() #8
+  %56 = load i32, ptr %55, align 4, !tbaa !3
+  %57 = icmp ne i32 %56, 90
+  br i1 %57, label %58, label %70
+
+58:                                               ; preds = %54
+  %59 = call ptr @__errno_location() #8
+  %60 = load i32, ptr %59, align 4, !tbaa !3
+  %61 = icmp ne i32 %60, 12
+  br i1 %61, label %62, label %70
+
+62:                                               ; preds = %58
+  %63 = call ptr @__errno_location() #8
+  %64 = load i32, ptr %63, align 4, !tbaa !3
+  %65 = icmp ne i32 %64, 88
+  br i1 %65, label %66, label %70
+
+66:                                               ; preds = %62
+  %67 = call ptr @__errno_location() #8
+  %68 = load i32, ptr %67, align 4, !tbaa !3
+  %69 = icmp ne i32 %68, 95
+  br label %70
+
+70:                                               ; preds = %66, %62, %58, %54, %50, %46, %42, %38, %34
+  %71 = phi i1 [ false, %62 ], [ false, %58 ], [ false, %54 ], [ false, %50 ], [ false, %46 ], [ false, %42 ], [ false, %38 ], [ false, %34 ], [ %69, %66 ]
+  %72 = xor i1 %71, true
+  %73 = zext i1 %72 to i64
+  %74 = call i64 @llvm.expect.i64(i64 %73, i64 0)
+  %75 = icmp ne i64 %74, 0
+  br i1 %75, label %76, label %86
+
+76:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %77 = call ptr @__errno_location() #8
+  %78 = load i32, ptr %77, align 4, !tbaa !3
+  %79 = call ptr @strerror(i32 noundef %78) #7
+  store ptr %79, ptr %10, align 8, !tbaa !11
+  %80 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %81 = load ptr, ptr %10, align 8, !tbaa !11
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef @.str, ptr noundef %81, ptr noundef @.str.1, i32 noundef 230) #7
+  %83 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %84 = call i32 @fflush(ptr noundef %83)
+  %85 = load ptr, ptr %10, align 8, !tbaa !11
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %85)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %86
+
+86:                                               ; preds = %76, %70
+  br label %87
+
+87:                                               ; preds = %86
+  br label %88
+
+88:                                               ; preds = %87
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %92
+
+89:                                               ; preds = %30
+  %90 = load i64, ptr %8, align 8, !tbaa !9
+  %91 = trunc i64 %90 to i32
+  store i32 %91, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %92
+
+92:                                               ; preds = %89, %88, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %93 = load i32, ptr %4, align 4
+  ret i32 %93
+}
+
+declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
+declare ptr @__errno_location() #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #1
+declare ptr @strerror(i32 noundef) #2
 
+; Function Attrs: nounwind
 declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
-declare i32 @fflush(ptr noundef) #2
+declare i32 @fflush(ptr noundef) #3
 
-declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) #2
+declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq8tcp_readEiPvm(i32 noundef %s_, ptr noundef %data_, i64 noundef %size_) #0 {
-entry:
-  %s_.addr = alloca i32, align 4
-  %data_.addr = alloca ptr, align 8
-  %size_.addr = alloca i64, align 8
-  %rc = alloca i64, align 8
-  %errstr = alloca ptr, align 8
-  store i32 %s_, ptr %s_.addr, align 4
-  store ptr %data_, ptr %data_.addr, align 8
-  store i64 %size_, ptr %size_.addr, align 8
-  %0 = load i32, ptr %s_.addr, align 4
-  %1 = load ptr, ptr %data_.addr, align 8
-  %2 = load i64, ptr %size_.addr, align 8
-  %call = call i64 @recv(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
-  store i64 %call, ptr %rc, align 8
-  %3 = load i64, ptr %rc, align 8
-  %cmp = icmp eq i64 %3, -1
-  br i1 %cmp, label %if.then, label %if.end22
+define noundef i32 @_ZN3zmq8tcp_readEiPvm(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  store i64 %2, ptr %6, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load i32, ptr %4, align 4, !tbaa !3
+  %10 = load ptr, ptr %5, align 8, !tbaa !7
+  %11 = load i64, ptr %6, align 8, !tbaa !9
+  %12 = call i64 @recv(i32 noundef %9, ptr noundef %10, i64 noundef %11, i32 noundef 0)
+  store i64 %12, ptr %7, align 8, !tbaa !9
+  %13 = load i64, ptr %7, align 8, !tbaa !9
+  %14 = icmp eq i64 %13, -1
+  br i1 %14, label %15, label %61
 
-if.then:                                          ; preds = %entry
-  br label %do.body
+15:                                               ; preds = %3
+  br label %16
 
-do.body:                                          ; preds = %if.then
-  %call1 = call ptr @__errno_location() #6
-  %4 = load i32, ptr %call1, align 4
-  %cmp2 = icmp ne i32 %4, 9
-  br i1 %cmp2, label %land.lhs.true, label %land.end
+16:                                               ; preds = %15
+  %17 = call ptr @__errno_location() #8
+  %18 = load i32, ptr %17, align 4, !tbaa !3
+  %19 = icmp ne i32 %18, 9
+  br i1 %19, label %20, label %32
 
-land.lhs.true:                                    ; preds = %do.body
-  %call3 = call ptr @__errno_location() #6
-  %5 = load i32, ptr %call3, align 4
-  %cmp4 = icmp ne i32 %5, 14
-  br i1 %cmp4, label %land.lhs.true5, label %land.end
+20:                                               ; preds = %16
+  %21 = call ptr @__errno_location() #8
+  %22 = load i32, ptr %21, align 4, !tbaa !3
+  %23 = icmp ne i32 %22, 14
+  br i1 %23, label %24, label %32
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %call6 = call ptr @__errno_location() #6
-  %6 = load i32, ptr %call6, align 4
-  %cmp7 = icmp ne i32 %6, 12
-  br i1 %cmp7, label %land.rhs, label %land.end
+24:                                               ; preds = %20
+  %25 = call ptr @__errno_location() #8
+  %26 = load i32, ptr %25, align 4, !tbaa !3
+  %27 = icmp ne i32 %26, 12
+  br i1 %27, label %28, label %32
 
-land.rhs:                                         ; preds = %land.lhs.true5
-  %call8 = call ptr @__errno_location() #6
-  %7 = load i32, ptr %call8, align 4
-  %cmp9 = icmp ne i32 %7, 88
-  br label %land.end
+28:                                               ; preds = %24
+  %29 = call ptr @__errno_location() #8
+  %30 = load i32, ptr %29, align 4, !tbaa !3
+  %31 = icmp ne i32 %30, 88
+  br label %32
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true5, %land.lhs.true, %do.body
-  %8 = phi i1 [ false, %land.lhs.true5 ], [ false, %land.lhs.true ], [ false, %do.body ], [ %cmp9, %land.rhs ]
-  %lnot = xor i1 %8, true
-  br i1 %lnot, label %if.then10, label %if.end
+32:                                               ; preds = %28, %24, %20, %16
+  %33 = phi i1 [ false, %24 ], [ false, %20 ], [ false, %16 ], [ %31, %28 ]
+  %34 = xor i1 %33, true
+  %35 = zext i1 %34 to i64
+  %36 = call i64 @llvm.expect.i64(i64 %35, i64 0)
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %48
 
-if.then10:                                        ; preds = %land.end
-  %call11 = call ptr @__errno_location() #6
-  %9 = load i32, ptr %call11, align 4
-  %call12 = call ptr @strerror(i32 noundef %9) #5
-  store ptr %call12, ptr %errstr, align 8
-  %10 = load ptr, ptr @stderr, align 8
-  %11 = load ptr, ptr %errstr, align 8
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str, ptr noundef %11, ptr noundef @.str.1, i32 noundef 280)
-  %12 = load ptr, ptr @stderr, align 8
-  %call14 = call i32 @fflush(ptr noundef %12)
-  %13 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %13)
-  br label %if.end
+38:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %39 = call ptr @__errno_location() #8
+  %40 = load i32, ptr %39, align 4, !tbaa !3
+  %41 = call ptr @strerror(i32 noundef %40) #7
+  store ptr %41, ptr %8, align 8, !tbaa !11
+  %42 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %43 = load ptr, ptr %8, align 8, !tbaa !11
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef @.str, ptr noundef %43, ptr noundef @.str.1, i32 noundef 280) #7
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %46 = call i32 @fflush(ptr noundef %45)
+  %47 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %47)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %48
 
-if.end:                                           ; preds = %if.then10, %land.end
-  br label %do.end
+48:                                               ; preds = %38, %32
+  br label %49
 
-do.end:                                           ; preds = %if.end
-  %call15 = call ptr @__errno_location() #6
-  %14 = load i32, ptr %call15, align 4
-  %cmp16 = icmp eq i32 %14, 11
-  br i1 %cmp16, label %if.then19, label %lor.lhs.false
+49:                                               ; preds = %48
+  br label %50
 
-lor.lhs.false:                                    ; preds = %do.end
-  %call17 = call ptr @__errno_location() #6
-  %15 = load i32, ptr %call17, align 4
-  %cmp18 = icmp eq i32 %15, 4
-  br i1 %cmp18, label %if.then19, label %if.end21
+50:                                               ; preds = %49
+  %51 = call ptr @__errno_location() #8
+  %52 = load i32, ptr %51, align 4, !tbaa !3
+  %53 = icmp eq i32 %52, 11
+  br i1 %53, label %58, label %54
 
-if.then19:                                        ; preds = %lor.lhs.false, %do.end
-  %call20 = call ptr @__errno_location() #6
-  store i32 11, ptr %call20, align 4
-  br label %if.end21
+54:                                               ; preds = %50
+  %55 = call ptr @__errno_location() #8
+  %56 = load i32, ptr %55, align 4, !tbaa !3
+  %57 = icmp eq i32 %56, 4
+  br i1 %57, label %58, label %60
 
-if.end21:                                         ; preds = %if.then19, %lor.lhs.false
-  br label %if.end22
+58:                                               ; preds = %54, %50
+  %59 = call ptr @__errno_location() #8
+  store i32 11, ptr %59, align 4, !tbaa !3
+  br label %60
 
-if.end22:                                         ; preds = %if.end21, %entry
-  %16 = load i64, ptr %rc, align 8
-  %conv = trunc i64 %16 to i32
-  ret i32 %conv
+60:                                               ; preds = %58, %54
+  br label %61
+
+61:                                               ; preds = %60, %3
+  %62 = load i64, ptr %7, align 8, !tbaa !9
+  %63 = trunc i64 %62 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret i32 %63
 }
 
-declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) #2
+declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq27tcp_tune_loopback_fast_pathEi(i32 noundef %socket_) #4 {
-entry:
-  %socket_.addr = alloca i32, align 4
-  store i32 %socket_, ptr %socket_.addr, align 4
+define void @_ZN3zmq27tcp_tune_loopback_fast_pathEi(i32 noundef %0) #6 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq18tune_tcp_busy_pollEii(i32 noundef %socket_, i32 noundef %busy_poll_) #0 {
-entry:
-  %socket_.addr = alloca i32, align 4
-  %busy_poll_.addr = alloca i32, align 4
-  %rc = alloca i32, align 4
-  store i32 %socket_, ptr %socket_.addr, align 4
-  store i32 %busy_poll_, ptr %busy_poll_.addr, align 4
-  %0 = load i32, ptr %busy_poll_.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN3zmq18tune_tcp_busy_pollEii(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %6 = load i32, ptr %4, align 4, !tbaa !3
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %8, label %13
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %socket_.addr, align 4
-  %call = call i32 @setsockopt(i32 noundef %1, i32 noundef 1, i32 noundef 46, ptr noundef %busy_poll_.addr, i32 noundef 4) #5
-  store i32 %call, ptr %rc, align 4
-  %2 = load i32, ptr %socket_.addr, align 4
-  %3 = load i32, ptr %rc, align 4
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %2, i32 noundef %3)
-  br label %if.end
+8:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %9 = load i32, ptr %3, align 4, !tbaa !3
+  %10 = call i32 @setsockopt(i32 noundef %9, i32 noundef 1, i32 noundef 46, ptr noundef %4, i32 noundef 4) #7
+  store i32 %10, ptr %5, align 4, !tbaa !3
+  %11 = load i32, ptr %3, align 4, !tbaa !3
+  %12 = load i32, ptr %5, align 4, !tbaa !3
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %11, i32 noundef %12)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  br label %13
 
-if.end:                                           ; preds = %if.then, %entry
+13:                                               ; preds = %8, %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15tcp_open_socketEPKcRKNS_9options_tEbbPNS_13tcp_address_tE(ptr noundef %address_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, i1 noundef zeroext %local_, i1 noundef zeroext %fallback_to_ipv4_, ptr noundef %out_tcp_addr_) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %address_.addr = alloca ptr, align 8
-  %options_.addr = alloca ptr, align 8
-  %local_.addr = alloca i8, align 1
-  %fallback_to_ipv4_.addr = alloca i8, align 1
-  %out_tcp_addr_.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %s = alloca i32, align 4
-  %errstr = alloca ptr, align 8
-  store ptr %address_, ptr %address_.addr, align 8
-  store ptr %options_, ptr %options_.addr, align 8
-  %frombool = zext i1 %local_ to i8
-  store i8 %frombool, ptr %local_.addr, align 1
-  %frombool1 = zext i1 %fallback_to_ipv4_ to i8
-  store i8 %frombool1, ptr %fallback_to_ipv4_.addr, align 1
-  store ptr %out_tcp_addr_, ptr %out_tcp_addr_.addr, align 8
-  %0 = load ptr, ptr %out_tcp_addr_.addr, align 8
-  %1 = load ptr, ptr %address_.addr, align 8
-  %2 = load i8, ptr %local_.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %3 = load ptr, ptr %options_.addr, align 8
-  %ipv6 = getelementptr inbounds %"struct.zmq::options_t", ptr %3, i32 0, i32 24
-  %4 = load i8, ptr %ipv6, align 8
-  %tobool2 = trunc i8 %4 to i1
-  %call = call noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2)
-  store i32 %call, ptr %rc, align 4
-  %5 = load i32, ptr %rc, align 4
-  %cmp = icmp ne i32 %5, 0
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN3zmq15tcp_open_socketEPKcRKNS_9options_tEbbPNS_13tcp_address_tE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(1336) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !11
+  store ptr %1, ptr %8, align 8, !tbaa !15
+  %16 = zext i1 %2 to i8
+  store i8 %16, ptr %9, align 1, !tbaa !17
+  %17 = zext i1 %3 to i8
+  store i8 %17, ptr %10, align 1, !tbaa !17
+  store ptr %4, ptr %11, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  %18 = load ptr, ptr %11, align 8, !tbaa !19
+  %19 = load ptr, ptr %7, align 8, !tbaa !11
+  %20 = load i8, ptr %9, align 1, !tbaa !17, !range !21, !noundef !22
+  %21 = trunc i8 %20 to i1
+  %22 = load ptr, ptr %8, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %22, i32 0, i32 24
+  %24 = load i8, ptr %23, align 8, !tbaa !23, !range !21, !noundef !22
+  %25 = trunc i8 %24 to i1
+  %26 = call noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57) %18, ptr noundef %19, i1 noundef zeroext %21, i1 noundef zeroext %25)
+  store i32 %26, ptr %12, align 4, !tbaa !3
+  %27 = load i32, ptr %12, align 4, !tbaa !3
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %30
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %5
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %173
 
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %out_tcp_addr_.addr, align 8
-  %call3 = call noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57) %6)
-  %conv = zext i16 %call3 to i32
-  %call4 = call noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef %conv, i32 noundef 1, i32 noundef 6)
-  store i32 %call4, ptr %s, align 4
-  %7 = load i32, ptr %s, align 4
-  %cmp5 = icmp eq i32 %7, -1
-  br i1 %cmp5, label %land.lhs.true, label %if.end24
+30:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %31 = load ptr, ptr %11, align 8, !tbaa !19
+  %32 = call noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57) %31)
+  %33 = zext i16 %32 to i32
+  %34 = call noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef %33, i32 noundef 1, i32 noundef 6)
+  store i32 %34, ptr %14, align 4, !tbaa !3
+  %35 = load i32, ptr %14, align 4, !tbaa !3
+  %36 = icmp eq i32 %35, -1
+  br i1 %36, label %37, label %65
 
-land.lhs.true:                                    ; preds = %if.end
-  %8 = load i8, ptr %fallback_to_ipv4_.addr, align 1
-  %tobool6 = trunc i8 %8 to i1
-  br i1 %tobool6, label %land.lhs.true7, label %if.end24
+37:                                               ; preds = %30
+  %38 = load i8, ptr %10, align 1, !tbaa !17, !range !21, !noundef !22
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %65
 
-land.lhs.true7:                                   ; preds = %land.lhs.true
-  %9 = load ptr, ptr %out_tcp_addr_.addr, align 8
-  %call8 = call noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57) %9)
-  %conv9 = zext i16 %call8 to i32
-  %cmp10 = icmp eq i32 %conv9, 10
-  br i1 %cmp10, label %land.lhs.true11, label %if.end24
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %11, align 8, !tbaa !19
+  %42 = call noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57) %41)
+  %43 = zext i16 %42 to i32
+  %44 = icmp eq i32 %43, 10
+  br i1 %44, label %45, label %65
 
-land.lhs.true11:                                  ; preds = %land.lhs.true7
-  %call12 = call ptr @__errno_location() #6
-  %10 = load i32, ptr %call12, align 4
-  %cmp13 = icmp eq i32 %10, 97
-  br i1 %cmp13, label %land.lhs.true14, label %if.end24
+45:                                               ; preds = %40
+  %46 = call ptr @__errno_location() #8
+  %47 = load i32, ptr %46, align 4, !tbaa !3
+  %48 = icmp eq i32 %47, 97
+  br i1 %48, label %49, label %65
 
-land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %11 = load ptr, ptr %options_.addr, align 8
-  %ipv615 = getelementptr inbounds %"struct.zmq::options_t", ptr %11, i32 0, i32 24
-  %12 = load i8, ptr %ipv615, align 8
-  %tobool16 = trunc i8 %12 to i1
-  br i1 %tobool16, label %if.then17, label %if.end24
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %8, align 8, !tbaa !15
+  %51 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %50, i32 0, i32 24
+  %52 = load i8, ptr %51, align 8, !tbaa !23, !range !21, !noundef !22
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %65
 
-if.then17:                                        ; preds = %land.lhs.true14
-  %13 = load ptr, ptr %out_tcp_addr_.addr, align 8
-  %14 = load ptr, ptr %address_.addr, align 8
-  %15 = load i8, ptr %local_.addr, align 1
-  %tobool18 = trunc i8 %15 to i1
-  %call19 = call noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57) %13, ptr noundef %14, i1 noundef zeroext %tobool18, i1 noundef zeroext false)
-  store i32 %call19, ptr %rc, align 4
-  %16 = load i32, ptr %rc, align 4
-  %cmp20 = icmp ne i32 %16, 0
-  br i1 %cmp20, label %if.then21, label %if.end22
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %11, align 8, !tbaa !19
+  %56 = load ptr, ptr %7, align 8, !tbaa !11
+  %57 = load i8, ptr %9, align 1, !tbaa !17, !range !21, !noundef !22
+  %58 = trunc i8 %57 to i1
+  %59 = call noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57) %55, ptr noundef %56, i1 noundef zeroext %58, i1 noundef zeroext false)
+  store i32 %59, ptr %12, align 4, !tbaa !3
+  %60 = load i32, ptr %12, align 4, !tbaa !3
+  %61 = icmp ne i32 %60, 0
+  br i1 %61, label %62, label %63
 
-if.then21:                                        ; preds = %if.then17
-  store i32 -1, ptr %retval, align 4
-  br label %return
+62:                                               ; preds = %54
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %172
 
-if.end22:                                         ; preds = %if.then17
-  %call23 = call noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef 2, i32 noundef 1, i32 noundef 6)
-  store i32 %call23, ptr %s, align 4
-  br label %if.end24
+63:                                               ; preds = %54
+  %64 = call noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef 2, i32 noundef 1, i32 noundef 6)
+  store i32 %64, ptr %14, align 4, !tbaa !3
+  br label %65
 
-if.end24:                                         ; preds = %if.end22, %land.lhs.true14, %land.lhs.true11, %land.lhs.true7, %land.lhs.true, %if.end
-  %17 = load i32, ptr %s, align 4
-  %cmp25 = icmp eq i32 %17, -1
-  br i1 %cmp25, label %if.then26, label %if.end27
+65:                                               ; preds = %63, %49, %45, %40, %37, %30
+  %66 = load i32, ptr %14, align 4, !tbaa !3
+  %67 = icmp eq i32 %66, -1
+  br i1 %67, label %68, label %69
 
-if.then26:                                        ; preds = %if.end24
-  store i32 -1, ptr %retval, align 4
-  br label %return
+68:                                               ; preds = %65
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %172
 
-if.end27:                                         ; preds = %if.end24
-  %18 = load ptr, ptr %out_tcp_addr_.addr, align 8
-  %call28 = call noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57) %18)
-  %conv29 = zext i16 %call28 to i32
-  %cmp30 = icmp eq i32 %conv29, 10
-  br i1 %cmp30, label %if.then31, label %if.end32
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %11, align 8, !tbaa !19
+  %71 = call noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57) %70)
+  %72 = zext i16 %71 to i32
+  %73 = icmp eq i32 %72, 10
+  br i1 %73, label %74, label %76
 
-if.then31:                                        ; preds = %if.end27
-  %19 = load i32, ptr %s, align 4
-  call void @_ZN3zmq19enable_ipv4_mappingEi(i32 noundef %19)
-  br label %if.end32
+74:                                               ; preds = %69
+  %75 = load i32, ptr %14, align 4, !tbaa !3
+  call void @_ZN3zmq19enable_ipv4_mappingEi(i32 noundef %75)
+  br label %76
 
-if.end32:                                         ; preds = %if.then31, %if.end27
-  %20 = load ptr, ptr %options_.addr, align 8
-  %tos = getelementptr inbounds %"struct.zmq::options_t", ptr %20, i32 0, i32 11
-  %21 = load i32, ptr %tos, align 4
-  %cmp33 = icmp ne i32 %21, 0
-  br i1 %cmp33, label %if.then34, label %if.end36
+76:                                               ; preds = %74, %69
+  %77 = load ptr, ptr %8, align 8, !tbaa !15
+  %78 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %77, i32 0, i32 11
+  %79 = load i32, ptr %78, align 4, !tbaa !59
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %86
 
-if.then34:                                        ; preds = %if.end32
-  %22 = load i32, ptr %s, align 4
-  %23 = load ptr, ptr %options_.addr, align 8
-  %tos35 = getelementptr inbounds %"struct.zmq::options_t", ptr %23, i32 0, i32 11
-  %24 = load i32, ptr %tos35, align 4
-  call void @_ZN3zmq22set_ip_type_of_serviceEii(i32 noundef %22, i32 noundef %24)
-  br label %if.end36
+81:                                               ; preds = %76
+  %82 = load i32, ptr %14, align 4, !tbaa !3
+  %83 = load ptr, ptr %8, align 8, !tbaa !15
+  %84 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %83, i32 0, i32 11
+  %85 = load i32, ptr %84, align 4, !tbaa !59
+  call void @_ZN3zmq22set_ip_type_of_serviceEii(i32 noundef %82, i32 noundef %85)
+  br label %86
 
-if.end36:                                         ; preds = %if.then34, %if.end32
-  %25 = load ptr, ptr %options_.addr, align 8
-  %priority = getelementptr inbounds %"struct.zmq::options_t", ptr %25, i32 0, i32 12
-  %26 = load i32, ptr %priority, align 8
-  %cmp37 = icmp ne i32 %26, 0
-  br i1 %cmp37, label %if.then38, label %if.end40
+86:                                               ; preds = %81, %76
+  %87 = load ptr, ptr %8, align 8, !tbaa !15
+  %88 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %87, i32 0, i32 12
+  %89 = load i32, ptr %88, align 8, !tbaa !60
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %96
 
-if.then38:                                        ; preds = %if.end36
-  %27 = load i32, ptr %s, align 4
-  %28 = load ptr, ptr %options_.addr, align 8
-  %priority39 = getelementptr inbounds %"struct.zmq::options_t", ptr %28, i32 0, i32 12
-  %29 = load i32, ptr %priority39, align 8
-  call void @_ZN3zmq19set_socket_priorityEii(i32 noundef %27, i32 noundef %29)
-  br label %if.end40
+91:                                               ; preds = %86
+  %92 = load i32, ptr %14, align 4, !tbaa !3
+  %93 = load ptr, ptr %8, align 8, !tbaa !15
+  %94 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %93, i32 0, i32 12
+  %95 = load i32, ptr %94, align 8, !tbaa !60
+  call void @_ZN3zmq19set_socket_priorityEii(i32 noundef %92, i32 noundef %95)
+  br label %96
 
-if.end40:                                         ; preds = %if.then38, %if.end36
-  %30 = load ptr, ptr %options_.addr, align 8
-  %loopback_fastpath = getelementptr inbounds %"struct.zmq::options_t", ptr %30, i32 0, i32 65
-  %31 = load i8, ptr %loopback_fastpath, align 1
-  %tobool41 = trunc i8 %31 to i1
-  br i1 %tobool41, label %if.then42, label %if.end43
+96:                                               ; preds = %91, %86
+  %97 = load ptr, ptr %8, align 8, !tbaa !15
+  %98 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %97, i32 0, i32 65
+  %99 = load i8, ptr %98, align 1, !tbaa !61, !range !21, !noundef !22
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %101, label %103
 
-if.then42:                                        ; preds = %if.end40
-  %32 = load i32, ptr %s, align 4
-  call void @_ZN3zmq27tcp_tune_loopback_fast_pathEi(i32 noundef %32)
-  br label %if.end43
+101:                                              ; preds = %96
+  %102 = load i32, ptr %14, align 4, !tbaa !3
+  call void @_ZN3zmq27tcp_tune_loopback_fast_pathEi(i32 noundef %102)
+  br label %103
 
-if.end43:                                         ; preds = %if.then42, %if.end40
-  %33 = load ptr, ptr %options_.addr, align 8
-  %bound_device = getelementptr inbounds %"struct.zmq::options_t", ptr %33, i32 0, i32 63
-  %call44 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %bound_device) #5
-  br i1 %call44, label %if.end51, label %if.then45
+103:                                              ; preds = %101, %96
+  %104 = load ptr, ptr %8, align 8, !tbaa !15
+  %105 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %104, i32 0, i32 63
+  %106 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %105) #7
+  br i1 %106, label %115, label %107
 
-if.then45:                                        ; preds = %if.end43
-  %34 = load i32, ptr %s, align 4
-  %35 = load ptr, ptr %options_.addr, align 8
-  %bound_device46 = getelementptr inbounds %"struct.zmq::options_t", ptr %35, i32 0, i32 63
-  %call47 = call noundef i32 @_ZN3zmq14bind_to_deviceEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(32) %bound_device46)
-  %cmp48 = icmp eq i32 %call47, -1
-  br i1 %cmp48, label %if.then49, label %if.end50
+107:                                              ; preds = %103
+  %108 = load i32, ptr %14, align 4, !tbaa !3
+  %109 = load ptr, ptr %8, align 8, !tbaa !15
+  %110 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %109, i32 0, i32 63
+  %111 = call noundef i32 @_ZN3zmq14bind_to_deviceEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %108, ptr noundef nonnull align 8 dereferenceable(32) %110)
+  %112 = icmp eq i32 %111, -1
+  br i1 %112, label %113, label %114
 
-if.then49:                                        ; preds = %if.then45
-  br label %setsockopt_error
+113:                                              ; preds = %107
+  br label %149
 
-if.end50:                                         ; preds = %if.then45
-  br label %if.end51
+114:                                              ; preds = %107
+  br label %115
 
-if.end51:                                         ; preds = %if.end50, %if.end43
-  %36 = load ptr, ptr %options_.addr, align 8
-  %sndbuf = getelementptr inbounds %"struct.zmq::options_t", ptr %36, i32 0, i32 9
-  %37 = load i32, ptr %sndbuf, align 4
-  %cmp52 = icmp sge i32 %37, 0
-  br i1 %cmp52, label %if.then53, label %if.end56
+115:                                              ; preds = %114, %103
+  %116 = load ptr, ptr %8, align 8, !tbaa !15
+  %117 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %116, i32 0, i32 9
+  %118 = load i32, ptr %117, align 4, !tbaa !62
+  %119 = icmp sge i32 %118, 0
+  br i1 %119, label %120, label %126
 
-if.then53:                                        ; preds = %if.end51
-  %38 = load i32, ptr %s, align 4
-  %39 = load ptr, ptr %options_.addr, align 8
-  %sndbuf54 = getelementptr inbounds %"struct.zmq::options_t", ptr %39, i32 0, i32 9
-  %40 = load i32, ptr %sndbuf54, align 4
-  %call55 = call noundef i32 @_ZN3zmq19set_tcp_send_bufferEii(i32 noundef %38, i32 noundef %40)
-  br label %if.end56
+120:                                              ; preds = %115
+  %121 = load i32, ptr %14, align 4, !tbaa !3
+  %122 = load ptr, ptr %8, align 8, !tbaa !15
+  %123 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %122, i32 0, i32 9
+  %124 = load i32, ptr %123, align 4, !tbaa !62
+  %125 = call noundef i32 @_ZN3zmq19set_tcp_send_bufferEii(i32 noundef %121, i32 noundef %124)
+  br label %126
 
-if.end56:                                         ; preds = %if.then53, %if.end51
-  %41 = load ptr, ptr %options_.addr, align 8
-  %rcvbuf = getelementptr inbounds %"struct.zmq::options_t", ptr %41, i32 0, i32 10
-  %42 = load i32, ptr %rcvbuf, align 8
-  %cmp57 = icmp sge i32 %42, 0
-  br i1 %cmp57, label %if.then58, label %if.end61
+126:                                              ; preds = %120, %115
+  %127 = load ptr, ptr %8, align 8, !tbaa !15
+  %128 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %127, i32 0, i32 10
+  %129 = load i32, ptr %128, align 8, !tbaa !63
+  %130 = icmp sge i32 %129, 0
+  br i1 %130, label %131, label %137
 
-if.then58:                                        ; preds = %if.end56
-  %43 = load i32, ptr %s, align 4
-  %44 = load ptr, ptr %options_.addr, align 8
-  %rcvbuf59 = getelementptr inbounds %"struct.zmq::options_t", ptr %44, i32 0, i32 10
-  %45 = load i32, ptr %rcvbuf59, align 8
-  %call60 = call noundef i32 @_ZN3zmq22set_tcp_receive_bufferEii(i32 noundef %43, i32 noundef %45)
-  br label %if.end61
+131:                                              ; preds = %126
+  %132 = load i32, ptr %14, align 4, !tbaa !3
+  %133 = load ptr, ptr %8, align 8, !tbaa !15
+  %134 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %133, i32 0, i32 10
+  %135 = load i32, ptr %134, align 8, !tbaa !63
+  %136 = call noundef i32 @_ZN3zmq22set_tcp_receive_bufferEii(i32 noundef %132, i32 noundef %135)
+  br label %137
 
-if.end61:                                         ; preds = %if.then58, %if.end56
-  %46 = load ptr, ptr %options_.addr, align 8
-  %busy_poll = getelementptr inbounds %"struct.zmq::options_t", ptr %46, i32 0, i32 92
-  %47 = load i32, ptr %busy_poll, align 4
-  %tobool62 = icmp ne i32 %47, 0
-  br i1 %tobool62, label %if.then63, label %if.end65
+137:                                              ; preds = %131, %126
+  %138 = load ptr, ptr %8, align 8, !tbaa !15
+  %139 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %138, i32 0, i32 92
+  %140 = load i32, ptr %139, align 4, !tbaa !64
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %142, label %147
 
-if.then63:                                        ; preds = %if.end61
-  %48 = load i32, ptr %s, align 4
-  %49 = load ptr, ptr %options_.addr, align 8
-  %busy_poll64 = getelementptr inbounds %"struct.zmq::options_t", ptr %49, i32 0, i32 92
-  %50 = load i32, ptr %busy_poll64, align 4
-  call void @_ZN3zmq18tune_tcp_busy_pollEii(i32 noundef %48, i32 noundef %50)
-  br label %if.end65
+142:                                              ; preds = %137
+  %143 = load i32, ptr %14, align 4, !tbaa !3
+  %144 = load ptr, ptr %8, align 8, !tbaa !15
+  %145 = getelementptr inbounds nuw %"struct.zmq::options_t", ptr %144, i32 0, i32 92
+  %146 = load i32, ptr %145, align 4, !tbaa !64
+  call void @_ZN3zmq18tune_tcp_busy_pollEii(i32 noundef %143, i32 noundef %146)
+  br label %147
 
-if.end65:                                         ; preds = %if.then63, %if.end61
-  %51 = load i32, ptr %s, align 4
-  store i32 %51, ptr %retval, align 4
-  br label %return
+147:                                              ; preds = %142, %137
+  %148 = load i32, ptr %14, align 4, !tbaa !3
+  store i32 %148, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %172
 
-setsockopt_error:                                 ; preds = %if.then49
-  %52 = load i32, ptr %s, align 4
-  %call66 = call i32 @close(i32 noundef %52)
-  store i32 %call66, ptr %rc, align 4
-  br label %do.body
+149:                                              ; preds = %113
+  %150 = load i32, ptr %14, align 4, !tbaa !3
+  %151 = call i32 @close(i32 noundef %150)
+  store i32 %151, ptr %12, align 4, !tbaa !3
+  br label %152
 
-do.body:                                          ; preds = %setsockopt_error
-  %53 = load i32, ptr %rc, align 4
-  %cmp67 = icmp eq i32 %53, 0
-  %lnot = xor i1 %cmp67, true
-  br i1 %lnot, label %if.then69, label %if.end74
+152:                                              ; preds = %149
+  %153 = load i32, ptr %12, align 4, !tbaa !3
+  %154 = icmp eq i32 %153, 0
+  %155 = xor i1 %154, true
+  %156 = zext i1 %155 to i64
+  %157 = call i64 @llvm.expect.i64(i64 %156, i64 0)
+  %158 = icmp ne i64 %157, 0
+  br i1 %158, label %159, label %169
 
-if.then69:                                        ; preds = %do.body
-  %call70 = call ptr @__errno_location() #6
-  %54 = load i32, ptr %call70, align 4
-  %call71 = call ptr @strerror(i32 noundef %54) #5
-  store ptr %call71, ptr %errstr, align 8
-  %55 = load ptr, ptr @stderr, align 8
-  %56 = load ptr, ptr %errstr, align 8
-  %call72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef @.str, ptr noundef %56, ptr noundef @.str.1, i32 noundef 400)
-  %57 = load ptr, ptr @stderr, align 8
-  %call73 = call i32 @fflush(ptr noundef %57)
-  %58 = load ptr, ptr %errstr, align 8
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %58)
-  br label %if.end74
+159:                                              ; preds = %152
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %160 = call ptr @__errno_location() #8
+  %161 = load i32, ptr %160, align 4, !tbaa !3
+  %162 = call ptr @strerror(i32 noundef %161) #7
+  store ptr %162, ptr %15, align 8, !tbaa !11
+  %163 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %164 = load ptr, ptr %15, align 8, !tbaa !11
+  %165 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef @.str, ptr noundef %164, ptr noundef @.str.1, i32 noundef 400) #7
+  %166 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %167 = call i32 @fflush(ptr noundef %166)
+  %168 = load ptr, ptr %15, align 8, !tbaa !11
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %168)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %169
 
-if.end74:                                         ; preds = %if.then69, %do.body
-  br label %do.end
+169:                                              ; preds = %159, %152
+  br label %170
 
-do.end:                                           ; preds = %if.end74
-  store i32 -1, ptr %retval, align 4
-  br label %return
+170:                                              ; preds = %169
+  br label %171
 
-return:                                           ; preds = %do.end, %if.end65, %if.then26, %if.then21, %if.then
-  %59 = load i32, ptr %retval, align 4
-  ret i32 %59
+171:                                              ; preds = %170
+  store i32 -1, ptr %6, align 4
+  store i32 1, ptr %13, align 4
+  br label %172
+
+172:                                              ; preds = %171, %147, %68, %62
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  br label %173
+
+173:                                              ; preds = %172, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  %174 = load i32, ptr %6, align 4
+  ret i32 %174
 }
 
-declare noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) #2
+declare noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) #3
 
-declare noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef, i32 noundef, i32 noundef) #2
+declare noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef, i32 noundef, i32 noundef) #3
 
-declare noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57)) #2
+declare noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57)) #3
 
-declare void @_ZN3zmq19enable_ipv4_mappingEi(i32 noundef) #2
+declare void @_ZN3zmq19enable_ipv4_mappingEi(i32 noundef) #3
 
-declare void @_ZN3zmq22set_ip_type_of_serviceEii(i32 noundef, i32 noundef) #2
+declare void @_ZN3zmq22set_ip_type_of_serviceEii(i32 noundef, i32 noundef) #3
 
-declare void @_ZN3zmq19set_socket_priorityEii(i32 noundef, i32 noundef) #2
+declare void @_ZN3zmq19set_socket_priorityEii(i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind
-declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
+  %5 = icmp eq i64 %4, 0
+  ret i1 %5
+}
 
-declare noundef i32 @_ZN3zmq14bind_to_deviceEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) #2
+declare noundef i32 @_ZN3zmq14bind_to_deviceEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) #3
 
-declare i32 @close(i32 noundef) #2
+declare i32 @close(i32 noundef) #3
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(none) }
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !67
+  ret i64 %5
+}
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTSN3zmq9options_tE", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"bool", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTSN3zmq13tcp_address_tE", !8, i64 0}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = !{!24, !18, i64 360}
+!24 = !{!"_ZTSN3zmq9options_tE", !4, i64 0, !4, i64 4, !10, i64 8, !5, i64 16, !5, i64 17, !4, i64 276, !4, i64 280, !4, i64 284, !4, i64 288, !4, i64 292, !4, i64 296, !4, i64 300, !4, i64 304, !5, i64 308, !25, i64 312, !4, i64 316, !4, i64 320, !4, i64 324, !4, i64 328, !4, i64 332, !4, i64 336, !10, i64 344, !4, i64 352, !4, i64 356, !18, i64 360, !4, i64 364, !18, i64 368, !18, i64 369, !18, i64 370, !18, i64 371, !18, i64 372, !28, i64 376, !28, i64 408, !28, i64 440, !4, i64 472, !4, i64 476, !4, i64 480, !4, i64 484, !30, i64 488, !35, i64 512, !35, i64 560, !44, i64 608, !4, i64 656, !4, i64 660, !28, i64 664, !28, i64 696, !28, i64 728, !5, i64 760, !5, i64 792, !5, i64 824, !28, i64 856, !28, i64 888, !4, i64 920, !4, i64 924, !18, i64 928, !4, i64 932, !18, i64 936, !4, i64 940, !18, i64 944, !49, i64 946, !4, i64 948, !4, i64 952, !4, i64 956, !28, i64 960, !18, i64 992, !18, i64 993, !18, i64 994, !4, i64 996, !4, i64 1000, !18, i64 1004, !4, i64 1008, !50, i64 1016, !4, i64 1064, !28, i64 1072, !28, i64 1104, !28, i64 1136, !28, i64 1168, !18, i64 1200, !55, i64 1208, !18, i64 1232, !55, i64 1240, !18, i64 1264, !55, i64 1272, !18, i64 1296, !4, i64 1300, !18, i64 1304, !4, i64 1308, !4, i64 1312, !4, i64 1316, !4, i64 1320, !4, i64 1324, !18, i64 1328, !4, i64 1332}
+!25 = !{!"_ZTSN3zmq14atomic_value_tE", !26, i64 0}
+!26 = !{!"_ZTSSt6atomicIiE", !27, i64 0}
+!27 = !{!"_ZTSSt13__atomic_baseIiE", !4, i64 0}
+!28 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !29, i64 0, !10, i64 8, !5, i64 16}
+!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !12, i64 0}
+!30 = !{!"_ZTSSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE", !31, i64 0}
+!31 = !{!"_ZTSSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE", !32, i64 0}
+!32 = !{!"_ZTSNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE12_Vector_implE", !33, i64 0}
+!33 = !{!"_ZTSNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE17_Vector_impl_dataE", !34, i64 0, !34, i64 8, !34, i64 16}
+!34 = !{!"p1 _ZTSN3zmq18tcp_address_mask_tE", !8, i64 0}
+!35 = !{!"_ZTSSt3setIjSt4lessIjESaIjEE", !36, i64 0}
+!36 = !{!"_ZTSSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE", !37, i64 0}
+!37 = !{!"_ZTSNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE13_Rb_tree_implIS3_Lb1EEE", !38, i64 0, !40, i64 8}
+!38 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIjEE", !39, i64 0}
+!39 = !{!"_ZTSSt4lessIjE"}
+!40 = !{!"_ZTSSt15_Rb_tree_header", !41, i64 0, !10, i64 32}
+!41 = !{!"_ZTSSt18_Rb_tree_node_base", !42, i64 0, !43, i64 8, !43, i64 16, !43, i64 24}
+!42 = !{!"_ZTSSt14_Rb_tree_color", !5, i64 0}
+!43 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !8, i64 0}
+!44 = !{!"_ZTSSt3setIiSt4lessIiESaIiEE", !45, i64 0}
+!45 = !{!"_ZTSSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE", !46, i64 0}
+!46 = !{!"_ZTSNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EEE", !47, i64 0, !40, i64 8}
+!47 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIiEE", !48, i64 0}
+!48 = !{!"_ZTSSt4lessIiE"}
+!49 = !{!"short", !5, i64 0}
+!50 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE", !51, i64 0}
+!51 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE", !52, i64 0}
+!52 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !53, i64 0, !40, i64 8}
+!53 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !54, i64 0}
+!54 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
+!55 = !{!"_ZTSSt6vectorIhSaIhEE", !56, i64 0}
+!56 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !57, i64 0}
+!57 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !58, i64 0}
+!58 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !12, i64 0, !12, i64 8, !12, i64 16}
+!59 = !{!24, !4, i64 300}
+!60 = !{!24, !4, i64 304}
+!61 = !{!24, !18, i64 993}
+!62 = !{!24, !4, i64 292}
+!63 = !{!24, !4, i64 296}
+!64 = !{!24, !4, i64 1332}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !8, i64 0}
+!67 = !{!28, !10, i64 8}

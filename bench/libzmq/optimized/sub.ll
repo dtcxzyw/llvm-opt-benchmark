@@ -1,86 +1,80 @@
 ; ModuleID = 'bench/libzmq/original/sub.ll'
 source_filename = "bench/libzmq/original/sub.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.zmq::msg_t" = type { %union.anon.52 }
-%union.anon.52 = type { %struct.anon }
+%"class.zmq::msg_t" = type { %union.anon.46 }
+%union.anon.46 = type { %struct.anon }
 %struct.anon = type { ptr, [34 x i8], i8, i8, i32, %"union.zmq::msg_t::group_t" }
-%"union.zmq::msg_t::group_t" = type { %struct.anon.54 }
-%struct.anon.54 = type { i8, ptr }
+%"union.zmq::msg_t::group_t" = type { %struct.anon.48 }
+%struct.anon.48 = type { i8, ptr }
 
 @_ZTVN3zmq5sub_tE = unnamed_addr constant { [47 x ptr], [4 x ptr], [7 x ptr], [8 x ptr] } { [47 x ptr] [ptr null, ptr @_ZTIN3zmq5sub_tE, ptr @_ZN3zmq5sub_tD1Ev, ptr @_ZN3zmq5sub_tD0Ev, ptr @_ZN3zmq13socket_base_t12process_stopEv, ptr @_ZN3zmq8object_t12process_plugEv, ptr @_ZN3zmq5own_t11process_ownEPS0_, ptr @_ZN3zmq8object_t14process_attachEPNS_8i_engineE, ptr @_ZN3zmq13socket_base_t12process_bindEPNS_6pipe_tE, ptr @_ZN3zmq8object_t21process_activate_readEv, ptr @_ZN3zmq8object_t22process_activate_writeEm, ptr @_ZN3zmq8object_t14process_hiccupEPv, ptr @_ZN3zmq8object_t23process_pipe_peer_statsEmPNS_5own_tEPNS_19endpoint_uri_pair_tE, ptr @_ZN3zmq13socket_base_t26process_pipe_stats_publishEmmPNS_19endpoint_uri_pair_tE, ptr @_ZN3zmq8object_t17process_pipe_termEv, ptr @_ZN3zmq8object_t21process_pipe_term_ackEv, ptr @_ZN3zmq8object_t16process_pipe_hwmEii, ptr @_ZN3zmq5own_t16process_term_reqEPS0_, ptr @_ZN3zmq13socket_base_t12process_termEi, ptr @_ZN3zmq5own_t16process_term_ackEv, ptr @_ZN3zmq13socket_base_t21process_term_endpointEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN3zmq8object_t12process_reapEPNS_13socket_base_tE, ptr @_ZN3zmq8object_t14process_reapedEv, ptr @_ZN3zmq8object_t19process_conn_failedEv, ptr @_ZN3zmq5own_t14process_seqnumEv, ptr @_ZN3zmq13socket_base_t15process_destroyEv, ptr @_ZN3zmq13socket_base_t8in_eventEv, ptr @_ZN3zmq13socket_base_t9out_eventEv, ptr @_ZN3zmq13socket_base_t11timer_eventEi, ptr @_ZN3zmq13socket_base_t14read_activatedEPNS_6pipe_tE, ptr @_ZN3zmq13socket_base_t15write_activatedEPNS_6pipe_tE, ptr @_ZN3zmq13socket_base_t8hiccupedEPNS_6pipe_tE, ptr @_ZN3zmq13socket_base_t15pipe_terminatedEPNS_6pipe_tE, ptr @_ZNK3zmq13socket_base_t14get_peer_stateEPKvm, ptr @_ZN3zmq6xsub_t12xattach_pipeEPNS_6pipe_tEbb, ptr @_ZN3zmq5sub_t11xsetsockoptEiPKvm, ptr @_ZN3zmq6xsub_t11xgetsockoptEiPvPm, ptr @_ZN3zmq5sub_t8xhas_outEv, ptr @_ZN3zmq5sub_t5xsendEPNS_5msg_tE, ptr @_ZN3zmq6xsub_t7xhas_inEv, ptr @_ZN3zmq6xsub_t5xrecvEPNS_5msg_tE, ptr @_ZN3zmq6xsub_t15xread_activatedEPNS_6pipe_tE, ptr @_ZN3zmq6xsub_t16xwrite_activatedEPNS_6pipe_tE, ptr @_ZN3zmq6xsub_t9xhiccupedEPNS_6pipe_tE, ptr @_ZN3zmq6xsub_t16xpipe_terminatedEPNS_6pipe_tE, ptr @_ZN3zmq13socket_base_t5xjoinEPKc, ptr @_ZN3zmq13socket_base_t6xleaveEPKc], [4 x ptr] [ptr inttoptr (i64 -1448 to ptr), ptr @_ZTIN3zmq5sub_tE, ptr @_ZThn1448_N3zmq5sub_tD1Ev, ptr @_ZThn1448_N3zmq5sub_tD0Ev], [7 x ptr] [ptr inttoptr (i64 -1464 to ptr), ptr @_ZTIN3zmq5sub_tE, ptr @_ZThn1464_N3zmq5sub_tD1Ev, ptr @_ZThn1464_N3zmq5sub_tD0Ev, ptr @_ZThn1464_N3zmq13socket_base_t8in_eventEv, ptr @_ZThn1464_N3zmq13socket_base_t9out_eventEv, ptr @_ZThn1464_N3zmq13socket_base_t11timer_eventEi], [8 x ptr] [ptr inttoptr (i64 -1472 to ptr), ptr @_ZTIN3zmq5sub_tE, ptr @_ZThn1472_N3zmq5sub_tD1Ev, ptr @_ZThn1472_N3zmq5sub_tD0Ev, ptr @_ZThn1472_N3zmq13socket_base_t14read_activatedEPNS_6pipe_tE, ptr @_ZThn1472_N3zmq13socket_base_t15write_activatedEPNS_6pipe_tE, ptr @_ZThn1472_N3zmq13socket_base_t8hiccupedEPNS_6pipe_tE, ptr @_ZThn1472_N3zmq13socket_base_t15pipe_terminatedEPNS_6pipe_tE] }, align 8
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [12 x i8] c"%s (%s:%d)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [103 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libzmq/libzmq/src/sub.cpp\00", align 1
+@_ZTIN3zmq5sub_tE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq5sub_tE, ptr @_ZTIN3zmq6xsub_tE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3zmq5sub_tE = constant [13 x i8] c"N3zmq5sub_tE\00", align 1
 @_ZTIN3zmq6xsub_tE = external constant ptr
-@_ZTIN3zmq5sub_tE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3zmq5sub_tE, ptr @_ZTIN3zmq6xsub_tE }, align 8
 @.str.2 = private unnamed_addr constant [103 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libzmq/libzmq/src/msg.hpp\00", align 1
 
 @_ZN3zmq5sub_tC1EPNS_5ctx_tEji = unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN3zmq5sub_tC2EPNS_5ctx_tEji
 @_ZN3zmq5sub_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq5sub_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq5sub_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(2032) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_) unnamed_addr #0 align 2 {
-entry:
-  tail call void @_ZN3zmq6xsub_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(2028) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5sub_tE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5sub_tE, i64 392), ptr %add.ptr, align 8
-  %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 1464
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5sub_tE, i64 424), ptr %add.ptr2, align 8
-  %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1472
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq5sub_tE, i64 480), ptr %add.ptr3, align 8
-  %type = getelementptr inbounds nuw i8, ptr %this, i64 332
-  store i8 2, ptr %type, align 4
-  %filter = getelementptr inbounds nuw i8, ptr %this, i64 392
-  store i8 1, ptr %filter, align 8
+define void @_ZN3zmq5sub_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+  tail call void @_ZN3zmq6xsub_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(2028) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3)
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTVN3zmq5sub_tE, i64 16), ptr %0, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1448
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3zmq5sub_tE, i64 392), ptr %5, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1464
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3zmq5sub_tE, i64 424), ptr %6, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN3zmq5sub_tE, i64 480), ptr %7, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 332
+  store i8 2, ptr %8, align 4, !tbaa !6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  store i8 1, ptr %9, align 8, !tbaa !60
   ret void
 }
 
 declare void @_ZN3zmq6xsub_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(2028), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq5sub_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2032) %this) unnamed_addr #2 align 2 {
-entry:
-  tail call void @_ZN3zmq6xsub_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2028) %this) #10
-  ret void
-}
-
 ; Function Attrs: nounwind
-declare void @_ZN3zmq6xsub_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2028)) unnamed_addr #3
+declare void @_ZN3zmq6xsub_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2028)) unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define void @_ZThn1448_N3zmq5sub_tD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -1448
-  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) #10
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3zmq5sub_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) unnamed_addr #3 align 2 {
+  tail call void @_ZN3zmq6xsub_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2028) %0) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn1464_N3zmq5sub_tD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -1464
-  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) #10
+define void @_ZThn1448_N3zmq5sub_tD1Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -1448
+  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %2) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn1472_N3zmq5sub_tD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -1472
-  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) #10
+define void @_ZThn1464_N3zmq5sub_tD1Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -1464
+  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %2) #12
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @_ZThn1472_N3zmq5sub_tD1Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -1472
+  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %2) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq5sub_tD0Ev(ptr noundef nonnull align 8 dereferenceable(2032) %this) unnamed_addr #2 align 2 {
-entry:
-  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %this) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
+define void @_ZN3zmq5sub_tD0Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) unnamed_addr #3 align 2 {
+  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -88,131 +82,133 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn1448_N3zmq5sub_tD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -1448
-  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2032) %0) #11
+define void @_ZThn1448_N3zmq5sub_tD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -1448
+  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2032) %2) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn1464_N3zmq5sub_tD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -1464
-  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2032) %0) #11
+define void @_ZThn1464_N3zmq5sub_tD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -1464
+  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2032) %2) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn1472_N3zmq5sub_tD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 -1472
-  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2032) %0) #11
+define void @_ZThn1472_N3zmq5sub_tD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 -1472
+  tail call void @_ZN3zmq5sub_tD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(2032) %2) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq5sub_t11xsetsockoptEiPKvm(ptr noundef nonnull align 8 dereferenceable(2032) %this, i32 noundef %option_, ptr noundef %optval_, i64 noundef %optvallen_) unnamed_addr #0 align 2 {
-entry:
-  %msg = alloca %"class.zmq::msg_t", align 8
-  %0 = add i32 %option_, -8
-  %or.cond = icmp ult i32 %0, -2
-  br i1 %or.cond, label %if.then, label %if.end
+define noundef i32 @_ZN3zmq5sub_t11xsetsockoptEiPKvm(ptr noundef nonnull align 8 dereferenceable(2032) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+  %5 = alloca %"class.zmq::msg_t", align 8
+  %6 = add i32 %1, -8
+  %or.cond = icmp ult i32 %6, -2
+  br i1 %or.cond, label %7, label %9
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #12
-  store i32 22, ptr %call, align 4
-  br label %return
+7:                                                ; preds = %4
+  %8 = tail call ptr @__errno_location() #14
+  store i32 22, ptr %8, align 4, !tbaa !61
+  br label %36
 
-if.end:                                           ; preds = %entry
-  %cmp3 = icmp eq i32 %option_, 6
-  br i1 %cmp3, label %if.then4, label %if.else
+9:                                                ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
+  %10 = icmp eq i32 %1, 6
+  br i1 %10, label %11, label %13
 
-if.then4:                                         ; preds = %if.end
-  %call5 = call noundef i32 @_ZN3zmq5msg_t14init_subscribeEmPKh(ptr noundef nonnull align 8 dereferenceable(64) %msg, i64 noundef %optvallen_, ptr noundef %optval_)
-  br label %do.body
+11:                                               ; preds = %9
+  %12 = call noundef i32 @_ZN3zmq5msg_t14init_subscribeEmPKh(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef %3, ptr noundef %2)
+  br label %15
 
-if.else:                                          ; preds = %if.end
-  %call6 = call noundef i32 @_ZN3zmq5msg_t11init_cancelEmPKh(ptr noundef nonnull align 8 dereferenceable(64) %msg, i64 noundef %optvallen_, ptr noundef %optval_)
-  br label %do.body
+13:                                               ; preds = %9
+  %14 = call noundef i32 @_ZN3zmq5msg_t11init_cancelEmPKh(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef %3, ptr noundef %2)
+  br label %15
 
-do.body:                                          ; preds = %if.then4, %if.else
-  %rc.0 = phi i32 [ %call5, %if.then4 ], [ %call6, %if.else ]
-  %cmp8.not = icmp eq i32 %rc.0, 0
-  br i1 %cmp8.not, label %do.end, label %if.then9
+15:                                               ; preds = %11, %13
+  %.014 = phi i32 [ %12, %11 ], [ %14, %13 ]
+  %.not = icmp eq i32 %.014, 0
+  br i1 %.not, label %24, label %16, !prof !62
 
-if.then9:                                         ; preds = %do.body
-  %call10 = tail call ptr @__errno_location() #12
-  %1 = load i32, ptr %call10, align 4
-  %call11 = call ptr @strerror(i32 noundef %1) #10
-  %2 = load ptr, ptr @stderr, align 8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %call11, ptr noundef nonnull @.str.1, i32 noundef 39) #13
-  %3 = load ptr, ptr @stderr, align 8
-  %call13 = call i32 @fflush(ptr noundef %3)
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call11)
-  br label %do.end
+16:                                               ; preds = %15
+  %17 = tail call ptr @__errno_location() #14
+  %18 = load i32, ptr %17, align 4, !tbaa !61
+  %19 = call ptr @strerror(i32 noundef %18) #12
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !63
+  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 39) #15
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !63
+  %23 = call i32 @fflush(ptr noundef %22)
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %19)
+  br label %24
 
-do.end:                                           ; preds = %do.body, %if.then9
-  %call15 = call noundef i32 @_ZN3zmq6xsub_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(2028) %this, ptr noundef nonnull %msg)
-  %call.i = tail call ptr @__errno_location() #12
-  %4 = load i32, ptr %call.i, align 4
-  %call1.i = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg)
-  %cmp.not.i = icmp eq i32 %call1.i, 0
-  br i1 %cmp.not.i, label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit, label %if.then.i
+24:                                               ; preds = %16, %15
+  %25 = call noundef i32 @_ZN3zmq6xsub_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(2028) %0, ptr noundef nonnull %5)
+  %26 = tail call ptr @__errno_location() #14
+  %27 = load i32, ptr %26, align 4, !tbaa !61
+  %28 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
+  %.not.i = icmp eq i32 %28, 0
+  br i1 %.not.i, label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit, label %29, !prof !62
 
-if.then.i:                                        ; preds = %do.end
-  %5 = load i32, ptr %call.i, align 4
-  %call3.i = call ptr @strerror(i32 noundef %5) #10
-  %6 = load ptr, ptr @stderr, align 8
-  %call4.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef %call3.i, ptr noundef nonnull @.str.2, i32 noundef 305) #13
-  %7 = load ptr, ptr @stderr, align 8
-  %call5.i = call i32 @fflush(ptr noundef %7)
-  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call3.i)
+29:                                               ; preds = %24
+  %30 = load i32, ptr %26, align 4, !tbaa !61
+  %31 = call ptr @strerror(i32 noundef %30) #12
+  %32 = load ptr, ptr @stderr, align 8, !tbaa !63
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str, ptr noundef %31, ptr noundef nonnull @.str.2, i32 noundef 305) #15
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !63
+  %35 = call i32 @fflush(ptr noundef %34)
+  call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %31)
   br label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit
 
-_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit:      ; preds = %do.end, %if.then.i
-  store i32 %4, ptr %call.i, align 4
-  br label %return
+_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit:      ; preds = %24, %29
+  store i32 %27, ptr %26, align 4, !tbaa !61
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  br label %36
 
-return:                                           ; preds = %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ %call15, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit ]
-  ret i32 %retval.0
+36:                                               ; preds = %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit, %7
+  %.0 = phi i32 [ -1, %7 ], [ %25, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 declare noundef i32 @_ZN3zmq5msg_t14init_subscribeEmPKh(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare noundef i32 @_ZN3zmq5msg_t11init_cancelEmPKh(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #3
+declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 declare noundef i32 @_ZN3zmq6xsub_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(2028), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq5sub_t5xsendEPNS_5msg_tE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #8 align 2 {
-entry:
-  %call = tail call ptr @__errno_location() #12
-  store i32 95, ptr %call, align 4
+define noundef i32 @_ZN3zmq5sub_t5xsendEPNS_5msg_tE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
+  %3 = tail call ptr @__errno_location() #14
+  store i32 95, ptr %3, align 4, !tbaa !61
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3zmq5sub_t8xhas_outEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
-entry:
+define noundef zeroext i1 @_ZN3zmq5sub_t8xhas_outEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
   ret i1 false
 }
 
@@ -296,40 +292,110 @@ declare noundef i32 @_ZN3zmq13socket_base_t5xjoinEPKc(ptr noundef nonnull align 
 
 declare noundef i32 @_ZN3zmq13socket_base_t6xleaveEPKc(ptr noundef nonnull align 8 dereferenceable(1825), ptr noundef) unnamed_addr #1
 
-declare void @_ZThn1464_N3zmq13socket_base_t8in_eventEv(ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+declare void @_ZThn1464_N3zmq13socket_base_t8in_eventEv(ptr noundef) unnamed_addr #11 align 2
 
-declare void @_ZThn1464_N3zmq13socket_base_t9out_eventEv(ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+declare void @_ZThn1464_N3zmq13socket_base_t9out_eventEv(ptr noundef) unnamed_addr #11 align 2
 
-declare void @_ZThn1464_N3zmq13socket_base_t11timer_eventEi(ptr noundef, i32 noundef) unnamed_addr #1
+; Function Attrs: uwtable
+declare void @_ZThn1464_N3zmq13socket_base_t11timer_eventEi(ptr noundef, i32 noundef) unnamed_addr #11 align 2
 
-declare void @_ZThn1472_N3zmq13socket_base_t14read_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+declare void @_ZThn1472_N3zmq13socket_base_t14read_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #11 align 2
 
-declare void @_ZThn1472_N3zmq13socket_base_t15write_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+declare void @_ZThn1472_N3zmq13socket_base_t15write_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #11 align 2
 
-declare void @_ZThn1472_N3zmq13socket_base_t8hiccupedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+declare void @_ZThn1472_N3zmq13socket_base_t8hiccupedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #11 align 2
 
-declare void @_ZThn1472_N3zmq13socket_base_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: uwtable
+declare void @_ZThn1472_N3zmq13socket_base_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #11 align 2
 
 declare noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { builtin nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { cold }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"vtable pointer", !5, i64 0}
+!5 = !{!"Simple C++ TBAA"}
+!6 = !{!7, !11, i64 332}
+!7 = !{!"_ZTSN3zmq5own_tE", !8, i64 0, !13, i64 24, !18, i64 1360, !51, i64 1368, !14, i64 1376, !54, i64 1384, !55, i64 1392, !12, i64 1440}
+!8 = !{!"_ZTSN3zmq8object_tE", !9, i64 8, !12, i64 16}
+!9 = !{!"p1 _ZTSN3zmq5ctx_tE", !10, i64 0}
+!10 = !{!"any pointer", !11, i64 0}
+!11 = !{!"omnipotent char", !5, i64 0}
+!12 = !{!"int", !11, i64 0}
+!13 = !{!"_ZTSN3zmq9options_tE", !12, i64 0, !12, i64 4, !14, i64 8, !11, i64 16, !11, i64 17, !12, i64 276, !12, i64 280, !12, i64 284, !12, i64 288, !12, i64 292, !12, i64 296, !12, i64 300, !12, i64 304, !11, i64 308, !15, i64 312, !12, i64 316, !12, i64 320, !12, i64 324, !12, i64 328, !12, i64 332, !12, i64 336, !14, i64 344, !12, i64 352, !12, i64 356, !18, i64 360, !12, i64 364, !18, i64 368, !18, i64 369, !18, i64 370, !18, i64 371, !18, i64 372, !19, i64 376, !19, i64 408, !19, i64 440, !12, i64 472, !12, i64 476, !12, i64 480, !12, i64 484, !22, i64 488, !27, i64 512, !27, i64 560, !36, i64 608, !12, i64 656, !12, i64 660, !19, i64 664, !19, i64 696, !19, i64 728, !11, i64 760, !11, i64 792, !11, i64 824, !19, i64 856, !19, i64 888, !12, i64 920, !12, i64 924, !18, i64 928, !12, i64 932, !18, i64 936, !12, i64 940, !18, i64 944, !41, i64 946, !12, i64 948, !12, i64 952, !12, i64 956, !19, i64 960, !18, i64 992, !18, i64 993, !18, i64 994, !12, i64 996, !12, i64 1000, !18, i64 1004, !12, i64 1008, !42, i64 1016, !12, i64 1064, !19, i64 1072, !19, i64 1104, !19, i64 1136, !19, i64 1168, !18, i64 1200, !47, i64 1208, !18, i64 1232, !47, i64 1240, !18, i64 1264, !47, i64 1272, !18, i64 1296, !12, i64 1300, !18, i64 1304, !12, i64 1308, !12, i64 1312, !12, i64 1316, !12, i64 1320, !12, i64 1324, !18, i64 1328, !12, i64 1332}
+!14 = !{!"long", !11, i64 0}
+!15 = !{!"_ZTSN3zmq14atomic_value_tE", !16, i64 0}
+!16 = !{!"_ZTSSt6atomicIiE", !17, i64 0}
+!17 = !{!"_ZTSSt13__atomic_baseIiE", !12, i64 0}
+!18 = !{!"bool", !11, i64 0}
+!19 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !20, i64 0, !14, i64 8, !11, i64 16}
+!20 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !21, i64 0}
+!21 = !{!"p1 omnipotent char", !10, i64 0}
+!22 = !{!"_ZTSSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EE", !23, i64 0}
+!23 = !{!"_ZTSSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE", !24, i64 0}
+!24 = !{!"_ZTSNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE12_Vector_implE", !25, i64 0}
+!25 = !{!"_ZTSNSt12_Vector_baseIN3zmq18tcp_address_mask_tESaIS1_EE17_Vector_impl_dataE", !26, i64 0, !26, i64 8, !26, i64 16}
+!26 = !{!"p1 _ZTSN3zmq18tcp_address_mask_tE", !10, i64 0}
+!27 = !{!"_ZTSSt3setIjSt4lessIjESaIjEE", !28, i64 0}
+!28 = !{!"_ZTSSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE", !29, i64 0}
+!29 = !{!"_ZTSNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE13_Rb_tree_implIS3_Lb1EEE", !30, i64 0, !32, i64 8}
+!30 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIjEE", !31, i64 0}
+!31 = !{!"_ZTSSt4lessIjE"}
+!32 = !{!"_ZTSSt15_Rb_tree_header", !33, i64 0, !14, i64 32}
+!33 = !{!"_ZTSSt18_Rb_tree_node_base", !34, i64 0, !35, i64 8, !35, i64 16, !35, i64 24}
+!34 = !{!"_ZTSSt14_Rb_tree_color", !11, i64 0}
+!35 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !10, i64 0}
+!36 = !{!"_ZTSSt3setIiSt4lessIiESaIiEE", !37, i64 0}
+!37 = !{!"_ZTSSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE", !38, i64 0}
+!38 = !{!"_ZTSNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EEE", !39, i64 0, !32, i64 8}
+!39 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIiEE", !40, i64 0}
+!40 = !{!"_ZTSSt4lessIiE"}
+!41 = !{!"short", !11, i64 0}
+!42 = !{!"_ZTSSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE", !43, i64 0}
+!43 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE", !44, i64 0}
+!44 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE13_Rb_tree_implISC_Lb1EEE", !45, i64 0, !32, i64 8}
+!45 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !46, i64 0}
+!46 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
+!47 = !{!"_ZTSSt6vectorIhSaIhEE", !48, i64 0}
+!48 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !49, i64 0}
+!49 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !50, i64 0}
+!50 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !21, i64 0, !21, i64 8, !21, i64 16}
+!51 = !{!"_ZTSN3zmq16atomic_counter_tE", !52, i64 0}
+!52 = !{!"_ZTSSt6atomicIjE", !53, i64 0}
+!53 = !{!"_ZTSSt13__atomic_baseIjE", !12, i64 0}
+!54 = !{!"p1 _ZTSN3zmq5own_tE", !10, i64 0}
+!55 = !{!"_ZTSSt3setIPN3zmq5own_tESt4lessIS2_ESaIS2_EE", !56, i64 0}
+!56 = !{!"_ZTSSt8_Rb_treeIPN3zmq5own_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE", !57, i64 0}
+!57 = !{!"_ZTSNSt8_Rb_treeIPN3zmq5own_tES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE13_Rb_tree_implIS6_Lb1EEE", !58, i64 0, !32, i64 8}
+!58 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPN3zmq5own_tEEE", !59, i64 0}
+!59 = !{!"_ZTSSt4lessIPN3zmq5own_tEE"}
+!60 = !{!7, !18, i64 392}
+!61 = !{!12, !12, i64 0}
+!62 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
