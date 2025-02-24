@@ -17,7 +17,12 @@ def extract_name(line):
     if line.startswith("%") or line.startswith("@") or line.startswith("!"):
         pos = line.find(" =")
         if pos != -1:
-            return (line[0], line[:pos].strip())
+            key = line[0]
+            if line.startswith("%"):
+                pos2 = line.find(" ", pos + 3)
+                if pos2 != -1:
+                    key = line[pos + 3:pos2]
+            return (key, line[:pos].strip())
         return None
     pos = line.find(":")
     if pos != -1:
