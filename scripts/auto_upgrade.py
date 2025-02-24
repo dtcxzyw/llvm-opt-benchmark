@@ -103,6 +103,7 @@ supported_project = [
     "libzmq",
     "lief",
     "lightgbm",
+    "llama.cpp",
 ]
 
 modify_only = [
