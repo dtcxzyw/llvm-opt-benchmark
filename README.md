@@ -161,13 +161,13 @@ Currently, this repository contains the following libraries/applications:
 |[llama.cpp](https://github.com/ggerganov/llama.cpp)|C++|![stars](https://img.shields.io/github/stars/ggerganov/llama.cpp?style=flat)|2025-02-23|
 |[llvm-project](https://github.com/llvm/llvm-project)|C++|![stars](https://img.shields.io/github/stars/llvm/llvm-project?style=flat)|2025-02-03|
 |[lodepng](https://github.com/lvandeve/lodepng)|C++|![stars](https://img.shields.io/github/stars/lvandeve/lodepng?style=flat)|2024-12-28|
-|[luau](https://github.com/luau-lang/luau)|C++|![stars](https://img.shields.io/github/stars/luau-lang/luau?style=flat)|2024-06-20|
+|[luau](https://github.com/luau-lang/luau)|C++|![stars](https://img.shields.io/github/stars/luau-lang/luau?style=flat)|2025-02-21|
 |[meshlab](https://github.com/cnr-isti-vclab/meshlab)|C++|![stars](https://img.shields.io/github/stars/cnr-isti-vclab/meshlab?style=flat)|2024-02-13|
-|[meshoptimizer](https://github.com/zeux/meshoptimizer)|C++|![stars](https://img.shields.io/github/stars/zeux/meshoptimizer?style=flat)|2023-12-10|
+|[meshoptimizer](https://github.com/zeux/meshoptimizer)|C++|![stars](https://img.shields.io/github/stars/zeux/meshoptimizer?style=flat)|2025-02-21|
 |[minetest](https://github.com/minetest/minetest)|C++|![stars](https://img.shields.io/github/stars/minetest/minetest?style=flat)|2024-03-26|
 |[mitsuba3](https://github.com/mitsuba-renderer/mitsuba3)|C++|![stars](https://img.shields.io/github/stars/mitsuba-renderer/mitsuba3?style=flat)|2024-03-22|
 |[mixbox](https://github.com/scrtwpns/mixbox)|C++|![stars](https://img.shields.io/github/stars/scrtwpns/mixbox?style=flat)|2022-12-16|
-|[mold](https://github.com/rui314/mold)|C++|![stars](https://img.shields.io/github/stars/rui314/mold?style=flat)|2023-12-24|
+|[mold](https://github.com/rui314/mold)|C++|![stars](https://img.shields.io/github/stars/rui314/mold?style=flat)|2025-02-21|
 |[msdfgen](https://github.com/Chlumsky/msdfgen)|C++|![stars](https://img.shields.io/github/stars/Chlumsky/msdfgen?style=flat)|2024-01-06|
 |[msgpack-c](https://github.com/msgpack/msgpack-c)|C++|![stars](https://img.shields.io/github/stars/msgpack/msgpack-c?style=flat)|2024-04-17|
 |[nanobind](https://github.com/wjakob/nanobind)|C++|![stars](https://img.shields.io/github/stars/wjakob/nanobind?style=flat)|2024-03-11|
