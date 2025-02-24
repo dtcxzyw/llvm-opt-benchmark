@@ -98,6 +98,7 @@ supported_project = [
     "imgui",
     "ipopt",
     "nlohmann_json",
+    "jsonnet",
 ]
 
 modify_only = [
