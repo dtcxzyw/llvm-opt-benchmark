@@ -1,1689 +1,1757 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::RuleBasedBreakIterator" = type <{ %"class.icu_75::BreakIterator.base", i8, %struct.UText, ptr, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, i32, [4 x i8], ptr, %"class.icu_75::UCharCharacterIterator", i8, [7 x i8], ptr, i8, [7 x i8] }>
-%"class.icu_75::BreakIterator.base" = type <{ %"class.icu_75::UObject", [157 x i8], [157 x i8], [157 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
+%"class.icu_77::RuleBasedBreakIterator" = type <{ %"class.icu_77::BreakIterator", %struct.UText, ptr, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, i32, [4 x i8], ptr, %"class.icu_77::UCharCharacterIterator", i8, [7 x i8], ptr, i8, [7 x i8] }>
+%"class.icu_77::BreakIterator" = type { %"class.icu_77::UObject", ptr, ptr, ptr }
+%"class.icu_77::UObject" = type { ptr }
 %struct.UText = type { i32, i32, i32, i32, i64, i32, i32, i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i64, i32, i32 }
-%"class.icu_75::UCharCharacterIterator" = type { %"class.icu_75::CharacterIterator", ptr }
-%"class.icu_75::CharacterIterator" = type { %"class.icu_75::ForwardCharacterIterator", i32, i32, i32, i32 }
-%"class.icu_75::ForwardCharacterIterator" = type { %"class.icu_75::UObject" }
-%"class.icu_75::RBBIDataWrapper" = type <{ ptr, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr, %"struct.std::atomic", [4 x i8], ptr, %"class.icu_75::UnicodeString", i8, [7 x i8] }>
+%"class.icu_77::UCharCharacterIterator" = type { %"class.icu_77::CharacterIterator", ptr }
+%"class.icu_77::CharacterIterator" = type { %"class.icu_77::ForwardCharacterIterator", i32, i32, i32, i32 }
+%"class.icu_77::ForwardCharacterIterator" = type { %"class.icu_77::UObject" }
+%"class.icu_77::RBBIDataWrapper" = type <{ ptr, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr, %"struct.std::atomic", [4 x i8], ptr, %"class.icu_77::UnicodeString", i8, [7 x i8] }>
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i32 }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
+%"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
+%"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
+%"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"struct.icu_75::RBBIStateTable" = type { i32, i32, i32, i32, i32, [1 x i8] }
-%"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
-%"class.icu_75::LocalPointerBase" = type { ptr }
-%"class.icu_75::LocalPointer.1" = type { %"class.icu_75::LocalPointerBase.2" }
-%"class.icu_75::LocalPointerBase.2" = type { ptr }
-%"struct.icu_75::RBBIDataHeader" = type { i32, [4 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [6 x i32] }
+%"struct.icu_77::RBBIStateTable" = type { i32, i32, i32, i32, i32, [1 x i8] }
+%"class.icu_77::ConstChar16Ptr" = type { ptr }
+%"class.icu_77::LocalPointer" = type { %"class.icu_77::LocalPointerBase" }
+%"class.icu_77::LocalPointerBase" = type { ptr }
+%"class.icu_77::LocalPointer.1" = type { %"class.icu_77::LocalPointerBase.2" }
+%"class.icu_77::LocalPointerBase.2" = type { ptr }
+%"struct.icu_77::RBBIDataHeader" = type { i32, [4 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [6 x i32] }
 %struct.anon = type { i16, [27 x i16] }
-%"class.icu_75::RuleBasedBreakIterator::BreakCache" = type { ptr, ptr, i32, i32, i32, i32, [128 x i32], [128 x i16], %"class.icu_75::UVector32" }
-%"class.icu_75::UVector32" = type { %"class.icu_75::UObject", i32, i32, i32, ptr }
-%"struct.icu_75::RBBIStateTableRowT" = type { i8, i8, i8, [1 x i8] }
+%"class.icu_77::RuleBasedBreakIterator::BreakCache" = type { ptr, ptr, i32, i32, i32, i32, [128 x i32], [128 x i16], %"class.icu_77::UVector32" }
+%"class.icu_77::UVector32" = type { %"class.icu_77::UObject", i32, i32, i32, ptr }
+%"struct.icu_77::RBBIStateTableRowT" = type { i8, i8, i8, [1 x i8] }
 %struct.UTextFuncs = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.icu_75::RBBIStateTableRowT.7" = type { i16, i16, i16, [1 x i16] }
-%"struct.icu_75::UInitOnce" = type { %"struct.std::atomic", i32 }
-%"class.icu_75::LocalPointer.5" = type { %"class.icu_75::LocalPointerBase.6" }
-%"class.icu_75::LocalPointerBase.6" = type { ptr }
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
-%"class.icu_75::LocalPointer.3" = type { %"class.icu_75::LocalPointerBase.4" }
-%"class.icu_75::LocalPointerBase.4" = type { ptr }
+%"struct.icu_77::RBBIStateTableRowT.7" = type { i16, i16, i16, [1 x i16] }
+%"struct.icu_77::UInitOnce" = type { %"struct.std::atomic", i32 }
+%"class.icu_77::LocalPointer.5" = type { %"class.icu_77::LocalPointerBase.6" }
+%"class.icu_77::LocalPointerBase.6" = type { ptr }
+%"class.icu_77::UVector" = type { %"class.icu_77::UObject", i32, i32, ptr, ptr, ptr }
+%"class.icu_77::LocalPointer.3" = type { %"class.icu_77::LocalPointerBase.4" }
+%"class.icu_77::LocalPointerBase.4" = type { ptr }
 %"class.std::type_info" = type { ptr, ptr }
 %struct.UCPTrie = type { ptr, %union.UCPTrieData, i32, i32, i32, i16, i8, i8, i32, i16, i16, i32, i32 }
 %union.UCPTrieData = type { ptr }
 
-$_ZN6icu_7514ConstChar16PtrC2EPKDs = comdat any
+$_ZN6icu_7714ConstChar16PtrC2EPKDs = comdat any
 
-$_ZN6icu_7514ConstChar16PtrD2Ev = comdat any
+$_ZN6icu_7714ConstChar16PtrD2Ev = comdat any
 
-$_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_R10UErrorCode = comdat any
+$_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_R10UErrorCode = comdat any
 
-$_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_R10UErrorCode = comdat any
+$_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_R10UErrorCode = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEE6orphanEv = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEE6orphanEv = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEE6orphanEv = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEE6orphanEv = comdat any
 
-$_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev = comdat any
+$_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev = comdat any
 
-$_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev = comdat any
+$_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev = comdat any
 
 $__clang_call_terminate = comdat any
 
 $_ZNKSt9type_infoneERKS_ = comdat any
 
-$_ZNK6icu_7517CharacterIterator10startIndexEv = comdat any
+$_ZNK6icu_7717CharacterIterator10startIndexEv = comdat any
 
-$_ZNK6icu_7513UnicodeString9getBufferEv = comdat any
+$_ZNK6icu_7713UnicodeString9getBufferEv = comdat any
 
-$_ZNK6icu_7513UnicodeString6lengthEv = comdat any
+$_ZNK6icu_7713UnicodeString6lengthEv = comdat any
 
-$_ZN6icu_7522RuleBasedBreakIterator10BreakCache4nextEv = comdat any
+$_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv = comdat any
 
-$_ZN6icu_759UInitOnce5resetEv = comdat any
+$_ZN6icu_779UInitOnce5resetEv = comdat any
 
-$_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_ = comdat any
+$_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_ = comdat any
 
-$_ZNK6icu_757UVector4sizeEv = comdat any
+$_ZNK6icu_777UVector4sizeEv = comdat any
 
-$_ZN6icu_756UStack4pushEPvR10UErrorCode = comdat any
+$_ZN6icu_776UStack4pushEPvR10UErrorCode = comdat any
 
-$_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEEC2EPS1_R10UErrorCode = comdat any
+$_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEEC2EPS1_R10UErrorCode = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_19ExternalBreakEngineEE6orphanEv = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEE6orphanEv = comdat any
 
-$_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEED2Ev = comdat any
+$_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEED2Ev = comdat any
 
-$_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE = comdat any
+$_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE = comdat any
 
 $_ZNKSt9type_infoeqERKS_ = comdat any
 
 $_ZNKSt9type_info4nameEv = comdat any
 
-$_ZNK6icu_7513UnicodeString14hasShortLengthEv = comdat any
+$_ZNK6icu_7713UnicodeString14hasShortLengthEv = comdat any
 
-$_ZNK6icu_7513UnicodeString14getShortLengthEv = comdat any
+$_ZNK6icu_7713UnicodeString14getShortLengthEv = comdat any
 
-$_ZN6icu_7522RuleBasedBreakIterator10BreakCache12modChunkSizeEi = comdat any
+$_ZN6icu_7722RuleBasedBreakIterator10BreakCache12modChunkSizeEi = comdat any
 
 $_ZNSt13__atomic_baseIiEaSEi = comdat any
 
+$_ZNSt13__atomic_baseIiE5storeEiSt12memory_order = comdat any
+
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
 
-$_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE = comdat any
+$_ZN6icu_7716umtx_loadAcquireERSt6atomicIiE = comdat any
 
-$_ZN6icu_7512LocalPointerINS_23ICULanguageBreakFactoryEEC2EPS1_R10UErrorCode = comdat any
+$_ZNKSt13__atomic_baseIiE4loadESt12memory_order = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_23ICULanguageBreakFactoryEE6orphanEv = comdat any
+$_ZN6icu_7712LocalPointerINS_23ICULanguageBreakFactoryEEC2EPS1_R10UErrorCode = comdat any
 
-$_ZN6icu_7512LocalPointerINS_23ICULanguageBreakFactoryEED2Ev = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEE6orphanEv = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_23ICULanguageBreakFactoryEEC2EPS1_ = comdat any
+$_ZN6icu_7712LocalPointerINS_23ICULanguageBreakFactoryEED2Ev = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_23ICULanguageBreakFactoryEED2Ev = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEEC2EPS1_ = comdat any
 
-$_ZN6icu_757UVector10hasDeleterEv = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEED2Ev = comdat any
 
-$_ZN6icu_7513UnicodeStringC2Ev = comdat any
+$_ZN6icu_777UVector10hasDeleterEv = comdat any
 
-$_ZN6icu_7511ReplaceableC2Ev = comdat any
+$_ZN6icu_7713UnicodeStringC2Ev = comdat any
 
-$_ZN6icu_757UObjectC2Ev = comdat any
+$_ZN6icu_7711ReplaceableC2Ev = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_ = comdat any
+$_ZN6icu_777UObjectC2Ev = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_ = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_ = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEED2Ev = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_ = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_19ExternalBreakEngineEEC2EPS1_ = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEED2Ev = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_19ExternalBreakEngineEED2Ev = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEEC2EPS1_ = comdat any
 
-@_ZZN6icu_7522RuleBasedBreakIterator16getStaticClassIDEvE7classID = internal global i8 0, align 1
-@_ZTVN6icu_7522RuleBasedBreakIteratorE = unnamed_addr constant { [28 x ptr] } { [28 x ptr] [ptr null, ptr @_ZTIN6icu_7522RuleBasedBreakIteratorE, ptr @_ZN6icu_7522RuleBasedBreakIteratorD1Ev, ptr @_ZN6icu_7522RuleBasedBreakIteratorD0Ev, ptr @_ZNK6icu_7522RuleBasedBreakIterator17getDynamicClassIDEv, ptr @_ZNK6icu_7522RuleBasedBreakIteratoreqERKNS_13BreakIteratorE, ptr @_ZNK6icu_7522RuleBasedBreakIterator5cloneEv, ptr @_ZNK6icu_7522RuleBasedBreakIterator7getTextEv, ptr @_ZNK6icu_7522RuleBasedBreakIterator8getUTextEP5UTextR10UErrorCode, ptr @_ZN6icu_7522RuleBasedBreakIterator7setTextERKNS_13UnicodeStringE, ptr @_ZN6icu_7522RuleBasedBreakIterator7setTextEP5UTextR10UErrorCode, ptr @_ZN6icu_7522RuleBasedBreakIterator9adoptTextEPNS_17CharacterIteratorE, ptr @_ZN6icu_7522RuleBasedBreakIterator5firstEv, ptr @_ZN6icu_7522RuleBasedBreakIterator4lastEv, ptr @_ZN6icu_7522RuleBasedBreakIterator8previousEv, ptr @_ZN6icu_7522RuleBasedBreakIterator4nextEv, ptr @_ZNK6icu_7522RuleBasedBreakIterator7currentEv, ptr @_ZN6icu_7522RuleBasedBreakIterator9followingEi, ptr @_ZN6icu_7522RuleBasedBreakIterator9precedingEi, ptr @_ZN6icu_7522RuleBasedBreakIterator10isBoundaryEi, ptr @_ZN6icu_7522RuleBasedBreakIterator4nextEi, ptr @_ZNK6icu_7522RuleBasedBreakIterator13getRuleStatusEv, ptr @_ZN6icu_7522RuleBasedBreakIterator16getRuleStatusVecEPiiR10UErrorCode, ptr @_ZN6icu_7522RuleBasedBreakIterator17createBufferCloneEPvRiR10UErrorCode, ptr @_ZN6icu_7522RuleBasedBreakIterator16refreshInputTextEP5UTextR10UErrorCode, ptr @_ZNK6icu_7522RuleBasedBreakIterator8hashCodeEv, ptr @_ZNK6icu_7522RuleBasedBreakIterator8getRulesEv, ptr @_ZN6icu_7522RuleBasedBreakIterator14getBinaryRulesERj] }, align 8
+$_ZN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEED2Ev = comdat any
+
+@_ZZN6icu_7722RuleBasedBreakIterator16getStaticClassIDEvE7classID = internal global i8 0, align 1
+@_ZTVN6icu_7722RuleBasedBreakIteratorE = unnamed_addr constant { [28 x ptr] } { [28 x ptr] [ptr null, ptr @_ZTIN6icu_7722RuleBasedBreakIteratorE, ptr @_ZN6icu_7722RuleBasedBreakIteratorD1Ev, ptr @_ZN6icu_7722RuleBasedBreakIteratorD0Ev, ptr @_ZNK6icu_7722RuleBasedBreakIterator17getDynamicClassIDEv, ptr @_ZNK6icu_7722RuleBasedBreakIteratoreqERKNS_13BreakIteratorE, ptr @_ZNK6icu_7722RuleBasedBreakIterator5cloneEv, ptr @_ZNK6icu_7722RuleBasedBreakIterator7getTextEv, ptr @_ZNK6icu_7722RuleBasedBreakIterator8getUTextEP5UTextR10UErrorCode, ptr @_ZN6icu_7722RuleBasedBreakIterator7setTextERKNS_13UnicodeStringE, ptr @_ZN6icu_7722RuleBasedBreakIterator7setTextEP5UTextR10UErrorCode, ptr @_ZN6icu_7722RuleBasedBreakIterator9adoptTextEPNS_17CharacterIteratorE, ptr @_ZN6icu_7722RuleBasedBreakIterator5firstEv, ptr @_ZN6icu_7722RuleBasedBreakIterator4lastEv, ptr @_ZN6icu_7722RuleBasedBreakIterator8previousEv, ptr @_ZN6icu_7722RuleBasedBreakIterator4nextEv, ptr @_ZNK6icu_7722RuleBasedBreakIterator7currentEv, ptr @_ZN6icu_7722RuleBasedBreakIterator9followingEi, ptr @_ZN6icu_7722RuleBasedBreakIterator9precedingEi, ptr @_ZN6icu_7722RuleBasedBreakIterator10isBoundaryEi, ptr @_ZN6icu_7722RuleBasedBreakIterator4nextEi, ptr @_ZNK6icu_7722RuleBasedBreakIterator13getRuleStatusEv, ptr @_ZN6icu_7722RuleBasedBreakIterator16getRuleStatusVecEPiiR10UErrorCode, ptr @_ZN6icu_7722RuleBasedBreakIterator17createBufferCloneEPvRiR10UErrorCode, ptr @_ZN6icu_7722RuleBasedBreakIterator16refreshInputTextEP5UTextR10UErrorCode, ptr @_ZNK6icu_7722RuleBasedBreakIterator8hashCodeEv, ptr @_ZNK6icu_7722RuleBasedBreakIterator8getRulesEv, ptr @_ZN6icu_7722RuleBasedBreakIterator14getBinaryRulesERj] }, align 8
 @.str = private unnamed_addr constant [1 x i16] zeroinitializer, align 2
 @_ZL23gLanguageBreakFactories = internal global ptr null, align 8
 @_ZL12gEmptyString = internal global ptr null, align 8
 @_ZL24gICULanguageBreakFactory = internal global ptr null, align 8
+@_ZTIN6icu_7722RuleBasedBreakIteratorE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7722RuleBasedBreakIteratorE, ptr @_ZTIN6icu_7713BreakIteratorE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN6icu_7522RuleBasedBreakIteratorE = constant [34 x i8] c"N6icu_7522RuleBasedBreakIteratorE\00", align 1
-@_ZTIN6icu_7513BreakIteratorE = external constant ptr
-@_ZTIN6icu_7522RuleBasedBreakIteratorE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7522RuleBasedBreakIteratorE, ptr @_ZTIN6icu_7513BreakIteratorE }, align 8
+@_ZTSN6icu_7722RuleBasedBreakIteratorE = constant [34 x i8] c"N6icu_7722RuleBasedBreakIteratorE\00", align 1
+@_ZTIN6icu_7713BreakIteratorE = external constant ptr
 @_ZL31gLanguageBreakFactoriesInitOnce = internal global { { i32 }, i32 } zeroinitializer, align 4
 @_ZL13gRBBIInitOnce = internal global { { i32 }, i32 } zeroinitializer, align 4
-@_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
-@_ZTVN6icu_7511ReplaceableE = external unnamed_addr constant { [13 x ptr] }, align 8
-@_ZTVN6icu_757UObjectE = external unnamed_addr constant { [5 x ptr] }, align 8
+@_ZTVN6icu_7713UnicodeStringE = available_externally unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6icu_7713UnicodeStringE, ptr @_ZN6icu_7713UnicodeStringD1Ev, ptr @_ZN6icu_7713UnicodeStringD0Ev, ptr @_ZNK6icu_7713UnicodeString17getDynamicClassIDEv, ptr @_ZNK6icu_7713UnicodeString14extractBetweenEiiRS0_, ptr @_ZN6icu_7713UnicodeString20handleReplaceBetweenEiiRKS0_, ptr @_ZN6icu_7713UnicodeString4copyEiii, ptr @_ZNK6icu_7713UnicodeString11hasMetaDataEv, ptr @_ZNK6icu_7713UnicodeString5cloneEv, ptr @_ZNK6icu_7713UnicodeString9getLengthEv, ptr @_ZNK6icu_7713UnicodeString9getCharAtEi, ptr @_ZNK6icu_7713UnicodeString11getChar32AtEi] }, align 8
+@_ZTIN6icu_7713UnicodeStringE = external constant ptr
+@_ZTVN6icu_7711ReplaceableE = available_externally unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6icu_7711ReplaceableE, ptr @_ZN6icu_7711ReplaceableD1Ev, ptr @_ZN6icu_7711ReplaceableD0Ev, ptr @_ZNK6icu_777UObject17getDynamicClassIDEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK6icu_7711Replaceable11hasMetaDataEv, ptr @_ZNK6icu_7711Replaceable5cloneEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTIN6icu_7711ReplaceableE = external constant ptr
+@_ZTVN6icu_777UObjectE = available_externally unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6icu_777UObjectE, ptr @_ZN6icu_777UObjectD1Ev, ptr @_ZN6icu_777UObjectD0Ev, ptr @_ZNK6icu_777UObject17getDynamicClassIDEv] }, align 8
+@_ZTIN6icu_777UObjectE = external constant ptr
 
-@_ZN6icu_7522RuleBasedBreakIteratorC1EPNS_14RBBIDataHeaderER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7522RuleBasedBreakIteratorC2EPNS_14RBBIDataHeaderER10UErrorCode
-@_ZN6icu_7522RuleBasedBreakIteratorC1EP11UDataMemoryaR10UErrorCode = unnamed_addr alias void (ptr, ptr, i8, ptr), ptr @_ZN6icu_7522RuleBasedBreakIteratorC2EP11UDataMemoryaR10UErrorCode
-@_ZN6icu_7522RuleBasedBreakIteratorC1EPKhjR10UErrorCode = unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN6icu_7522RuleBasedBreakIteratorC2EPKhjR10UErrorCode
-@_ZN6icu_7522RuleBasedBreakIteratorC1EP11UDataMemoryR10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7522RuleBasedBreakIteratorC2EP11UDataMemoryR10UErrorCode
-@_ZN6icu_7522RuleBasedBreakIteratorC1ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN6icu_7522RuleBasedBreakIteratorC2ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode
-@_ZN6icu_7522RuleBasedBreakIteratorC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7522RuleBasedBreakIteratorC2Ev
-@_ZN6icu_7522RuleBasedBreakIteratorC1EP10UErrorCode = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7522RuleBasedBreakIteratorC2EP10UErrorCode
-@_ZN6icu_7522RuleBasedBreakIteratorC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7522RuleBasedBreakIteratorC2ERKS0_
-@_ZN6icu_7522RuleBasedBreakIteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7522RuleBasedBreakIteratorD2Ev
+@_ZN6icu_7722RuleBasedBreakIteratorC1EPNS_14RBBIDataHeaderER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7722RuleBasedBreakIteratorC2EPNS_14RBBIDataHeaderER10UErrorCode
+@_ZN6icu_7722RuleBasedBreakIteratorC1EP11UDataMemoryaR10UErrorCode = unnamed_addr alias void (ptr, ptr, i8, ptr), ptr @_ZN6icu_7722RuleBasedBreakIteratorC2EP11UDataMemoryaR10UErrorCode
+@_ZN6icu_7722RuleBasedBreakIteratorC1EPKhjR10UErrorCode = unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN6icu_7722RuleBasedBreakIteratorC2EPKhjR10UErrorCode
+@_ZN6icu_7722RuleBasedBreakIteratorC1EP11UDataMemoryR10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7722RuleBasedBreakIteratorC2EP11UDataMemoryR10UErrorCode
+@_ZN6icu_7722RuleBasedBreakIteratorC1ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN6icu_7722RuleBasedBreakIteratorC2ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode
+@_ZN6icu_7722RuleBasedBreakIteratorC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7722RuleBasedBreakIteratorC2Ev
+@_ZN6icu_7722RuleBasedBreakIteratorC1EP10UErrorCode = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7722RuleBasedBreakIteratorC2EP10UErrorCode
+@_ZN6icu_7722RuleBasedBreakIteratorC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7722RuleBasedBreakIteratorC2ERKS0_
+@_ZN6icu_7722RuleBasedBreakIteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7722RuleBasedBreakIteratorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator16getStaticClassIDEv() #0 align 2 {
-entry:
-  ret ptr @_ZZN6icu_7522RuleBasedBreakIterator16getStaticClassIDEvE7classID
+define noundef ptr @_ZN6icu_7722RuleBasedBreakIterator16getStaticClassIDEv() #0 align 2 {
+  ret ptr @_ZZN6icu_7722RuleBasedBreakIterator16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK6icu_7522RuleBasedBreakIterator17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN6icu_7522RuleBasedBreakIterator16getStaticClassIDEv()
-  ret ptr %call
+define noundef ptr @_ZNK6icu_7722RuleBasedBreakIterator17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = call noundef ptr @_ZN6icu_7722RuleBasedBreakIterator16getStaticClassIDEv()
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorC2EPNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this1, ptr noundef %0)
-  %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 144) #6
-  %new.isnull = icmp eq ptr %call, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+define void @_ZN6icu_7722RuleBasedBreakIteratorC2EPNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @_ZN6icu_7722RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %10, ptr noundef %11)
+  %12 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 144) #10
+  %13 = icmp eq ptr %12, null
+  store i1 false, ptr %7, align 1
+  br i1 %13, label %18, label %14
 
-new.notnull:                                      ; preds = %entry
-  store i1 true, ptr %cleanup.cond, align 1
-  %1 = load ptr, ptr %data.addr, align 8
-  %2 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7515RBBIDataWrapperC1EPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %call, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %invoke.cont unwind label %lpad
+14:                                               ; preds = %3
+  store i1 true, ptr %7, align 1
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
+  %16 = load ptr, ptr %6, align 8, !tbaa !10
+  invoke void @_ZN6icu_7715RBBIDataWrapperC1EPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %12, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %17 unwind label %27
 
-invoke.cont:                                      ; preds = %new.notnull
-  br label %new.cont
+17:                                               ; preds = %14
+  br label %18
 
-new.cont:                                         ; preds = %invoke.cont, %entry
-  %3 = phi ptr [ %call, %invoke.cont ], [ null, %entry ]
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  store ptr %3, ptr %fData, align 8
-  %4 = load ptr, ptr %status.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %call4 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
-          to label %invoke.cont3 unwind label %lpad2
+18:                                               ; preds = %17, %3
+  %19 = phi ptr [ %12, %17 ], [ null, %3 ]
+  %20 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 2
+  store ptr %19, ptr %20, align 8, !tbaa !11
+  %21 = load ptr, ptr %6, align 8, !tbaa !10
+  %22 = load i32, ptr %21, align 4, !tbaa !33
+  %23 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %22)
+          to label %24 unwind label %34
 
-invoke.cont3:                                     ; preds = %new.cont
-  %tobool = icmp ne i8 %call4, 0
-  br i1 %tobool, label %if.then, label %if.end
+24:                                               ; preds = %18
+  %25 = icmp ne i8 %23, 0
+  br i1 %25, label %26, label %38
 
-if.then:                                          ; preds = %invoke.cont3
-  br label %if.end20
+26:                                               ; preds = %24
+  br label %70
 
-lpad:                                             ; preds = %new.notnull
-  %6 = landingpad { ptr, i32 }
+27:                                               ; preds = %14
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %8, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %9, align 4
+  %31 = load i1, ptr %7, align 1
+  br i1 %31, label %32, label %33
 
-cleanup.action:                                   ; preds = %lpad
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %call) #6
-  br label %cleanup.done
+32:                                               ; preds = %27
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %12) #10
+  br label %33
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %ehcleanup
+33:                                               ; preds = %32, %27
+  br label %71
 
-lpad2:                                            ; preds = %if.then10, %new.cont
-  %9 = landingpad { ptr, i32 }
+34:                                               ; preds = %52, %18
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %8, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %9, align 4
+  br label %71
 
-if.end:                                           ; preds = %invoke.cont3
-  %fData5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %12 = load ptr, ptr %fData5, align 8
-  %cmp = icmp eq ptr %12, null
-  br i1 %cmp, label %if.then6, label %if.end7
+38:                                               ; preds = %24
+  %39 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !11
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %44
 
-if.then6:                                         ; preds = %if.end
-  %13 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %13, align 4
-  br label %if.end20
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %6, align 8, !tbaa !10
+  store i32 7, ptr %43, align 4, !tbaa !33
+  br label %70
 
-if.end7:                                          ; preds = %if.end
-  %fData8 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %14 = load ptr, ptr %fData8, align 8
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %fForwardTable, align 8
-  %fLookAheadResultsSize = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %15, i32 0, i32 3
-  %16 = load i32, ptr %fLookAheadResultsSize, align 4
-  %cmp9 = icmp ugt i32 %16, 0
-  br i1 %cmp9, label %if.then10, label %if.end20
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8, !tbaa !11
+  %47 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !34
+  %49 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %48, i32 0, i32 3
+  %50 = load i32, ptr %49, align 4, !tbaa !44
+  %51 = icmp ugt i32 %50, 0
+  br i1 %51, label %52, label %70
 
-if.then10:                                        ; preds = %if.end7
-  %fData11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %17 = load ptr, ptr %fData11, align 8
-  %fForwardTable12 = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %fForwardTable12, align 8
-  %fLookAheadResultsSize13 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %18, i32 0, i32 3
-  %19 = load i32, ptr %fLookAheadResultsSize13, align 4
-  %conv = zext i32 %19 to i64
-  %mul = mul i64 %conv, 4
-  %call15 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul) #7
-          to label %invoke.cont14 unwind label %lpad2
+52:                                               ; preds = %44
+  %53 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !34
+  %57 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 4, !tbaa !44
+  %59 = zext i32 %58 to i64
+  %60 = mul i64 %59, 4
+  %61 = invoke noalias ptr @uprv_malloc_77(i64 noundef %60) #11
+          to label %62 unwind label %34
 
-invoke.cont14:                                    ; preds = %if.then10
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  store ptr %call15, ptr %fLookAheadMatches, align 8
-  %fLookAheadMatches16 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %20 = load ptr, ptr %fLookAheadMatches16, align 8
-  %cmp17 = icmp eq ptr %20, null
-  br i1 %cmp17, label %if.then18, label %if.end19
+62:                                               ; preds = %52
+  %63 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 17
+  store ptr %61, ptr %63, align 8, !tbaa !46
+  %64 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 17
+  %65 = load ptr, ptr %64, align 8, !tbaa !46
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %69
 
-if.then18:                                        ; preds = %invoke.cont14
-  %21 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %21, align 4
-  br label %if.end20
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %6, align 8, !tbaa !10
+  store i32 7, ptr %68, align 4, !tbaa !33
+  br label %70
 
-if.end19:                                         ; preds = %invoke.cont14
-  br label %if.end20
+69:                                               ; preds = %62
+  br label %70
 
-if.end20:                                         ; preds = %if.end19, %if.then18, %if.end7, %if.then6, %if.then
+70:                                               ; preds = %26, %42, %67, %69, %44
   ret void
 
-ehcleanup:                                        ; preds = %lpad2, %cleanup.done
-  call void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this1) #6
-  br label %eh.resume
+71:                                               ; preds = %34, %33
+  call void @_ZN6icu_7722RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %10) #10
+  br label %72
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val21 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val21
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %8, align 8
+  %74 = load i32, ptr %9, align 4
+  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
+  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
+  resume { ptr, i32 } %76
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ec = alloca i32, align 4
-  %lpDictionaryCache = alloca %"class.icu_75::LocalPointer", align 8
-  %saved-rvalue = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %lpBreakCache = alloca %"class.icu_75::LocalPointer.1", align 8
-  %saved-rvalue15 = alloca ptr, align 8
-  %cleanup.cond16 = alloca i1, align 1
-  %cleanup.dest.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7513BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(479) %this1)
-  %0 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %magic = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 0
-  store i32 878368812, ptr %magic, align 8
-  %flags = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 1
-  store i32 0, ptr %flags, align 4
-  %providerProperties = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 2
-  store i32 0, ptr %providerProperties, align 8
-  %sizeOfStruct = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 3
-  store i32 144, ptr %sizeOfStruct, align 4
-  %chunkNativeLimit = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 4
-  store i64 0, ptr %chunkNativeLimit, align 8
-  %extraSize = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 5
-  store i32 0, ptr %extraSize, align 8
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 6
-  store i32 0, ptr %nativeIndexingLimit, align 4
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 7
-  store i64 0, ptr %chunkNativeStart, align 8
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 8
-  store i32 0, ptr %chunkOffset, align 8
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 9
-  store i32 0, ptr %chunkLength, align 4
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 10
-  store ptr null, ptr %chunkContents, align 8
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 11
-  store ptr null, ptr %pFuncs, align 8
-  %pExtra = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 12
-  store ptr null, ptr %pExtra, align 8
-  %context = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 13
-  store ptr null, ptr %context, align 8
-  %p = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 14
-  store ptr null, ptr %p, align 8
-  %q = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 15
-  store ptr null, ptr %q, align 8
-  %r = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 16
-  store ptr null, ptr %r, align 8
-  %privP = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 17
-  store ptr null, ptr %privP, align 8
-  %a = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 18
-  store i64 0, ptr %a, align 8
-  %b = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 19
-  store i32 0, ptr %b, align 8
-  %c = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 20
-  store i32 0, ptr %c, align 4
-  %privA = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 21
-  store i64 0, ptr %privA, align 8
-  %privB = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 22
-  store i32 0, ptr %privB, align 8
-  %privC = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 23
-  store i32 0, ptr %privC, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  store ptr null, ptr %fData, align 8
-  %fErrorCode = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 4
-  store i32 0, ptr %fErrorCode, align 8
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 0, ptr %fPosition, align 4
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %fRuleStatusIndex, align 8
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  store ptr null, ptr %fBreakCache, align 8
-  %fDictionaryCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 9
-  store ptr null, ptr %fDictionaryCache, align 8
-  %fLanguageBreakEngines = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  store ptr null, ptr %fLanguageBreakEngines, align 8
-  %fUnhandledBreakEngine = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  store ptr null, ptr %fUnhandledBreakEngine, align 8
-  %fDictionaryCharCount = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 12
-  store i32 0, ptr %fDictionaryCharCount, align 8
-  %fCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %fSCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  store ptr %fSCharIter, ptr %fCharIter, align 8
-  %fSCharIter2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  invoke void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef @.str)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN6icu_7722RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.icu_77::LocalPointer", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i1, align 1
+  %12 = alloca %"class.icu_77::LocalPointer.1", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i1, align 1
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %16 = load ptr, ptr %3, align 8
+  call void @_ZN6icu_7713BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16)
+  store ptr getelementptr inbounds inrange(-16, 208) ({ [28 x ptr] }, ptr @_ZTVN6icu_7722RuleBasedBreakIteratorE, i32 0, i32 0, i32 2), ptr %16, align 8, !tbaa !47
+  %17 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 0
+  store i32 878368812, ptr %18, align 8, !tbaa !49
+  %19 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 1
+  store i32 0, ptr %19, align 4, !tbaa !50
+  %20 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 2
+  store i32 0, ptr %20, align 8, !tbaa !51
+  %21 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 3
+  store i32 144, ptr %21, align 4, !tbaa !52
+  %22 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 4
+  store i64 0, ptr %22, align 8, !tbaa !53
+  %23 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 5
+  store i32 0, ptr %23, align 8, !tbaa !54
+  %24 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 6
+  store i32 0, ptr %24, align 4, !tbaa !55
+  %25 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 7
+  store i64 0, ptr %25, align 8, !tbaa !56
+  %26 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 8
+  store i32 0, ptr %26, align 8, !tbaa !57
+  %27 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 9
+  store i32 0, ptr %27, align 4, !tbaa !58
+  %28 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 10
+  store ptr null, ptr %28, align 8, !tbaa !59
+  %29 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 11
+  store ptr null, ptr %29, align 8, !tbaa !60
+  %30 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 12
+  store ptr null, ptr %30, align 8, !tbaa !61
+  %31 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 13
+  store ptr null, ptr %31, align 8, !tbaa !62
+  %32 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 14
+  store ptr null, ptr %32, align 8, !tbaa !63
+  %33 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 15
+  store ptr null, ptr %33, align 8, !tbaa !64
+  %34 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 16
+  store ptr null, ptr %34, align 8, !tbaa !65
+  %35 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 17
+  store ptr null, ptr %35, align 8, !tbaa !66
+  %36 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 18
+  store i64 0, ptr %36, align 8, !tbaa !67
+  %37 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 19
+  store i32 0, ptr %37, align 8, !tbaa !68
+  %38 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 20
+  store i32 0, ptr %38, align 4, !tbaa !69
+  %39 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 21
+  store i64 0, ptr %39, align 8, !tbaa !70
+  %40 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 22
+  store i32 0, ptr %40, align 8, !tbaa !71
+  %41 = getelementptr inbounds nuw %struct.UText, ptr %17, i32 0, i32 23
+  store i32 0, ptr %41, align 4, !tbaa !72
+  %42 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 2
+  store ptr null, ptr %42, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 3
+  store i32 0, ptr %43, align 8, !tbaa !73
+  %44 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 4
+  store i32 0, ptr %44, align 4, !tbaa !74
+  %45 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 5
+  store i32 0, ptr %45, align 8, !tbaa !75
+  %46 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 7
+  store ptr null, ptr %46, align 8, !tbaa !76
+  %47 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 8
+  store ptr null, ptr %47, align 8, !tbaa !77
+  %48 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 9
+  store ptr null, ptr %48, align 8, !tbaa !78
+  %49 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 10
+  store ptr null, ptr %49, align 8, !tbaa !79
+  %50 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 11
+  store i32 0, ptr %50, align 8, !tbaa !80
+  %51 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 13
+  %52 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 14
+  store ptr %52, ptr %51, align 8, !tbaa !81
+  %53 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 14
+  invoke void @_ZN6icu_7714ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str)
+          to label %54 unwind label %62
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN6icu_7522UCharCharacterIteratorC1ENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32) %fSCharIter2, ptr noundef %agg.tmp, i32 noundef 0)
-          to label %invoke.cont4 unwind label %lpad3
+54:                                               ; preds = %2
+  invoke void @_ZN6icu_7722UCharCharacterIteratorC1ENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef %5, i32 noundef 0)
+          to label %55 unwind label %66
 
-invoke.cont4:                                     ; preds = %invoke.cont
-  call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #6
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  store i8 0, ptr %fDone, align 8
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  store ptr null, ptr %fLookAheadMatches, align 8
-  %fIsPhraseBreaking = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 19
-  store i8 0, ptr %fIsPhraseBreaking, align 8
-  store i32 0, ptr %ec, align 4
-  %1 = load ptr, ptr %status.addr, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+55:                                               ; preds = %54
+  call void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  %56 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 15
+  store i8 0, ptr %56, align 8, !tbaa !82
+  %57 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 17
+  store ptr null, ptr %57, align 8, !tbaa !46
+  %58 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 18
+  store i8 0, ptr %58, align 8, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  store i32 0, ptr %8, align 4, !tbaa !33
+  %59 = load ptr, ptr %4, align 8, !tbaa !10
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %70
 
-if.then:                                          ; preds = %invoke.cont4
-  store ptr %ec, ptr %status.addr, align 8
-  br label %if.end
+61:                                               ; preds = %55
+  store ptr %8, ptr %4, align 8, !tbaa !10
+  br label %70
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+62:                                               ; preds = %2
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  br label %ehcleanup39
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %6, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %7, align 4
+  br label %147
 
-lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+66:                                               ; preds = %54
+  %67 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #6
-  br label %ehcleanup39
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %6, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %7, align 4
+  call void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  br label %147
 
-if.end:                                           ; preds = %if.then, %invoke.cont4
-  %fText5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %8 = load ptr, ptr %status.addr, align 8
-  %call = invoke ptr @utext_openUChars_75(ptr noundef %fText5, ptr noundef null, i64 noundef 0, ptr noundef %8)
-          to label %invoke.cont7 unwind label %lpad6
+70:                                               ; preds = %61, %55
+  %71 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 1
+  %72 = load ptr, ptr %4, align 8, !tbaa !10
+  %73 = invoke ptr @utext_openUChars_77(ptr noundef %71, ptr noundef null, i64 noundef 0, ptr noundef %72)
+          to label %74 unwind label %102
 
-invoke.cont7:                                     ; preds = %if.end
-  %call8 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #6
-  %new.isnull = icmp eq ptr %call8, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+74:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %75 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #10
+  %76 = icmp eq ptr %75, null
+  store i1 false, ptr %11, align 1
+  br i1 %76, label %80, label %77
 
-new.notnull:                                      ; preds = %invoke.cont7
-  store ptr %call8, ptr %saved-rvalue, align 8
-  store i1 true, ptr %cleanup.cond, align 1
-  %9 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCacheC1EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call8, ptr noundef %this1, ptr noundef nonnull align 4 dereferenceable(4) %9)
-          to label %invoke.cont10 unwind label %lpad9
+77:                                               ; preds = %74
+  store ptr %75, ptr %10, align 8
+  store i1 true, ptr %11, align 1
+  %78 = load ptr, ptr %4, align 8, !tbaa !10
+  invoke void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCacheC1EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %75, ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %78)
+          to label %79 unwind label %106
 
-invoke.cont10:                                    ; preds = %new.notnull
-  br label %new.cont
+79:                                               ; preds = %77
+  br label %80
 
-new.cont:                                         ; preds = %invoke.cont10, %invoke.cont7
-  %10 = phi ptr [ %call8, %invoke.cont10 ], [ null, %invoke.cont7 ]
-  %11 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %lpDictionaryCache, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
-          to label %invoke.cont11 unwind label %lpad6
+80:                                               ; preds = %79, %74
+  %81 = phi ptr [ %75, %79 ], [ null, %74 ]
+  %82 = load ptr, ptr %4, align 8, !tbaa !10
+  invoke void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %81, ptr noundef nonnull align 4 dereferenceable(4) %82)
+          to label %83 unwind label %114
 
-invoke.cont11:                                    ; preds = %new.cont
-  %call12 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 832) #6
-  %new.isnull13 = icmp eq ptr %call12, null
-  store i1 false, ptr %cleanup.cond16, align 1
-  br i1 %new.isnull13, label %new.cont22, label %new.notnull14
+83:                                               ; preds = %80
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %84 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 832) #10
+  %85 = icmp eq ptr %84, null
+  store i1 false, ptr %14, align 1
+  br i1 %85, label %89, label %86
 
-new.notnull14:                                    ; preds = %invoke.cont11
-  store ptr %call12, ptr %saved-rvalue15, align 8
-  store i1 true, ptr %cleanup.cond16, align 1
-  %12 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheC1EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %call12, ptr noundef %this1, ptr noundef nonnull align 4 dereferenceable(4) %12)
-          to label %invoke.cont18 unwind label %lpad17
+86:                                               ; preds = %83
+  store ptr %84, ptr %13, align 8
+  store i1 true, ptr %14, align 1
+  %87 = load ptr, ptr %4, align 8, !tbaa !10
+  invoke void @_ZN6icu_7722RuleBasedBreakIterator10BreakCacheC1EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %84, ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %87)
+          to label %88 unwind label %118
 
-invoke.cont18:                                    ; preds = %new.notnull14
-  br label %new.cont22
+88:                                               ; preds = %86
+  br label %89
 
-new.cont22:                                       ; preds = %invoke.cont18, %invoke.cont11
-  %13 = phi ptr [ %call12, %invoke.cont18 ], [ null, %invoke.cont11 ]
-  %14 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %lpBreakCache, ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
-          to label %invoke.cont24 unwind label %lpad23
+89:                                               ; preds = %88, %83
+  %90 = phi ptr [ %84, %88 ], [ null, %83 ]
+  %91 = load ptr, ptr %4, align 8, !tbaa !10
+  invoke void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %90, ptr noundef nonnull align 4 dereferenceable(4) %91)
+          to label %92 unwind label %126
 
-invoke.cont24:                                    ; preds = %new.cont22
-  %15 = load ptr, ptr %status.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  %call27 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %16)
-          to label %invoke.cont26 unwind label %lpad25
+92:                                               ; preds = %89
+  %93 = load ptr, ptr %4, align 8, !tbaa !10
+  %94 = load i32, ptr %93, align 4, !tbaa !33
+  %95 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %94)
+          to label %96 unwind label %130
 
-invoke.cont26:                                    ; preds = %invoke.cont24
-  %tobool = icmp ne i8 %call27, 0
-  br i1 %tobool, label %if.then28, label %if.end30
+96:                                               ; preds = %92
+  %97 = icmp ne i8 %95, 0
+  br i1 %97, label %98, label %134
 
-if.then28:                                        ; preds = %invoke.cont26
-  %17 = load ptr, ptr %status.addr, align 8
-  %18 = load i32, ptr %17, align 4
-  %fErrorCode29 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 4
-  store i32 %18, ptr %fErrorCode29, align 8
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %4, align 8, !tbaa !10
+  %100 = load i32, ptr %99, align 4, !tbaa !33
+  %101 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 3
+  store i32 %100, ptr %101, align 8, !tbaa !73
+  store i32 1, ptr %15, align 4
+  br label %141
 
-lpad6:                                            ; preds = %new.cont, %if.end
-  %19 = landingpad { ptr, i32 }
+102:                                              ; preds = %70
+  %103 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
-  br label %ehcleanup38
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %6, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %7, align 4
+  br label %146
 
-lpad9:                                            ; preds = %new.notnull
-  %22 = landingpad { ptr, i32 }
+106:                                              ; preds = %77
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %6, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %7, align 4
+  %110 = load i1, ptr %11, align 1
+  br i1 %110, label %111, label %113
 
-cleanup.action:                                   ; preds = %lpad9
-  %25 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %25) #6
-  br label %cleanup.done
+111:                                              ; preds = %106
+  %112 = load ptr, ptr %10, align 8
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %112) #10
+  br label %113
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad9
-  br label %ehcleanup38
+113:                                              ; preds = %111, %106
+  br label %145
 
-lpad17:                                           ; preds = %new.notnull14
-  %26 = landingpad { ptr, i32 }
+114:                                              ; preds = %80
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  store ptr %27, ptr %exn.slot, align 8
-  %28 = extractvalue { ptr, i32 } %26, 1
-  store i32 %28, ptr %ehselector.slot, align 4
-  %cleanup.is_active19 = load i1, ptr %cleanup.cond16, align 1
-  br i1 %cleanup.is_active19, label %cleanup.action20, label %cleanup.done21
+  %116 = extractvalue { ptr, i32 } %115, 0
+  store ptr %116, ptr %6, align 8
+  %117 = extractvalue { ptr, i32 } %115, 1
+  store i32 %117, ptr %7, align 4
+  br label %145
 
-cleanup.action20:                                 ; preds = %lpad17
-  %29 = load ptr, ptr %saved-rvalue15, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %29) #6
-  br label %cleanup.done21
-
-cleanup.done21:                                   ; preds = %cleanup.action20, %lpad17
-  br label %ehcleanup
-
-lpad23:                                           ; preds = %new.cont22
-  %30 = landingpad { ptr, i32 }
+118:                                              ; preds = %86
+  %119 = landingpad { ptr, i32 }
           cleanup
-  %31 = extractvalue { ptr, i32 } %30, 0
-  store ptr %31, ptr %exn.slot, align 8
-  %32 = extractvalue { ptr, i32 } %30, 1
-  store i32 %32, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %120 = extractvalue { ptr, i32 } %119, 0
+  store ptr %120, ptr %6, align 8
+  %121 = extractvalue { ptr, i32 } %119, 1
+  store i32 %121, ptr %7, align 4
+  %122 = load i1, ptr %14, align 1
+  br i1 %122, label %123, label %125
 
-lpad25:                                           ; preds = %invoke.cont31, %if.end30, %invoke.cont24
-  %33 = landingpad { ptr, i32 }
+123:                                              ; preds = %118
+  %124 = load ptr, ptr %13, align 8
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %124) #10
+  br label %125
+
+125:                                              ; preds = %123, %118
+  br label %144
+
+126:                                              ; preds = %89
+  %127 = landingpad { ptr, i32 }
           cleanup
-  %34 = extractvalue { ptr, i32 } %33, 0
-  store ptr %34, ptr %exn.slot, align 8
-  %35 = extractvalue { ptr, i32 } %33, 1
-  store i32 %35, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lpBreakCache) #6
-  br label %ehcleanup
+  %128 = extractvalue { ptr, i32 } %127, 0
+  store ptr %128, ptr %6, align 8
+  %129 = extractvalue { ptr, i32 } %127, 1
+  store i32 %129, ptr %7, align 4
+  br label %144
 
-if.end30:                                         ; preds = %invoke.cont26
-  %call32 = invoke noundef ptr @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %lpDictionaryCache)
-          to label %invoke.cont31 unwind label %lpad25
+130:                                              ; preds = %136, %134, %92
+  %131 = landingpad { ptr, i32 }
+          cleanup
+  %132 = extractvalue { ptr, i32 } %131, 0
+  store ptr %132, ptr %6, align 8
+  %133 = extractvalue { ptr, i32 } %131, 1
+  store i32 %133, ptr %7, align 4
+  call void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
+  br label %144
 
-invoke.cont31:                                    ; preds = %if.end30
-  %fDictionaryCache33 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 9
-  store ptr %call32, ptr %fDictionaryCache33, align 8
-  %call35 = invoke noundef ptr @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %lpBreakCache)
-          to label %invoke.cont34 unwind label %lpad25
+134:                                              ; preds = %96
+  %135 = invoke noundef ptr @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %136 unwind label %130
 
-invoke.cont34:                                    ; preds = %invoke.cont31
-  %fBreakCache36 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  store ptr %call35, ptr %fBreakCache36, align 8
-  store i32 0, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+136:                                              ; preds = %134
+  %137 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 8
+  store ptr %135, ptr %137, align 8, !tbaa !77
+  %138 = invoke noundef ptr @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %139 unwind label %130
 
-cleanup:                                          ; preds = %invoke.cont34, %if.then28
-  call void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lpBreakCache) #6
-  call void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lpDictionaryCache) #6
-  %cleanup.dest = load i32, ptr %cleanup.dest.slot, align 4
-  switch i32 %cleanup.dest, label %unreachable [
-    i32 0, label %cleanup.cont
-    i32 1, label %cleanup.cont
+139:                                              ; preds = %136
+  %140 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %16, i32 0, i32 7
+  store ptr %138, ptr %140, align 8, !tbaa !76
+  store i32 0, ptr %15, align 4
+  br label %141
+
+141:                                              ; preds = %139, %98
+  call void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  %142 = load i32, ptr %15, align 4
+  switch i32 %142, label %153 [
+    i32 0, label %143
+    i32 1, label %143
   ]
 
-cleanup.cont:                                     ; preds = %cleanup, %cleanup
+143:                                              ; preds = %141, %141
   ret void
 
-ehcleanup:                                        ; preds = %lpad25, %lpad23, %cleanup.done21
-  call void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lpDictionaryCache) #6
-  br label %ehcleanup38
+144:                                              ; preds = %130, %126, %125
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #10
+  br label %145
 
-ehcleanup38:                                      ; preds = %ehcleanup, %cleanup.done, %lpad6
-  call void @_ZN6icu_7522UCharCharacterIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fSCharIter2) #6
-  br label %ehcleanup39
+145:                                              ; preds = %144, %114, %113
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  br label %146
 
-ehcleanup39:                                      ; preds = %ehcleanup38, %lpad3, %lpad
-  call void @_ZN6icu_7513BreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(479) %this1) #6
-  br label %eh.resume
+146:                                              ; preds = %145, %102
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @_ZN6icu_7722UCharCharacterIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #10
+  br label %147
 
-eh.resume:                                        ; preds = %ehcleanup39
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val40 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val40
+147:                                              ; preds = %146, %66, %62
+  call void @_ZN6icu_7713BreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #10
+  br label %148
 
-unreachable:                                      ; preds = %cleanup
+148:                                              ; preds = %147
+  %149 = load ptr, ptr %6, align 8
+  %150 = load i32, ptr %7, align 4
+  %151 = insertvalue { ptr, i32 } poison, ptr %149, 0
+  %152 = insertvalue { ptr, i32 } %151, i32 %150, 1
+  resume { ptr, i32 } %152
+
+153:                                              ; preds = %141
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) #2
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) #2
 
-declare void @_ZN6icu_7515RBBIDataWrapperC1EPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_7715RBBIDataWrapperC1EPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) #2
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %code) #0 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !33
+  %3 = load i32, ptr %2, align 4, !tbaa !33
+  %4 = icmp sgt i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) #4
+declare noalias ptr @uprv_malloc_77(i64 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [28 x ptr] }, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %fCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %1 = load ptr, ptr %fCharIter, align 8
-  %fSCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %cmp = icmp ne ptr %1, %fSCharIter
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN6icu_7722RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 208) ({ [28 x ptr] }, ptr @_ZTVN6icu_7722RuleBasedBreakIteratorE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !47
+  %4 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 13
+  %5 = load ptr, ptr %4, align 8, !tbaa !81
+  %6 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 14
+  %7 = icmp ne ptr %5, %6
+  br i1 %7, label %8, label %17
 
-if.then:                                          ; preds = %entry
-  %fCharIter2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %2 = load ptr, ptr %fCharIter2, align 8
-  %isnull = icmp eq ptr %2, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 13
+  %10 = load ptr, ptr %9, align 8, !tbaa !81
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %16, label %12
 
-delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %3 = load ptr, ptr %vfn, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(24) %2) #6
-  br label %delete.end
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %10, align 8, !tbaa !47
+  %14 = getelementptr inbounds ptr, ptr %13, i64 1
+  %15 = load ptr, ptr %14, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
+  br label %16
 
-delete.end:                                       ; preds = %delete.notnull, %if.then
-  br label %if.end
+16:                                               ; preds = %12, %8
+  br label %17
 
-if.end:                                           ; preds = %delete.end, %entry
-  %fCharIter3 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  store ptr null, ptr %fCharIter3, align 8
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = invoke ptr @utext_close_75(ptr noundef %fText)
-          to label %invoke.cont unwind label %terminate.lpad
+17:                                               ; preds = %16, %1
+  %18 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 13
+  store ptr null, ptr %18, align 8, !tbaa !81
+  %19 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 1
+  %20 = invoke ptr @utext_close_77(ptr noundef %19)
+          to label %21 unwind label %69
 
-invoke.cont:                                      ; preds = %if.end
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %fData, align 8
-  %cmp4 = icmp ne ptr %4, null
-  br i1 %cmp4, label %if.then5, label %if.end9
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !11
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %30
 
-if.then5:                                         ; preds = %invoke.cont
-  %fData6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %fData6, align 8
-  invoke void @_ZN6icu_7515RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(137) %5)
-          to label %invoke.cont7 unwind label %terminate.lpad
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !11
+  invoke void @_ZN6icu_7715RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(137) %27)
+          to label %28 unwind label %69
 
-invoke.cont7:                                     ; preds = %if.then5
-  %fData8 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  store ptr null, ptr %fData8, align 8
-  br label %if.end9
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 2
+  store ptr null, ptr %29, align 8, !tbaa !11
+  br label %30
 
-if.end9:                                          ; preds = %invoke.cont7, %invoke.cont
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %6 = load ptr, ptr %fBreakCache, align 8
-  %isnull10 = icmp eq ptr %6, null
-  br i1 %isnull10, label %delete.end14, label %delete.notnull11
+30:                                               ; preds = %28, %21
+  %31 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 7
+  %32 = load ptr, ptr %31, align 8, !tbaa !76
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %38, label %34
 
-delete.notnull11:                                 ; preds = %if.end9
-  %vtable12 = load ptr, ptr %6, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 1
-  %7 = load ptr, ptr %vfn13, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(832) %6) #6
-  br label %delete.end14
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %32, align 8, !tbaa !47
+  %36 = getelementptr inbounds ptr, ptr %35, i64 1
+  %37 = load ptr, ptr %36, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(832) %32) #10
+  br label %38
 
-delete.end14:                                     ; preds = %delete.notnull11, %if.end9
-  %fBreakCache15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  store ptr null, ptr %fBreakCache15, align 8
-  %fDictionaryCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 9
-  %8 = load ptr, ptr %fDictionaryCache, align 8
-  %isnull16 = icmp eq ptr %8, null
-  br i1 %isnull16, label %delete.end18, label %delete.notnull17
+38:                                               ; preds = %34, %30
+  %39 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 7
+  store ptr null, ptr %39, align 8, !tbaa !76
+  %40 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !77
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %44, label %43
 
-delete.notnull17:                                 ; preds = %delete.end14
-  call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #6
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %8) #6
-  br label %delete.end18
+43:                                               ; preds = %38
+  call void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %41) #10
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %41) #10
+  br label %44
 
-delete.end18:                                     ; preds = %delete.notnull17, %delete.end14
-  %fDictionaryCache19 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 9
-  store ptr null, ptr %fDictionaryCache19, align 8
-  %fLanguageBreakEngines = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %9 = load ptr, ptr %fLanguageBreakEngines, align 8
-  %isnull20 = icmp eq ptr %9, null
-  br i1 %isnull20, label %delete.end24, label %delete.notnull21
+44:                                               ; preds = %43, %38
+  %45 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 8
+  store ptr null, ptr %45, align 8, !tbaa !77
+  %46 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 9
+  %47 = load ptr, ptr %46, align 8, !tbaa !78
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %53, label %49
 
-delete.notnull21:                                 ; preds = %delete.end18
-  %vtable22 = load ptr, ptr %9, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 1
-  %10 = load ptr, ptr %vfn23, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(40) %9) #6
-  br label %delete.end24
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %47, align 8, !tbaa !47
+  %51 = getelementptr inbounds ptr, ptr %50, i64 1
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(40) %47) #10
+  br label %53
 
-delete.end24:                                     ; preds = %delete.notnull21, %delete.end18
-  %fLanguageBreakEngines25 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  store ptr null, ptr %fLanguageBreakEngines25, align 8
-  %fUnhandledBreakEngine = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  %11 = load ptr, ptr %fUnhandledBreakEngine, align 8
-  %isnull26 = icmp eq ptr %11, null
-  br i1 %isnull26, label %delete.end30, label %delete.notnull27
+53:                                               ; preds = %49, %44
+  %54 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 9
+  store ptr null, ptr %54, align 8, !tbaa !78
+  %55 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 10
+  %56 = load ptr, ptr %55, align 8, !tbaa !79
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %62, label %58
 
-delete.notnull27:                                 ; preds = %delete.end24
-  %vtable28 = load ptr, ptr %11, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 1
-  %12 = load ptr, ptr %vfn29, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %11) #6
-  br label %delete.end30
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %56, align 8, !tbaa !47
+  %60 = getelementptr inbounds ptr, ptr %59, i64 1
+  %61 = load ptr, ptr %60, align 8
+  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %56) #10
+  br label %62
 
-delete.end30:                                     ; preds = %delete.notnull27, %delete.end24
-  %fUnhandledBreakEngine31 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  store ptr null, ptr %fUnhandledBreakEngine31, align 8
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %13 = load ptr, ptr %fLookAheadMatches, align 8
-  invoke void @uprv_free_75(ptr noundef %13)
-          to label %invoke.cont32 unwind label %terminate.lpad
+62:                                               ; preds = %58, %53
+  %63 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 10
+  store ptr null, ptr %63, align 8, !tbaa !79
+  %64 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 17
+  %65 = load ptr, ptr %64, align 8, !tbaa !46
+  invoke void @uprv_free_77(ptr noundef %65)
+          to label %66 unwind label %69
 
-invoke.cont32:                                    ; preds = %delete.end30
-  %fLookAheadMatches33 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  store ptr null, ptr %fLookAheadMatches33, align 8
-  %fSCharIter34 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  call void @_ZN6icu_7522UCharCharacterIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fSCharIter34) #6
-  call void @_ZN6icu_7513BreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(479) %this1) #6
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 17
+  store ptr null, ptr %67, align 8, !tbaa !46
+  %68 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 14
+  call void @_ZN6icu_7722UCharCharacterIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #10
+  call void @_ZN6icu_7713BreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
   ret void
 
-terminate.lpad:                                   ; preds = %delete.end30, %if.then5, %if.end
-  %14 = landingpad { ptr, i32 }
+69:                                               ; preds = %62, %25, %17
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #8
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorC2EP11UDataMemoryaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %udm, i8 noundef signext %isPhraseBreaking, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %udm.addr = alloca ptr, align 8
-  %isPhraseBreaking.addr = alloca i8, align 1
-  %status.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %udm, ptr %udm.addr, align 8
-  store i8 %isPhraseBreaking, ptr %isPhraseBreaking.addr, align 1
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %udm.addr, align 8
-  %1 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIteratorC2EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this1, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %2 = load i8, ptr %isPhraseBreaking.addr, align 1
-  %fIsPhraseBreaking = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 19
-  store i8 %2, ptr %fIsPhraseBreaking, align 8
+define void @_ZN6icu_7722RuleBasedBreakIteratorC2EP11UDataMemoryaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !84
+  store i8 %2, ptr %7, align 1, !tbaa !85
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !84
+  %11 = load ptr, ptr %8, align 8, !tbaa !10
+  call void @_ZN6icu_7722RuleBasedBreakIteratorC2EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %9, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %12 = load i8, ptr %7, align 1, !tbaa !85
+  %13 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 18
+  store i8 %12, ptr %13, align 8, !tbaa !83
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorC2EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %udm, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %udm.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %udm, ptr %udm.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this1, ptr noundef %0)
-  %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 144) #6
-  %new.isnull = icmp eq ptr %call, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+define void @_ZN6icu_7722RuleBasedBreakIteratorC2EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !84
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @_ZN6icu_7722RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %10, ptr noundef %11)
+  %12 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 144) #10
+  %13 = icmp eq ptr %12, null
+  store i1 false, ptr %7, align 1
+  br i1 %13, label %18, label %14
 
-new.notnull:                                      ; preds = %entry
-  store i1 true, ptr %cleanup.cond, align 1
-  %1 = load ptr, ptr %udm.addr, align 8
-  %2 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7515RBBIDataWrapperC1EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %call, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %invoke.cont unwind label %lpad
+14:                                               ; preds = %3
+  store i1 true, ptr %7, align 1
+  %15 = load ptr, ptr %5, align 8, !tbaa !84
+  %16 = load ptr, ptr %6, align 8, !tbaa !10
+  invoke void @_ZN6icu_7715RBBIDataWrapperC1EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %12, ptr noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %17 unwind label %27
 
-invoke.cont:                                      ; preds = %new.notnull
-  br label %new.cont
+17:                                               ; preds = %14
+  br label %18
 
-new.cont:                                         ; preds = %invoke.cont, %entry
-  %3 = phi ptr [ %call, %invoke.cont ], [ null, %entry ]
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  store ptr %3, ptr %fData, align 8
-  %4 = load ptr, ptr %status.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %call4 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %5)
-          to label %invoke.cont3 unwind label %lpad2
+18:                                               ; preds = %17, %3
+  %19 = phi ptr [ %12, %17 ], [ null, %3 ]
+  %20 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 2
+  store ptr %19, ptr %20, align 8, !tbaa !11
+  %21 = load ptr, ptr %6, align 8, !tbaa !10
+  %22 = load i32, ptr %21, align 4, !tbaa !33
+  %23 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %22)
+          to label %24 unwind label %34
 
-invoke.cont3:                                     ; preds = %new.cont
-  %tobool = icmp ne i8 %call4, 0
-  br i1 %tobool, label %if.then, label %if.end
+24:                                               ; preds = %18
+  %25 = icmp ne i8 %23, 0
+  br i1 %25, label %26, label %38
 
-if.then:                                          ; preds = %invoke.cont3
-  br label %if.end20
+26:                                               ; preds = %24
+  br label %70
 
-lpad:                                             ; preds = %new.notnull
-  %6 = landingpad { ptr, i32 }
+27:                                               ; preds = %14
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %8, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %9, align 4
+  %31 = load i1, ptr %7, align 1
+  br i1 %31, label %32, label %33
 
-cleanup.action:                                   ; preds = %lpad
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %call) #6
-  br label %cleanup.done
+32:                                               ; preds = %27
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %12) #10
+  br label %33
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %ehcleanup
+33:                                               ; preds = %32, %27
+  br label %71
 
-lpad2:                                            ; preds = %if.then10, %new.cont
-  %9 = landingpad { ptr, i32 }
+34:                                               ; preds = %52, %18
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %8, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %9, align 4
+  br label %71
 
-if.end:                                           ; preds = %invoke.cont3
-  %fData5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %12 = load ptr, ptr %fData5, align 8
-  %cmp = icmp eq ptr %12, null
-  br i1 %cmp, label %if.then6, label %if.end7
+38:                                               ; preds = %24
+  %39 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !11
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %44
 
-if.then6:                                         ; preds = %if.end
-  %13 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %13, align 4
-  br label %if.end20
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %6, align 8, !tbaa !10
+  store i32 7, ptr %43, align 4, !tbaa !33
+  br label %70
 
-if.end7:                                          ; preds = %if.end
-  %fData8 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %14 = load ptr, ptr %fData8, align 8
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %14, i32 0, i32 1
-  %15 = load ptr, ptr %fForwardTable, align 8
-  %fLookAheadResultsSize = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %15, i32 0, i32 3
-  %16 = load i32, ptr %fLookAheadResultsSize, align 4
-  %cmp9 = icmp ugt i32 %16, 0
-  br i1 %cmp9, label %if.then10, label %if.end20
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8, !tbaa !11
+  %47 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !34
+  %49 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %48, i32 0, i32 3
+  %50 = load i32, ptr %49, align 4, !tbaa !44
+  %51 = icmp ugt i32 %50, 0
+  br i1 %51, label %52, label %70
 
-if.then10:                                        ; preds = %if.end7
-  %fData11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %17 = load ptr, ptr %fData11, align 8
-  %fForwardTable12 = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %17, i32 0, i32 1
-  %18 = load ptr, ptr %fForwardTable12, align 8
-  %fLookAheadResultsSize13 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %18, i32 0, i32 3
-  %19 = load i32, ptr %fLookAheadResultsSize13, align 4
-  %conv = zext i32 %19 to i64
-  %mul = mul i64 %conv, 4
-  %call15 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul) #7
-          to label %invoke.cont14 unwind label %lpad2
+52:                                               ; preds = %44
+  %53 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 2
+  %54 = load ptr, ptr %53, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !34
+  %57 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %56, i32 0, i32 3
+  %58 = load i32, ptr %57, align 4, !tbaa !44
+  %59 = zext i32 %58 to i64
+  %60 = mul i64 %59, 4
+  %61 = invoke noalias ptr @uprv_malloc_77(i64 noundef %60) #11
+          to label %62 unwind label %34
 
-invoke.cont14:                                    ; preds = %if.then10
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  store ptr %call15, ptr %fLookAheadMatches, align 8
-  %fLookAheadMatches16 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %20 = load ptr, ptr %fLookAheadMatches16, align 8
-  %cmp17 = icmp eq ptr %20, null
-  br i1 %cmp17, label %if.then18, label %if.end19
+62:                                               ; preds = %52
+  %63 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 17
+  store ptr %61, ptr %63, align 8, !tbaa !46
+  %64 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 17
+  %65 = load ptr, ptr %64, align 8, !tbaa !46
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %69
 
-if.then18:                                        ; preds = %invoke.cont14
-  %21 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %21, align 4
-  br label %if.end20
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %6, align 8, !tbaa !10
+  store i32 7, ptr %68, align 4, !tbaa !33
+  br label %70
 
-if.end19:                                         ; preds = %invoke.cont14
-  br label %if.end20
+69:                                               ; preds = %62
+  br label %70
 
-if.end20:                                         ; preds = %if.end19, %if.then18, %if.end7, %if.then6, %if.then
+70:                                               ; preds = %26, %42, %67, %69, %44
   ret void
 
-ehcleanup:                                        ; preds = %lpad2, %cleanup.done
-  call void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this1) #6
-  br label %eh.resume
+71:                                               ; preds = %34, %33
+  call void @_ZN6icu_7722RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %10) #10
+  br label %72
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val21 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val21
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %8, align 8
+  %74 = load i32, ptr %9, align 4
+  %75 = insertvalue { ptr, i32 } poison, ptr %73, 0
+  %76 = insertvalue { ptr, i32 } %75, i32 %74, 1
+  resume { ptr, i32 } %76
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorC2EPKhjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %compiledRules, i32 noundef %ruleLength, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %compiledRules.addr = alloca ptr, align 8
-  %ruleLength.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %data = alloca ptr, align 8
-  %saved-rvalue = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %compiledRules, ptr %compiledRules.addr, align 8
-  store i32 %ruleLength, ptr %ruleLength.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this1, ptr noundef %0)
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN6icu_7722RuleBasedBreakIteratorC2EPKhjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i1, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !86
+  store i32 %2, ptr %7, align 4, !tbaa !87
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %15 = load ptr, ptr %5, align 8
+  %16 = load ptr, ptr %8, align 8, !tbaa !10
+  call void @_ZN6icu_7722RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %15, ptr noundef %16)
+  %17 = load ptr, ptr %8, align 8, !tbaa !10
+  %18 = load i32, ptr %17, align 4, !tbaa !33
+  %19 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %18)
+          to label %20 unwind label %23
 
-invoke.cont:                                      ; preds = %entry
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+20:                                               ; preds = %4
+  %21 = icmp ne i8 %19, 0
+  br i1 %21, label %22, label %27
 
-if.then:                                          ; preds = %invoke.cont
-  br label %if.end33
+22:                                               ; preds = %20
+  br label %108
 
-lpad:                                             ; preds = %if.then22, %new.cont, %entry
-  %3 = landingpad { ptr, i32 }
+23:                                               ; preds = %4
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %9, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %10, align 4
+  br label %110
 
-if.end:                                           ; preds = %invoke.cont
-  %6 = load ptr, ptr %compiledRules.addr, align 8
-  %cmp = icmp eq ptr %6, null
-  br i1 %cmp, label %if.then3, label %lor.lhs.false
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %6, align 8, !tbaa !86
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %34, label %30
 
-lor.lhs.false:                                    ; preds = %if.end
-  %7 = load i32, ptr %ruleLength.addr, align 4
-  %conv = zext i32 %7 to i64
-  %cmp2 = icmp ult i64 %conv, 80
-  br i1 %cmp2, label %if.then3, label %if.end4
+30:                                               ; preds = %27
+  %31 = load i32, ptr %7, align 4, !tbaa !87
+  %32 = zext i32 %31 to i64
+  %33 = icmp ult i64 %32, 80
+  br i1 %33, label %34, label %36
 
-if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  %8 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %8, align 4
-  br label %if.end33
+34:                                               ; preds = %30, %27
+  %35 = load ptr, ptr %8, align 8, !tbaa !10
+  store i32 1, ptr %35, align 4, !tbaa !33
+  br label %108
 
-if.end4:                                          ; preds = %lor.lhs.false
-  %9 = load ptr, ptr %compiledRules.addr, align 8
-  store ptr %9, ptr %data, align 8
-  %10 = load ptr, ptr %data, align 8
-  %fLength = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %10, i32 0, i32 2
-  %11 = load i32, ptr %fLength, align 4
-  %12 = load i32, ptr %ruleLength.addr, align 4
-  %cmp5 = icmp ugt i32 %11, %12
-  br i1 %cmp5, label %if.then6, label %if.end7
+36:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %37 = load ptr, ptr %6, align 8, !tbaa !86
+  store ptr %37, ptr %11, align 8, !tbaa !8
+  %38 = load ptr, ptr %11, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw %"struct.icu_77::RBBIDataHeader", ptr %38, i32 0, i32 2
+  %40 = load i32, ptr %39, align 4, !tbaa !88
+  %41 = load i32, ptr %7, align 4, !tbaa !87
+  %42 = icmp ugt i32 %40, %41
+  br i1 %42, label %43, label %45
 
-if.then6:                                         ; preds = %if.end4
-  %13 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %13, align 4
-  br label %if.end33
+43:                                               ; preds = %36
+  %44 = load ptr, ptr %8, align 8, !tbaa !10
+  store i32 1, ptr %44, align 4, !tbaa !33
+  store i32 1, ptr %12, align 4
+  br label %106
 
-if.end7:                                          ; preds = %if.end4
-  %call8 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 144) #6
-  %new.isnull = icmp eq ptr %call8, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+45:                                               ; preds = %36
+  %46 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 144) #10
+  %47 = icmp eq ptr %46, null
+  store i1 false, ptr %14, align 1
+  br i1 %47, label %52, label %48
 
-new.notnull:                                      ; preds = %if.end7
-  store ptr %call8, ptr %saved-rvalue, align 8
-  store i1 true, ptr %cleanup.cond, align 1
-  %14 = load ptr, ptr %data, align 8
-  %15 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7515RBBIDataWrapperC1EPKNS_14RBBIDataHeaderENS0_10EDontAdoptER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %call8, ptr noundef %14, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %15)
-          to label %invoke.cont10 unwind label %lpad9
+48:                                               ; preds = %45
+  store ptr %46, ptr %13, align 8
+  store i1 true, ptr %14, align 1
+  %49 = load ptr, ptr %11, align 8, !tbaa !8
+  %50 = load ptr, ptr %8, align 8, !tbaa !10
+  invoke void @_ZN6icu_7715RBBIDataWrapperC1EPKNS_14RBBIDataHeaderENS0_10EDontAdoptER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %46, ptr noundef %49, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %50)
+          to label %51 unwind label %61
 
-invoke.cont10:                                    ; preds = %new.notnull
-  br label %new.cont
+51:                                               ; preds = %48
+  br label %52
 
-new.cont:                                         ; preds = %invoke.cont10, %if.end7
-  %16 = phi ptr [ %call8, %invoke.cont10 ], [ null, %if.end7 ]
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  store ptr %16, ptr %fData, align 8
-  %17 = load ptr, ptr %status.addr, align 8
-  %18 = load i32, ptr %17, align 4
-  %call12 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %18)
-          to label %invoke.cont11 unwind label %lpad
+52:                                               ; preds = %51, %45
+  %53 = phi ptr [ %46, %51 ], [ null, %45 ]
+  %54 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %15, i32 0, i32 2
+  store ptr %53, ptr %54, align 8, !tbaa !11
+  %55 = load ptr, ptr %8, align 8, !tbaa !10
+  %56 = load i32, ptr %55, align 4, !tbaa !33
+  %57 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %56)
+          to label %58 unwind label %69
 
-invoke.cont11:                                    ; preds = %new.cont
-  %tobool13 = icmp ne i8 %call12, 0
-  br i1 %tobool13, label %if.then14, label %if.end15
+58:                                               ; preds = %52
+  %59 = icmp ne i8 %57, 0
+  br i1 %59, label %60, label %73
 
-if.then14:                                        ; preds = %invoke.cont11
-  br label %if.end33
+60:                                               ; preds = %58
+  store i32 1, ptr %12, align 4
+  br label %106
 
-lpad9:                                            ; preds = %new.notnull
-  %19 = landingpad { ptr, i32 }
+61:                                               ; preds = %48
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %20 = extractvalue { ptr, i32 } %19, 0
-  store ptr %20, ptr %exn.slot, align 8
-  %21 = extractvalue { ptr, i32 } %19, 1
-  store i32 %21, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %63 = extractvalue { ptr, i32 } %62, 0
+  store ptr %63, ptr %9, align 8
+  %64 = extractvalue { ptr, i32 } %62, 1
+  store i32 %64, ptr %10, align 4
+  %65 = load i1, ptr %14, align 1
+  br i1 %65, label %66, label %68
 
-cleanup.action:                                   ; preds = %lpad9
-  %22 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %22) #6
-  br label %cleanup.done
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %13, align 8
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %67) #10
+  br label %68
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad9
-  br label %ehcleanup
+68:                                               ; preds = %66, %61
+  br label %109
 
-if.end15:                                         ; preds = %invoke.cont11
-  %fData16 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %23 = load ptr, ptr %fData16, align 8
-  %cmp17 = icmp eq ptr %23, null
-  br i1 %cmp17, label %if.then18, label %if.end19
-
-if.then18:                                        ; preds = %if.end15
-  %24 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %24, align 4
-  br label %if.end33
-
-if.end19:                                         ; preds = %if.end15
-  %fData20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %25 = load ptr, ptr %fData20, align 8
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %25, i32 0, i32 1
-  %26 = load ptr, ptr %fForwardTable, align 8
-  %fLookAheadResultsSize = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %26, i32 0, i32 3
-  %27 = load i32, ptr %fLookAheadResultsSize, align 4
-  %cmp21 = icmp ugt i32 %27, 0
-  br i1 %cmp21, label %if.then22, label %if.end33
-
-if.then22:                                        ; preds = %if.end19
-  %fData23 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %28 = load ptr, ptr %fData23, align 8
-  %fForwardTable24 = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %fForwardTable24, align 8
-  %fLookAheadResultsSize25 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %29, i32 0, i32 3
-  %30 = load i32, ptr %fLookAheadResultsSize25, align 4
-  %conv26 = zext i32 %30 to i64
-  %mul = mul i64 %conv26, 4
-  %call28 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul) #7
-          to label %invoke.cont27 unwind label %lpad
-
-invoke.cont27:                                    ; preds = %if.then22
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  store ptr %call28, ptr %fLookAheadMatches, align 8
-  %fLookAheadMatches29 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %31 = load ptr, ptr %fLookAheadMatches29, align 8
-  %cmp30 = icmp eq ptr %31, null
-  br i1 %cmp30, label %if.then31, label %if.end32
-
-if.then31:                                        ; preds = %invoke.cont27
-  %32 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %32, align 4
-  br label %if.end33
-
-if.end32:                                         ; preds = %invoke.cont27
-  br label %if.end33
-
-if.end33:                                         ; preds = %if.end32, %if.then31, %if.end19, %if.then18, %if.then14, %if.then6, %if.then3, %if.then
-  ret void
-
-ehcleanup:                                        ; preds = %cleanup.done, %lpad
-  call void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this1) #6
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val34 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val34
-}
-
-declare void @_ZN6icu_7515RBBIDataWrapperC1EPKNS_14RBBIDataHeaderENS0_10EDontAdoptER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
-
-declare void @_ZN6icu_7515RBBIDataWrapperC1EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorC2ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, ptr noundef nonnull align 4 dereferenceable(72) %parseError, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %rules.addr = alloca ptr, align 8
-  %parseError.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %bi = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %rules, ptr %rules.addr, align 8
-  store ptr %parseError, ptr %parseError.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this1, ptr noundef %0)
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %invoke.cont
-  br label %if.end10
-
-lpad:                                             ; preds = %if.then7, %invoke.cont2, %if.end, %entry
-  %3 = landingpad { ptr, i32 }
+69:                                               ; preds = %87, %52
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this1) #6
-  br label %eh.resume
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %9, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %10, align 4
+  br label %109
 
-if.end:                                           ; preds = %invoke.cont
-  %6 = load ptr, ptr %rules.addr, align 8
-  %7 = load ptr, ptr %parseError.addr, align 8
-  %8 = load ptr, ptr %status.addr, align 8
-  %call3 = invoke noundef ptr @_ZN6icu_7515RBBIRuleBuilder28createRuleBasedBreakIteratorERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
-          to label %invoke.cont2 unwind label %lpad
+73:                                               ; preds = %58
+  %74 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %15, i32 0, i32 2
+  %75 = load ptr, ptr %74, align 8, !tbaa !11
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %79
 
-invoke.cont2:                                     ; preds = %if.end
-  store ptr %call3, ptr %bi, align 8
-  %9 = load ptr, ptr %status.addr, align 8
-  %10 = load i32, ptr %9, align 4
-  %call5 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %10)
-          to label %invoke.cont4 unwind label %lpad
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %8, align 8, !tbaa !10
+  store i32 7, ptr %78, align 4, !tbaa !33
+  store i32 1, ptr %12, align 4
+  br label %106
 
-invoke.cont4:                                     ; preds = %invoke.cont2
-  %tobool6 = icmp ne i8 %call5, 0
-  br i1 %tobool6, label %if.then7, label %if.end10
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %15, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8, !tbaa !11
+  %82 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8, !tbaa !34
+  %84 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %83, i32 0, i32 3
+  %85 = load i32, ptr %84, align 4, !tbaa !44
+  %86 = icmp ugt i32 %85, 0
+  br i1 %86, label %87, label %105
 
-if.then7:                                         ; preds = %invoke.cont4
-  %11 = load ptr, ptr %bi, align 8
-  %call9 = invoke noundef nonnull align 8 dereferenceable(745) ptr @_ZN6icu_7522RuleBasedBreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(745) %this1, ptr noundef nonnull align 8 dereferenceable(745) %11)
-          to label %invoke.cont8 unwind label %lpad
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %15, i32 0, i32 2
+  %89 = load ptr, ptr %88, align 8, !tbaa !11
+  %90 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8, !tbaa !34
+  %92 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %91, i32 0, i32 3
+  %93 = load i32, ptr %92, align 4, !tbaa !44
+  %94 = zext i32 %93 to i64
+  %95 = mul i64 %94, 4
+  %96 = invoke noalias ptr @uprv_malloc_77(i64 noundef %95) #11
+          to label %97 unwind label %69
 
-invoke.cont8:                                     ; preds = %if.then7
-  %12 = load ptr, ptr %bi, align 8
-  %isnull = icmp eq ptr %12, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+97:                                               ; preds = %87
+  %98 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %15, i32 0, i32 17
+  store ptr %96, ptr %98, align 8, !tbaa !46
+  %99 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %15, i32 0, i32 17
+  %100 = load ptr, ptr %99, align 8, !tbaa !46
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %104
 
-delete.notnull:                                   ; preds = %invoke.cont8
-  %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %13 = load ptr, ptr %vfn, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(745) %12) #6
-  br label %delete.end
+102:                                              ; preds = %97
+  %103 = load ptr, ptr %8, align 8, !tbaa !10
+  store i32 7, ptr %103, align 4, !tbaa !33
+  store i32 1, ptr %12, align 4
+  br label %106
 
-delete.end:                                       ; preds = %delete.notnull, %invoke.cont8
-  br label %if.end10
+104:                                              ; preds = %97
+  br label %105
 
-if.end10:                                         ; preds = %delete.end, %invoke.cont4, %if.then
+105:                                              ; preds = %104, %79
+  store i32 0, ptr %12, align 4
+  br label %106
+
+106:                                              ; preds = %105, %102, %77, %60, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  %107 = load i32, ptr %12, align 4
+  switch i32 %107, label %116 [
+    i32 0, label %108
+    i32 1, label %108
+  ]
+
+108:                                              ; preds = %22, %34, %106, %106
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val11 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val11
+109:                                              ; preds = %69, %68
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  br label %110
+
+110:                                              ; preds = %109, %23
+  call void @_ZN6icu_7722RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %15) #10
+  br label %111
+
+111:                                              ; preds = %110
+  %112 = load ptr, ptr %9, align 8
+  %113 = load i32, ptr %10, align 4
+  %114 = insertvalue { ptr, i32 } poison, ptr %112, 0
+  %115 = insertvalue { ptr, i32 } %114, i32 %113, 1
+  resume { ptr, i32 } %115
+
+116:                                              ; preds = %106
+  unreachable
 }
 
-declare noundef ptr @_ZN6icu_7515RBBIRuleBuilder28createRuleBasedBreakIteratorERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %code) #0 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+declare void @_ZN6icu_7715RBBIDataWrapperC1EPKNS_14RBBIDataHeaderENS0_10EDontAdoptER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+
+declare void @_ZN6icu_7715RBBIDataWrapperC1EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7722RuleBasedBreakIteratorC2ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !90
+  store ptr %2, ptr %7, align 8, !tbaa !92
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %8, align 8, !tbaa !10
+  call void @_ZN6icu_7722RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %12, ptr noundef %13)
+  %14 = load ptr, ptr %8, align 8, !tbaa !10
+  %15 = load i32, ptr %14, align 4, !tbaa !33
+  %16 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %15)
+          to label %17 unwind label %20
+
+17:                                               ; preds = %4
+  %18 = icmp ne i8 %16, 0
+  br i1 %18, label %19, label %24
+
+19:                                               ; preds = %17
+  br label %51
+
+20:                                               ; preds = %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %9, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %10, align 4
+  br label %52
+
+24:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %25 = load ptr, ptr %6, align 8, !tbaa !90
+  %26 = load ptr, ptr %7, align 8, !tbaa !92
+  %27 = load ptr, ptr %8, align 8, !tbaa !10
+  %28 = invoke noundef ptr @_ZN6icu_7715RBBIRuleBuilder28createRuleBasedBreakIteratorERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %27)
+          to label %29 unwind label %46
+
+29:                                               ; preds = %24
+  store ptr %28, ptr %11, align 8, !tbaa !3
+  %30 = load ptr, ptr %8, align 8, !tbaa !10
+  %31 = load i32, ptr %30, align 4, !tbaa !33
+  %32 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %31)
+          to label %33 unwind label %46
+
+33:                                               ; preds = %29
+  %34 = icmp ne i8 %32, 0
+  br i1 %34, label %35, label %50
+
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %11, align 8, !tbaa !3
+  %37 = invoke noundef nonnull align 8 dereferenceable(297) ptr @_ZN6icu_7722RuleBasedBreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(297) %12, ptr noundef nonnull align 8 dereferenceable(297) %36)
+          to label %38 unwind label %46
+
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %11, align 8, !tbaa !3
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %45, label %41
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %39, align 8, !tbaa !47
+  %43 = getelementptr inbounds ptr, ptr %42, i64 1
+  %44 = load ptr, ptr %43, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(297) %39) #10
+  br label %45
+
+45:                                               ; preds = %41, %38
+  br label %50
+
+46:                                               ; preds = %35, %29, %24
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %9, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  br label %52
+
+50:                                               ; preds = %45, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  br label %51
+
+51:                                               ; preds = %50, %19
+  ret void
+
+52:                                               ; preds = %46, %20
+  call void @_ZN6icu_7722RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %12) #10
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %9, align 8
+  %55 = load i32, ptr %10, align 4
+  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
+  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
+  resume { ptr, i32 } %57
+}
+
+declare noundef ptr @_ZN6icu_7715RBBIRuleBuilder28createRuleBasedBreakIteratorERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !33
+  %3 = load i32, ptr %2, align 4, !tbaa !33
+  %4 = icmp sle i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(745) ptr @_ZN6icu_7522RuleBasedBreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef nonnull align 8 dereferenceable(745) %that) #1 align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %that.addr = alloca ptr, align 8
-  %status = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %that, ptr %that.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %that.addr, align 8
-  %cmp = icmp eq ptr %this1, %0
-  br i1 %cmp, label %if.then, label %if.end
+define noundef nonnull align 8 dereferenceable(297) ptr @_ZN6icu_7722RuleBasedBreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef nonnull align 8 dereferenceable(297) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = icmp eq ptr %7, %8
+  br i1 %9, label %10, label %11
 
-if.then:                                          ; preds = %entry
-  store ptr %this1, ptr %retval, align 8
-  br label %return
+10:                                               ; preds = %2
+  store ptr %7, ptr %3, align 8
+  br label %147
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %that.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(479) ptr @_ZN6icu_7513BreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(479) %this1, ptr noundef nonnull align 8 dereferenceable(479) %1)
-  %fLanguageBreakEngines = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %2 = load ptr, ptr %fLanguageBreakEngines, align 8
-  %cmp2 = icmp ne ptr %2, null
-  br i1 %cmp2, label %if.then3, label %if.end6
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7713BreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %14 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 9
+  %15 = load ptr, ptr %14, align 8, !tbaa !78
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %27
 
-if.then3:                                         ; preds = %if.end
-  %fLanguageBreakEngines4 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %3 = load ptr, ptr %fLanguageBreakEngines4, align 8
-  %isnull = icmp eq ptr %3, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 9
+  %19 = load ptr, ptr %18, align 8, !tbaa !78
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %25, label %21
 
-delete.notnull:                                   ; preds = %if.then3
-  %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %4 = load ptr, ptr %vfn, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(40) %3) #6
-  br label %delete.end
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %19, align 8, !tbaa !47
+  %23 = getelementptr inbounds ptr, ptr %22, i64 1
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(40) %19) #10
+  br label %25
 
-delete.end:                                       ; preds = %delete.notnull, %if.then3
-  %fLanguageBreakEngines5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  store ptr null, ptr %fLanguageBreakEngines5, align 8
-  br label %if.end6
+25:                                               ; preds = %21, %17
+  %26 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 9
+  store ptr null, ptr %26, align 8, !tbaa !78
+  br label %27
 
-if.end6:                                          ; preds = %delete.end, %if.end
-  store i32 0, ptr %status, align 4
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %that.addr, align 8
-  %fText7 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %5, i32 0, i32 2
-  %call8 = call ptr @utext_clone_75(ptr noundef %fText, ptr noundef %fText7, i8 noundef signext 0, i8 noundef signext 1, ptr noundef %status)
-  %fCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %6 = load ptr, ptr %fCharIter, align 8
-  %fSCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %cmp9 = icmp ne ptr %6, %fSCharIter
-  br i1 %cmp9, label %if.then10, label %if.end17
+27:                                               ; preds = %25, %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 0, ptr %6, align 4, !tbaa !33
+  %28 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 1
+  %29 = load ptr, ptr %5, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %29, i32 0, i32 1
+  %31 = call ptr @utext_clone_77(ptr noundef %28, ptr noundef %30, i8 noundef signext 0, i8 noundef signext 1, ptr noundef %6)
+  %32 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 13
+  %33 = load ptr, ptr %32, align 8, !tbaa !81
+  %34 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 14
+  %35 = icmp ne ptr %33, %34
+  br i1 %35, label %36, label %45
 
-if.then10:                                        ; preds = %if.end6
-  %fCharIter11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %7 = load ptr, ptr %fCharIter11, align 8
-  %isnull12 = icmp eq ptr %7, null
-  br i1 %isnull12, label %delete.end16, label %delete.notnull13
+36:                                               ; preds = %27
+  %37 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 13
+  %38 = load ptr, ptr %37, align 8, !tbaa !81
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %44, label %40
 
-delete.notnull13:                                 ; preds = %if.then10
-  %vtable14 = load ptr, ptr %7, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 1
-  %8 = load ptr, ptr %vfn15, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(24) %7) #6
-  br label %delete.end16
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %38, align 8, !tbaa !47
+  %42 = getelementptr inbounds ptr, ptr %41, i64 1
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(24) %38) #10
+  br label %44
 
-delete.end16:                                     ; preds = %delete.notnull13, %if.then10
-  br label %if.end17
+44:                                               ; preds = %40, %36
+  br label %45
 
-if.end17:                                         ; preds = %delete.end16, %if.end6
-  %fSCharIter18 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %fCharIter19 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  store ptr %fSCharIter18, ptr %fCharIter19, align 8
-  %9 = load ptr, ptr %that.addr, align 8
-  %fCharIter20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %9, i32 0, i32 14
-  %10 = load ptr, ptr %fCharIter20, align 8
-  %cmp21 = icmp ne ptr %10, null
-  br i1 %cmp21, label %land.lhs.true, label %if.end31
+45:                                               ; preds = %44, %27
+  %46 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 14
+  %47 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 13
+  store ptr %46, ptr %47, align 8, !tbaa !81
+  %48 = load ptr, ptr %5, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %48, i32 0, i32 13
+  %50 = load ptr, ptr %49, align 8, !tbaa !81
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %68
 
-land.lhs.true:                                    ; preds = %if.end17
-  %11 = load ptr, ptr %that.addr, align 8
-  %fCharIter22 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %11, i32 0, i32 14
-  %12 = load ptr, ptr %fCharIter22, align 8
-  %13 = load ptr, ptr %that.addr, align 8
-  %fSCharIter23 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %13, i32 0, i32 15
-  %cmp24 = icmp ne ptr %12, %fSCharIter23
-  br i1 %cmp24, label %if.then25, label %if.end31
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %5, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %53, i32 0, i32 13
+  %55 = load ptr, ptr %54, align 8, !tbaa !81
+  %56 = load ptr, ptr %5, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %56, i32 0, i32 14
+  %58 = icmp ne ptr %55, %57
+  br i1 %58, label %59, label %68
 
-if.then25:                                        ; preds = %land.lhs.true
-  %14 = load ptr, ptr %that.addr, align 8
-  %fCharIter26 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %14, i32 0, i32 14
-  %15 = load ptr, ptr %fCharIter26, align 8
-  %vtable27 = load ptr, ptr %15, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 8
-  %16 = load ptr, ptr %vfn28, align 8
-  %call29 = call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(24) %15)
-  %fCharIter30 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  store ptr %call29, ptr %fCharIter30, align 8
-  br label %if.end31
+59:                                               ; preds = %52
+  %60 = load ptr, ptr %5, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %60, i32 0, i32 13
+  %62 = load ptr, ptr %61, align 8, !tbaa !81
+  %63 = load ptr, ptr %62, align 8, !tbaa !47
+  %64 = getelementptr inbounds ptr, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(24) %62)
+  %67 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 13
+  store ptr %66, ptr %67, align 8, !tbaa !81
+  br label %68
 
-if.end31:                                         ; preds = %if.then25, %land.lhs.true, %if.end17
-  %17 = load ptr, ptr %that.addr, align 8
-  %fSCharIter32 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %17, i32 0, i32 15
-  %fSCharIter33 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %call34 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7522UCharCharacterIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %fSCharIter33, ptr noundef nonnull align 8 dereferenceable(32) %fSCharIter32)
-  %fCharIter35 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %18 = load ptr, ptr %fCharIter35, align 8
-  %cmp36 = icmp eq ptr %18, null
-  br i1 %cmp36, label %if.then37, label %if.end40
+68:                                               ; preds = %59, %52, %45
+  %69 = load ptr, ptr %5, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %69, i32 0, i32 14
+  %71 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 14
+  %72 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7722UCharCharacterIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %70)
+  %73 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 13
+  %74 = load ptr, ptr %73, align 8, !tbaa !81
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %79
 
-if.then37:                                        ; preds = %if.end31
-  %fSCharIter38 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %fCharIter39 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  store ptr %fSCharIter38, ptr %fCharIter39, align 8
-  br label %if.end40
+76:                                               ; preds = %68
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 14
+  %78 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 13
+  store ptr %77, ptr %78, align 8, !tbaa !81
+  br label %79
 
-if.end40:                                         ; preds = %if.then37, %if.end31
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %19 = load ptr, ptr %fData, align 8
-  %cmp41 = icmp ne ptr %19, null
-  br i1 %cmp41, label %if.then42, label %if.end45
+79:                                               ; preds = %76, %68
+  %80 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 2
+  %81 = load ptr, ptr %80, align 8, !tbaa !11
+  %82 = icmp ne ptr %81, null
+  br i1 %82, label %83, label %87
 
-if.then42:                                        ; preds = %if.end40
-  %fData43 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %20 = load ptr, ptr %fData43, align 8
-  call void @_ZN6icu_7515RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(137) %20)
-  %fData44 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  store ptr null, ptr %fData44, align 8
-  br label %if.end45
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 2
+  %85 = load ptr, ptr %84, align 8, !tbaa !11
+  call void @_ZN6icu_7715RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(137) %85)
+  %86 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 2
+  store ptr null, ptr %86, align 8, !tbaa !11
+  br label %87
 
-if.end45:                                         ; preds = %if.then42, %if.end40
-  %21 = load ptr, ptr %that.addr, align 8
-  %fData46 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %21, i32 0, i32 3
-  %22 = load ptr, ptr %fData46, align 8
-  %cmp47 = icmp ne ptr %22, null
-  br i1 %cmp47, label %if.then48, label %if.end52
+87:                                               ; preds = %83, %79
+  %88 = load ptr, ptr %5, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %88, i32 0, i32 2
+  %90 = load ptr, ptr %89, align 8, !tbaa !11
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %98
 
-if.then48:                                        ; preds = %if.end45
-  %23 = load ptr, ptr %that.addr, align 8
-  %fData49 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %23, i32 0, i32 3
-  %24 = load ptr, ptr %fData49, align 8
-  %call50 = call noundef ptr @_ZN6icu_7515RBBIDataWrapper12addReferenceEv(ptr noundef nonnull align 8 dereferenceable(137) %24)
-  %fData51 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  store ptr %call50, ptr %fData51, align 8
-  br label %if.end52
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %5, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %93, i32 0, i32 2
+  %95 = load ptr, ptr %94, align 8, !tbaa !11
+  %96 = call noundef ptr @_ZN6icu_7715RBBIDataWrapper12addReferenceEv(ptr noundef nonnull align 8 dereferenceable(137) %95)
+  %97 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 2
+  store ptr %96, ptr %97, align 8, !tbaa !11
+  br label %98
 
-if.end52:                                         ; preds = %if.then48, %if.end45
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %25 = load ptr, ptr %fLookAheadMatches, align 8
-  call void @uprv_free_75(ptr noundef %25)
-  %fLookAheadMatches53 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  store ptr null, ptr %fLookAheadMatches53, align 8
-  %fData54 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %26 = load ptr, ptr %fData54, align 8
-  %tobool = icmp ne ptr %26, null
-  br i1 %tobool, label %land.lhs.true55, label %if.end64
+98:                                               ; preds = %92, %87
+  %99 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 17
+  %100 = load ptr, ptr %99, align 8, !tbaa !46
+  call void @uprv_free_77(ptr noundef %100)
+  %101 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 17
+  store ptr null, ptr %101, align 8, !tbaa !46
+  %102 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 2
+  %103 = load ptr, ptr %102, align 8, !tbaa !11
+  %104 = icmp ne ptr %103, null
+  br i1 %104, label %105, label %124
 
-land.lhs.true55:                                  ; preds = %if.end52
-  %fData56 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %27 = load ptr, ptr %fData56, align 8
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %27, i32 0, i32 1
-  %28 = load ptr, ptr %fForwardTable, align 8
-  %fLookAheadResultsSize = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %28, i32 0, i32 3
-  %29 = load i32, ptr %fLookAheadResultsSize, align 4
-  %cmp57 = icmp ugt i32 %29, 0
-  br i1 %cmp57, label %if.then58, label %if.end64
+105:                                              ; preds = %98
+  %106 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 2
+  %107 = load ptr, ptr %106, align 8, !tbaa !11
+  %108 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8, !tbaa !34
+  %110 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %109, i32 0, i32 3
+  %111 = load i32, ptr %110, align 4, !tbaa !44
+  %112 = icmp ugt i32 %111, 0
+  br i1 %112, label %113, label %124
 
-if.then58:                                        ; preds = %land.lhs.true55
-  %fData59 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %30 = load ptr, ptr %fData59, align 8
-  %fForwardTable60 = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %30, i32 0, i32 1
-  %31 = load ptr, ptr %fForwardTable60, align 8
-  %fLookAheadResultsSize61 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %31, i32 0, i32 3
-  %32 = load i32, ptr %fLookAheadResultsSize61, align 4
-  %conv = zext i32 %32 to i64
-  %mul = mul i64 %conv, 4
-  %call62 = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #7
-  %fLookAheadMatches63 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  store ptr %call62, ptr %fLookAheadMatches63, align 8
-  br label %if.end64
+113:                                              ; preds = %105
+  %114 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 2
+  %115 = load ptr, ptr %114, align 8, !tbaa !11
+  %116 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %115, i32 0, i32 1
+  %117 = load ptr, ptr %116, align 8, !tbaa !34
+  %118 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %117, i32 0, i32 3
+  %119 = load i32, ptr %118, align 4, !tbaa !44
+  %120 = zext i32 %119 to i64
+  %121 = mul i64 %120, 4
+  %122 = call noalias ptr @uprv_malloc_77(i64 noundef %121) #11
+  %123 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 17
+  store ptr %122, ptr %123, align 8, !tbaa !46
+  br label %124
 
-if.end64:                                         ; preds = %if.then58, %land.lhs.true55, %if.end52
-  %33 = load ptr, ptr %that.addr, align 8
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %33, i32 0, i32 5
-  %34 = load i32, ptr %fPosition, align 4
-  %fPosition65 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 %34, ptr %fPosition65, align 4
-  %35 = load ptr, ptr %that.addr, align 8
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %35, i32 0, i32 6
-  %36 = load i32, ptr %fRuleStatusIndex, align 8
-  %fRuleStatusIndex66 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 %36, ptr %fRuleStatusIndex66, align 8
-  %37 = load ptr, ptr %that.addr, align 8
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %37, i32 0, i32 16
-  %38 = load i8, ptr %fDone, align 8
-  %tobool67 = trunc i8 %38 to i1
-  %fDone68 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  %frombool = zext i1 %tobool67 to i8
-  store i8 %frombool, ptr %fDone68, align 8
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %39 = load ptr, ptr %fBreakCache, align 8
-  %fPosition69 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %40 = load i32, ptr %fPosition69, align 4
-  %fRuleStatusIndex70 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  %41 = load i32, ptr %fRuleStatusIndex70, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %39, i32 noundef %40, i32 noundef %41)
-  %fDictionaryCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 9
-  %42 = load ptr, ptr %fDictionaryCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %42)
-  store ptr %this1, ptr %retval, align 8
-  br label %return
+124:                                              ; preds = %113, %105, %98
+  %125 = load ptr, ptr %5, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %125, i32 0, i32 4
+  %127 = load i32, ptr %126, align 4, !tbaa !74
+  %128 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 4
+  store i32 %127, ptr %128, align 4, !tbaa !74
+  %129 = load ptr, ptr %5, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %129, i32 0, i32 5
+  %131 = load i32, ptr %130, align 8, !tbaa !75
+  %132 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 5
+  store i32 %131, ptr %132, align 8, !tbaa !75
+  %133 = load ptr, ptr %5, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %133, i32 0, i32 15
+  %135 = load i8, ptr %134, align 8, !tbaa !82, !range !94, !noundef !95
+  %136 = trunc i8 %135 to i1
+  %137 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 15
+  %138 = zext i1 %136 to i8
+  store i8 %138, ptr %137, align 8, !tbaa !82
+  %139 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 7
+  %140 = load ptr, ptr %139, align 8, !tbaa !76
+  %141 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 4
+  %142 = load i32, ptr %141, align 4, !tbaa !74
+  %143 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 5
+  %144 = load i32, ptr %143, align 8, !tbaa !75
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %140, i32 noundef %142, i32 noundef %144)
+  %145 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !77
+  call void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %146)
+  store ptr %7, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  br label %147
 
-return:                                           ; preds = %if.end64, %if.then
-  %43 = load ptr, ptr %retval, align 8
-  ret ptr %43
+147:                                              ; preds = %124, %10
+  %148 = load ptr, ptr %3, align 8
+  ret ptr %148
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this1, ptr noundef null)
+define void @_ZN6icu_7722RuleBasedBreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6icu_7722RuleBasedBreakIteratorC2EP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %3, ptr noundef null)
   ret void
 }
 
-declare void @_ZN6icu_7513BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(479)) unnamed_addr #3
+declare void @_ZN6icu_7713BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %p_ = getelementptr inbounds %"class.icu_75::ConstChar16Ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %p_, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_7714ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !96
+  store ptr %1, ptr %4, align 8, !tbaa !98
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::ConstChar16Ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !98
+  store ptr %7, ptr %6, align 8, !tbaa !99
   ret void
 }
 
-declare void @_ZN6icu_7522UCharCharacterIteratorC1ENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN6icu_7722UCharCharacterIteratorC1ENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %p_ = getelementptr inbounds %"class.icu_75::ConstChar16Ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %p_, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #6, !srcloc !4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::ConstChar16Ptr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !99
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #10, !srcloc !101
   ret void
 }
 
-declare ptr @utext_openUChars_75(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
+declare ptr @utext_openUChars_77(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
-declare void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCacheC1EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCacheC1EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %errorCode.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store ptr %errorCode, ptr %errorCode.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %0)
-  %1 = load ptr, ptr %p.addr, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !102
+  store ptr %1, ptr %5, align 8, !tbaa !104
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !104
+  call void @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8)
+  %9 = load ptr, ptr %5, align 8, !tbaa !104
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %18
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %errorCode.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %call = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %3)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !33
+  %14 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %13)
+  %15 = icmp ne i8 %14, 0
+  br i1 %15, label %16, label %18
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %4, align 4
-  br label %if.end
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %6, align 8, !tbaa !10
+  store i32 7, ptr %17, align 4, !tbaa !33
+  br label %18
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+18:                                               ; preds = %16, %11, %3
   ret void
 }
 
-declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheC1EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_7722RuleBasedBreakIterator10BreakCacheC1EPS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %errorCode.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store ptr %errorCode, ptr %errorCode.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %0)
-  %1 = load ptr, ptr %p.addr, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !105
+  store ptr %1, ptr %5, align 8, !tbaa !107
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !107
+  call void @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8)
+  %9 = load ptr, ptr %5, align 8, !tbaa !107
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %18
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %errorCode.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %call = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %3)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !33
+  %14 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %13)
+  %15 = icmp ne i8 %14, 0
+  br i1 %15, label %16, label %18
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %4, align 4
-  br label %if.end
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %6, align 8, !tbaa !10
+  store i32 7, ptr %17, align 4, !tbaa !33
+  br label %18
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+18:                                               ; preds = %16, %11, %3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  store ptr %0, ptr %p, align 8
-  %ptr2 = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %ptr2, align 8
-  %1 = load ptr, ptr %p, align 8
-  ret ptr %1
+define linkonce_odr noundef ptr @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !110
+  store ptr %6, ptr %3, align 8, !tbaa !104
+  %7 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %4, i32 0, i32 0
+  store ptr null, ptr %7, align 8, !tbaa !110
+  %8 = load ptr, ptr %3, align 8, !tbaa !104
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase.2", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  store ptr %0, ptr %p, align 8
-  %ptr2 = getelementptr inbounds %"class.icu_75::LocalPointerBase.2", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %ptr2, align 8
-  %1 = load ptr, ptr %p, align 8
-  ret ptr %1
+define linkonce_odr noundef ptr @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !112
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.2", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !114
+  store ptr %6, ptr %3, align 8, !tbaa !107
+  %7 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.2", ptr %4, i32 0, i32 0
+  store ptr null, ptr %7, align 8, !tbaa !114
+  %8 = load ptr, ptr %3, align 8, !tbaa !107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase.2", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !105
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.2", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !114
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %11, label %7
 
-delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(832) %0) #6
-  br label %delete.end
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %5, align 8, !tbaa !47
+  %9 = getelementptr inbounds ptr, ptr %8, i64 1
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(832) %5) #10
+  br label %11
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  call void @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
+11:                                               ; preds = %7, %1
+  call void @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !102
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !110
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
-delete.notnull:                                   ; preds = %entry
-  call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #6
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %0) #6
-  br label %delete.end
+7:                                                ; preds = %1
+  call void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #10
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %5) #10
+  br label %8
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  call void @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
+8:                                                ; preds = %7, %1
+  call void @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7522UCharCharacterIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+declare void @_ZN6icu_7722UCharCharacterIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7513BreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(479)) unnamed_addr #2
+declare void @_ZN6icu_7713BreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef nonnull align 8 dereferenceable(745) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  %0 = load ptr, ptr %other.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(745) ptr @_ZN6icu_7522RuleBasedBreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(745) %this1, ptr noundef nonnull align 8 dereferenceable(745) %0)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN6icu_7722RuleBasedBreakIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef nonnull align 8 dereferenceable(297) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN6icu_7722RuleBasedBreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(297) %7)
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = invoke noundef nonnull align 8 dereferenceable(297) ptr @_ZN6icu_7722RuleBasedBreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(297) %7, ptr noundef nonnull align 8 dereferenceable(297) %8)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
+10:                                               ; preds = %2
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this1) #6
-  br label %eh.resume
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN6icu_7722RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %7) #10
+  br label %15
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
-declare ptr @utext_close_75(ptr noundef) #3
+declare ptr @utext_close_77(ptr noundef) #3
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #6
-  call void @_ZSt9terminatev() #8
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
+  call void @_ZSt9terminatev() #12
   unreachable
 }
 
@@ -1691,6542 +1759,7265 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-declare void @_ZN6icu_7515RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
+declare void @_ZN6icu_7715RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(60)) unnamed_addr #2
+declare void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(60)) unnamed_addr #2
 
-declare void @uprv_free_75(ptr noundef) #3
+declare void @uprv_free_77(ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(745) %this1) #6
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %this1) #6
+define void @_ZN6icu_7722RuleBasedBreakIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6icu_7722RuleBasedBreakIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(297) %3) #10
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %3) #10
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(479) ptr @_ZN6icu_7513BreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(479), ptr noundef nonnull align 8 dereferenceable(479)) #3
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7713BreakIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #3
 
-declare ptr @utext_clone_75(ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext, ptr noundef) #3
+declare ptr @utext_clone_77(ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext, ptr noundef) #3
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7522UCharCharacterIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #3
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7722UCharCharacterIteratoraSERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #3
 
-declare noundef ptr @_ZN6icu_7515RBBIDataWrapper12addReferenceEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
+declare noundef ptr @_ZN6icu_7715RBBIDataWrapper12addReferenceEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
 
-declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef, i32 noundef) #3
+declare void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef, i32 noundef) #3
 
-declare void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60)) #3
+declare void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60)) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7522RuleBasedBreakIterator5cloneEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 752) #6
-  %new.isnull = icmp eq ptr %call, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+define noundef ptr @_ZNK6icu_7722RuleBasedBreakIterator5cloneEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %6 = load ptr, ptr %2, align 8
+  %7 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 304) #10
+  %8 = icmp eq ptr %7, null
+  store i1 false, ptr %3, align 1
+  br i1 %8, label %11, label %9
 
-new.notnull:                                      ; preds = %entry
-  store i1 true, ptr %cleanup.cond, align 1
-  invoke void @_ZN6icu_7522RuleBasedBreakIteratorC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(745) %call, ptr noundef nonnull align 8 dereferenceable(745) %this1)
-          to label %invoke.cont unwind label %lpad
+9:                                                ; preds = %1
+  store i1 true, ptr %3, align 1
+  invoke void @_ZN6icu_7722RuleBasedBreakIteratorC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(297) %7, ptr noundef nonnull align 8 dereferenceable(297) %6)
+          to label %10 unwind label %13
 
-invoke.cont:                                      ; preds = %new.notnull
-  br label %new.cont
+10:                                               ; preds = %9
+  br label %11
 
-new.cont:                                         ; preds = %invoke.cont, %entry
-  %0 = phi ptr [ %call, %invoke.cont ], [ null, %entry ]
-  ret ptr %0
+11:                                               ; preds = %10, %1
+  %12 = phi ptr [ %7, %10 ], [ null, %1 ]
+  ret ptr %12
 
-lpad:                                             ; preds = %new.notnull
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %9
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %4, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %5, align 4
+  %17 = load i1, ptr %3, align 1
+  br i1 %17, label %18, label %19
 
-cleanup.action:                                   ; preds = %lpad
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %call) #6
-  br label %cleanup.done
+18:                                               ; preds = %13
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %7) #10
+  br label %19
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %eh.resume
+19:                                               ; preds = %18, %13
+  br label %20
 
-eh.resume:                                        ; preds = %cleanup.done
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %4, align 8
+  %22 = load i32, ptr %5, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7522RuleBasedBreakIteratoreqERKNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef nonnull align 8 dereferenceable(479) %that) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %that.addr = alloca ptr, align 8
-  %that2 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %that, ptr %that.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = icmp eq ptr %this1, null
-  br i1 %0, label %typeid.bad_typeid, label %typeid.end
+define noundef zeroext i1 @_ZNK6icu_7722RuleBasedBreakIteratoreqERKNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !116
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
-typeid.bad_typeid:                                ; preds = %entry
-  call void @__cxa_bad_typeid() #9
+10:                                               ; preds = %2
+  call void @__cxa_bad_typeid() #13
   unreachable
 
-typeid.end:                                       ; preds = %entry
-  %vtable = load ptr, ptr %this1, align 8
-  %1 = getelementptr inbounds ptr, ptr %vtable, i64 -1
-  %2 = load ptr, ptr %1, align 8
-  %3 = load ptr, ptr %that.addr, align 8
-  %vtable2 = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds ptr, ptr %vtable2, i64 -1
-  %5 = load ptr, ptr %4, align 8
-  %call = call noundef zeroext i1 @_ZNKSt9type_infoneERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %5) #6
-  br i1 %call, label %if.then, label %if.end
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %8, align 8, !tbaa !47
+  %13 = getelementptr inbounds ptr, ptr %12, i64 -1
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %5, align 8, !tbaa !116
+  %16 = load ptr, ptr %15, align 8, !tbaa !47
+  %17 = getelementptr inbounds ptr, ptr %16, i64 -1
+  %18 = load ptr, ptr %17, align 8
+  %19 = call noundef zeroext i1 @_ZNKSt9type_infoneERKS_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %18) #10
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %typeid.end
-  store i1 false, ptr %retval, align 1
-  br label %return
+20:                                               ; preds = %11
+  store i1 false, ptr %3, align 1
+  br label %85
 
-if.end:                                           ; preds = %typeid.end
-  %6 = load ptr, ptr %that.addr, align 8
-  %cmp = icmp eq ptr %this1, %6
-  br i1 %cmp, label %if.then3, label %if.end4
+21:                                               ; preds = %11
+  %22 = load ptr, ptr %5, align 8, !tbaa !116
+  %23 = icmp eq ptr %8, %22
+  br i1 %23, label %24, label %25
 
-if.then3:                                         ; preds = %if.end
-  store i1 true, ptr %retval, align 1
-  br label %return
+24:                                               ; preds = %21
+  store i1 true, ptr %3, align 1
+  br label %85
 
-if.end4:                                          ; preds = %if.end
-  %7 = load ptr, ptr %that.addr, align 8
-  store ptr %7, ptr %that2, align 8
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %8 = load ptr, ptr %that2, align 8
-  %fText5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %8, i32 0, i32 2
-  %call6 = call signext i8 @utext_equals_75(ptr noundef %fText, ptr noundef %fText5)
-  %tobool = icmp ne i8 %call6, 0
-  br i1 %tobool, label %if.end8, label %if.then7
+25:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %26 = load ptr, ptr %5, align 8, !tbaa !116
+  store ptr %26, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 1
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %28, i32 0, i32 1
+  %30 = call signext i8 @utext_equals_77(ptr noundef %27, ptr noundef %29)
+  %31 = icmp ne i8 %30, 0
+  br i1 %31, label %33, label %32
 
-if.then7:                                         ; preds = %if.end4
-  store i1 false, ptr %retval, align 1
-  br label %return
+32:                                               ; preds = %25
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %84
 
-if.end8:                                          ; preds = %if.end4
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %9 = load i32, ptr %fPosition, align 4
-  %10 = load ptr, ptr %that2, align 8
-  %fPosition9 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %10, i32 0, i32 5
-  %11 = load i32, ptr %fPosition9, align 4
-  %cmp10 = icmp eq i32 %9, %11
-  br i1 %cmp10, label %land.lhs.true, label %if.then19
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 4
+  %35 = load i32, ptr %34, align 4, !tbaa !74
+  %36 = load ptr, ptr %6, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %36, i32 0, i32 4
+  %38 = load i32, ptr %37, align 4, !tbaa !74
+  %39 = icmp eq i32 %35, %38
+  br i1 %39, label %40, label %58
 
-land.lhs.true:                                    ; preds = %if.end8
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  %12 = load i32, ptr %fRuleStatusIndex, align 8
-  %13 = load ptr, ptr %that2, align 8
-  %fRuleStatusIndex11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %13, i32 0, i32 6
-  %14 = load i32, ptr %fRuleStatusIndex11, align 8
-  %cmp12 = icmp eq i32 %12, %14
-  br i1 %cmp12, label %land.lhs.true13, label %if.then19
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 5
+  %42 = load i32, ptr %41, align 8, !tbaa !75
+  %43 = load ptr, ptr %6, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %43, i32 0, i32 5
+  %45 = load i32, ptr %44, align 8, !tbaa !75
+  %46 = icmp eq i32 %42, %45
+  br i1 %46, label %47, label %58
 
-land.lhs.true13:                                  ; preds = %land.lhs.true
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  %15 = load i8, ptr %fDone, align 8
-  %tobool14 = trunc i8 %15 to i1
-  %conv = zext i1 %tobool14 to i32
-  %16 = load ptr, ptr %that2, align 8
-  %fDone15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %16, i32 0, i32 16
-  %17 = load i8, ptr %fDone15, align 8
-  %tobool16 = trunc i8 %17 to i1
-  %conv17 = zext i1 %tobool16 to i32
-  %cmp18 = icmp eq i32 %conv, %conv17
-  br i1 %cmp18, label %if.end20, label %if.then19
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 15
+  %49 = load i8, ptr %48, align 8, !tbaa !82, !range !94, !noundef !95
+  %50 = trunc i8 %49 to i1
+  %51 = zext i1 %50 to i32
+  %52 = load ptr, ptr %6, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %52, i32 0, i32 15
+  %54 = load i8, ptr %53, align 8, !tbaa !82, !range !94, !noundef !95
+  %55 = trunc i8 %54 to i1
+  %56 = zext i1 %55 to i32
+  %57 = icmp eq i32 %51, %56
+  br i1 %57, label %59, label %58
 
-if.then19:                                        ; preds = %land.lhs.true13, %land.lhs.true, %if.end8
-  store i1 false, ptr %retval, align 1
-  br label %return
+58:                                               ; preds = %47, %40, %33
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %84
 
-if.end20:                                         ; preds = %land.lhs.true13
-  %18 = load ptr, ptr %that2, align 8
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %18, i32 0, i32 3
-  %19 = load ptr, ptr %fData, align 8
-  %fData21 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %20 = load ptr, ptr %fData21, align 8
-  %cmp22 = icmp eq ptr %19, %20
-  br i1 %cmp22, label %if.then32, label %lor.lhs.false
+59:                                               ; preds = %47
+  %60 = load ptr, ptr %6, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %60, i32 0, i32 2
+  %62 = load ptr, ptr %61, align 8, !tbaa !11
+  %63 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 2
+  %64 = load ptr, ptr %63, align 8, !tbaa !11
+  %65 = icmp eq ptr %62, %64
+  br i1 %65, label %82, label %66
 
-lor.lhs.false:                                    ; preds = %if.end20
-  %fData23 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %21 = load ptr, ptr %fData23, align 8
-  %cmp24 = icmp ne ptr %21, null
-  br i1 %cmp24, label %land.lhs.true25, label %if.end33
+66:                                               ; preds = %59
+  %67 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8, !tbaa !11
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %83
 
-land.lhs.true25:                                  ; preds = %lor.lhs.false
-  %22 = load ptr, ptr %that2, align 8
-  %fData26 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %22, i32 0, i32 3
-  %23 = load ptr, ptr %fData26, align 8
-  %cmp27 = icmp ne ptr %23, null
-  br i1 %cmp27, label %land.lhs.true28, label %if.end33
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %6, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8, !tbaa !11
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %83
 
-land.lhs.true28:                                  ; preds = %land.lhs.true25
-  %24 = load ptr, ptr %that2, align 8
-  %fData29 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %24, i32 0, i32 3
-  %25 = load ptr, ptr %fData29, align 8
-  %fData30 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %26 = load ptr, ptr %fData30, align 8
-  %call31 = call noundef zeroext i1 @_ZNK6icu_7515RBBIDataWrappereqERKS0_(ptr noundef nonnull align 8 dereferenceable(137) %25, ptr noundef nonnull align 8 dereferenceable(137) %26)
-  br i1 %call31, label %if.then32, label %if.end33
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %6, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %76, i32 0, i32 2
+  %78 = load ptr, ptr %77, align 8, !tbaa !11
+  %79 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8, !tbaa !11
+  %81 = call noundef zeroext i1 @_ZNK6icu_7715RBBIDataWrappereqERKS0_(ptr noundef nonnull align 8 dereferenceable(137) %78, ptr noundef nonnull align 8 dereferenceable(137) %80)
+  br i1 %81, label %82, label %83
 
-if.then32:                                        ; preds = %land.lhs.true28, %if.end20
-  store i1 true, ptr %retval, align 1
-  br label %return
+82:                                               ; preds = %75, %59
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %84
 
-if.end33:                                         ; preds = %land.lhs.true28, %land.lhs.true25, %lor.lhs.false
-  store i1 false, ptr %retval, align 1
-  br label %return
+83:                                               ; preds = %75, %70, %66
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %84
 
-return:                                           ; preds = %if.end33, %if.then32, %if.then19, %if.then7, %if.then3, %if.then
-  %27 = load i1, ptr %retval, align 1
-  ret i1 %27
+84:                                               ; preds = %83, %82, %58, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  br label %85
+
+85:                                               ; preds = %84, %24, %20
+  %86 = load i1, ptr %3, align 1
+  ret i1 %86
 }
 
 declare void @__cxa_bad_typeid()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNKSt9type_infoneERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__arg) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__arg.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__arg, ptr %__arg.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__arg.addr, align 8
-  %call = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0) #6
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define linkonce_odr noundef zeroext i1 @_ZNKSt9type_infoneERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !118
+  store ptr %1, ptr %4, align 8, !tbaa !118
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !118
+  %7 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #10
+  %8 = xor i1 %7, true
+  ret i1 %8
 }
 
-declare signext i8 @utext_equals_75(ptr noundef, ptr noundef) #3
+declare signext i8 @utext_equals_77(ptr noundef, ptr noundef) #3
 
-declare noundef zeroext i1 @_ZNK6icu_7515RBBIDataWrappereqERKS0_(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef nonnull align 8 dereferenceable(137)) #3
+declare noundef zeroext i1 @_ZNK6icu_7715RBBIDataWrappereqERKS0_(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef nonnull align 8 dereferenceable(137)) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7522RuleBasedBreakIterator8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %hash = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %hash, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZNK6icu_7722RuleBasedBreakIterator8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  store i32 0, ptr %3, align 4, !tbaa !87
+  %5 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %12
 
-if.then:                                          ; preds = %entry
-  %fData2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %fData2, align 8
-  %call = call noundef i32 @_ZN6icu_7515RBBIDataWrapper8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(137) %1)
-  store i32 %call, ptr %hash, align 4
-  br label %if.end
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %11 = call noundef i32 @_ZN6icu_7715RBBIDataWrapper8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(137) %10)
+  store i32 %11, ptr %3, align 4, !tbaa !87
+  br label %12
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load i32, ptr %hash, align 4
-  ret i32 %2
+12:                                               ; preds = %8, %1
+  %13 = load i32, ptr %3, align 4, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  ret i32 %13
 }
 
-declare noundef i32 @_ZN6icu_7515RBBIDataWrapper8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
+declare noundef i32 @_ZN6icu_7715RBBIDataWrapper8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator7setTextEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %ut, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ut.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ut, ptr %ut.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @_ZN6icu_7722RuleBasedBreakIterator7setTextEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !120
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %10 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !10
+  %12 = load i32, ptr %11, align 4, !tbaa !33
+  %13 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %12)
+  %14 = icmp ne i8 %13, 0
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  br label %return
+15:                                               ; preds = %3
+  br label %51
 
-if.end:                                           ; preds = %entry
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %2 = load ptr, ptr %fBreakCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %2, i32 noundef 0, i32 noundef 0)
-  %fDictionaryCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 9
-  %3 = load ptr, ptr %fDictionaryCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %3)
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %ut.addr, align 8
-  %5 = load ptr, ptr %status.addr, align 8
-  %call2 = call ptr @utext_clone_75(ptr noundef %fText, ptr noundef %4, i8 noundef signext 0, i8 noundef signext 1, ptr noundef %5)
-  %fSCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  call void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef @.str)
-  invoke void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32) %fSCharIter, ptr noundef %agg.tmp, i32 noundef 0)
-          to label %invoke.cont unwind label %lpad
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 7
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %18, i32 noundef 0, i32 noundef 0)
+  %19 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !77
+  call void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %20)
+  %21 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 1
+  %22 = load ptr, ptr %5, align 8, !tbaa !120
+  %23 = load ptr, ptr %6, align 8, !tbaa !10
+  %24 = call ptr @utext_clone_77(ptr noundef %21, ptr noundef %22, i8 noundef signext 0, i8 noundef signext 1, ptr noundef %23)
+  %25 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 14
+  call void @_ZN6icu_7714ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str)
+  invoke void @_ZN6icu_7722UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef %7, i32 noundef 0)
+          to label %26 unwind label %40
 
-invoke.cont:                                      ; preds = %if.end
-  call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #6
-  %fCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %6 = load ptr, ptr %fCharIter, align 8
-  %fSCharIter3 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %cmp = icmp ne ptr %6, %fSCharIter3
-  br i1 %cmp, label %if.then4, label %if.end6
+26:                                               ; preds = %16
+  call void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
+  %27 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 13
+  %28 = load ptr, ptr %27, align 8, !tbaa !81
+  %29 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 14
+  %30 = icmp ne ptr %28, %29
+  br i1 %30, label %31, label %44
 
-if.then4:                                         ; preds = %invoke.cont
-  %fCharIter5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %7 = load ptr, ptr %fCharIter5, align 8
-  %isnull = icmp eq ptr %7, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 13
+  %33 = load ptr, ptr %32, align 8, !tbaa !81
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %39, label %35
 
-delete.notnull:                                   ; preds = %if.then4
-  %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %8 = load ptr, ptr %vfn, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(24) %7) #6
-  br label %delete.end
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %33, align 8, !tbaa !47
+  %37 = getelementptr inbounds ptr, ptr %36, i64 1
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(24) %33) #10
+  br label %39
 
-delete.end:                                       ; preds = %delete.notnull, %if.then4
-  br label %if.end6
+39:                                               ; preds = %35, %31
+  br label %44
 
-lpad:                                             ; preds = %if.end
-  %9 = landingpad { ptr, i32 }
+40:                                               ; preds = %16
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #6
-  br label %eh.resume
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %8, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %9, align 4
+  call void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #10
+  br label %52
 
-if.end6:                                          ; preds = %delete.end, %invoke.cont
-  %fSCharIter7 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %fCharIter8 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  store ptr %fSCharIter7, ptr %fCharIter8, align 8
-  %vtable9 = load ptr, ptr %this1, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 10
-  %12 = load ptr, ptr %vfn10, align 8
-  %call11 = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  br label %return
+44:                                               ; preds = %39, %26
+  %45 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 14
+  %46 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 13
+  store ptr %45, ptr %46, align 8, !tbaa !81
+  %47 = load ptr, ptr %10, align 8, !tbaa !47
+  %48 = getelementptr inbounds ptr, ptr %47, i64 10
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(297) %10)
+  br label %51
 
-return:                                           ; preds = %if.end6, %if.then
+51:                                               ; preds = %44, %15
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val12 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val12
+52:                                               ; preds = %40
+  %53 = load ptr, ptr %8, align 8
+  %54 = load i32, ptr %9, align 4
+  %55 = insertvalue { ptr, i32 } poison, ptr %53, 0
+  %56 = insertvalue { ptr, i32 } %55, i32 %54, 1
+  resume { ptr, i32 } %56
 }
 
-declare void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) #3
+declare void @_ZN6icu_7722UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7522RuleBasedBreakIterator8getUTextEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %fillIn, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %fillIn.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %fillIn, ptr %fillIn.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %fillIn.addr, align 8
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %status.addr, align 8
-  %call = call ptr @utext_clone_75(ptr noundef %0, ptr noundef %fText, i8 noundef signext 0, i8 noundef signext 1, ptr noundef %1)
-  store ptr %call, ptr %result, align 8
-  %2 = load ptr, ptr %result, align 8
-  ret ptr %2
+define noundef ptr @_ZNK6icu_7722RuleBasedBreakIterator8getUTextEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !120
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  %9 = load ptr, ptr %5, align 8, !tbaa !120
+  %10 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !10
+  %12 = call ptr @utext_clone_77(ptr noundef %9, ptr noundef %10, i8 noundef signext 0, i8 noundef signext 1, ptr noundef %11)
+  store ptr %12, ptr %7, align 8, !tbaa !120
+  %13 = load ptr, ptr %7, align 8, !tbaa !120
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6icu_7522RuleBasedBreakIterator7getTextEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %0 = load ptr, ptr %fCharIter, align 8
-  ret ptr %0
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6icu_7722RuleBasedBreakIterator7getTextEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 13
+  %5 = load ptr, ptr %4, align 8, !tbaa !81
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator9adoptTextEPNS_17CharacterIteratorE(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %newText) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newText.addr = alloca ptr, align 8
-  %status = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %newText, ptr %newText.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %0 = load ptr, ptr %fCharIter, align 8
-  %fSCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %cmp = icmp ne ptr %0, %fSCharIter
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN6icu_7722RuleBasedBreakIterator9adoptTextEPNS_17CharacterIteratorE(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !122
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 13
+  %8 = load ptr, ptr %7, align 8, !tbaa !81
+  %9 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 14
+  %10 = icmp ne ptr %8, %9
+  br i1 %10, label %11, label %20
 
-if.then:                                          ; preds = %entry
-  %fCharIter2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %1 = load ptr, ptr %fCharIter2, align 8
-  %isnull = icmp eq ptr %1, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 13
+  %13 = load ptr, ptr %12, align 8, !tbaa !81
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %19, label %15
 
-delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %2 = load ptr, ptr %vfn, align 8
-  call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #6
-  br label %delete.end
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %13, align 8, !tbaa !47
+  %17 = getelementptr inbounds ptr, ptr %16, i64 1
+  %18 = load ptr, ptr %17, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(24) %13) #10
+  br label %19
 
-delete.end:                                       ; preds = %delete.notnull, %if.then
-  br label %if.end
+19:                                               ; preds = %15, %11
+  br label %20
 
-if.end:                                           ; preds = %delete.end, %entry
-  %3 = load ptr, ptr %newText.addr, align 8
-  %fCharIter3 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  store ptr %3, ptr %fCharIter3, align 8
-  store i32 0, ptr %status, align 4
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %4 = load ptr, ptr %fBreakCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %4, i32 noundef 0, i32 noundef 0)
-  %fDictionaryCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 9
-  %5 = load ptr, ptr %fDictionaryCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %5)
-  %6 = load ptr, ptr %newText.addr, align 8
-  %cmp4 = icmp eq ptr %6, null
-  br i1 %cmp4, label %if.then6, label %lor.lhs.false
+20:                                               ; preds = %19, %2
+  %21 = load ptr, ptr %4, align 8, !tbaa !122
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 13
+  store ptr %21, ptr %22, align 8, !tbaa !81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  store i32 0, ptr %5, align 4, !tbaa !33
+  %23 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 7
+  %24 = load ptr, ptr %23, align 8, !tbaa !76
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %24, i32 noundef 0, i32 noundef 0)
+  %25 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !77
+  call void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %26)
+  %27 = load ptr, ptr %4, align 8, !tbaa !122
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %33, label %29
 
-lor.lhs.false:                                    ; preds = %if.end
-  %7 = load ptr, ptr %newText.addr, align 8
-  %call = call noundef i32 @_ZNK6icu_7517CharacterIterator10startIndexEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %cmp5 = icmp ne i32 %call, 0
-  br i1 %cmp5, label %if.then6, label %if.else
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %4, align 8, !tbaa !122
+  %31 = call noundef i32 @_ZNK6icu_7717CharacterIterator10startIndexEv(ptr noundef nonnull align 8 dereferenceable(24) %30)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %36
 
-if.then6:                                         ; preds = %lor.lhs.false, %if.end
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call7 = call ptr @utext_openUChars_75(ptr noundef %fText, ptr noundef null, i64 noundef 0, ptr noundef %status)
-  br label %if.end10
+33:                                               ; preds = %29, %20
+  %34 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 1
+  %35 = call ptr @utext_openUChars_77(ptr noundef %34, ptr noundef null, i64 noundef 0, ptr noundef %5)
+  br label %40
 
-if.else:                                          ; preds = %lor.lhs.false
-  %fText8 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %8 = load ptr, ptr %newText.addr, align 8
-  %call9 = call ptr @utext_openCharacterIterator_75(ptr noundef %fText8, ptr noundef %8, ptr noundef %status)
-  br label %if.end10
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 1
+  %38 = load ptr, ptr %4, align 8, !tbaa !122
+  %39 = call ptr @utext_openCharacterIterator_77(ptr noundef %37, ptr noundef %38, ptr noundef %5)
+  br label %40
 
-if.end10:                                         ; preds = %if.else, %if.then6
-  %vtable11 = load ptr, ptr %this1, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 10
-  %9 = load ptr, ptr %vfn12, align 8
-  %call13 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(745) %this1)
+40:                                               ; preds = %36, %33
+  %41 = load ptr, ptr %6, align 8, !tbaa !47
+  %42 = getelementptr inbounds ptr, ptr %41, i64 10
+  %43 = load ptr, ptr %42, align 8
+  %44 = call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(297) %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_7517CharacterIterator10startIndexEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %begin = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %begin, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK6icu_7717CharacterIterator10startIndexEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !122
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::CharacterIterator", ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 8, !tbaa !123
+  ret i32 %5
 }
 
-declare ptr @utext_openCharacterIterator_75(ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @utext_openCharacterIterator_77(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator7setTextERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef nonnull align 8 dereferenceable(64) %newText) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newText.addr = alloca ptr, align 8
-  %status = alloca i32, align 4
-  %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %newText, ptr %newText.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %status, align 4
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %fBreakCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %0, i32 noundef 0, i32 noundef 0)
-  %fDictionaryCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 9
-  %1 = load ptr, ptr %fDictionaryCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %newText.addr, align 8
-  %call = call ptr @utext_openConstUnicodeString_75(ptr noundef %fText, ptr noundef %2, ptr noundef %status)
-  %fSCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %3 = load ptr, ptr %newText.addr, align 8
-  %call2 = call noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  call void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %call2)
-  %4 = load ptr, ptr %newText.addr, align 8
-  %call3 = invoke noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN6icu_7722RuleBasedBreakIterator7setTextERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !90
+  %9 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  store i32 0, ptr %5, align 4, !tbaa !33
+  %10 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 7
+  %11 = load ptr, ptr %10, align 8, !tbaa !76
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache5resetEii(ptr noundef nonnull align 8 dereferenceable(832) %11, i32 noundef 0, i32 noundef 0)
+  %12 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !77
+  call void @_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache5resetEv(ptr noundef nonnull align 8 dereferenceable(60) %13)
+  %14 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 1
+  %15 = load ptr, ptr %4, align 8, !tbaa !90
+  %16 = call ptr @utext_openConstUnicodeString_77(ptr noundef %14, ptr noundef %15, ptr noundef %5)
+  %17 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 14
+  %18 = load ptr, ptr %4, align 8, !tbaa !90
+  %19 = call noundef ptr @_ZNK6icu_7713UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %18)
+  call void @_ZN6icu_7714ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %19)
+  %20 = load ptr, ptr %4, align 8, !tbaa !90
+  %21 = invoke noundef i32 @_ZNK6icu_7713UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %20)
+          to label %22 unwind label %37
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN6icu_7522UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32) %fSCharIter, ptr noundef %agg.tmp, i32 noundef %call3)
-          to label %invoke.cont4 unwind label %lpad
+22:                                               ; preds = %2
+  invoke void @_ZN6icu_7722UCharCharacterIterator7setTextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %6, i32 noundef %21)
+          to label %23 unwind label %37
 
-invoke.cont4:                                     ; preds = %invoke.cont
-  call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #6
-  %fCharIter = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %5 = load ptr, ptr %fCharIter, align 8
-  %fSCharIter5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %cmp = icmp ne ptr %5, %fSCharIter5
-  br i1 %cmp, label %if.then, label %if.end
+23:                                               ; preds = %22
+  call void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  %24 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 13
+  %25 = load ptr, ptr %24, align 8, !tbaa !81
+  %26 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 14
+  %27 = icmp ne ptr %25, %26
+  br i1 %27, label %28, label %41
 
-if.then:                                          ; preds = %invoke.cont4
-  %fCharIter6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  %6 = load ptr, ptr %fCharIter6, align 8
-  %isnull = icmp eq ptr %6, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 13
+  %30 = load ptr, ptr %29, align 8, !tbaa !81
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %36, label %32
 
-delete.notnull:                                   ; preds = %if.then
-  %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %7 = load ptr, ptr %vfn, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(24) %6) #6
-  br label %delete.end
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %30, align 8, !tbaa !47
+  %34 = getelementptr inbounds ptr, ptr %33, i64 1
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(24) %30) #10
+  br label %36
 
-delete.end:                                       ; preds = %delete.notnull, %if.then
-  br label %if.end
+36:                                               ; preds = %32, %28
+  br label %41
 
-lpad:                                             ; preds = %invoke.cont, %entry
-  %8 = landingpad { ptr, i32 }
+37:                                               ; preds = %22, %2
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #6
-  br label %eh.resume
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %7, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %8, align 4
+  call void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %48
 
-if.end:                                           ; preds = %delete.end, %invoke.cont4
-  %fSCharIter7 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 15
-  %fCharIter8 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 14
-  store ptr %fSCharIter7, ptr %fCharIter8, align 8
-  %vtable9 = load ptr, ptr %this1, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 10
-  %11 = load ptr, ptr %vfn10, align 8
-  %call11 = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(745) %this1)
+41:                                               ; preds = %36, %23
+  %42 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 14
+  %43 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 13
+  store ptr %42, ptr %43, align 8, !tbaa !81
+  %44 = load ptr, ptr %9, align 8, !tbaa !47
+  %45 = getelementptr inbounds ptr, ptr %44, i64 10
+  %46 = load ptr, ptr %45, align 8
+  %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(297) %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val12 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val12
+48:                                               ; preds = %37
+  %49 = load ptr, ptr %7, align 8
+  %50 = load i32, ptr %8, align 4
+  %51 = insertvalue { ptr, i32 } poison, ptr %49, 0
+  %52 = insertvalue { ptr, i32 } %51, i32 %50, 1
+  resume { ptr, i32 } %52
 }
 
-declare ptr @utext_openConstUnicodeString_75(ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @utext_openConstUnicodeString_77(ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fLengthAndFlags = getelementptr inbounds %struct.anon.0, ptr %fUnion, i32 0, i32 0
-  %0 = load i16, ptr %fLengthAndFlags, align 8
-  %conv = sext i16 %0 to i32
-  %and = and i32 %conv, 17
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK6icu_7713UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !90
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %4, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.anon.0, ptr %5, i32 0, i32 0
+  %7 = load i16, ptr %6, align 8, !tbaa !85
+  %8 = sext i16 %7 to i32
+  %9 = and i32 %8, 17
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %27
 
-if.else:                                          ; preds = %entry
-  %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fLengthAndFlags3 = getelementptr inbounds %struct.anon.0, ptr %fUnion2, i32 0, i32 0
-  %1 = load i16, ptr %fLengthAndFlags3, align 8
-  %conv4 = sext i16 %1 to i32
-  %and5 = and i32 %conv4, 2
-  %tobool6 = icmp ne i32 %and5, 0
-  br i1 %tobool6, label %if.then7, label %if.else9
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %4, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.anon.0, ptr %13, i32 0, i32 0
+  %15 = load i16, ptr %14, align 8, !tbaa !85
+  %16 = sext i16 %15 to i32
+  %17 = and i32 %16, 2
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %23
 
-if.then7:                                         ; preds = %if.else
-  %fUnion8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fBuffer = getelementptr inbounds %struct.anon, ptr %fUnion8, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [27 x i16], ptr %fBuffer, i64 0, i64 0
-  store ptr %arraydecay, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %4, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.anon, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds [27 x i16], ptr %21, i64 0, i64 0
+  store ptr %22, ptr %2, align 8
+  br label %27
 
-if.else9:                                         ; preds = %if.else
-  %fUnion10 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fArray = getelementptr inbounds %struct.anon.0, ptr %fUnion10, i32 0, i32 3
-  %2 = load ptr, ptr %fArray, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+23:                                               ; preds = %12
+  %24 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %4, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.anon.0, ptr %24, i32 0, i32 3
+  %26 = load ptr, ptr %25, align 8, !tbaa !85
+  store ptr %26, ptr %2, align 8
+  br label %27
 
-return:                                           ; preds = %if.else9, %if.then7, %if.then
-  %3 = load ptr, ptr %retval, align 8
-  ret ptr %3
+27:                                               ; preds = %23, %19, %11
+  %28 = load ptr, ptr %2, align 8
+  ret ptr %28
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_7513UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef signext i8 @_ZNK6icu_7513UnicodeString14hasShortLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i32 @_ZNK6icu_7713UnicodeString6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef signext i8 @_ZNK6icu_7713UnicodeString14hasShortLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %5 = icmp ne i8 %4, 0
+  br i1 %5, label %6, label %8
 
-cond.true:                                        ; preds = %entry
-  %call2 = call noundef i32 @_ZNK6icu_7513UnicodeString14getShortLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  br label %cond.end
+6:                                                ; preds = %1
+  %7 = call noundef i32 @_ZNK6icu_7713UnicodeString14getShortLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  br label %12
 
-cond.false:                                       ; preds = %entry
-  %fUnion = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fLength = getelementptr inbounds %struct.anon.0, ptr %fUnion, i32 0, i32 1
-  %0 = load i32, ptr %fLength, align 4
-  br label %cond.end
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %3, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.anon.0, ptr %9, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4, !tbaa !85
+  br label %12
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call2, %cond.true ], [ %0, %cond.false ]
-  ret i32 %cond
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(745) ptr @_ZN6icu_7522RuleBasedBreakIterator16refreshInputTextEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %input, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %input.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %pos = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %input, ptr %input.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr %this1, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %input.addr, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %3, align 4
-  store ptr %this1, ptr %retval, align 8
-  br label %return
-
-if.end3:                                          ; preds = %if.end
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call4 = call i64 @utext_getNativeIndex_75(ptr noundef %fText)
-  store i64 %call4, ptr %pos, align 8
-  %fText5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %input.addr, align 8
-  %5 = load ptr, ptr %status.addr, align 8
-  %call6 = call ptr @utext_clone_75(ptr noundef %fText5, ptr noundef %4, i8 noundef signext 0, i8 noundef signext 1, ptr noundef %5)
-  %6 = load ptr, ptr %status.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %call7 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %7)
-  %tobool8 = icmp ne i8 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end3
-  store ptr %this1, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end3
-  %fText11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %8 = load i64, ptr %pos, align 8
-  call void @utext_setNativeIndex_75(ptr noundef %fText11, i64 noundef %8)
-  %fText12 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call13 = call i64 @utext_getNativeIndex_75(ptr noundef %fText12)
-  %9 = load i64, ptr %pos, align 8
-  %cmp14 = icmp ne i64 %call13, %9
-  br i1 %cmp14, label %if.then15, label %if.end16
-
-if.then15:                                        ; preds = %if.end10
-  %10 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %10, align 4
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.then15, %if.end10
-  store ptr %this1, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end16, %if.then9, %if.then2, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
-}
-
-declare i64 @utext_getNativeIndex_75(ptr noundef) #3
-
-declare void @utext_setNativeIndex_75(ptr noundef, i64 noundef) #3
-
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator5firstEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %status = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %status, align 4
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %fBreakCache, align 8
-  %call = call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi(ptr noundef nonnull align 8 dereferenceable(832) %0, i32 noundef 0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  %fBreakCache2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %1 = load ptr, ptr %fBreakCache2, align 8
-  %call3 = call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %1, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %fBreakCache4 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %2 = load ptr, ptr %fBreakCache4, align 8
-  %call5 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache7currentEv(ptr noundef nonnull align 8 dereferenceable(832) %2)
-  ret i32 0
-}
-
-declare noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef) #3
-
-declare noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
-
-declare noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache7currentEv(ptr noundef nonnull align 8 dereferenceable(832)) #3
-
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator4lastEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %endPos = alloca i32, align 4
-  %endShouldBeBoundary = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call i64 @utext_nativeLength_75(ptr noundef %fText)
-  %conv = trunc i64 %call to i32
-  store i32 %conv, ptr %endPos, align 4
-  %0 = load i32, ptr %endPos, align 4
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
-  %1 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(745) %this1, i32 noundef %0)
-  store i8 %call2, ptr %endShouldBeBoundary, align 1
-  %2 = load i32, ptr %endPos, align 4
-  ret i32 %2
-}
-
-declare i64 @utext_nativeLength_75(ptr noundef) #3
-
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator4nextEi(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %n) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %result = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %result, align 4
-  %0 = load i32, ptr %n.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %1 = load i32, ptr %n.addr, align 4
-  %cmp2 = icmp sgt i32 %1, 0
-  br i1 %cmp2, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond
-  %2 = load i32, ptr %result, align 4
-  %cmp3 = icmp ne i32 %2, -1
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %3 = phi i1 [ false, %for.cond ], [ %cmp3, %land.rhs ]
-  br i1 %3, label %for.body, label %for.end
-
-for.body:                                         ; preds = %land.end
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
-  %4 = load ptr, ptr %vfn, align 8
-  %call = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i32 %call, ptr %result, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %n.addr, align 4
-  %dec = add nsw i32 %5, -1
-  store i32 %dec, ptr %n.addr, align 4
-  br label %for.cond, !llvm.loop !5
-
-for.end:                                          ; preds = %land.end
-  br label %if.end21
-
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %n.addr, align 4
-  %cmp4 = icmp slt i32 %6, 0
-  br i1 %cmp4, label %if.then5, label %if.else17
-
-if.then5:                                         ; preds = %if.else
-  br label %for.cond6
-
-for.cond6:                                        ; preds = %for.inc15, %if.then5
-  %7 = load i32, ptr %n.addr, align 4
-  %cmp7 = icmp slt i32 %7, 0
-  br i1 %cmp7, label %land.rhs8, label %land.end10
-
-land.rhs8:                                        ; preds = %for.cond6
-  %8 = load i32, ptr %result, align 4
-  %cmp9 = icmp ne i32 %8, -1
-  br label %land.end10
-
-land.end10:                                       ; preds = %land.rhs8, %for.cond6
-  %9 = phi i1 [ false, %for.cond6 ], [ %cmp9, %land.rhs8 ]
-  br i1 %9, label %for.body11, label %for.end16
-
-for.body11:                                       ; preds = %land.end10
-  %vtable12 = load ptr, ptr %this1, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 12
-  %10 = load ptr, ptr %vfn13, align 8
-  %call14 = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i32 %call14, ptr %result, align 4
-  br label %for.inc15
-
-for.inc15:                                        ; preds = %for.body11
-  %11 = load i32, ptr %n.addr, align 4
-  %inc = add nsw i32 %11, 1
-  store i32 %inc, ptr %n.addr, align 4
-  br label %for.cond6, !llvm.loop !7
-
-for.end16:                                        ; preds = %land.end10
-  br label %if.end
-
-if.else17:                                        ; preds = %if.else
-  %vtable18 = load ptr, ptr %this1, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 14
-  %12 = load ptr, ptr %vfn19, align 8
-  %call20 = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i32 %call20, ptr %result, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else17, %for.end16
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.end, %for.end
-  %13 = load i32, ptr %result, align 4
+12:                                               ; preds = %8, %6
+  %13 = phi i32 [ %7, %6 ], [ %11, %8 ]
   ret i32 %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %fBreakCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache4nextEv(ptr noundef nonnull align 8 dereferenceable(832) %0)
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  %1 = load i8, ptr %fDone, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
+define noundef nonnull align 8 dereferenceable(297) ptr @_ZN6icu_7722RuleBasedBreakIterator16refreshInputTextEP5UTextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !120
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %7, align 8, !tbaa !10
+  %12 = load i32, ptr %11, align 4, !tbaa !33
+  %13 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %12)
+  %14 = icmp ne i8 %13, 0
+  br i1 %14, label %15, label %16
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+15:                                               ; preds = %3
+  store ptr %10, ptr %4, align 8
+  br label %44
 
-cond.false:                                       ; preds = %entry
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %fPosition, align 4
-  br label %cond.end
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %6, align 8, !tbaa !120
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %21
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ -1, %cond.true ], [ %2, %cond.false ]
-  ret i32 %cond
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %7, align 8, !tbaa !10
+  store i32 1, ptr %20, align 4, !tbaa !33
+  store ptr %10, ptr %4, align 8
+  br label %44
+
+21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 1
+  %23 = call i64 @utext_getNativeIndex_77(ptr noundef %22)
+  store i64 %23, ptr %8, align 8, !tbaa !124
+  %24 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 1
+  %25 = load ptr, ptr %6, align 8, !tbaa !120
+  %26 = load ptr, ptr %7, align 8, !tbaa !10
+  %27 = call ptr @utext_clone_77(ptr noundef %24, ptr noundef %25, i8 noundef signext 0, i8 noundef signext 1, ptr noundef %26)
+  %28 = load ptr, ptr %7, align 8, !tbaa !10
+  %29 = load i32, ptr %28, align 4, !tbaa !33
+  %30 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %29)
+  %31 = icmp ne i8 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %21
+  store ptr %10, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %43
+
+33:                                               ; preds = %21
+  %34 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 1
+  %35 = load i64, ptr %8, align 8, !tbaa !124
+  call void @utext_setNativeIndex_77(ptr noundef %34, i64 noundef %35)
+  %36 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 1
+  %37 = call i64 @utext_getNativeIndex_77(ptr noundef %36)
+  %38 = load i64, ptr %8, align 8, !tbaa !124
+  %39 = icmp ne i64 %37, %38
+  br i1 %39, label %40, label %42
+
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %7, align 8, !tbaa !10
+  store i32 1, ptr %41, align 4, !tbaa !33
+  br label %42
+
+42:                                               ; preds = %40, %33
+  store ptr %10, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %43
+
+43:                                               ; preds = %42, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  br label %44
+
+44:                                               ; preds = %43, %19, %15
+  %45 = load ptr, ptr %4, align 8
+  ret ptr %45
+}
+
+declare i64 @utext_getNativeIndex_77(ptr noundef) #3
+
+declare void @utext_setNativeIndex_77(ptr noundef, i64 noundef) #3
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator5firstEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  store i32 0, ptr %3, align 4, !tbaa !33
+  %5 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 7
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
+  %7 = call noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi(ptr noundef nonnull align 8 dereferenceable(832) %6, i32 noundef 0)
+  %8 = icmp ne i8 %7, 0
+  br i1 %8, label %13, label %9
+
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 7
+  %11 = load ptr, ptr %10, align 8, !tbaa !76
+  %12 = call noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %11, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %13
+
+13:                                               ; preds = %9, %1
+  %14 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8, !tbaa !76
+  %16 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache7currentEv(ptr noundef nonnull align 8 dereferenceable(832) %15)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  ret i32 0
+}
+
+declare noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef) #3
+
+declare noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
+
+declare noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache7currentEv(ptr noundef nonnull align 8 dereferenceable(832)) #3
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator4lastEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  %6 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %5, i32 0, i32 1
+  %7 = call i64 @utext_nativeLength_77(ptr noundef %6)
+  %8 = trunc i64 %7 to i32
+  store i32 %8, ptr %3, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #10
+  %9 = load i32, ptr %3, align 4, !tbaa !87
+  %10 = load ptr, ptr %5, align 8, !tbaa !47
+  %11 = getelementptr inbounds ptr, ptr %10, i64 17
+  %12 = load ptr, ptr %11, align 8
+  %13 = call noundef signext i8 %12(ptr noundef nonnull align 8 dereferenceable(297) %5, i32 noundef %9)
+  store i8 %13, ptr %4, align 1, !tbaa !85
+  %14 = load i32, ptr %3, align 4, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  ret i32 %14
+}
+
+declare i64 @utext_nativeLength_77(ptr noundef) #3
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator4nextEi(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !87
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  store i32 0, ptr %5, align 4, !tbaa !87
+  %7 = load i32, ptr %4, align 4, !tbaa !87
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %9, label %27
+
+9:                                                ; preds = %2
+  br label %10
+
+10:                                               ; preds = %23, %9
+  %11 = load i32, ptr %4, align 4, !tbaa !87
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %13, label %16
+
+13:                                               ; preds = %10
+  %14 = load i32, ptr %5, align 4, !tbaa !87
+  %15 = icmp ne i32 %14, -1
+  br label %16
+
+16:                                               ; preds = %13, %10
+  %17 = phi i1 [ false, %10 ], [ %15, %13 ]
+  br i1 %17, label %18, label %26
+
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %6, align 8, !tbaa !47
+  %20 = getelementptr inbounds ptr, ptr %19, i64 13
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(297) %6)
+  store i32 %22, ptr %5, align 4, !tbaa !87
+  br label %23
+
+23:                                               ; preds = %18
+  %24 = load i32, ptr %4, align 4, !tbaa !87
+  %25 = add nsw i32 %24, -1
+  store i32 %25, ptr %4, align 4, !tbaa !87
+  br label %10, !llvm.loop !125
+
+26:                                               ; preds = %16
+  br label %54
+
+27:                                               ; preds = %2
+  %28 = load i32, ptr %4, align 4, !tbaa !87
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %30, label %48
+
+30:                                               ; preds = %27
+  br label %31
+
+31:                                               ; preds = %44, %30
+  %32 = load i32, ptr %4, align 4, !tbaa !87
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %37
+
+34:                                               ; preds = %31
+  %35 = load i32, ptr %5, align 4, !tbaa !87
+  %36 = icmp ne i32 %35, -1
+  br label %37
+
+37:                                               ; preds = %34, %31
+  %38 = phi i1 [ false, %31 ], [ %36, %34 ]
+  br i1 %38, label %39, label %47
+
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %6, align 8, !tbaa !47
+  %41 = getelementptr inbounds ptr, ptr %40, i64 12
+  %42 = load ptr, ptr %41, align 8
+  %43 = call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(297) %6)
+  store i32 %43, ptr %5, align 4, !tbaa !87
+  br label %44
+
+44:                                               ; preds = %39
+  %45 = load i32, ptr %4, align 4, !tbaa !87
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %4, align 4, !tbaa !87
+  br label %31, !llvm.loop !127
+
+47:                                               ; preds = %37
+  br label %53
+
+48:                                               ; preds = %27
+  %49 = load ptr, ptr %6, align 8, !tbaa !47
+  %50 = getelementptr inbounds ptr, ptr %49, i64 14
+  %51 = load ptr, ptr %50, align 8
+  %52 = call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(297) %6)
+  store i32 %52, ptr %5, align 4, !tbaa !87
+  br label %53
+
+53:                                               ; preds = %48, %47
+  br label %54
+
+54:                                               ; preds = %53, %26
+  %55 = load i32, ptr %5, align 4, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  ret i32 %55
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache4nextEv(ptr noundef nonnull align 8 dereferenceable(832) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fBufIdx = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 5
-  %0 = load i32, ptr %fBufIdx, align 4
-  %fEndBufIdx = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %fEndBufIdx, align 4
-  %cmp = icmp eq i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 7
+  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv(ptr noundef nonnull align 8 dereferenceable(832) %5)
+  %6 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 15
+  %7 = load i8, ptr %6, align 8, !tbaa !82, !range !94, !noundef !95
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache6nextOLEv(ptr noundef nonnull align 8 dereferenceable(832) %this1)
-  br label %if.end
+9:                                                ; preds = %1
+  br label %13
 
-if.else:                                          ; preds = %entry
-  %fBufIdx2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %fBufIdx2, align 4
-  %add = add nsw i32 %2, 1
-  %call = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12modChunkSizeEi(i32 noundef %add)
-  %fBufIdx3 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 5
-  store i32 %call, ptr %fBufIdx3, align 4
-  %fBoundaries = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 6
-  %fBufIdx4 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 5
-  %3 = load i32, ptr %fBufIdx4, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom
-  %4 = load i32, ptr %arrayidx, align 4
-  %fBI = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %fBI, align 8
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %5, i32 0, i32 5
-  store i32 %4, ptr %fPosition, align 4
-  %fTextIdx = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 4
-  store i32 %4, ptr %fTextIdx, align 8
-  %fStatuses = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 7
-  %fBufIdx5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 5
-  %6 = load i32, ptr %fBufIdx5, align 4
-  %idxprom6 = sext i32 %6 to i64
-  %arrayidx7 = getelementptr inbounds [128 x i16], ptr %fStatuses, i64 0, i64 %idxprom6
-  %7 = load i16, ptr %arrayidx7, align 2
-  %conv = zext i16 %7 to i32
-  %fBI8 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator::BreakCache", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %fBI8, align 8
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %8, i32 0, i32 6
-  store i32 %conv, ptr %fRuleStatusIndex, align 8
-  br label %if.end
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 4
+  %12 = load i32, ptr %11, align 4, !tbaa !74
+  br label %13
 
-if.end:                                           ; preds = %if.else, %if.then
+13:                                               ; preds = %10, %9
+  %14 = phi i32 [ -1, %9 ], [ %12, %10 ]
+  ret i32 %14
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache4nextEv(ptr noundef nonnull align 8 dereferenceable(832) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !107
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 5
+  %5 = load i32, ptr %4, align 4, !tbaa !128
+  %6 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 3
+  %7 = load i32, ptr %6, align 4, !tbaa !131
+  %8 = icmp eq i32 %5, %7
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %1
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache6nextOLEv(ptr noundef nonnull align 8 dereferenceable(832) %3)
+  br label %36
+
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 5
+  %12 = load i32, ptr %11, align 4, !tbaa !128
+  %13 = add nsw i32 %12, 1
+  %14 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12modChunkSizeEi(i32 noundef %13)
+  %15 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 5
+  store i32 %14, ptr %15, align 4, !tbaa !128
+  %16 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 6
+  %17 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 5
+  %18 = load i32, ptr %17, align 4, !tbaa !128
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds [128 x i32], ptr %16, i64 0, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !87
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !132
+  %24 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %23, i32 0, i32 4
+  store i32 %21, ptr %24, align 4, !tbaa !74
+  %25 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 4
+  store i32 %21, ptr %25, align 8, !tbaa !133
+  %26 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 7
+  %27 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 5
+  %28 = load i32, ptr %27, align 4, !tbaa !128
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds [128 x i16], ptr %26, i64 0, i64 %29
+  %31 = load i16, ptr %30, align 2, !tbaa !134
+  %32 = zext i16 %31 to i32
+  %33 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator::BreakCache", ptr %3, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8, !tbaa !132
+  %35 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %34, i32 0, i32 5
+  store i32 %32, ptr %35, align 8, !tbaa !75
+  br label %36
+
+36:                                               ; preds = %10, %9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator8previousEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %status = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %status, align 4
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %fBreakCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache8previousER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %0, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  %1 = load i8, ptr %fDone, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator8previousEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  store i32 0, ptr %3, align 4, !tbaa !33
+  %5 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 7
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %6, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %7 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 15
+  %8 = load i8, ptr %7, align 8, !tbaa !82, !range !94, !noundef !95
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %11
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+10:                                               ; preds = %1
+  br label %14
 
-cond.false:                                       ; preds = %entry
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %2 = load i32, ptr %fPosition, align 4
-  br label %cond.end
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 4
+  %13 = load i32, ptr %12, align 4, !tbaa !74
+  br label %14
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ -1, %cond.true ], [ %2, %cond.false ]
-  ret i32 %cond
+14:                                               ; preds = %11, %10
+  %15 = phi i32 [ -1, %10 ], [ %13, %11 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  ret i32 %15
 }
 
-declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache8previousER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), ptr noundef nonnull align 4 dereferenceable(4)) #3
+declare void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache8previousER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), ptr noundef nonnull align 4 dereferenceable(4)) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator9followingEi(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %startPos) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %startPos.addr = alloca i32, align 4
-  %status = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %startPos, ptr %startPos.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %startPos.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator9followingEi(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !87
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4, !tbaa !87
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %10, label %15
 
-if.then:                                          ; preds = %entry
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
-  %1 = load ptr, ptr %vfn, align 8
-  %call = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %7, align 8, !tbaa !47
+  %12 = getelementptr inbounds ptr, ptr %11, i64 10
+  %13 = load ptr, ptr %12, align 8
+  %14 = call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(297) %7)
+  store i32 %14, ptr %3, align 4
+  br label %34
 
-if.end:                                           ; preds = %entry
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %startPos.addr, align 4
-  %conv = sext i32 %2 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText, i64 noundef %conv)
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call3 = call i64 @utext_getNativeIndex_75(ptr noundef %fText2)
-  %conv4 = trunc i64 %call3 to i32
-  store i32 %conv4, ptr %startPos.addr, align 4
-  store i32 0, ptr %status, align 4
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %3 = load ptr, ptr %fBreakCache, align 8
-  %4 = load i32, ptr %startPos.addr, align 4
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9followingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  %5 = load i8, ptr %fDone, align 8
-  %tobool = trunc i8 %5 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 1
+  %17 = load i32, ptr %5, align 4, !tbaa !87
+  %18 = sext i32 %17 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %16, i64 noundef %18)
+  %19 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 1
+  %20 = call i64 @utext_getNativeIndex_77(ptr noundef %19)
+  %21 = trunc i64 %20 to i32
+  store i32 %21, ptr %5, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 0, ptr %6, align 4, !tbaa !33
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 7
+  %23 = load ptr, ptr %22, align 8, !tbaa !76
+  %24 = load i32, ptr %5, align 4, !tbaa !87
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9followingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %23, i32 noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %25 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 15
+  %26 = load i8, ptr %25, align 8, !tbaa !82, !range !94, !noundef !95
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %29
 
-cond.true:                                        ; preds = %if.end
-  br label %cond.end
+28:                                               ; preds = %15
+  br label %32
 
-cond.false:                                       ; preds = %if.end
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %6 = load i32, ptr %fPosition, align 4
-  br label %cond.end
+29:                                               ; preds = %15
+  %30 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 4
+  %31 = load i32, ptr %30, align 4, !tbaa !74
+  br label %32
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ -1, %cond.true ], [ %6, %cond.false ]
-  store i32 %cond, ptr %retval, align 4
-  br label %return
+32:                                               ; preds = %29, %28
+  %33 = phi i32 [ -1, %28 ], [ %31, %29 ]
+  store i32 %33, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  br label %34
 
-return:                                           ; preds = %cond.end, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+34:                                               ; preds = %32, %10
+  %35 = load i32, ptr %3, align 4
+  ret i32 %35
 }
 
-declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9followingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
+declare void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9followingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator9precedingEi(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %offset) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %offset.addr = alloca i32, align 4
-  %adjustedOffset = alloca i32, align 4
-  %status = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %offset, ptr %offset.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %offset.addr, align 4
-  %conv = sext i32 %0 to i64
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call i64 @utext_nativeLength_75(ptr noundef %fText)
-  %cmp = icmp sgt i64 %conv, %call
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator9precedingEi(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !87
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i32, ptr %5, align 4, !tbaa !87
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 1
+  %12 = call i64 @utext_nativeLength_77(ptr noundef %11)
+  %13 = icmp sgt i64 %10, %12
+  br i1 %13, label %14, label %19
 
-if.then:                                          ; preds = %entry
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
-  %1 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i32 %call2, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %8, align 8, !tbaa !47
+  %16 = getelementptr inbounds ptr, ptr %15, i64 11
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(297) %8)
+  store i32 %18, ptr %3, align 4
+  br label %38
 
-if.end:                                           ; preds = %entry
-  %fText3 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %offset.addr, align 4
-  %conv4 = sext i32 %2 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText3, i64 noundef %conv4)
-  %fText5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call6 = call i64 @utext_getNativeIndex_75(ptr noundef %fText5)
-  %conv7 = trunc i64 %call6 to i32
-  store i32 %conv7, ptr %adjustedOffset, align 4
-  store i32 0, ptr %status, align 4
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %3 = load ptr, ptr %fBreakCache, align 8
-  %4 = load i32, ptr %adjustedOffset, align 4
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9precedingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  %5 = load i8, ptr %fDone, align 8
-  %tobool = trunc i8 %5 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 1
+  %21 = load i32, ptr %5, align 4, !tbaa !87
+  %22 = sext i32 %21 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %20, i64 noundef %22)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %23 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 1
+  %24 = call i64 @utext_getNativeIndex_77(ptr noundef %23)
+  %25 = trunc i64 %24 to i32
+  store i32 %25, ptr %6, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  store i32 0, ptr %7, align 4, !tbaa !33
+  %26 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 7
+  %27 = load ptr, ptr %26, align 8, !tbaa !76
+  %28 = load i32, ptr %6, align 4, !tbaa !87
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9precedingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %27, i32 noundef %28, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %29 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 15
+  %30 = load i8, ptr %29, align 8, !tbaa !82, !range !94, !noundef !95
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %33
 
-cond.true:                                        ; preds = %if.end
-  br label %cond.end
+32:                                               ; preds = %19
+  br label %36
 
-cond.false:                                       ; preds = %if.end
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %6 = load i32, ptr %fPosition, align 4
-  br label %cond.end
+33:                                               ; preds = %19
+  %34 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %8, i32 0, i32 4
+  %35 = load i32, ptr %34, align 4, !tbaa !74
+  br label %36
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ -1, %cond.true ], [ %6, %cond.false ]
-  store i32 %cond, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %33, %32
+  %37 = phi i32 [ -1, %32 ], [ %35, %33 ]
+  store i32 %37, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  br label %38
 
-return:                                           ; preds = %cond.end, %if.then
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+38:                                               ; preds = %36, %14
+  %39 = load i32, ptr %3, align 4
+  ret i32 %39
 }
 
-declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9precedingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
+declare void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9precedingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10isBoundaryEi(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %offset) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca i8, align 1
-  %this.addr = alloca ptr, align 8
-  %offset.addr = alloca i32, align 4
-  %adjustedOffset = alloca i32, align 4
-  %result = alloca i8, align 1
-  %status = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %offset, ptr %offset.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %offset.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10isBoundaryEi(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !87
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i32, ptr %5, align 4, !tbaa !87
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %13, label %18
 
-if.then:                                          ; preds = %entry
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
-  %1 = load ptr, ptr %vfn, align 8
-  %call = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i8 0, ptr %retval, align 1
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %10, align 8, !tbaa !47
+  %15 = getelementptr inbounds ptr, ptr %14, i64 10
+  %16 = load ptr, ptr %15, align 8
+  %17 = call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(297) %10)
+  store i8 0, ptr %3, align 1
+  br label %70
 
-if.end:                                           ; preds = %entry
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %2 = load i32, ptr %offset.addr, align 4
-  %conv = sext i32 %2 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText, i64 noundef %conv)
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call3 = call i64 @utext_getNativeIndex_75(ptr noundef %fText2)
-  %conv4 = trunc i64 %call3 to i32
-  store i32 %conv4, ptr %adjustedOffset, align 4
-  store i8 0, ptr %result, align 1
-  store i32 0, ptr %status, align 4
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %3 = load ptr, ptr %fBreakCache, align 8
-  %4 = load i32, ptr %adjustedOffset, align 4
-  %call5 = call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi(ptr noundef nonnull align 8 dereferenceable(832) %3, i32 noundef %4)
-  %tobool = icmp ne i8 %call5, 0
-  br i1 %tobool, label %if.then9, label %lor.lhs.false
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 1
+  %20 = load i32, ptr %5, align 4, !tbaa !87
+  %21 = sext i32 %20 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %19, i64 noundef %21)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 1
+  %23 = call i64 @utext_getNativeIndex_77(ptr noundef %22)
+  %24 = trunc i64 %23 to i32
+  store i32 %24, ptr %6, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #10
+  store i8 0, ptr %7, align 1, !tbaa !136
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  store i32 0, ptr %8, align 4, !tbaa !33
+  %25 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 7
+  %26 = load ptr, ptr %25, align 8, !tbaa !76
+  %27 = load i32, ptr %6, align 4, !tbaa !87
+  %28 = call noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache4seekEi(ptr noundef nonnull align 8 dereferenceable(832) %26, i32 noundef %27)
+  %29 = icmp ne i8 %28, 0
+  br i1 %29, label %36, label %30
 
-lor.lhs.false:                                    ; preds = %if.end
-  %fBreakCache6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %5 = load ptr, ptr %fBreakCache6, align 8
-  %6 = load i32, ptr %adjustedOffset, align 4
-  %call7 = call noundef signext i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %tobool8 = icmp ne i8 %call7, 0
-  br i1 %tobool8, label %if.then9, label %if.end13
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 7
+  %32 = load ptr, ptr %31, align 8, !tbaa !76
+  %33 = load i32, ptr %6, align 4, !tbaa !87
+  %34 = call noundef signext i8 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12populateNearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %32, i32 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %35 = icmp ne i8 %34, 0
+  br i1 %35, label %36, label %43
 
-if.then9:                                         ; preds = %lor.lhs.false, %if.end
-  %fBreakCache10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %7 = load ptr, ptr %fBreakCache10, align 8
-  %call11 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache7currentEv(ptr noundef nonnull align 8 dereferenceable(832) %7)
-  %8 = load i32, ptr %offset.addr, align 4
-  %cmp12 = icmp eq i32 %call11, %8
-  %frombool = zext i1 %cmp12 to i8
-  store i8 %frombool, ptr %result, align 1
-  br label %if.end13
+36:                                               ; preds = %30, %18
+  %37 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 7
+  %38 = load ptr, ptr %37, align 8, !tbaa !76
+  %39 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache7currentEv(ptr noundef nonnull align 8 dereferenceable(832) %38)
+  %40 = load i32, ptr %5, align 4, !tbaa !87
+  %41 = icmp eq i32 %39, %40
+  %42 = zext i1 %41 to i8
+  store i8 %42, ptr %7, align 1, !tbaa !136
+  br label %43
 
-if.end13:                                         ; preds = %if.then9, %lor.lhs.false
-  %9 = load i8, ptr %result, align 1
-  %tobool14 = trunc i8 %9 to i1
-  br i1 %tobool14, label %land.lhs.true, label %if.end22
+43:                                               ; preds = %36, %30
+  %44 = load i8, ptr %7, align 1, !tbaa !136, !range !94, !noundef !95
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %57
 
-land.lhs.true:                                    ; preds = %if.end13
-  %10 = load i32, ptr %adjustedOffset, align 4
-  %11 = load i32, ptr %offset.addr, align 4
-  %cmp15 = icmp slt i32 %10, %11
-  br i1 %cmp15, label %land.lhs.true16, label %if.end22
+46:                                               ; preds = %43
+  %47 = load i32, ptr %6, align 4, !tbaa !87
+  %48 = load i32, ptr %5, align 4, !tbaa !87
+  %49 = icmp slt i32 %47, %48
+  br i1 %49, label %50, label %57
 
-land.lhs.true16:                                  ; preds = %land.lhs.true
-  %fText17 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %12 = load i32, ptr %offset.addr, align 4
-  %conv18 = sext i32 %12 to i64
-  %call19 = call i32 @utext_char32At_75(ptr noundef %fText17, i64 noundef %conv18)
-  %cmp20 = icmp eq i32 %call19, -1
-  br i1 %cmp20, label %if.then21, label %if.end22
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %10, i32 0, i32 1
+  %52 = load i32, ptr %5, align 4, !tbaa !87
+  %53 = sext i32 %52 to i64
+  %54 = call i32 @utext_char32At_77(ptr noundef %51, i64 noundef %53)
+  %55 = icmp eq i32 %54, -1
+  br i1 %55, label %56, label %57
 
-if.then21:                                        ; preds = %land.lhs.true16
-  store i8 0, ptr %retval, align 1
-  br label %return
+56:                                               ; preds = %50
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %69
 
-if.end22:                                         ; preds = %land.lhs.true16, %land.lhs.true, %if.end13
-  %13 = load i8, ptr %result, align 1
-  %tobool23 = trunc i8 %13 to i1
-  br i1 %tobool23, label %if.end28, label %if.then24
+57:                                               ; preds = %50, %46, %43
+  %58 = load i8, ptr %7, align 1, !tbaa !136, !range !94, !noundef !95
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %65, label %60
 
-if.then24:                                        ; preds = %if.end22
-  %vtable25 = load ptr, ptr %this1, align 8
-  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 13
-  %14 = load ptr, ptr %vfn26, align 8
-  %call27 = call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  br label %if.end28
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %10, align 8, !tbaa !47
+  %62 = getelementptr inbounds ptr, ptr %61, i64 13
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noundef i32 %63(ptr noundef nonnull align 8 dereferenceable(297) %10)
+  br label %65
 
-if.end28:                                         ; preds = %if.then24, %if.end22
-  %15 = load i8, ptr %result, align 1
-  %tobool29 = trunc i8 %15 to i1
-  %conv30 = zext i1 %tobool29 to i8
-  store i8 %conv30, ptr %retval, align 1
-  br label %return
+65:                                               ; preds = %60, %57
+  %66 = load i8, ptr %7, align 1, !tbaa !136, !range !94, !noundef !95
+  %67 = trunc i8 %66 to i1
+  %68 = zext i1 %67 to i8
+  store i8 %68, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %69
 
-return:                                           ; preds = %if.end28, %if.then21, %if.then
-  %16 = load i8, ptr %retval, align 1
-  ret i8 %16
+69:                                               ; preds = %65, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  br label %70
+
+70:                                               ; preds = %69, %13
+  %71 = load i8, ptr %3, align 1
+  ret i8 %71
 }
 
-declare i32 @utext_char32At_75(ptr noundef, i64 noundef) #3
+declare i32 @utext_char32At_77(ptr noundef, i64 noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK6icu_7522RuleBasedBreakIterator7currentEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %0 = load i32, ptr %fPosition, align 4
-  ret i32 %0
+define noundef i32 @_ZNK6icu_7722RuleBasedBreakIterator7currentEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 4
+  %5 = load i32, ptr %4, align 4, !tbaa !74
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextEv(ptr noundef nonnull align 8 dereferenceable(745) %this) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %statetable = alloca ptr, align 8
-  %use8BitsTrie = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %fForwardTable, align 8
-  store ptr %1, ptr %statetable, align 8
-  %fData2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %fData2, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %2, i32 0, i32 7
-  %3 = load ptr, ptr %fTrie, align 8
-  %call = call i32 @ucptrie_getValueWidth_75(ptr noundef %3)
-  %cmp = icmp eq i32 %call, 2
-  %frombool = zext i1 %cmp to i8
-  store i8 %frombool, ptr %use8BitsTrie, align 1
-  %4 = load ptr, ptr %statetable, align 8
-  %fFlags = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %4, i32 0, i32 4
-  %5 = load i32, ptr %fFlags, align 4
-  %and = and i32 %5, 4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else7
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextEv(ptr noundef nonnull align 8 dereferenceable(297) %0) #1 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %8 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  store ptr %11, ptr %4, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #10
+  %12 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %7, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8, !tbaa !138
+  %16 = call i32 @ucptrie_getValueWidth_77(ptr noundef %15)
+  %17 = icmp eq i32 %16, 2
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %5, align 1, !tbaa !136
+  %19 = load ptr, ptr %4, align 8, !tbaa !137
+  %20 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %19, i32 0, i32 4
+  %21 = load i32, ptr %20, align 4, !tbaa !139
+  %22 = and i32 %21, 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %31
 
-if.then:                                          ; preds = %entry
-  %6 = load i8, ptr %use8BitsTrie, align 1
-  %tobool3 = trunc i8 %6 to i1
-  br i1 %tobool3, label %if.then4, label %if.else
+24:                                               ; preds = %1
+  %25 = load i8, ptr %5, align 1, !tbaa !136, !range !94, !noundef !95
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %29
 
-if.then4:                                         ; preds = %if.then
-  %call5 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i32 %call5, ptr %retval, align 4
-  br label %return
+27:                                               ; preds = %24
+  %28 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(297) %7)
+  store i32 %28, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %38
 
-if.else:                                          ; preds = %if.then
-  %call6 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i32 %call6, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %24
+  %30 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(297) %7)
+  store i32 %30, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %38
 
-if.else7:                                         ; preds = %entry
-  %7 = load i8, ptr %use8BitsTrie, align 1
-  %tobool8 = trunc i8 %7 to i1
-  br i1 %tobool8, label %if.then9, label %if.else11
+31:                                               ; preds = %1
+  %32 = load i8, ptr %5, align 1, !tbaa !136, !range !94, !noundef !95
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %36
 
-if.then9:                                         ; preds = %if.else7
-  %call10 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTItEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i32 %call10, ptr %retval, align 4
-  br label %return
+34:                                               ; preds = %31
+  %35 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTItEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(297) %7)
+  store i32 %35, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %38
 
-if.else11:                                        ; preds = %if.else7
-  %call12 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTItEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store i32 %call12, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %31
+  %37 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTItEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(297) %7)
+  store i32 %37, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %38
 
-return:                                           ; preds = %if.else11, %if.then9, %if.else, %if.then4
-  %8 = load i32, ptr %retval, align 4
-  ret i32 %8
+38:                                               ; preds = %36, %34, %29, %27
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  %39 = load i32, ptr %2, align 4
+  ret i32 %39
 }
 
-declare i32 @ucptrie_getValueWidth_75(ptr noundef) #3
+declare i32 @ucptrie_getValueWidth_77(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(745) %this) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %state = alloca i32, align 4
-  %category = alloca i16, align 2
-  %mode = alloca i32, align 4
-  %row = alloca ptr, align 8
-  %c = alloca i32, align 4
-  %result = alloca i32, align 4
-  %initialPosition = alloca i32, align 4
-  %statetable = alloca ptr, align 8
-  %tableData = alloca ptr, align 8
-  %tableRowLen = alloca i32, align 4
-  %dictStart = alloca i32, align 4
-  %__offset = alloca i64, align 8
-  %accepting = alloca i16, align 2
-  %lookaheadResult = alloca i32, align 4
-  %rule = alloca i16, align 2
-  %pos = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i16 0, ptr %category, align 2
-  store i32 0, ptr %result, align 4
-  store i32 0, ptr %initialPosition, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %fForwardTable, align 8
-  store ptr %1, ptr %statetable, align 8
-  %2 = load ptr, ptr %statetable, align 8
-  %fTableData = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %2, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %fTableData, i64 0, i64 0
-  store ptr %arraydecay, ptr %tableData, align 8
-  %3 = load ptr, ptr %statetable, align 8
-  %fRowLen = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %fRowLen, align 4
-  store i32 %4, ptr %tableRowLen, align 4
-  %5 = load ptr, ptr %statetable, align 8
-  %fDictCategoriesStart = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %fDictCategoriesStart, align 4
-  store i32 %6, ptr %dictStart, align 4
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %fRuleStatusIndex, align 8
-  %fDictionaryCharCount = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 12
-  store i32 0, ptr %fDictionaryCharCount, align 8
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %7 = load i32, ptr %fPosition, align 4
-  store i32 %7, ptr %initialPosition, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %8 = load i32, ptr %initialPosition, align 4
-  %conv = sext i32 %8 to i64
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 7
-  %9 = load i64, ptr %chunkNativeStart, align 8
-  %sub = sub nsw i64 %conv, %9
-  store i64 %sub, ptr %__offset, align 8
-  %10 = load i64, ptr %__offset, align 8
-  %cmp = icmp sge i64 %10, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %do.body
-  %11 = load i64, ptr %__offset, align 8
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %fText2, i32 0, i32 6
-  %12 = load i32, ptr %nativeIndexingLimit, align 4
-  %conv3 = sext i32 %12 to i64
-  %cmp4 = icmp slt i64 %11, %conv3
-  br i1 %cmp4, label %land.lhs.true5, label %if.else
-
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fText6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %fText6, i32 0, i32 10
-  %13 = load ptr, ptr %chunkContents, align 8
-  %14 = load i64, ptr %__offset, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %13, i64 %14
-  %15 = load i16, ptr %arrayidx, align 2
-  %conv7 = zext i16 %15 to i32
-  %cmp8 = icmp slt i32 %conv7, 56320
-  br i1 %cmp8, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true5
-  %16 = load i64, ptr %__offset, align 8
-  %conv9 = trunc i64 %16 to i32
-  %fText10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %fText10, i32 0, i32 8
-  store i32 %conv9, ptr %chunkOffset, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true, %do.body
-  %fText11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %17 = load i32, ptr %initialPosition, align 4
-  %conv12 = sext i32 %17 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText11, i64 noundef %conv12)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %18 = load i32, ptr %initialPosition, align 4
-  store i32 %18, ptr %result, align 4
-  %fText13 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset14 = getelementptr inbounds %struct.UText, ptr %fText13, i32 0, i32 8
-  %19 = load i32, ptr %chunkOffset14, align 8
-  %fText15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %fText15, i32 0, i32 9
-  %20 = load i32, ptr %chunkLength, align 4
-  %cmp16 = icmp slt i32 %19, %20
-  br i1 %cmp16, label %land.lhs.true17, label %cond.false
-
-land.lhs.true17:                                  ; preds = %do.end
-  %fText18 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents19 = getelementptr inbounds %struct.UText, ptr %fText18, i32 0, i32 10
-  %21 = load ptr, ptr %chunkContents19, align 8
-  %fText20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset21 = getelementptr inbounds %struct.UText, ptr %fText20, i32 0, i32 8
-  %22 = load i32, ptr %chunkOffset21, align 8
-  %idxprom = sext i32 %22 to i64
-  %arrayidx22 = getelementptr inbounds i16, ptr %21, i64 %idxprom
-  %23 = load i16, ptr %arrayidx22, align 2
-  %conv23 = zext i16 %23 to i32
-  %cmp24 = icmp slt i32 %conv23, 55296
-  br i1 %cmp24, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %land.lhs.true17
-  %fText25 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents26 = getelementptr inbounds %struct.UText, ptr %fText25, i32 0, i32 10
-  %24 = load ptr, ptr %chunkContents26, align 8
-  %fText27 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset28 = getelementptr inbounds %struct.UText, ptr %fText27, i32 0, i32 8
-  %25 = load i32, ptr %chunkOffset28, align 8
-  %inc = add nsw i32 %25, 1
-  store i32 %inc, ptr %chunkOffset28, align 8
-  %idxprom29 = sext i32 %25 to i64
-  %arrayidx30 = getelementptr inbounds i16, ptr %24, i64 %idxprom29
-  %26 = load i16, ptr %arrayidx30, align 2
-  %conv31 = zext i16 %26 to i32
-  br label %cond.end
-
-cond.false:                                       ; preds = %land.lhs.true17, %do.end
-  %fText32 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call i32 @utext_next32_75(ptr noundef %fText32)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv31, %cond.true ], [ %call, %cond.false ]
-  store i32 %cond, ptr %c, align 4
-  %27 = load i32, ptr %c, align 4
-  %cmp33 = icmp eq i32 %27, -1
-  br i1 %cmp33, label %if.then34, label %if.end35
-
-if.then34:                                        ; preds = %cond.end
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  store i8 1, ptr %fDone, align 8
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end35:                                         ; preds = %cond.end
-  store i32 1, ptr %state, align 4
-  %28 = load ptr, ptr %tableData, align 8
-  %29 = load i32, ptr %tableRowLen, align 4
-  %30 = load i32, ptr %state, align 4
-  %mul = mul i32 %29, %30
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %idx.ext
-  store ptr %add.ptr, ptr %row, align 8
-  store i32 1, ptr %mode, align 4
-  %31 = load ptr, ptr %statetable, align 8
-  %fFlags = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %31, i32 0, i32 4
-  %32 = load i32, ptr %fFlags, align 4
-  %and = and i32 %32, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then36, label %if.end37
-
-if.then36:                                        ; preds = %if.end35
-  store i16 2, ptr %category, align 2
-  store i32 0, ptr %mode, align 4
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then36, %if.end35
-  br label %for.cond
-
-for.cond:                                         ; preds = %if.end168, %if.end37
-  %33 = load i32, ptr %c, align 4
-  %cmp38 = icmp eq i32 %33, -1
-  br i1 %cmp38, label %if.then39, label %if.end43
-
-if.then39:                                        ; preds = %for.cond
-  %34 = load i32, ptr %mode, align 4
-  %cmp40 = icmp eq i32 %34, 2
-  br i1 %cmp40, label %if.then41, label %if.end42
-
-if.then41:                                        ; preds = %if.then39
-  br label %for.end
-
-if.end42:                                         ; preds = %if.then39
-  store i32 2, ptr %mode, align 4
-  store i16 1, ptr %category, align 2
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.end42, %for.cond
-  %35 = load i32, ptr %mode, align 4
-  %cmp44 = icmp eq i32 %35, 1
-  br i1 %cmp44, label %if.then45, label %if.end52
-
-if.then45:                                        ; preds = %if.end43
-  %fData46 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %36 = load ptr, ptr %fData46, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %36, i32 0, i32 7
-  %37 = load ptr, ptr %fTrie, align 8
-  %38 = load i32, ptr %c, align 4
-  %call47 = call noundef zeroext i16 @_ZN6icu_75L9TrieFunc8EPK7UCPTriei(ptr noundef %37, i32 noundef %38)
-  store i16 %call47, ptr %category, align 2
-  %39 = load i16, ptr %category, align 2
-  %conv48 = zext i16 %39 to i32
-  %40 = load i32, ptr %dictStart, align 4
-  %cmp49 = icmp uge i32 %conv48, %40
-  %conv50 = zext i1 %cmp49 to i32
-  %fDictionaryCharCount51 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 12
-  %41 = load i32, ptr %fDictionaryCharCount51, align 8
-  %add = add i32 %41, %conv50
-  store i32 %add, ptr %fDictionaryCharCount51, align 8
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.then45, %if.end43
-  %42 = load ptr, ptr %row, align 8
-  %fNextState = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %42, i32 0, i32 3
-  %43 = load i16, ptr %category, align 2
-  %idxprom53 = zext i16 %43 to i64
-  %arrayidx54 = getelementptr inbounds [1 x i8], ptr %fNextState, i64 0, i64 %idxprom53
-  %44 = load i8, ptr %arrayidx54, align 1
-  %conv55 = zext i8 %44 to i32
-  store i32 %conv55, ptr %state, align 4
-  %45 = load ptr, ptr %tableData, align 8
-  %46 = load i32, ptr %tableRowLen, align 4
-  %47 = load i32, ptr %state, align 4
-  %mul56 = mul i32 %46, %47
-  %idx.ext57 = zext i32 %mul56 to i64
-  %add.ptr58 = getelementptr inbounds i8, ptr %45, i64 %idx.ext57
-  store ptr %add.ptr58, ptr %row, align 8
-  %48 = load ptr, ptr %row, align 8
-  %fAccepting = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %48, i32 0, i32 0
-  %49 = load i8, ptr %fAccepting, align 1
-  %conv59 = zext i8 %49 to i16
-  store i16 %conv59, ptr %accepting, align 2
-  %50 = load i16, ptr %accepting, align 2
-  %conv60 = zext i16 %50 to i32
-  %cmp61 = icmp eq i32 %conv60, 1
-  br i1 %cmp61, label %if.then62, label %if.else87
-
-if.then62:                                        ; preds = %if.end52
-  %51 = load i32, ptr %mode, align 4
-  %cmp63 = icmp ne i32 %51, 0
-  br i1 %cmp63, label %if.then64, label %if.end84
-
-if.then64:                                        ; preds = %if.then62
-  %fText65 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset66 = getelementptr inbounds %struct.UText, ptr %fText65, i32 0, i32 8
-  %52 = load i32, ptr %chunkOffset66, align 8
-  %fText67 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit68 = getelementptr inbounds %struct.UText, ptr %fText67, i32 0, i32 6
-  %53 = load i32, ptr %nativeIndexingLimit68, align 4
-  %cmp69 = icmp sle i32 %52, %53
-  br i1 %cmp69, label %cond.true70, label %cond.false77
-
-cond.true70:                                      ; preds = %if.then64
-  %fText71 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart72 = getelementptr inbounds %struct.UText, ptr %fText71, i32 0, i32 7
-  %54 = load i64, ptr %chunkNativeStart72, align 8
-  %fText73 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset74 = getelementptr inbounds %struct.UText, ptr %fText73, i32 0, i32 8
-  %55 = load i32, ptr %chunkOffset74, align 8
-  %conv75 = sext i32 %55 to i64
-  %add76 = add nsw i64 %54, %conv75
-  br label %cond.end81
-
-cond.false77:                                     ; preds = %if.then64
-  %fText78 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %fText78, i32 0, i32 11
-  %56 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %56, i32 0, i32 10
-  %57 = load ptr, ptr %mapOffsetToNative, align 8
-  %fText79 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call80 = call noundef i64 %57(ptr noundef %fText79)
-  br label %cond.end81
-
-cond.end81:                                       ; preds = %cond.false77, %cond.true70
-  %cond82 = phi i64 [ %add76, %cond.true70 ], [ %call80, %cond.false77 ]
-  %conv83 = trunc i64 %cond82 to i32
-  store i32 %conv83, ptr %result, align 4
-  br label %if.end84
-
-if.end84:                                         ; preds = %cond.end81, %if.then62
-  %58 = load ptr, ptr %row, align 8
-  %fTagsIdx = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %58, i32 0, i32 2
-  %59 = load i8, ptr %fTagsIdx, align 1
-  %conv85 = zext i8 %59 to i32
-  %fRuleStatusIndex86 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 %conv85, ptr %fRuleStatusIndex86, align 8
-  br label %if.end101
-
-if.else87:                                        ; preds = %if.end52
-  %60 = load i16, ptr %accepting, align 2
-  %conv88 = zext i16 %60 to i32
-  %cmp89 = icmp sgt i32 %conv88, 1
-  br i1 %cmp89, label %if.then90, label %if.end100
-
-if.then90:                                        ; preds = %if.else87
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %61 = load ptr, ptr %fLookAheadMatches, align 8
-  %62 = load i16, ptr %accepting, align 2
-  %idxprom91 = zext i16 %62 to i64
-  %arrayidx92 = getelementptr inbounds i32, ptr %61, i64 %idxprom91
-  %63 = load i32, ptr %arrayidx92, align 4
-  store i32 %63, ptr %lookaheadResult, align 4
-  %64 = load i32, ptr %lookaheadResult, align 4
-  %cmp93 = icmp sge i32 %64, 0
-  br i1 %cmp93, label %if.then94, label %if.end99
-
-if.then94:                                        ; preds = %if.then90
-  %65 = load ptr, ptr %row, align 8
-  %fTagsIdx95 = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %65, i32 0, i32 2
-  %66 = load i8, ptr %fTagsIdx95, align 1
-  %conv96 = zext i8 %66 to i32
-  %fRuleStatusIndex97 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 %conv96, ptr %fRuleStatusIndex97, align 8
-  %67 = load i32, ptr %lookaheadResult, align 4
-  %fPosition98 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 %67, ptr %fPosition98, align 4
-  %68 = load i32, ptr %lookaheadResult, align 4
-  store i32 %68, ptr %retval, align 4
-  br label %return
-
-if.end99:                                         ; preds = %if.then90
-  br label %if.end100
-
-if.end100:                                        ; preds = %if.end99, %if.else87
-  br label %if.end101
-
-if.end101:                                        ; preds = %if.end100, %if.end84
-  %69 = load ptr, ptr %row, align 8
-  %fLookAhead = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %69, i32 0, i32 1
-  %70 = load i8, ptr %fLookAhead, align 1
-  %conv102 = zext i8 %70 to i16
-  store i16 %conv102, ptr %rule, align 2
-  %71 = load i16, ptr %rule, align 2
-  %conv103 = zext i16 %71 to i32
-  %cmp104 = icmp sgt i32 %conv103, 1
-  br i1 %cmp104, label %if.then105, label %if.end130
-
-if.then105:                                       ; preds = %if.end101
-  %fText106 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset107 = getelementptr inbounds %struct.UText, ptr %fText106, i32 0, i32 8
-  %72 = load i32, ptr %chunkOffset107, align 8
-  %fText108 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit109 = getelementptr inbounds %struct.UText, ptr %fText108, i32 0, i32 6
-  %73 = load i32, ptr %nativeIndexingLimit109, align 4
-  %cmp110 = icmp sle i32 %72, %73
-  br i1 %cmp110, label %cond.true111, label %cond.false118
-
-cond.true111:                                     ; preds = %if.then105
-  %fText112 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart113 = getelementptr inbounds %struct.UText, ptr %fText112, i32 0, i32 7
-  %74 = load i64, ptr %chunkNativeStart113, align 8
-  %fText114 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset115 = getelementptr inbounds %struct.UText, ptr %fText114, i32 0, i32 8
-  %75 = load i32, ptr %chunkOffset115, align 8
-  %conv116 = sext i32 %75 to i64
-  %add117 = add nsw i64 %74, %conv116
-  br label %cond.end124
-
-cond.false118:                                    ; preds = %if.then105
-  %fText119 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs120 = getelementptr inbounds %struct.UText, ptr %fText119, i32 0, i32 11
-  %76 = load ptr, ptr %pFuncs120, align 8
-  %mapOffsetToNative121 = getelementptr inbounds %struct.UTextFuncs, ptr %76, i32 0, i32 10
-  %77 = load ptr, ptr %mapOffsetToNative121, align 8
-  %fText122 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call123 = call noundef i64 %77(ptr noundef %fText122)
-  br label %cond.end124
-
-cond.end124:                                      ; preds = %cond.false118, %cond.true111
-  %cond125 = phi i64 [ %add117, %cond.true111 ], [ %call123, %cond.false118 ]
-  %conv126 = trunc i64 %cond125 to i32
-  store i32 %conv126, ptr %pos, align 4
-  %78 = load i32, ptr %pos, align 4
-  %fLookAheadMatches127 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %79 = load ptr, ptr %fLookAheadMatches127, align 8
-  %80 = load i16, ptr %rule, align 2
-  %idxprom128 = zext i16 %80 to i64
-  %arrayidx129 = getelementptr inbounds i32, ptr %79, i64 %idxprom128
-  store i32 %78, ptr %arrayidx129, align 4
-  br label %if.end130
-
-if.end130:                                        ; preds = %cond.end124, %if.end101
-  %81 = load i32, ptr %state, align 4
-  %cmp131 = icmp eq i32 %81, 0
-  br i1 %cmp131, label %if.then132, label %if.end133
-
-if.then132:                                       ; preds = %if.end130
-  br label %for.end
-
-if.end133:                                        ; preds = %if.end130
-  %82 = load i32, ptr %mode, align 4
-  %cmp134 = icmp eq i32 %82, 1
-  br i1 %cmp134, label %if.then135, label %if.else164
-
-if.then135:                                       ; preds = %if.end133
-  %fText136 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset137 = getelementptr inbounds %struct.UText, ptr %fText136, i32 0, i32 8
-  %83 = load i32, ptr %chunkOffset137, align 8
-  %fText138 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkLength139 = getelementptr inbounds %struct.UText, ptr %fText138, i32 0, i32 9
-  %84 = load i32, ptr %chunkLength139, align 4
-  %cmp140 = icmp slt i32 %83, %84
-  br i1 %cmp140, label %land.lhs.true141, label %cond.false159
-
-land.lhs.true141:                                 ; preds = %if.then135
-  %fText142 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents143 = getelementptr inbounds %struct.UText, ptr %fText142, i32 0, i32 10
-  %85 = load ptr, ptr %chunkContents143, align 8
-  %fText144 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset145 = getelementptr inbounds %struct.UText, ptr %fText144, i32 0, i32 8
-  %86 = load i32, ptr %chunkOffset145, align 8
-  %idxprom146 = sext i32 %86 to i64
-  %arrayidx147 = getelementptr inbounds i16, ptr %85, i64 %idxprom146
-  %87 = load i16, ptr %arrayidx147, align 2
-  %conv148 = zext i16 %87 to i32
-  %cmp149 = icmp slt i32 %conv148, 55296
-  br i1 %cmp149, label %cond.true150, label %cond.false159
-
-cond.true150:                                     ; preds = %land.lhs.true141
-  %fText151 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents152 = getelementptr inbounds %struct.UText, ptr %fText151, i32 0, i32 10
-  %88 = load ptr, ptr %chunkContents152, align 8
-  %fText153 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset154 = getelementptr inbounds %struct.UText, ptr %fText153, i32 0, i32 8
-  %89 = load i32, ptr %chunkOffset154, align 8
-  %inc155 = add nsw i32 %89, 1
-  store i32 %inc155, ptr %chunkOffset154, align 8
-  %idxprom156 = sext i32 %89 to i64
-  %arrayidx157 = getelementptr inbounds i16, ptr %88, i64 %idxprom156
-  %90 = load i16, ptr %arrayidx157, align 2
-  %conv158 = zext i16 %90 to i32
-  br label %cond.end162
-
-cond.false159:                                    ; preds = %land.lhs.true141, %if.then135
-  %fText160 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call161 = call i32 @utext_next32_75(ptr noundef %fText160)
-  br label %cond.end162
-
-cond.end162:                                      ; preds = %cond.false159, %cond.true150
-  %cond163 = phi i32 [ %conv158, %cond.true150 ], [ %call161, %cond.false159 ]
-  store i32 %cond163, ptr %c, align 4
-  br label %if.end168
-
-if.else164:                                       ; preds = %if.end133
-  %91 = load i32, ptr %mode, align 4
-  %cmp165 = icmp eq i32 %91, 0
-  br i1 %cmp165, label %if.then166, label %if.end167
-
-if.then166:                                       ; preds = %if.else164
-  store i32 1, ptr %mode, align 4
-  br label %if.end167
-
-if.end167:                                        ; preds = %if.then166, %if.else164
-  br label %if.end168
-
-if.end168:                                        ; preds = %if.end167, %cond.end162
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %if.then132, %if.then41
-  %92 = load i32, ptr %result, align 4
-  %93 = load i32, ptr %initialPosition, align 4
-  %cmp169 = icmp eq i32 %92, %93
-  br i1 %cmp169, label %if.then170, label %if.end179
-
-if.then170:                                       ; preds = %for.end
-  %fText171 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %94 = load i32, ptr %initialPosition, align 4
-  %conv172 = sext i32 %94 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText171, i64 noundef %conv172)
-  %fText173 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call174 = call i32 @utext_next32_75(ptr noundef %fText173)
-  %fText175 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call176 = call i64 @utext_getNativeIndex_75(ptr noundef %fText175)
-  %conv177 = trunc i64 %call176 to i32
-  store i32 %conv177, ptr %result, align 4
-  %fRuleStatusIndex178 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %fRuleStatusIndex178, align 8
-  br label %if.end179
-
-if.end179:                                        ; preds = %if.then170, %for.end
-  %95 = load i32, ptr %result, align 4
-  %fPosition180 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 %95, ptr %fPosition180, align 4
-  %96 = load i32, ptr %result, align 4
-  store i32 %96, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end179, %if.then94, %if.then34
-  %97 = load i32, ptr %retval, align 4
-  ret i32 %97
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(745) %this) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %state = alloca i32, align 4
-  %category = alloca i16, align 2
-  %mode = alloca i32, align 4
-  %row = alloca ptr, align 8
-  %c = alloca i32, align 4
-  %result = alloca i32, align 4
-  %initialPosition = alloca i32, align 4
-  %statetable = alloca ptr, align 8
-  %tableData = alloca ptr, align 8
-  %tableRowLen = alloca i32, align 4
-  %dictStart = alloca i32, align 4
-  %__offset = alloca i64, align 8
-  %accepting = alloca i16, align 2
-  %lookaheadResult = alloca i32, align 4
-  %rule = alloca i16, align 2
-  %pos = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i16 0, ptr %category, align 2
-  store i32 0, ptr %result, align 4
-  store i32 0, ptr %initialPosition, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %fForwardTable, align 8
-  store ptr %1, ptr %statetable, align 8
-  %2 = load ptr, ptr %statetable, align 8
-  %fTableData = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %2, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %fTableData, i64 0, i64 0
-  store ptr %arraydecay, ptr %tableData, align 8
-  %3 = load ptr, ptr %statetable, align 8
-  %fRowLen = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %fRowLen, align 4
-  store i32 %4, ptr %tableRowLen, align 4
-  %5 = load ptr, ptr %statetable, align 8
-  %fDictCategoriesStart = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %fDictCategoriesStart, align 4
-  store i32 %6, ptr %dictStart, align 4
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %fRuleStatusIndex, align 8
-  %fDictionaryCharCount = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 12
-  store i32 0, ptr %fDictionaryCharCount, align 8
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %7 = load i32, ptr %fPosition, align 4
-  store i32 %7, ptr %initialPosition, align 4
-  br label %do.body
-
-do.body:                                          ; preds = %entry
-  %8 = load i32, ptr %initialPosition, align 4
-  %conv = sext i32 %8 to i64
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 7
-  %9 = load i64, ptr %chunkNativeStart, align 8
-  %sub = sub nsw i64 %conv, %9
-  store i64 %sub, ptr %__offset, align 8
-  %10 = load i64, ptr %__offset, align 8
-  %cmp = icmp sge i64 %10, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %do.body
-  %11 = load i64, ptr %__offset, align 8
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %fText2, i32 0, i32 6
-  %12 = load i32, ptr %nativeIndexingLimit, align 4
-  %conv3 = sext i32 %12 to i64
-  %cmp4 = icmp slt i64 %11, %conv3
-  br i1 %cmp4, label %land.lhs.true5, label %if.else
-
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fText6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %fText6, i32 0, i32 10
-  %13 = load ptr, ptr %chunkContents, align 8
-  %14 = load i64, ptr %__offset, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %13, i64 %14
-  %15 = load i16, ptr %arrayidx, align 2
-  %conv7 = zext i16 %15 to i32
-  %cmp8 = icmp slt i32 %conv7, 56320
-  br i1 %cmp8, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true5
-  %16 = load i64, ptr %__offset, align 8
-  %conv9 = trunc i64 %16 to i32
-  %fText10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %fText10, i32 0, i32 8
-  store i32 %conv9, ptr %chunkOffset, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true, %do.body
-  %fText11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %17 = load i32, ptr %initialPosition, align 4
-  %conv12 = sext i32 %17 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText11, i64 noundef %conv12)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
-
-do.end:                                           ; preds = %if.end
-  %18 = load i32, ptr %initialPosition, align 4
-  store i32 %18, ptr %result, align 4
-  %fText13 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset14 = getelementptr inbounds %struct.UText, ptr %fText13, i32 0, i32 8
-  %19 = load i32, ptr %chunkOffset14, align 8
-  %fText15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %fText15, i32 0, i32 9
-  %20 = load i32, ptr %chunkLength, align 4
-  %cmp16 = icmp slt i32 %19, %20
-  br i1 %cmp16, label %land.lhs.true17, label %cond.false
-
-land.lhs.true17:                                  ; preds = %do.end
-  %fText18 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents19 = getelementptr inbounds %struct.UText, ptr %fText18, i32 0, i32 10
-  %21 = load ptr, ptr %chunkContents19, align 8
-  %fText20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset21 = getelementptr inbounds %struct.UText, ptr %fText20, i32 0, i32 8
-  %22 = load i32, ptr %chunkOffset21, align 8
-  %idxprom = sext i32 %22 to i64
-  %arrayidx22 = getelementptr inbounds i16, ptr %21, i64 %idxprom
-  %23 = load i16, ptr %arrayidx22, align 2
-  %conv23 = zext i16 %23 to i32
-  %cmp24 = icmp slt i32 %conv23, 55296
-  br i1 %cmp24, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %land.lhs.true17
-  %fText25 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents26 = getelementptr inbounds %struct.UText, ptr %fText25, i32 0, i32 10
-  %24 = load ptr, ptr %chunkContents26, align 8
-  %fText27 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset28 = getelementptr inbounds %struct.UText, ptr %fText27, i32 0, i32 8
-  %25 = load i32, ptr %chunkOffset28, align 8
-  %inc = add nsw i32 %25, 1
-  store i32 %inc, ptr %chunkOffset28, align 8
-  %idxprom29 = sext i32 %25 to i64
-  %arrayidx30 = getelementptr inbounds i16, ptr %24, i64 %idxprom29
-  %26 = load i16, ptr %arrayidx30, align 2
-  %conv31 = zext i16 %26 to i32
-  br label %cond.end
-
-cond.false:                                       ; preds = %land.lhs.true17, %do.end
-  %fText32 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call i32 @utext_next32_75(ptr noundef %fText32)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv31, %cond.true ], [ %call, %cond.false ]
-  store i32 %cond, ptr %c, align 4
-  %27 = load i32, ptr %c, align 4
-  %cmp33 = icmp eq i32 %27, -1
-  br i1 %cmp33, label %if.then34, label %if.end35
-
-if.then34:                                        ; preds = %cond.end
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  store i8 1, ptr %fDone, align 8
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end35:                                         ; preds = %cond.end
-  store i32 1, ptr %state, align 4
-  %28 = load ptr, ptr %tableData, align 8
-  %29 = load i32, ptr %tableRowLen, align 4
-  %30 = load i32, ptr %state, align 4
-  %mul = mul i32 %29, %30
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %idx.ext
-  store ptr %add.ptr, ptr %row, align 8
-  store i32 1, ptr %mode, align 4
-  %31 = load ptr, ptr %statetable, align 8
-  %fFlags = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %31, i32 0, i32 4
-  %32 = load i32, ptr %fFlags, align 4
-  %and = and i32 %32, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then36, label %if.end37
-
-if.then36:                                        ; preds = %if.end35
-  store i16 2, ptr %category, align 2
-  store i32 0, ptr %mode, align 4
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then36, %if.end35
-  br label %for.cond
-
-for.cond:                                         ; preds = %if.end168, %if.end37
-  %33 = load i32, ptr %c, align 4
-  %cmp38 = icmp eq i32 %33, -1
-  br i1 %cmp38, label %if.then39, label %if.end43
-
-if.then39:                                        ; preds = %for.cond
-  %34 = load i32, ptr %mode, align 4
-  %cmp40 = icmp eq i32 %34, 2
-  br i1 %cmp40, label %if.then41, label %if.end42
-
-if.then41:                                        ; preds = %if.then39
-  br label %for.end
-
-if.end42:                                         ; preds = %if.then39
-  store i32 2, ptr %mode, align 4
-  store i16 1, ptr %category, align 2
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.end42, %for.cond
-  %35 = load i32, ptr %mode, align 4
-  %cmp44 = icmp eq i32 %35, 1
-  br i1 %cmp44, label %if.then45, label %if.end52
-
-if.then45:                                        ; preds = %if.end43
-  %fData46 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %36 = load ptr, ptr %fData46, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %36, i32 0, i32 7
-  %37 = load ptr, ptr %fTrie, align 8
-  %38 = load i32, ptr %c, align 4
-  %call47 = call noundef zeroext i16 @_ZN6icu_75L10TrieFunc16EPK7UCPTriei(ptr noundef %37, i32 noundef %38)
-  store i16 %call47, ptr %category, align 2
-  %39 = load i16, ptr %category, align 2
-  %conv48 = zext i16 %39 to i32
-  %40 = load i32, ptr %dictStart, align 4
-  %cmp49 = icmp uge i32 %conv48, %40
-  %conv50 = zext i1 %cmp49 to i32
-  %fDictionaryCharCount51 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 12
-  %41 = load i32, ptr %fDictionaryCharCount51, align 8
-  %add = add i32 %41, %conv50
-  store i32 %add, ptr %fDictionaryCharCount51, align 8
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.then45, %if.end43
-  %42 = load ptr, ptr %row, align 8
-  %fNextState = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %42, i32 0, i32 3
-  %43 = load i16, ptr %category, align 2
-  %idxprom53 = zext i16 %43 to i64
-  %arrayidx54 = getelementptr inbounds [1 x i8], ptr %fNextState, i64 0, i64 %idxprom53
-  %44 = load i8, ptr %arrayidx54, align 1
-  %conv55 = zext i8 %44 to i32
-  store i32 %conv55, ptr %state, align 4
-  %45 = load ptr, ptr %tableData, align 8
-  %46 = load i32, ptr %tableRowLen, align 4
-  %47 = load i32, ptr %state, align 4
-  %mul56 = mul i32 %46, %47
-  %idx.ext57 = zext i32 %mul56 to i64
-  %add.ptr58 = getelementptr inbounds i8, ptr %45, i64 %idx.ext57
-  store ptr %add.ptr58, ptr %row, align 8
-  %48 = load ptr, ptr %row, align 8
-  %fAccepting = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %48, i32 0, i32 0
-  %49 = load i8, ptr %fAccepting, align 1
-  %conv59 = zext i8 %49 to i16
-  store i16 %conv59, ptr %accepting, align 2
-  %50 = load i16, ptr %accepting, align 2
-  %conv60 = zext i16 %50 to i32
-  %cmp61 = icmp eq i32 %conv60, 1
-  br i1 %cmp61, label %if.then62, label %if.else87
-
-if.then62:                                        ; preds = %if.end52
-  %51 = load i32, ptr %mode, align 4
-  %cmp63 = icmp ne i32 %51, 0
-  br i1 %cmp63, label %if.then64, label %if.end84
-
-if.then64:                                        ; preds = %if.then62
-  %fText65 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset66 = getelementptr inbounds %struct.UText, ptr %fText65, i32 0, i32 8
-  %52 = load i32, ptr %chunkOffset66, align 8
-  %fText67 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit68 = getelementptr inbounds %struct.UText, ptr %fText67, i32 0, i32 6
-  %53 = load i32, ptr %nativeIndexingLimit68, align 4
-  %cmp69 = icmp sle i32 %52, %53
-  br i1 %cmp69, label %cond.true70, label %cond.false77
-
-cond.true70:                                      ; preds = %if.then64
-  %fText71 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart72 = getelementptr inbounds %struct.UText, ptr %fText71, i32 0, i32 7
-  %54 = load i64, ptr %chunkNativeStart72, align 8
-  %fText73 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset74 = getelementptr inbounds %struct.UText, ptr %fText73, i32 0, i32 8
-  %55 = load i32, ptr %chunkOffset74, align 8
-  %conv75 = sext i32 %55 to i64
-  %add76 = add nsw i64 %54, %conv75
-  br label %cond.end81
-
-cond.false77:                                     ; preds = %if.then64
-  %fText78 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %fText78, i32 0, i32 11
-  %56 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %56, i32 0, i32 10
-  %57 = load ptr, ptr %mapOffsetToNative, align 8
-  %fText79 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call80 = call noundef i64 %57(ptr noundef %fText79)
-  br label %cond.end81
-
-cond.end81:                                       ; preds = %cond.false77, %cond.true70
-  %cond82 = phi i64 [ %add76, %cond.true70 ], [ %call80, %cond.false77 ]
-  %conv83 = trunc i64 %cond82 to i32
-  store i32 %conv83, ptr %result, align 4
-  br label %if.end84
-
-if.end84:                                         ; preds = %cond.end81, %if.then62
-  %58 = load ptr, ptr %row, align 8
-  %fTagsIdx = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %58, i32 0, i32 2
-  %59 = load i8, ptr %fTagsIdx, align 1
-  %conv85 = zext i8 %59 to i32
-  %fRuleStatusIndex86 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 %conv85, ptr %fRuleStatusIndex86, align 8
-  br label %if.end101
-
-if.else87:                                        ; preds = %if.end52
-  %60 = load i16, ptr %accepting, align 2
-  %conv88 = zext i16 %60 to i32
-  %cmp89 = icmp sgt i32 %conv88, 1
-  br i1 %cmp89, label %if.then90, label %if.end100
-
-if.then90:                                        ; preds = %if.else87
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %61 = load ptr, ptr %fLookAheadMatches, align 8
-  %62 = load i16, ptr %accepting, align 2
-  %idxprom91 = zext i16 %62 to i64
-  %arrayidx92 = getelementptr inbounds i32, ptr %61, i64 %idxprom91
-  %63 = load i32, ptr %arrayidx92, align 4
-  store i32 %63, ptr %lookaheadResult, align 4
-  %64 = load i32, ptr %lookaheadResult, align 4
-  %cmp93 = icmp sge i32 %64, 0
-  br i1 %cmp93, label %if.then94, label %if.end99
-
-if.then94:                                        ; preds = %if.then90
-  %65 = load ptr, ptr %row, align 8
-  %fTagsIdx95 = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %65, i32 0, i32 2
-  %66 = load i8, ptr %fTagsIdx95, align 1
-  %conv96 = zext i8 %66 to i32
-  %fRuleStatusIndex97 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 %conv96, ptr %fRuleStatusIndex97, align 8
-  %67 = load i32, ptr %lookaheadResult, align 4
-  %fPosition98 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 %67, ptr %fPosition98, align 4
-  %68 = load i32, ptr %lookaheadResult, align 4
-  store i32 %68, ptr %retval, align 4
-  br label %return
-
-if.end99:                                         ; preds = %if.then90
-  br label %if.end100
-
-if.end100:                                        ; preds = %if.end99, %if.else87
-  br label %if.end101
-
-if.end101:                                        ; preds = %if.end100, %if.end84
-  %69 = load ptr, ptr %row, align 8
-  %fLookAhead = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %69, i32 0, i32 1
-  %70 = load i8, ptr %fLookAhead, align 1
-  %conv102 = zext i8 %70 to i16
-  store i16 %conv102, ptr %rule, align 2
-  %71 = load i16, ptr %rule, align 2
-  %conv103 = zext i16 %71 to i32
-  %cmp104 = icmp sgt i32 %conv103, 1
-  br i1 %cmp104, label %if.then105, label %if.end130
-
-if.then105:                                       ; preds = %if.end101
-  %fText106 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset107 = getelementptr inbounds %struct.UText, ptr %fText106, i32 0, i32 8
-  %72 = load i32, ptr %chunkOffset107, align 8
-  %fText108 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit109 = getelementptr inbounds %struct.UText, ptr %fText108, i32 0, i32 6
-  %73 = load i32, ptr %nativeIndexingLimit109, align 4
-  %cmp110 = icmp sle i32 %72, %73
-  br i1 %cmp110, label %cond.true111, label %cond.false118
-
-cond.true111:                                     ; preds = %if.then105
-  %fText112 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart113 = getelementptr inbounds %struct.UText, ptr %fText112, i32 0, i32 7
-  %74 = load i64, ptr %chunkNativeStart113, align 8
-  %fText114 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset115 = getelementptr inbounds %struct.UText, ptr %fText114, i32 0, i32 8
-  %75 = load i32, ptr %chunkOffset115, align 8
-  %conv116 = sext i32 %75 to i64
-  %add117 = add nsw i64 %74, %conv116
-  br label %cond.end124
-
-cond.false118:                                    ; preds = %if.then105
-  %fText119 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs120 = getelementptr inbounds %struct.UText, ptr %fText119, i32 0, i32 11
-  %76 = load ptr, ptr %pFuncs120, align 8
-  %mapOffsetToNative121 = getelementptr inbounds %struct.UTextFuncs, ptr %76, i32 0, i32 10
-  %77 = load ptr, ptr %mapOffsetToNative121, align 8
-  %fText122 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call123 = call noundef i64 %77(ptr noundef %fText122)
-  br label %cond.end124
-
-cond.end124:                                      ; preds = %cond.false118, %cond.true111
-  %cond125 = phi i64 [ %add117, %cond.true111 ], [ %call123, %cond.false118 ]
-  %conv126 = trunc i64 %cond125 to i32
-  store i32 %conv126, ptr %pos, align 4
-  %78 = load i32, ptr %pos, align 4
-  %fLookAheadMatches127 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %79 = load ptr, ptr %fLookAheadMatches127, align 8
-  %80 = load i16, ptr %rule, align 2
-  %idxprom128 = zext i16 %80 to i64
-  %arrayidx129 = getelementptr inbounds i32, ptr %79, i64 %idxprom128
-  store i32 %78, ptr %arrayidx129, align 4
-  br label %if.end130
-
-if.end130:                                        ; preds = %cond.end124, %if.end101
-  %81 = load i32, ptr %state, align 4
-  %cmp131 = icmp eq i32 %81, 0
-  br i1 %cmp131, label %if.then132, label %if.end133
-
-if.then132:                                       ; preds = %if.end130
-  br label %for.end
-
-if.end133:                                        ; preds = %if.end130
-  %82 = load i32, ptr %mode, align 4
-  %cmp134 = icmp eq i32 %82, 1
-  br i1 %cmp134, label %if.then135, label %if.else164
-
-if.then135:                                       ; preds = %if.end133
-  %fText136 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset137 = getelementptr inbounds %struct.UText, ptr %fText136, i32 0, i32 8
-  %83 = load i32, ptr %chunkOffset137, align 8
-  %fText138 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkLength139 = getelementptr inbounds %struct.UText, ptr %fText138, i32 0, i32 9
-  %84 = load i32, ptr %chunkLength139, align 4
-  %cmp140 = icmp slt i32 %83, %84
-  br i1 %cmp140, label %land.lhs.true141, label %cond.false159
-
-land.lhs.true141:                                 ; preds = %if.then135
-  %fText142 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents143 = getelementptr inbounds %struct.UText, ptr %fText142, i32 0, i32 10
-  %85 = load ptr, ptr %chunkContents143, align 8
-  %fText144 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset145 = getelementptr inbounds %struct.UText, ptr %fText144, i32 0, i32 8
-  %86 = load i32, ptr %chunkOffset145, align 8
-  %idxprom146 = sext i32 %86 to i64
-  %arrayidx147 = getelementptr inbounds i16, ptr %85, i64 %idxprom146
-  %87 = load i16, ptr %arrayidx147, align 2
-  %conv148 = zext i16 %87 to i32
-  %cmp149 = icmp slt i32 %conv148, 55296
-  br i1 %cmp149, label %cond.true150, label %cond.false159
-
-cond.true150:                                     ; preds = %land.lhs.true141
-  %fText151 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents152 = getelementptr inbounds %struct.UText, ptr %fText151, i32 0, i32 10
-  %88 = load ptr, ptr %chunkContents152, align 8
-  %fText153 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset154 = getelementptr inbounds %struct.UText, ptr %fText153, i32 0, i32 8
-  %89 = load i32, ptr %chunkOffset154, align 8
-  %inc155 = add nsw i32 %89, 1
-  store i32 %inc155, ptr %chunkOffset154, align 8
-  %idxprom156 = sext i32 %89 to i64
-  %arrayidx157 = getelementptr inbounds i16, ptr %88, i64 %idxprom156
-  %90 = load i16, ptr %arrayidx157, align 2
-  %conv158 = zext i16 %90 to i32
-  br label %cond.end162
-
-cond.false159:                                    ; preds = %land.lhs.true141, %if.then135
-  %fText160 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call161 = call i32 @utext_next32_75(ptr noundef %fText160)
-  br label %cond.end162
-
-cond.end162:                                      ; preds = %cond.false159, %cond.true150
-  %cond163 = phi i32 [ %conv158, %cond.true150 ], [ %call161, %cond.false159 ]
-  store i32 %cond163, ptr %c, align 4
-  br label %if.end168
-
-if.else164:                                       ; preds = %if.end133
-  %91 = load i32, ptr %mode, align 4
-  %cmp165 = icmp eq i32 %91, 0
-  br i1 %cmp165, label %if.then166, label %if.end167
-
-if.then166:                                       ; preds = %if.else164
-  store i32 1, ptr %mode, align 4
-  br label %if.end167
-
-if.end167:                                        ; preds = %if.then166, %if.else164
-  br label %if.end168
-
-if.end168:                                        ; preds = %if.end167, %cond.end162
-  br label %for.cond, !llvm.loop !9
-
-for.end:                                          ; preds = %if.then132, %if.then41
-  %92 = load i32, ptr %result, align 4
-  %93 = load i32, ptr %initialPosition, align 4
-  %cmp169 = icmp eq i32 %92, %93
-  br i1 %cmp169, label %if.then170, label %if.end179
-
-if.then170:                                       ; preds = %for.end
-  %fText171 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %94 = load i32, ptr %initialPosition, align 4
-  %conv172 = sext i32 %94 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText171, i64 noundef %conv172)
-  %fText173 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call174 = call i32 @utext_next32_75(ptr noundef %fText173)
-  %fText175 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call176 = call i64 @utext_getNativeIndex_75(ptr noundef %fText175)
-  %conv177 = trunc i64 %call176 to i32
-  store i32 %conv177, ptr %result, align 4
-  %fRuleStatusIndex178 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %fRuleStatusIndex178, align 8
-  br label %if.end179
-
-if.end179:                                        ; preds = %if.then170, %for.end
-  %95 = load i32, ptr %result, align 4
-  %fPosition180 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 %95, ptr %fPosition180, align 4
-  %96 = load i32, ptr %result, align 4
-  store i32 %96, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end179, %if.then94, %if.then34
-  %97 = load i32, ptr %retval, align 4
-  ret i32 %97
+define internal noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(297) %0) #1 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i16, align 2
+  %18 = alloca i32, align 4
+  %19 = alloca i16, align 2
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %21 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #10
+  store i16 0, ptr %5, align 2, !tbaa !134
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store i32 0, ptr %9, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  store ptr %25, ptr %11, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %26 = load ptr, ptr %11, align 8, !tbaa !137
+  %27 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %26, i32 0, i32 5
+  %28 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 0
+  store ptr %28, ptr %12, align 8, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %29 = load ptr, ptr %11, align 8, !tbaa !137
+  %30 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4, !tbaa !140
+  store i32 %31, ptr %13, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %32 = load ptr, ptr %11, align 8, !tbaa !137
+  %33 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %32, i32 0, i32 2
+  %34 = load i32, ptr %33, align 4, !tbaa !141
+  store i32 %34, ptr %14, align 4, !tbaa !87
+  %35 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 0, ptr %35, align 8, !tbaa !75
+  %36 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 11
+  store i32 0, ptr %36, align 8, !tbaa !80
+  %37 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  %38 = load i32, ptr %37, align 4, !tbaa !74
+  store i32 %38, ptr %10, align 4, !tbaa !87
+  br label %39
+
+39:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %40 = load i32, ptr %10, align 4, !tbaa !87
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.UText, ptr %42, i32 0, i32 7
+  %44 = load i64, ptr %43, align 8, !tbaa !142
+  %45 = sub nsw i64 %41, %44
+  store i64 %45, ptr %15, align 8, !tbaa !124
+  %46 = load i64, ptr %15, align 8, !tbaa !124
+  %47 = icmp sge i64 %46, 0
+  br i1 %47, label %48, label %69
+
+48:                                               ; preds = %39
+  %49 = load i64, ptr %15, align 8, !tbaa !124
+  %50 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %struct.UText, ptr %50, i32 0, i32 6
+  %52 = load i32, ptr %51, align 4, !tbaa !143
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %49, %53
+  br i1 %54, label %55, label %69
+
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct.UText, ptr %56, i32 0, i32 10
+  %58 = load ptr, ptr %57, align 8, !tbaa !144
+  %59 = load i64, ptr %15, align 8, !tbaa !124
+  %60 = getelementptr inbounds i16, ptr %58, i64 %59
+  %61 = load i16, ptr %60, align 2, !tbaa !145
+  %62 = zext i16 %61 to i32
+  %63 = icmp slt i32 %62, 56320
+  br i1 %63, label %64, label %69
+
+64:                                               ; preds = %55
+  %65 = load i64, ptr %15, align 8, !tbaa !124
+  %66 = trunc i64 %65 to i32
+  %67 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.UText, ptr %67, i32 0, i32 8
+  store i32 %66, ptr %68, align 8, !tbaa !147
+  br label %73
+
+69:                                               ; preds = %55, %48, %39
+  %70 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %71 = load i32, ptr %10, align 4, !tbaa !87
+  %72 = sext i32 %71 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %70, i64 noundef %72)
+  br label %73
+
+73:                                               ; preds = %69, %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  br label %74
+
+74:                                               ; preds = %73
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %76, ptr %9, align 4, !tbaa !87
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.UText, ptr %77, i32 0, i32 8
+  %79 = load i32, ptr %78, align 8, !tbaa !147
+  %80 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %81 = getelementptr inbounds nuw %struct.UText, ptr %80, i32 0, i32 9
+  %82 = load i32, ptr %81, align 4, !tbaa !148
+  %83 = icmp slt i32 %79, %82
+  br i1 %83, label %84, label %108
+
+84:                                               ; preds = %75
+  %85 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %86 = getelementptr inbounds nuw %struct.UText, ptr %85, i32 0, i32 10
+  %87 = load ptr, ptr %86, align 8, !tbaa !144
+  %88 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %89 = getelementptr inbounds nuw %struct.UText, ptr %88, i32 0, i32 8
+  %90 = load i32, ptr %89, align 8, !tbaa !147
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i16, ptr %87, i64 %91
+  %93 = load i16, ptr %92, align 2, !tbaa !145
+  %94 = zext i16 %93 to i32
+  %95 = icmp slt i32 %94, 55296
+  br i1 %95, label %96, label %108
+
+96:                                               ; preds = %84
+  %97 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.UText, ptr %97, i32 0, i32 10
+  %99 = load ptr, ptr %98, align 8, !tbaa !144
+  %100 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %101 = getelementptr inbounds nuw %struct.UText, ptr %100, i32 0, i32 8
+  %102 = load i32, ptr %101, align 8, !tbaa !147
+  %103 = add nsw i32 %102, 1
+  store i32 %103, ptr %101, align 8, !tbaa !147
+  %104 = sext i32 %102 to i64
+  %105 = getelementptr inbounds i16, ptr %99, i64 %104
+  %106 = load i16, ptr %105, align 2, !tbaa !145
+  %107 = zext i16 %106 to i32
+  br label %111
+
+108:                                              ; preds = %84, %75
+  %109 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %110 = call i32 @utext_next32_77(ptr noundef %109)
+  br label %111
+
+111:                                              ; preds = %108, %96
+  %112 = phi i32 [ %107, %96 ], [ %110, %108 ]
+  store i32 %112, ptr %8, align 4, !tbaa !87
+  %113 = load i32, ptr %8, align 4, !tbaa !87
+  %114 = icmp eq i32 %113, -1
+  br i1 %114, label %115, label %117
+
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 15
+  store i8 1, ptr %116, align 8, !tbaa !82
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %356
+
+117:                                              ; preds = %111
+  store i32 1, ptr %4, align 4, !tbaa !87
+  %118 = load ptr, ptr %12, align 8, !tbaa !86
+  %119 = load i32, ptr %13, align 4, !tbaa !87
+  %120 = load i32, ptr %4, align 4, !tbaa !87
+  %121 = mul i32 %119, %120
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 %122
+  store ptr %123, ptr %7, align 8, !tbaa !149
+  store i32 1, ptr %6, align 4, !tbaa !151
+  %124 = load ptr, ptr %11, align 8, !tbaa !137
+  %125 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %124, i32 0, i32 4
+  %126 = load i32, ptr %125, align 4, !tbaa !139
+  %127 = and i32 %126, 2
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %130
+
+129:                                              ; preds = %117
+  store i16 2, ptr %5, align 2, !tbaa !134
+  store i32 0, ptr %6, align 4, !tbaa !151
+  br label %130
+
+130:                                              ; preds = %129, %117
+  br label %131
+
+131:                                              ; preds = %337, %130
+  %132 = load i32, ptr %8, align 4, !tbaa !87
+  %133 = icmp eq i32 %132, -1
+  br i1 %133, label %134, label %139
+
+134:                                              ; preds = %131
+  %135 = load i32, ptr %6, align 4, !tbaa !151
+  %136 = icmp eq i32 %135, 2
+  br i1 %136, label %137, label %138
+
+137:                                              ; preds = %134
+  br label %338
+
+138:                                              ; preds = %134
+  store i32 2, ptr %6, align 4, !tbaa !151
+  store i16 1, ptr %5, align 2, !tbaa !134
+  br label %139
+
+139:                                              ; preds = %138, %131
+  %140 = load i32, ptr %6, align 4, !tbaa !151
+  %141 = icmp eq i32 %140, 1
+  br i1 %141, label %142, label %157
+
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 2
+  %144 = load ptr, ptr %143, align 8, !tbaa !11
+  %145 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %144, i32 0, i32 7
+  %146 = load ptr, ptr %145, align 8, !tbaa !138
+  %147 = load i32, ptr %8, align 4, !tbaa !87
+  %148 = call noundef zeroext i16 @_ZN6icu_77L9TrieFunc8EPK7UCPTriei(ptr noundef %146, i32 noundef %147)
+  store i16 %148, ptr %5, align 2, !tbaa !134
+  %149 = load i16, ptr %5, align 2, !tbaa !134
+  %150 = zext i16 %149 to i32
+  %151 = load i32, ptr %14, align 4, !tbaa !87
+  %152 = icmp uge i32 %150, %151
+  %153 = zext i1 %152 to i32
+  %154 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 11
+  %155 = load i32, ptr %154, align 8, !tbaa !80
+  %156 = add i32 %155, %153
+  store i32 %156, ptr %154, align 8, !tbaa !80
+  br label %157
+
+157:                                              ; preds = %142, %139
+  %158 = load ptr, ptr %7, align 8, !tbaa !149
+  %159 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %158, i32 0, i32 3
+  %160 = load i16, ptr %5, align 2, !tbaa !134
+  %161 = zext i16 %160 to i64
+  %162 = getelementptr inbounds nuw [1 x i8], ptr %159, i64 0, i64 %161
+  %163 = load i8, ptr %162, align 1, !tbaa !85
+  %164 = zext i8 %163 to i32
+  store i32 %164, ptr %4, align 4, !tbaa !87
+  %165 = load ptr, ptr %12, align 8, !tbaa !86
+  %166 = load i32, ptr %13, align 4, !tbaa !87
+  %167 = load i32, ptr %4, align 4, !tbaa !87
+  %168 = mul i32 %166, %167
+  %169 = zext i32 %168 to i64
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 %169
+  store ptr %170, ptr %7, align 8, !tbaa !149
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #10
+  %171 = load ptr, ptr %7, align 8, !tbaa !149
+  %172 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %171, i32 0, i32 0
+  %173 = load i8, ptr %172, align 1, !tbaa !153
+  %174 = zext i8 %173 to i16
+  store i16 %174, ptr %17, align 2, !tbaa !134
+  %175 = load i16, ptr %17, align 2, !tbaa !134
+  %176 = zext i16 %175 to i32
+  %177 = icmp eq i32 %176, 1
+  br i1 %177, label %178, label %215
+
+178:                                              ; preds = %157
+  %179 = load i32, ptr %6, align 4, !tbaa !151
+  %180 = icmp ne i32 %179, 0
+  br i1 %180, label %181, label %209
+
+181:                                              ; preds = %178
+  %182 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %183 = getelementptr inbounds nuw %struct.UText, ptr %182, i32 0, i32 8
+  %184 = load i32, ptr %183, align 8, !tbaa !147
+  %185 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %186 = getelementptr inbounds nuw %struct.UText, ptr %185, i32 0, i32 6
+  %187 = load i32, ptr %186, align 4, !tbaa !143
+  %188 = icmp sle i32 %184, %187
+  br i1 %188, label %189, label %198
+
+189:                                              ; preds = %181
+  %190 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %191 = getelementptr inbounds nuw %struct.UText, ptr %190, i32 0, i32 7
+  %192 = load i64, ptr %191, align 8, !tbaa !142
+  %193 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %194 = getelementptr inbounds nuw %struct.UText, ptr %193, i32 0, i32 8
+  %195 = load i32, ptr %194, align 8, !tbaa !147
+  %196 = sext i32 %195 to i64
+  %197 = add nsw i64 %192, %196
+  br label %206
+
+198:                                              ; preds = %181
+  %199 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %200 = getelementptr inbounds nuw %struct.UText, ptr %199, i32 0, i32 11
+  %201 = load ptr, ptr %200, align 8, !tbaa !155
+  %202 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %201, i32 0, i32 10
+  %203 = load ptr, ptr %202, align 8, !tbaa !156
+  %204 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %205 = call noundef i64 %203(ptr noundef %204)
+  br label %206
+
+206:                                              ; preds = %198, %189
+  %207 = phi i64 [ %197, %189 ], [ %205, %198 ]
+  %208 = trunc i64 %207 to i32
+  store i32 %208, ptr %9, align 4, !tbaa !87
+  br label %209
+
+209:                                              ; preds = %206, %178
+  %210 = load ptr, ptr %7, align 8, !tbaa !149
+  %211 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %210, i32 0, i32 2
+  %212 = load i8, ptr %211, align 1, !tbaa !158
+  %213 = zext i8 %212 to i32
+  %214 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 %213, ptr %214, align 8, !tbaa !75
+  br label %242
+
+215:                                              ; preds = %157
+  %216 = load i16, ptr %17, align 2, !tbaa !134
+  %217 = zext i16 %216 to i32
+  %218 = icmp sgt i32 %217, 1
+  br i1 %218, label %219, label %241
+
+219:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  %220 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 17
+  %221 = load ptr, ptr %220, align 8, !tbaa !46
+  %222 = load i16, ptr %17, align 2, !tbaa !134
+  %223 = zext i16 %222 to i64
+  %224 = getelementptr inbounds nuw i32, ptr %221, i64 %223
+  %225 = load i32, ptr %224, align 4, !tbaa !87
+  store i32 %225, ptr %18, align 4, !tbaa !87
+  %226 = load i32, ptr %18, align 4, !tbaa !87
+  %227 = icmp sge i32 %226, 0
+  br i1 %227, label %228, label %237
+
+228:                                              ; preds = %219
+  %229 = load ptr, ptr %7, align 8, !tbaa !149
+  %230 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %229, i32 0, i32 2
+  %231 = load i8, ptr %230, align 1, !tbaa !158
+  %232 = zext i8 %231 to i32
+  %233 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 %232, ptr %233, align 8, !tbaa !75
+  %234 = load i32, ptr %18, align 4, !tbaa !87
+  %235 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  store i32 %234, ptr %235, align 4, !tbaa !74
+  %236 = load i32, ptr %18, align 4, !tbaa !87
+  store i32 %236, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %238
+
+237:                                              ; preds = %219
+  store i32 0, ptr %16, align 4
+  br label %238
+
+238:                                              ; preds = %237, %228
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  %239 = load i32, ptr %16, align 4
+  switch i32 %239, label %335 [
+    i32 0, label %240
+  ]
+
+240:                                              ; preds = %238
+  br label %241
+
+241:                                              ; preds = %240, %215
+  br label %242
+
+242:                                              ; preds = %241, %209
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #10
+  %243 = load ptr, ptr %7, align 8, !tbaa !149
+  %244 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %243, i32 0, i32 1
+  %245 = load i8, ptr %244, align 1, !tbaa !159
+  %246 = zext i8 %245 to i16
+  store i16 %246, ptr %19, align 2, !tbaa !134
+  %247 = load i16, ptr %19, align 2, !tbaa !134
+  %248 = zext i16 %247 to i32
+  %249 = icmp sgt i32 %248, 1
+  br i1 %249, label %250, label %284
+
+250:                                              ; preds = %242
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  %251 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %252 = getelementptr inbounds nuw %struct.UText, ptr %251, i32 0, i32 8
+  %253 = load i32, ptr %252, align 8, !tbaa !147
+  %254 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %255 = getelementptr inbounds nuw %struct.UText, ptr %254, i32 0, i32 6
+  %256 = load i32, ptr %255, align 4, !tbaa !143
+  %257 = icmp sle i32 %253, %256
+  br i1 %257, label %258, label %267
+
+258:                                              ; preds = %250
+  %259 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %260 = getelementptr inbounds nuw %struct.UText, ptr %259, i32 0, i32 7
+  %261 = load i64, ptr %260, align 8, !tbaa !142
+  %262 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %263 = getelementptr inbounds nuw %struct.UText, ptr %262, i32 0, i32 8
+  %264 = load i32, ptr %263, align 8, !tbaa !147
+  %265 = sext i32 %264 to i64
+  %266 = add nsw i64 %261, %265
+  br label %275
+
+267:                                              ; preds = %250
+  %268 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %269 = getelementptr inbounds nuw %struct.UText, ptr %268, i32 0, i32 11
+  %270 = load ptr, ptr %269, align 8, !tbaa !155
+  %271 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %270, i32 0, i32 10
+  %272 = load ptr, ptr %271, align 8, !tbaa !156
+  %273 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %274 = call noundef i64 %272(ptr noundef %273)
+  br label %275
+
+275:                                              ; preds = %267, %258
+  %276 = phi i64 [ %266, %258 ], [ %274, %267 ]
+  %277 = trunc i64 %276 to i32
+  store i32 %277, ptr %20, align 4, !tbaa !87
+  %278 = load i32, ptr %20, align 4, !tbaa !87
+  %279 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 17
+  %280 = load ptr, ptr %279, align 8, !tbaa !46
+  %281 = load i16, ptr %19, align 2, !tbaa !134
+  %282 = zext i16 %281 to i64
+  %283 = getelementptr inbounds nuw i32, ptr %280, i64 %282
+  store i32 %278, ptr %283, align 4, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  br label %284
+
+284:                                              ; preds = %275, %242
+  %285 = load i32, ptr %4, align 4, !tbaa !87
+  %286 = icmp eq i32 %285, 0
+  br i1 %286, label %287, label %288
+
+287:                                              ; preds = %284
+  store i32 4, ptr %16, align 4
+  br label %334
+
+288:                                              ; preds = %284
+  %289 = load i32, ptr %6, align 4, !tbaa !151
+  %290 = icmp eq i32 %289, 1
+  br i1 %290, label %291, label %328
+
+291:                                              ; preds = %288
+  %292 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %293 = getelementptr inbounds nuw %struct.UText, ptr %292, i32 0, i32 8
+  %294 = load i32, ptr %293, align 8, !tbaa !147
+  %295 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %296 = getelementptr inbounds nuw %struct.UText, ptr %295, i32 0, i32 9
+  %297 = load i32, ptr %296, align 4, !tbaa !148
+  %298 = icmp slt i32 %294, %297
+  br i1 %298, label %299, label %323
+
+299:                                              ; preds = %291
+  %300 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %301 = getelementptr inbounds nuw %struct.UText, ptr %300, i32 0, i32 10
+  %302 = load ptr, ptr %301, align 8, !tbaa !144
+  %303 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %304 = getelementptr inbounds nuw %struct.UText, ptr %303, i32 0, i32 8
+  %305 = load i32, ptr %304, align 8, !tbaa !147
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr inbounds i16, ptr %302, i64 %306
+  %308 = load i16, ptr %307, align 2, !tbaa !145
+  %309 = zext i16 %308 to i32
+  %310 = icmp slt i32 %309, 55296
+  br i1 %310, label %311, label %323
+
+311:                                              ; preds = %299
+  %312 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %313 = getelementptr inbounds nuw %struct.UText, ptr %312, i32 0, i32 10
+  %314 = load ptr, ptr %313, align 8, !tbaa !144
+  %315 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %316 = getelementptr inbounds nuw %struct.UText, ptr %315, i32 0, i32 8
+  %317 = load i32, ptr %316, align 8, !tbaa !147
+  %318 = add nsw i32 %317, 1
+  store i32 %318, ptr %316, align 8, !tbaa !147
+  %319 = sext i32 %317 to i64
+  %320 = getelementptr inbounds i16, ptr %314, i64 %319
+  %321 = load i16, ptr %320, align 2, !tbaa !145
+  %322 = zext i16 %321 to i32
+  br label %326
+
+323:                                              ; preds = %299, %291
+  %324 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %325 = call i32 @utext_next32_77(ptr noundef %324)
+  br label %326
+
+326:                                              ; preds = %323, %311
+  %327 = phi i32 [ %322, %311 ], [ %325, %323 ]
+  store i32 %327, ptr %8, align 4, !tbaa !87
+  br label %333
+
+328:                                              ; preds = %288
+  %329 = load i32, ptr %6, align 4, !tbaa !151
+  %330 = icmp eq i32 %329, 0
+  br i1 %330, label %331, label %332
+
+331:                                              ; preds = %328
+  store i32 1, ptr %6, align 4, !tbaa !151
+  br label %332
+
+332:                                              ; preds = %331, %328
+  br label %333
+
+333:                                              ; preds = %332, %326
+  store i32 0, ptr %16, align 4
+  br label %334
+
+334:                                              ; preds = %333, %287
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #10
+  br label %335
+
+335:                                              ; preds = %334, %238
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #10
+  %336 = load i32, ptr %16, align 4
+  switch i32 %336, label %356 [
+    i32 0, label %337
+    i32 4, label %338
+  ]
+
+337:                                              ; preds = %335
+  br label %131, !llvm.loop !160
+
+338:                                              ; preds = %335, %137
+  %339 = load i32, ptr %9, align 4, !tbaa !87
+  %340 = load i32, ptr %10, align 4, !tbaa !87
+  %341 = icmp eq i32 %339, %340
+  br i1 %341, label %342, label %352
+
+342:                                              ; preds = %338
+  %343 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %344 = load i32, ptr %10, align 4, !tbaa !87
+  %345 = sext i32 %344 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %343, i64 noundef %345)
+  %346 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %347 = call i32 @utext_next32_77(ptr noundef %346)
+  %348 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %349 = call i64 @utext_getNativeIndex_77(ptr noundef %348)
+  %350 = trunc i64 %349 to i32
+  store i32 %350, ptr %9, align 4, !tbaa !87
+  %351 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 0, ptr %351, align 8, !tbaa !75
+  br label %352
+
+352:                                              ; preds = %342, %338
+  %353 = load i32, ptr %9, align 4, !tbaa !87
+  %354 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  store i32 %353, ptr %354, align 4, !tbaa !74
+  %355 = load i32, ptr %9, align 4, !tbaa !87
+  store i32 %355, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %356
+
+356:                                              ; preds = %352, %335, %115
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  %357 = load i32, ptr %2, align 4
+  ret i32 %357
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTItEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(745) %this) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %state = alloca i32, align 4
-  %category = alloca i16, align 2
-  %mode = alloca i32, align 4
-  %row = alloca ptr, align 8
-  %c = alloca i32, align 4
-  %result = alloca i32, align 4
-  %initialPosition = alloca i32, align 4
-  %statetable = alloca ptr, align 8
-  %tableData = alloca ptr, align 8
-  %tableRowLen = alloca i32, align 4
-  %dictStart = alloca i32, align 4
-  %__offset = alloca i64, align 8
-  %accepting = alloca i16, align 2
-  %lookaheadResult = alloca i32, align 4
-  %rule = alloca i16, align 2
-  %pos = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i16 0, ptr %category, align 2
-  store i32 0, ptr %result, align 4
-  store i32 0, ptr %initialPosition, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %fForwardTable, align 8
-  store ptr %1, ptr %statetable, align 8
-  %2 = load ptr, ptr %statetable, align 8
-  %fTableData = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %2, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %fTableData, i64 0, i64 0
-  store ptr %arraydecay, ptr %tableData, align 8
-  %3 = load ptr, ptr %statetable, align 8
-  %fRowLen = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %fRowLen, align 4
-  store i32 %4, ptr %tableRowLen, align 4
-  %5 = load ptr, ptr %statetable, align 8
-  %fDictCategoriesStart = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %fDictCategoriesStart, align 4
-  store i32 %6, ptr %dictStart, align 4
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %fRuleStatusIndex, align 8
-  %fDictionaryCharCount = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 12
-  store i32 0, ptr %fDictionaryCharCount, align 8
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %7 = load i32, ptr %fPosition, align 4
-  store i32 %7, ptr %initialPosition, align 4
-  br label %do.body
+define internal noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTIhEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(297) %0) #1 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i16, align 2
+  %18 = alloca i32, align 4
+  %19 = alloca i16, align 2
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %21 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #10
+  store i16 0, ptr %5, align 2, !tbaa !134
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store i32 0, ptr %9, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  store ptr %25, ptr %11, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %26 = load ptr, ptr %11, align 8, !tbaa !137
+  %27 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %26, i32 0, i32 5
+  %28 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 0
+  store ptr %28, ptr %12, align 8, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %29 = load ptr, ptr %11, align 8, !tbaa !137
+  %30 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4, !tbaa !140
+  store i32 %31, ptr %13, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %32 = load ptr, ptr %11, align 8, !tbaa !137
+  %33 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %32, i32 0, i32 2
+  %34 = load i32, ptr %33, align 4, !tbaa !141
+  store i32 %34, ptr %14, align 4, !tbaa !87
+  %35 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 0, ptr %35, align 8, !tbaa !75
+  %36 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 11
+  store i32 0, ptr %36, align 8, !tbaa !80
+  %37 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  %38 = load i32, ptr %37, align 4, !tbaa !74
+  store i32 %38, ptr %10, align 4, !tbaa !87
+  br label %39
 
-do.body:                                          ; preds = %entry
-  %8 = load i32, ptr %initialPosition, align 4
-  %conv = sext i32 %8 to i64
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 7
-  %9 = load i64, ptr %chunkNativeStart, align 8
-  %sub = sub nsw i64 %conv, %9
-  store i64 %sub, ptr %__offset, align 8
-  %10 = load i64, ptr %__offset, align 8
-  %cmp = icmp sge i64 %10, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+39:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %40 = load i32, ptr %10, align 4, !tbaa !87
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.UText, ptr %42, i32 0, i32 7
+  %44 = load i64, ptr %43, align 8, !tbaa !142
+  %45 = sub nsw i64 %41, %44
+  store i64 %45, ptr %15, align 8, !tbaa !124
+  %46 = load i64, ptr %15, align 8, !tbaa !124
+  %47 = icmp sge i64 %46, 0
+  br i1 %47, label %48, label %69
 
-land.lhs.true:                                    ; preds = %do.body
-  %11 = load i64, ptr %__offset, align 8
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %fText2, i32 0, i32 6
-  %12 = load i32, ptr %nativeIndexingLimit, align 4
-  %conv3 = sext i32 %12 to i64
-  %cmp4 = icmp slt i64 %11, %conv3
-  br i1 %cmp4, label %land.lhs.true5, label %if.else
+48:                                               ; preds = %39
+  %49 = load i64, ptr %15, align 8, !tbaa !124
+  %50 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %struct.UText, ptr %50, i32 0, i32 6
+  %52 = load i32, ptr %51, align 4, !tbaa !143
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %49, %53
+  br i1 %54, label %55, label %69
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fText6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %fText6, i32 0, i32 10
-  %13 = load ptr, ptr %chunkContents, align 8
-  %14 = load i64, ptr %__offset, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %13, i64 %14
-  %15 = load i16, ptr %arrayidx, align 2
-  %conv7 = zext i16 %15 to i32
-  %cmp8 = icmp slt i32 %conv7, 56320
-  br i1 %cmp8, label %if.then, label %if.else
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct.UText, ptr %56, i32 0, i32 10
+  %58 = load ptr, ptr %57, align 8, !tbaa !144
+  %59 = load i64, ptr %15, align 8, !tbaa !124
+  %60 = getelementptr inbounds i16, ptr %58, i64 %59
+  %61 = load i16, ptr %60, align 2, !tbaa !145
+  %62 = zext i16 %61 to i32
+  %63 = icmp slt i32 %62, 56320
+  br i1 %63, label %64, label %69
 
-if.then:                                          ; preds = %land.lhs.true5
-  %16 = load i64, ptr %__offset, align 8
-  %conv9 = trunc i64 %16 to i32
-  %fText10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %fText10, i32 0, i32 8
-  store i32 %conv9, ptr %chunkOffset, align 8
-  br label %if.end
+64:                                               ; preds = %55
+  %65 = load i64, ptr %15, align 8, !tbaa !124
+  %66 = trunc i64 %65 to i32
+  %67 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.UText, ptr %67, i32 0, i32 8
+  store i32 %66, ptr %68, align 8, !tbaa !147
+  br label %73
 
-if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true, %do.body
-  %fText11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %17 = load i32, ptr %initialPosition, align 4
-  %conv12 = sext i32 %17 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText11, i64 noundef %conv12)
-  br label %if.end
+69:                                               ; preds = %55, %48, %39
+  %70 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %71 = load i32, ptr %10, align 4, !tbaa !87
+  %72 = sext i32 %71 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %70, i64 noundef %72)
+  br label %73
 
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
+73:                                               ; preds = %69, %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  br label %74
 
-do.end:                                           ; preds = %if.end
-  %18 = load i32, ptr %initialPosition, align 4
-  store i32 %18, ptr %result, align 4
-  %fText13 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset14 = getelementptr inbounds %struct.UText, ptr %fText13, i32 0, i32 8
-  %19 = load i32, ptr %chunkOffset14, align 8
-  %fText15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %fText15, i32 0, i32 9
-  %20 = load i32, ptr %chunkLength, align 4
-  %cmp16 = icmp slt i32 %19, %20
-  br i1 %cmp16, label %land.lhs.true17, label %cond.false
+74:                                               ; preds = %73
+  br label %75
 
-land.lhs.true17:                                  ; preds = %do.end
-  %fText18 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents19 = getelementptr inbounds %struct.UText, ptr %fText18, i32 0, i32 10
-  %21 = load ptr, ptr %chunkContents19, align 8
-  %fText20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset21 = getelementptr inbounds %struct.UText, ptr %fText20, i32 0, i32 8
-  %22 = load i32, ptr %chunkOffset21, align 8
-  %idxprom = sext i32 %22 to i64
-  %arrayidx22 = getelementptr inbounds i16, ptr %21, i64 %idxprom
-  %23 = load i16, ptr %arrayidx22, align 2
-  %conv23 = zext i16 %23 to i32
-  %cmp24 = icmp slt i32 %conv23, 55296
-  br i1 %cmp24, label %cond.true, label %cond.false
+75:                                               ; preds = %74
+  %76 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %76, ptr %9, align 4, !tbaa !87
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.UText, ptr %77, i32 0, i32 8
+  %79 = load i32, ptr %78, align 8, !tbaa !147
+  %80 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %81 = getelementptr inbounds nuw %struct.UText, ptr %80, i32 0, i32 9
+  %82 = load i32, ptr %81, align 4, !tbaa !148
+  %83 = icmp slt i32 %79, %82
+  br i1 %83, label %84, label %108
 
-cond.true:                                        ; preds = %land.lhs.true17
-  %fText25 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents26 = getelementptr inbounds %struct.UText, ptr %fText25, i32 0, i32 10
-  %24 = load ptr, ptr %chunkContents26, align 8
-  %fText27 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset28 = getelementptr inbounds %struct.UText, ptr %fText27, i32 0, i32 8
-  %25 = load i32, ptr %chunkOffset28, align 8
-  %inc = add nsw i32 %25, 1
-  store i32 %inc, ptr %chunkOffset28, align 8
-  %idxprom29 = sext i32 %25 to i64
-  %arrayidx30 = getelementptr inbounds i16, ptr %24, i64 %idxprom29
-  %26 = load i16, ptr %arrayidx30, align 2
-  %conv31 = zext i16 %26 to i32
-  br label %cond.end
+84:                                               ; preds = %75
+  %85 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %86 = getelementptr inbounds nuw %struct.UText, ptr %85, i32 0, i32 10
+  %87 = load ptr, ptr %86, align 8, !tbaa !144
+  %88 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %89 = getelementptr inbounds nuw %struct.UText, ptr %88, i32 0, i32 8
+  %90 = load i32, ptr %89, align 8, !tbaa !147
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i16, ptr %87, i64 %91
+  %93 = load i16, ptr %92, align 2, !tbaa !145
+  %94 = zext i16 %93 to i32
+  %95 = icmp slt i32 %94, 55296
+  br i1 %95, label %96, label %108
 
-cond.false:                                       ; preds = %land.lhs.true17, %do.end
-  %fText32 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call i32 @utext_next32_75(ptr noundef %fText32)
-  br label %cond.end
+96:                                               ; preds = %84
+  %97 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.UText, ptr %97, i32 0, i32 10
+  %99 = load ptr, ptr %98, align 8, !tbaa !144
+  %100 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %101 = getelementptr inbounds nuw %struct.UText, ptr %100, i32 0, i32 8
+  %102 = load i32, ptr %101, align 8, !tbaa !147
+  %103 = add nsw i32 %102, 1
+  store i32 %103, ptr %101, align 8, !tbaa !147
+  %104 = sext i32 %102 to i64
+  %105 = getelementptr inbounds i16, ptr %99, i64 %104
+  %106 = load i16, ptr %105, align 2, !tbaa !145
+  %107 = zext i16 %106 to i32
+  br label %111
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv31, %cond.true ], [ %call, %cond.false ]
-  store i32 %cond, ptr %c, align 4
-  %27 = load i32, ptr %c, align 4
-  %cmp33 = icmp eq i32 %27, -1
-  br i1 %cmp33, label %if.then34, label %if.end35
+108:                                              ; preds = %84, %75
+  %109 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %110 = call i32 @utext_next32_77(ptr noundef %109)
+  br label %111
 
-if.then34:                                        ; preds = %cond.end
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  store i8 1, ptr %fDone, align 8
-  store i32 -1, ptr %retval, align 4
-  br label %return
+111:                                              ; preds = %108, %96
+  %112 = phi i32 [ %107, %96 ], [ %110, %108 ]
+  store i32 %112, ptr %8, align 4, !tbaa !87
+  %113 = load i32, ptr %8, align 4, !tbaa !87
+  %114 = icmp eq i32 %113, -1
+  br i1 %114, label %115, label %117
 
-if.end35:                                         ; preds = %cond.end
-  store i32 1, ptr %state, align 4
-  %28 = load ptr, ptr %tableData, align 8
-  %29 = load i32, ptr %tableRowLen, align 4
-  %30 = load i32, ptr %state, align 4
-  %mul = mul i32 %29, %30
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %idx.ext
-  store ptr %add.ptr, ptr %row, align 8
-  store i32 1, ptr %mode, align 4
-  %31 = load ptr, ptr %statetable, align 8
-  %fFlags = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %31, i32 0, i32 4
-  %32 = load i32, ptr %fFlags, align 4
-  %and = and i32 %32, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then36, label %if.end37
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 15
+  store i8 1, ptr %116, align 8, !tbaa !82
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %356
 
-if.then36:                                        ; preds = %if.end35
-  store i16 2, ptr %category, align 2
-  store i32 0, ptr %mode, align 4
-  br label %if.end37
+117:                                              ; preds = %111
+  store i32 1, ptr %4, align 4, !tbaa !87
+  %118 = load ptr, ptr %12, align 8, !tbaa !86
+  %119 = load i32, ptr %13, align 4, !tbaa !87
+  %120 = load i32, ptr %4, align 4, !tbaa !87
+  %121 = mul i32 %119, %120
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 %122
+  store ptr %123, ptr %7, align 8, !tbaa !149
+  store i32 1, ptr %6, align 4, !tbaa !151
+  %124 = load ptr, ptr %11, align 8, !tbaa !137
+  %125 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %124, i32 0, i32 4
+  %126 = load i32, ptr %125, align 4, !tbaa !139
+  %127 = and i32 %126, 2
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %130
 
-if.end37:                                         ; preds = %if.then36, %if.end35
-  br label %for.cond
+129:                                              ; preds = %117
+  store i16 2, ptr %5, align 2, !tbaa !134
+  store i32 0, ptr %6, align 4, !tbaa !151
+  br label %130
 
-for.cond:                                         ; preds = %if.end166, %if.end37
-  %33 = load i32, ptr %c, align 4
-  %cmp38 = icmp eq i32 %33, -1
-  br i1 %cmp38, label %if.then39, label %if.end43
+130:                                              ; preds = %129, %117
+  br label %131
 
-if.then39:                                        ; preds = %for.cond
-  %34 = load i32, ptr %mode, align 4
-  %cmp40 = icmp eq i32 %34, 2
-  br i1 %cmp40, label %if.then41, label %if.end42
+131:                                              ; preds = %337, %130
+  %132 = load i32, ptr %8, align 4, !tbaa !87
+  %133 = icmp eq i32 %132, -1
+  br i1 %133, label %134, label %139
 
-if.then41:                                        ; preds = %if.then39
-  br label %for.end
+134:                                              ; preds = %131
+  %135 = load i32, ptr %6, align 4, !tbaa !151
+  %136 = icmp eq i32 %135, 2
+  br i1 %136, label %137, label %138
 
-if.end42:                                         ; preds = %if.then39
-  store i32 2, ptr %mode, align 4
-  store i16 1, ptr %category, align 2
-  br label %if.end43
+137:                                              ; preds = %134
+  br label %338
 
-if.end43:                                         ; preds = %if.end42, %for.cond
-  %35 = load i32, ptr %mode, align 4
-  %cmp44 = icmp eq i32 %35, 1
-  br i1 %cmp44, label %if.then45, label %if.end52
+138:                                              ; preds = %134
+  store i32 2, ptr %6, align 4, !tbaa !151
+  store i16 1, ptr %5, align 2, !tbaa !134
+  br label %139
 
-if.then45:                                        ; preds = %if.end43
-  %fData46 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %36 = load ptr, ptr %fData46, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %36, i32 0, i32 7
-  %37 = load ptr, ptr %fTrie, align 8
-  %38 = load i32, ptr %c, align 4
-  %call47 = call noundef zeroext i16 @_ZN6icu_75L9TrieFunc8EPK7UCPTriei(ptr noundef %37, i32 noundef %38)
-  store i16 %call47, ptr %category, align 2
-  %39 = load i16, ptr %category, align 2
-  %conv48 = zext i16 %39 to i32
-  %40 = load i32, ptr %dictStart, align 4
-  %cmp49 = icmp uge i32 %conv48, %40
-  %conv50 = zext i1 %cmp49 to i32
-  %fDictionaryCharCount51 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 12
-  %41 = load i32, ptr %fDictionaryCharCount51, align 8
-  %add = add i32 %41, %conv50
-  store i32 %add, ptr %fDictionaryCharCount51, align 8
-  br label %if.end52
+139:                                              ; preds = %138, %131
+  %140 = load i32, ptr %6, align 4, !tbaa !151
+  %141 = icmp eq i32 %140, 1
+  br i1 %141, label %142, label %157
 
-if.end52:                                         ; preds = %if.then45, %if.end43
-  %42 = load ptr, ptr %row, align 8
-  %fNextState = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %42, i32 0, i32 3
-  %43 = load i16, ptr %category, align 2
-  %idxprom53 = zext i16 %43 to i64
-  %arrayidx54 = getelementptr inbounds [1 x i16], ptr %fNextState, i64 0, i64 %idxprom53
-  %44 = load i16, ptr %arrayidx54, align 2
-  %conv55 = zext i16 %44 to i32
-  store i32 %conv55, ptr %state, align 4
-  %45 = load ptr, ptr %tableData, align 8
-  %46 = load i32, ptr %tableRowLen, align 4
-  %47 = load i32, ptr %state, align 4
-  %mul56 = mul i32 %46, %47
-  %idx.ext57 = zext i32 %mul56 to i64
-  %add.ptr58 = getelementptr inbounds i8, ptr %45, i64 %idx.ext57
-  store ptr %add.ptr58, ptr %row, align 8
-  %48 = load ptr, ptr %row, align 8
-  %fAccepting = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %48, i32 0, i32 0
-  %49 = load i16, ptr %fAccepting, align 2
-  store i16 %49, ptr %accepting, align 2
-  %50 = load i16, ptr %accepting, align 2
-  %conv59 = zext i16 %50 to i32
-  %cmp60 = icmp eq i32 %conv59, 1
-  br i1 %cmp60, label %if.then61, label %if.else86
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 2
+  %144 = load ptr, ptr %143, align 8, !tbaa !11
+  %145 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %144, i32 0, i32 7
+  %146 = load ptr, ptr %145, align 8, !tbaa !138
+  %147 = load i32, ptr %8, align 4, !tbaa !87
+  %148 = call noundef zeroext i16 @_ZN6icu_77L10TrieFunc16EPK7UCPTriei(ptr noundef %146, i32 noundef %147)
+  store i16 %148, ptr %5, align 2, !tbaa !134
+  %149 = load i16, ptr %5, align 2, !tbaa !134
+  %150 = zext i16 %149 to i32
+  %151 = load i32, ptr %14, align 4, !tbaa !87
+  %152 = icmp uge i32 %150, %151
+  %153 = zext i1 %152 to i32
+  %154 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 11
+  %155 = load i32, ptr %154, align 8, !tbaa !80
+  %156 = add i32 %155, %153
+  store i32 %156, ptr %154, align 8, !tbaa !80
+  br label %157
 
-if.then61:                                        ; preds = %if.end52
-  %51 = load i32, ptr %mode, align 4
-  %cmp62 = icmp ne i32 %51, 0
-  br i1 %cmp62, label %if.then63, label %if.end83
+157:                                              ; preds = %142, %139
+  %158 = load ptr, ptr %7, align 8, !tbaa !149
+  %159 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %158, i32 0, i32 3
+  %160 = load i16, ptr %5, align 2, !tbaa !134
+  %161 = zext i16 %160 to i64
+  %162 = getelementptr inbounds nuw [1 x i8], ptr %159, i64 0, i64 %161
+  %163 = load i8, ptr %162, align 1, !tbaa !85
+  %164 = zext i8 %163 to i32
+  store i32 %164, ptr %4, align 4, !tbaa !87
+  %165 = load ptr, ptr %12, align 8, !tbaa !86
+  %166 = load i32, ptr %13, align 4, !tbaa !87
+  %167 = load i32, ptr %4, align 4, !tbaa !87
+  %168 = mul i32 %166, %167
+  %169 = zext i32 %168 to i64
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 %169
+  store ptr %170, ptr %7, align 8, !tbaa !149
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #10
+  %171 = load ptr, ptr %7, align 8, !tbaa !149
+  %172 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %171, i32 0, i32 0
+  %173 = load i8, ptr %172, align 1, !tbaa !153
+  %174 = zext i8 %173 to i16
+  store i16 %174, ptr %17, align 2, !tbaa !134
+  %175 = load i16, ptr %17, align 2, !tbaa !134
+  %176 = zext i16 %175 to i32
+  %177 = icmp eq i32 %176, 1
+  br i1 %177, label %178, label %215
 
-if.then63:                                        ; preds = %if.then61
-  %fText64 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset65 = getelementptr inbounds %struct.UText, ptr %fText64, i32 0, i32 8
-  %52 = load i32, ptr %chunkOffset65, align 8
-  %fText66 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit67 = getelementptr inbounds %struct.UText, ptr %fText66, i32 0, i32 6
-  %53 = load i32, ptr %nativeIndexingLimit67, align 4
-  %cmp68 = icmp sle i32 %52, %53
-  br i1 %cmp68, label %cond.true69, label %cond.false76
+178:                                              ; preds = %157
+  %179 = load i32, ptr %6, align 4, !tbaa !151
+  %180 = icmp ne i32 %179, 0
+  br i1 %180, label %181, label %209
 
-cond.true69:                                      ; preds = %if.then63
-  %fText70 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart71 = getelementptr inbounds %struct.UText, ptr %fText70, i32 0, i32 7
-  %54 = load i64, ptr %chunkNativeStart71, align 8
-  %fText72 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset73 = getelementptr inbounds %struct.UText, ptr %fText72, i32 0, i32 8
-  %55 = load i32, ptr %chunkOffset73, align 8
-  %conv74 = sext i32 %55 to i64
-  %add75 = add nsw i64 %54, %conv74
-  br label %cond.end80
+181:                                              ; preds = %178
+  %182 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %183 = getelementptr inbounds nuw %struct.UText, ptr %182, i32 0, i32 8
+  %184 = load i32, ptr %183, align 8, !tbaa !147
+  %185 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %186 = getelementptr inbounds nuw %struct.UText, ptr %185, i32 0, i32 6
+  %187 = load i32, ptr %186, align 4, !tbaa !143
+  %188 = icmp sle i32 %184, %187
+  br i1 %188, label %189, label %198
 
-cond.false76:                                     ; preds = %if.then63
-  %fText77 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %fText77, i32 0, i32 11
-  %56 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %56, i32 0, i32 10
-  %57 = load ptr, ptr %mapOffsetToNative, align 8
-  %fText78 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call79 = call noundef i64 %57(ptr noundef %fText78)
-  br label %cond.end80
+189:                                              ; preds = %181
+  %190 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %191 = getelementptr inbounds nuw %struct.UText, ptr %190, i32 0, i32 7
+  %192 = load i64, ptr %191, align 8, !tbaa !142
+  %193 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %194 = getelementptr inbounds nuw %struct.UText, ptr %193, i32 0, i32 8
+  %195 = load i32, ptr %194, align 8, !tbaa !147
+  %196 = sext i32 %195 to i64
+  %197 = add nsw i64 %192, %196
+  br label %206
 
-cond.end80:                                       ; preds = %cond.false76, %cond.true69
-  %cond81 = phi i64 [ %add75, %cond.true69 ], [ %call79, %cond.false76 ]
-  %conv82 = trunc i64 %cond81 to i32
-  store i32 %conv82, ptr %result, align 4
-  br label %if.end83
+198:                                              ; preds = %181
+  %199 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %200 = getelementptr inbounds nuw %struct.UText, ptr %199, i32 0, i32 11
+  %201 = load ptr, ptr %200, align 8, !tbaa !155
+  %202 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %201, i32 0, i32 10
+  %203 = load ptr, ptr %202, align 8, !tbaa !156
+  %204 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %205 = call noundef i64 %203(ptr noundef %204)
+  br label %206
 
-if.end83:                                         ; preds = %cond.end80, %if.then61
-  %58 = load ptr, ptr %row, align 8
-  %fTagsIdx = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %58, i32 0, i32 2
-  %59 = load i16, ptr %fTagsIdx, align 2
-  %conv84 = zext i16 %59 to i32
-  %fRuleStatusIndex85 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 %conv84, ptr %fRuleStatusIndex85, align 8
-  br label %if.end100
+206:                                              ; preds = %198, %189
+  %207 = phi i64 [ %197, %189 ], [ %205, %198 ]
+  %208 = trunc i64 %207 to i32
+  store i32 %208, ptr %9, align 4, !tbaa !87
+  br label %209
 
-if.else86:                                        ; preds = %if.end52
-  %60 = load i16, ptr %accepting, align 2
-  %conv87 = zext i16 %60 to i32
-  %cmp88 = icmp sgt i32 %conv87, 1
-  br i1 %cmp88, label %if.then89, label %if.end99
+209:                                              ; preds = %206, %178
+  %210 = load ptr, ptr %7, align 8, !tbaa !149
+  %211 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %210, i32 0, i32 2
+  %212 = load i8, ptr %211, align 1, !tbaa !158
+  %213 = zext i8 %212 to i32
+  %214 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 %213, ptr %214, align 8, !tbaa !75
+  br label %242
 
-if.then89:                                        ; preds = %if.else86
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %61 = load ptr, ptr %fLookAheadMatches, align 8
-  %62 = load i16, ptr %accepting, align 2
-  %idxprom90 = zext i16 %62 to i64
-  %arrayidx91 = getelementptr inbounds i32, ptr %61, i64 %idxprom90
-  %63 = load i32, ptr %arrayidx91, align 4
-  store i32 %63, ptr %lookaheadResult, align 4
-  %64 = load i32, ptr %lookaheadResult, align 4
-  %cmp92 = icmp sge i32 %64, 0
-  br i1 %cmp92, label %if.then93, label %if.end98
+215:                                              ; preds = %157
+  %216 = load i16, ptr %17, align 2, !tbaa !134
+  %217 = zext i16 %216 to i32
+  %218 = icmp sgt i32 %217, 1
+  br i1 %218, label %219, label %241
 
-if.then93:                                        ; preds = %if.then89
-  %65 = load ptr, ptr %row, align 8
-  %fTagsIdx94 = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %65, i32 0, i32 2
-  %66 = load i16, ptr %fTagsIdx94, align 2
-  %conv95 = zext i16 %66 to i32
-  %fRuleStatusIndex96 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 %conv95, ptr %fRuleStatusIndex96, align 8
-  %67 = load i32, ptr %lookaheadResult, align 4
-  %fPosition97 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 %67, ptr %fPosition97, align 4
-  %68 = load i32, ptr %lookaheadResult, align 4
-  store i32 %68, ptr %retval, align 4
-  br label %return
+219:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  %220 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 17
+  %221 = load ptr, ptr %220, align 8, !tbaa !46
+  %222 = load i16, ptr %17, align 2, !tbaa !134
+  %223 = zext i16 %222 to i64
+  %224 = getelementptr inbounds nuw i32, ptr %221, i64 %223
+  %225 = load i32, ptr %224, align 4, !tbaa !87
+  store i32 %225, ptr %18, align 4, !tbaa !87
+  %226 = load i32, ptr %18, align 4, !tbaa !87
+  %227 = icmp sge i32 %226, 0
+  br i1 %227, label %228, label %237
 
-if.end98:                                         ; preds = %if.then89
-  br label %if.end99
+228:                                              ; preds = %219
+  %229 = load ptr, ptr %7, align 8, !tbaa !149
+  %230 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %229, i32 0, i32 2
+  %231 = load i8, ptr %230, align 1, !tbaa !158
+  %232 = zext i8 %231 to i32
+  %233 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 %232, ptr %233, align 8, !tbaa !75
+  %234 = load i32, ptr %18, align 4, !tbaa !87
+  %235 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  store i32 %234, ptr %235, align 4, !tbaa !74
+  %236 = load i32, ptr %18, align 4, !tbaa !87
+  store i32 %236, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %238
 
-if.end99:                                         ; preds = %if.end98, %if.else86
-  br label %if.end100
+237:                                              ; preds = %219
+  store i32 0, ptr %16, align 4
+  br label %238
 
-if.end100:                                        ; preds = %if.end99, %if.end83
-  %69 = load ptr, ptr %row, align 8
-  %fLookAhead = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %69, i32 0, i32 1
-  %70 = load i16, ptr %fLookAhead, align 2
-  store i16 %70, ptr %rule, align 2
-  %71 = load i16, ptr %rule, align 2
-  %conv101 = zext i16 %71 to i32
-  %cmp102 = icmp sgt i32 %conv101, 1
-  br i1 %cmp102, label %if.then103, label %if.end128
+238:                                              ; preds = %237, %228
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  %239 = load i32, ptr %16, align 4
+  switch i32 %239, label %335 [
+    i32 0, label %240
+  ]
 
-if.then103:                                       ; preds = %if.end100
-  %fText104 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset105 = getelementptr inbounds %struct.UText, ptr %fText104, i32 0, i32 8
-  %72 = load i32, ptr %chunkOffset105, align 8
-  %fText106 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit107 = getelementptr inbounds %struct.UText, ptr %fText106, i32 0, i32 6
-  %73 = load i32, ptr %nativeIndexingLimit107, align 4
-  %cmp108 = icmp sle i32 %72, %73
-  br i1 %cmp108, label %cond.true109, label %cond.false116
+240:                                              ; preds = %238
+  br label %241
 
-cond.true109:                                     ; preds = %if.then103
-  %fText110 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart111 = getelementptr inbounds %struct.UText, ptr %fText110, i32 0, i32 7
-  %74 = load i64, ptr %chunkNativeStart111, align 8
-  %fText112 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset113 = getelementptr inbounds %struct.UText, ptr %fText112, i32 0, i32 8
-  %75 = load i32, ptr %chunkOffset113, align 8
-  %conv114 = sext i32 %75 to i64
-  %add115 = add nsw i64 %74, %conv114
-  br label %cond.end122
+241:                                              ; preds = %240, %215
+  br label %242
 
-cond.false116:                                    ; preds = %if.then103
-  %fText117 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs118 = getelementptr inbounds %struct.UText, ptr %fText117, i32 0, i32 11
-  %76 = load ptr, ptr %pFuncs118, align 8
-  %mapOffsetToNative119 = getelementptr inbounds %struct.UTextFuncs, ptr %76, i32 0, i32 10
-  %77 = load ptr, ptr %mapOffsetToNative119, align 8
-  %fText120 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call121 = call noundef i64 %77(ptr noundef %fText120)
-  br label %cond.end122
+242:                                              ; preds = %241, %209
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #10
+  %243 = load ptr, ptr %7, align 8, !tbaa !149
+  %244 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %243, i32 0, i32 1
+  %245 = load i8, ptr %244, align 1, !tbaa !159
+  %246 = zext i8 %245 to i16
+  store i16 %246, ptr %19, align 2, !tbaa !134
+  %247 = load i16, ptr %19, align 2, !tbaa !134
+  %248 = zext i16 %247 to i32
+  %249 = icmp sgt i32 %248, 1
+  br i1 %249, label %250, label %284
 
-cond.end122:                                      ; preds = %cond.false116, %cond.true109
-  %cond123 = phi i64 [ %add115, %cond.true109 ], [ %call121, %cond.false116 ]
-  %conv124 = trunc i64 %cond123 to i32
-  store i32 %conv124, ptr %pos, align 4
-  %78 = load i32, ptr %pos, align 4
-  %fLookAheadMatches125 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %79 = load ptr, ptr %fLookAheadMatches125, align 8
-  %80 = load i16, ptr %rule, align 2
-  %idxprom126 = zext i16 %80 to i64
-  %arrayidx127 = getelementptr inbounds i32, ptr %79, i64 %idxprom126
-  store i32 %78, ptr %arrayidx127, align 4
-  br label %if.end128
+250:                                              ; preds = %242
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  %251 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %252 = getelementptr inbounds nuw %struct.UText, ptr %251, i32 0, i32 8
+  %253 = load i32, ptr %252, align 8, !tbaa !147
+  %254 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %255 = getelementptr inbounds nuw %struct.UText, ptr %254, i32 0, i32 6
+  %256 = load i32, ptr %255, align 4, !tbaa !143
+  %257 = icmp sle i32 %253, %256
+  br i1 %257, label %258, label %267
 
-if.end128:                                        ; preds = %cond.end122, %if.end100
-  %81 = load i32, ptr %state, align 4
-  %cmp129 = icmp eq i32 %81, 0
-  br i1 %cmp129, label %if.then130, label %if.end131
+258:                                              ; preds = %250
+  %259 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %260 = getelementptr inbounds nuw %struct.UText, ptr %259, i32 0, i32 7
+  %261 = load i64, ptr %260, align 8, !tbaa !142
+  %262 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %263 = getelementptr inbounds nuw %struct.UText, ptr %262, i32 0, i32 8
+  %264 = load i32, ptr %263, align 8, !tbaa !147
+  %265 = sext i32 %264 to i64
+  %266 = add nsw i64 %261, %265
+  br label %275
 
-if.then130:                                       ; preds = %if.end128
-  br label %for.end
+267:                                              ; preds = %250
+  %268 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %269 = getelementptr inbounds nuw %struct.UText, ptr %268, i32 0, i32 11
+  %270 = load ptr, ptr %269, align 8, !tbaa !155
+  %271 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %270, i32 0, i32 10
+  %272 = load ptr, ptr %271, align 8, !tbaa !156
+  %273 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %274 = call noundef i64 %272(ptr noundef %273)
+  br label %275
 
-if.end131:                                        ; preds = %if.end128
-  %82 = load i32, ptr %mode, align 4
-  %cmp132 = icmp eq i32 %82, 1
-  br i1 %cmp132, label %if.then133, label %if.else162
+275:                                              ; preds = %267, %258
+  %276 = phi i64 [ %266, %258 ], [ %274, %267 ]
+  %277 = trunc i64 %276 to i32
+  store i32 %277, ptr %20, align 4, !tbaa !87
+  %278 = load i32, ptr %20, align 4, !tbaa !87
+  %279 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 17
+  %280 = load ptr, ptr %279, align 8, !tbaa !46
+  %281 = load i16, ptr %19, align 2, !tbaa !134
+  %282 = zext i16 %281 to i64
+  %283 = getelementptr inbounds nuw i32, ptr %280, i64 %282
+  store i32 %278, ptr %283, align 4, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  br label %284
 
-if.then133:                                       ; preds = %if.end131
-  %fText134 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset135 = getelementptr inbounds %struct.UText, ptr %fText134, i32 0, i32 8
-  %83 = load i32, ptr %chunkOffset135, align 8
-  %fText136 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkLength137 = getelementptr inbounds %struct.UText, ptr %fText136, i32 0, i32 9
-  %84 = load i32, ptr %chunkLength137, align 4
-  %cmp138 = icmp slt i32 %83, %84
-  br i1 %cmp138, label %land.lhs.true139, label %cond.false157
+284:                                              ; preds = %275, %242
+  %285 = load i32, ptr %4, align 4, !tbaa !87
+  %286 = icmp eq i32 %285, 0
+  br i1 %286, label %287, label %288
 
-land.lhs.true139:                                 ; preds = %if.then133
-  %fText140 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents141 = getelementptr inbounds %struct.UText, ptr %fText140, i32 0, i32 10
-  %85 = load ptr, ptr %chunkContents141, align 8
-  %fText142 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset143 = getelementptr inbounds %struct.UText, ptr %fText142, i32 0, i32 8
-  %86 = load i32, ptr %chunkOffset143, align 8
-  %idxprom144 = sext i32 %86 to i64
-  %arrayidx145 = getelementptr inbounds i16, ptr %85, i64 %idxprom144
-  %87 = load i16, ptr %arrayidx145, align 2
-  %conv146 = zext i16 %87 to i32
-  %cmp147 = icmp slt i32 %conv146, 55296
-  br i1 %cmp147, label %cond.true148, label %cond.false157
+287:                                              ; preds = %284
+  store i32 4, ptr %16, align 4
+  br label %334
 
-cond.true148:                                     ; preds = %land.lhs.true139
-  %fText149 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents150 = getelementptr inbounds %struct.UText, ptr %fText149, i32 0, i32 10
-  %88 = load ptr, ptr %chunkContents150, align 8
-  %fText151 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset152 = getelementptr inbounds %struct.UText, ptr %fText151, i32 0, i32 8
-  %89 = load i32, ptr %chunkOffset152, align 8
-  %inc153 = add nsw i32 %89, 1
-  store i32 %inc153, ptr %chunkOffset152, align 8
-  %idxprom154 = sext i32 %89 to i64
-  %arrayidx155 = getelementptr inbounds i16, ptr %88, i64 %idxprom154
-  %90 = load i16, ptr %arrayidx155, align 2
-  %conv156 = zext i16 %90 to i32
-  br label %cond.end160
+288:                                              ; preds = %284
+  %289 = load i32, ptr %6, align 4, !tbaa !151
+  %290 = icmp eq i32 %289, 1
+  br i1 %290, label %291, label %328
 
-cond.false157:                                    ; preds = %land.lhs.true139, %if.then133
-  %fText158 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call159 = call i32 @utext_next32_75(ptr noundef %fText158)
-  br label %cond.end160
+291:                                              ; preds = %288
+  %292 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %293 = getelementptr inbounds nuw %struct.UText, ptr %292, i32 0, i32 8
+  %294 = load i32, ptr %293, align 8, !tbaa !147
+  %295 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %296 = getelementptr inbounds nuw %struct.UText, ptr %295, i32 0, i32 9
+  %297 = load i32, ptr %296, align 4, !tbaa !148
+  %298 = icmp slt i32 %294, %297
+  br i1 %298, label %299, label %323
 
-cond.end160:                                      ; preds = %cond.false157, %cond.true148
-  %cond161 = phi i32 [ %conv156, %cond.true148 ], [ %call159, %cond.false157 ]
-  store i32 %cond161, ptr %c, align 4
-  br label %if.end166
+299:                                              ; preds = %291
+  %300 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %301 = getelementptr inbounds nuw %struct.UText, ptr %300, i32 0, i32 10
+  %302 = load ptr, ptr %301, align 8, !tbaa !144
+  %303 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %304 = getelementptr inbounds nuw %struct.UText, ptr %303, i32 0, i32 8
+  %305 = load i32, ptr %304, align 8, !tbaa !147
+  %306 = sext i32 %305 to i64
+  %307 = getelementptr inbounds i16, ptr %302, i64 %306
+  %308 = load i16, ptr %307, align 2, !tbaa !145
+  %309 = zext i16 %308 to i32
+  %310 = icmp slt i32 %309, 55296
+  br i1 %310, label %311, label %323
 
-if.else162:                                       ; preds = %if.end131
-  %91 = load i32, ptr %mode, align 4
-  %cmp163 = icmp eq i32 %91, 0
-  br i1 %cmp163, label %if.then164, label %if.end165
+311:                                              ; preds = %299
+  %312 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %313 = getelementptr inbounds nuw %struct.UText, ptr %312, i32 0, i32 10
+  %314 = load ptr, ptr %313, align 8, !tbaa !144
+  %315 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %316 = getelementptr inbounds nuw %struct.UText, ptr %315, i32 0, i32 8
+  %317 = load i32, ptr %316, align 8, !tbaa !147
+  %318 = add nsw i32 %317, 1
+  store i32 %318, ptr %316, align 8, !tbaa !147
+  %319 = sext i32 %317 to i64
+  %320 = getelementptr inbounds i16, ptr %314, i64 %319
+  %321 = load i16, ptr %320, align 2, !tbaa !145
+  %322 = zext i16 %321 to i32
+  br label %326
 
-if.then164:                                       ; preds = %if.else162
-  store i32 1, ptr %mode, align 4
-  br label %if.end165
+323:                                              ; preds = %299, %291
+  %324 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %325 = call i32 @utext_next32_77(ptr noundef %324)
+  br label %326
 
-if.end165:                                        ; preds = %if.then164, %if.else162
-  br label %if.end166
+326:                                              ; preds = %323, %311
+  %327 = phi i32 [ %322, %311 ], [ %325, %323 ]
+  store i32 %327, ptr %8, align 4, !tbaa !87
+  br label %333
 
-if.end166:                                        ; preds = %if.end165, %cond.end160
-  br label %for.cond, !llvm.loop !10
+328:                                              ; preds = %288
+  %329 = load i32, ptr %6, align 4, !tbaa !151
+  %330 = icmp eq i32 %329, 0
+  br i1 %330, label %331, label %332
 
-for.end:                                          ; preds = %if.then130, %if.then41
-  %92 = load i32, ptr %result, align 4
-  %93 = load i32, ptr %initialPosition, align 4
-  %cmp167 = icmp eq i32 %92, %93
-  br i1 %cmp167, label %if.then168, label %if.end177
+331:                                              ; preds = %328
+  store i32 1, ptr %6, align 4, !tbaa !151
+  br label %332
 
-if.then168:                                       ; preds = %for.end
-  %fText169 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %94 = load i32, ptr %initialPosition, align 4
-  %conv170 = sext i32 %94 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText169, i64 noundef %conv170)
-  %fText171 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call172 = call i32 @utext_next32_75(ptr noundef %fText171)
-  %fText173 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call174 = call i64 @utext_getNativeIndex_75(ptr noundef %fText173)
-  %conv175 = trunc i64 %call174 to i32
-  store i32 %conv175, ptr %result, align 4
-  %fRuleStatusIndex176 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %fRuleStatusIndex176, align 8
-  br label %if.end177
+332:                                              ; preds = %331, %328
+  br label %333
 
-if.end177:                                        ; preds = %if.then168, %for.end
-  %95 = load i32, ptr %result, align 4
-  %fPosition178 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 %95, ptr %fPosition178, align 4
-  %96 = load i32, ptr %result, align 4
-  store i32 %96, ptr %retval, align 4
-  br label %return
+333:                                              ; preds = %332, %326
+  store i32 0, ptr %16, align 4
+  br label %334
 
-return:                                           ; preds = %if.end177, %if.then93, %if.then34
-  %97 = load i32, ptr %retval, align 4
-  ret i32 %97
+334:                                              ; preds = %333, %287
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #10
+  br label %335
+
+335:                                              ; preds = %334, %238
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #10
+  %336 = load i32, ptr %16, align 4
+  switch i32 %336, label %356 [
+    i32 0, label %337
+    i32 4, label %338
+  ]
+
+337:                                              ; preds = %335
+  br label %131, !llvm.loop !161
+
+338:                                              ; preds = %335, %137
+  %339 = load i32, ptr %9, align 4, !tbaa !87
+  %340 = load i32, ptr %10, align 4, !tbaa !87
+  %341 = icmp eq i32 %339, %340
+  br i1 %341, label %342, label %352
+
+342:                                              ; preds = %338
+  %343 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %344 = load i32, ptr %10, align 4, !tbaa !87
+  %345 = sext i32 %344 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %343, i64 noundef %345)
+  %346 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %347 = call i32 @utext_next32_77(ptr noundef %346)
+  %348 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %349 = call i64 @utext_getNativeIndex_77(ptr noundef %348)
+  %350 = trunc i64 %349 to i32
+  store i32 %350, ptr %9, align 4, !tbaa !87
+  %351 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 0, ptr %351, align 8, !tbaa !75
+  br label %352
+
+352:                                              ; preds = %342, %338
+  %353 = load i32, ptr %9, align 4, !tbaa !87
+  %354 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  store i32 %353, ptr %354, align 4, !tbaa !74
+  %355 = load i32, ptr %9, align 4, !tbaa !87
+  store i32 %355, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %356
+
+356:                                              ; preds = %352, %335, %115
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  %357 = load i32, ptr %2, align 4
+  ret i32 %357
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTItEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(745) %this) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %state = alloca i32, align 4
-  %category = alloca i16, align 2
-  %mode = alloca i32, align 4
-  %row = alloca ptr, align 8
-  %c = alloca i32, align 4
-  %result = alloca i32, align 4
-  %initialPosition = alloca i32, align 4
-  %statetable = alloca ptr, align 8
-  %tableData = alloca ptr, align 8
-  %tableRowLen = alloca i32, align 4
-  %dictStart = alloca i32, align 4
-  %__offset = alloca i64, align 8
-  %accepting = alloca i16, align 2
-  %lookaheadResult = alloca i32, align 4
-  %rule = alloca i16, align 2
-  %pos = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i16 0, ptr %category, align 2
-  store i32 0, ptr %result, align 4
-  store i32 0, ptr %initialPosition, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %fForwardTable, align 8
-  store ptr %1, ptr %statetable, align 8
-  %2 = load ptr, ptr %statetable, align 8
-  %fTableData = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %2, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %fTableData, i64 0, i64 0
-  store ptr %arraydecay, ptr %tableData, align 8
-  %3 = load ptr, ptr %statetable, align 8
-  %fRowLen = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %fRowLen, align 4
-  store i32 %4, ptr %tableRowLen, align 4
-  %5 = load ptr, ptr %statetable, align 8
-  %fDictCategoriesStart = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %fDictCategoriesStart, align 4
-  store i32 %6, ptr %dictStart, align 4
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %fRuleStatusIndex, align 8
-  %fDictionaryCharCount = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 12
-  store i32 0, ptr %fDictionaryCharCount, align 8
-  %fPosition = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  %7 = load i32, ptr %fPosition, align 4
-  store i32 %7, ptr %initialPosition, align 4
-  br label %do.body
+define internal noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTItEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(297) %0) #1 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i16, align 2
+  %18 = alloca i32, align 4
+  %19 = alloca i16, align 2
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %21 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #10
+  store i16 0, ptr %5, align 2, !tbaa !134
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store i32 0, ptr %9, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  store ptr %25, ptr %11, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %26 = load ptr, ptr %11, align 8, !tbaa !137
+  %27 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %26, i32 0, i32 5
+  %28 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 0
+  store ptr %28, ptr %12, align 8, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %29 = load ptr, ptr %11, align 8, !tbaa !137
+  %30 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4, !tbaa !140
+  store i32 %31, ptr %13, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %32 = load ptr, ptr %11, align 8, !tbaa !137
+  %33 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %32, i32 0, i32 2
+  %34 = load i32, ptr %33, align 4, !tbaa !141
+  store i32 %34, ptr %14, align 4, !tbaa !87
+  %35 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 0, ptr %35, align 8, !tbaa !75
+  %36 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 11
+  store i32 0, ptr %36, align 8, !tbaa !80
+  %37 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  %38 = load i32, ptr %37, align 4, !tbaa !74
+  store i32 %38, ptr %10, align 4, !tbaa !87
+  br label %39
 
-do.body:                                          ; preds = %entry
-  %8 = load i32, ptr %initialPosition, align 4
-  %conv = sext i32 %8 to i64
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 7
-  %9 = load i64, ptr %chunkNativeStart, align 8
-  %sub = sub nsw i64 %conv, %9
-  store i64 %sub, ptr %__offset, align 8
-  %10 = load i64, ptr %__offset, align 8
-  %cmp = icmp sge i64 %10, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+39:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %40 = load i32, ptr %10, align 4, !tbaa !87
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.UText, ptr %42, i32 0, i32 7
+  %44 = load i64, ptr %43, align 8, !tbaa !142
+  %45 = sub nsw i64 %41, %44
+  store i64 %45, ptr %15, align 8, !tbaa !124
+  %46 = load i64, ptr %15, align 8, !tbaa !124
+  %47 = icmp sge i64 %46, 0
+  br i1 %47, label %48, label %69
 
-land.lhs.true:                                    ; preds = %do.body
-  %11 = load i64, ptr %__offset, align 8
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %fText2, i32 0, i32 6
-  %12 = load i32, ptr %nativeIndexingLimit, align 4
-  %conv3 = sext i32 %12 to i64
-  %cmp4 = icmp slt i64 %11, %conv3
-  br i1 %cmp4, label %land.lhs.true5, label %if.else
+48:                                               ; preds = %39
+  %49 = load i64, ptr %15, align 8, !tbaa !124
+  %50 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %struct.UText, ptr %50, i32 0, i32 6
+  %52 = load i32, ptr %51, align 4, !tbaa !143
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %49, %53
+  br i1 %54, label %55, label %69
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fText6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %fText6, i32 0, i32 10
-  %13 = load ptr, ptr %chunkContents, align 8
-  %14 = load i64, ptr %__offset, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %13, i64 %14
-  %15 = load i16, ptr %arrayidx, align 2
-  %conv7 = zext i16 %15 to i32
-  %cmp8 = icmp slt i32 %conv7, 56320
-  br i1 %cmp8, label %if.then, label %if.else
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct.UText, ptr %56, i32 0, i32 10
+  %58 = load ptr, ptr %57, align 8, !tbaa !144
+  %59 = load i64, ptr %15, align 8, !tbaa !124
+  %60 = getelementptr inbounds i16, ptr %58, i64 %59
+  %61 = load i16, ptr %60, align 2, !tbaa !145
+  %62 = zext i16 %61 to i32
+  %63 = icmp slt i32 %62, 56320
+  br i1 %63, label %64, label %69
 
-if.then:                                          ; preds = %land.lhs.true5
-  %16 = load i64, ptr %__offset, align 8
-  %conv9 = trunc i64 %16 to i32
-  %fText10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %fText10, i32 0, i32 8
-  store i32 %conv9, ptr %chunkOffset, align 8
-  br label %if.end
+64:                                               ; preds = %55
+  %65 = load i64, ptr %15, align 8, !tbaa !124
+  %66 = trunc i64 %65 to i32
+  %67 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.UText, ptr %67, i32 0, i32 8
+  store i32 %66, ptr %68, align 8, !tbaa !147
+  br label %73
 
-if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true, %do.body
-  %fText11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %17 = load i32, ptr %initialPosition, align 4
-  %conv12 = sext i32 %17 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText11, i64 noundef %conv12)
-  br label %if.end
+69:                                               ; preds = %55, %48, %39
+  %70 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %71 = load i32, ptr %10, align 4, !tbaa !87
+  %72 = sext i32 %71 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %70, i64 noundef %72)
+  br label %73
 
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
+73:                                               ; preds = %69, %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  br label %74
 
-do.end:                                           ; preds = %if.end
-  %18 = load i32, ptr %initialPosition, align 4
-  store i32 %18, ptr %result, align 4
-  %fText13 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset14 = getelementptr inbounds %struct.UText, ptr %fText13, i32 0, i32 8
-  %19 = load i32, ptr %chunkOffset14, align 8
-  %fText15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %fText15, i32 0, i32 9
-  %20 = load i32, ptr %chunkLength, align 4
-  %cmp16 = icmp slt i32 %19, %20
-  br i1 %cmp16, label %land.lhs.true17, label %cond.false
+74:                                               ; preds = %73
+  br label %75
 
-land.lhs.true17:                                  ; preds = %do.end
-  %fText18 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents19 = getelementptr inbounds %struct.UText, ptr %fText18, i32 0, i32 10
-  %21 = load ptr, ptr %chunkContents19, align 8
-  %fText20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset21 = getelementptr inbounds %struct.UText, ptr %fText20, i32 0, i32 8
-  %22 = load i32, ptr %chunkOffset21, align 8
-  %idxprom = sext i32 %22 to i64
-  %arrayidx22 = getelementptr inbounds i16, ptr %21, i64 %idxprom
-  %23 = load i16, ptr %arrayidx22, align 2
-  %conv23 = zext i16 %23 to i32
-  %cmp24 = icmp slt i32 %conv23, 55296
-  br i1 %cmp24, label %cond.true, label %cond.false
+75:                                               ; preds = %74
+  %76 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %76, ptr %9, align 4, !tbaa !87
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.UText, ptr %77, i32 0, i32 8
+  %79 = load i32, ptr %78, align 8, !tbaa !147
+  %80 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %81 = getelementptr inbounds nuw %struct.UText, ptr %80, i32 0, i32 9
+  %82 = load i32, ptr %81, align 4, !tbaa !148
+  %83 = icmp slt i32 %79, %82
+  br i1 %83, label %84, label %108
 
-cond.true:                                        ; preds = %land.lhs.true17
-  %fText25 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents26 = getelementptr inbounds %struct.UText, ptr %fText25, i32 0, i32 10
-  %24 = load ptr, ptr %chunkContents26, align 8
-  %fText27 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset28 = getelementptr inbounds %struct.UText, ptr %fText27, i32 0, i32 8
-  %25 = load i32, ptr %chunkOffset28, align 8
-  %inc = add nsw i32 %25, 1
-  store i32 %inc, ptr %chunkOffset28, align 8
-  %idxprom29 = sext i32 %25 to i64
-  %arrayidx30 = getelementptr inbounds i16, ptr %24, i64 %idxprom29
-  %26 = load i16, ptr %arrayidx30, align 2
-  %conv31 = zext i16 %26 to i32
-  br label %cond.end
+84:                                               ; preds = %75
+  %85 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %86 = getelementptr inbounds nuw %struct.UText, ptr %85, i32 0, i32 10
+  %87 = load ptr, ptr %86, align 8, !tbaa !144
+  %88 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %89 = getelementptr inbounds nuw %struct.UText, ptr %88, i32 0, i32 8
+  %90 = load i32, ptr %89, align 8, !tbaa !147
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i16, ptr %87, i64 %91
+  %93 = load i16, ptr %92, align 2, !tbaa !145
+  %94 = zext i16 %93 to i32
+  %95 = icmp slt i32 %94, 55296
+  br i1 %95, label %96, label %108
 
-cond.false:                                       ; preds = %land.lhs.true17, %do.end
-  %fText32 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call i32 @utext_next32_75(ptr noundef %fText32)
-  br label %cond.end
+96:                                               ; preds = %84
+  %97 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.UText, ptr %97, i32 0, i32 10
+  %99 = load ptr, ptr %98, align 8, !tbaa !144
+  %100 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %101 = getelementptr inbounds nuw %struct.UText, ptr %100, i32 0, i32 8
+  %102 = load i32, ptr %101, align 8, !tbaa !147
+  %103 = add nsw i32 %102, 1
+  store i32 %103, ptr %101, align 8, !tbaa !147
+  %104 = sext i32 %102 to i64
+  %105 = getelementptr inbounds i16, ptr %99, i64 %104
+  %106 = load i16, ptr %105, align 2, !tbaa !145
+  %107 = zext i16 %106 to i32
+  br label %111
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv31, %cond.true ], [ %call, %cond.false ]
-  store i32 %cond, ptr %c, align 4
-  %27 = load i32, ptr %c, align 4
-  %cmp33 = icmp eq i32 %27, -1
-  br i1 %cmp33, label %if.then34, label %if.end35
+108:                                              ; preds = %84, %75
+  %109 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %110 = call i32 @utext_next32_77(ptr noundef %109)
+  br label %111
 
-if.then34:                                        ; preds = %cond.end
-  %fDone = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 16
-  store i8 1, ptr %fDone, align 8
-  store i32 -1, ptr %retval, align 4
-  br label %return
+111:                                              ; preds = %108, %96
+  %112 = phi i32 [ %107, %96 ], [ %110, %108 ]
+  store i32 %112, ptr %8, align 4, !tbaa !87
+  %113 = load i32, ptr %8, align 4, !tbaa !87
+  %114 = icmp eq i32 %113, -1
+  br i1 %114, label %115, label %117
 
-if.end35:                                         ; preds = %cond.end
-  store i32 1, ptr %state, align 4
-  %28 = load ptr, ptr %tableData, align 8
-  %29 = load i32, ptr %tableRowLen, align 4
-  %30 = load i32, ptr %state, align 4
-  %mul = mul i32 %29, %30
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %idx.ext
-  store ptr %add.ptr, ptr %row, align 8
-  store i32 1, ptr %mode, align 4
-  %31 = load ptr, ptr %statetable, align 8
-  %fFlags = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %31, i32 0, i32 4
-  %32 = load i32, ptr %fFlags, align 4
-  %and = and i32 %32, 2
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then36, label %if.end37
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 15
+  store i8 1, ptr %116, align 8, !tbaa !82
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %354
 
-if.then36:                                        ; preds = %if.end35
-  store i16 2, ptr %category, align 2
-  store i32 0, ptr %mode, align 4
-  br label %if.end37
+117:                                              ; preds = %111
+  store i32 1, ptr %4, align 4, !tbaa !87
+  %118 = load ptr, ptr %12, align 8, !tbaa !86
+  %119 = load i32, ptr %13, align 4, !tbaa !87
+  %120 = load i32, ptr %4, align 4, !tbaa !87
+  %121 = mul i32 %119, %120
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 %122
+  store ptr %123, ptr %7, align 8, !tbaa !162
+  store i32 1, ptr %6, align 4, !tbaa !151
+  %124 = load ptr, ptr %11, align 8, !tbaa !137
+  %125 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %124, i32 0, i32 4
+  %126 = load i32, ptr %125, align 4, !tbaa !139
+  %127 = and i32 %126, 2
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %130
 
-if.end37:                                         ; preds = %if.then36, %if.end35
-  br label %for.cond
+129:                                              ; preds = %117
+  store i16 2, ptr %5, align 2, !tbaa !134
+  store i32 0, ptr %6, align 4, !tbaa !151
+  br label %130
 
-for.cond:                                         ; preds = %if.end166, %if.end37
-  %33 = load i32, ptr %c, align 4
-  %cmp38 = icmp eq i32 %33, -1
-  br i1 %cmp38, label %if.then39, label %if.end43
+130:                                              ; preds = %129, %117
+  br label %131
 
-if.then39:                                        ; preds = %for.cond
-  %34 = load i32, ptr %mode, align 4
-  %cmp40 = icmp eq i32 %34, 2
-  br i1 %cmp40, label %if.then41, label %if.end42
+131:                                              ; preds = %335, %130
+  %132 = load i32, ptr %8, align 4, !tbaa !87
+  %133 = icmp eq i32 %132, -1
+  br i1 %133, label %134, label %139
 
-if.then41:                                        ; preds = %if.then39
-  br label %for.end
+134:                                              ; preds = %131
+  %135 = load i32, ptr %6, align 4, !tbaa !151
+  %136 = icmp eq i32 %135, 2
+  br i1 %136, label %137, label %138
 
-if.end42:                                         ; preds = %if.then39
-  store i32 2, ptr %mode, align 4
-  store i16 1, ptr %category, align 2
-  br label %if.end43
+137:                                              ; preds = %134
+  br label %336
 
-if.end43:                                         ; preds = %if.end42, %for.cond
-  %35 = load i32, ptr %mode, align 4
-  %cmp44 = icmp eq i32 %35, 1
-  br i1 %cmp44, label %if.then45, label %if.end52
+138:                                              ; preds = %134
+  store i32 2, ptr %6, align 4, !tbaa !151
+  store i16 1, ptr %5, align 2, !tbaa !134
+  br label %139
 
-if.then45:                                        ; preds = %if.end43
-  %fData46 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %36 = load ptr, ptr %fData46, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %36, i32 0, i32 7
-  %37 = load ptr, ptr %fTrie, align 8
-  %38 = load i32, ptr %c, align 4
-  %call47 = call noundef zeroext i16 @_ZN6icu_75L10TrieFunc16EPK7UCPTriei(ptr noundef %37, i32 noundef %38)
-  store i16 %call47, ptr %category, align 2
-  %39 = load i16, ptr %category, align 2
-  %conv48 = zext i16 %39 to i32
-  %40 = load i32, ptr %dictStart, align 4
-  %cmp49 = icmp uge i32 %conv48, %40
-  %conv50 = zext i1 %cmp49 to i32
-  %fDictionaryCharCount51 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 12
-  %41 = load i32, ptr %fDictionaryCharCount51, align 8
-  %add = add i32 %41, %conv50
-  store i32 %add, ptr %fDictionaryCharCount51, align 8
-  br label %if.end52
+139:                                              ; preds = %138, %131
+  %140 = load i32, ptr %6, align 4, !tbaa !151
+  %141 = icmp eq i32 %140, 1
+  br i1 %141, label %142, label %157
 
-if.end52:                                         ; preds = %if.then45, %if.end43
-  %42 = load ptr, ptr %row, align 8
-  %fNextState = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %42, i32 0, i32 3
-  %43 = load i16, ptr %category, align 2
-  %idxprom53 = zext i16 %43 to i64
-  %arrayidx54 = getelementptr inbounds [1 x i16], ptr %fNextState, i64 0, i64 %idxprom53
-  %44 = load i16, ptr %arrayidx54, align 2
-  %conv55 = zext i16 %44 to i32
-  store i32 %conv55, ptr %state, align 4
-  %45 = load ptr, ptr %tableData, align 8
-  %46 = load i32, ptr %tableRowLen, align 4
-  %47 = load i32, ptr %state, align 4
-  %mul56 = mul i32 %46, %47
-  %idx.ext57 = zext i32 %mul56 to i64
-  %add.ptr58 = getelementptr inbounds i8, ptr %45, i64 %idx.ext57
-  store ptr %add.ptr58, ptr %row, align 8
-  %48 = load ptr, ptr %row, align 8
-  %fAccepting = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %48, i32 0, i32 0
-  %49 = load i16, ptr %fAccepting, align 2
-  store i16 %49, ptr %accepting, align 2
-  %50 = load i16, ptr %accepting, align 2
-  %conv59 = zext i16 %50 to i32
-  %cmp60 = icmp eq i32 %conv59, 1
-  br i1 %cmp60, label %if.then61, label %if.else86
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 2
+  %144 = load ptr, ptr %143, align 8, !tbaa !11
+  %145 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %144, i32 0, i32 7
+  %146 = load ptr, ptr %145, align 8, !tbaa !138
+  %147 = load i32, ptr %8, align 4, !tbaa !87
+  %148 = call noundef zeroext i16 @_ZN6icu_77L9TrieFunc8EPK7UCPTriei(ptr noundef %146, i32 noundef %147)
+  store i16 %148, ptr %5, align 2, !tbaa !134
+  %149 = load i16, ptr %5, align 2, !tbaa !134
+  %150 = zext i16 %149 to i32
+  %151 = load i32, ptr %14, align 4, !tbaa !87
+  %152 = icmp uge i32 %150, %151
+  %153 = zext i1 %152 to i32
+  %154 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 11
+  %155 = load i32, ptr %154, align 8, !tbaa !80
+  %156 = add i32 %155, %153
+  store i32 %156, ptr %154, align 8, !tbaa !80
+  br label %157
 
-if.then61:                                        ; preds = %if.end52
-  %51 = load i32, ptr %mode, align 4
-  %cmp62 = icmp ne i32 %51, 0
-  br i1 %cmp62, label %if.then63, label %if.end83
+157:                                              ; preds = %142, %139
+  %158 = load ptr, ptr %7, align 8, !tbaa !162
+  %159 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %158, i32 0, i32 3
+  %160 = load i16, ptr %5, align 2, !tbaa !134
+  %161 = zext i16 %160 to i64
+  %162 = getelementptr inbounds nuw [1 x i16], ptr %159, i64 0, i64 %161
+  %163 = load i16, ptr %162, align 2, !tbaa !134
+  %164 = zext i16 %163 to i32
+  store i32 %164, ptr %4, align 4, !tbaa !87
+  %165 = load ptr, ptr %12, align 8, !tbaa !86
+  %166 = load i32, ptr %13, align 4, !tbaa !87
+  %167 = load i32, ptr %4, align 4, !tbaa !87
+  %168 = mul i32 %166, %167
+  %169 = zext i32 %168 to i64
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 %169
+  store ptr %170, ptr %7, align 8, !tbaa !162
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #10
+  %171 = load ptr, ptr %7, align 8, !tbaa !162
+  %172 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %171, i32 0, i32 0
+  %173 = load i16, ptr %172, align 2, !tbaa !164
+  store i16 %173, ptr %17, align 2, !tbaa !134
+  %174 = load i16, ptr %17, align 2, !tbaa !134
+  %175 = zext i16 %174 to i32
+  %176 = icmp eq i32 %175, 1
+  br i1 %176, label %177, label %214
 
-if.then63:                                        ; preds = %if.then61
-  %fText64 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset65 = getelementptr inbounds %struct.UText, ptr %fText64, i32 0, i32 8
-  %52 = load i32, ptr %chunkOffset65, align 8
-  %fText66 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit67 = getelementptr inbounds %struct.UText, ptr %fText66, i32 0, i32 6
-  %53 = load i32, ptr %nativeIndexingLimit67, align 4
-  %cmp68 = icmp sle i32 %52, %53
-  br i1 %cmp68, label %cond.true69, label %cond.false76
+177:                                              ; preds = %157
+  %178 = load i32, ptr %6, align 4, !tbaa !151
+  %179 = icmp ne i32 %178, 0
+  br i1 %179, label %180, label %208
 
-cond.true69:                                      ; preds = %if.then63
-  %fText70 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart71 = getelementptr inbounds %struct.UText, ptr %fText70, i32 0, i32 7
-  %54 = load i64, ptr %chunkNativeStart71, align 8
-  %fText72 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset73 = getelementptr inbounds %struct.UText, ptr %fText72, i32 0, i32 8
-  %55 = load i32, ptr %chunkOffset73, align 8
-  %conv74 = sext i32 %55 to i64
-  %add75 = add nsw i64 %54, %conv74
-  br label %cond.end80
+180:                                              ; preds = %177
+  %181 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %182 = getelementptr inbounds nuw %struct.UText, ptr %181, i32 0, i32 8
+  %183 = load i32, ptr %182, align 8, !tbaa !147
+  %184 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %185 = getelementptr inbounds nuw %struct.UText, ptr %184, i32 0, i32 6
+  %186 = load i32, ptr %185, align 4, !tbaa !143
+  %187 = icmp sle i32 %183, %186
+  br i1 %187, label %188, label %197
 
-cond.false76:                                     ; preds = %if.then63
-  %fText77 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %fText77, i32 0, i32 11
-  %56 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %56, i32 0, i32 10
-  %57 = load ptr, ptr %mapOffsetToNative, align 8
-  %fText78 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call79 = call noundef i64 %57(ptr noundef %fText78)
-  br label %cond.end80
+188:                                              ; preds = %180
+  %189 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %190 = getelementptr inbounds nuw %struct.UText, ptr %189, i32 0, i32 7
+  %191 = load i64, ptr %190, align 8, !tbaa !142
+  %192 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %193 = getelementptr inbounds nuw %struct.UText, ptr %192, i32 0, i32 8
+  %194 = load i32, ptr %193, align 8, !tbaa !147
+  %195 = sext i32 %194 to i64
+  %196 = add nsw i64 %191, %195
+  br label %205
 
-cond.end80:                                       ; preds = %cond.false76, %cond.true69
-  %cond81 = phi i64 [ %add75, %cond.true69 ], [ %call79, %cond.false76 ]
-  %conv82 = trunc i64 %cond81 to i32
-  store i32 %conv82, ptr %result, align 4
-  br label %if.end83
+197:                                              ; preds = %180
+  %198 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %199 = getelementptr inbounds nuw %struct.UText, ptr %198, i32 0, i32 11
+  %200 = load ptr, ptr %199, align 8, !tbaa !155
+  %201 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %200, i32 0, i32 10
+  %202 = load ptr, ptr %201, align 8, !tbaa !156
+  %203 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %204 = call noundef i64 %202(ptr noundef %203)
+  br label %205
 
-if.end83:                                         ; preds = %cond.end80, %if.then61
-  %58 = load ptr, ptr %row, align 8
-  %fTagsIdx = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %58, i32 0, i32 2
-  %59 = load i16, ptr %fTagsIdx, align 2
-  %conv84 = zext i16 %59 to i32
-  %fRuleStatusIndex85 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 %conv84, ptr %fRuleStatusIndex85, align 8
-  br label %if.end100
+205:                                              ; preds = %197, %188
+  %206 = phi i64 [ %196, %188 ], [ %204, %197 ]
+  %207 = trunc i64 %206 to i32
+  store i32 %207, ptr %9, align 4, !tbaa !87
+  br label %208
 
-if.else86:                                        ; preds = %if.end52
-  %60 = load i16, ptr %accepting, align 2
-  %conv87 = zext i16 %60 to i32
-  %cmp88 = icmp sgt i32 %conv87, 1
-  br i1 %cmp88, label %if.then89, label %if.end99
+208:                                              ; preds = %205, %177
+  %209 = load ptr, ptr %7, align 8, !tbaa !162
+  %210 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %209, i32 0, i32 2
+  %211 = load i16, ptr %210, align 2, !tbaa !166
+  %212 = zext i16 %211 to i32
+  %213 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 %212, ptr %213, align 8, !tbaa !75
+  br label %241
 
-if.then89:                                        ; preds = %if.else86
-  %fLookAheadMatches = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %61 = load ptr, ptr %fLookAheadMatches, align 8
-  %62 = load i16, ptr %accepting, align 2
-  %idxprom90 = zext i16 %62 to i64
-  %arrayidx91 = getelementptr inbounds i32, ptr %61, i64 %idxprom90
-  %63 = load i32, ptr %arrayidx91, align 4
-  store i32 %63, ptr %lookaheadResult, align 4
-  %64 = load i32, ptr %lookaheadResult, align 4
-  %cmp92 = icmp sge i32 %64, 0
-  br i1 %cmp92, label %if.then93, label %if.end98
+214:                                              ; preds = %157
+  %215 = load i16, ptr %17, align 2, !tbaa !134
+  %216 = zext i16 %215 to i32
+  %217 = icmp sgt i32 %216, 1
+  br i1 %217, label %218, label %240
 
-if.then93:                                        ; preds = %if.then89
-  %65 = load ptr, ptr %row, align 8
-  %fTagsIdx94 = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %65, i32 0, i32 2
-  %66 = load i16, ptr %fTagsIdx94, align 2
-  %conv95 = zext i16 %66 to i32
-  %fRuleStatusIndex96 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 %conv95, ptr %fRuleStatusIndex96, align 8
-  %67 = load i32, ptr %lookaheadResult, align 4
-  %fPosition97 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 %67, ptr %fPosition97, align 4
-  %68 = load i32, ptr %lookaheadResult, align 4
-  store i32 %68, ptr %retval, align 4
-  br label %return
+218:                                              ; preds = %214
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  %219 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 17
+  %220 = load ptr, ptr %219, align 8, !tbaa !46
+  %221 = load i16, ptr %17, align 2, !tbaa !134
+  %222 = zext i16 %221 to i64
+  %223 = getelementptr inbounds nuw i32, ptr %220, i64 %222
+  %224 = load i32, ptr %223, align 4, !tbaa !87
+  store i32 %224, ptr %18, align 4, !tbaa !87
+  %225 = load i32, ptr %18, align 4, !tbaa !87
+  %226 = icmp sge i32 %225, 0
+  br i1 %226, label %227, label %236
 
-if.end98:                                         ; preds = %if.then89
-  br label %if.end99
+227:                                              ; preds = %218
+  %228 = load ptr, ptr %7, align 8, !tbaa !162
+  %229 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %228, i32 0, i32 2
+  %230 = load i16, ptr %229, align 2, !tbaa !166
+  %231 = zext i16 %230 to i32
+  %232 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 %231, ptr %232, align 8, !tbaa !75
+  %233 = load i32, ptr %18, align 4, !tbaa !87
+  %234 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  store i32 %233, ptr %234, align 4, !tbaa !74
+  %235 = load i32, ptr %18, align 4, !tbaa !87
+  store i32 %235, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %237
 
-if.end99:                                         ; preds = %if.end98, %if.else86
-  br label %if.end100
+236:                                              ; preds = %218
+  store i32 0, ptr %16, align 4
+  br label %237
 
-if.end100:                                        ; preds = %if.end99, %if.end83
-  %69 = load ptr, ptr %row, align 8
-  %fLookAhead = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %69, i32 0, i32 1
-  %70 = load i16, ptr %fLookAhead, align 2
-  store i16 %70, ptr %rule, align 2
-  %71 = load i16, ptr %rule, align 2
-  %conv101 = zext i16 %71 to i32
-  %cmp102 = icmp sgt i32 %conv101, 1
-  br i1 %cmp102, label %if.then103, label %if.end128
+237:                                              ; preds = %236, %227
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  %238 = load i32, ptr %16, align 4
+  switch i32 %238, label %333 [
+    i32 0, label %239
+  ]
 
-if.then103:                                       ; preds = %if.end100
-  %fText104 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset105 = getelementptr inbounds %struct.UText, ptr %fText104, i32 0, i32 8
-  %72 = load i32, ptr %chunkOffset105, align 8
-  %fText106 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit107 = getelementptr inbounds %struct.UText, ptr %fText106, i32 0, i32 6
-  %73 = load i32, ptr %nativeIndexingLimit107, align 4
-  %cmp108 = icmp sle i32 %72, %73
-  br i1 %cmp108, label %cond.true109, label %cond.false116
+239:                                              ; preds = %237
+  br label %240
 
-cond.true109:                                     ; preds = %if.then103
-  %fText110 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart111 = getelementptr inbounds %struct.UText, ptr %fText110, i32 0, i32 7
-  %74 = load i64, ptr %chunkNativeStart111, align 8
-  %fText112 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset113 = getelementptr inbounds %struct.UText, ptr %fText112, i32 0, i32 8
-  %75 = load i32, ptr %chunkOffset113, align 8
-  %conv114 = sext i32 %75 to i64
-  %add115 = add nsw i64 %74, %conv114
-  br label %cond.end122
+240:                                              ; preds = %239, %214
+  br label %241
 
-cond.false116:                                    ; preds = %if.then103
-  %fText117 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs118 = getelementptr inbounds %struct.UText, ptr %fText117, i32 0, i32 11
-  %76 = load ptr, ptr %pFuncs118, align 8
-  %mapOffsetToNative119 = getelementptr inbounds %struct.UTextFuncs, ptr %76, i32 0, i32 10
-  %77 = load ptr, ptr %mapOffsetToNative119, align 8
-  %fText120 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call121 = call noundef i64 %77(ptr noundef %fText120)
-  br label %cond.end122
+241:                                              ; preds = %240, %208
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #10
+  %242 = load ptr, ptr %7, align 8, !tbaa !162
+  %243 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %242, i32 0, i32 1
+  %244 = load i16, ptr %243, align 2, !tbaa !167
+  store i16 %244, ptr %19, align 2, !tbaa !134
+  %245 = load i16, ptr %19, align 2, !tbaa !134
+  %246 = zext i16 %245 to i32
+  %247 = icmp sgt i32 %246, 1
+  br i1 %247, label %248, label %282
 
-cond.end122:                                      ; preds = %cond.false116, %cond.true109
-  %cond123 = phi i64 [ %add115, %cond.true109 ], [ %call121, %cond.false116 ]
-  %conv124 = trunc i64 %cond123 to i32
-  store i32 %conv124, ptr %pos, align 4
-  %78 = load i32, ptr %pos, align 4
-  %fLookAheadMatches125 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 18
-  %79 = load ptr, ptr %fLookAheadMatches125, align 8
-  %80 = load i16, ptr %rule, align 2
-  %idxprom126 = zext i16 %80 to i64
-  %arrayidx127 = getelementptr inbounds i32, ptr %79, i64 %idxprom126
-  store i32 %78, ptr %arrayidx127, align 4
-  br label %if.end128
+248:                                              ; preds = %241
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  %249 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %250 = getelementptr inbounds nuw %struct.UText, ptr %249, i32 0, i32 8
+  %251 = load i32, ptr %250, align 8, !tbaa !147
+  %252 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %253 = getelementptr inbounds nuw %struct.UText, ptr %252, i32 0, i32 6
+  %254 = load i32, ptr %253, align 4, !tbaa !143
+  %255 = icmp sle i32 %251, %254
+  br i1 %255, label %256, label %265
 
-if.end128:                                        ; preds = %cond.end122, %if.end100
-  %81 = load i32, ptr %state, align 4
-  %cmp129 = icmp eq i32 %81, 0
-  br i1 %cmp129, label %if.then130, label %if.end131
+256:                                              ; preds = %248
+  %257 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %258 = getelementptr inbounds nuw %struct.UText, ptr %257, i32 0, i32 7
+  %259 = load i64, ptr %258, align 8, !tbaa !142
+  %260 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %261 = getelementptr inbounds nuw %struct.UText, ptr %260, i32 0, i32 8
+  %262 = load i32, ptr %261, align 8, !tbaa !147
+  %263 = sext i32 %262 to i64
+  %264 = add nsw i64 %259, %263
+  br label %273
 
-if.then130:                                       ; preds = %if.end128
-  br label %for.end
+265:                                              ; preds = %248
+  %266 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %267 = getelementptr inbounds nuw %struct.UText, ptr %266, i32 0, i32 11
+  %268 = load ptr, ptr %267, align 8, !tbaa !155
+  %269 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %268, i32 0, i32 10
+  %270 = load ptr, ptr %269, align 8, !tbaa !156
+  %271 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %272 = call noundef i64 %270(ptr noundef %271)
+  br label %273
 
-if.end131:                                        ; preds = %if.end128
-  %82 = load i32, ptr %mode, align 4
-  %cmp132 = icmp eq i32 %82, 1
-  br i1 %cmp132, label %if.then133, label %if.else162
+273:                                              ; preds = %265, %256
+  %274 = phi i64 [ %264, %256 ], [ %272, %265 ]
+  %275 = trunc i64 %274 to i32
+  store i32 %275, ptr %20, align 4, !tbaa !87
+  %276 = load i32, ptr %20, align 4, !tbaa !87
+  %277 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 17
+  %278 = load ptr, ptr %277, align 8, !tbaa !46
+  %279 = load i16, ptr %19, align 2, !tbaa !134
+  %280 = zext i16 %279 to i64
+  %281 = getelementptr inbounds nuw i32, ptr %278, i64 %280
+  store i32 %276, ptr %281, align 4, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  br label %282
 
-if.then133:                                       ; preds = %if.end131
-  %fText134 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset135 = getelementptr inbounds %struct.UText, ptr %fText134, i32 0, i32 8
-  %83 = load i32, ptr %chunkOffset135, align 8
-  %fText136 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkLength137 = getelementptr inbounds %struct.UText, ptr %fText136, i32 0, i32 9
-  %84 = load i32, ptr %chunkLength137, align 4
-  %cmp138 = icmp slt i32 %83, %84
-  br i1 %cmp138, label %land.lhs.true139, label %cond.false157
+282:                                              ; preds = %273, %241
+  %283 = load i32, ptr %4, align 4, !tbaa !87
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %285, label %286
 
-land.lhs.true139:                                 ; preds = %if.then133
-  %fText140 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents141 = getelementptr inbounds %struct.UText, ptr %fText140, i32 0, i32 10
-  %85 = load ptr, ptr %chunkContents141, align 8
-  %fText142 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset143 = getelementptr inbounds %struct.UText, ptr %fText142, i32 0, i32 8
-  %86 = load i32, ptr %chunkOffset143, align 8
-  %idxprom144 = sext i32 %86 to i64
-  %arrayidx145 = getelementptr inbounds i16, ptr %85, i64 %idxprom144
-  %87 = load i16, ptr %arrayidx145, align 2
-  %conv146 = zext i16 %87 to i32
-  %cmp147 = icmp slt i32 %conv146, 55296
-  br i1 %cmp147, label %cond.true148, label %cond.false157
+285:                                              ; preds = %282
+  store i32 4, ptr %16, align 4
+  br label %332
 
-cond.true148:                                     ; preds = %land.lhs.true139
-  %fText149 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents150 = getelementptr inbounds %struct.UText, ptr %fText149, i32 0, i32 10
-  %88 = load ptr, ptr %chunkContents150, align 8
-  %fText151 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset152 = getelementptr inbounds %struct.UText, ptr %fText151, i32 0, i32 8
-  %89 = load i32, ptr %chunkOffset152, align 8
-  %inc153 = add nsw i32 %89, 1
-  store i32 %inc153, ptr %chunkOffset152, align 8
-  %idxprom154 = sext i32 %89 to i64
-  %arrayidx155 = getelementptr inbounds i16, ptr %88, i64 %idxprom154
-  %90 = load i16, ptr %arrayidx155, align 2
-  %conv156 = zext i16 %90 to i32
-  br label %cond.end160
+286:                                              ; preds = %282
+  %287 = load i32, ptr %6, align 4, !tbaa !151
+  %288 = icmp eq i32 %287, 1
+  br i1 %288, label %289, label %326
 
-cond.false157:                                    ; preds = %land.lhs.true139, %if.then133
-  %fText158 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call159 = call i32 @utext_next32_75(ptr noundef %fText158)
-  br label %cond.end160
+289:                                              ; preds = %286
+  %290 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %291 = getelementptr inbounds nuw %struct.UText, ptr %290, i32 0, i32 8
+  %292 = load i32, ptr %291, align 8, !tbaa !147
+  %293 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %294 = getelementptr inbounds nuw %struct.UText, ptr %293, i32 0, i32 9
+  %295 = load i32, ptr %294, align 4, !tbaa !148
+  %296 = icmp slt i32 %292, %295
+  br i1 %296, label %297, label %321
 
-cond.end160:                                      ; preds = %cond.false157, %cond.true148
-  %cond161 = phi i32 [ %conv156, %cond.true148 ], [ %call159, %cond.false157 ]
-  store i32 %cond161, ptr %c, align 4
-  br label %if.end166
+297:                                              ; preds = %289
+  %298 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %299 = getelementptr inbounds nuw %struct.UText, ptr %298, i32 0, i32 10
+  %300 = load ptr, ptr %299, align 8, !tbaa !144
+  %301 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %302 = getelementptr inbounds nuw %struct.UText, ptr %301, i32 0, i32 8
+  %303 = load i32, ptr %302, align 8, !tbaa !147
+  %304 = sext i32 %303 to i64
+  %305 = getelementptr inbounds i16, ptr %300, i64 %304
+  %306 = load i16, ptr %305, align 2, !tbaa !145
+  %307 = zext i16 %306 to i32
+  %308 = icmp slt i32 %307, 55296
+  br i1 %308, label %309, label %321
 
-if.else162:                                       ; preds = %if.end131
-  %91 = load i32, ptr %mode, align 4
-  %cmp163 = icmp eq i32 %91, 0
-  br i1 %cmp163, label %if.then164, label %if.end165
+309:                                              ; preds = %297
+  %310 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %311 = getelementptr inbounds nuw %struct.UText, ptr %310, i32 0, i32 10
+  %312 = load ptr, ptr %311, align 8, !tbaa !144
+  %313 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %314 = getelementptr inbounds nuw %struct.UText, ptr %313, i32 0, i32 8
+  %315 = load i32, ptr %314, align 8, !tbaa !147
+  %316 = add nsw i32 %315, 1
+  store i32 %316, ptr %314, align 8, !tbaa !147
+  %317 = sext i32 %315 to i64
+  %318 = getelementptr inbounds i16, ptr %312, i64 %317
+  %319 = load i16, ptr %318, align 2, !tbaa !145
+  %320 = zext i16 %319 to i32
+  br label %324
 
-if.then164:                                       ; preds = %if.else162
-  store i32 1, ptr %mode, align 4
-  br label %if.end165
+321:                                              ; preds = %297, %289
+  %322 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %323 = call i32 @utext_next32_77(ptr noundef %322)
+  br label %324
 
-if.end165:                                        ; preds = %if.then164, %if.else162
-  br label %if.end166
+324:                                              ; preds = %321, %309
+  %325 = phi i32 [ %320, %309 ], [ %323, %321 ]
+  store i32 %325, ptr %8, align 4, !tbaa !87
+  br label %331
 
-if.end166:                                        ; preds = %if.end165, %cond.end160
-  br label %for.cond, !llvm.loop !11
+326:                                              ; preds = %286
+  %327 = load i32, ptr %6, align 4, !tbaa !151
+  %328 = icmp eq i32 %327, 0
+  br i1 %328, label %329, label %330
 
-for.end:                                          ; preds = %if.then130, %if.then41
-  %92 = load i32, ptr %result, align 4
-  %93 = load i32, ptr %initialPosition, align 4
-  %cmp167 = icmp eq i32 %92, %93
-  br i1 %cmp167, label %if.then168, label %if.end177
+329:                                              ; preds = %326
+  store i32 1, ptr %6, align 4, !tbaa !151
+  br label %330
 
-if.then168:                                       ; preds = %for.end
-  %fText169 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %94 = load i32, ptr %initialPosition, align 4
-  %conv170 = sext i32 %94 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText169, i64 noundef %conv170)
-  %fText171 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call172 = call i32 @utext_next32_75(ptr noundef %fText171)
-  %fText173 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call174 = call i64 @utext_getNativeIndex_75(ptr noundef %fText173)
-  %conv175 = trunc i64 %call174 to i32
-  store i32 %conv175, ptr %result, align 4
-  %fRuleStatusIndex176 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %fRuleStatusIndex176, align 8
-  br label %if.end177
+330:                                              ; preds = %329, %326
+  br label %331
 
-if.end177:                                        ; preds = %if.then168, %for.end
-  %95 = load i32, ptr %result, align 4
-  %fPosition178 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 5
-  store i32 %95, ptr %fPosition178, align 4
-  %96 = load i32, ptr %result, align 4
-  store i32 %96, ptr %retval, align 4
-  br label %return
+331:                                              ; preds = %330, %324
+  store i32 0, ptr %16, align 4
+  br label %332
 
-return:                                           ; preds = %if.end177, %if.then93, %if.then34
-  %97 = load i32, ptr %retval, align 4
-  ret i32 %97
+332:                                              ; preds = %331, %285
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #10
+  br label %333
+
+333:                                              ; preds = %332, %237
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #10
+  %334 = load i32, ptr %16, align 4
+  switch i32 %334, label %354 [
+    i32 0, label %335
+    i32 4, label %336
+  ]
+
+335:                                              ; preds = %333
+  br label %131, !llvm.loop !168
+
+336:                                              ; preds = %333, %137
+  %337 = load i32, ptr %9, align 4, !tbaa !87
+  %338 = load i32, ptr %10, align 4, !tbaa !87
+  %339 = icmp eq i32 %337, %338
+  br i1 %339, label %340, label %350
+
+340:                                              ; preds = %336
+  %341 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %342 = load i32, ptr %10, align 4, !tbaa !87
+  %343 = sext i32 %342 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %341, i64 noundef %343)
+  %344 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %345 = call i32 @utext_next32_77(ptr noundef %344)
+  %346 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %347 = call i64 @utext_getNativeIndex_77(ptr noundef %346)
+  %348 = trunc i64 %347 to i32
+  store i32 %348, ptr %9, align 4, !tbaa !87
+  %349 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 0, ptr %349, align 8, !tbaa !75
+  br label %350
+
+350:                                              ; preds = %340, %336
+  %351 = load i32, ptr %9, align 4, !tbaa !87
+  %352 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  store i32 %351, ptr %352, align 4, !tbaa !74
+  %353 = load i32, ptr %9, align 4, !tbaa !87
+  store i32 %353, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %354
+
+354:                                              ; preds = %350, %333, %115
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  %355 = load i32, ptr %2, align 4
+  ret i32 %355
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator18handleSafePreviousEi(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %fromPosition) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %fromPosition.addr = alloca i32, align 4
-  %statetable = alloca ptr, align 8
-  %use8BitsTrie = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %fromPosition, ptr %fromPosition.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fReverseTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %fReverseTable, align 8
-  store ptr %1, ptr %statetable, align 8
-  %fData2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %fData2, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %2, i32 0, i32 7
-  %3 = load ptr, ptr %fTrie, align 8
-  %call = call i32 @ucptrie_getValueWidth_75(ptr noundef %3)
-  %cmp = icmp eq i32 %call, 2
-  %frombool = zext i1 %cmp to i8
-  store i8 %frombool, ptr %use8BitsTrie, align 1
-  %4 = load ptr, ptr %statetable, align 8
-  %fFlags = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %4, i32 0, i32 4
-  %5 = load i32, ptr %fFlags, align 4
-  %and = and i32 %5, 4
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else7
+define internal noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextINS_18RBBIStateTableRowTItEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEiv(ptr noundef nonnull align 8 dereferenceable(297) %0) #1 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i16, align 2
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i16, align 2
+  %18 = alloca i32, align 4
+  %19 = alloca i16, align 2
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %21 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %5) #10
+  store i16 0, ptr %5, align 2, !tbaa !134
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store i32 0, ptr %9, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %23, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  store ptr %25, ptr %11, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %26 = load ptr, ptr %11, align 8, !tbaa !137
+  %27 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %26, i32 0, i32 5
+  %28 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 0
+  store ptr %28, ptr %12, align 8, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %29 = load ptr, ptr %11, align 8, !tbaa !137
+  %30 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4, !tbaa !140
+  store i32 %31, ptr %13, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  %32 = load ptr, ptr %11, align 8, !tbaa !137
+  %33 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %32, i32 0, i32 2
+  %34 = load i32, ptr %33, align 4, !tbaa !141
+  store i32 %34, ptr %14, align 4, !tbaa !87
+  %35 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 0, ptr %35, align 8, !tbaa !75
+  %36 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 11
+  store i32 0, ptr %36, align 8, !tbaa !80
+  %37 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  %38 = load i32, ptr %37, align 4, !tbaa !74
+  store i32 %38, ptr %10, align 4, !tbaa !87
+  br label %39
 
-if.then:                                          ; preds = %entry
-  %6 = load i8, ptr %use8BitsTrie, align 1
-  %tobool3 = trunc i8 %6 to i1
-  br i1 %tobool3, label %if.then4, label %if.else
+39:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %40 = load i32, ptr %10, align 4, !tbaa !87
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct.UText, ptr %42, i32 0, i32 7
+  %44 = load i64, ptr %43, align 8, !tbaa !142
+  %45 = sub nsw i64 %41, %44
+  store i64 %45, ptr %15, align 8, !tbaa !124
+  %46 = load i64, ptr %15, align 8, !tbaa !124
+  %47 = icmp sge i64 %46, 0
+  br i1 %47, label %48, label %69
 
-if.then4:                                         ; preds = %if.then
-  %7 = load i32, ptr %fromPosition.addr, align 4
-  %call5 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(745) %this1, i32 noundef %7)
-  store i32 %call5, ptr %retval, align 4
-  br label %return
+48:                                               ; preds = %39
+  %49 = load i64, ptr %15, align 8, !tbaa !124
+  %50 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %struct.UText, ptr %50, i32 0, i32 6
+  %52 = load i32, ptr %51, align 4, !tbaa !143
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %49, %53
+  br i1 %54, label %55, label %69
 
-if.else:                                          ; preds = %if.then
-  %8 = load i32, ptr %fromPosition.addr, align 4
-  %call6 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(745) %this1, i32 noundef %8)
-  store i32 %call6, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct.UText, ptr %56, i32 0, i32 10
+  %58 = load ptr, ptr %57, align 8, !tbaa !144
+  %59 = load i64, ptr %15, align 8, !tbaa !124
+  %60 = getelementptr inbounds i16, ptr %58, i64 %59
+  %61 = load i16, ptr %60, align 2, !tbaa !145
+  %62 = zext i16 %61 to i32
+  %63 = icmp slt i32 %62, 56320
+  br i1 %63, label %64, label %69
 
-if.else7:                                         ; preds = %entry
-  %9 = load i8, ptr %use8BitsTrie, align 1
-  %tobool8 = trunc i8 %9 to i1
-  br i1 %tobool8, label %if.then9, label %if.else11
+64:                                               ; preds = %55
+  %65 = load i64, ptr %15, align 8, !tbaa !124
+  %66 = trunc i64 %65 to i32
+  %67 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.UText, ptr %67, i32 0, i32 8
+  store i32 %66, ptr %68, align 8, !tbaa !147
+  br label %73
 
-if.then9:                                         ; preds = %if.else7
-  %10 = load i32, ptr %fromPosition.addr, align 4
-  %call10 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTItEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(745) %this1, i32 noundef %10)
-  store i32 %call10, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %55, %48, %39
+  %70 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %71 = load i32, ptr %10, align 4, !tbaa !87
+  %72 = sext i32 %71 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %70, i64 noundef %72)
+  br label %73
 
-if.else11:                                        ; preds = %if.else7
-  %11 = load i32, ptr %fromPosition.addr, align 4
-  %call12 = call noundef i32 @_ZN6icu_7522RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTItEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(745) %this1, i32 noundef %11)
-  store i32 %call12, ptr %retval, align 4
-  br label %return
+73:                                               ; preds = %69, %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  br label %74
 
-return:                                           ; preds = %if.else11, %if.then9, %if.else, %if.then4
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+74:                                               ; preds = %73
+  br label %75
+
+75:                                               ; preds = %74
+  %76 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %76, ptr %9, align 4, !tbaa !87
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.UText, ptr %77, i32 0, i32 8
+  %79 = load i32, ptr %78, align 8, !tbaa !147
+  %80 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %81 = getelementptr inbounds nuw %struct.UText, ptr %80, i32 0, i32 9
+  %82 = load i32, ptr %81, align 4, !tbaa !148
+  %83 = icmp slt i32 %79, %82
+  br i1 %83, label %84, label %108
+
+84:                                               ; preds = %75
+  %85 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %86 = getelementptr inbounds nuw %struct.UText, ptr %85, i32 0, i32 10
+  %87 = load ptr, ptr %86, align 8, !tbaa !144
+  %88 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %89 = getelementptr inbounds nuw %struct.UText, ptr %88, i32 0, i32 8
+  %90 = load i32, ptr %89, align 8, !tbaa !147
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i16, ptr %87, i64 %91
+  %93 = load i16, ptr %92, align 2, !tbaa !145
+  %94 = zext i16 %93 to i32
+  %95 = icmp slt i32 %94, 55296
+  br i1 %95, label %96, label %108
+
+96:                                               ; preds = %84
+  %97 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.UText, ptr %97, i32 0, i32 10
+  %99 = load ptr, ptr %98, align 8, !tbaa !144
+  %100 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %101 = getelementptr inbounds nuw %struct.UText, ptr %100, i32 0, i32 8
+  %102 = load i32, ptr %101, align 8, !tbaa !147
+  %103 = add nsw i32 %102, 1
+  store i32 %103, ptr %101, align 8, !tbaa !147
+  %104 = sext i32 %102 to i64
+  %105 = getelementptr inbounds i16, ptr %99, i64 %104
+  %106 = load i16, ptr %105, align 2, !tbaa !145
+  %107 = zext i16 %106 to i32
+  br label %111
+
+108:                                              ; preds = %84, %75
+  %109 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %110 = call i32 @utext_next32_77(ptr noundef %109)
+  br label %111
+
+111:                                              ; preds = %108, %96
+  %112 = phi i32 [ %107, %96 ], [ %110, %108 ]
+  store i32 %112, ptr %8, align 4, !tbaa !87
+  %113 = load i32, ptr %8, align 4, !tbaa !87
+  %114 = icmp eq i32 %113, -1
+  br i1 %114, label %115, label %117
+
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 15
+  store i8 1, ptr %116, align 8, !tbaa !82
+  store i32 -1, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %354
+
+117:                                              ; preds = %111
+  store i32 1, ptr %4, align 4, !tbaa !87
+  %118 = load ptr, ptr %12, align 8, !tbaa !86
+  %119 = load i32, ptr %13, align 4, !tbaa !87
+  %120 = load i32, ptr %4, align 4, !tbaa !87
+  %121 = mul i32 %119, %120
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 %122
+  store ptr %123, ptr %7, align 8, !tbaa !162
+  store i32 1, ptr %6, align 4, !tbaa !151
+  %124 = load ptr, ptr %11, align 8, !tbaa !137
+  %125 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %124, i32 0, i32 4
+  %126 = load i32, ptr %125, align 4, !tbaa !139
+  %127 = and i32 %126, 2
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %130
+
+129:                                              ; preds = %117
+  store i16 2, ptr %5, align 2, !tbaa !134
+  store i32 0, ptr %6, align 4, !tbaa !151
+  br label %130
+
+130:                                              ; preds = %129, %117
+  br label %131
+
+131:                                              ; preds = %335, %130
+  %132 = load i32, ptr %8, align 4, !tbaa !87
+  %133 = icmp eq i32 %132, -1
+  br i1 %133, label %134, label %139
+
+134:                                              ; preds = %131
+  %135 = load i32, ptr %6, align 4, !tbaa !151
+  %136 = icmp eq i32 %135, 2
+  br i1 %136, label %137, label %138
+
+137:                                              ; preds = %134
+  br label %336
+
+138:                                              ; preds = %134
+  store i32 2, ptr %6, align 4, !tbaa !151
+  store i16 1, ptr %5, align 2, !tbaa !134
+  br label %139
+
+139:                                              ; preds = %138, %131
+  %140 = load i32, ptr %6, align 4, !tbaa !151
+  %141 = icmp eq i32 %140, 1
+  br i1 %141, label %142, label %157
+
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 2
+  %144 = load ptr, ptr %143, align 8, !tbaa !11
+  %145 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %144, i32 0, i32 7
+  %146 = load ptr, ptr %145, align 8, !tbaa !138
+  %147 = load i32, ptr %8, align 4, !tbaa !87
+  %148 = call noundef zeroext i16 @_ZN6icu_77L10TrieFunc16EPK7UCPTriei(ptr noundef %146, i32 noundef %147)
+  store i16 %148, ptr %5, align 2, !tbaa !134
+  %149 = load i16, ptr %5, align 2, !tbaa !134
+  %150 = zext i16 %149 to i32
+  %151 = load i32, ptr %14, align 4, !tbaa !87
+  %152 = icmp uge i32 %150, %151
+  %153 = zext i1 %152 to i32
+  %154 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 11
+  %155 = load i32, ptr %154, align 8, !tbaa !80
+  %156 = add i32 %155, %153
+  store i32 %156, ptr %154, align 8, !tbaa !80
+  br label %157
+
+157:                                              ; preds = %142, %139
+  %158 = load ptr, ptr %7, align 8, !tbaa !162
+  %159 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %158, i32 0, i32 3
+  %160 = load i16, ptr %5, align 2, !tbaa !134
+  %161 = zext i16 %160 to i64
+  %162 = getelementptr inbounds nuw [1 x i16], ptr %159, i64 0, i64 %161
+  %163 = load i16, ptr %162, align 2, !tbaa !134
+  %164 = zext i16 %163 to i32
+  store i32 %164, ptr %4, align 4, !tbaa !87
+  %165 = load ptr, ptr %12, align 8, !tbaa !86
+  %166 = load i32, ptr %13, align 4, !tbaa !87
+  %167 = load i32, ptr %4, align 4, !tbaa !87
+  %168 = mul i32 %166, %167
+  %169 = zext i32 %168 to i64
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 %169
+  store ptr %170, ptr %7, align 8, !tbaa !162
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #10
+  %171 = load ptr, ptr %7, align 8, !tbaa !162
+  %172 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %171, i32 0, i32 0
+  %173 = load i16, ptr %172, align 2, !tbaa !164
+  store i16 %173, ptr %17, align 2, !tbaa !134
+  %174 = load i16, ptr %17, align 2, !tbaa !134
+  %175 = zext i16 %174 to i32
+  %176 = icmp eq i32 %175, 1
+  br i1 %176, label %177, label %214
+
+177:                                              ; preds = %157
+  %178 = load i32, ptr %6, align 4, !tbaa !151
+  %179 = icmp ne i32 %178, 0
+  br i1 %179, label %180, label %208
+
+180:                                              ; preds = %177
+  %181 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %182 = getelementptr inbounds nuw %struct.UText, ptr %181, i32 0, i32 8
+  %183 = load i32, ptr %182, align 8, !tbaa !147
+  %184 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %185 = getelementptr inbounds nuw %struct.UText, ptr %184, i32 0, i32 6
+  %186 = load i32, ptr %185, align 4, !tbaa !143
+  %187 = icmp sle i32 %183, %186
+  br i1 %187, label %188, label %197
+
+188:                                              ; preds = %180
+  %189 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %190 = getelementptr inbounds nuw %struct.UText, ptr %189, i32 0, i32 7
+  %191 = load i64, ptr %190, align 8, !tbaa !142
+  %192 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %193 = getelementptr inbounds nuw %struct.UText, ptr %192, i32 0, i32 8
+  %194 = load i32, ptr %193, align 8, !tbaa !147
+  %195 = sext i32 %194 to i64
+  %196 = add nsw i64 %191, %195
+  br label %205
+
+197:                                              ; preds = %180
+  %198 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %199 = getelementptr inbounds nuw %struct.UText, ptr %198, i32 0, i32 11
+  %200 = load ptr, ptr %199, align 8, !tbaa !155
+  %201 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %200, i32 0, i32 10
+  %202 = load ptr, ptr %201, align 8, !tbaa !156
+  %203 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %204 = call noundef i64 %202(ptr noundef %203)
+  br label %205
+
+205:                                              ; preds = %197, %188
+  %206 = phi i64 [ %196, %188 ], [ %204, %197 ]
+  %207 = trunc i64 %206 to i32
+  store i32 %207, ptr %9, align 4, !tbaa !87
+  br label %208
+
+208:                                              ; preds = %205, %177
+  %209 = load ptr, ptr %7, align 8, !tbaa !162
+  %210 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %209, i32 0, i32 2
+  %211 = load i16, ptr %210, align 2, !tbaa !166
+  %212 = zext i16 %211 to i32
+  %213 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 %212, ptr %213, align 8, !tbaa !75
+  br label %241
+
+214:                                              ; preds = %157
+  %215 = load i16, ptr %17, align 2, !tbaa !134
+  %216 = zext i16 %215 to i32
+  %217 = icmp sgt i32 %216, 1
+  br i1 %217, label %218, label %240
+
+218:                                              ; preds = %214
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  %219 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 17
+  %220 = load ptr, ptr %219, align 8, !tbaa !46
+  %221 = load i16, ptr %17, align 2, !tbaa !134
+  %222 = zext i16 %221 to i64
+  %223 = getelementptr inbounds nuw i32, ptr %220, i64 %222
+  %224 = load i32, ptr %223, align 4, !tbaa !87
+  store i32 %224, ptr %18, align 4, !tbaa !87
+  %225 = load i32, ptr %18, align 4, !tbaa !87
+  %226 = icmp sge i32 %225, 0
+  br i1 %226, label %227, label %236
+
+227:                                              ; preds = %218
+  %228 = load ptr, ptr %7, align 8, !tbaa !162
+  %229 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %228, i32 0, i32 2
+  %230 = load i16, ptr %229, align 2, !tbaa !166
+  %231 = zext i16 %230 to i32
+  %232 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 %231, ptr %232, align 8, !tbaa !75
+  %233 = load i32, ptr %18, align 4, !tbaa !87
+  %234 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  store i32 %233, ptr %234, align 4, !tbaa !74
+  %235 = load i32, ptr %18, align 4, !tbaa !87
+  store i32 %235, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %237
+
+236:                                              ; preds = %218
+  store i32 0, ptr %16, align 4
+  br label %237
+
+237:                                              ; preds = %236, %227
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  %238 = load i32, ptr %16, align 4
+  switch i32 %238, label %333 [
+    i32 0, label %239
+  ]
+
+239:                                              ; preds = %237
+  br label %240
+
+240:                                              ; preds = %239, %214
+  br label %241
+
+241:                                              ; preds = %240, %208
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #10
+  %242 = load ptr, ptr %7, align 8, !tbaa !162
+  %243 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %242, i32 0, i32 1
+  %244 = load i16, ptr %243, align 2, !tbaa !167
+  store i16 %244, ptr %19, align 2, !tbaa !134
+  %245 = load i16, ptr %19, align 2, !tbaa !134
+  %246 = zext i16 %245 to i32
+  %247 = icmp sgt i32 %246, 1
+  br i1 %247, label %248, label %282
+
+248:                                              ; preds = %241
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  %249 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %250 = getelementptr inbounds nuw %struct.UText, ptr %249, i32 0, i32 8
+  %251 = load i32, ptr %250, align 8, !tbaa !147
+  %252 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %253 = getelementptr inbounds nuw %struct.UText, ptr %252, i32 0, i32 6
+  %254 = load i32, ptr %253, align 4, !tbaa !143
+  %255 = icmp sle i32 %251, %254
+  br i1 %255, label %256, label %265
+
+256:                                              ; preds = %248
+  %257 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %258 = getelementptr inbounds nuw %struct.UText, ptr %257, i32 0, i32 7
+  %259 = load i64, ptr %258, align 8, !tbaa !142
+  %260 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %261 = getelementptr inbounds nuw %struct.UText, ptr %260, i32 0, i32 8
+  %262 = load i32, ptr %261, align 8, !tbaa !147
+  %263 = sext i32 %262 to i64
+  %264 = add nsw i64 %259, %263
+  br label %273
+
+265:                                              ; preds = %248
+  %266 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %267 = getelementptr inbounds nuw %struct.UText, ptr %266, i32 0, i32 11
+  %268 = load ptr, ptr %267, align 8, !tbaa !155
+  %269 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %268, i32 0, i32 10
+  %270 = load ptr, ptr %269, align 8, !tbaa !156
+  %271 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %272 = call noundef i64 %270(ptr noundef %271)
+  br label %273
+
+273:                                              ; preds = %265, %256
+  %274 = phi i64 [ %264, %256 ], [ %272, %265 ]
+  %275 = trunc i64 %274 to i32
+  store i32 %275, ptr %20, align 4, !tbaa !87
+  %276 = load i32, ptr %20, align 4, !tbaa !87
+  %277 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 17
+  %278 = load ptr, ptr %277, align 8, !tbaa !46
+  %279 = load i16, ptr %19, align 2, !tbaa !134
+  %280 = zext i16 %279 to i64
+  %281 = getelementptr inbounds nuw i32, ptr %278, i64 %280
+  store i32 %276, ptr %281, align 4, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  br label %282
+
+282:                                              ; preds = %273, %241
+  %283 = load i32, ptr %4, align 4, !tbaa !87
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %285, label %286
+
+285:                                              ; preds = %282
+  store i32 4, ptr %16, align 4
+  br label %332
+
+286:                                              ; preds = %282
+  %287 = load i32, ptr %6, align 4, !tbaa !151
+  %288 = icmp eq i32 %287, 1
+  br i1 %288, label %289, label %326
+
+289:                                              ; preds = %286
+  %290 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %291 = getelementptr inbounds nuw %struct.UText, ptr %290, i32 0, i32 8
+  %292 = load i32, ptr %291, align 8, !tbaa !147
+  %293 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %294 = getelementptr inbounds nuw %struct.UText, ptr %293, i32 0, i32 9
+  %295 = load i32, ptr %294, align 4, !tbaa !148
+  %296 = icmp slt i32 %292, %295
+  br i1 %296, label %297, label %321
+
+297:                                              ; preds = %289
+  %298 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %299 = getelementptr inbounds nuw %struct.UText, ptr %298, i32 0, i32 10
+  %300 = load ptr, ptr %299, align 8, !tbaa !144
+  %301 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %302 = getelementptr inbounds nuw %struct.UText, ptr %301, i32 0, i32 8
+  %303 = load i32, ptr %302, align 8, !tbaa !147
+  %304 = sext i32 %303 to i64
+  %305 = getelementptr inbounds i16, ptr %300, i64 %304
+  %306 = load i16, ptr %305, align 2, !tbaa !145
+  %307 = zext i16 %306 to i32
+  %308 = icmp slt i32 %307, 55296
+  br i1 %308, label %309, label %321
+
+309:                                              ; preds = %297
+  %310 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %311 = getelementptr inbounds nuw %struct.UText, ptr %310, i32 0, i32 10
+  %312 = load ptr, ptr %311, align 8, !tbaa !144
+  %313 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %314 = getelementptr inbounds nuw %struct.UText, ptr %313, i32 0, i32 8
+  %315 = load i32, ptr %314, align 8, !tbaa !147
+  %316 = add nsw i32 %315, 1
+  store i32 %316, ptr %314, align 8, !tbaa !147
+  %317 = sext i32 %315 to i64
+  %318 = getelementptr inbounds i16, ptr %312, i64 %317
+  %319 = load i16, ptr %318, align 2, !tbaa !145
+  %320 = zext i16 %319 to i32
+  br label %324
+
+321:                                              ; preds = %297, %289
+  %322 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %323 = call i32 @utext_next32_77(ptr noundef %322)
+  br label %324
+
+324:                                              ; preds = %321, %309
+  %325 = phi i32 [ %320, %309 ], [ %323, %321 ]
+  store i32 %325, ptr %8, align 4, !tbaa !87
+  br label %331
+
+326:                                              ; preds = %286
+  %327 = load i32, ptr %6, align 4, !tbaa !151
+  %328 = icmp eq i32 %327, 0
+  br i1 %328, label %329, label %330
+
+329:                                              ; preds = %326
+  store i32 1, ptr %6, align 4, !tbaa !151
+  br label %330
+
+330:                                              ; preds = %329, %326
+  br label %331
+
+331:                                              ; preds = %330, %324
+  store i32 0, ptr %16, align 4
+  br label %332
+
+332:                                              ; preds = %331, %285
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #10
+  br label %333
+
+333:                                              ; preds = %332, %237
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #10
+  %334 = load i32, ptr %16, align 4
+  switch i32 %334, label %354 [
+    i32 0, label %335
+    i32 4, label %336
+  ]
+
+335:                                              ; preds = %333
+  br label %131, !llvm.loop !169
+
+336:                                              ; preds = %333, %137
+  %337 = load i32, ptr %9, align 4, !tbaa !87
+  %338 = load i32, ptr %10, align 4, !tbaa !87
+  %339 = icmp eq i32 %337, %338
+  br i1 %339, label %340, label %350
+
+340:                                              ; preds = %336
+  %341 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %342 = load i32, ptr %10, align 4, !tbaa !87
+  %343 = sext i32 %342 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %341, i64 noundef %343)
+  %344 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %345 = call i32 @utext_next32_77(ptr noundef %344)
+  %346 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 1
+  %347 = call i64 @utext_getNativeIndex_77(ptr noundef %346)
+  %348 = trunc i64 %347 to i32
+  store i32 %348, ptr %9, align 4, !tbaa !87
+  %349 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 5
+  store i32 0, ptr %349, align 8, !tbaa !75
+  br label %350
+
+350:                                              ; preds = %340, %336
+  %351 = load i32, ptr %9, align 4, !tbaa !87
+  %352 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %21, i32 0, i32 4
+  store i32 %351, ptr %352, align 4, !tbaa !74
+  %353 = load i32, ptr %9, align 4, !tbaa !87
+  store i32 %353, ptr %2, align 4
+  store i32 1, ptr %16, align 4
+  br label %354
+
+354:                                              ; preds = %350, %333, %115
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  %355 = load i32, ptr %2, align 4
+  ret i32 %355
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_7522RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %fromPosition) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %fromPosition.addr = alloca i32, align 4
-  %state = alloca i32, align 4
-  %category = alloca i16, align 2
-  %row = alloca ptr, align 8
-  %c = alloca i32, align 4
-  %result = alloca i32, align 4
-  %stateTable = alloca ptr, align 8
-  %__offset = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %fromPosition, ptr %fromPosition.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i16 0, ptr %category, align 2
-  store i32 0, ptr %result, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fReverseTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %fReverseTable, align 8
-  store ptr %1, ptr %stateTable, align 8
-  br label %do.body
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousEi(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !87
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %10 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !170
+  store ptr %13, ptr %6, align 8, !tbaa !137
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #10
+  %14 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %9, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %15, i32 0, i32 7
+  %17 = load ptr, ptr %16, align 8, !tbaa !138
+  %18 = call i32 @ucptrie_getValueWidth_77(ptr noundef %17)
+  %19 = icmp eq i32 %18, 2
+  %20 = zext i1 %19 to i8
+  store i8 %20, ptr %7, align 1, !tbaa !136
+  %21 = load ptr, ptr %6, align 8, !tbaa !137
+  %22 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %21, i32 0, i32 4
+  %23 = load i32, ptr %22, align 4, !tbaa !139
+  %24 = and i32 %23, 4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %35
 
-do.body:                                          ; preds = %entry
-  %2 = load i32, ptr %fromPosition.addr, align 4
-  %conv = sext i32 %2 to i64
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 7
-  %3 = load i64, ptr %chunkNativeStart, align 8
-  %sub = sub nsw i64 %conv, %3
-  store i64 %sub, ptr %__offset, align 8
-  %4 = load i64, ptr %__offset, align 8
-  %cmp = icmp sge i64 %4, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+26:                                               ; preds = %2
+  %27 = load i8, ptr %7, align 1, !tbaa !136, !range !94, !noundef !95
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %32
 
-land.lhs.true:                                    ; preds = %do.body
-  %5 = load i64, ptr %__offset, align 8
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %fText2, i32 0, i32 6
-  %6 = load i32, ptr %nativeIndexingLimit, align 4
-  %conv3 = sext i32 %6 to i64
-  %cmp4 = icmp slt i64 %5, %conv3
-  br i1 %cmp4, label %land.lhs.true5, label %if.else
+29:                                               ; preds = %26
+  %30 = load i32, ptr %5, align 4, !tbaa !87
+  %31 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(297) %9, i32 noundef %30)
+  store i32 %31, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %44
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fText6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %fText6, i32 0, i32 10
-  %7 = load ptr, ptr %chunkContents, align 8
-  %8 = load i64, ptr %__offset, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %8
-  %9 = load i16, ptr %arrayidx, align 2
-  %conv7 = zext i16 %9 to i32
-  %cmp8 = icmp slt i32 %conv7, 56320
-  br i1 %cmp8, label %if.then, label %if.else
+32:                                               ; preds = %26
+  %33 = load i32, ptr %5, align 4, !tbaa !87
+  %34 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(297) %9, i32 noundef %33)
+  store i32 %34, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %44
 
-if.then:                                          ; preds = %land.lhs.true5
-  %10 = load i64, ptr %__offset, align 8
-  %conv9 = trunc i64 %10 to i32
-  %fText10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %fText10, i32 0, i32 8
-  store i32 %conv9, ptr %chunkOffset, align 8
-  br label %if.end
+35:                                               ; preds = %2
+  %36 = load i8, ptr %7, align 1, !tbaa !136, !range !94, !noundef !95
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %41
 
-if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true, %do.body
-  %fText11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %11 = load i32, ptr %fromPosition.addr, align 4
-  %conv12 = sext i32 %11 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText11, i64 noundef %conv12)
-  br label %if.end
+38:                                               ; preds = %35
+  %39 = load i32, ptr %5, align 4, !tbaa !87
+  %40 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTItEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(297) %9, i32 noundef %39)
+  store i32 %40, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %44
 
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
+41:                                               ; preds = %35
+  %42 = load i32, ptr %5, align 4, !tbaa !87
+  %43 = call noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTItEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(297) %9, i32 noundef %42)
+  store i32 %43, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %44
 
-do.end:                                           ; preds = %if.end
-  %fData13 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %12 = load ptr, ptr %fData13, align 8
-  %cmp14 = icmp eq ptr %12, null
-  br i1 %cmp14, label %if.then28, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %do.end
-  %fText15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset16 = getelementptr inbounds %struct.UText, ptr %fText15, i32 0, i32 8
-  %13 = load i32, ptr %chunkOffset16, align 8
-  %fText17 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit18 = getelementptr inbounds %struct.UText, ptr %fText17, i32 0, i32 6
-  %14 = load i32, ptr %nativeIndexingLimit18, align 4
-  %cmp19 = icmp sle i32 %13, %14
-  br i1 %cmp19, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %lor.lhs.false
-  %fText20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart21 = getelementptr inbounds %struct.UText, ptr %fText20, i32 0, i32 7
-  %15 = load i64, ptr %chunkNativeStart21, align 8
-  %fText22 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset23 = getelementptr inbounds %struct.UText, ptr %fText22, i32 0, i32 8
-  %16 = load i32, ptr %chunkOffset23, align 8
-  %conv24 = sext i32 %16 to i64
-  %add = add nsw i64 %15, %conv24
-  br label %cond.end
-
-cond.false:                                       ; preds = %lor.lhs.false
-  %fText25 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %fText25, i32 0, i32 11
-  %17 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %17, i32 0, i32 10
-  %18 = load ptr, ptr %mapOffsetToNative, align 8
-  %fText26 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call noundef i64 %18(ptr noundef %fText26)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %add, %cond.true ], [ %call, %cond.false ]
-  %cmp27 = icmp eq i64 %cond, 0
-  br i1 %cmp27, label %if.then28, label %if.end29
-
-if.then28:                                        ; preds = %cond.end, %do.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end29:                                         ; preds = %cond.end
-  %fText30 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset31 = getelementptr inbounds %struct.UText, ptr %fText30, i32 0, i32 8
-  %19 = load i32, ptr %chunkOffset31, align 8
-  %cmp32 = icmp sgt i32 %19, 0
-  br i1 %cmp32, label %land.lhs.true33, label %cond.false50
-
-land.lhs.true33:                                  ; preds = %if.end29
-  %fText34 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents35 = getelementptr inbounds %struct.UText, ptr %fText34, i32 0, i32 10
-  %20 = load ptr, ptr %chunkContents35, align 8
-  %fText36 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset37 = getelementptr inbounds %struct.UText, ptr %fText36, i32 0, i32 8
-  %21 = load i32, ptr %chunkOffset37, align 8
-  %sub38 = sub nsw i32 %21, 1
-  %idxprom = sext i32 %sub38 to i64
-  %arrayidx39 = getelementptr inbounds i16, ptr %20, i64 %idxprom
-  %22 = load i16, ptr %arrayidx39, align 2
-  %conv40 = zext i16 %22 to i32
-  %cmp41 = icmp slt i32 %conv40, 55296
-  br i1 %cmp41, label %cond.true42, label %cond.false50
-
-cond.true42:                                      ; preds = %land.lhs.true33
-  %fText43 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents44 = getelementptr inbounds %struct.UText, ptr %fText43, i32 0, i32 10
-  %23 = load ptr, ptr %chunkContents44, align 8
-  %fText45 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset46 = getelementptr inbounds %struct.UText, ptr %fText45, i32 0, i32 8
-  %24 = load i32, ptr %chunkOffset46, align 8
-  %dec = add nsw i32 %24, -1
-  store i32 %dec, ptr %chunkOffset46, align 8
-  %idxprom47 = sext i32 %dec to i64
-  %arrayidx48 = getelementptr inbounds i16, ptr %23, i64 %idxprom47
-  %25 = load i16, ptr %arrayidx48, align 2
-  %conv49 = zext i16 %25 to i32
-  br label %cond.end53
-
-cond.false50:                                     ; preds = %land.lhs.true33, %if.end29
-  %fText51 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call52 = call i32 @utext_previous32_75(ptr noundef %fText51)
-  br label %cond.end53
-
-cond.end53:                                       ; preds = %cond.false50, %cond.true42
-  %cond54 = phi i32 [ %conv49, %cond.true42 ], [ %call52, %cond.false50 ]
-  store i32 %cond54, ptr %c, align 4
-  store i32 1, ptr %state, align 4
-  %26 = load ptr, ptr %stateTable, align 8
-  %fTableData = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %26, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %fTableData, i64 0, i64 0
-  %27 = load ptr, ptr %stateTable, align 8
-  %fRowLen = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %27, i32 0, i32 1
-  %28 = load i32, ptr %fRowLen, align 4
-  %29 = load i32, ptr %state, align 4
-  %mul = mul i32 %28, %29
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %idx.ext
-  store ptr %add.ptr, ptr %row, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %cond.end95, %cond.end53
-  %30 = load i32, ptr %c, align 4
-  %cmp55 = icmp ne i32 %30, -1
-  br i1 %cmp55, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %fData56 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %31 = load ptr, ptr %fData56, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %31, i32 0, i32 7
-  %32 = load ptr, ptr %fTrie, align 8
-  %33 = load i32, ptr %c, align 4
-  %call57 = call noundef zeroext i16 @_ZN6icu_75L9TrieFunc8EPK7UCPTriei(ptr noundef %32, i32 noundef %33)
-  store i16 %call57, ptr %category, align 2
-  %34 = load ptr, ptr %row, align 8
-  %fNextState = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %34, i32 0, i32 3
-  %35 = load i16, ptr %category, align 2
-  %idxprom58 = zext i16 %35 to i64
-  %arrayidx59 = getelementptr inbounds [1 x i8], ptr %fNextState, i64 0, i64 %idxprom58
-  %36 = load i8, ptr %arrayidx59, align 1
-  %conv60 = zext i8 %36 to i32
-  store i32 %conv60, ptr %state, align 4
-  %37 = load ptr, ptr %stateTable, align 8
-  %fTableData61 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %37, i32 0, i32 5
-  %arraydecay62 = getelementptr inbounds [1 x i8], ptr %fTableData61, i64 0, i64 0
-  %38 = load ptr, ptr %stateTable, align 8
-  %fRowLen63 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %38, i32 0, i32 1
-  %39 = load i32, ptr %fRowLen63, align 4
-  %40 = load i32, ptr %state, align 4
-  %mul64 = mul i32 %39, %40
-  %idx.ext65 = zext i32 %mul64 to i64
-  %add.ptr66 = getelementptr inbounds i8, ptr %arraydecay62, i64 %idx.ext65
-  store ptr %add.ptr66, ptr %row, align 8
-  %41 = load i32, ptr %state, align 4
-  %cmp67 = icmp eq i32 %41, 0
-  br i1 %cmp67, label %if.then68, label %if.end69
-
-if.then68:                                        ; preds = %for.body
-  br label %for.end
-
-if.end69:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end69
-  %fText70 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset71 = getelementptr inbounds %struct.UText, ptr %fText70, i32 0, i32 8
-  %42 = load i32, ptr %chunkOffset71, align 8
-  %cmp72 = icmp sgt i32 %42, 0
-  br i1 %cmp72, label %land.lhs.true73, label %cond.false92
-
-land.lhs.true73:                                  ; preds = %for.inc
-  %fText74 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents75 = getelementptr inbounds %struct.UText, ptr %fText74, i32 0, i32 10
-  %43 = load ptr, ptr %chunkContents75, align 8
-  %fText76 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset77 = getelementptr inbounds %struct.UText, ptr %fText76, i32 0, i32 8
-  %44 = load i32, ptr %chunkOffset77, align 8
-  %sub78 = sub nsw i32 %44, 1
-  %idxprom79 = sext i32 %sub78 to i64
-  %arrayidx80 = getelementptr inbounds i16, ptr %43, i64 %idxprom79
-  %45 = load i16, ptr %arrayidx80, align 2
-  %conv81 = zext i16 %45 to i32
-  %cmp82 = icmp slt i32 %conv81, 55296
-  br i1 %cmp82, label %cond.true83, label %cond.false92
-
-cond.true83:                                      ; preds = %land.lhs.true73
-  %fText84 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents85 = getelementptr inbounds %struct.UText, ptr %fText84, i32 0, i32 10
-  %46 = load ptr, ptr %chunkContents85, align 8
-  %fText86 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset87 = getelementptr inbounds %struct.UText, ptr %fText86, i32 0, i32 8
-  %47 = load i32, ptr %chunkOffset87, align 8
-  %dec88 = add nsw i32 %47, -1
-  store i32 %dec88, ptr %chunkOffset87, align 8
-  %idxprom89 = sext i32 %dec88 to i64
-  %arrayidx90 = getelementptr inbounds i16, ptr %46, i64 %idxprom89
-  %48 = load i16, ptr %arrayidx90, align 2
-  %conv91 = zext i16 %48 to i32
-  br label %cond.end95
-
-cond.false92:                                     ; preds = %land.lhs.true73, %for.inc
-  %fText93 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call94 = call i32 @utext_previous32_75(ptr noundef %fText93)
-  br label %cond.end95
-
-cond.end95:                                       ; preds = %cond.false92, %cond.true83
-  %cond96 = phi i32 [ %conv91, %cond.true83 ], [ %call94, %cond.false92 ]
-  store i32 %cond96, ptr %c, align 4
-  br label %for.cond, !llvm.loop !12
-
-for.end:                                          ; preds = %if.then68, %for.cond
-  %fText97 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset98 = getelementptr inbounds %struct.UText, ptr %fText97, i32 0, i32 8
-  %49 = load i32, ptr %chunkOffset98, align 8
-  %fText99 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit100 = getelementptr inbounds %struct.UText, ptr %fText99, i32 0, i32 6
-  %50 = load i32, ptr %nativeIndexingLimit100, align 4
-  %cmp101 = icmp sle i32 %49, %50
-  br i1 %cmp101, label %cond.true102, label %cond.false109
-
-cond.true102:                                     ; preds = %for.end
-  %fText103 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart104 = getelementptr inbounds %struct.UText, ptr %fText103, i32 0, i32 7
-  %51 = load i64, ptr %chunkNativeStart104, align 8
-  %fText105 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset106 = getelementptr inbounds %struct.UText, ptr %fText105, i32 0, i32 8
-  %52 = load i32, ptr %chunkOffset106, align 8
-  %conv107 = sext i32 %52 to i64
-  %add108 = add nsw i64 %51, %conv107
-  br label %cond.end115
-
-cond.false109:                                    ; preds = %for.end
-  %fText110 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs111 = getelementptr inbounds %struct.UText, ptr %fText110, i32 0, i32 11
-  %53 = load ptr, ptr %pFuncs111, align 8
-  %mapOffsetToNative112 = getelementptr inbounds %struct.UTextFuncs, ptr %53, i32 0, i32 10
-  %54 = load ptr, ptr %mapOffsetToNative112, align 8
-  %fText113 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call114 = call noundef i64 %54(ptr noundef %fText113)
-  br label %cond.end115
-
-cond.end115:                                      ; preds = %cond.false109, %cond.true102
-  %cond116 = phi i64 [ %add108, %cond.true102 ], [ %call114, %cond.false109 ]
-  %conv117 = trunc i64 %cond116 to i32
-  store i32 %conv117, ptr %result, align 4
-  %55 = load i32, ptr %result, align 4
-  store i32 %55, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %cond.end115, %if.then28
-  %56 = load i32, ptr %retval, align 4
-  ret i32 %56
+44:                                               ; preds = %41, %38, %32, %29
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %45 = load i32, ptr %3, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_7522RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %fromPosition) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %fromPosition.addr = alloca i32, align 4
-  %state = alloca i32, align 4
-  %category = alloca i16, align 2
-  %row = alloca ptr, align 8
-  %c = alloca i32, align 4
-  %result = alloca i32, align 4
-  %stateTable = alloca ptr, align 8
-  %__offset = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %fromPosition, ptr %fromPosition.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i16 0, ptr %category, align 2
-  store i32 0, ptr %result, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fReverseTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %fReverseTable, align 8
-  store ptr %1, ptr %stateTable, align 8
-  br label %do.body
+define internal noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i16, align 2
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !87
+  %14 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #10
+  store i16 0, ptr %7, align 2, !tbaa !134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %15 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !170
+  store ptr %18, ptr %11, align 8, !tbaa !137
+  br label %19
 
-do.body:                                          ; preds = %entry
-  %2 = load i32, ptr %fromPosition.addr, align 4
-  %conv = sext i32 %2 to i64
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 7
-  %3 = load i64, ptr %chunkNativeStart, align 8
-  %sub = sub nsw i64 %conv, %3
-  store i64 %sub, ptr %__offset, align 8
-  %4 = load i64, ptr %__offset, align 8
-  %cmp = icmp sge i64 %4, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+19:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %20 = load i32, ptr %5, align 4, !tbaa !87
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.UText, ptr %22, i32 0, i32 7
+  %24 = load i64, ptr %23, align 8, !tbaa !142
+  %25 = sub nsw i64 %21, %24
+  store i64 %25, ptr %12, align 8, !tbaa !124
+  %26 = load i64, ptr %12, align 8, !tbaa !124
+  %27 = icmp sge i64 %26, 0
+  br i1 %27, label %28, label %49
 
-land.lhs.true:                                    ; preds = %do.body
-  %5 = load i64, ptr %__offset, align 8
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %fText2, i32 0, i32 6
-  %6 = load i32, ptr %nativeIndexingLimit, align 4
-  %conv3 = sext i32 %6 to i64
-  %cmp4 = icmp slt i64 %5, %conv3
-  br i1 %cmp4, label %land.lhs.true5, label %if.else
+28:                                               ; preds = %19
+  %29 = load i64, ptr %12, align 8, !tbaa !124
+  %30 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.UText, ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4, !tbaa !143
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %29, %33
+  br i1 %34, label %35, label %49
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fText6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %fText6, i32 0, i32 10
-  %7 = load ptr, ptr %chunkContents, align 8
-  %8 = load i64, ptr %__offset, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %8
-  %9 = load i16, ptr %arrayidx, align 2
-  %conv7 = zext i16 %9 to i32
-  %cmp8 = icmp slt i32 %conv7, 56320
-  br i1 %cmp8, label %if.then, label %if.else
+35:                                               ; preds = %28
+  %36 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.UText, ptr %36, i32 0, i32 10
+  %38 = load ptr, ptr %37, align 8, !tbaa !144
+  %39 = load i64, ptr %12, align 8, !tbaa !124
+  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %41 = load i16, ptr %40, align 2, !tbaa !145
+  %42 = zext i16 %41 to i32
+  %43 = icmp slt i32 %42, 56320
+  br i1 %43, label %44, label %49
 
-if.then:                                          ; preds = %land.lhs.true5
-  %10 = load i64, ptr %__offset, align 8
-  %conv9 = trunc i64 %10 to i32
-  %fText10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %fText10, i32 0, i32 8
-  store i32 %conv9, ptr %chunkOffset, align 8
-  br label %if.end
+44:                                               ; preds = %35
+  %45 = load i64, ptr %12, align 8, !tbaa !124
+  %46 = trunc i64 %45 to i32
+  %47 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct.UText, ptr %47, i32 0, i32 8
+  store i32 %46, ptr %48, align 8, !tbaa !147
+  br label %53
 
-if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true, %do.body
-  %fText11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %11 = load i32, ptr %fromPosition.addr, align 4
-  %conv12 = sext i32 %11 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText11, i64 noundef %conv12)
-  br label %if.end
+49:                                               ; preds = %35, %28, %19
+  %50 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %51 = load i32, ptr %5, align 4, !tbaa !87
+  %52 = sext i32 %51 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %50, i64 noundef %52)
+  br label %53
 
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
+53:                                               ; preds = %49, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  br label %54
 
-do.end:                                           ; preds = %if.end
-  %fData13 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %12 = load ptr, ptr %fData13, align 8
-  %cmp14 = icmp eq ptr %12, null
-  br i1 %cmp14, label %if.then28, label %lor.lhs.false
+54:                                               ; preds = %53
+  br label %55
 
-lor.lhs.false:                                    ; preds = %do.end
-  %fText15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset16 = getelementptr inbounds %struct.UText, ptr %fText15, i32 0, i32 8
-  %13 = load i32, ptr %chunkOffset16, align 8
-  %fText17 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit18 = getelementptr inbounds %struct.UText, ptr %fText17, i32 0, i32 6
-  %14 = load i32, ptr %nativeIndexingLimit18, align 4
-  %cmp19 = icmp sle i32 %13, %14
-  br i1 %cmp19, label %cond.true, label %cond.false
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %87, label %59
 
-cond.true:                                        ; preds = %lor.lhs.false
-  %fText20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart21 = getelementptr inbounds %struct.UText, ptr %fText20, i32 0, i32 7
-  %15 = load i64, ptr %chunkNativeStart21, align 8
-  %fText22 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset23 = getelementptr inbounds %struct.UText, ptr %fText22, i32 0, i32 8
-  %16 = load i32, ptr %chunkOffset23, align 8
-  %conv24 = sext i32 %16 to i64
-  %add = add nsw i64 %15, %conv24
-  br label %cond.end
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.UText, ptr %60, i32 0, i32 8
+  %62 = load i32, ptr %61, align 8, !tbaa !147
+  %63 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct.UText, ptr %63, i32 0, i32 6
+  %65 = load i32, ptr %64, align 4, !tbaa !143
+  %66 = icmp sle i32 %62, %65
+  br i1 %66, label %67, label %76
 
-cond.false:                                       ; preds = %lor.lhs.false
-  %fText25 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %fText25, i32 0, i32 11
-  %17 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %17, i32 0, i32 10
-  %18 = load ptr, ptr %mapOffsetToNative, align 8
-  %fText26 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call noundef i64 %18(ptr noundef %fText26)
-  br label %cond.end
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %69 = getelementptr inbounds nuw %struct.UText, ptr %68, i32 0, i32 7
+  %70 = load i64, ptr %69, align 8, !tbaa !142
+  %71 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %72 = getelementptr inbounds nuw %struct.UText, ptr %71, i32 0, i32 8
+  %73 = load i32, ptr %72, align 8, !tbaa !147
+  %74 = sext i32 %73 to i64
+  %75 = add nsw i64 %70, %74
+  br label %84
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %add, %cond.true ], [ %call, %cond.false ]
-  %cmp27 = icmp eq i64 %cond, 0
-  br i1 %cmp27, label %if.then28, label %if.end29
+76:                                               ; preds = %59
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.UText, ptr %77, i32 0, i32 11
+  %79 = load ptr, ptr %78, align 8, !tbaa !155
+  %80 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %79, i32 0, i32 10
+  %81 = load ptr, ptr %80, align 8, !tbaa !156
+  %82 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %83 = call noundef i64 %81(ptr noundef %82)
+  br label %84
 
-if.then28:                                        ; preds = %cond.end, %do.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %76, %67
+  %85 = phi i64 [ %75, %67 ], [ %83, %76 ]
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %88
 
-if.end29:                                         ; preds = %cond.end
-  %fText30 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset31 = getelementptr inbounds %struct.UText, ptr %fText30, i32 0, i32 8
-  %19 = load i32, ptr %chunkOffset31, align 8
-  %cmp32 = icmp sgt i32 %19, 0
-  br i1 %cmp32, label %land.lhs.true33, label %cond.false50
+87:                                               ; preds = %84, %55
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %228
 
-land.lhs.true33:                                  ; preds = %if.end29
-  %fText34 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents35 = getelementptr inbounds %struct.UText, ptr %fText34, i32 0, i32 10
-  %20 = load ptr, ptr %chunkContents35, align 8
-  %fText36 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset37 = getelementptr inbounds %struct.UText, ptr %fText36, i32 0, i32 8
-  %21 = load i32, ptr %chunkOffset37, align 8
-  %sub38 = sub nsw i32 %21, 1
-  %idxprom = sext i32 %sub38 to i64
-  %arrayidx39 = getelementptr inbounds i16, ptr %20, i64 %idxprom
-  %22 = load i16, ptr %arrayidx39, align 2
-  %conv40 = zext i16 %22 to i32
-  %cmp41 = icmp slt i32 %conv40, 55296
-  br i1 %cmp41, label %cond.true42, label %cond.false50
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %90 = getelementptr inbounds nuw %struct.UText, ptr %89, i32 0, i32 8
+  %91 = load i32, ptr %90, align 8, !tbaa !147
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %118
 
-cond.true42:                                      ; preds = %land.lhs.true33
-  %fText43 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents44 = getelementptr inbounds %struct.UText, ptr %fText43, i32 0, i32 10
-  %23 = load ptr, ptr %chunkContents44, align 8
-  %fText45 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset46 = getelementptr inbounds %struct.UText, ptr %fText45, i32 0, i32 8
-  %24 = load i32, ptr %chunkOffset46, align 8
-  %dec = add nsw i32 %24, -1
-  store i32 %dec, ptr %chunkOffset46, align 8
-  %idxprom47 = sext i32 %dec to i64
-  %arrayidx48 = getelementptr inbounds i16, ptr %23, i64 %idxprom47
-  %25 = load i16, ptr %arrayidx48, align 2
-  %conv49 = zext i16 %25 to i32
-  br label %cond.end53
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %95 = getelementptr inbounds nuw %struct.UText, ptr %94, i32 0, i32 10
+  %96 = load ptr, ptr %95, align 8, !tbaa !144
+  %97 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.UText, ptr %97, i32 0, i32 8
+  %99 = load i32, ptr %98, align 8, !tbaa !147
+  %100 = sub nsw i32 %99, 1
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i16, ptr %96, i64 %101
+  %103 = load i16, ptr %102, align 2, !tbaa !145
+  %104 = zext i16 %103 to i32
+  %105 = icmp slt i32 %104, 55296
+  br i1 %105, label %106, label %118
 
-cond.false50:                                     ; preds = %land.lhs.true33, %if.end29
-  %fText51 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call52 = call i32 @utext_previous32_75(ptr noundef %fText51)
-  br label %cond.end53
+106:                                              ; preds = %93
+  %107 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %108 = getelementptr inbounds nuw %struct.UText, ptr %107, i32 0, i32 10
+  %109 = load ptr, ptr %108, align 8, !tbaa !144
+  %110 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %111 = getelementptr inbounds nuw %struct.UText, ptr %110, i32 0, i32 8
+  %112 = load i32, ptr %111, align 8, !tbaa !147
+  %113 = add nsw i32 %112, -1
+  store i32 %113, ptr %111, align 8, !tbaa !147
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i16, ptr %109, i64 %114
+  %116 = load i16, ptr %115, align 2, !tbaa !145
+  %117 = zext i16 %116 to i32
+  br label %121
 
-cond.end53:                                       ; preds = %cond.false50, %cond.true42
-  %cond54 = phi i32 [ %conv49, %cond.true42 ], [ %call52, %cond.false50 ]
-  store i32 %cond54, ptr %c, align 4
-  store i32 1, ptr %state, align 4
-  %26 = load ptr, ptr %stateTable, align 8
-  %fTableData = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %26, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %fTableData, i64 0, i64 0
-  %27 = load ptr, ptr %stateTable, align 8
-  %fRowLen = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %27, i32 0, i32 1
-  %28 = load i32, ptr %fRowLen, align 4
-  %29 = load i32, ptr %state, align 4
-  %mul = mul i32 %28, %29
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %idx.ext
-  store ptr %add.ptr, ptr %row, align 8
-  br label %for.cond
+118:                                              ; preds = %93, %88
+  %119 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %120 = call i32 @utext_previous32_77(ptr noundef %119)
+  br label %121
 
-for.cond:                                         ; preds = %cond.end95, %cond.end53
-  %30 = load i32, ptr %c, align 4
-  %cmp55 = icmp ne i32 %30, -1
-  br i1 %cmp55, label %for.body, label %for.end
+121:                                              ; preds = %118, %106
+  %122 = phi i32 [ %117, %106 ], [ %120, %118 ]
+  store i32 %122, ptr %9, align 4, !tbaa !87
+  store i32 1, ptr %6, align 4, !tbaa !87
+  %123 = load ptr, ptr %11, align 8, !tbaa !137
+  %124 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %123, i32 0, i32 5
+  %125 = getelementptr inbounds [1 x i8], ptr %124, i64 0, i64 0
+  %126 = load ptr, ptr %11, align 8, !tbaa !137
+  %127 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %126, i32 0, i32 1
+  %128 = load i32, ptr %127, align 4, !tbaa !140
+  %129 = load i32, ptr %6, align 4, !tbaa !87
+  %130 = mul i32 %128, %129
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 %131
+  store ptr %132, ptr %8, align 8, !tbaa !149
+  br label %133
 
-for.body:                                         ; preds = %for.cond
-  %fData56 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %31 = load ptr, ptr %fData56, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %31, i32 0, i32 7
-  %32 = load ptr, ptr %fTrie, align 8
-  %33 = load i32, ptr %c, align 4
-  %call57 = call noundef zeroext i16 @_ZN6icu_75L10TrieFunc16EPK7UCPTriei(ptr noundef %32, i32 noundef %33)
-  store i16 %call57, ptr %category, align 2
-  %34 = load ptr, ptr %row, align 8
-  %fNextState = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT", ptr %34, i32 0, i32 3
-  %35 = load i16, ptr %category, align 2
-  %idxprom58 = zext i16 %35 to i64
-  %arrayidx59 = getelementptr inbounds [1 x i8], ptr %fNextState, i64 0, i64 %idxprom58
-  %36 = load i8, ptr %arrayidx59, align 1
-  %conv60 = zext i8 %36 to i32
-  store i32 %conv60, ptr %state, align 4
-  %37 = load ptr, ptr %stateTable, align 8
-  %fTableData61 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %37, i32 0, i32 5
-  %arraydecay62 = getelementptr inbounds [1 x i8], ptr %fTableData61, i64 0, i64 0
-  %38 = load ptr, ptr %stateTable, align 8
-  %fRowLen63 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %38, i32 0, i32 1
-  %39 = load i32, ptr %fRowLen63, align 4
-  %40 = load i32, ptr %state, align 4
-  %mul64 = mul i32 %39, %40
-  %idx.ext65 = zext i32 %mul64 to i64
-  %add.ptr66 = getelementptr inbounds i8, ptr %arraydecay62, i64 %idx.ext65
-  store ptr %add.ptr66, ptr %row, align 8
-  %41 = load i32, ptr %state, align 4
-  %cmp67 = icmp eq i32 %41, 0
-  br i1 %cmp67, label %if.then68, label %if.end69
+133:                                              ; preds = %197, %121
+  %134 = load i32, ptr %9, align 4, !tbaa !87
+  %135 = icmp ne i32 %134, -1
+  br i1 %135, label %136, label %199
 
-if.then68:                                        ; preds = %for.body
-  br label %for.end
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %138 = load ptr, ptr %137, align 8, !tbaa !11
+  %139 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %138, i32 0, i32 7
+  %140 = load ptr, ptr %139, align 8, !tbaa !138
+  %141 = load i32, ptr %9, align 4, !tbaa !87
+  %142 = call noundef zeroext i16 @_ZN6icu_77L9TrieFunc8EPK7UCPTriei(ptr noundef %140, i32 noundef %141)
+  store i16 %142, ptr %7, align 2, !tbaa !134
+  %143 = load ptr, ptr %8, align 8, !tbaa !149
+  %144 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %143, i32 0, i32 3
+  %145 = load i16, ptr %7, align 2, !tbaa !134
+  %146 = zext i16 %145 to i64
+  %147 = getelementptr inbounds nuw [1 x i8], ptr %144, i64 0, i64 %146
+  %148 = load i8, ptr %147, align 1, !tbaa !85
+  %149 = zext i8 %148 to i32
+  store i32 %149, ptr %6, align 4, !tbaa !87
+  %150 = load ptr, ptr %11, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %150, i32 0, i32 5
+  %152 = getelementptr inbounds [1 x i8], ptr %151, i64 0, i64 0
+  %153 = load ptr, ptr %11, align 8, !tbaa !137
+  %154 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %153, i32 0, i32 1
+  %155 = load i32, ptr %154, align 4, !tbaa !140
+  %156 = load i32, ptr %6, align 4, !tbaa !87
+  %157 = mul i32 %155, %156
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 %158
+  store ptr %159, ptr %8, align 8, !tbaa !149
+  %160 = load i32, ptr %6, align 4, !tbaa !87
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %162, label %163
 
-if.end69:                                         ; preds = %for.body
-  br label %for.inc
+162:                                              ; preds = %136
+  br label %199
 
-for.inc:                                          ; preds = %if.end69
-  %fText70 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset71 = getelementptr inbounds %struct.UText, ptr %fText70, i32 0, i32 8
-  %42 = load i32, ptr %chunkOffset71, align 8
-  %cmp72 = icmp sgt i32 %42, 0
-  br i1 %cmp72, label %land.lhs.true73, label %cond.false92
+163:                                              ; preds = %136
+  br label %164
 
-land.lhs.true73:                                  ; preds = %for.inc
-  %fText74 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents75 = getelementptr inbounds %struct.UText, ptr %fText74, i32 0, i32 10
-  %43 = load ptr, ptr %chunkContents75, align 8
-  %fText76 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset77 = getelementptr inbounds %struct.UText, ptr %fText76, i32 0, i32 8
-  %44 = load i32, ptr %chunkOffset77, align 8
-  %sub78 = sub nsw i32 %44, 1
-  %idxprom79 = sext i32 %sub78 to i64
-  %arrayidx80 = getelementptr inbounds i16, ptr %43, i64 %idxprom79
-  %45 = load i16, ptr %arrayidx80, align 2
-  %conv81 = zext i16 %45 to i32
-  %cmp82 = icmp slt i32 %conv81, 55296
-  br i1 %cmp82, label %cond.true83, label %cond.false92
+164:                                              ; preds = %163
+  %165 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %166 = getelementptr inbounds nuw %struct.UText, ptr %165, i32 0, i32 8
+  %167 = load i32, ptr %166, align 8, !tbaa !147
+  %168 = icmp sgt i32 %167, 0
+  br i1 %168, label %169, label %194
 
-cond.true83:                                      ; preds = %land.lhs.true73
-  %fText84 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents85 = getelementptr inbounds %struct.UText, ptr %fText84, i32 0, i32 10
-  %46 = load ptr, ptr %chunkContents85, align 8
-  %fText86 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset87 = getelementptr inbounds %struct.UText, ptr %fText86, i32 0, i32 8
-  %47 = load i32, ptr %chunkOffset87, align 8
-  %dec88 = add nsw i32 %47, -1
-  store i32 %dec88, ptr %chunkOffset87, align 8
-  %idxprom89 = sext i32 %dec88 to i64
-  %arrayidx90 = getelementptr inbounds i16, ptr %46, i64 %idxprom89
-  %48 = load i16, ptr %arrayidx90, align 2
-  %conv91 = zext i16 %48 to i32
-  br label %cond.end95
+169:                                              ; preds = %164
+  %170 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %171 = getelementptr inbounds nuw %struct.UText, ptr %170, i32 0, i32 10
+  %172 = load ptr, ptr %171, align 8, !tbaa !144
+  %173 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %174 = getelementptr inbounds nuw %struct.UText, ptr %173, i32 0, i32 8
+  %175 = load i32, ptr %174, align 8, !tbaa !147
+  %176 = sub nsw i32 %175, 1
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds i16, ptr %172, i64 %177
+  %179 = load i16, ptr %178, align 2, !tbaa !145
+  %180 = zext i16 %179 to i32
+  %181 = icmp slt i32 %180, 55296
+  br i1 %181, label %182, label %194
 
-cond.false92:                                     ; preds = %land.lhs.true73, %for.inc
-  %fText93 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call94 = call i32 @utext_previous32_75(ptr noundef %fText93)
-  br label %cond.end95
+182:                                              ; preds = %169
+  %183 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %184 = getelementptr inbounds nuw %struct.UText, ptr %183, i32 0, i32 10
+  %185 = load ptr, ptr %184, align 8, !tbaa !144
+  %186 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %187 = getelementptr inbounds nuw %struct.UText, ptr %186, i32 0, i32 8
+  %188 = load i32, ptr %187, align 8, !tbaa !147
+  %189 = add nsw i32 %188, -1
+  store i32 %189, ptr %187, align 8, !tbaa !147
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds i16, ptr %185, i64 %190
+  %192 = load i16, ptr %191, align 2, !tbaa !145
+  %193 = zext i16 %192 to i32
+  br label %197
 
-cond.end95:                                       ; preds = %cond.false92, %cond.true83
-  %cond96 = phi i32 [ %conv91, %cond.true83 ], [ %call94, %cond.false92 ]
-  store i32 %cond96, ptr %c, align 4
-  br label %for.cond, !llvm.loop !13
+194:                                              ; preds = %169, %164
+  %195 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %196 = call i32 @utext_previous32_77(ptr noundef %195)
+  br label %197
 
-for.end:                                          ; preds = %if.then68, %for.cond
-  %fText97 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset98 = getelementptr inbounds %struct.UText, ptr %fText97, i32 0, i32 8
-  %49 = load i32, ptr %chunkOffset98, align 8
-  %fText99 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit100 = getelementptr inbounds %struct.UText, ptr %fText99, i32 0, i32 6
-  %50 = load i32, ptr %nativeIndexingLimit100, align 4
-  %cmp101 = icmp sle i32 %49, %50
-  br i1 %cmp101, label %cond.true102, label %cond.false109
+197:                                              ; preds = %194, %182
+  %198 = phi i32 [ %193, %182 ], [ %196, %194 ]
+  store i32 %198, ptr %9, align 4, !tbaa !87
+  br label %133, !llvm.loop !171
 
-cond.true102:                                     ; preds = %for.end
-  %fText103 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart104 = getelementptr inbounds %struct.UText, ptr %fText103, i32 0, i32 7
-  %51 = load i64, ptr %chunkNativeStart104, align 8
-  %fText105 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset106 = getelementptr inbounds %struct.UText, ptr %fText105, i32 0, i32 8
-  %52 = load i32, ptr %chunkOffset106, align 8
-  %conv107 = sext i32 %52 to i64
-  %add108 = add nsw i64 %51, %conv107
-  br label %cond.end115
+199:                                              ; preds = %162, %133
+  %200 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %201 = getelementptr inbounds nuw %struct.UText, ptr %200, i32 0, i32 8
+  %202 = load i32, ptr %201, align 8, !tbaa !147
+  %203 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %204 = getelementptr inbounds nuw %struct.UText, ptr %203, i32 0, i32 6
+  %205 = load i32, ptr %204, align 4, !tbaa !143
+  %206 = icmp sle i32 %202, %205
+  br i1 %206, label %207, label %216
 
-cond.false109:                                    ; preds = %for.end
-  %fText110 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs111 = getelementptr inbounds %struct.UText, ptr %fText110, i32 0, i32 11
-  %53 = load ptr, ptr %pFuncs111, align 8
-  %mapOffsetToNative112 = getelementptr inbounds %struct.UTextFuncs, ptr %53, i32 0, i32 10
-  %54 = load ptr, ptr %mapOffsetToNative112, align 8
-  %fText113 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call114 = call noundef i64 %54(ptr noundef %fText113)
-  br label %cond.end115
+207:                                              ; preds = %199
+  %208 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %209 = getelementptr inbounds nuw %struct.UText, ptr %208, i32 0, i32 7
+  %210 = load i64, ptr %209, align 8, !tbaa !142
+  %211 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %212 = getelementptr inbounds nuw %struct.UText, ptr %211, i32 0, i32 8
+  %213 = load i32, ptr %212, align 8, !tbaa !147
+  %214 = sext i32 %213 to i64
+  %215 = add nsw i64 %210, %214
+  br label %224
 
-cond.end115:                                      ; preds = %cond.false109, %cond.true102
-  %cond116 = phi i64 [ %add108, %cond.true102 ], [ %call114, %cond.false109 ]
-  %conv117 = trunc i64 %cond116 to i32
-  store i32 %conv117, ptr %result, align 4
-  %55 = load i32, ptr %result, align 4
-  store i32 %55, ptr %retval, align 4
-  br label %return
+216:                                              ; preds = %199
+  %217 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %218 = getelementptr inbounds nuw %struct.UText, ptr %217, i32 0, i32 11
+  %219 = load ptr, ptr %218, align 8, !tbaa !155
+  %220 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %219, i32 0, i32 10
+  %221 = load ptr, ptr %220, align 8, !tbaa !156
+  %222 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %223 = call noundef i64 %221(ptr noundef %222)
+  br label %224
 
-return:                                           ; preds = %cond.end115, %if.then28
-  %56 = load i32, ptr %retval, align 4
-  ret i32 %56
+224:                                              ; preds = %216, %207
+  %225 = phi i64 [ %215, %207 ], [ %223, %216 ]
+  %226 = trunc i64 %225 to i32
+  store i32 %226, ptr %10, align 4, !tbaa !87
+  %227 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %227, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %228
+
+228:                                              ; preds = %224, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %229 = load i32, ptr %3, align 4
+  ret i32 %229
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_7522RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTItEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %fromPosition) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %fromPosition.addr = alloca i32, align 4
-  %state = alloca i32, align 4
-  %category = alloca i16, align 2
-  %row = alloca ptr, align 8
-  %c = alloca i32, align 4
-  %result = alloca i32, align 4
-  %stateTable = alloca ptr, align 8
-  %__offset = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %fromPosition, ptr %fromPosition.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i16 0, ptr %category, align 2
-  store i32 0, ptr %result, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fReverseTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %fReverseTable, align 8
-  store ptr %1, ptr %stateTable, align 8
-  br label %do.body
+define internal noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTIhEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i16, align 2
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !87
+  %14 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #10
+  store i16 0, ptr %7, align 2, !tbaa !134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %15 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !170
+  store ptr %18, ptr %11, align 8, !tbaa !137
+  br label %19
 
-do.body:                                          ; preds = %entry
-  %2 = load i32, ptr %fromPosition.addr, align 4
-  %conv = sext i32 %2 to i64
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 7
-  %3 = load i64, ptr %chunkNativeStart, align 8
-  %sub = sub nsw i64 %conv, %3
-  store i64 %sub, ptr %__offset, align 8
-  %4 = load i64, ptr %__offset, align 8
-  %cmp = icmp sge i64 %4, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+19:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %20 = load i32, ptr %5, align 4, !tbaa !87
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.UText, ptr %22, i32 0, i32 7
+  %24 = load i64, ptr %23, align 8, !tbaa !142
+  %25 = sub nsw i64 %21, %24
+  store i64 %25, ptr %12, align 8, !tbaa !124
+  %26 = load i64, ptr %12, align 8, !tbaa !124
+  %27 = icmp sge i64 %26, 0
+  br i1 %27, label %28, label %49
 
-land.lhs.true:                                    ; preds = %do.body
-  %5 = load i64, ptr %__offset, align 8
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %fText2, i32 0, i32 6
-  %6 = load i32, ptr %nativeIndexingLimit, align 4
-  %conv3 = sext i32 %6 to i64
-  %cmp4 = icmp slt i64 %5, %conv3
-  br i1 %cmp4, label %land.lhs.true5, label %if.else
+28:                                               ; preds = %19
+  %29 = load i64, ptr %12, align 8, !tbaa !124
+  %30 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.UText, ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4, !tbaa !143
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %29, %33
+  br i1 %34, label %35, label %49
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fText6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %fText6, i32 0, i32 10
-  %7 = load ptr, ptr %chunkContents, align 8
-  %8 = load i64, ptr %__offset, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %8
-  %9 = load i16, ptr %arrayidx, align 2
-  %conv7 = zext i16 %9 to i32
-  %cmp8 = icmp slt i32 %conv7, 56320
-  br i1 %cmp8, label %if.then, label %if.else
+35:                                               ; preds = %28
+  %36 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.UText, ptr %36, i32 0, i32 10
+  %38 = load ptr, ptr %37, align 8, !tbaa !144
+  %39 = load i64, ptr %12, align 8, !tbaa !124
+  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %41 = load i16, ptr %40, align 2, !tbaa !145
+  %42 = zext i16 %41 to i32
+  %43 = icmp slt i32 %42, 56320
+  br i1 %43, label %44, label %49
 
-if.then:                                          ; preds = %land.lhs.true5
-  %10 = load i64, ptr %__offset, align 8
-  %conv9 = trunc i64 %10 to i32
-  %fText10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %fText10, i32 0, i32 8
-  store i32 %conv9, ptr %chunkOffset, align 8
-  br label %if.end
+44:                                               ; preds = %35
+  %45 = load i64, ptr %12, align 8, !tbaa !124
+  %46 = trunc i64 %45 to i32
+  %47 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct.UText, ptr %47, i32 0, i32 8
+  store i32 %46, ptr %48, align 8, !tbaa !147
+  br label %53
 
-if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true, %do.body
-  %fText11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %11 = load i32, ptr %fromPosition.addr, align 4
-  %conv12 = sext i32 %11 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText11, i64 noundef %conv12)
-  br label %if.end
+49:                                               ; preds = %35, %28, %19
+  %50 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %51 = load i32, ptr %5, align 4, !tbaa !87
+  %52 = sext i32 %51 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %50, i64 noundef %52)
+  br label %53
 
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
+53:                                               ; preds = %49, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  br label %54
 
-do.end:                                           ; preds = %if.end
-  %fData13 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %12 = load ptr, ptr %fData13, align 8
-  %cmp14 = icmp eq ptr %12, null
-  br i1 %cmp14, label %if.then28, label %lor.lhs.false
+54:                                               ; preds = %53
+  br label %55
 
-lor.lhs.false:                                    ; preds = %do.end
-  %fText15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset16 = getelementptr inbounds %struct.UText, ptr %fText15, i32 0, i32 8
-  %13 = load i32, ptr %chunkOffset16, align 8
-  %fText17 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit18 = getelementptr inbounds %struct.UText, ptr %fText17, i32 0, i32 6
-  %14 = load i32, ptr %nativeIndexingLimit18, align 4
-  %cmp19 = icmp sle i32 %13, %14
-  br i1 %cmp19, label %cond.true, label %cond.false
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %87, label %59
 
-cond.true:                                        ; preds = %lor.lhs.false
-  %fText20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart21 = getelementptr inbounds %struct.UText, ptr %fText20, i32 0, i32 7
-  %15 = load i64, ptr %chunkNativeStart21, align 8
-  %fText22 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset23 = getelementptr inbounds %struct.UText, ptr %fText22, i32 0, i32 8
-  %16 = load i32, ptr %chunkOffset23, align 8
-  %conv24 = sext i32 %16 to i64
-  %add = add nsw i64 %15, %conv24
-  br label %cond.end
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.UText, ptr %60, i32 0, i32 8
+  %62 = load i32, ptr %61, align 8, !tbaa !147
+  %63 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct.UText, ptr %63, i32 0, i32 6
+  %65 = load i32, ptr %64, align 4, !tbaa !143
+  %66 = icmp sle i32 %62, %65
+  br i1 %66, label %67, label %76
 
-cond.false:                                       ; preds = %lor.lhs.false
-  %fText25 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %fText25, i32 0, i32 11
-  %17 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %17, i32 0, i32 10
-  %18 = load ptr, ptr %mapOffsetToNative, align 8
-  %fText26 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call noundef i64 %18(ptr noundef %fText26)
-  br label %cond.end
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %69 = getelementptr inbounds nuw %struct.UText, ptr %68, i32 0, i32 7
+  %70 = load i64, ptr %69, align 8, !tbaa !142
+  %71 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %72 = getelementptr inbounds nuw %struct.UText, ptr %71, i32 0, i32 8
+  %73 = load i32, ptr %72, align 8, !tbaa !147
+  %74 = sext i32 %73 to i64
+  %75 = add nsw i64 %70, %74
+  br label %84
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %add, %cond.true ], [ %call, %cond.false ]
-  %cmp27 = icmp eq i64 %cond, 0
-  br i1 %cmp27, label %if.then28, label %if.end29
+76:                                               ; preds = %59
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.UText, ptr %77, i32 0, i32 11
+  %79 = load ptr, ptr %78, align 8, !tbaa !155
+  %80 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %79, i32 0, i32 10
+  %81 = load ptr, ptr %80, align 8, !tbaa !156
+  %82 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %83 = call noundef i64 %81(ptr noundef %82)
+  br label %84
 
-if.then28:                                        ; preds = %cond.end, %do.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %76, %67
+  %85 = phi i64 [ %75, %67 ], [ %83, %76 ]
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %88
 
-if.end29:                                         ; preds = %cond.end
-  %fText30 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset31 = getelementptr inbounds %struct.UText, ptr %fText30, i32 0, i32 8
-  %19 = load i32, ptr %chunkOffset31, align 8
-  %cmp32 = icmp sgt i32 %19, 0
-  br i1 %cmp32, label %land.lhs.true33, label %cond.false50
+87:                                               ; preds = %84, %55
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %228
 
-land.lhs.true33:                                  ; preds = %if.end29
-  %fText34 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents35 = getelementptr inbounds %struct.UText, ptr %fText34, i32 0, i32 10
-  %20 = load ptr, ptr %chunkContents35, align 8
-  %fText36 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset37 = getelementptr inbounds %struct.UText, ptr %fText36, i32 0, i32 8
-  %21 = load i32, ptr %chunkOffset37, align 8
-  %sub38 = sub nsw i32 %21, 1
-  %idxprom = sext i32 %sub38 to i64
-  %arrayidx39 = getelementptr inbounds i16, ptr %20, i64 %idxprom
-  %22 = load i16, ptr %arrayidx39, align 2
-  %conv40 = zext i16 %22 to i32
-  %cmp41 = icmp slt i32 %conv40, 55296
-  br i1 %cmp41, label %cond.true42, label %cond.false50
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %90 = getelementptr inbounds nuw %struct.UText, ptr %89, i32 0, i32 8
+  %91 = load i32, ptr %90, align 8, !tbaa !147
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %118
 
-cond.true42:                                      ; preds = %land.lhs.true33
-  %fText43 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents44 = getelementptr inbounds %struct.UText, ptr %fText43, i32 0, i32 10
-  %23 = load ptr, ptr %chunkContents44, align 8
-  %fText45 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset46 = getelementptr inbounds %struct.UText, ptr %fText45, i32 0, i32 8
-  %24 = load i32, ptr %chunkOffset46, align 8
-  %dec = add nsw i32 %24, -1
-  store i32 %dec, ptr %chunkOffset46, align 8
-  %idxprom47 = sext i32 %dec to i64
-  %arrayidx48 = getelementptr inbounds i16, ptr %23, i64 %idxprom47
-  %25 = load i16, ptr %arrayidx48, align 2
-  %conv49 = zext i16 %25 to i32
-  br label %cond.end53
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %95 = getelementptr inbounds nuw %struct.UText, ptr %94, i32 0, i32 10
+  %96 = load ptr, ptr %95, align 8, !tbaa !144
+  %97 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.UText, ptr %97, i32 0, i32 8
+  %99 = load i32, ptr %98, align 8, !tbaa !147
+  %100 = sub nsw i32 %99, 1
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i16, ptr %96, i64 %101
+  %103 = load i16, ptr %102, align 2, !tbaa !145
+  %104 = zext i16 %103 to i32
+  %105 = icmp slt i32 %104, 55296
+  br i1 %105, label %106, label %118
 
-cond.false50:                                     ; preds = %land.lhs.true33, %if.end29
-  %fText51 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call52 = call i32 @utext_previous32_75(ptr noundef %fText51)
-  br label %cond.end53
+106:                                              ; preds = %93
+  %107 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %108 = getelementptr inbounds nuw %struct.UText, ptr %107, i32 0, i32 10
+  %109 = load ptr, ptr %108, align 8, !tbaa !144
+  %110 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %111 = getelementptr inbounds nuw %struct.UText, ptr %110, i32 0, i32 8
+  %112 = load i32, ptr %111, align 8, !tbaa !147
+  %113 = add nsw i32 %112, -1
+  store i32 %113, ptr %111, align 8, !tbaa !147
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i16, ptr %109, i64 %114
+  %116 = load i16, ptr %115, align 2, !tbaa !145
+  %117 = zext i16 %116 to i32
+  br label %121
 
-cond.end53:                                       ; preds = %cond.false50, %cond.true42
-  %cond54 = phi i32 [ %conv49, %cond.true42 ], [ %call52, %cond.false50 ]
-  store i32 %cond54, ptr %c, align 4
-  store i32 1, ptr %state, align 4
-  %26 = load ptr, ptr %stateTable, align 8
-  %fTableData = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %26, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %fTableData, i64 0, i64 0
-  %27 = load ptr, ptr %stateTable, align 8
-  %fRowLen = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %27, i32 0, i32 1
-  %28 = load i32, ptr %fRowLen, align 4
-  %29 = load i32, ptr %state, align 4
-  %mul = mul i32 %28, %29
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %idx.ext
-  store ptr %add.ptr, ptr %row, align 8
-  br label %for.cond
+118:                                              ; preds = %93, %88
+  %119 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %120 = call i32 @utext_previous32_77(ptr noundef %119)
+  br label %121
 
-for.cond:                                         ; preds = %cond.end95, %cond.end53
-  %30 = load i32, ptr %c, align 4
-  %cmp55 = icmp ne i32 %30, -1
-  br i1 %cmp55, label %for.body, label %for.end
+121:                                              ; preds = %118, %106
+  %122 = phi i32 [ %117, %106 ], [ %120, %118 ]
+  store i32 %122, ptr %9, align 4, !tbaa !87
+  store i32 1, ptr %6, align 4, !tbaa !87
+  %123 = load ptr, ptr %11, align 8, !tbaa !137
+  %124 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %123, i32 0, i32 5
+  %125 = getelementptr inbounds [1 x i8], ptr %124, i64 0, i64 0
+  %126 = load ptr, ptr %11, align 8, !tbaa !137
+  %127 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %126, i32 0, i32 1
+  %128 = load i32, ptr %127, align 4, !tbaa !140
+  %129 = load i32, ptr %6, align 4, !tbaa !87
+  %130 = mul i32 %128, %129
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 %131
+  store ptr %132, ptr %8, align 8, !tbaa !149
+  br label %133
 
-for.body:                                         ; preds = %for.cond
-  %fData56 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %31 = load ptr, ptr %fData56, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %31, i32 0, i32 7
-  %32 = load ptr, ptr %fTrie, align 8
-  %33 = load i32, ptr %c, align 4
-  %call57 = call noundef zeroext i16 @_ZN6icu_75L9TrieFunc8EPK7UCPTriei(ptr noundef %32, i32 noundef %33)
-  store i16 %call57, ptr %category, align 2
-  %34 = load ptr, ptr %row, align 8
-  %fNextState = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %34, i32 0, i32 3
-  %35 = load i16, ptr %category, align 2
-  %idxprom58 = zext i16 %35 to i64
-  %arrayidx59 = getelementptr inbounds [1 x i16], ptr %fNextState, i64 0, i64 %idxprom58
-  %36 = load i16, ptr %arrayidx59, align 2
-  %conv60 = zext i16 %36 to i32
-  store i32 %conv60, ptr %state, align 4
-  %37 = load ptr, ptr %stateTable, align 8
-  %fTableData61 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %37, i32 0, i32 5
-  %arraydecay62 = getelementptr inbounds [1 x i8], ptr %fTableData61, i64 0, i64 0
-  %38 = load ptr, ptr %stateTable, align 8
-  %fRowLen63 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %38, i32 0, i32 1
-  %39 = load i32, ptr %fRowLen63, align 4
-  %40 = load i32, ptr %state, align 4
-  %mul64 = mul i32 %39, %40
-  %idx.ext65 = zext i32 %mul64 to i64
-  %add.ptr66 = getelementptr inbounds i8, ptr %arraydecay62, i64 %idx.ext65
-  store ptr %add.ptr66, ptr %row, align 8
-  %41 = load i32, ptr %state, align 4
-  %cmp67 = icmp eq i32 %41, 0
-  br i1 %cmp67, label %if.then68, label %if.end69
+133:                                              ; preds = %197, %121
+  %134 = load i32, ptr %9, align 4, !tbaa !87
+  %135 = icmp ne i32 %134, -1
+  br i1 %135, label %136, label %199
 
-if.then68:                                        ; preds = %for.body
-  br label %for.end
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %138 = load ptr, ptr %137, align 8, !tbaa !11
+  %139 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %138, i32 0, i32 7
+  %140 = load ptr, ptr %139, align 8, !tbaa !138
+  %141 = load i32, ptr %9, align 4, !tbaa !87
+  %142 = call noundef zeroext i16 @_ZN6icu_77L10TrieFunc16EPK7UCPTriei(ptr noundef %140, i32 noundef %141)
+  store i16 %142, ptr %7, align 2, !tbaa !134
+  %143 = load ptr, ptr %8, align 8, !tbaa !149
+  %144 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT", ptr %143, i32 0, i32 3
+  %145 = load i16, ptr %7, align 2, !tbaa !134
+  %146 = zext i16 %145 to i64
+  %147 = getelementptr inbounds nuw [1 x i8], ptr %144, i64 0, i64 %146
+  %148 = load i8, ptr %147, align 1, !tbaa !85
+  %149 = zext i8 %148 to i32
+  store i32 %149, ptr %6, align 4, !tbaa !87
+  %150 = load ptr, ptr %11, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %150, i32 0, i32 5
+  %152 = getelementptr inbounds [1 x i8], ptr %151, i64 0, i64 0
+  %153 = load ptr, ptr %11, align 8, !tbaa !137
+  %154 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %153, i32 0, i32 1
+  %155 = load i32, ptr %154, align 4, !tbaa !140
+  %156 = load i32, ptr %6, align 4, !tbaa !87
+  %157 = mul i32 %155, %156
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 %158
+  store ptr %159, ptr %8, align 8, !tbaa !149
+  %160 = load i32, ptr %6, align 4, !tbaa !87
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %162, label %163
 
-if.end69:                                         ; preds = %for.body
-  br label %for.inc
+162:                                              ; preds = %136
+  br label %199
 
-for.inc:                                          ; preds = %if.end69
-  %fText70 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset71 = getelementptr inbounds %struct.UText, ptr %fText70, i32 0, i32 8
-  %42 = load i32, ptr %chunkOffset71, align 8
-  %cmp72 = icmp sgt i32 %42, 0
-  br i1 %cmp72, label %land.lhs.true73, label %cond.false92
+163:                                              ; preds = %136
+  br label %164
 
-land.lhs.true73:                                  ; preds = %for.inc
-  %fText74 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents75 = getelementptr inbounds %struct.UText, ptr %fText74, i32 0, i32 10
-  %43 = load ptr, ptr %chunkContents75, align 8
-  %fText76 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset77 = getelementptr inbounds %struct.UText, ptr %fText76, i32 0, i32 8
-  %44 = load i32, ptr %chunkOffset77, align 8
-  %sub78 = sub nsw i32 %44, 1
-  %idxprom79 = sext i32 %sub78 to i64
-  %arrayidx80 = getelementptr inbounds i16, ptr %43, i64 %idxprom79
-  %45 = load i16, ptr %arrayidx80, align 2
-  %conv81 = zext i16 %45 to i32
-  %cmp82 = icmp slt i32 %conv81, 55296
-  br i1 %cmp82, label %cond.true83, label %cond.false92
+164:                                              ; preds = %163
+  %165 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %166 = getelementptr inbounds nuw %struct.UText, ptr %165, i32 0, i32 8
+  %167 = load i32, ptr %166, align 8, !tbaa !147
+  %168 = icmp sgt i32 %167, 0
+  br i1 %168, label %169, label %194
 
-cond.true83:                                      ; preds = %land.lhs.true73
-  %fText84 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents85 = getelementptr inbounds %struct.UText, ptr %fText84, i32 0, i32 10
-  %46 = load ptr, ptr %chunkContents85, align 8
-  %fText86 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset87 = getelementptr inbounds %struct.UText, ptr %fText86, i32 0, i32 8
-  %47 = load i32, ptr %chunkOffset87, align 8
-  %dec88 = add nsw i32 %47, -1
-  store i32 %dec88, ptr %chunkOffset87, align 8
-  %idxprom89 = sext i32 %dec88 to i64
-  %arrayidx90 = getelementptr inbounds i16, ptr %46, i64 %idxprom89
-  %48 = load i16, ptr %arrayidx90, align 2
-  %conv91 = zext i16 %48 to i32
-  br label %cond.end95
+169:                                              ; preds = %164
+  %170 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %171 = getelementptr inbounds nuw %struct.UText, ptr %170, i32 0, i32 10
+  %172 = load ptr, ptr %171, align 8, !tbaa !144
+  %173 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %174 = getelementptr inbounds nuw %struct.UText, ptr %173, i32 0, i32 8
+  %175 = load i32, ptr %174, align 8, !tbaa !147
+  %176 = sub nsw i32 %175, 1
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds i16, ptr %172, i64 %177
+  %179 = load i16, ptr %178, align 2, !tbaa !145
+  %180 = zext i16 %179 to i32
+  %181 = icmp slt i32 %180, 55296
+  br i1 %181, label %182, label %194
 
-cond.false92:                                     ; preds = %land.lhs.true73, %for.inc
-  %fText93 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call94 = call i32 @utext_previous32_75(ptr noundef %fText93)
-  br label %cond.end95
+182:                                              ; preds = %169
+  %183 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %184 = getelementptr inbounds nuw %struct.UText, ptr %183, i32 0, i32 10
+  %185 = load ptr, ptr %184, align 8, !tbaa !144
+  %186 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %187 = getelementptr inbounds nuw %struct.UText, ptr %186, i32 0, i32 8
+  %188 = load i32, ptr %187, align 8, !tbaa !147
+  %189 = add nsw i32 %188, -1
+  store i32 %189, ptr %187, align 8, !tbaa !147
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds i16, ptr %185, i64 %190
+  %192 = load i16, ptr %191, align 2, !tbaa !145
+  %193 = zext i16 %192 to i32
+  br label %197
 
-cond.end95:                                       ; preds = %cond.false92, %cond.true83
-  %cond96 = phi i32 [ %conv91, %cond.true83 ], [ %call94, %cond.false92 ]
-  store i32 %cond96, ptr %c, align 4
-  br label %for.cond, !llvm.loop !14
+194:                                              ; preds = %169, %164
+  %195 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %196 = call i32 @utext_previous32_77(ptr noundef %195)
+  br label %197
 
-for.end:                                          ; preds = %if.then68, %for.cond
-  %fText97 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset98 = getelementptr inbounds %struct.UText, ptr %fText97, i32 0, i32 8
-  %49 = load i32, ptr %chunkOffset98, align 8
-  %fText99 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit100 = getelementptr inbounds %struct.UText, ptr %fText99, i32 0, i32 6
-  %50 = load i32, ptr %nativeIndexingLimit100, align 4
-  %cmp101 = icmp sle i32 %49, %50
-  br i1 %cmp101, label %cond.true102, label %cond.false109
+197:                                              ; preds = %194, %182
+  %198 = phi i32 [ %193, %182 ], [ %196, %194 ]
+  store i32 %198, ptr %9, align 4, !tbaa !87
+  br label %133, !llvm.loop !172
 
-cond.true102:                                     ; preds = %for.end
-  %fText103 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart104 = getelementptr inbounds %struct.UText, ptr %fText103, i32 0, i32 7
-  %51 = load i64, ptr %chunkNativeStart104, align 8
-  %fText105 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset106 = getelementptr inbounds %struct.UText, ptr %fText105, i32 0, i32 8
-  %52 = load i32, ptr %chunkOffset106, align 8
-  %conv107 = sext i32 %52 to i64
-  %add108 = add nsw i64 %51, %conv107
-  br label %cond.end115
+199:                                              ; preds = %162, %133
+  %200 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %201 = getelementptr inbounds nuw %struct.UText, ptr %200, i32 0, i32 8
+  %202 = load i32, ptr %201, align 8, !tbaa !147
+  %203 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %204 = getelementptr inbounds nuw %struct.UText, ptr %203, i32 0, i32 6
+  %205 = load i32, ptr %204, align 4, !tbaa !143
+  %206 = icmp sle i32 %202, %205
+  br i1 %206, label %207, label %216
 
-cond.false109:                                    ; preds = %for.end
-  %fText110 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs111 = getelementptr inbounds %struct.UText, ptr %fText110, i32 0, i32 11
-  %53 = load ptr, ptr %pFuncs111, align 8
-  %mapOffsetToNative112 = getelementptr inbounds %struct.UTextFuncs, ptr %53, i32 0, i32 10
-  %54 = load ptr, ptr %mapOffsetToNative112, align 8
-  %fText113 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call114 = call noundef i64 %54(ptr noundef %fText113)
-  br label %cond.end115
+207:                                              ; preds = %199
+  %208 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %209 = getelementptr inbounds nuw %struct.UText, ptr %208, i32 0, i32 7
+  %210 = load i64, ptr %209, align 8, !tbaa !142
+  %211 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %212 = getelementptr inbounds nuw %struct.UText, ptr %211, i32 0, i32 8
+  %213 = load i32, ptr %212, align 8, !tbaa !147
+  %214 = sext i32 %213 to i64
+  %215 = add nsw i64 %210, %214
+  br label %224
 
-cond.end115:                                      ; preds = %cond.false109, %cond.true102
-  %cond116 = phi i64 [ %add108, %cond.true102 ], [ %call114, %cond.false109 ]
-  %conv117 = trunc i64 %cond116 to i32
-  store i32 %conv117, ptr %result, align 4
-  %55 = load i32, ptr %result, align 4
-  store i32 %55, ptr %retval, align 4
-  br label %return
+216:                                              ; preds = %199
+  %217 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %218 = getelementptr inbounds nuw %struct.UText, ptr %217, i32 0, i32 11
+  %219 = load ptr, ptr %218, align 8, !tbaa !155
+  %220 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %219, i32 0, i32 10
+  %221 = load ptr, ptr %220, align 8, !tbaa !156
+  %222 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %223 = call noundef i64 %221(ptr noundef %222)
+  br label %224
 
-return:                                           ; preds = %cond.end115, %if.then28
-  %56 = load i32, ptr %retval, align 4
-  ret i32 %56
+224:                                              ; preds = %216, %207
+  %225 = phi i64 [ %215, %207 ], [ %223, %216 ]
+  %226 = trunc i64 %225 to i32
+  store i32 %226, ptr %10, align 4, !tbaa !87
+  %227 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %227, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %228
+
+228:                                              ; preds = %224, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %229 = load i32, ptr %3, align 4
+  ret i32 %229
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN6icu_7522RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTItEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %fromPosition) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %fromPosition.addr = alloca i32, align 4
-  %state = alloca i32, align 4
-  %category = alloca i16, align 2
-  %row = alloca ptr, align 8
-  %c = alloca i32, align 4
-  %result = alloca i32, align 4
-  %stateTable = alloca ptr, align 8
-  %__offset = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %fromPosition, ptr %fromPosition.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i16 0, ptr %category, align 2
-  store i32 0, ptr %result, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %fReverseTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %fReverseTable, align 8
-  store ptr %1, ptr %stateTable, align 8
-  br label %do.body
+define internal noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTItEEXadL_ZNS_L9TrieFunc8EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i16, align 2
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !87
+  %14 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #10
+  store i16 0, ptr %7, align 2, !tbaa !134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %15 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !170
+  store ptr %18, ptr %11, align 8, !tbaa !137
+  br label %19
 
-do.body:                                          ; preds = %entry
-  %2 = load i32, ptr %fromPosition.addr, align 4
-  %conv = sext i32 %2 to i64
-  %fText = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart = getelementptr inbounds %struct.UText, ptr %fText, i32 0, i32 7
-  %3 = load i64, ptr %chunkNativeStart, align 8
-  %sub = sub nsw i64 %conv, %3
-  store i64 %sub, ptr %__offset, align 8
-  %4 = load i64, ptr %__offset, align 8
-  %cmp = icmp sge i64 %4, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+19:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %20 = load i32, ptr %5, align 4, !tbaa !87
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.UText, ptr %22, i32 0, i32 7
+  %24 = load i64, ptr %23, align 8, !tbaa !142
+  %25 = sub nsw i64 %21, %24
+  store i64 %25, ptr %12, align 8, !tbaa !124
+  %26 = load i64, ptr %12, align 8, !tbaa !124
+  %27 = icmp sge i64 %26, 0
+  br i1 %27, label %28, label %49
 
-land.lhs.true:                                    ; preds = %do.body
-  %5 = load i64, ptr %__offset, align 8
-  %fText2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit = getelementptr inbounds %struct.UText, ptr %fText2, i32 0, i32 6
-  %6 = load i32, ptr %nativeIndexingLimit, align 4
-  %conv3 = sext i32 %6 to i64
-  %cmp4 = icmp slt i64 %5, %conv3
-  br i1 %cmp4, label %land.lhs.true5, label %if.else
+28:                                               ; preds = %19
+  %29 = load i64, ptr %12, align 8, !tbaa !124
+  %30 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.UText, ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4, !tbaa !143
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %29, %33
+  br i1 %34, label %35, label %49
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %fText6 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %fText6, i32 0, i32 10
-  %7 = load ptr, ptr %chunkContents, align 8
-  %8 = load i64, ptr %__offset, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %8
-  %9 = load i16, ptr %arrayidx, align 2
-  %conv7 = zext i16 %9 to i32
-  %cmp8 = icmp slt i32 %conv7, 56320
-  br i1 %cmp8, label %if.then, label %if.else
+35:                                               ; preds = %28
+  %36 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.UText, ptr %36, i32 0, i32 10
+  %38 = load ptr, ptr %37, align 8, !tbaa !144
+  %39 = load i64, ptr %12, align 8, !tbaa !124
+  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %41 = load i16, ptr %40, align 2, !tbaa !145
+  %42 = zext i16 %41 to i32
+  %43 = icmp slt i32 %42, 56320
+  br i1 %43, label %44, label %49
 
-if.then:                                          ; preds = %land.lhs.true5
-  %10 = load i64, ptr %__offset, align 8
-  %conv9 = trunc i64 %10 to i32
-  %fText10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %fText10, i32 0, i32 8
-  store i32 %conv9, ptr %chunkOffset, align 8
-  br label %if.end
+44:                                               ; preds = %35
+  %45 = load i64, ptr %12, align 8, !tbaa !124
+  %46 = trunc i64 %45 to i32
+  %47 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct.UText, ptr %47, i32 0, i32 8
+  store i32 %46, ptr %48, align 8, !tbaa !147
+  br label %53
 
-if.else:                                          ; preds = %land.lhs.true5, %land.lhs.true, %do.body
-  %fText11 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %11 = load i32, ptr %fromPosition.addr, align 4
-  %conv12 = sext i32 %11 to i64
-  call void @utext_setNativeIndex_75(ptr noundef %fText11, i64 noundef %conv12)
-  br label %if.end
+49:                                               ; preds = %35, %28, %19
+  %50 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %51 = load i32, ptr %5, align 4, !tbaa !87
+  %52 = sext i32 %51 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %50, i64 noundef %52)
+  br label %53
 
-if.end:                                           ; preds = %if.else, %if.then
-  br label %do.end
+53:                                               ; preds = %49, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  br label %54
 
-do.end:                                           ; preds = %if.end
-  %fData13 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %12 = load ptr, ptr %fData13, align 8
-  %cmp14 = icmp eq ptr %12, null
-  br i1 %cmp14, label %if.then28, label %lor.lhs.false
+54:                                               ; preds = %53
+  br label %55
 
-lor.lhs.false:                                    ; preds = %do.end
-  %fText15 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset16 = getelementptr inbounds %struct.UText, ptr %fText15, i32 0, i32 8
-  %13 = load i32, ptr %chunkOffset16, align 8
-  %fText17 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit18 = getelementptr inbounds %struct.UText, ptr %fText17, i32 0, i32 6
-  %14 = load i32, ptr %nativeIndexingLimit18, align 4
-  %cmp19 = icmp sle i32 %13, %14
-  br i1 %cmp19, label %cond.true, label %cond.false
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %87, label %59
 
-cond.true:                                        ; preds = %lor.lhs.false
-  %fText20 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart21 = getelementptr inbounds %struct.UText, ptr %fText20, i32 0, i32 7
-  %15 = load i64, ptr %chunkNativeStart21, align 8
-  %fText22 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset23 = getelementptr inbounds %struct.UText, ptr %fText22, i32 0, i32 8
-  %16 = load i32, ptr %chunkOffset23, align 8
-  %conv24 = sext i32 %16 to i64
-  %add = add nsw i64 %15, %conv24
-  br label %cond.end
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.UText, ptr %60, i32 0, i32 8
+  %62 = load i32, ptr %61, align 8, !tbaa !147
+  %63 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct.UText, ptr %63, i32 0, i32 6
+  %65 = load i32, ptr %64, align 4, !tbaa !143
+  %66 = icmp sle i32 %62, %65
+  br i1 %66, label %67, label %76
 
-cond.false:                                       ; preds = %lor.lhs.false
-  %fText25 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs = getelementptr inbounds %struct.UText, ptr %fText25, i32 0, i32 11
-  %17 = load ptr, ptr %pFuncs, align 8
-  %mapOffsetToNative = getelementptr inbounds %struct.UTextFuncs, ptr %17, i32 0, i32 10
-  %18 = load ptr, ptr %mapOffsetToNative, align 8
-  %fText26 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call = call noundef i64 %18(ptr noundef %fText26)
-  br label %cond.end
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %69 = getelementptr inbounds nuw %struct.UText, ptr %68, i32 0, i32 7
+  %70 = load i64, ptr %69, align 8, !tbaa !142
+  %71 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %72 = getelementptr inbounds nuw %struct.UText, ptr %71, i32 0, i32 8
+  %73 = load i32, ptr %72, align 8, !tbaa !147
+  %74 = sext i32 %73 to i64
+  %75 = add nsw i64 %70, %74
+  br label %84
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %add, %cond.true ], [ %call, %cond.false ]
-  %cmp27 = icmp eq i64 %cond, 0
-  br i1 %cmp27, label %if.then28, label %if.end29
+76:                                               ; preds = %59
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.UText, ptr %77, i32 0, i32 11
+  %79 = load ptr, ptr %78, align 8, !tbaa !155
+  %80 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %79, i32 0, i32 10
+  %81 = load ptr, ptr %80, align 8, !tbaa !156
+  %82 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %83 = call noundef i64 %81(ptr noundef %82)
+  br label %84
 
-if.then28:                                        ; preds = %cond.end, %do.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
+84:                                               ; preds = %76, %67
+  %85 = phi i64 [ %75, %67 ], [ %83, %76 ]
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %88
 
-if.end29:                                         ; preds = %cond.end
-  %fText30 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset31 = getelementptr inbounds %struct.UText, ptr %fText30, i32 0, i32 8
-  %19 = load i32, ptr %chunkOffset31, align 8
-  %cmp32 = icmp sgt i32 %19, 0
-  br i1 %cmp32, label %land.lhs.true33, label %cond.false50
+87:                                               ; preds = %84, %55
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %228
 
-land.lhs.true33:                                  ; preds = %if.end29
-  %fText34 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents35 = getelementptr inbounds %struct.UText, ptr %fText34, i32 0, i32 10
-  %20 = load ptr, ptr %chunkContents35, align 8
-  %fText36 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset37 = getelementptr inbounds %struct.UText, ptr %fText36, i32 0, i32 8
-  %21 = load i32, ptr %chunkOffset37, align 8
-  %sub38 = sub nsw i32 %21, 1
-  %idxprom = sext i32 %sub38 to i64
-  %arrayidx39 = getelementptr inbounds i16, ptr %20, i64 %idxprom
-  %22 = load i16, ptr %arrayidx39, align 2
-  %conv40 = zext i16 %22 to i32
-  %cmp41 = icmp slt i32 %conv40, 55296
-  br i1 %cmp41, label %cond.true42, label %cond.false50
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %90 = getelementptr inbounds nuw %struct.UText, ptr %89, i32 0, i32 8
+  %91 = load i32, ptr %90, align 8, !tbaa !147
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %118
 
-cond.true42:                                      ; preds = %land.lhs.true33
-  %fText43 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents44 = getelementptr inbounds %struct.UText, ptr %fText43, i32 0, i32 10
-  %23 = load ptr, ptr %chunkContents44, align 8
-  %fText45 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset46 = getelementptr inbounds %struct.UText, ptr %fText45, i32 0, i32 8
-  %24 = load i32, ptr %chunkOffset46, align 8
-  %dec = add nsw i32 %24, -1
-  store i32 %dec, ptr %chunkOffset46, align 8
-  %idxprom47 = sext i32 %dec to i64
-  %arrayidx48 = getelementptr inbounds i16, ptr %23, i64 %idxprom47
-  %25 = load i16, ptr %arrayidx48, align 2
-  %conv49 = zext i16 %25 to i32
-  br label %cond.end53
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %95 = getelementptr inbounds nuw %struct.UText, ptr %94, i32 0, i32 10
+  %96 = load ptr, ptr %95, align 8, !tbaa !144
+  %97 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.UText, ptr %97, i32 0, i32 8
+  %99 = load i32, ptr %98, align 8, !tbaa !147
+  %100 = sub nsw i32 %99, 1
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i16, ptr %96, i64 %101
+  %103 = load i16, ptr %102, align 2, !tbaa !145
+  %104 = zext i16 %103 to i32
+  %105 = icmp slt i32 %104, 55296
+  br i1 %105, label %106, label %118
 
-cond.false50:                                     ; preds = %land.lhs.true33, %if.end29
-  %fText51 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call52 = call i32 @utext_previous32_75(ptr noundef %fText51)
-  br label %cond.end53
+106:                                              ; preds = %93
+  %107 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %108 = getelementptr inbounds nuw %struct.UText, ptr %107, i32 0, i32 10
+  %109 = load ptr, ptr %108, align 8, !tbaa !144
+  %110 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %111 = getelementptr inbounds nuw %struct.UText, ptr %110, i32 0, i32 8
+  %112 = load i32, ptr %111, align 8, !tbaa !147
+  %113 = add nsw i32 %112, -1
+  store i32 %113, ptr %111, align 8, !tbaa !147
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i16, ptr %109, i64 %114
+  %116 = load i16, ptr %115, align 2, !tbaa !145
+  %117 = zext i16 %116 to i32
+  br label %121
 
-cond.end53:                                       ; preds = %cond.false50, %cond.true42
-  %cond54 = phi i32 [ %conv49, %cond.true42 ], [ %call52, %cond.false50 ]
-  store i32 %cond54, ptr %c, align 4
-  store i32 1, ptr %state, align 4
-  %26 = load ptr, ptr %stateTable, align 8
-  %fTableData = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %26, i32 0, i32 5
-  %arraydecay = getelementptr inbounds [1 x i8], ptr %fTableData, i64 0, i64 0
-  %27 = load ptr, ptr %stateTable, align 8
-  %fRowLen = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %27, i32 0, i32 1
-  %28 = load i32, ptr %fRowLen, align 4
-  %29 = load i32, ptr %state, align 4
-  %mul = mul i32 %28, %29
-  %idx.ext = zext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %arraydecay, i64 %idx.ext
-  store ptr %add.ptr, ptr %row, align 8
-  br label %for.cond
+118:                                              ; preds = %93, %88
+  %119 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %120 = call i32 @utext_previous32_77(ptr noundef %119)
+  br label %121
 
-for.cond:                                         ; preds = %cond.end95, %cond.end53
-  %30 = load i32, ptr %c, align 4
-  %cmp55 = icmp ne i32 %30, -1
-  br i1 %cmp55, label %for.body, label %for.end
+121:                                              ; preds = %118, %106
+  %122 = phi i32 [ %117, %106 ], [ %120, %118 ]
+  store i32 %122, ptr %9, align 4, !tbaa !87
+  store i32 1, ptr %6, align 4, !tbaa !87
+  %123 = load ptr, ptr %11, align 8, !tbaa !137
+  %124 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %123, i32 0, i32 5
+  %125 = getelementptr inbounds [1 x i8], ptr %124, i64 0, i64 0
+  %126 = load ptr, ptr %11, align 8, !tbaa !137
+  %127 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %126, i32 0, i32 1
+  %128 = load i32, ptr %127, align 4, !tbaa !140
+  %129 = load i32, ptr %6, align 4, !tbaa !87
+  %130 = mul i32 %128, %129
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 %131
+  store ptr %132, ptr %8, align 8, !tbaa !162
+  br label %133
 
-for.body:                                         ; preds = %for.cond
-  %fData56 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %31 = load ptr, ptr %fData56, align 8
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %31, i32 0, i32 7
-  %32 = load ptr, ptr %fTrie, align 8
-  %33 = load i32, ptr %c, align 4
-  %call57 = call noundef zeroext i16 @_ZN6icu_75L10TrieFunc16EPK7UCPTriei(ptr noundef %32, i32 noundef %33)
-  store i16 %call57, ptr %category, align 2
-  %34 = load ptr, ptr %row, align 8
-  %fNextState = getelementptr inbounds %"struct.icu_75::RBBIStateTableRowT.7", ptr %34, i32 0, i32 3
-  %35 = load i16, ptr %category, align 2
-  %idxprom58 = zext i16 %35 to i64
-  %arrayidx59 = getelementptr inbounds [1 x i16], ptr %fNextState, i64 0, i64 %idxprom58
-  %36 = load i16, ptr %arrayidx59, align 2
-  %conv60 = zext i16 %36 to i32
-  store i32 %conv60, ptr %state, align 4
-  %37 = load ptr, ptr %stateTable, align 8
-  %fTableData61 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %37, i32 0, i32 5
-  %arraydecay62 = getelementptr inbounds [1 x i8], ptr %fTableData61, i64 0, i64 0
-  %38 = load ptr, ptr %stateTable, align 8
-  %fRowLen63 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %38, i32 0, i32 1
-  %39 = load i32, ptr %fRowLen63, align 4
-  %40 = load i32, ptr %state, align 4
-  %mul64 = mul i32 %39, %40
-  %idx.ext65 = zext i32 %mul64 to i64
-  %add.ptr66 = getelementptr inbounds i8, ptr %arraydecay62, i64 %idx.ext65
-  store ptr %add.ptr66, ptr %row, align 8
-  %41 = load i32, ptr %state, align 4
-  %cmp67 = icmp eq i32 %41, 0
-  br i1 %cmp67, label %if.then68, label %if.end69
+133:                                              ; preds = %197, %121
+  %134 = load i32, ptr %9, align 4, !tbaa !87
+  %135 = icmp ne i32 %134, -1
+  br i1 %135, label %136, label %199
 
-if.then68:                                        ; preds = %for.body
-  br label %for.end
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %138 = load ptr, ptr %137, align 8, !tbaa !11
+  %139 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %138, i32 0, i32 7
+  %140 = load ptr, ptr %139, align 8, !tbaa !138
+  %141 = load i32, ptr %9, align 4, !tbaa !87
+  %142 = call noundef zeroext i16 @_ZN6icu_77L9TrieFunc8EPK7UCPTriei(ptr noundef %140, i32 noundef %141)
+  store i16 %142, ptr %7, align 2, !tbaa !134
+  %143 = load ptr, ptr %8, align 8, !tbaa !162
+  %144 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %143, i32 0, i32 3
+  %145 = load i16, ptr %7, align 2, !tbaa !134
+  %146 = zext i16 %145 to i64
+  %147 = getelementptr inbounds nuw [1 x i16], ptr %144, i64 0, i64 %146
+  %148 = load i16, ptr %147, align 2, !tbaa !134
+  %149 = zext i16 %148 to i32
+  store i32 %149, ptr %6, align 4, !tbaa !87
+  %150 = load ptr, ptr %11, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %150, i32 0, i32 5
+  %152 = getelementptr inbounds [1 x i8], ptr %151, i64 0, i64 0
+  %153 = load ptr, ptr %11, align 8, !tbaa !137
+  %154 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %153, i32 0, i32 1
+  %155 = load i32, ptr %154, align 4, !tbaa !140
+  %156 = load i32, ptr %6, align 4, !tbaa !87
+  %157 = mul i32 %155, %156
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 %158
+  store ptr %159, ptr %8, align 8, !tbaa !162
+  %160 = load i32, ptr %6, align 4, !tbaa !87
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %162, label %163
 
-if.end69:                                         ; preds = %for.body
-  br label %for.inc
+162:                                              ; preds = %136
+  br label %199
 
-for.inc:                                          ; preds = %if.end69
-  %fText70 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset71 = getelementptr inbounds %struct.UText, ptr %fText70, i32 0, i32 8
-  %42 = load i32, ptr %chunkOffset71, align 8
-  %cmp72 = icmp sgt i32 %42, 0
-  br i1 %cmp72, label %land.lhs.true73, label %cond.false92
+163:                                              ; preds = %136
+  br label %164
 
-land.lhs.true73:                                  ; preds = %for.inc
-  %fText74 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents75 = getelementptr inbounds %struct.UText, ptr %fText74, i32 0, i32 10
-  %43 = load ptr, ptr %chunkContents75, align 8
-  %fText76 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset77 = getelementptr inbounds %struct.UText, ptr %fText76, i32 0, i32 8
-  %44 = load i32, ptr %chunkOffset77, align 8
-  %sub78 = sub nsw i32 %44, 1
-  %idxprom79 = sext i32 %sub78 to i64
-  %arrayidx80 = getelementptr inbounds i16, ptr %43, i64 %idxprom79
-  %45 = load i16, ptr %arrayidx80, align 2
-  %conv81 = zext i16 %45 to i32
-  %cmp82 = icmp slt i32 %conv81, 55296
-  br i1 %cmp82, label %cond.true83, label %cond.false92
+164:                                              ; preds = %163
+  %165 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %166 = getelementptr inbounds nuw %struct.UText, ptr %165, i32 0, i32 8
+  %167 = load i32, ptr %166, align 8, !tbaa !147
+  %168 = icmp sgt i32 %167, 0
+  br i1 %168, label %169, label %194
 
-cond.true83:                                      ; preds = %land.lhs.true73
-  %fText84 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkContents85 = getelementptr inbounds %struct.UText, ptr %fText84, i32 0, i32 10
-  %46 = load ptr, ptr %chunkContents85, align 8
-  %fText86 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset87 = getelementptr inbounds %struct.UText, ptr %fText86, i32 0, i32 8
-  %47 = load i32, ptr %chunkOffset87, align 8
-  %dec88 = add nsw i32 %47, -1
-  store i32 %dec88, ptr %chunkOffset87, align 8
-  %idxprom89 = sext i32 %dec88 to i64
-  %arrayidx90 = getelementptr inbounds i16, ptr %46, i64 %idxprom89
-  %48 = load i16, ptr %arrayidx90, align 2
-  %conv91 = zext i16 %48 to i32
-  br label %cond.end95
+169:                                              ; preds = %164
+  %170 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %171 = getelementptr inbounds nuw %struct.UText, ptr %170, i32 0, i32 10
+  %172 = load ptr, ptr %171, align 8, !tbaa !144
+  %173 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %174 = getelementptr inbounds nuw %struct.UText, ptr %173, i32 0, i32 8
+  %175 = load i32, ptr %174, align 8, !tbaa !147
+  %176 = sub nsw i32 %175, 1
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds i16, ptr %172, i64 %177
+  %179 = load i16, ptr %178, align 2, !tbaa !145
+  %180 = zext i16 %179 to i32
+  %181 = icmp slt i32 %180, 55296
+  br i1 %181, label %182, label %194
 
-cond.false92:                                     ; preds = %land.lhs.true73, %for.inc
-  %fText93 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call94 = call i32 @utext_previous32_75(ptr noundef %fText93)
-  br label %cond.end95
+182:                                              ; preds = %169
+  %183 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %184 = getelementptr inbounds nuw %struct.UText, ptr %183, i32 0, i32 10
+  %185 = load ptr, ptr %184, align 8, !tbaa !144
+  %186 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %187 = getelementptr inbounds nuw %struct.UText, ptr %186, i32 0, i32 8
+  %188 = load i32, ptr %187, align 8, !tbaa !147
+  %189 = add nsw i32 %188, -1
+  store i32 %189, ptr %187, align 8, !tbaa !147
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds i16, ptr %185, i64 %190
+  %192 = load i16, ptr %191, align 2, !tbaa !145
+  %193 = zext i16 %192 to i32
+  br label %197
 
-cond.end95:                                       ; preds = %cond.false92, %cond.true83
-  %cond96 = phi i32 [ %conv91, %cond.true83 ], [ %call94, %cond.false92 ]
-  store i32 %cond96, ptr %c, align 4
-  br label %for.cond, !llvm.loop !15
+194:                                              ; preds = %169, %164
+  %195 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %196 = call i32 @utext_previous32_77(ptr noundef %195)
+  br label %197
 
-for.end:                                          ; preds = %if.then68, %for.cond
-  %fText97 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset98 = getelementptr inbounds %struct.UText, ptr %fText97, i32 0, i32 8
-  %49 = load i32, ptr %chunkOffset98, align 8
-  %fText99 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %nativeIndexingLimit100 = getelementptr inbounds %struct.UText, ptr %fText99, i32 0, i32 6
-  %50 = load i32, ptr %nativeIndexingLimit100, align 4
-  %cmp101 = icmp sle i32 %49, %50
-  br i1 %cmp101, label %cond.true102, label %cond.false109
+197:                                              ; preds = %194, %182
+  %198 = phi i32 [ %193, %182 ], [ %196, %194 ]
+  store i32 %198, ptr %9, align 4, !tbaa !87
+  br label %133, !llvm.loop !173
 
-cond.true102:                                     ; preds = %for.end
-  %fText103 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkNativeStart104 = getelementptr inbounds %struct.UText, ptr %fText103, i32 0, i32 7
-  %51 = load i64, ptr %chunkNativeStart104, align 8
-  %fText105 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %chunkOffset106 = getelementptr inbounds %struct.UText, ptr %fText105, i32 0, i32 8
-  %52 = load i32, ptr %chunkOffset106, align 8
-  %conv107 = sext i32 %52 to i64
-  %add108 = add nsw i64 %51, %conv107
-  br label %cond.end115
+199:                                              ; preds = %162, %133
+  %200 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %201 = getelementptr inbounds nuw %struct.UText, ptr %200, i32 0, i32 8
+  %202 = load i32, ptr %201, align 8, !tbaa !147
+  %203 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %204 = getelementptr inbounds nuw %struct.UText, ptr %203, i32 0, i32 6
+  %205 = load i32, ptr %204, align 4, !tbaa !143
+  %206 = icmp sle i32 %202, %205
+  br i1 %206, label %207, label %216
 
-cond.false109:                                    ; preds = %for.end
-  %fText110 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %pFuncs111 = getelementptr inbounds %struct.UText, ptr %fText110, i32 0, i32 11
-  %53 = load ptr, ptr %pFuncs111, align 8
-  %mapOffsetToNative112 = getelementptr inbounds %struct.UTextFuncs, ptr %53, i32 0, i32 10
-  %54 = load ptr, ptr %mapOffsetToNative112, align 8
-  %fText113 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 2
-  %call114 = call noundef i64 %54(ptr noundef %fText113)
-  br label %cond.end115
+207:                                              ; preds = %199
+  %208 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %209 = getelementptr inbounds nuw %struct.UText, ptr %208, i32 0, i32 7
+  %210 = load i64, ptr %209, align 8, !tbaa !142
+  %211 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %212 = getelementptr inbounds nuw %struct.UText, ptr %211, i32 0, i32 8
+  %213 = load i32, ptr %212, align 8, !tbaa !147
+  %214 = sext i32 %213 to i64
+  %215 = add nsw i64 %210, %214
+  br label %224
 
-cond.end115:                                      ; preds = %cond.false109, %cond.true102
-  %cond116 = phi i64 [ %add108, %cond.true102 ], [ %call114, %cond.false109 ]
-  %conv117 = trunc i64 %cond116 to i32
-  store i32 %conv117, ptr %result, align 4
-  %55 = load i32, ptr %result, align 4
-  store i32 %55, ptr %retval, align 4
-  br label %return
+216:                                              ; preds = %199
+  %217 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %218 = getelementptr inbounds nuw %struct.UText, ptr %217, i32 0, i32 11
+  %219 = load ptr, ptr %218, align 8, !tbaa !155
+  %220 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %219, i32 0, i32 10
+  %221 = load ptr, ptr %220, align 8, !tbaa !156
+  %222 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %223 = call noundef i64 %221(ptr noundef %222)
+  br label %224
 
-return:                                           ; preds = %cond.end115, %if.then28
-  %56 = load i32, ptr %retval, align 4
-  ret i32 %56
+224:                                              ; preds = %216, %207
+  %225 = phi i64 [ %215, %207 ], [ %223, %216 ]
+  %226 = trunc i64 %225 to i32
+  store i32 %226, ptr %10, align 4, !tbaa !87
+  %227 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %227, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %228
+
+228:                                              ; preds = %224, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %229 = load i32, ptr %3, align 4
+  ret i32 %229
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousINS_18RBBIStateTableRowTItEEXadL_ZNS_L10TrieFunc16EPK7UCPTrieiEEEEii(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i16, align 2
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !87
+  %14 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #10
+  store i16 0, ptr %7, align 2, !tbaa !134
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  %15 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !170
+  store ptr %18, ptr %11, align 8, !tbaa !137
+  br label %19
+
+19:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %20 = load i32, ptr %5, align 4, !tbaa !87
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct.UText, ptr %22, i32 0, i32 7
+  %24 = load i64, ptr %23, align 8, !tbaa !142
+  %25 = sub nsw i64 %21, %24
+  store i64 %25, ptr %12, align 8, !tbaa !124
+  %26 = load i64, ptr %12, align 8, !tbaa !124
+  %27 = icmp sge i64 %26, 0
+  br i1 %27, label %28, label %49
+
+28:                                               ; preds = %19
+  %29 = load i64, ptr %12, align 8, !tbaa !124
+  %30 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.UText, ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4, !tbaa !143
+  %33 = sext i32 %32 to i64
+  %34 = icmp slt i64 %29, %33
+  br i1 %34, label %35, label %49
+
+35:                                               ; preds = %28
+  %36 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.UText, ptr %36, i32 0, i32 10
+  %38 = load ptr, ptr %37, align 8, !tbaa !144
+  %39 = load i64, ptr %12, align 8, !tbaa !124
+  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %41 = load i16, ptr %40, align 2, !tbaa !145
+  %42 = zext i16 %41 to i32
+  %43 = icmp slt i32 %42, 56320
+  br i1 %43, label %44, label %49
+
+44:                                               ; preds = %35
+  %45 = load i64, ptr %12, align 8, !tbaa !124
+  %46 = trunc i64 %45 to i32
+  %47 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct.UText, ptr %47, i32 0, i32 8
+  store i32 %46, ptr %48, align 8, !tbaa !147
+  br label %53
+
+49:                                               ; preds = %35, %28, %19
+  %50 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %51 = load i32, ptr %5, align 4, !tbaa !87
+  %52 = sext i32 %51 to i64
+  call void @utext_setNativeIndex_77(ptr noundef %50, i64 noundef %52)
+  br label %53
+
+53:                                               ; preds = %49, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  br label %54
+
+54:                                               ; preds = %53
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8, !tbaa !11
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %87, label %59
+
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.UText, ptr %60, i32 0, i32 8
+  %62 = load i32, ptr %61, align 8, !tbaa !147
+  %63 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct.UText, ptr %63, i32 0, i32 6
+  %65 = load i32, ptr %64, align 4, !tbaa !143
+  %66 = icmp sle i32 %62, %65
+  br i1 %66, label %67, label %76
+
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %69 = getelementptr inbounds nuw %struct.UText, ptr %68, i32 0, i32 7
+  %70 = load i64, ptr %69, align 8, !tbaa !142
+  %71 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %72 = getelementptr inbounds nuw %struct.UText, ptr %71, i32 0, i32 8
+  %73 = load i32, ptr %72, align 8, !tbaa !147
+  %74 = sext i32 %73 to i64
+  %75 = add nsw i64 %70, %74
+  br label %84
+
+76:                                               ; preds = %59
+  %77 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.UText, ptr %77, i32 0, i32 11
+  %79 = load ptr, ptr %78, align 8, !tbaa !155
+  %80 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %79, i32 0, i32 10
+  %81 = load ptr, ptr %80, align 8, !tbaa !156
+  %82 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %83 = call noundef i64 %81(ptr noundef %82)
+  br label %84
+
+84:                                               ; preds = %76, %67
+  %85 = phi i64 [ %75, %67 ], [ %83, %76 ]
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %88
+
+87:                                               ; preds = %84, %55
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %228
+
+88:                                               ; preds = %84
+  %89 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %90 = getelementptr inbounds nuw %struct.UText, ptr %89, i32 0, i32 8
+  %91 = load i32, ptr %90, align 8, !tbaa !147
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %118
+
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %95 = getelementptr inbounds nuw %struct.UText, ptr %94, i32 0, i32 10
+  %96 = load ptr, ptr %95, align 8, !tbaa !144
+  %97 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %98 = getelementptr inbounds nuw %struct.UText, ptr %97, i32 0, i32 8
+  %99 = load i32, ptr %98, align 8, !tbaa !147
+  %100 = sub nsw i32 %99, 1
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i16, ptr %96, i64 %101
+  %103 = load i16, ptr %102, align 2, !tbaa !145
+  %104 = zext i16 %103 to i32
+  %105 = icmp slt i32 %104, 55296
+  br i1 %105, label %106, label %118
+
+106:                                              ; preds = %93
+  %107 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %108 = getelementptr inbounds nuw %struct.UText, ptr %107, i32 0, i32 10
+  %109 = load ptr, ptr %108, align 8, !tbaa !144
+  %110 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %111 = getelementptr inbounds nuw %struct.UText, ptr %110, i32 0, i32 8
+  %112 = load i32, ptr %111, align 8, !tbaa !147
+  %113 = add nsw i32 %112, -1
+  store i32 %113, ptr %111, align 8, !tbaa !147
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i16, ptr %109, i64 %114
+  %116 = load i16, ptr %115, align 2, !tbaa !145
+  %117 = zext i16 %116 to i32
+  br label %121
+
+118:                                              ; preds = %93, %88
+  %119 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %120 = call i32 @utext_previous32_77(ptr noundef %119)
+  br label %121
+
+121:                                              ; preds = %118, %106
+  %122 = phi i32 [ %117, %106 ], [ %120, %118 ]
+  store i32 %122, ptr %9, align 4, !tbaa !87
+  store i32 1, ptr %6, align 4, !tbaa !87
+  %123 = load ptr, ptr %11, align 8, !tbaa !137
+  %124 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %123, i32 0, i32 5
+  %125 = getelementptr inbounds [1 x i8], ptr %124, i64 0, i64 0
+  %126 = load ptr, ptr %11, align 8, !tbaa !137
+  %127 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %126, i32 0, i32 1
+  %128 = load i32, ptr %127, align 4, !tbaa !140
+  %129 = load i32, ptr %6, align 4, !tbaa !87
+  %130 = mul i32 %128, %129
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 %131
+  store ptr %132, ptr %8, align 8, !tbaa !162
+  br label %133
+
+133:                                              ; preds = %197, %121
+  %134 = load i32, ptr %9, align 4, !tbaa !87
+  %135 = icmp ne i32 %134, -1
+  br i1 %135, label %136, label %199
+
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 2
+  %138 = load ptr, ptr %137, align 8, !tbaa !11
+  %139 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %138, i32 0, i32 7
+  %140 = load ptr, ptr %139, align 8, !tbaa !138
+  %141 = load i32, ptr %9, align 4, !tbaa !87
+  %142 = call noundef zeroext i16 @_ZN6icu_77L10TrieFunc16EPK7UCPTriei(ptr noundef %140, i32 noundef %141)
+  store i16 %142, ptr %7, align 2, !tbaa !134
+  %143 = load ptr, ptr %8, align 8, !tbaa !162
+  %144 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTableRowT.7", ptr %143, i32 0, i32 3
+  %145 = load i16, ptr %7, align 2, !tbaa !134
+  %146 = zext i16 %145 to i64
+  %147 = getelementptr inbounds nuw [1 x i16], ptr %144, i64 0, i64 %146
+  %148 = load i16, ptr %147, align 2, !tbaa !134
+  %149 = zext i16 %148 to i32
+  store i32 %149, ptr %6, align 4, !tbaa !87
+  %150 = load ptr, ptr %11, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %150, i32 0, i32 5
+  %152 = getelementptr inbounds [1 x i8], ptr %151, i64 0, i64 0
+  %153 = load ptr, ptr %11, align 8, !tbaa !137
+  %154 = getelementptr inbounds nuw %"struct.icu_77::RBBIStateTable", ptr %153, i32 0, i32 1
+  %155 = load i32, ptr %154, align 4, !tbaa !140
+  %156 = load i32, ptr %6, align 4, !tbaa !87
+  %157 = mul i32 %155, %156
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 %158
+  store ptr %159, ptr %8, align 8, !tbaa !162
+  %160 = load i32, ptr %6, align 4, !tbaa !87
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %162, label %163
+
+162:                                              ; preds = %136
+  br label %199
+
+163:                                              ; preds = %136
+  br label %164
+
+164:                                              ; preds = %163
+  %165 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %166 = getelementptr inbounds nuw %struct.UText, ptr %165, i32 0, i32 8
+  %167 = load i32, ptr %166, align 8, !tbaa !147
+  %168 = icmp sgt i32 %167, 0
+  br i1 %168, label %169, label %194
+
+169:                                              ; preds = %164
+  %170 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %171 = getelementptr inbounds nuw %struct.UText, ptr %170, i32 0, i32 10
+  %172 = load ptr, ptr %171, align 8, !tbaa !144
+  %173 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %174 = getelementptr inbounds nuw %struct.UText, ptr %173, i32 0, i32 8
+  %175 = load i32, ptr %174, align 8, !tbaa !147
+  %176 = sub nsw i32 %175, 1
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds i16, ptr %172, i64 %177
+  %179 = load i16, ptr %178, align 2, !tbaa !145
+  %180 = zext i16 %179 to i32
+  %181 = icmp slt i32 %180, 55296
+  br i1 %181, label %182, label %194
+
+182:                                              ; preds = %169
+  %183 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %184 = getelementptr inbounds nuw %struct.UText, ptr %183, i32 0, i32 10
+  %185 = load ptr, ptr %184, align 8, !tbaa !144
+  %186 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %187 = getelementptr inbounds nuw %struct.UText, ptr %186, i32 0, i32 8
+  %188 = load i32, ptr %187, align 8, !tbaa !147
+  %189 = add nsw i32 %188, -1
+  store i32 %189, ptr %187, align 8, !tbaa !147
+  %190 = sext i32 %189 to i64
+  %191 = getelementptr inbounds i16, ptr %185, i64 %190
+  %192 = load i16, ptr %191, align 2, !tbaa !145
+  %193 = zext i16 %192 to i32
+  br label %197
+
+194:                                              ; preds = %169, %164
+  %195 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %196 = call i32 @utext_previous32_77(ptr noundef %195)
+  br label %197
+
+197:                                              ; preds = %194, %182
+  %198 = phi i32 [ %193, %182 ], [ %196, %194 ]
+  store i32 %198, ptr %9, align 4, !tbaa !87
+  br label %133, !llvm.loop !174
+
+199:                                              ; preds = %162, %133
+  %200 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %201 = getelementptr inbounds nuw %struct.UText, ptr %200, i32 0, i32 8
+  %202 = load i32, ptr %201, align 8, !tbaa !147
+  %203 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %204 = getelementptr inbounds nuw %struct.UText, ptr %203, i32 0, i32 6
+  %205 = load i32, ptr %204, align 4, !tbaa !143
+  %206 = icmp sle i32 %202, %205
+  br i1 %206, label %207, label %216
+
+207:                                              ; preds = %199
+  %208 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %209 = getelementptr inbounds nuw %struct.UText, ptr %208, i32 0, i32 7
+  %210 = load i64, ptr %209, align 8, !tbaa !142
+  %211 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %212 = getelementptr inbounds nuw %struct.UText, ptr %211, i32 0, i32 8
+  %213 = load i32, ptr %212, align 8, !tbaa !147
+  %214 = sext i32 %213 to i64
+  %215 = add nsw i64 %210, %214
+  br label %224
+
+216:                                              ; preds = %199
+  %217 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %218 = getelementptr inbounds nuw %struct.UText, ptr %217, i32 0, i32 11
+  %219 = load ptr, ptr %218, align 8, !tbaa !155
+  %220 = getelementptr inbounds nuw %struct.UTextFuncs, ptr %219, i32 0, i32 10
+  %221 = load ptr, ptr %220, align 8, !tbaa !156
+  %222 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %14, i32 0, i32 1
+  %223 = call noundef i64 %221(ptr noundef %222)
+  br label %224
+
+224:                                              ; preds = %216, %207
+  %225 = phi i64 [ %215, %207 ], [ %223, %216 ]
+  %226 = trunc i64 %225 to i32
+  store i32 %226, ptr %10, align 4, !tbaa !87
+  %227 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %227, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %228
+
+228:                                              ; preds = %224, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %229 = load i32, ptr %3, align 4
+  ret i32 %229
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK6icu_7522RuleBasedBreakIterator13getRuleStatusEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %idx = alloca i32, align 4
-  %tagVal = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  %0 = load i32, ptr %fRuleStatusIndex, align 8
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %fData, align 8
-  %fRuleStatusTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %1, i32 0, i32 4
-  %2 = load ptr, ptr %fRuleStatusTable, align 8
-  %fRuleStatusIndex2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  %3 = load i32, ptr %fRuleStatusIndex2, align 8
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %2, i64 %idxprom
-  %4 = load i32, ptr %arrayidx, align 4
-  %add = add nsw i32 %0, %4
-  store i32 %add, ptr %idx, align 4
-  %fData3 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %5 = load ptr, ptr %fData3, align 8
-  %fRuleStatusTable4 = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %5, i32 0, i32 4
-  %6 = load ptr, ptr %fRuleStatusTable4, align 8
-  %7 = load i32, ptr %idx, align 4
-  %idxprom5 = sext i32 %7 to i64
-  %arrayidx6 = getelementptr inbounds i32, ptr %6, i64 %idxprom5
-  %8 = load i32, ptr %arrayidx6, align 4
-  store i32 %8, ptr %tagVal, align 4
-  %9 = load i32, ptr %tagVal, align 4
-  ret i32 %9
+define noundef i32 @_ZNK6icu_7722RuleBasedBreakIterator13getRuleStatusEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  %6 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %5, i32 0, i32 5
+  %7 = load i32, ptr %6, align 8, !tbaa !75
+  %8 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %5, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %9, i32 0, i32 4
+  %11 = load ptr, ptr %10, align 8, !tbaa !175
+  %12 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %5, i32 0, i32 5
+  %13 = load i32, ptr %12, align 8, !tbaa !75
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i32, ptr %11, i64 %14
+  %16 = load i32, ptr %15, align 4, !tbaa !87
+  %17 = add nsw i32 %7, %16
+  store i32 %17, ptr %3, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  %18 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %5, i32 0, i32 2
+  %19 = load ptr, ptr %18, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %19, i32 0, i32 4
+  %21 = load ptr, ptr %20, align 8, !tbaa !175
+  %22 = load i32, ptr %3, align 4, !tbaa !87
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i32, ptr %21, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !87
+  store i32 %25, ptr %4, align 4, !tbaa !87
+  %26 = load i32, ptr %4, align 4, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
+  ret i32 %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator16getRuleStatusVecEPiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %fillInVec, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %fillInVec.addr = alloca ptr, align 8
-  %capacity.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %numVals = alloca i32, align 4
-  %numValsToCopy = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %fillInVec, ptr %fillInVec.addr, align 8
-  store i32 %capacity, ptr %capacity.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator16getRuleStatusVecEPiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !176
+  store i32 %2, ptr %8, align 4, !tbaa !87
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %9, align 8, !tbaa !10
+  %15 = load i32, ptr %14, align 4, !tbaa !33
+  %16 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %15)
+  %17 = icmp ne i8 %16, 0
+  br i1 %17, label %18, label %19
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %4
+  store i32 0, ptr %5, align 4
+  br label %63
 
-if.end:                                           ; preds = %entry
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %fData, align 8
-  %fRuleStatusTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %2, i32 0, i32 4
-  %3 = load ptr, ptr %fRuleStatusTable, align 8
-  %fRuleStatusIndex = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  %4 = load i32, ptr %fRuleStatusIndex, align 8
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %3, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  store i32 %5, ptr %numVals, align 4
-  %6 = load i32, ptr %numVals, align 4
-  store i32 %6, ptr %numValsToCopy, align 4
-  %7 = load i32, ptr %numVals, align 4
-  %8 = load i32, ptr %capacity.addr, align 4
-  %cmp = icmp sgt i32 %7, %8
-  br i1 %cmp, label %if.then2, label %if.end3
+19:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  %20 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %13, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %21, i32 0, i32 4
+  %23 = load ptr, ptr %22, align 8, !tbaa !175
+  %24 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %13, i32 0, i32 5
+  %25 = load i32, ptr %24, align 8, !tbaa !75
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i32, ptr %23, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !87
+  store i32 %28, ptr %10, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  %29 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %29, ptr %11, align 4, !tbaa !87
+  %30 = load i32, ptr %10, align 4, !tbaa !87
+  %31 = load i32, ptr %8, align 4, !tbaa !87
+  %32 = icmp sgt i32 %30, %31
+  br i1 %32, label %33, label %36
 
-if.then2:                                         ; preds = %if.end
-  %9 = load ptr, ptr %status.addr, align 8
-  store i32 15, ptr %9, align 4
-  %10 = load i32, ptr %capacity.addr, align 4
-  store i32 %10, ptr %numValsToCopy, align 4
-  br label %if.end3
+33:                                               ; preds = %19
+  %34 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 15, ptr %34, align 4, !tbaa !33
+  %35 = load i32, ptr %8, align 4, !tbaa !87
+  store i32 %35, ptr %11, align 4, !tbaa !87
+  br label %36
 
-if.end3:                                          ; preds = %if.then2, %if.end
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+36:                                               ; preds = %33, %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  store i32 0, ptr %12, align 4, !tbaa !87
+  br label %37
 
-for.cond:                                         ; preds = %for.inc, %if.end3
-  %11 = load i32, ptr %i, align 4
-  %12 = load i32, ptr %numValsToCopy, align 4
-  %cmp4 = icmp slt i32 %11, %12
-  br i1 %cmp4, label %for.body, label %for.end
+37:                                               ; preds = %58, %36
+  %38 = load i32, ptr %12, align 4, !tbaa !87
+  %39 = load i32, ptr %11, align 4, !tbaa !87
+  %40 = icmp slt i32 %38, %39
+  br i1 %40, label %41, label %61
 
-for.body:                                         ; preds = %for.cond
-  %fData5 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %13 = load ptr, ptr %fData5, align 8
-  %fRuleStatusTable6 = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %13, i32 0, i32 4
-  %14 = load ptr, ptr %fRuleStatusTable6, align 8
-  %fRuleStatusIndex7 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 6
-  %15 = load i32, ptr %fRuleStatusIndex7, align 8
-  %16 = load i32, ptr %i, align 4
-  %add = add nsw i32 %15, %16
-  %add8 = add nsw i32 %add, 1
-  %idxprom9 = sext i32 %add8 to i64
-  %arrayidx10 = getelementptr inbounds i32, ptr %14, i64 %idxprom9
-  %17 = load i32, ptr %arrayidx10, align 4
-  %18 = load ptr, ptr %fillInVec.addr, align 8
-  %19 = load i32, ptr %i, align 4
-  %idxprom11 = sext i32 %19 to i64
-  %arrayidx12 = getelementptr inbounds i32, ptr %18, i64 %idxprom11
-  store i32 %17, ptr %arrayidx12, align 4
-  br label %for.inc
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %13, i32 0, i32 2
+  %43 = load ptr, ptr %42, align 8, !tbaa !11
+  %44 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %43, i32 0, i32 4
+  %45 = load ptr, ptr %44, align 8, !tbaa !175
+  %46 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %13, i32 0, i32 5
+  %47 = load i32, ptr %46, align 8, !tbaa !75
+  %48 = load i32, ptr %12, align 4, !tbaa !87
+  %49 = add nsw i32 %47, %48
+  %50 = add nsw i32 %49, 1
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i32, ptr %45, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !87
+  %54 = load ptr, ptr %7, align 8, !tbaa !176
+  %55 = load i32, ptr %12, align 4, !tbaa !87
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i32, ptr %54, i64 %56
+  store i32 %53, ptr %57, align 4, !tbaa !87
+  br label %58
 
-for.inc:                                          ; preds = %for.body
-  %20 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %20, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !16
+58:                                               ; preds = %41
+  %59 = load i32, ptr %12, align 4, !tbaa !87
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %12, align 4, !tbaa !87
+  br label %37, !llvm.loop !177
 
-for.end:                                          ; preds = %for.cond
-  %21 = load i32, ptr %numVals, align 4
-  store i32 %21, ptr %retval, align 4
-  br label %return
+61:                                               ; preds = %37
+  %62 = load i32, ptr %10, align 4, !tbaa !87
+  store i32 %62, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  br label %63
 
-return:                                           ; preds = %for.end, %if.then
-  %22 = load i32, ptr %retval, align 4
-  ret i32 %22
+63:                                               ; preds = %61, %18
+  %64 = load i32, ptr %5, align 4
+  ret i32 %64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator14getBinaryRulesERj(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef nonnull align 4 dereferenceable(4) %length) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %length.addr = alloca ptr, align 8
-  %retPtr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %length, ptr %length.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store ptr null, ptr %retPtr, align 8
-  %0 = load ptr, ptr %length.addr, align 8
-  store i32 0, ptr %0, align 4
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %fData, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
+define noundef ptr @_ZN6icu_7722RuleBasedBreakIterator14getBinaryRulesERj(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !176
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  store ptr null, ptr %5, align 8, !tbaa !86
+  %7 = load ptr, ptr %4, align 8, !tbaa !176
+  store i32 0, ptr %7, align 4, !tbaa !87
+  %8 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %23
 
-if.then:                                          ; preds = %entry
-  %fData2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %fData2, align 8
-  %fHeader = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %fHeader, align 8
-  store ptr %3, ptr %retPtr, align 8
-  %fData3 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %4 = load ptr, ptr %fData3, align 8
-  %fHeader4 = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %fHeader4, align 8
-  %fLength = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %5, i32 0, i32 2
-  %6 = load i32, ptr %fLength, align 4
-  %7 = load ptr, ptr %length.addr, align 8
-  store i32 %6, ptr %7, align 4
-  br label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !178
+  store ptr %15, ptr %5, align 8, !tbaa !86
+  %16 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %6, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %"class.icu_77::RBBIDataWrapper", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !178
+  %20 = getelementptr inbounds nuw %"struct.icu_77::RBBIDataHeader", ptr %19, i32 0, i32 2
+  %21 = load i32, ptr %20, align 4, !tbaa !88
+  %22 = load ptr, ptr %4, align 8, !tbaa !176
+  store i32 %21, ptr %22, align 4, !tbaa !87
+  br label %23
 
-if.end:                                           ; preds = %if.then, %entry
-  %8 = load ptr, ptr %retPtr, align 8
-  ret ptr %8
+23:                                               ; preds = %11, %2
+  %24 = load ptr, ptr %5, align 8, !tbaa !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  ret ptr %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator17createBufferCloneEPvRiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %bufferSize, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %bufferSize.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %clonedBI = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %bufferSize, ptr %bufferSize.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %status.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define noundef ptr @_ZN6icu_7722RuleBasedBreakIterator17createBufferCloneEPvRiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !10
+  store ptr %2, ptr %8, align 8, !tbaa !176
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  %11 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %9, align 8, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !33
+  %14 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %13)
+  %15 = icmp ne i8 %14, 0
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  br label %36
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %bufferSize.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %cmp = icmp eq i32 %4, 0
-  br i1 %cmp, label %if.then2, label %if.end3
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %8, align 8, !tbaa !176
+  %19 = load i32, ptr %18, align 4, !tbaa !87
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %23
 
-if.then2:                                         ; preds = %if.end
-  %5 = load ptr, ptr %bufferSize.addr, align 8
-  store i32 1, ptr %5, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %8, align 8, !tbaa !176
+  store i32 1, ptr %22, align 4, !tbaa !87
+  store ptr null, ptr %5, align 8
+  br label %36
 
-if.end3:                                          ; preds = %if.end
-  %vtable = load ptr, ptr %this1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %6 = load ptr, ptr %vfn, align 8
-  %call4 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(745) %this1)
-  store ptr %call4, ptr %clonedBI, align 8
-  %7 = load ptr, ptr %clonedBI, align 8
-  %cmp5 = icmp eq ptr %7, null
-  br i1 %cmp5, label %if.then6, label %if.else
+23:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %24 = load ptr, ptr %11, align 8, !tbaa !47
+  %25 = getelementptr inbounds ptr, ptr %24, i64 4
+  %26 = load ptr, ptr %25, align 8
+  %27 = call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(297) %11)
+  store ptr %27, ptr %10, align 8, !tbaa !116
+  %28 = load ptr, ptr %10, align 8, !tbaa !116
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %32
 
-if.then6:                                         ; preds = %if.end3
-  %8 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %8, align 4
-  br label %if.end7
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 7, ptr %31, align 4, !tbaa !33
+  br label %34
 
-if.else:                                          ; preds = %if.end3
-  %9 = load ptr, ptr %status.addr, align 8
-  store i32 -126, ptr %9, align 4
-  br label %if.end7
+32:                                               ; preds = %23
+  %33 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 -126, ptr %33, align 4, !tbaa !33
+  br label %34
 
-if.end7:                                          ; preds = %if.else, %if.then6
-  %10 = load ptr, ptr %clonedBI, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %32, %30
+  %35 = load ptr, ptr %10, align 8, !tbaa !116
+  store ptr %35, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  br label %36
 
-return:                                           ; preds = %if.end7, %if.then2, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+36:                                               ; preds = %34, %21, %16
+  %37 = load ptr, ptr %5, align 8
+  ret ptr %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @rbbi_cleanup_75() #1 {
-entry:
-  %0 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define signext i8 @rbbi_cleanup_77() #1 {
+  %1 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8, !tbaa !179
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %7, label %3
 
-delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
-  br label %delete.end
+3:                                                ; preds = %0
+  %4 = load ptr, ptr %1, align 8, !tbaa !47
+  %5 = getelementptr inbounds ptr, ptr %4, i64 1
+  %6 = load ptr, ptr %5, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(40) %1) #10
+  br label %7
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  store ptr null, ptr @_ZL23gLanguageBreakFactories, align 8
-  %2 = load ptr, ptr @_ZL12gEmptyString, align 8
-  %isnull1 = icmp eq ptr %2, null
-  br i1 %isnull1, label %delete.end5, label %delete.notnull2
+7:                                                ; preds = %3, %0
+  store ptr null, ptr @_ZL23gLanguageBreakFactories, align 8, !tbaa !179
+  %8 = load ptr, ptr @_ZL12gEmptyString, align 8, !tbaa !90
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %14, label %10
 
-delete.notnull2:                                  ; preds = %delete.end
-  %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 1
-  %3 = load ptr, ptr %vfn4, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(64) %2) #6
-  br label %delete.end5
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %8, align 8, !tbaa !47
+  %12 = getelementptr inbounds ptr, ptr %11, i64 1
+  %13 = load ptr, ptr %12, align 8
+  call void %13(ptr noundef nonnull align 8 dereferenceable(64) %8) #10
+  br label %14
 
-delete.end5:                                      ; preds = %delete.notnull2, %delete.end
-  store ptr null, ptr @_ZL12gEmptyString, align 8
-  call void @_ZN6icu_759UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) @_ZL31gLanguageBreakFactoriesInitOnce)
-  call void @_ZN6icu_759UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) @_ZL13gRBBIInitOnce)
+14:                                               ; preds = %10, %7
+  store ptr null, ptr @_ZL12gEmptyString, align 8, !tbaa !90
+  call void @_ZN6icu_779UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) @_ZL31gLanguageBreakFactoriesInitOnce)
+  call void @_ZN6icu_779UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) @_ZL13gRBBIInitOnce)
   ret i8 1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_759UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fState = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNSt13__atomic_baseIiEaSEi(ptr noundef nonnull align 4 dereferenceable(4) %fState, i32 noundef 0) #6
+define linkonce_odr void @_ZN6icu_779UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !180
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNSt13__atomic_baseIiEaSEi(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7523ensureLanguageFactoriesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status) #1 {
-entry:
-  %status.addr = alloca ptr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_(ptr noundef nonnull align 4 dereferenceable(8) @_ZL31gLanguageBreakFactoriesInitOnce, ptr noundef @_ZN6icu_75L21initLanguageFactoriesER10UErrorCode, ptr noundef nonnull align 4 dereferenceable(4) %0)
+define void @_ZN6icu_7723ensureLanguageFactoriesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %0) #1 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
+  call void @_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_(ptr noundef nonnull align 4 dereferenceable(8) @_ZL31gLanguageBreakFactoriesInitOnce, ptr noundef @_ZN6icu_77L21initLanguageFactoriesER10UErrorCode, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #8 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !180
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %6, align 8, !tbaa !10
+  %8 = load i32, ptr %7, align 4, !tbaa !33
+  %9 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %8)
+  %10 = icmp ne i8 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %3
+  br label %41
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !180
+  %14 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %13, i32 0, i32 0
+  %15 = call noundef i32 @_ZN6icu_7716umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %16 = icmp ne i32 %15, 2
+  br i1 %16, label %17, label %29
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8, !tbaa !180
+  %19 = call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %18)
+  %20 = icmp ne i8 %19, 0
+  br i1 %20, label %21, label %29
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8, !tbaa !10
+  %23 = load ptr, ptr %6, align 8, !tbaa !10
+  call void %22(ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %24 = load ptr, ptr %6, align 8, !tbaa !10
+  %25 = load i32, ptr %24, align 4, !tbaa !33
+  %26 = load ptr, ptr %4, align 8, !tbaa !180
+  %27 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %26, i32 0, i32 1
+  store i32 %25, ptr %27, align 4, !tbaa !182
+  %28 = load ptr, ptr %4, align 8, !tbaa !180
+  call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %28)
+  br label %41
+
+29:                                               ; preds = %17, %12
+  %30 = load ptr, ptr %4, align 8, !tbaa !180
+  %31 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %30, i32 0, i32 1
+  %32 = load i32, ptr %31, align 4, !tbaa !182
+  %33 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %32)
+  %34 = icmp ne i8 %33, 0
+  br i1 %34, label %35, label %40
+
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %4, align 8, !tbaa !180
+  %37 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 4, !tbaa !182
+  %39 = load ptr, ptr %6, align 8, !tbaa !10
+  store i32 %38, ptr %39, align 4, !tbaa !33
+  br label %40
+
+40:                                               ; preds = %35, %29
+  br label %41
+
+41:                                               ; preds = %11, %40, %21
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_(ptr noundef nonnull align 4 dereferenceable(8) %uio, ptr noundef %fp, ptr noundef nonnull align 4 dereferenceable(4) %errCode) #1 comdat {
-entry:
-  %uio.addr = alloca ptr, align 8
-  %fp.addr = alloca ptr, align 8
-  %errCode.addr = alloca ptr, align 8
-  store ptr %uio, ptr %uio.addr, align 8
-  store ptr %fp, ptr %fp.addr, align 8
-  store ptr %errCode, ptr %errCode.addr, align 8
-  %0 = load ptr, ptr %errCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal void @_ZN6icu_77L21initLanguageFactoriesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %0) #1 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.icu_77::LocalPointer.5", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i1, align 1
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %9 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #10
+  %10 = icmp eq ptr %9, null
+  store i1 false, ptr %3, align 1
+  br i1 %10, label %14, label %11
 
-if.then:                                          ; preds = %entry
-  br label %if.end11
+11:                                               ; preds = %1
+  store i1 true, ptr %3, align 1
+  %12 = load ptr, ptr %2, align 8, !tbaa !10
+  invoke void @_ZN6icu_776UStackC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef @_ZL14_deleteFactoryPv, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %13 unwind label %44
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %uio.addr, align 8
-  %fState = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %2, i32 0, i32 0
-  %call1 = call noundef i32 @_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %fState)
-  %cmp = icmp ne i32 %call1, 2
-  br i1 %cmp, label %land.lhs.true, label %if.else
+13:                                               ; preds = %11
+  br label %14
 
-land.lhs.true:                                    ; preds = %if.end
-  %3 = load ptr, ptr %uio.addr, align 8
-  %call2 = call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %tobool3 = icmp ne i8 %call2, 0
-  br i1 %tobool3, label %if.then4, label %if.else
+14:                                               ; preds = %13, %1
+  %15 = phi ptr [ %9, %13 ], [ null, %1 ]
+  store ptr %15, ptr @_ZL23gLanguageBreakFactories, align 8, !tbaa !179
+  %16 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8, !tbaa !179
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %65
 
-if.then4:                                         ; preds = %land.lhs.true
-  %4 = load ptr, ptr %fp.addr, align 8
-  %5 = load ptr, ptr %errCode.addr, align 8
-  call void %4(ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %6 = load ptr, ptr %errCode.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %uio.addr, align 8
-  %fErrCode = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %8, i32 0, i32 1
-  store i32 %7, ptr %fErrCode, align 4
-  %9 = load ptr, ptr %uio.addr, align 8
-  call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br label %if.end11
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %2, align 8, !tbaa !10
+  %20 = load i32, ptr %19, align 4, !tbaa !33
+  %21 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %20)
+  %22 = icmp ne i8 %21, 0
+  br i1 %22, label %23, label %65
 
-if.else:                                          ; preds = %land.lhs.true, %if.end
-  %10 = load ptr, ptr %uio.addr, align 8
-  %fErrCode5 = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %10, i32 0, i32 1
-  %11 = load i32, ptr %fErrCode5, align 4
-  %call6 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %11)
-  %tobool7 = icmp ne i8 %call6, 0
-  br i1 %tobool7, label %if.then8, label %if.end10
+23:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  %24 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #10
+  %25 = icmp eq ptr %24, null
+  store i1 false, ptr %8, align 1
+  br i1 %25, label %29, label %26
 
-if.then8:                                         ; preds = %if.else
-  %12 = load ptr, ptr %uio.addr, align 8
-  %fErrCode9 = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %fErrCode9, align 4
-  %14 = load ptr, ptr %errCode.addr, align 8
-  store i32 %13, ptr %14, align 4
-  br label %if.end10
+26:                                               ; preds = %23
+  store ptr %24, ptr %7, align 8
+  store i1 true, ptr %8, align 1
+  %27 = load ptr, ptr %2, align 8, !tbaa !10
+  invoke void @_ZN6icu_7723ICULanguageBreakFactoryC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(4) %27)
+          to label %28 unwind label %51
 
-if.end10:                                         ; preds = %if.then8, %if.else
-  br label %if.end11
+28:                                               ; preds = %26
+  br label %29
 
-if.end11:                                         ; preds = %if.end10, %if.then4, %if.then
-  ret void
-}
+29:                                               ; preds = %28, %23
+  %30 = phi ptr [ %24, %28 ], [ null, %23 ]
+  %31 = load ptr, ptr %2, align 8, !tbaa !10
+  call void @_ZN6icu_7712LocalPointerINS_23ICULanguageBreakFactoryEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %31)
+  %32 = load ptr, ptr %2, align 8, !tbaa !10
+  %33 = load i32, ptr %32, align 4, !tbaa !33
+  %34 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %33)
+  %35 = icmp ne i8 %34, 0
+  br i1 %35, label %36, label %63
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN6icu_75L21initLanguageFactoriesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status) #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %status.addr = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %factory = alloca %"class.icu_75::LocalPointer.5", align 8
-  %saved-rvalue = alloca ptr, align 8
-  %cleanup.cond5 = alloca i1, align 1
-  store ptr %status, ptr %status.addr, align 8
-  %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #6
-  %new.isnull = icmp eq ptr %call, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+36:                                               ; preds = %29
+  %37 = invoke noundef ptr @_ZN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %38 unwind label %59
 
-new.notnull:                                      ; preds = %entry
-  store i1 true, ptr %cleanup.cond, align 1
-  %0 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_756UStackC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef @_ZL14_deleteFactoryPv, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %0)
-          to label %invoke.cont unwind label %lpad
+38:                                               ; preds = %36
+  store ptr %37, ptr @_ZL24gICULanguageBreakFactory, align 8, !tbaa !184
+  %39 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8, !tbaa !179
+  %40 = load ptr, ptr @_ZL24gICULanguageBreakFactory, align 8, !tbaa !184
+  %41 = load ptr, ptr %2, align 8, !tbaa !10
+  %42 = invoke noundef ptr @_ZN6icu_776UStack4pushEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %41)
+          to label %43 unwind label %59
 
-invoke.cont:                                      ; preds = %new.notnull
-  br label %new.cont
+43:                                               ; preds = %38
+  br label %63
 
-new.cont:                                         ; preds = %invoke.cont, %entry
-  %1 = phi ptr [ %call, %invoke.cont ], [ null, %entry ]
-  store ptr %1, ptr @_ZL23gLanguageBreakFactories, align 8
-  %2 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %land.lhs.true, label %if.end20
-
-land.lhs.true:                                    ; preds = %new.cont
-  %3 = load ptr, ptr %status.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %call1 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %4)
-  %tobool = icmp ne i8 %call1, 0
-  br i1 %tobool, label %if.then, label %if.end20
-
-if.then:                                          ; preds = %land.lhs.true
-  %call2 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #6
-  %new.isnull3 = icmp eq ptr %call2, null
-  store i1 false, ptr %cleanup.cond5, align 1
-  br i1 %new.isnull3, label %new.cont11, label %new.notnull4
-
-new.notnull4:                                     ; preds = %if.then
-  store ptr %call2, ptr %saved-rvalue, align 8
-  store i1 true, ptr %cleanup.cond5, align 1
-  %5 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7523ICULanguageBreakFactoryC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %call2, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %invoke.cont7 unwind label %lpad6
-
-invoke.cont7:                                     ; preds = %new.notnull4
-  br label %new.cont11
-
-new.cont11:                                       ; preds = %invoke.cont7, %if.then
-  %6 = phi ptr [ %call2, %invoke.cont7 ], [ null, %if.then ]
-  %7 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_7512LocalPointerINS_23ICULanguageBreakFactoryEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %8 = load ptr, ptr %status.addr, align 8
-  %9 = load i32, ptr %8, align 4
-  %call12 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %9)
-  %tobool13 = icmp ne i8 %call12, 0
-  br i1 %tobool13, label %if.then14, label %if.end
-
-if.then14:                                        ; preds = %new.cont11
-  %call17 = invoke noundef ptr @_ZN6icu_7516LocalPointerBaseINS_23ICULanguageBreakFactoryEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %factory)
-          to label %invoke.cont16 unwind label %lpad15
-
-invoke.cont16:                                    ; preds = %if.then14
-  store ptr %call17, ptr @_ZL24gICULanguageBreakFactory, align 8
-  %10 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8
-  %11 = load ptr, ptr @_ZL24gICULanguageBreakFactory, align 8
-  %12 = load ptr, ptr %status.addr, align 8
-  %call19 = invoke noundef ptr @_ZN6icu_756UStack4pushEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
-          to label %invoke.cont18 unwind label %lpad15
-
-invoke.cont18:                                    ; preds = %invoke.cont16
-  br label %if.end
-
-lpad:                                             ; preds = %new.notnull
-  %13 = landingpad { ptr, i32 }
+44:                                               ; preds = %11
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %4, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %5, align 4
+  %48 = load i1, ptr %3, align 1
+  br i1 %48, label %49, label %50
 
-cleanup.action:                                   ; preds = %lpad
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %call) #6
-  br label %cleanup.done
+49:                                               ; preds = %44
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %9) #10
+  br label %50
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %eh.resume
+50:                                               ; preds = %49, %44
+  br label %66
 
-lpad6:                                            ; preds = %new.notnull4
-  %16 = landingpad { ptr, i32 }
+51:                                               ; preds = %26
+  %52 = landingpad { ptr, i32 }
           cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %exn.slot, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %ehselector.slot, align 4
-  %cleanup.is_active8 = load i1, ptr %cleanup.cond5, align 1
-  br i1 %cleanup.is_active8, label %cleanup.action9, label %cleanup.done10
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %4, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %5, align 4
+  %55 = load i1, ptr %8, align 1
+  br i1 %55, label %56, label %58
 
-cleanup.action9:                                  ; preds = %lpad6
-  %19 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %19) #6
-  br label %cleanup.done10
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %7, align 8
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %57) #10
+  br label %58
 
-cleanup.done10:                                   ; preds = %cleanup.action9, %lpad6
-  br label %eh.resume
+58:                                               ; preds = %56, %51
+  br label %64
 
-lpad15:                                           ; preds = %invoke.cont16, %if.then14
-  %20 = landingpad { ptr, i32 }
+59:                                               ; preds = %38, %36
+  %60 = landingpad { ptr, i32 }
           cleanup
-  %21 = extractvalue { ptr, i32 } %20, 0
-  store ptr %21, ptr %exn.slot, align 8
-  %22 = extractvalue { ptr, i32 } %20, 1
-  store i32 %22, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7512LocalPointerINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %factory) #6
-  br label %eh.resume
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %4, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %5, align 4
+  call void @_ZN6icu_7712LocalPointerINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  br label %64
 
-if.end:                                           ; preds = %invoke.cont18, %new.cont11
-  call void @_ZN6icu_7512LocalPointerINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %factory) #6
-  br label %if.end20
+63:                                               ; preds = %43, %29
+  call void @_ZN6icu_7712LocalPointerINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  br label %65
 
-if.end20:                                         ; preds = %if.end, %land.lhs.true, %new.cont
-  call void @ucln_common_registerCleanup_75(i32 noundef 3, ptr noundef @rbbi_cleanup_75)
+64:                                               ; preds = %59, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  br label %66
+
+65:                                               ; preds = %63, %18, %14
+  call void @ucln_common_registerCleanup_77(i32 noundef 3, ptr noundef @rbbi_cleanup_77)
   ret void
 
-eh.resume:                                        ; preds = %lpad15, %cleanup.done10, %cleanup.done
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val21 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val21
+66:                                               ; preds = %64, %50
+  %67 = load ptr, ptr %4, align 8
+  %68 = load i32, ptr %5, align 4
+  %69 = insertvalue { ptr, i32 } poison, ptr %67, 0
+  %70 = insertvalue { ptr, i32 } %69, i32 %68, 1
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator22getLanguageBreakEngineEiPKc(ptr noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %c, ptr noundef %locale) #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %locale.addr = alloca ptr, align 8
-  %lbe = alloca ptr, align 8
-  %status = alloca i32, align 4
-  %saved-rvalue = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %i = alloca i32, align 4
-  %saved-rvalue32 = alloca ptr, align 8
-  %cleanup.cond33 = alloca i1, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  store ptr %locale, ptr %locale.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store ptr null, ptr %lbe, align 8
-  store i32 0, ptr %status, align 4
-  %fLanguageBreakEngines = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %0 = load ptr, ptr %fLanguageBreakEngines, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end9
+define noundef ptr @_ZN6icu_7722RuleBasedBreakIterator22getLanguageBreakEngineEiPKc(ptr noundef nonnull align 8 dereferenceable(297) %0, i32 noundef %1, ptr noundef %2) #1 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i1, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i1, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !87
+  store ptr %2, ptr %7, align 8, !tbaa !86
+  %18 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  store ptr null, ptr %8, align 8, !tbaa !186
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  store i32 0, ptr %9, align 4, !tbaa !33
+  %19 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 9
+  %20 = load ptr, ptr %19, align 8, !tbaa !78
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %56
 
-if.then:                                          ; preds = %entry
-  %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #6
-  %new.isnull = icmp eq ptr %call, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+22:                                               ; preds = %3
+  %23 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #10
+  %24 = icmp eq ptr %23, null
+  store i1 false, ptr %11, align 1
+  br i1 %24, label %27, label %25
 
-new.notnull:                                      ; preds = %if.then
-  store ptr %call, ptr %saved-rvalue, align 8
-  store i1 true, ptr %cleanup.cond, align 1
-  invoke void @_ZN6icu_756UStackC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont unwind label %lpad
+25:                                               ; preds = %22
+  store ptr %23, ptr %10, align 8
+  store i1 true, ptr %11, align 1
+  invoke void @_ZN6icu_776UStackC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 4 dereferenceable(4) %9)
+          to label %26 unwind label %47
 
-invoke.cont:                                      ; preds = %new.notnull
-  br label %new.cont
+26:                                               ; preds = %25
+  br label %27
 
-new.cont:                                         ; preds = %invoke.cont, %if.then
-  %1 = phi ptr [ %call, %invoke.cont ], [ null, %if.then ]
-  %fLanguageBreakEngines2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  store ptr %1, ptr %fLanguageBreakEngines2, align 8
-  %fLanguageBreakEngines3 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %2 = load ptr, ptr %fLanguageBreakEngines3, align 8
-  %cmp4 = icmp eq ptr %2, null
-  br i1 %cmp4, label %if.then6, label %lor.lhs.false
+27:                                               ; preds = %26, %22
+  %28 = phi ptr [ %23, %26 ], [ null, %22 ]
+  %29 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 9
+  store ptr %28, ptr %29, align 8, !tbaa !78
+  %30 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 9
+  %31 = load ptr, ptr %30, align 8, !tbaa !78
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %37, label %33
 
-lor.lhs.false:                                    ; preds = %new.cont
-  %3 = load i32, ptr %status, align 4
-  %call5 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
-  %tobool = icmp ne i8 %call5, 0
-  br i1 %tobool, label %if.then6, label %if.end
+33:                                               ; preds = %27
+  %34 = load i32, ptr %9, align 4, !tbaa !33
+  %35 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %34)
+  %36 = icmp ne i8 %35, 0
+  br i1 %36, label %37, label %55
 
-if.then6:                                         ; preds = %lor.lhs.false, %new.cont
-  %fLanguageBreakEngines7 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %4 = load ptr, ptr %fLanguageBreakEngines7, align 8
-  %isnull = icmp eq ptr %4, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+37:                                               ; preds = %33, %27
+  %38 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 9
+  %39 = load ptr, ptr %38, align 8, !tbaa !78
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %45, label %41
 
-delete.notnull:                                   ; preds = %if.then6
-  %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %5 = load ptr, ptr %vfn, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(40) %4) #6
-  br label %delete.end
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %39, align 8, !tbaa !47
+  %43 = getelementptr inbounds ptr, ptr %42, i64 1
+  %44 = load ptr, ptr %43, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %39) #10
+  br label %45
 
-delete.end:                                       ; preds = %delete.notnull, %if.then6
-  %fLanguageBreakEngines8 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  store ptr null, ptr %fLanguageBreakEngines8, align 8
-  store ptr null, ptr %retval, align 8
-  br label %return
+45:                                               ; preds = %41, %37
+  %46 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 9
+  store ptr null, ptr %46, align 8, !tbaa !78
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %149
 
-lpad:                                             ; preds = %new.notnull
-  %6 = landingpad { ptr, i32 }
+47:                                               ; preds = %25
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %12, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %13, align 4
+  %51 = load i1, ptr %11, align 1
+  br i1 %51, label %52, label %54
 
-cleanup.action:                                   ; preds = %lpad
-  %9 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %9) #6
-  br label %cleanup.done
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %10, align 8
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %53) #10
+  br label %54
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %eh.resume
+54:                                               ; preds = %52, %47
+  br label %151
 
-if.end:                                           ; preds = %lor.lhs.false
-  br label %if.end9
+55:                                               ; preds = %33
+  br label %56
 
-if.end9:                                          ; preds = %if.end, %entry
-  %fLanguageBreakEngines10 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %10 = load ptr, ptr %fLanguageBreakEngines10, align 8
-  %call11 = call noundef i32 @_ZNK6icu_757UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %10)
-  store i32 %call11, ptr %i, align 4
-  br label %while.cond
+56:                                               ; preds = %55, %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
+  %57 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 9
+  %58 = load ptr, ptr %57, align 8, !tbaa !78
+  %59 = call noundef i32 @_ZNK6icu_777UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %58)
+  store i32 %59, ptr %15, align 4, !tbaa !87
+  br label %60
 
-while.cond:                                       ; preds = %if.end20, %if.end9
-  %11 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %11, -1
-  store i32 %dec, ptr %i, align 4
-  %cmp12 = icmp sge i32 %dec, 0
-  br i1 %cmp12, label %while.body, label %while.end
+60:                                               ; preds = %79, %56
+  %61 = load i32, ptr %15, align 4, !tbaa !87
+  %62 = add nsw i32 %61, -1
+  store i32 %62, ptr %15, align 4, !tbaa !87
+  %63 = icmp sge i32 %62, 0
+  br i1 %63, label %64, label %80
 
-while.body:                                       ; preds = %while.cond
-  %fLanguageBreakEngines13 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %12 = load ptr, ptr %fLanguageBreakEngines13, align 8
-  %13 = load i32, ptr %i, align 4
-  %call14 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %13)
-  store ptr %call14, ptr %lbe, align 8
-  %14 = load ptr, ptr %lbe, align 8
-  %15 = load i32, ptr %c.addr, align 4
-  %16 = load ptr, ptr %locale.addr, align 8
-  %vtable15 = load ptr, ptr %14, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 3
-  %17 = load ptr, ptr %vfn16, align 8
-  %call17 = call noundef signext i8 %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %15, ptr noundef %16)
-  %tobool18 = icmp ne i8 %call17, 0
-  br i1 %tobool18, label %if.then19, label %if.end20
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 9
+  %66 = load ptr, ptr %65, align 8, !tbaa !78
+  %67 = load i32, ptr %15, align 4, !tbaa !87
+  %68 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %66, i32 noundef %67)
+  store ptr %68, ptr %8, align 8, !tbaa !186
+  %69 = load ptr, ptr %8, align 8, !tbaa !186
+  %70 = load i32, ptr %6, align 4, !tbaa !87
+  %71 = load ptr, ptr %7, align 8, !tbaa !86
+  %72 = load ptr, ptr %69, align 8, !tbaa !47
+  %73 = getelementptr inbounds ptr, ptr %72, i64 3
+  %74 = load ptr, ptr %73, align 8
+  %75 = call noundef signext i8 %74(ptr noundef nonnull align 8 dereferenceable(8) %69, i32 noundef %70, ptr noundef %71)
+  %76 = icmp ne i8 %75, 0
+  br i1 %76, label %77, label %79
 
-if.then19:                                        ; preds = %while.body
-  %18 = load ptr, ptr %lbe, align 8
-  store ptr %18, ptr %retval, align 8
-  br label %return
+77:                                               ; preds = %64
+  %78 = load ptr, ptr %8, align 8, !tbaa !186
+  store ptr %78, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %148
 
-if.end20:                                         ; preds = %while.body
-  br label %while.cond, !llvm.loop !17
+79:                                               ; preds = %64
+  br label %60, !llvm.loop !188
 
-while.end:                                        ; preds = %while.cond
-  %19 = load i32, ptr %c.addr, align 4
-  %20 = load ptr, ptr %locale.addr, align 8
-  %call21 = call noundef ptr @_ZN6icu_75L33getLanguageBreakEngineFromFactoryEiPKc(i32 noundef %19, ptr noundef %20)
-  store ptr %call21, ptr %lbe, align 8
-  %21 = load ptr, ptr %lbe, align 8
-  %cmp22 = icmp ne ptr %21, null
-  br i1 %cmp22, label %if.then23, label %if.end26
+80:                                               ; preds = %60
+  %81 = load i32, ptr %6, align 4, !tbaa !87
+  %82 = load ptr, ptr %7, align 8, !tbaa !86
+  %83 = call noundef ptr @_ZN6icu_77L33getLanguageBreakEngineFromFactoryEiPKc(i32 noundef %81, ptr noundef %82)
+  store ptr %83, ptr %8, align 8, !tbaa !186
+  %84 = load ptr, ptr %8, align 8, !tbaa !186
+  %85 = icmp ne ptr %84, null
+  br i1 %85, label %86, label %92
 
-if.then23:                                        ; preds = %while.end
-  %fLanguageBreakEngines24 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %22 = load ptr, ptr %fLanguageBreakEngines24, align 8
-  %23 = load ptr, ptr %lbe, align 8
-  %call25 = call noundef ptr @_ZN6icu_756UStack4pushEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %24 = load ptr, ptr %lbe, align 8
-  store ptr %24, ptr %retval, align 8
-  br label %return
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 9
+  %88 = load ptr, ptr %87, align 8, !tbaa !78
+  %89 = load ptr, ptr %8, align 8, !tbaa !186
+  %90 = call noundef ptr @_ZN6icu_776UStack4pushEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef %89, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %91 = load ptr, ptr %8, align 8, !tbaa !186
+  store ptr %91, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %148
 
-if.end26:                                         ; preds = %while.end
-  %fUnhandledBreakEngine = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  %25 = load ptr, ptr %fUnhandledBreakEngine, align 8
-  %cmp27 = icmp eq ptr %25, null
-  br i1 %cmp27, label %if.then28, label %if.end60
+92:                                               ; preds = %80
+  %93 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 10
+  %94 = load ptr, ptr %93, align 8, !tbaa !79
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %139
 
-if.then28:                                        ; preds = %if.end26
-  %call29 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 16) #6
-  %new.isnull30 = icmp eq ptr %call29, null
-  store i1 false, ptr %cleanup.cond33, align 1
-  br i1 %new.isnull30, label %new.cont39, label %new.notnull31
+96:                                               ; preds = %92
+  %97 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #10
+  %98 = icmp eq ptr %97, null
+  store i1 false, ptr %17, align 1
+  br i1 %98, label %101, label %99
 
-new.notnull31:                                    ; preds = %if.then28
-  store ptr %call29, ptr %saved-rvalue32, align 8
-  store i1 true, ptr %cleanup.cond33, align 1
-  invoke void @_ZN6icu_7515UnhandledEngineC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %call29, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont35 unwind label %lpad34
+99:                                               ; preds = %96
+  store ptr %97, ptr %16, align 8
+  store i1 true, ptr %17, align 1
+  invoke void @_ZN6icu_7715UnhandledEngineC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 4 dereferenceable(4) %9)
+          to label %100 unwind label %112
 
-invoke.cont35:                                    ; preds = %new.notnull31
-  br label %new.cont39
+100:                                              ; preds = %99
+  br label %101
 
-new.cont39:                                       ; preds = %invoke.cont35, %if.then28
-  %26 = phi ptr [ %call29, %invoke.cont35 ], [ null, %if.then28 ]
-  %fUnhandledBreakEngine40 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  store ptr %26, ptr %fUnhandledBreakEngine40, align 8
-  %27 = load i32, ptr %status, align 4
-  %call41 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %27)
-  %tobool42 = icmp ne i8 %call41, 0
-  br i1 %tobool42, label %land.lhs.true, label %if.end46
+101:                                              ; preds = %100, %96
+  %102 = phi ptr [ %97, %100 ], [ null, %96 ]
+  %103 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 10
+  store ptr %102, ptr %103, align 8, !tbaa !79
+  %104 = load i32, ptr %9, align 4, !tbaa !33
+  %105 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %104)
+  %106 = icmp ne i8 %105, 0
+  br i1 %106, label %107, label %120
 
-land.lhs.true:                                    ; preds = %new.cont39
-  %fUnhandledBreakEngine43 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  %28 = load ptr, ptr %fUnhandledBreakEngine43, align 8
-  %cmp44 = icmp eq ptr %28, null
-  br i1 %cmp44, label %if.then45, label %if.end46
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 10
+  %109 = load ptr, ptr %108, align 8, !tbaa !79
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %111, label %120
 
-if.then45:                                        ; preds = %land.lhs.true
-  store i32 7, ptr %status, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+111:                                              ; preds = %107
+  store i32 7, ptr %9, align 4, !tbaa !33
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %148
 
-lpad34:                                           ; preds = %new.notnull31
-  %29 = landingpad { ptr, i32 }
+112:                                              ; preds = %99
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %exn.slot, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %ehselector.slot, align 4
-  %cleanup.is_active36 = load i1, ptr %cleanup.cond33, align 1
-  br i1 %cleanup.is_active36, label %cleanup.action37, label %cleanup.done38
+  %114 = extractvalue { ptr, i32 } %113, 0
+  store ptr %114, ptr %12, align 8
+  %115 = extractvalue { ptr, i32 } %113, 1
+  store i32 %115, ptr %13, align 4
+  %116 = load i1, ptr %17, align 1
+  br i1 %116, label %117, label %119
 
-cleanup.action37:                                 ; preds = %lpad34
-  %32 = load ptr, ptr %saved-rvalue32, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %32) #6
-  br label %cleanup.done38
+117:                                              ; preds = %112
+  %118 = load ptr, ptr %16, align 8
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %118) #10
+  br label %119
 
-cleanup.done38:                                   ; preds = %cleanup.action37, %lpad34
-  br label %eh.resume
+119:                                              ; preds = %117, %112
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  br label %151
 
-if.end46:                                         ; preds = %land.lhs.true, %new.cont39
-  %fLanguageBreakEngines47 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 10
-  %33 = load ptr, ptr %fLanguageBreakEngines47, align 8
-  %fUnhandledBreakEngine48 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  %34 = load ptr, ptr %fUnhandledBreakEngine48, align 8
-  call void @_ZN6icu_757UVector15insertElementAtEPviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef %34, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %35 = load i32, ptr %status, align 4
-  %call49 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %35)
-  %tobool50 = icmp ne i8 %call49, 0
-  br i1 %tobool50, label %if.then51, label %if.end59
+120:                                              ; preds = %107, %101
+  %121 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 9
+  %122 = load ptr, ptr %121, align 8, !tbaa !78
+  %123 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 10
+  %124 = load ptr, ptr %123, align 8, !tbaa !79
+  call void @_ZN6icu_777UVector15insertElementAtEPviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %122, ptr noundef %124, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %125 = load i32, ptr %9, align 4, !tbaa !33
+  %126 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %125)
+  %127 = icmp ne i8 %126, 0
+  br i1 %127, label %128, label %138
 
-if.then51:                                        ; preds = %if.end46
-  %fUnhandledBreakEngine52 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  %36 = load ptr, ptr %fUnhandledBreakEngine52, align 8
-  %isnull53 = icmp eq ptr %36, null
-  br i1 %isnull53, label %delete.end57, label %delete.notnull54
+128:                                              ; preds = %120
+  %129 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 10
+  %130 = load ptr, ptr %129, align 8, !tbaa !79
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %136, label %132
 
-delete.notnull54:                                 ; preds = %if.then51
-  %vtable55 = load ptr, ptr %36, align 8
-  %vfn56 = getelementptr inbounds ptr, ptr %vtable55, i64 1
-  %37 = load ptr, ptr %vfn56, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %36) #6
-  br label %delete.end57
+132:                                              ; preds = %128
+  %133 = load ptr, ptr %130, align 8, !tbaa !47
+  %134 = getelementptr inbounds ptr, ptr %133, i64 1
+  %135 = load ptr, ptr %134, align 8
+  call void %135(ptr noundef nonnull align 8 dereferenceable(16) %130) #10
+  br label %136
 
-delete.end57:                                     ; preds = %delete.notnull54, %if.then51
-  %fUnhandledBreakEngine58 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  store ptr null, ptr %fUnhandledBreakEngine58, align 8
-  store ptr null, ptr %retval, align 8
-  br label %return
+136:                                              ; preds = %132, %128
+  %137 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 10
+  store ptr null, ptr %137, align 8, !tbaa !79
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %148
 
-if.end59:                                         ; preds = %if.end46
-  br label %if.end60
+138:                                              ; preds = %120
+  br label %139
 
-if.end60:                                         ; preds = %if.end59, %if.end26
-  %fUnhandledBreakEngine61 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  %38 = load ptr, ptr %fUnhandledBreakEngine61, align 8
-  %39 = load i32, ptr %c.addr, align 4
-  %vtable62 = load ptr, ptr %38, align 8
-  %vfn63 = getelementptr inbounds ptr, ptr %vtable62, i64 5
-  %40 = load ptr, ptr %vfn63, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %39)
-  %fUnhandledBreakEngine64 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 11
-  %41 = load ptr, ptr %fUnhandledBreakEngine64, align 8
-  store ptr %41, ptr %retval, align 8
-  br label %return
+139:                                              ; preds = %138, %92
+  %140 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 10
+  %141 = load ptr, ptr %140, align 8, !tbaa !79
+  %142 = load i32, ptr %6, align 4, !tbaa !87
+  %143 = load ptr, ptr %141, align 8, !tbaa !47
+  %144 = getelementptr inbounds ptr, ptr %143, i64 5
+  %145 = load ptr, ptr %144, align 8
+  call void %145(ptr noundef nonnull align 8 dereferenceable(16) %141, i32 noundef %142)
+  %146 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %18, i32 0, i32 10
+  %147 = load ptr, ptr %146, align 8, !tbaa !79
+  store ptr %147, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %148
 
-return:                                           ; preds = %if.end60, %delete.end57, %if.then45, %if.then23, %if.then19, %delete.end
-  %42 = load ptr, ptr %retval, align 8
-  ret ptr %42
+148:                                              ; preds = %139, %136, %111, %86, %77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  br label %149
 
-eh.resume:                                        ; preds = %cleanup.done38, %cleanup.done
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val65 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val65
+149:                                              ; preds = %148, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  %150 = load ptr, ptr %4, align 8
+  ret ptr %150
+
+151:                                              ; preds = %119, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  br label %152
+
+152:                                              ; preds = %151
+  %153 = load ptr, ptr %12, align 8
+  %154 = load i32, ptr %13, align 4
+  %155 = insertvalue { ptr, i32 } poison, ptr %153, 0
+  %156 = insertvalue { ptr, i32 } %155, i32 %154, 1
+  resume { ptr, i32 } %156
 }
 
-declare void @_ZN6icu_756UStackC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_776UStackC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_757UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %count, align 8
-  ret i32 %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK6icu_777UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::UVector", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !191
+  ret i32 %5
 }
 
-declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) #3
+declare noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN6icu_75L33getLanguageBreakEngineFromFactoryEiPKc(i32 noundef %c, ptr noundef %locale) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %locale.addr = alloca ptr, align 8
-  %status = alloca i32, align 4
-  %i = alloca i32, align 4
-  %lbe = alloca ptr, align 8
-  %factory = alloca ptr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  store ptr %locale, ptr %locale.addr, align 8
-  store i32 0, ptr %status, align 4
-  call void @_ZN6icu_7523ensureLanguageFactoriesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %0 = load i32, ptr %status, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal noundef ptr @_ZN6icu_77L33getLanguageBreakEngineFromFactoryEiPKc(i32 noundef %0, ptr noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !87
+  store ptr %1, ptr %5, align 8, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 0, ptr %6, align 4, !tbaa !33
+  call void @_ZN6icu_7723ensureLanguageFactoriesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %11 = load i32, ptr %6, align 4, !tbaa !33
+  %12 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %11)
+  %13 = icmp ne i8 %12, 0
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %42
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8
-  %call1 = call noundef i32 @_ZNK6icu_757UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
-  store i32 %call1, ptr %i, align 4
-  store ptr null, ptr %lbe, align 8
-  br label %while.cond
+15:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %16 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8, !tbaa !179
+  %17 = call noundef i32 @_ZNK6icu_777UVector4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
+  store i32 %17, ptr %8, align 4, !tbaa !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  store ptr null, ptr %9, align 8, !tbaa !186
+  br label %18
 
-while.cond:                                       ; preds = %if.end6, %if.end
-  %2 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %2, -1
-  store i32 %dec, ptr %i, align 4
-  %cmp = icmp sge i32 %dec, 0
-  br i1 %cmp, label %while.body, label %while.end
+18:                                               ; preds = %39, %15
+  %19 = load i32, ptr %8, align 4, !tbaa !87
+  %20 = add nsw i32 %19, -1
+  store i32 %20, ptr %8, align 4, !tbaa !87
+  %21 = icmp sge i32 %20, 0
+  br i1 %21, label %22, label %40
 
-while.body:                                       ; preds = %while.cond
-  %3 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8
-  %4 = load i32, ptr %i, align 4
-  %call2 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %4)
-  store ptr %call2, ptr %factory, align 8
-  %5 = load ptr, ptr %factory, align 8
-  %6 = load i32, ptr %c.addr, align 4
-  %7 = load ptr, ptr %locale.addr, align 8
-  %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %8 = load ptr, ptr %vfn, align 8
-  %call3 = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %6, ptr noundef %7)
-  store ptr %call3, ptr %lbe, align 8
-  %9 = load ptr, ptr %lbe, align 8
-  %cmp4 = icmp ne ptr %9, null
-  br i1 %cmp4, label %if.then5, label %if.end6
+22:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %23 = load ptr, ptr @_ZL23gLanguageBreakFactories, align 8, !tbaa !179
+  %24 = load i32, ptr %8, align 4, !tbaa !87
+  %25 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %23, i32 noundef %24)
+  store ptr %25, ptr %10, align 8, !tbaa !194
+  %26 = load ptr, ptr %10, align 8, !tbaa !194
+  %27 = load i32, ptr %4, align 4, !tbaa !87
+  %28 = load ptr, ptr %5, align 8, !tbaa !86
+  %29 = load ptr, ptr %26, align 8, !tbaa !47
+  %30 = getelementptr inbounds ptr, ptr %29, i64 2
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef %27, ptr noundef %28)
+  store ptr %32, ptr %9, align 8, !tbaa !186
+  %33 = load ptr, ptr %9, align 8, !tbaa !186
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %36
 
-if.then5:                                         ; preds = %while.body
-  br label %while.end
+35:                                               ; preds = %22
+  store i32 3, ptr %7, align 4
+  br label %37
 
-if.end6:                                          ; preds = %while.body
-  br label %while.cond, !llvm.loop !18
+36:                                               ; preds = %22
+  store i32 0, ptr %7, align 4
+  br label %37
 
-while.end:                                        ; preds = %if.then5, %while.cond
-  %10 = load ptr, ptr %lbe, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN6icu_756UStack4pushEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %obj, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %obj.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZN6icu_757UVector10hasDeleterEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  br i1 %call, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %obj.addr, align 8
-  %1 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %2 = load ptr, ptr %status.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %call2 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %3)
-  %tobool = icmp ne i8 %call2, 0
-  br i1 %tobool, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then
-  %4 = load ptr, ptr %obj.addr, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %4, %cond.true ], [ null, %cond.false ]
-  store ptr %cond, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %obj.addr, align 8
-  %6 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %7 = load ptr, ptr %obj.addr, align 8
-  store ptr %7, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %cond.end
-  %8 = load ptr, ptr %retval, align 8
-  ret ptr %8
-}
-
-declare void @_ZN6icu_7515UnhandledEngineC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
-
-declare void @_ZN6icu_757UVector15insertElementAtEPviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator27registerExternalBreakEngineEPNS_19ExternalBreakEngineER10UErrorCode(ptr noundef %toAdopt, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %toAdopt.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %engine = alloca %"class.icu_75::LocalPointer.3", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  store ptr %toAdopt, ptr %toAdopt.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %toAdopt.addr, align 8
-  %1 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %engine, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %2 = load ptr, ptr %status.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %3)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %invoke.cont
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad:                                             ; preds = %invoke.cont7, %if.end6, %invoke.cont1, %if.end, %entry
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %engine) #6
-  br label %eh.resume
-
-if.end:                                           ; preds = %invoke.cont
-  %7 = load ptr, ptr %status.addr, align 8
-  invoke void @_ZN6icu_7523ensureLanguageFactoriesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %invoke.cont1 unwind label %lpad
-
-invoke.cont1:                                     ; preds = %if.end
-  %8 = load ptr, ptr %status.addr, align 8
-  %9 = load i32, ptr %8, align 4
-  %call3 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %9)
-          to label %invoke.cont2 unwind label %lpad
-
-invoke.cont2:                                     ; preds = %invoke.cont1
-  %tobool4 = icmp ne i8 %call3, 0
-  br i1 %tobool4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %invoke.cont2
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end6:                                          ; preds = %invoke.cont2
-  %10 = load ptr, ptr @_ZL24gICULanguageBreakFactory, align 8
-  %call8 = invoke noundef ptr @_ZN6icu_7516LocalPointerBaseINS_19ExternalBreakEngineEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %engine)
-          to label %invoke.cont7 unwind label %lpad
-
-invoke.cont7:                                     ; preds = %if.end6
-  %11 = load ptr, ptr %status.addr, align 8
-  %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %12 = load ptr, ptr %vfn, align 8
-  invoke void %12(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %call8, ptr noundef nonnull align 4 dereferenceable(4) %11)
-          to label %invoke.cont9 unwind label %lpad
-
-invoke.cont9:                                     ; preds = %invoke.cont7
-  store i32 0, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont9, %if.then5, %if.then
-  call void @_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %engine) #6
-  %cleanup.dest = load i32, ptr %cleanup.dest.slot, align 4
-  switch i32 %cleanup.dest, label %unreachable [
-    i32 0, label %cleanup.cont
-    i32 1, label %cleanup.cont
+37:                                               ; preds = %36, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %38 = load i32, ptr %7, align 4
+  switch i32 %38, label %44 [
+    i32 0, label %39
+    i32 3, label %40
   ]
 
-cleanup.cont:                                     ; preds = %cleanup, %cleanup
+39:                                               ; preds = %37
+  br label %18, !llvm.loop !196
+
+40:                                               ; preds = %37, %18
+  %41 = load ptr, ptr %9, align 8, !tbaa !186
+  store ptr %41, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  br label %42
+
+42:                                               ; preds = %40, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %43 = load ptr, ptr %3, align 8
+  ret ptr %43
+
+44:                                               ; preds = %37
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZN6icu_776UStack4pushEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #8 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !179
+  store ptr %1, ptr %6, align 8, !tbaa !10
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef zeroext i1 @_ZN6icu_777UVector10hasDeleterEv(ptr noundef nonnull align 8 dereferenceable(40) %8)
+  br i1 %9, label %10, label %22
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !10
+  %12 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %13 = load ptr, ptr %7, align 8, !tbaa !10
+  %14 = load i32, ptr %13, align 4, !tbaa !33
+  %15 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %14)
+  %16 = icmp ne i8 %15, 0
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %6, align 8, !tbaa !10
+  br label %20
+
+19:                                               ; preds = %10
+  br label %20
+
+20:                                               ; preds = %19, %17
+  %21 = phi ptr [ %18, %17 ], [ null, %19 ]
+  store ptr %21, ptr %4, align 8
+  br label %26
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %6, align 8, !tbaa !10
+  %24 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @_ZN6icu_777UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %25 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %25, ptr %4, align 8
+  br label %26
+
+26:                                               ; preds = %22, %20
+  %27 = load ptr, ptr %4, align 8
+  ret ptr %27
+}
+
+declare void @_ZN6icu_7715UnhandledEngineC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+
+declare void @_ZN6icu_777UVector15insertElementAtEPviR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7722RuleBasedBreakIterator27registerExternalBreakEngineEPNS_19ExternalBreakEngineER10UErrorCode(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.icu_77::LocalPointer.3", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !197
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  %9 = load ptr, ptr %3, align 8, !tbaa !197
+  %10 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %11 = load ptr, ptr %4, align 8, !tbaa !10
+  %12 = load i32, ptr %11, align 4, !tbaa !33
+  %13 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %12)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %2
+  %15 = icmp ne i8 %13, 0
+  br i1 %15, label %16, label %21
+
+16:                                               ; preds = %14
+  store i32 1, ptr %8, align 4
+  br label %39
+
+17:                                               ; preds = %33, %30, %23, %21, %2
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %6, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %7, align 4
+  call void @_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  br label %42
+
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %4, align 8, !tbaa !10
+  invoke void @_ZN6icu_7723ensureLanguageFactoriesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %22)
+          to label %23 unwind label %17
+
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %4, align 8, !tbaa !10
+  %25 = load i32, ptr %24, align 4, !tbaa !33
+  %26 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %25)
+          to label %27 unwind label %17
+
+27:                                               ; preds = %23
+  %28 = icmp ne i8 %26, 0
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %27
+  store i32 1, ptr %8, align 4
+  br label %39
+
+30:                                               ; preds = %27
+  %31 = load ptr, ptr @_ZL24gICULanguageBreakFactory, align 8, !tbaa !184
+  %32 = invoke noundef ptr @_ZN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %33 unwind label %17
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %4, align 8, !tbaa !10
+  %35 = load ptr, ptr %31, align 8, !tbaa !47
+  %36 = getelementptr inbounds ptr, ptr %35, i64 3
+  %37 = load ptr, ptr %36, align 8
+  invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %32, ptr noundef nonnull align 4 dereferenceable(4) %34)
+          to label %38 unwind label %17
+
+38:                                               ; preds = %33
+  store i32 0, ptr %8, align 4
+  br label %39
+
+39:                                               ; preds = %38, %29, %16
+  call void @_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  %40 = load i32, ptr %8, align 4
+  switch i32 %40, label %47 [
+    i32 0, label %41
+    i32 1, label %41
+  ]
+
+41:                                               ; preds = %39, %39
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val10 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val10
+42:                                               ; preds = %17
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 
-unreachable:                                      ; preds = %cleanup
+47:                                               ; preds = %39
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %errorCode.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store ptr %errorCode, ptr %errorCode.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @_ZN6icu_7516LocalPointerBaseINS_19ExternalBreakEngineEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %0)
-  %1 = load ptr, ptr %p.addr, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !199
+  store ptr %1, ptr %5, align 8, !tbaa !197
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !197
+  call void @_ZN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8)
+  %9 = load ptr, ptr %5, align 8, !tbaa !197
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %18
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %errorCode.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %call = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %3)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !33
+  %14 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %13)
+  %15 = icmp ne i8 %14, 0
+  br i1 %15, label %16, label %18
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %4, align 4
-  br label %if.end
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %6, align 8, !tbaa !10
+  store i32 7, ptr %17, align 4, !tbaa !33
+  br label %18
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+18:                                               ; preds = %16, %11, %3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN6icu_7516LocalPointerBaseINS_19ExternalBreakEngineEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase.4", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  store ptr %0, ptr %p, align 8
-  %ptr2 = getelementptr inbounds %"class.icu_75::LocalPointerBase.4", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %ptr2, align 8
-  %1 = load ptr, ptr %p, align 8
-  ret ptr %1
+define linkonce_odr noundef ptr @_ZN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.4", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !203
+  store ptr %6, ptr %3, align 8, !tbaa !197
+  %7 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.4", ptr %4, i32 0, i32 0
+  store ptr null, ptr %7, align 8, !tbaa !203
+  %8 = load ptr, ptr %3, align 8, !tbaa !197
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase.4", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !199
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.4", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !203
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %11, label %7
 
-delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
-  br label %delete.end
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %5, align 8, !tbaa !47
+  %9 = getelementptr inbounds ptr, ptr %8, i64 1
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
+  br label %11
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  call void @_ZN6icu_7516LocalPointerBaseINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
+11:                                               ; preds = %7, %1
+  call void @_ZN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator9dumpCacheEv(ptr noundef nonnull align 8 dereferenceable(745) %this) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fBreakCache = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 8
-  %0 = load ptr, ptr %fBreakCache, align 8
-  call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9dumpCacheEv(ptr noundef nonnull align 8 dereferenceable(832) %0)
+define void @_ZN6icu_7722RuleBasedBreakIterator9dumpCacheEv(ptr noundef nonnull align 8 dereferenceable(297) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 7
+  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  call void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9dumpCacheEv(ptr noundef nonnull align 8 dereferenceable(832) %5)
   ret void
 }
 
-declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9dumpCacheEv(ptr noundef nonnull align 8 dereferenceable(832)) #3
+declare void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache9dumpCacheEv(ptr noundef nonnull align 8 dereferenceable(832)) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator10dumpTablesEv(ptr noundef nonnull align 8 dereferenceable(745) %this) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  call void @_ZN6icu_7515RBBIDataWrapper9printDataEv(ptr noundef nonnull align 8 dereferenceable(137) %0)
+define void @_ZN6icu_7722RuleBasedBreakIterator10dumpTablesEv(ptr noundef nonnull align 8 dereferenceable(297) %0) #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @_ZN6icu_7715RBBIDataWrapper9printDataEv(ptr noundef nonnull align 8 dereferenceable(137) %5)
   ret void
 }
 
-declare void @_ZN6icu_7515RBBIDataWrapper9printDataEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
+declare void @_ZN6icu_7715RBBIDataWrapper9printDataEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522RuleBasedBreakIterator8getRulesEv(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fData = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %0 = load ptr, ptr %fData, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.else
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722RuleBasedBreakIterator8getRulesEv(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %12
 
-if.then:                                          ; preds = %entry
-  %fData2 = getelementptr inbounds %"class.icu_75::RuleBasedBreakIterator", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %fData2, align 8
-  %call = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull align 8 dereferenceable(137) %1)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.icu_77::RuleBasedBreakIterator", ptr %4, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %11 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull align 8 dereferenceable(137) %10)
+  store ptr %11, ptr %2, align 8
+  br label %14
 
-if.else:                                          ; preds = %entry
-  call void @_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL13gRBBIInitOnce, ptr noundef @_ZN6icu_75L8rbbiInitEv)
-  %2 = load ptr, ptr @_ZL12gEmptyString, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %1
+  call void @_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL13gRBBIInitOnce, ptr noundef @_ZN6icu_77L8rbbiInitEv)
+  %13 = load ptr, ptr @_ZL12gEmptyString, align 8, !tbaa !90
+  store ptr %13, ptr %2, align 8
+  br label %14
 
-return:                                           ; preds = %if.else, %if.then
-  %3 = load ptr, ptr %retval, align 8
-  ret ptr %3
+14:                                               ; preds = %12, %8
+  %15 = load ptr, ptr %2, align 8
+  ret ptr %15
 }
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull align 8 dereferenceable(137)) #3
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE(ptr noundef nonnull align 4 dereferenceable(8) %uio, ptr noundef %fp) #1 comdat {
-entry:
-  %uio.addr = alloca ptr, align 8
-  %fp.addr = alloca ptr, align 8
-  store ptr %uio, ptr %uio.addr, align 8
-  store ptr %fp, ptr %fp.addr, align 8
-  %0 = load ptr, ptr %uio.addr, align 8
-  %fState = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %0, i32 0, i32 0
-  %call = call noundef i32 @_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %fState)
-  %cmp = icmp eq i32 %call, 2
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1) #8 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !180
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !180
+  %6 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %5, i32 0, i32 0
+  %7 = call noundef i32 @_ZN6icu_7716umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %8 = icmp eq i32 %7, 2
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  br label %if.end3
+9:                                                ; preds = %2
+  br label %17
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %uio.addr, align 8
-  %call1 = call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %1)
-  %tobool = icmp ne i8 %call1, 0
-  br i1 %tobool, label %if.then2, label %if.end3
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !180
+  %12 = call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %11)
+  %13 = icmp ne i8 %12, 0
+  br i1 %13, label %14, label %17
 
-if.then2:                                         ; preds = %if.end
-  %2 = load ptr, ptr %fp.addr, align 8
-  call void %2()
-  %3 = load ptr, ptr %uio.addr, align 8
-  call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  br label %if.end3
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8, !tbaa !10
+  call void %15()
+  %16 = load ptr, ptr %3, align 8, !tbaa !180
+  call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %16)
+  br label %17
 
-if.end3:                                          ; preds = %if.then2, %if.end, %if.then
+17:                                               ; preds = %9, %14, %10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6icu_75L8rbbiInitEv() #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #6
-  %new.isnull = icmp eq ptr %call, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+define internal void @_ZN6icu_77L8rbbiInitEv() #1 personality ptr @__gxx_personality_v0 {
+  %1 = alloca i1, align 1
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #10
+  %5 = icmp eq ptr %4, null
+  store i1 false, ptr %1, align 1
+  br i1 %5, label %8, label %6
 
-new.notnull:                                      ; preds = %entry
-  store i1 true, ptr %cleanup.cond, align 1
-  invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %call)
-          to label %invoke.cont unwind label %lpad
+6:                                                ; preds = %0
+  store i1 true, ptr %1, align 1
+  invoke void @_ZN6icu_7713UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4)
+          to label %7 unwind label %10
 
-invoke.cont:                                      ; preds = %new.notnull
-  br label %new.cont
+7:                                                ; preds = %6
+  br label %8
 
-new.cont:                                         ; preds = %invoke.cont, %entry
-  %0 = phi ptr [ %call, %invoke.cont ], [ null, %entry ]
-  store ptr %0, ptr @_ZL12gEmptyString, align 8
-  call void @ucln_common_registerCleanup_75(i32 noundef 3, ptr noundef @rbbi_cleanup_75)
+8:                                                ; preds = %7, %0
+  %9 = phi ptr [ %4, %7 ], [ null, %0 ]
+  store ptr %9, ptr @_ZL12gEmptyString, align 8, !tbaa !90
+  call void @ucln_common_registerCleanup_77(i32 noundef 3, ptr noundef @rbbi_cleanup_77)
   ret void
 
-lpad:                                             ; preds = %new.notnull
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %6
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %2, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %3, align 4
+  %14 = load i1, ptr %1, align 1
+  br i1 %14, label %15, label %16
 
-cleanup.action:                                   ; preds = %lpad
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %call) #6
-  br label %cleanup.done
+15:                                               ; preds = %10
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %4) #10
+  br label %16
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %eh.resume
+16:                                               ; preds = %15, %10
+  br label %17
 
-eh.resume:                                        ; preds = %cleanup.done
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val1
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %2, align 8
+  %19 = load i32, ptr %3, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %__arg) #0 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %__arg.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__arg, ptr %__arg.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__name = getelementptr inbounds %"class.std::type_info", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__name, align 8
-  %1 = load ptr, ptr %__arg.addr, align 8
-  %__name2 = getelementptr inbounds %"class.std::type_info", ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %__name2, align 8
-  %cmp = icmp eq ptr %0, %2
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 comdat align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !118
+  store ptr %1, ptr %5, align 8, !tbaa !118
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !205
+  %9 = load ptr, ptr %5, align 8, !tbaa !118
+  %10 = getelementptr inbounds nuw %"class.std::type_info", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !205
+  %12 = icmp eq ptr %8, %11
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %entry
-  store i1 true, ptr %retval, align 1
-  br label %return
+13:                                               ; preds = %2
+  store i1 true, ptr %3, align 1
+  br label %30
 
-if.end:                                           ; preds = %entry
-  %__name3 = getelementptr inbounds %"class.std::type_info", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %__name3, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 0
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %4 to i32
-  %cmp4 = icmp ne i32 %conv, 42
-  br i1 %cmp4, label %land.rhs, label %land.end
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !205
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  %18 = load i8, ptr %17, align 1, !tbaa !85
+  %19 = sext i8 %18 to i32
+  %20 = icmp ne i32 %19, 42
+  br i1 %20, label %21, label %28
 
-land.rhs:                                         ; preds = %if.end
-  %__name5 = getelementptr inbounds %"class.std::type_info", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %__name5, align 8
-  %6 = load ptr, ptr %__arg.addr, align 8
-  %call = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #6
-  %call6 = call i32 @strcmp(ptr noundef %5, ptr noundef %call) #6
-  %cmp7 = icmp eq i32 %call6, 0
-  br label %land.end
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds nuw %"class.std::type_info", ptr %6, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !205
+  %24 = load ptr, ptr %5, align 8, !tbaa !118
+  %25 = call noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #10
+  %26 = call i32 @strcmp(ptr noundef %23, ptr noundef %25) #10
+  %27 = icmp eq i32 %26, 0
+  br label %28
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %7 = phi i1 [ false, %if.end ], [ %cmp7, %land.rhs ]
-  store i1 %7, ptr %retval, align 1
-  br label %return
+28:                                               ; preds = %21, %14
+  %29 = phi i1 [ false, %14 ], [ %27, %21 ]
+  store i1 %29, ptr %3, align 1
+  br label %30
 
-return:                                           ; preds = %land.end, %if.then
-  %8 = load i1, ptr %retval, align 1
-  ret i1 %8
+30:                                               ; preds = %28, %13
+  %31 = load i1, ptr %3, align 1
+  ret i1 %31
 }
 
 ; Function Attrs: nounwind
 declare i32 @strcmp(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %__name = getelementptr inbounds %"class.std::type_info", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %__name, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 0
-  %1 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %1 to i32
-  %cmp = icmp eq i32 %conv, 42
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr noundef ptr @_ZNKSt9type_info4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !118
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !205
+  %6 = getelementptr inbounds i8, ptr %5, i64 0
+  %7 = load i8, ptr %6, align 1, !tbaa !85
+  %8 = sext i8 %7 to i32
+  %9 = icmp eq i32 %8, 42
+  br i1 %9, label %10, label %14
 
-cond.true:                                        ; preds = %entry
-  %__name2 = getelementptr inbounds %"class.std::type_info", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %__name2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 1
-  br label %cond.end
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !205
+  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  br label %17
 
-cond.false:                                       ; preds = %entry
-  %__name3 = getelementptr inbounds %"class.std::type_info", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %__name3, align 8
-  br label %cond.end
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw %"class.std::type_info", ptr %3, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !205
+  br label %17
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %3, %cond.false ]
-  ret ptr %cond
+17:                                               ; preds = %14, %10
+  %18 = phi ptr [ %13, %10 ], [ %16, %14 ]
+  ret ptr %18
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef signext i8 @_ZNK6icu_7713UnicodeString14hasShortLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %struct.anon.0, ptr %4, i32 0, i32 0
+  %6 = load i16, ptr %5, align 8, !tbaa !85
+  %7 = sext i16 %6 to i32
+  %8 = icmp sge i32 %7, 0
+  %9 = zext i1 %8 to i8
+  ret i8 %9
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK6icu_7713UnicodeString14getShortLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %struct.anon.0, ptr %4, i32 0, i32 0
+  %6 = load i16, ptr %5, align 8, !tbaa !85
+  %7 = sext i16 %6 to i32
+  %8 = ashr i32 %7, 5
+  ret i32 %8
+}
+
+declare void @_ZN6icu_7722RuleBasedBreakIterator10BreakCache6nextOLEv(ptr noundef nonnull align 8 dereferenceable(832)) #3
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10BreakCache12modChunkSizeEi(i32 noundef %0) #4 comdat align 2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !87
+  %3 = load i32, ptr %2, align 4, !tbaa !87
+  %4 = and i32 %3, 127
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef signext i8 @_ZNK6icu_7513UnicodeString14hasShortLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fLengthAndFlags = getelementptr inbounds %struct.anon.0, ptr %fUnion, i32 0, i32 0
-  %0 = load i16, ptr %fLengthAndFlags, align 8
-  %conv = sext i16 %0 to i32
-  %cmp = icmp sge i32 %conv, 0
-  %conv2 = zext i1 %cmp to i8
-  ret i8 %conv2
+define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEaSEi(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !207
+  store i32 %1, ptr %4, align 4, !tbaa !87
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !87
+  call void @_ZNSt13__atomic_baseIiE5storeEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6, i32 noundef 5) #10
+  %7 = load i32, ptr %4, align 4, !tbaa !87
+  ret i32 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_7513UnicodeString14getShortLengthEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fLengthAndFlags = getelementptr inbounds %struct.anon.0, ptr %fUnion, i32 0, i32 0
-  %0 = load i16, ptr %fLengthAndFlags, align 8
-  %conv = sext i16 %0 to i32
-  %shr = ashr i32 %conv, 5
-  ret i32 %shr
-}
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13__atomic_baseIiE5storeEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !207
+  store i32 %1, ptr %5, align 4, !tbaa !87
+  store i32 %2, ptr %6, align 4, !tbaa !209
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %10 = load i32, ptr %6, align 4, !tbaa !209
+  %11 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %10, i32 noundef 65535)
+          to label %12 unwind label %32
 
-declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache6nextOLEv(ptr noundef nonnull align 8 dereferenceable(832)) #3
+12:                                               ; preds = %3
+  store i32 %11, ptr %7, align 4, !tbaa !209
+  br label %13
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12modChunkSizeEi(i32 noundef %index) #0 comdat align 2 {
-entry:
-  %index.addr = alloca i32, align 4
-  store i32 %index, ptr %index.addr, align 4
-  %0 = load i32, ptr %index.addr, align 4
-  %and = and i32 %0, 127
-  ret i32 %and
-}
+13:                                               ; preds = %12
+  br label %14
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEaSEi(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %__i) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__i.addr.i = alloca i32, align 4
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %.atomictmp.i = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %__i, ptr %__i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %__i.addr, align 4
-  store ptr %this1, ptr %this.addr.i, align 8
-  store i32 %0, ptr %__i.addr.i, align 4
-  store i32 5, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load i32, ptr %__m.addr.i, align 4
-  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
-          to label %invoke.cont.i unwind label %terminate.lpad.i
+14:                                               ; preds = %13
+  br label %15
 
-invoke.cont.i:                                    ; preds = %entry
-  store i32 %call.i, ptr %__b.i, align 4
-  %2 = load i32, ptr %__m.addr.i, align 4
-  %3 = load i32, ptr %__i.addr.i, align 4
-  store i32 %3, ptr %.atomictmp.i, align 4
-  switch i32 %2, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  br label %17
+
+17:                                               ; preds = %16
+  br label %18
+
+18:                                               ; preds = %17
+  br label %19
+
+19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %23 = load i32, ptr %6, align 4, !tbaa !209
+  %24 = load i32, ptr %5, align 4, !tbaa !87
+  store i32 %24, ptr %8, align 4, !tbaa !87
+  switch i32 %23, label %25 [
+    i32 3, label %27
+    i32 5, label %29
   ]
 
-monotonic.i:                                      ; preds = %invoke.cont.i
-  %4 = load i32, ptr %.atomictmp.i, align 4
-  store atomic i32 %4, ptr %this1.i monotonic, align 4
-  br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit
+25:                                               ; preds = %21
+  %26 = load i32, ptr %8, align 4
+  store atomic i32 %26, ptr %22 monotonic, align 4
+  br label %31
 
-release.i:                                        ; preds = %invoke.cont.i
-  %5 = load i32, ptr %.atomictmp.i, align 4
-  store atomic i32 %5, ptr %this1.i release, align 4
-  br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit
+27:                                               ; preds = %21
+  %28 = load i32, ptr %8, align 4
+  store atomic i32 %28, ptr %22 release, align 4
+  br label %31
 
-seqcst.i:                                         ; preds = %invoke.cont.i
-  %6 = load i32, ptr %.atomictmp.i, align 4
-  store atomic i32 %6, ptr %this1.i seq_cst, align 4
-  br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit
+29:                                               ; preds = %21
+  %30 = load i32, ptr %8, align 4
+  store atomic i32 %30, ptr %22 seq_cst, align 4
+  br label %31
 
-terminate.lpad.i:                                 ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+31:                                               ; preds = %29, %27, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret void
+
+32:                                               ; preds = %3
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #8
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
-
-_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit: ; preds = %seqcst.i, %release.i, %monotonic.i
-  %9 = load i32, ptr %__i.addr, align 4
-  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #0 comdat {
-entry:
-  %__m.addr = alloca i32, align 4
-  %__mod.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  store i32 %__mod, ptr %__mod.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %1 = load i32, ptr %__mod.addr, align 4
-  %and = and i32 %0, %1
-  ret i32 %and
+define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #0 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !209
+  store i32 %1, ptr %4, align 4, !tbaa !211
+  %5 = load i32, ptr %3, align 4, !tbaa !209
+  %6 = load i32, ptr %4, align 4, !tbaa !211
+  %7 = and i32 %5, %6
+  ret i32 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %var) #0 comdat {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca i32, align 4
-  %var.addr = alloca ptr, align 8
-  store ptr %var, ptr %var.addr, align 8
-  %0 = load ptr, ptr %var.addr, align 8
-  store ptr %0, ptr %this.addr.i, align 8
-  store i32 2, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
-  %2 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %2, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN6icu_7716umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !213
+  %3 = load ptr, ptr %2, align 8, !tbaa !213
+  %4 = call noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 2) #10
+  ret i32 %4
+}
+
+declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #3
+
+declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #3
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #9 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !207
+  store i32 %1, ptr %4, align 4, !tbaa !209
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %8 = load i32, ptr %4, align 4, !tbaa !209
+  %9 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+  store i32 %9, ptr %5, align 4, !tbaa !209
+  br label %10
+
+10:                                               ; preds = %2
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %7, i32 0, i32 0
+  %17 = load i32, ptr %4, align 4, !tbaa !209
+  switch i32 %17, label %18 [
+    i32 1, label %20
+    i32 2, label %20
+    i32 5, label %22
   ]
 
-monotonic.i:                                      ; preds = %entry
-  %3 = load atomic i32, ptr %this1.i monotonic, align 4
-  store i32 %3, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+18:                                               ; preds = %15
+  %19 = load atomic i32, ptr %16 monotonic, align 4
+  store i32 %19, ptr %6, align 4
+  br label %24
 
-acquire.i:                                        ; preds = %entry, %entry
-  %4 = load atomic i32, ptr %this1.i acquire, align 4
-  store i32 %4, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+20:                                               ; preds = %15, %15
+  %21 = load atomic i32, ptr %16 acquire, align 4
+  store i32 %21, ptr %6, align 4
+  br label %24
 
-seqcst.i:                                         ; preds = %entry
-  %5 = load atomic i32, ptr %this1.i seq_cst, align 4
-  store i32 %5, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+22:                                               ; preds = %15
+  %23 = load atomic i32, ptr %16 seq_cst, align 4
+  store i32 %23, ptr %6, align 4
+  br label %24
 
-_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %6 = load i32, ptr %atomic-temp.i, align 4
-  ret i32 %6
+24:                                               ; preds = %22, %20, %18
+  %25 = load i32, ptr %6, align 4, !tbaa !87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  ret i32 %25
 }
 
-declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #3
-
-declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #3
-
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL14_deleteFactoryPv(ptr noundef %obj) #0 {
-entry:
-  %obj.addr = alloca ptr, align 8
-  store ptr %obj, ptr %obj.addr, align 8
-  %0 = load ptr, ptr %obj.addr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define internal void @_ZL14_deleteFactoryPv(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %9, label %5
 
-delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
-  br label %delete.end
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %3, align 8, !tbaa !47
+  %7 = getelementptr inbounds ptr, ptr %6, i64 1
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  br label %9
 
-delete.end:                                       ; preds = %delete.notnull, %entry
+9:                                                ; preds = %5, %1
   ret void
 }
 
-declare void @_ZN6icu_756UStackC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_776UStackC1EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZN6icu_7523ICULanguageBreakFactoryC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_7723ICULanguageBreakFactoryC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_23ICULanguageBreakFactoryEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %errorCode.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store ptr %errorCode, ptr %errorCode.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @_ZN6icu_7516LocalPointerBaseINS_23ICULanguageBreakFactoryEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %0)
-  %1 = load ptr, ptr %p.addr, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_23ICULanguageBreakFactoryEEC2EPS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !215
+  store ptr %1, ptr %5, align 8, !tbaa !184
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !184
+  call void @_ZN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8)
+  %9 = load ptr, ptr %5, align 8, !tbaa !184
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %18
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %errorCode.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %call = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %3)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %6, align 8, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !33
+  %14 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %13)
+  %15 = icmp ne i8 %14, 0
+  br i1 %15, label %16, label %18
 
-if.then:                                          ; preds = %land.lhs.true
-  %4 = load ptr, ptr %errorCode.addr, align 8
-  store i32 7, ptr %4, align 4
-  br label %if.end
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %6, align 8, !tbaa !10
+  store i32 7, ptr %17, align 4, !tbaa !33
+  br label %18
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+18:                                               ; preds = %16, %11, %3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN6icu_7516LocalPointerBaseINS_23ICULanguageBreakFactoryEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase.6", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  store ptr %0, ptr %p, align 8
-  %ptr2 = getelementptr inbounds %"class.icu_75::LocalPointerBase.6", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %ptr2, align 8
-  %1 = load ptr, ptr %p, align 8
-  ret ptr %1
+define linkonce_odr noundef ptr @_ZN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEE6orphanEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !217
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.6", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !219
+  store ptr %6, ptr %3, align 8, !tbaa !184
+  %7 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.6", ptr %4, i32 0, i32 0
+  store ptr null, ptr %7, align 8, !tbaa !219
+  %8 = load ptr, ptr %3, align 8, !tbaa !184
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase.6", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !215
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.6", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !219
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %11, label %7
 
-delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
-  %1 = load ptr, ptr %vfn, align 8
-  call void %1(ptr noundef nonnull align 8 dereferenceable(16) %0) #6
-  br label %delete.end
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %5, align 8, !tbaa !47
+  %9 = getelementptr inbounds ptr, ptr %8, i64 1
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
+  br label %11
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  call void @_ZN6icu_7516LocalPointerBaseINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
+11:                                               ; preds = %7, %1
+  call void @_ZN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   ret void
 }
 
-declare void @ucln_common_registerCleanup_75(i32 noundef, ptr noundef) #3
+declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_23ICULanguageBreakFactoryEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase.6", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !217
+  store ptr %1, ptr %4, align 8, !tbaa !184
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.6", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !184
+  store ptr %7, ptr %6, align 8, !tbaa !219
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN6icu_757UVector10hasDeleterEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this1, i32 0, i32 4
-  %0 = load ptr, ptr %deleter, align 8
-  %cmp = icmp ne ptr %0, null
-  ret i1 %cmp
-}
-
-declare void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
-
-declare void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
-  store i16 2, ptr %fLengthAndFlags, align 8
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !217
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  %0 = getelementptr inbounds { [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
+define linkonce_odr noundef zeroext i1 @_ZN6icu_777UVector10hasDeleterEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !189
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::UVector", ptr %3, i32 0, i32 4
+  %5 = load ptr, ptr %4, align 8, !tbaa !221
+  %6 = icmp ne ptr %5, null
+  ret i1 %6
+}
+
+declare void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
+
+declare void @_ZN6icu_777UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) #3
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6icu_7713UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6icu_7711ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr] }, ptr @_ZTVN6icu_7713UnicodeStringE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !47
+  %4 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %struct.anon, ptr %4, i32 0, i32 0
+  store i16 2, ptr %5, align 8, !tbaa !85
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_7711ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !222
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6icu_777UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr] }, ptr @_ZTVN6icu_7711ReplaceableE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !47
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_7713UnicodeStringD0Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
+
+declare noundef ptr @_ZNK6icu_7713UnicodeString17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+
+declare void @_ZNK6icu_7713UnicodeString14extractBetweenEiiRS0_(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+
+declare void @_ZN6icu_7713UnicodeString20handleReplaceBetweenEiiRKS0_(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+
+declare void @_ZN6icu_7713UnicodeString4copyEiii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #3
+
+declare noundef signext i8 @_ZNK6icu_7713UnicodeString11hasMetaDataEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+
+declare noundef ptr @_ZNK6icu_7713UnicodeString5cloneEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+
+declare noundef i32 @_ZNK6icu_7713UnicodeString9getLengthEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+
+declare noundef zeroext i16 @_ZNK6icu_7713UnicodeString9getCharAtEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) unnamed_addr #3
+
+declare noundef i32 @_ZNK6icu_7713UnicodeString11getChar32AtEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) unnamed_addr #3
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_777UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !224
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6icu_777UObjectE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !47
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_7711ReplaceableD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_7711ReplaceableD0Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+declare noundef ptr @_ZNK6icu_777UObject17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+
+declare void @__cxa_pure_virtual() unnamed_addr
+
+declare noundef signext i8 @_ZNK6icu_7711Replaceable11hasMetaDataEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+
+declare noundef ptr @_ZNK6icu_7711Replaceable5cloneEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_777UObjectD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_777UObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !108
+  store ptr %1, ptr %4, align 8, !tbaa !104
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !104
+  store ptr %7, ptr %6, align 8, !tbaa !110
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr, align 8
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !112
+  store ptr %1, ptr %4, align 8, !tbaa !107
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.2", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !107
+  store ptr %7, ptr %6, align 8, !tbaa !114
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !112
+  ret void
+}
+
+declare i32 @utext_next32_77(ptr noundef) #3
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef zeroext i16 @_ZN6icu_77L9TrieFunc8EPK7UCPTriei(ptr noundef %0, i32 noundef %1) #8 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !226
+  store i32 %1, ptr %4, align 4, !tbaa !87
+  %5 = load ptr, ptr %3, align 8, !tbaa !226
+  %6 = getelementptr inbounds nuw %struct.UCPTrie, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !85
+  %8 = load i32, ptr %4, align 4, !tbaa !87
+  %9 = icmp ule i32 %8, 65535
+  br i1 %9, label %10, label %23
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !226
+  %12 = getelementptr inbounds nuw %struct.UCPTrie, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !227
+  %14 = load i32, ptr %4, align 4, !tbaa !87
+  %15 = ashr i32 %14, 6
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i16, ptr %13, i64 %16
+  %18 = load i16, ptr %17, align 2, !tbaa !134
+  %19 = zext i16 %18 to i32
+  %20 = load i32, ptr %4, align 4, !tbaa !87
+  %21 = and i32 %20, 63
+  %22 = add nsw i32 %19, %21
+  br label %50
+
+23:                                               ; preds = %2
+  %24 = load i32, ptr %4, align 4, !tbaa !87
+  %25 = icmp ule i32 %24, 1114111
+  br i1 %25, label %26, label %43
+
+26:                                               ; preds = %23
+  %27 = load i32, ptr %4, align 4, !tbaa !87
+  %28 = load ptr, ptr %3, align 8, !tbaa !226
+  %29 = getelementptr inbounds nuw %struct.UCPTrie, ptr %28, i32 0, i32 4
+  %30 = load i32, ptr %29, align 8, !tbaa !230
+  %31 = icmp sge i32 %27, %30
+  br i1 %31, label %32, label %37
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %3, align 8, !tbaa !226
+  %34 = getelementptr inbounds nuw %struct.UCPTrie, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4, !tbaa !231
+  %36 = sub nsw i32 %35, 2
+  br label %41
+
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %3, align 8, !tbaa !226
+  %39 = load i32, ptr %4, align 4, !tbaa !87
+  %40 = call i32 @ucptrie_internalSmallIndex_77(ptr noundef %38, i32 noundef %39)
+  br label %41
+
+41:                                               ; preds = %37, %32
+  %42 = phi i32 [ %36, %32 ], [ %40, %37 ]
+  br label %48
+
+43:                                               ; preds = %23
+  %44 = load ptr, ptr %3, align 8, !tbaa !226
+  %45 = getelementptr inbounds nuw %struct.UCPTrie, ptr %44, i32 0, i32 3
+  %46 = load i32, ptr %45, align 4, !tbaa !231
+  %47 = sub nsw i32 %46, 1
+  br label %48
+
+48:                                               ; preds = %43, %41
+  %49 = phi i32 [ %42, %41 ], [ %47, %43 ]
+  br label %50
+
+50:                                               ; preds = %48, %10
+  %51 = phi i32 [ %22, %10 ], [ %49, %48 ]
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %7, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !85
+  %55 = zext i8 %54 to i16
+  ret i16 %55
+}
+
+declare i32 @ucptrie_internalSmallIndex_77(ptr noundef, i32 noundef) #3
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef zeroext i16 @_ZN6icu_77L10TrieFunc16EPK7UCPTriei(ptr noundef %0, i32 noundef %1) #8 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !226
+  store i32 %1, ptr %4, align 4, !tbaa !87
+  %5 = load ptr, ptr %3, align 8, !tbaa !226
+  %6 = getelementptr inbounds nuw %struct.UCPTrie, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !85
+  %8 = load i32, ptr %4, align 4, !tbaa !87
+  %9 = icmp ule i32 %8, 65535
+  br i1 %9, label %10, label %23
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !226
+  %12 = getelementptr inbounds nuw %struct.UCPTrie, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !227
+  %14 = load i32, ptr %4, align 4, !tbaa !87
+  %15 = ashr i32 %14, 6
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i16, ptr %13, i64 %16
+  %18 = load i16, ptr %17, align 2, !tbaa !134
+  %19 = zext i16 %18 to i32
+  %20 = load i32, ptr %4, align 4, !tbaa !87
+  %21 = and i32 %20, 63
+  %22 = add nsw i32 %19, %21
+  br label %50
+
+23:                                               ; preds = %2
+  %24 = load i32, ptr %4, align 4, !tbaa !87
+  %25 = icmp ule i32 %24, 1114111
+  br i1 %25, label %26, label %43
+
+26:                                               ; preds = %23
+  %27 = load i32, ptr %4, align 4, !tbaa !87
+  %28 = load ptr, ptr %3, align 8, !tbaa !226
+  %29 = getelementptr inbounds nuw %struct.UCPTrie, ptr %28, i32 0, i32 4
+  %30 = load i32, ptr %29, align 8, !tbaa !230
+  %31 = icmp sge i32 %27, %30
+  br i1 %31, label %32, label %37
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %3, align 8, !tbaa !226
+  %34 = getelementptr inbounds nuw %struct.UCPTrie, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4, !tbaa !231
+  %36 = sub nsw i32 %35, 2
+  br label %41
+
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %3, align 8, !tbaa !226
+  %39 = load i32, ptr %4, align 4, !tbaa !87
+  %40 = call i32 @ucptrie_internalSmallIndex_77(ptr noundef %38, i32 noundef %39)
+  br label %41
+
+41:                                               ; preds = %37, %32
+  %42 = phi i32 [ %36, %32 ], [ %40, %37 ]
+  br label %48
+
+43:                                               ; preds = %23
+  %44 = load ptr, ptr %3, align 8, !tbaa !226
+  %45 = getelementptr inbounds nuw %struct.UCPTrie, ptr %44, i32 0, i32 3
+  %46 = load i32, ptr %45, align 4, !tbaa !231
+  %47 = sub nsw i32 %46, 1
+  br label %48
+
+48:                                               ; preds = %43, %41
+  %49 = phi i32 [ %42, %41 ], [ %47, %43 ]
+  br label %50
+
+50:                                               ; preds = %48, %10
+  %51 = phi i32 [ %22, %10 ], [ %49, %48 ]
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i16, ptr %7, i64 %52
+  %54 = load i16, ptr %53, align 2, !tbaa !134
+  ret i16 %54
+}
+
+declare i32 @utext_previous32_77(ptr noundef) #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !201
+  store ptr %1, ptr %4, align 8, !tbaa !197
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase.4", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !197
+  store ptr %7, ptr %6, align 8, !tbaa !203
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase.2", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr, align 8
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !201
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { allocsize(0) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { noreturn }
 
-declare i32 @utext_next32_75(ptr noundef) #3
-
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i16 @_ZN6icu_75L9TrieFunc8EPK7UCPTriei(ptr noundef %trie, i32 noundef %c) #1 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr %trie.addr, align 8
-  %data = getelementptr inbounds %struct.UCPTrie, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %data, align 8
-  %2 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ule i32 %2, 65535
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %3 = load ptr, ptr %trie.addr, align 8
-  %index = getelementptr inbounds %struct.UCPTrie, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %index, align 8
-  %5 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %5, 6
-  %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %6 to i32
-  %7 = load i32, ptr %c.addr, align 4
-  %and = and i32 %7, 63
-  %add = add nsw i32 %conv, %and
-  br label %cond.end11
-
-cond.false:                                       ; preds = %entry
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp1 = icmp ule i32 %8, 1114111
-  br i1 %cmp1, label %cond.true2, label %cond.false6
-
-cond.true2:                                       ; preds = %cond.false
-  %9 = load i32, ptr %c.addr, align 4
-  %10 = load ptr, ptr %trie.addr, align 8
-  %highStart = getelementptr inbounds %struct.UCPTrie, ptr %10, i32 0, i32 4
-  %11 = load i32, ptr %highStart, align 8
-  %cmp3 = icmp sge i32 %9, %11
-  br i1 %cmp3, label %cond.true4, label %cond.false5
-
-cond.true4:                                       ; preds = %cond.true2
-  %12 = load ptr, ptr %trie.addr, align 8
-  %dataLength = getelementptr inbounds %struct.UCPTrie, ptr %12, i32 0, i32 3
-  %13 = load i32, ptr %dataLength, align 4
-  %sub = sub nsw i32 %13, 2
-  br label %cond.end
-
-cond.false5:                                      ; preds = %cond.true2
-  %14 = load ptr, ptr %trie.addr, align 8
-  %15 = load i32, ptr %c.addr, align 4
-  %call = call i32 @ucptrie_internalSmallIndex_75(ptr noundef %14, i32 noundef %15)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false5, %cond.true4
-  %cond = phi i32 [ %sub, %cond.true4 ], [ %call, %cond.false5 ]
-  br label %cond.end9
-
-cond.false6:                                      ; preds = %cond.false
-  %16 = load ptr, ptr %trie.addr, align 8
-  %dataLength7 = getelementptr inbounds %struct.UCPTrie, ptr %16, i32 0, i32 3
-  %17 = load i32, ptr %dataLength7, align 4
-  %sub8 = sub nsw i32 %17, 1
-  br label %cond.end9
-
-cond.end9:                                        ; preds = %cond.false6, %cond.end
-  %cond10 = phi i32 [ %cond, %cond.end ], [ %sub8, %cond.false6 ]
-  br label %cond.end11
-
-cond.end11:                                       ; preds = %cond.end9, %cond.true
-  %cond12 = phi i32 [ %add, %cond.true ], [ %cond10, %cond.end9 ]
-  %idxprom13 = sext i32 %cond12 to i64
-  %arrayidx14 = getelementptr inbounds i8, ptr %1, i64 %idxprom13
-  %18 = load i8, ptr %arrayidx14, align 1
-  %conv15 = zext i8 %18 to i16
-  ret i16 %conv15
-}
-
-declare i32 @ucptrie_internalSmallIndex_75(ptr noundef, i32 noundef) #3
-
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i16 @_ZN6icu_75L10TrieFunc16EPK7UCPTriei(ptr noundef %trie, i32 noundef %c) #1 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  %0 = load ptr, ptr %trie.addr, align 8
-  %data = getelementptr inbounds %struct.UCPTrie, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %data, align 8
-  %2 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ule i32 %2, 65535
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %3 = load ptr, ptr %trie.addr, align 8
-  %index = getelementptr inbounds %struct.UCPTrie, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %index, align 8
-  %5 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %5, 6
-  %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %6 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %6 to i32
-  %7 = load i32, ptr %c.addr, align 4
-  %and = and i32 %7, 63
-  %add = add nsw i32 %conv, %and
-  br label %cond.end11
-
-cond.false:                                       ; preds = %entry
-  %8 = load i32, ptr %c.addr, align 4
-  %cmp1 = icmp ule i32 %8, 1114111
-  br i1 %cmp1, label %cond.true2, label %cond.false6
-
-cond.true2:                                       ; preds = %cond.false
-  %9 = load i32, ptr %c.addr, align 4
-  %10 = load ptr, ptr %trie.addr, align 8
-  %highStart = getelementptr inbounds %struct.UCPTrie, ptr %10, i32 0, i32 4
-  %11 = load i32, ptr %highStart, align 8
-  %cmp3 = icmp sge i32 %9, %11
-  br i1 %cmp3, label %cond.true4, label %cond.false5
-
-cond.true4:                                       ; preds = %cond.true2
-  %12 = load ptr, ptr %trie.addr, align 8
-  %dataLength = getelementptr inbounds %struct.UCPTrie, ptr %12, i32 0, i32 3
-  %13 = load i32, ptr %dataLength, align 4
-  %sub = sub nsw i32 %13, 2
-  br label %cond.end
-
-cond.false5:                                      ; preds = %cond.true2
-  %14 = load ptr, ptr %trie.addr, align 8
-  %15 = load i32, ptr %c.addr, align 4
-  %call = call i32 @ucptrie_internalSmallIndex_75(ptr noundef %14, i32 noundef %15)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false5, %cond.true4
-  %cond = phi i32 [ %sub, %cond.true4 ], [ %call, %cond.false5 ]
-  br label %cond.end9
-
-cond.false6:                                      ; preds = %cond.false
-  %16 = load ptr, ptr %trie.addr, align 8
-  %dataLength7 = getelementptr inbounds %struct.UCPTrie, ptr %16, i32 0, i32 3
-  %17 = load i32, ptr %dataLength7, align 4
-  %sub8 = sub nsw i32 %17, 1
-  br label %cond.end9
-
-cond.end9:                                        ; preds = %cond.false6, %cond.end
-  %cond10 = phi i32 [ %cond, %cond.end ], [ %sub8, %cond.false6 ]
-  br label %cond.end11
-
-cond.end11:                                       ; preds = %cond.end9, %cond.true
-  %cond12 = phi i32 [ %add, %cond.true ], [ %cond10, %cond.end9 ]
-  %idxprom13 = sext i32 %cond12 to i64
-  %arrayidx14 = getelementptr inbounds i16, ptr %1, i64 %idxprom13
-  %18 = load i16, ptr %arrayidx14, align 2
-  ret i16 %18
-}
-
-declare i32 @utext_previous32_75(ptr noundef) #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_19ExternalBreakEngineEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase.4", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_19ExternalBreakEngineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(0) }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { noreturn }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 2148318739}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6icu_7722RuleBasedBreakIteratorE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN6icu_7714RBBIDataHeaderE", !5, i64 0}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !21, i64 176}
+!12 = !{!"_ZTSN6icu_7722RuleBasedBreakIteratorE", !13, i64 0, !16, i64 32, !21, i64 176, !22, i64 184, !17, i64 188, !17, i64 192, !23, i64 200, !24, i64 208, !25, i64 216, !26, i64 224, !17, i64 232, !27, i64 240, !28, i64 248, !31, i64 280, !32, i64 288, !6, i64 296}
+!13 = !{!"_ZTSN6icu_7713BreakIteratorE", !14, i64 0, !15, i64 8, !15, i64 16, !15, i64 24}
+!14 = !{!"_ZTSN6icu_777UObjectE"}
+!15 = !{!"p1 _ZTSN6icu_7710CharStringE", !5, i64 0}
+!16 = !{!"_ZTS5UText", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !18, i64 16, !17, i64 24, !17, i64 28, !18, i64 32, !17, i64 40, !17, i64 44, !19, i64 48, !20, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !18, i64 112, !17, i64 120, !17, i64 124, !18, i64 128, !17, i64 136, !17, i64 140}
+!17 = !{!"int", !6, i64 0}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!"p1 char16_t", !5, i64 0}
+!20 = !{!"p1 _ZTS10UTextFuncs", !5, i64 0}
+!21 = !{!"p1 _ZTSN6icu_7715RBBIDataWrapperE", !5, i64 0}
+!22 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!23 = !{!"p1 _ZTSN6icu_7722RuleBasedBreakIterator10BreakCacheE", !5, i64 0}
+!24 = !{!"p1 _ZTSN6icu_7722RuleBasedBreakIterator15DictionaryCacheE", !5, i64 0}
+!25 = !{!"p1 _ZTSN6icu_776UStackE", !5, i64 0}
+!26 = !{!"p1 _ZTSN6icu_7715UnhandledEngineE", !5, i64 0}
+!27 = !{!"p1 _ZTSN6icu_7717CharacterIteratorE", !5, i64 0}
+!28 = !{!"_ZTSN6icu_7722UCharCharacterIteratorE", !29, i64 0, !19, i64 24}
+!29 = !{!"_ZTSN6icu_7717CharacterIteratorE", !30, i64 0, !17, i64 8, !17, i64 12, !17, i64 16, !17, i64 20}
+!30 = !{!"_ZTSN6icu_7724ForwardCharacterIteratorE", !14, i64 0}
+!31 = !{!"bool", !6, i64 0}
+!32 = !{!"p1 int", !5, i64 0}
+!33 = !{!22, !22, i64 0}
+!34 = !{!35, !36, i64 8}
+!35 = !{!"_ZTSN6icu_7715RBBIDataWrapperE", !9, i64 0, !36, i64 8, !36, i64 16, !37, i64 24, !32, i64 32, !17, i64 40, !38, i64 48, !39, i64 56, !41, i64 64, !42, i64 72, !6, i64 136}
+!36 = !{!"p1 _ZTSN6icu_7714RBBIStateTableE", !5, i64 0}
+!37 = !{!"p1 omnipotent char", !5, i64 0}
+!38 = !{!"p1 _ZTS7UCPTrie", !5, i64 0}
+!39 = !{!"_ZTSSt6atomicIiE", !40, i64 0}
+!40 = !{!"_ZTSSt13__atomic_baseIiE", !17, i64 0}
+!41 = !{!"p1 _ZTS11UDataMemory", !5, i64 0}
+!42 = !{!"_ZTSN6icu_7713UnicodeStringE", !43, i64 0, !6, i64 8}
+!43 = !{!"_ZTSN6icu_7711ReplaceableE", !14, i64 0}
+!44 = !{!45, !17, i64 12}
+!45 = !{!"_ZTSN6icu_7714RBBIStateTableE", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !17, i64 16, !6, i64 20}
+!46 = !{!12, !32, i64 288}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"vtable pointer", !7, i64 0}
+!49 = !{!16, !17, i64 0}
+!50 = !{!16, !17, i64 4}
+!51 = !{!16, !17, i64 8}
+!52 = !{!16, !17, i64 12}
+!53 = !{!16, !18, i64 16}
+!54 = !{!16, !17, i64 24}
+!55 = !{!16, !17, i64 28}
+!56 = !{!16, !18, i64 32}
+!57 = !{!16, !17, i64 40}
+!58 = !{!16, !17, i64 44}
+!59 = !{!16, !19, i64 48}
+!60 = !{!16, !20, i64 56}
+!61 = !{!16, !5, i64 64}
+!62 = !{!16, !5, i64 72}
+!63 = !{!16, !5, i64 80}
+!64 = !{!16, !5, i64 88}
+!65 = !{!16, !5, i64 96}
+!66 = !{!16, !5, i64 104}
+!67 = !{!16, !18, i64 112}
+!68 = !{!16, !17, i64 120}
+!69 = !{!16, !17, i64 124}
+!70 = !{!16, !18, i64 128}
+!71 = !{!16, !17, i64 136}
+!72 = !{!16, !17, i64 140}
+!73 = !{!12, !22, i64 184}
+!74 = !{!12, !17, i64 188}
+!75 = !{!12, !17, i64 192}
+!76 = !{!12, !23, i64 200}
+!77 = !{!12, !24, i64 208}
+!78 = !{!12, !25, i64 216}
+!79 = !{!12, !26, i64 224}
+!80 = !{!12, !17, i64 232}
+!81 = !{!12, !27, i64 240}
+!82 = !{!12, !31, i64 280}
+!83 = !{!12, !6, i64 296}
+!84 = !{!41, !41, i64 0}
+!85 = !{!6, !6, i64 0}
+!86 = !{!37, !37, i64 0}
+!87 = !{!17, !17, i64 0}
+!88 = !{!89, !17, i64 8}
+!89 = !{!"_ZTSN6icu_7714RBBIDataHeaderE", !17, i64 0, !6, i64 4, !17, i64 8, !17, i64 12, !17, i64 16, !17, i64 20, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !17, i64 40, !17, i64 44, !17, i64 48, !17, i64 52, !6, i64 56}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !5, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTS11UParseError", !5, i64 0}
+!94 = !{i8 0, i8 2}
+!95 = !{}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"p1 _ZTSN6icu_7714ConstChar16PtrE", !5, i64 0}
+!98 = !{!19, !19, i64 0}
+!99 = !{!100, !19, i64 0}
+!100 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !19, i64 0}
+!101 = !{i64 2148963733}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEEE", !5, i64 0}
+!104 = !{!24, !24, i64 0}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTSN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEEE", !5, i64 0}
+!107 = !{!23, !23, i64 0}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"p1 _ZTSN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEEE", !5, i64 0}
+!110 = !{!111, !24, i64 0}
+!111 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator15DictionaryCacheEEE", !24, i64 0}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"p1 _ZTSN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEEE", !5, i64 0}
+!114 = !{!115, !23, i64 0}
+!115 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_22RuleBasedBreakIterator10BreakCacheEEE", !23, i64 0}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTSN6icu_7713BreakIteratorE", !5, i64 0}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSSt9type_info", !5, i64 0}
+!120 = !{!121, !121, i64 0}
+!121 = !{!"p1 _ZTS5UText", !5, i64 0}
+!122 = !{!27, !27, i64 0}
+!123 = !{!29, !17, i64 16}
+!124 = !{!18, !18, i64 0}
+!125 = distinct !{!125, !126}
+!126 = !{!"llvm.loop.mustprogress"}
+!127 = distinct !{!127, !126}
+!128 = !{!129, !17, i64 28}
+!129 = !{!"_ZTSN6icu_7722RuleBasedBreakIterator10BreakCacheE", !4, i64 8, !17, i64 16, !17, i64 20, !17, i64 24, !17, i64 28, !6, i64 32, !6, i64 544, !130, i64 800}
+!130 = !{!"_ZTSN6icu_779UVector32E", !14, i64 0, !17, i64 8, !17, i64 12, !17, i64 16, !32, i64 24}
+!131 = !{!129, !17, i64 20}
+!132 = !{!129, !4, i64 8}
+!133 = !{!129, !17, i64 24}
+!134 = !{!135, !135, i64 0}
+!135 = !{!"short", !6, i64 0}
+!136 = !{!31, !31, i64 0}
+!137 = !{!36, !36, i64 0}
+!138 = !{!35, !38, i64 48}
+!139 = !{!45, !17, i64 16}
+!140 = !{!45, !17, i64 4}
+!141 = !{!45, !17, i64 8}
+!142 = !{!12, !18, i64 64}
+!143 = !{!12, !17, i64 60}
+!144 = !{!12, !19, i64 80}
+!145 = !{!146, !146, i64 0}
+!146 = !{!"char16_t", !6, i64 0}
+!147 = !{!12, !17, i64 72}
+!148 = !{!12, !17, i64 76}
+!149 = !{!150, !150, i64 0}
+!150 = !{!"p1 _ZTSN6icu_7718RBBIStateTableRowTIhEE", !5, i64 0}
+!151 = !{!152, !152, i64 0}
+!152 = !{!"_ZTSN6icu_7711RBBIRunModeE", !6, i64 0}
+!153 = !{!154, !6, i64 0}
+!154 = !{!"_ZTSN6icu_7718RBBIStateTableRowTIhEE", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3}
+!155 = !{!12, !20, i64 88}
+!156 = !{!157, !5, i64 64}
+!157 = !{!"_ZTS10UTextFuncs", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104}
+!158 = !{!154, !6, i64 2}
+!159 = !{!154, !6, i64 1}
+!160 = distinct !{!160, !126}
+!161 = distinct !{!161, !126}
+!162 = !{!163, !163, i64 0}
+!163 = !{!"p1 _ZTSN6icu_7718RBBIStateTableRowTItEE", !5, i64 0}
+!164 = !{!165, !135, i64 0}
+!165 = !{!"_ZTSN6icu_7718RBBIStateTableRowTItEE", !135, i64 0, !135, i64 2, !135, i64 4, !6, i64 6}
+!166 = !{!165, !135, i64 4}
+!167 = !{!165, !135, i64 2}
+!168 = distinct !{!168, !126}
+!169 = distinct !{!169, !126}
+!170 = !{!35, !36, i64 16}
+!171 = distinct !{!171, !126}
+!172 = distinct !{!172, !126}
+!173 = distinct !{!173, !126}
+!174 = distinct !{!174, !126}
+!175 = !{!35, !32, i64 32}
+!176 = !{!32, !32, i64 0}
+!177 = distinct !{!177, !126}
+!178 = !{!35, !9, i64 0}
+!179 = !{!25, !25, i64 0}
+!180 = !{!181, !181, i64 0}
+!181 = !{!"p1 _ZTSN6icu_779UInitOnceE", !5, i64 0}
+!182 = !{!183, !22, i64 4}
+!183 = !{!"_ZTSN6icu_779UInitOnceE", !39, i64 0, !22, i64 4}
+!184 = !{!185, !185, i64 0}
+!185 = !{!"p1 _ZTSN6icu_7723ICULanguageBreakFactoryE", !5, i64 0}
+!186 = !{!187, !187, i64 0}
+!187 = !{!"p1 _ZTSN6icu_7719LanguageBreakEngineE", !5, i64 0}
+!188 = distinct !{!188, !126}
+!189 = !{!190, !190, i64 0}
+!190 = !{!"p1 _ZTSN6icu_777UVectorE", !5, i64 0}
+!191 = !{!192, !17, i64 8}
+!192 = !{!"_ZTSN6icu_777UVectorE", !14, i64 0, !17, i64 8, !17, i64 12, !193, i64 16, !5, i64 24, !5, i64 32}
+!193 = !{!"p1 _ZTS8UElement", !5, i64 0}
+!194 = !{!195, !195, i64 0}
+!195 = !{!"p1 _ZTSN6icu_7720LanguageBreakFactoryE", !5, i64 0}
+!196 = distinct !{!196, !126}
+!197 = !{!198, !198, i64 0}
+!198 = !{!"p1 _ZTSN6icu_7719ExternalBreakEngineE", !5, i64 0}
+!199 = !{!200, !200, i64 0}
+!200 = !{!"p1 _ZTSN6icu_7712LocalPointerINS_19ExternalBreakEngineEEE", !5, i64 0}
+!201 = !{!202, !202, i64 0}
+!202 = !{!"p1 _ZTSN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEEE", !5, i64 0}
+!203 = !{!204, !198, i64 0}
+!204 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_19ExternalBreakEngineEEE", !198, i64 0}
+!205 = !{!206, !37, i64 8}
+!206 = !{!"_ZTSSt9type_info", !37, i64 8}
+!207 = !{!208, !208, i64 0}
+!208 = !{!"p1 _ZTSSt13__atomic_baseIiE", !5, i64 0}
+!209 = !{!210, !210, i64 0}
+!210 = !{!"_ZTSSt12memory_order", !6, i64 0}
+!211 = !{!212, !212, i64 0}
+!212 = !{!"_ZTSSt23__memory_order_modifier", !6, i64 0}
+!213 = !{!214, !214, i64 0}
+!214 = !{!"p1 _ZTSSt6atomicIiE", !5, i64 0}
+!215 = !{!216, !216, i64 0}
+!216 = !{!"p1 _ZTSN6icu_7712LocalPointerINS_23ICULanguageBreakFactoryEEE", !5, i64 0}
+!217 = !{!218, !218, i64 0}
+!218 = !{!"p1 _ZTSN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEEE", !5, i64 0}
+!219 = !{!220, !185, i64 0}
+!220 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_23ICULanguageBreakFactoryEEE", !185, i64 0}
+!221 = !{!192, !5, i64 24}
+!222 = !{!223, !223, i64 0}
+!223 = !{!"p1 _ZTSN6icu_7711ReplaceableE", !5, i64 0}
+!224 = !{!225, !225, i64 0}
+!225 = !{!"p1 _ZTSN6icu_777UObjectE", !5, i64 0}
+!226 = !{!38, !38, i64 0}
+!227 = !{!228, !229, i64 0}
+!228 = !{!"_ZTS7UCPTrie", !229, i64 0, !6, i64 8, !17, i64 16, !17, i64 20, !17, i64 24, !135, i64 28, !6, i64 30, !6, i64 31, !17, i64 32, !135, i64 36, !135, i64 38, !17, i64 40, !17, i64 44}
+!229 = !{!"p1 short", !5, i64 0}
+!230 = !{!228, !17, i64 24}
+!231 = !{!228, !17, i64 20}

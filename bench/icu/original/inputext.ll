@@ -1,98 +1,96 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::InputText" = type <{ ptr, i32, [4 x i8], ptr, i8, [7 x i8], ptr, ptr, i32, [4 x i8] }>
+%"class.icu_77::InputText" = type <{ ptr, i32, [4 x i8], ptr, i8, [7 x i8], ptr, ptr, i32, [4 x i8] }>
 
 $__clang_call_terminate = comdat any
 
-@_ZN6icu_759InputTextC1ER10UErrorCode = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_759InputTextC2ER10UErrorCode
-@_ZN6icu_759InputTextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_759InputTextD2Ev
+@_ZN6icu_779InputTextC1ER10UErrorCode = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_779InputTextC2ER10UErrorCode
+@_ZN6icu_779InputTextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_779InputTextD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759InputTextC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fInputBytes = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 0
-  %call = call noalias ptr @uprv_malloc_75(i64 noundef 8192) #8
-  store ptr %call, ptr %fInputBytes, align 8
-  %fByteStats = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 3
-  %call2 = call noalias ptr @uprv_malloc_75(i64 noundef 512) #8
-  store ptr %call2, ptr %fByteStats, align 8
-  %fDeclaredEncoding = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 6
-  store ptr null, ptr %fDeclaredEncoding, align 8
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 7
-  store ptr null, ptr %fRawInput, align 8
-  %fRawLength = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 8
-  store i32 0, ptr %fRawLength, align 8
-  %fInputBytes3 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %fInputBytes3, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define void @_ZN6icu_779InputTextC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %5, i32 0, i32 0
+  %7 = call noalias ptr @uprv_malloc_77(i64 noundef 8192) #9
+  store ptr %7, ptr %6, align 8, !tbaa !9
+  %8 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %5, i32 0, i32 3
+  %9 = call noalias ptr @uprv_malloc_77(i64 noundef 512) #9
+  store ptr %9, ptr %8, align 8, !tbaa !14
+  %10 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %5, i32 0, i32 6
+  store ptr null, ptr %10, align 8, !tbaa !15
+  %11 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %5, i32 0, i32 7
+  store ptr null, ptr %11, align 8, !tbaa !16
+  %12 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %5, i32 0, i32 8
+  store i32 0, ptr %12, align 8, !tbaa !17
+  %13 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %5, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !9
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %20, label %16
 
-lor.lhs.false:                                    ; preds = %entry
-  %fByteStats4 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %fByteStats4, align 8
-  %cmp5 = icmp eq ptr %1, null
-  br i1 %cmp5, label %if.then, label %if.end
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %5, i32 0, i32 3
+  %18 = load ptr, ptr %17, align 8, !tbaa !14
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %22
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %2, align 4
-  br label %if.end
+20:                                               ; preds = %16, %2
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
+  store i32 7, ptr %21, align 4, !tbaa !18
+  br label %22
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
+22:                                               ; preds = %20, %16
   ret void
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) #1
+declare noalias ptr @uprv_malloc_77(i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759InputTextD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fDeclaredEncoding = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 6
-  %0 = load ptr, ptr %fDeclaredEncoding, align 8
-  invoke void @uprv_free_75(ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define void @_ZN6icu_779InputTextD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  invoke void @uprv_free_77(ptr noundef %5)
+          to label %6 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  %fByteStats = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 3
-  %1 = load ptr, ptr %fByteStats, align 8
-  invoke void @uprv_free_75(ptr noundef %1)
-          to label %invoke.cont2 unwind label %terminate.lpad
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %3, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
+  invoke void @uprv_free_77(ptr noundef %8)
+          to label %9 unwind label %13
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  %fInputBytes = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %fInputBytes, align 8
-  invoke void @uprv_free_75(ptr noundef %2)
-          to label %invoke.cont3 unwind label %terminate.lpad
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %3, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !9
+  invoke void @uprv_free_77(ptr noundef %11)
+          to label %12 unwind label %13
 
-invoke.cont3:                                     ; preds = %invoke.cont2
+12:                                               ; preds = %9
   ret void
 
-terminate.lpad:                                   ; preds = %invoke.cont2, %invoke.cont, %entry
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %9, %6, %1
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 }
 
-declare void @uprv_free_75(ptr noundef) #3
+declare void @uprv_free_77(ptr noundef) #3
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #4 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
-  call void @_ZSt9terminatev() #9
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
+  call void @_ZSt9terminatev() #10
   unreachable
 }
 
@@ -101,40 +99,39 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759InputText7setTextEPKci(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %in, i32 noundef %len) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %in.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %in, ptr %in.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fInputLen = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 1
-  store i32 0, ptr %fInputLen, align 8
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 4
-  store i8 0, ptr %fC1Bytes, align 8
-  %0 = load ptr, ptr %in.addr, align 8
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 7
-  store ptr %0, ptr %fRawInput, align 8
-  %1 = load i32, ptr %len.addr, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %cond.true, label %cond.false
+define void @_ZN6icu_779InputText7setTextEPKci(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 noundef %2) #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store i32 %2, ptr %6, align 4, !tbaa !21
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %7, i32 0, i32 1
+  store i32 0, ptr %8, align 8, !tbaa !22
+  %9 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %7, i32 0, i32 4
+  store i8 0, ptr %9, align 8, !tbaa !23
+  %10 = load ptr, ptr %5, align 8, !tbaa !20
+  %11 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %7, i32 0, i32 7
+  store ptr %10, ptr %11, align 8, !tbaa !16
+  %12 = load i32, ptr %6, align 4, !tbaa !21
+  %13 = icmp eq i32 %12, -1
+  br i1 %13, label %14, label %18
 
-cond.true:                                        ; preds = %entry
-  %2 = load ptr, ptr %in.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #11
-  %conv = trunc i64 %call to i32
-  br label %cond.end
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !20
+  %16 = call i64 @strlen(ptr noundef %15) #12
+  %17 = trunc i64 %16 to i32
+  br label %20
 
-cond.false:                                       ; preds = %entry
-  %3 = load i32, ptr %len.addr, align 4
-  br label %cond.end
+18:                                               ; preds = %3
+  %19 = load i32, ptr %6, align 4, !tbaa !21
+  br label %20
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv, %cond.true ], [ %3, %cond.false ]
-  %fRawLength = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 8
-  store i32 %cond, ptr %fRawLength, align 8
+20:                                               ; preds = %18, %14
+  %21 = phi i32 [ %17, %14 ], [ %19, %18 ]
+  %22 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %7, i32 0, i32 8
+  store i32 %21, ptr %22, align 8, !tbaa !17
   ret void
 }
 
@@ -142,53 +139,52 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759InputText19setDeclaredEncodingEPKci(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %encoding, i32 noundef %len) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %encoding.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %encoding, ptr %encoding.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %encoding.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end9
+define void @_ZN6icu_779InputText19setDeclaredEncodingEPKci(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !20
+  store i32 %2, ptr %6, align 4, !tbaa !21
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !20
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %33
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %len.addr, align 4
-  %cmp = icmp eq i32 %1, -1
-  br i1 %cmp, label %if.then2, label %if.end
+10:                                               ; preds = %3
+  %11 = load i32, ptr %6, align 4, !tbaa !21
+  %12 = icmp eq i32 %11, -1
+  br i1 %12, label %13, label %17
 
-if.then2:                                         ; preds = %if.then
-  %2 = load ptr, ptr %encoding.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #11
-  %conv = trunc i64 %call to i32
-  store i32 %conv, ptr %len.addr, align 4
-  br label %if.end
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %5, align 8, !tbaa !20
+  %15 = call i64 @strlen(ptr noundef %14) #12
+  %16 = trunc i64 %15 to i32
+  store i32 %16, ptr %6, align 4, !tbaa !21
+  br label %17
 
-if.end:                                           ; preds = %if.then2, %if.then
-  %3 = load i32, ptr %len.addr, align 4
-  %add = add nsw i32 %3, 1
-  store i32 %add, ptr %len.addr, align 4
-  %fDeclaredEncoding = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 6
-  %4 = load ptr, ptr %fDeclaredEncoding, align 8
-  call void @uprv_free_75(ptr noundef %4)
-  %5 = load i32, ptr %len.addr, align 4
-  %conv3 = sext i32 %5 to i64
-  %mul = mul i64 %conv3, 1
-  %call4 = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #8
-  %fDeclaredEncoding5 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 6
-  store ptr %call4, ptr %fDeclaredEncoding5, align 8
-  %fDeclaredEncoding6 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 6
-  %6 = load ptr, ptr %fDeclaredEncoding6, align 8
-  %7 = load ptr, ptr %encoding.addr, align 8
-  %8 = load i32, ptr %len.addr, align 4
-  %conv7 = sext i32 %8 to i64
-  %call8 = call ptr @strncpy(ptr noundef %6, ptr noundef %7, i64 noundef %conv7) #10
-  br label %if.end9
+17:                                               ; preds = %13, %10
+  %18 = load i32, ptr %6, align 4, !tbaa !21
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %6, align 4, !tbaa !21
+  %20 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %7, i32 0, i32 6
+  %21 = load ptr, ptr %20, align 8, !tbaa !15
+  call void @uprv_free_77(ptr noundef %21)
+  %22 = load i32, ptr %6, align 4, !tbaa !21
+  %23 = sext i32 %22 to i64
+  %24 = mul i64 %23, 1
+  %25 = call noalias ptr @uprv_malloc_77(i64 noundef %24) #9
+  %26 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %7, i32 0, i32 6
+  store ptr %25, ptr %26, align 8, !tbaa !15
+  %27 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %7, i32 0, i32 6
+  %28 = load ptr, ptr %27, align 8, !tbaa !15
+  %29 = load ptr, ptr %5, align 8, !tbaa !20
+  %30 = load i32, ptr %6, align 4, !tbaa !21
+  %31 = sext i32 %30 to i64
+  %32 = call ptr @strncpy(ptr noundef %28, ptr noundef %29, i64 noundef %31) #11
+  br label %33
 
-if.end9:                                          ; preds = %if.end, %entry
+33:                                               ; preds = %17, %3
   ret void
 }
 
@@ -196,309 +192,366 @@ if.end9:                                          ; preds = %if.end, %entry
 declare ptr @strncpy(ptr noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef signext i8 @_ZNK6icu_759InputText5isSetEv(ptr noundef nonnull align 8 dereferenceable(52) %this) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 7
-  %0 = load ptr, ptr %fRawInput, align 8
-  %cmp = icmp ne ptr %0, null
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+define noundef signext i8 @_ZNK6icu_779InputText5isSetEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %3, i32 0, i32 7
+  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  %6 = icmp ne ptr %5, null
+  %7 = zext i1 %6 to i8
+  ret i8 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_759InputText10MungeInputEa(ptr noundef nonnull align 8 dereferenceable(52) %this, i8 noundef signext %fStripTags) #2 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %fStripTags.addr = alloca i8, align 1
-  %srci = alloca i32, align 4
-  %dsti = alloca i32, align 4
-  %b = alloca i8, align 1
-  %inMarkup = alloca i8, align 1
-  %openTags = alloca i32, align 4
-  %badTags = alloca i32, align 4
-  %limit = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i8 %fStripTags, ptr %fStripTags.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %srci, align 4
-  store i32 0, ptr %dsti, align 4
-  store i8 0, ptr %inMarkup, align 1
-  store i32 0, ptr %openTags, align 4
-  store i32 0, ptr %badTags, align 4
-  %0 = load i8, ptr %fStripTags.addr, align 1
-  %tobool = icmp ne i8 %0, 0
-  br i1 %tobool, label %if.then, label %if.end19
+define void @_ZN6icu_779InputText10MungeInputEa(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 noundef signext %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i8 %1, ptr %4, align 1, !tbaa !24
+  %14 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
+  store i32 0, ptr %5, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  store i32 0, ptr %6, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #11
+  store i8 0, ptr %8, align 1, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  store i32 0, ptr %9, align 4, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  store i32 0, ptr %10, align 4, !tbaa !21
+  %15 = load i8, ptr %4, align 1, !tbaa !24
+  %16 = icmp ne i8 %15, 0
+  br i1 %16, label %17, label %70
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %srci, align 4
-  br label %for.cond
+17:                                               ; preds = %2
+  store i32 0, ptr %5, align 4, !tbaa !21
+  br label %18
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %1 = load i32, ptr %srci, align 4
-  %fRawLength = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 8
-  %2 = load i32, ptr %fRawLength, align 8
-  %cmp = icmp slt i32 %1, %2
-  br i1 %cmp, label %land.rhs, label %land.end
+18:                                               ; preds = %64, %17
+  %19 = load i32, ptr %5, align 4, !tbaa !21
+  %20 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 8
+  %21 = load i32, ptr %20, align 8, !tbaa !17
+  %22 = icmp slt i32 %19, %21
+  br i1 %22, label %23, label %26
 
-land.rhs:                                         ; preds = %for.cond
-  %3 = load i32, ptr %dsti, align 4
-  %cmp2 = icmp slt i32 %3, 8192
-  br label %land.end
+23:                                               ; preds = %18
+  %24 = load i32, ptr %6, align 4, !tbaa !21
+  %25 = icmp slt i32 %24, 8192
+  br label %26
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %4 = phi i1 [ false, %for.cond ], [ %cmp2, %land.rhs ]
-  br i1 %4, label %for.body, label %for.end
+26:                                               ; preds = %23, %18
+  %27 = phi i1 [ false, %18 ], [ %25, %23 ]
+  br i1 %27, label %28, label %67
 
-for.body:                                         ; preds = %land.end
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 7
-  %5 = load ptr, ptr %fRawInput, align 8
-  %6 = load i32, ptr %srci, align 4
-  %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %5, i64 %idxprom
-  %7 = load i8, ptr %arrayidx, align 1
-  store i8 %7, ptr %b, align 1
-  %8 = load i8, ptr %b, align 1
-  %conv = zext i8 %8 to i32
-  %cmp3 = icmp eq i32 %conv, 60
-  br i1 %cmp3, label %if.then4, label %if.end8
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 7
+  %30 = load ptr, ptr %29, align 8, !tbaa !16
+  %31 = load i32, ptr %5, align 4, !tbaa !21
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %34 = load i8, ptr %33, align 1, !tbaa !24
+  store i8 %34, ptr %7, align 1, !tbaa !24
+  %35 = load i8, ptr %7, align 1, !tbaa !24
+  %36 = zext i8 %35 to i32
+  %37 = icmp eq i32 %36, 60
+  br i1 %37, label %38, label %47
 
-if.then4:                                         ; preds = %for.body
-  %9 = load i8, ptr %inMarkup, align 1
-  %tobool5 = trunc i8 %9 to i1
-  br i1 %tobool5, label %if.then6, label %if.end
+38:                                               ; preds = %28
+  %39 = load i8, ptr %8, align 1, !tbaa !25, !range !27, !noundef !28
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %44
 
-if.then6:                                         ; preds = %if.then4
-  %10 = load i32, ptr %badTags, align 4
-  %add = add nsw i32 %10, 1
-  store i32 %add, ptr %badTags, align 4
-  br label %if.end
+41:                                               ; preds = %38
+  %42 = load i32, ptr %10, align 4, !tbaa !21
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %10, align 4, !tbaa !21
+  br label %44
 
-if.end:                                           ; preds = %if.then6, %if.then4
-  store i8 1, ptr %inMarkup, align 1
-  %11 = load i32, ptr %openTags, align 4
-  %add7 = add nsw i32 %11, 1
-  store i32 %add7, ptr %openTags, align 4
-  br label %if.end8
+44:                                               ; preds = %41, %38
+  store i8 1, ptr %8, align 1, !tbaa !25
+  %45 = load i32, ptr %9, align 4, !tbaa !21
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %9, align 4, !tbaa !21
+  br label %47
 
-if.end8:                                          ; preds = %if.end, %for.body
-  %12 = load i8, ptr %inMarkup, align 1
-  %tobool9 = trunc i8 %12 to i1
-  br i1 %tobool9, label %if.end13, label %if.then10
+47:                                               ; preds = %44, %28
+  %48 = load i8, ptr %8, align 1, !tbaa !25, !range !27, !noundef !28
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %58, label %50
 
-if.then10:                                        ; preds = %if.end8
-  %13 = load i8, ptr %b, align 1
-  %fInputBytes = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 0
-  %14 = load ptr, ptr %fInputBytes, align 8
-  %15 = load i32, ptr %dsti, align 4
-  %inc = add nsw i32 %15, 1
-  store i32 %inc, ptr %dsti, align 4
-  %idxprom11 = sext i32 %15 to i64
-  %arrayidx12 = getelementptr inbounds i8, ptr %14, i64 %idxprom11
-  store i8 %13, ptr %arrayidx12, align 1
-  br label %if.end13
+50:                                               ; preds = %47
+  %51 = load i8, ptr %7, align 1, !tbaa !24
+  %52 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8, !tbaa !9
+  %54 = load i32, ptr %6, align 4, !tbaa !21
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %6, align 4, !tbaa !21
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds i8, ptr %53, i64 %56
+  store i8 %51, ptr %57, align 1, !tbaa !24
+  br label %58
 
-if.end13:                                         ; preds = %if.then10, %if.end8
-  %16 = load i8, ptr %b, align 1
-  %conv14 = zext i8 %16 to i32
-  %cmp15 = icmp eq i32 %conv14, 62
-  br i1 %cmp15, label %if.then16, label %if.end17
+58:                                               ; preds = %50, %47
+  %59 = load i8, ptr %7, align 1, !tbaa !24
+  %60 = zext i8 %59 to i32
+  %61 = icmp eq i32 %60, 62
+  br i1 %61, label %62, label %63
 
-if.then16:                                        ; preds = %if.end13
-  store i8 0, ptr %inMarkup, align 1
-  br label %if.end17
+62:                                               ; preds = %58
+  store i8 0, ptr %8, align 1, !tbaa !25
+  br label %63
 
-if.end17:                                         ; preds = %if.then16, %if.end13
-  br label %for.inc
+63:                                               ; preds = %62, %58
+  br label %64
 
-for.inc:                                          ; preds = %if.end17
-  %17 = load i32, ptr %srci, align 4
-  %add18 = add nsw i32 %17, 1
-  store i32 %add18, ptr %srci, align 4
-  br label %for.cond, !llvm.loop !4
+64:                                               ; preds = %63
+  %65 = load i32, ptr %5, align 4, !tbaa !21
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %5, align 4, !tbaa !21
+  br label %18, !llvm.loop !29
 
-for.end:                                          ; preds = %land.end
-  %18 = load i32, ptr %dsti, align 4
-  %fInputLen = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 1
-  store i32 %18, ptr %fInputLen, align 8
-  br label %if.end19
+67:                                               ; preds = %26
+  %68 = load i32, ptr %6, align 4, !tbaa !21
+  %69 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 1
+  store i32 %68, ptr %69, align 8, !tbaa !22
+  br label %70
 
-if.end19:                                         ; preds = %for.end, %entry
-  %19 = load i32, ptr %openTags, align 4
-  %cmp20 = icmp slt i32 %19, 5
-  br i1 %cmp20, label %if.then27, label %lor.lhs.false
+70:                                               ; preds = %67, %2
+  %71 = load i32, ptr %9, align 4, !tbaa !21
+  %72 = icmp slt i32 %71, 5
+  br i1 %72, label %86, label %73
 
-lor.lhs.false:                                    ; preds = %if.end19
-  %20 = load i32, ptr %openTags, align 4
-  %div = sdiv i32 %20, 5
-  %21 = load i32, ptr %badTags, align 4
-  %cmp21 = icmp slt i32 %div, %21
-  br i1 %cmp21, label %if.then27, label %lor.lhs.false22
+73:                                               ; preds = %70
+  %74 = load i32, ptr %9, align 4, !tbaa !21
+  %75 = sdiv i32 %74, 5
+  %76 = load i32, ptr %10, align 4, !tbaa !21
+  %77 = icmp slt i32 %75, %76
+  br i1 %77, label %86, label %78
 
-lor.lhs.false22:                                  ; preds = %lor.lhs.false
-  %fInputLen23 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 1
-  %22 = load i32, ptr %fInputLen23, align 8
-  %cmp24 = icmp slt i32 %22, 100
-  br i1 %cmp24, label %land.lhs.true, label %if.end45
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 1
+  %80 = load i32, ptr %79, align 8, !tbaa !22
+  %81 = icmp slt i32 %80, 100
+  br i1 %81, label %82, label %115
 
-land.lhs.true:                                    ; preds = %lor.lhs.false22
-  %fRawLength25 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 8
-  %23 = load i32, ptr %fRawLength25, align 8
-  %cmp26 = icmp sgt i32 %23, 600
-  br i1 %cmp26, label %if.then27, label %if.end45
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 8
+  %84 = load i32, ptr %83, align 8, !tbaa !17
+  %85 = icmp sgt i32 %84, 600
+  br i1 %85, label %86, label %115
 
-if.then27:                                        ; preds = %land.lhs.true, %lor.lhs.false, %if.end19
-  %fRawLength28 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 8
-  %24 = load i32, ptr %fRawLength28, align 8
-  store i32 %24, ptr %limit, align 4
-  %25 = load i32, ptr %limit, align 4
-  %cmp29 = icmp sgt i32 %25, 8192
-  br i1 %cmp29, label %if.then30, label %if.end31
+86:                                               ; preds = %82, %73, %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %87 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 8
+  %88 = load i32, ptr %87, align 8, !tbaa !17
+  store i32 %88, ptr %11, align 4, !tbaa !21
+  %89 = load i32, ptr %11, align 4, !tbaa !21
+  %90 = icmp sgt i32 %89, 8192
+  br i1 %90, label %91, label %92
 
-if.then30:                                        ; preds = %if.then27
-  store i32 8192, ptr %limit, align 4
-  br label %if.end31
+91:                                               ; preds = %86
+  store i32 8192, ptr %11, align 4, !tbaa !21
+  br label %92
 
-if.end31:                                         ; preds = %if.then30, %if.then27
-  store i32 0, ptr %srci, align 4
-  br label %for.cond32
+92:                                               ; preds = %91, %86
+  store i32 0, ptr %5, align 4, !tbaa !21
+  br label %93
 
-for.cond32:                                       ; preds = %for.inc41, %if.end31
-  %26 = load i32, ptr %srci, align 4
-  %27 = load i32, ptr %limit, align 4
-  %cmp33 = icmp slt i32 %26, %27
-  br i1 %cmp33, label %for.body34, label %for.end43
+93:                                               ; preds = %109, %92
+  %94 = load i32, ptr %5, align 4, !tbaa !21
+  %95 = load i32, ptr %11, align 4, !tbaa !21
+  %96 = icmp slt i32 %94, %95
+  br i1 %96, label %97, label %112
 
-for.body34:                                       ; preds = %for.cond32
-  %fRawInput35 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 7
-  %28 = load ptr, ptr %fRawInput35, align 8
-  %29 = load i32, ptr %srci, align 4
-  %idxprom36 = sext i32 %29 to i64
-  %arrayidx37 = getelementptr inbounds i8, ptr %28, i64 %idxprom36
-  %30 = load i8, ptr %arrayidx37, align 1
-  %fInputBytes38 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 0
-  %31 = load ptr, ptr %fInputBytes38, align 8
-  %32 = load i32, ptr %srci, align 4
-  %idxprom39 = sext i32 %32 to i64
-  %arrayidx40 = getelementptr inbounds i8, ptr %31, i64 %idxprom39
-  store i8 %30, ptr %arrayidx40, align 1
-  br label %for.inc41
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 7
+  %99 = load ptr, ptr %98, align 8, !tbaa !16
+  %100 = load i32, ptr %5, align 4, !tbaa !21
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr %99, i64 %101
+  %103 = load i8, ptr %102, align 1, !tbaa !24
+  %104 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 0
+  %105 = load ptr, ptr %104, align 8, !tbaa !9
+  %106 = load i32, ptr %5, align 4, !tbaa !21
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i8, ptr %105, i64 %107
+  store i8 %103, ptr %108, align 1, !tbaa !24
+  br label %109
 
-for.inc41:                                        ; preds = %for.body34
-  %33 = load i32, ptr %srci, align 4
-  %inc42 = add nsw i32 %33, 1
-  store i32 %inc42, ptr %srci, align 4
-  br label %for.cond32, !llvm.loop !6
+109:                                              ; preds = %97
+  %110 = load i32, ptr %5, align 4, !tbaa !21
+  %111 = add nsw i32 %110, 1
+  store i32 %111, ptr %5, align 4, !tbaa !21
+  br label %93, !llvm.loop !31
 
-for.end43:                                        ; preds = %for.cond32
-  %34 = load i32, ptr %srci, align 4
-  %fInputLen44 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 1
-  store i32 %34, ptr %fInputLen44, align 8
-  br label %if.end45
+112:                                              ; preds = %93
+  %113 = load i32, ptr %5, align 4, !tbaa !21
+  %114 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 1
+  store i32 %113, ptr %114, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  br label %115
 
-if.end45:                                         ; preds = %for.end43, %land.lhs.true, %lor.lhs.false22
-  %fByteStats = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 3
-  %35 = load ptr, ptr %fByteStats, align 8
-  call void @llvm.memset.p0.i64(ptr align 2 %35, i8 0, i64 512, i1 false)
-  store i32 0, ptr %srci, align 4
-  br label %for.cond46
+115:                                              ; preds = %112, %82, %78
+  %116 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 3
+  %117 = load ptr, ptr %116, align 8, !tbaa !14
+  call void @llvm.memset.p0.i64(ptr align 2 %117, i8 0, i64 512, i1 false)
+  store i32 0, ptr %5, align 4, !tbaa !21
+  br label %118
 
-for.cond46:                                       ; preds = %for.inc59, %if.end45
-  %36 = load i32, ptr %srci, align 4
-  %fInputLen47 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 1
-  %37 = load i32, ptr %fInputLen47, align 8
-  %cmp48 = icmp slt i32 %36, %37
-  br i1 %cmp48, label %for.body49, label %for.end61
+118:                                              ; preds = %138, %115
+  %119 = load i32, ptr %5, align 4, !tbaa !21
+  %120 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 1
+  %121 = load i32, ptr %120, align 8, !tbaa !22
+  %122 = icmp slt i32 %119, %121
+  br i1 %122, label %123, label %141
 
-for.body49:                                       ; preds = %for.cond46
-  %fByteStats50 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 3
-  %38 = load ptr, ptr %fByteStats50, align 8
-  %fInputBytes51 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 0
-  %39 = load ptr, ptr %fInputBytes51, align 8
-  %40 = load i32, ptr %srci, align 4
-  %idxprom52 = sext i32 %40 to i64
-  %arrayidx53 = getelementptr inbounds i8, ptr %39, i64 %idxprom52
-  %41 = load i8, ptr %arrayidx53, align 1
-  %idxprom54 = zext i8 %41 to i64
-  %arrayidx55 = getelementptr inbounds i16, ptr %38, i64 %idxprom54
-  %42 = load i16, ptr %arrayidx55, align 2
-  %conv56 = sext i16 %42 to i32
-  %add57 = add nsw i32 %conv56, 1
-  %conv58 = trunc i32 %add57 to i16
-  store i16 %conv58, ptr %arrayidx55, align 2
-  br label %for.inc59
+123:                                              ; preds = %118
+  %124 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 3
+  %125 = load ptr, ptr %124, align 8, !tbaa !14
+  %126 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 0
+  %127 = load ptr, ptr %126, align 8, !tbaa !9
+  %128 = load i32, ptr %5, align 4, !tbaa !21
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds i8, ptr %127, i64 %129
+  %131 = load i8, ptr %130, align 1, !tbaa !24
+  %132 = zext i8 %131 to i64
+  %133 = getelementptr inbounds nuw i16, ptr %125, i64 %132
+  %134 = load i16, ptr %133, align 2, !tbaa !32
+  %135 = sext i16 %134 to i32
+  %136 = add nsw i32 %135, 1
+  %137 = trunc i32 %136 to i16
+  store i16 %137, ptr %133, align 2, !tbaa !32
+  br label %138
 
-for.inc59:                                        ; preds = %for.body49
-  %43 = load i32, ptr %srci, align 4
-  %add60 = add nsw i32 %43, 1
-  store i32 %add60, ptr %srci, align 4
-  br label %for.cond46, !llvm.loop !7
+138:                                              ; preds = %123
+  %139 = load i32, ptr %5, align 4, !tbaa !21
+  %140 = add nsw i32 %139, 1
+  store i32 %140, ptr %5, align 4, !tbaa !21
+  br label %118, !llvm.loop !34
 
-for.end61:                                        ; preds = %for.cond46
-  store i32 128, ptr %i, align 4
-  br label %for.cond62
+141:                                              ; preds = %118
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
+  store i32 128, ptr %12, align 4, !tbaa !21
+  br label %142
 
-for.cond62:                                       ; preds = %for.inc72, %for.end61
-  %44 = load i32, ptr %i, align 4
-  %cmp63 = icmp sle i32 %44, 159
-  br i1 %cmp63, label %for.body64, label %for.end74
+142:                                              ; preds = %158, %141
+  %143 = load i32, ptr %12, align 4, !tbaa !21
+  %144 = icmp sle i32 %143, 159
+  br i1 %144, label %146, label %145
 
-for.body64:                                       ; preds = %for.cond62
-  %fByteStats65 = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 3
-  %45 = load ptr, ptr %fByteStats65, align 8
-  %46 = load i32, ptr %i, align 4
-  %idxprom66 = sext i32 %46 to i64
-  %arrayidx67 = getelementptr inbounds i16, ptr %45, i64 %idxprom66
-  %47 = load i16, ptr %arrayidx67, align 2
-  %conv68 = sext i16 %47 to i32
-  %cmp69 = icmp ne i32 %conv68, 0
-  br i1 %cmp69, label %if.then70, label %if.end71
+145:                                              ; preds = %142
+  store i32 11, ptr %13, align 4
+  br label %161
 
-if.then70:                                        ; preds = %for.body64
-  %fC1Bytes = getelementptr inbounds %"class.icu_75::InputText", ptr %this1, i32 0, i32 4
-  store i8 1, ptr %fC1Bytes, align 8
-  br label %for.end74
+146:                                              ; preds = %142
+  %147 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 3
+  %148 = load ptr, ptr %147, align 8, !tbaa !14
+  %149 = load i32, ptr %12, align 4, !tbaa !21
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds i16, ptr %148, i64 %150
+  %152 = load i16, ptr %151, align 2, !tbaa !32
+  %153 = sext i16 %152 to i32
+  %154 = icmp ne i32 %153, 0
+  br i1 %154, label %155, label %157
 
-if.end71:                                         ; preds = %for.body64
-  br label %for.inc72
+155:                                              ; preds = %146
+  %156 = getelementptr inbounds nuw %"class.icu_77::InputText", ptr %14, i32 0, i32 4
+  store i8 1, ptr %156, align 8, !tbaa !23
+  store i32 11, ptr %13, align 4
+  br label %161
 
-for.inc72:                                        ; preds = %if.end71
-  %48 = load i32, ptr %i, align 4
-  %add73 = add nsw i32 %48, 1
-  store i32 %add73, ptr %i, align 4
-  br label %for.cond62, !llvm.loop !8
+157:                                              ; preds = %146
+  br label %158
 
-for.end74:                                        ; preds = %if.then70, %for.cond62
+158:                                              ; preds = %157
+  %159 = load i32, ptr %12, align 4, !tbaa !21
+  %160 = add nsw i32 %159, 1
+  store i32 %160, ptr %12, align 4, !tbaa !21
+  br label %142, !llvm.loop !35
+
+161:                                              ; preds = %155, %145
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  br label %162
+
+162:                                              ; preds = %161
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { allocsize(0) }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { allocsize(0) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6icu_779InputTextE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"_ZTSN6icu_779InputTextE", !11, i64 0, !12, i64 8, !13, i64 16, !6, i64 24, !11, i64 32, !11, i64 40, !12, i64 48}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!"p1 short", !5, i64 0}
+!14 = !{!10, !13, i64 16}
+!15 = !{!10, !11, i64 32}
+!16 = !{!10, !11, i64 40}
+!17 = !{!10, !12, i64 48}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!20 = !{!11, !11, i64 0}
+!21 = !{!12, !12, i64 0}
+!22 = !{!10, !12, i64 8}
+!23 = !{!10, !6, i64 24}
+!24 = !{!6, !6, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"bool", !6, i64 0}
+!27 = !{i8 0, i8 2}
+!28 = !{}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = distinct !{!31, !30}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"short", !6, i64 0}
+!34 = distinct !{!34, !30}
+!35 = distinct !{!35, !30}

@@ -94,6 +94,7 @@ supported_project = [
     "ms-gsl",
     "harfbuzz",
     "hyperscan",
+    "icu",
 ]
 
 modify_only = [
@@ -125,6 +126,7 @@ modify_only = [
     "gromacs",
     "grpc",
     "hyperscan",
+    "icu",
 ]
 
 

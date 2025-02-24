@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UTrieHeader = type { i32, i32, i32, i32 }
 %struct.UDataSwapper = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -7,1205 +7,1374 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.UCPTrieHeader = type { i32, i16, i16, i16, i16, i16, i16 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utrie_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ds.addr = alloca ptr, align 8
-  %inData.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %outData.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %inTrie = alloca ptr, align 8
-  %trie = alloca %struct.UTrieHeader, align 4
-  %size = alloca i32, align 4
-  %dataIs32 = alloca i8, align 1
-  %outTrie = alloca ptr, align 8
-  store ptr %ds, ptr %ds.addr, align 8
-  store ptr %inData, ptr %inData.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %outData, ptr %outData.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @utrie_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct.UTrieHeader, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store i32 %2, ptr %9, align 4, !tbaa !9
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #6
+  %18 = load ptr, ptr %11, align 8, !tbaa !8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %25, label %20
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %pErrorCode.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %11, align 8, !tbaa !8
+  %22 = load i32, ptr %21, align 4, !tbaa !11
+  %23 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %22)
+  %24 = icmp ne i8 %23, 0
+  br i1 %24, label %25, label %26
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+25:                                               ; preds = %20, %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %220
 
-if.end:                                           ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %ds.addr, align 8
-  %cmp1 = icmp eq ptr %3, null
-  br i1 %cmp1, label %if.then7, label %lor.lhs.false2
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %7, align 8, !tbaa !3
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %38, label %29
 
-lor.lhs.false2:                                   ; preds = %if.end
-  %4 = load ptr, ptr %inData.addr, align 8
-  %cmp3 = icmp eq ptr %4, null
-  br i1 %cmp3, label %if.then7, label %lor.lhs.false4
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %8, align 8, !tbaa !8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %38, label %32
 
-lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %5 = load i32, ptr %length.addr, align 4
-  %cmp5 = icmp sge i32 %5, 0
-  br i1 %cmp5, label %land.lhs.true, label %if.end8
+32:                                               ; preds = %29
+  %33 = load i32, ptr %9, align 4, !tbaa !9
+  %34 = icmp sge i32 %33, 0
+  br i1 %34, label %35, label %40
 
-land.lhs.true:                                    ; preds = %lor.lhs.false4
-  %6 = load ptr, ptr %outData.addr, align 8
-  %cmp6 = icmp eq ptr %6, null
-  br i1 %cmp6, label %if.then7, label %if.end8
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %10, align 8, !tbaa !8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %40
 
-if.then7:                                         ; preds = %land.lhs.true, %lor.lhs.false2, %if.end
-  %7 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %7, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+38:                                               ; preds = %35, %29, %26
+  %39 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 1, ptr %39, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %220
 
-if.end8:                                          ; preds = %land.lhs.true, %lor.lhs.false4
-  %8 = load i32, ptr %length.addr, align 4
-  %cmp9 = icmp sge i32 %8, 0
-  br i1 %cmp9, label %land.lhs.true10, label %if.end13
+40:                                               ; preds = %35, %32
+  %41 = load i32, ptr %9, align 4, !tbaa !9
+  %42 = icmp sge i32 %41, 0
+  br i1 %42, label %43, label %49
 
-land.lhs.true10:                                  ; preds = %if.end8
-  %9 = load i32, ptr %length.addr, align 4
-  %conv = zext i32 %9 to i64
-  %cmp11 = icmp ult i64 %conv, 16
-  br i1 %cmp11, label %if.then12, label %if.end13
+43:                                               ; preds = %40
+  %44 = load i32, ptr %9, align 4, !tbaa !9
+  %45 = zext i32 %44 to i64
+  %46 = icmp ult i64 %45, 16
+  br i1 %46, label %47, label %49
 
-if.then12:                                        ; preds = %land.lhs.true10
-  %10 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %10, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 8, ptr %48, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %220
 
-if.end13:                                         ; preds = %land.lhs.true10, %if.end8
-  %11 = load ptr, ptr %inData.addr, align 8
-  store ptr %11, ptr %inTrie, align 8
-  %12 = load ptr, ptr %ds.addr, align 8
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %12, i32 0, i32 5
-  %13 = load ptr, ptr %readUInt32, align 8
-  %14 = load ptr, ptr %inTrie, align 8
-  %signature = getelementptr inbounds %struct.UTrieHeader, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %signature, align 4
-  %call14 = call noundef i32 %13(i32 noundef %15)
-  %signature15 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 0
-  store i32 %call14, ptr %signature15, align 4
-  %16 = load ptr, ptr %ds.addr, align 8
-  %readUInt3216 = getelementptr inbounds %struct.UDataSwapper, ptr %16, i32 0, i32 5
-  %17 = load ptr, ptr %readUInt3216, align 8
-  %18 = load ptr, ptr %inTrie, align 8
-  %options = getelementptr inbounds %struct.UTrieHeader, ptr %18, i32 0, i32 1
-  %19 = load i32, ptr %options, align 4
-  %call17 = call noundef i32 %17(i32 noundef %19)
-  %options18 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 1
-  store i32 %call17, ptr %options18, align 4
-  %20 = load ptr, ptr %ds.addr, align 8
-  %21 = load ptr, ptr %inTrie, align 8
-  %indexLength = getelementptr inbounds %struct.UTrieHeader, ptr %21, i32 0, i32 2
-  %22 = load i32, ptr %indexLength, align 4
-  %call19 = call i32 @udata_readInt32_75(ptr noundef %20, i32 noundef %22)
-  %indexLength20 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 2
-  store i32 %call19, ptr %indexLength20, align 4
-  %23 = load ptr, ptr %ds.addr, align 8
-  %24 = load ptr, ptr %inTrie, align 8
-  %dataLength = getelementptr inbounds %struct.UTrieHeader, ptr %24, i32 0, i32 3
-  %25 = load i32, ptr %dataLength, align 4
-  %call21 = call i32 @udata_readInt32_75(ptr noundef %23, i32 noundef %25)
-  %dataLength22 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 3
-  store i32 %call21, ptr %dataLength22, align 4
-  %signature23 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 0
-  %26 = load i32, ptr %signature23, align 4
-  %cmp24 = icmp ne i32 %26, 1416784229
-  br i1 %cmp24, label %if.then53, label %lor.lhs.false25
+49:                                               ; preds = %43, %40
+  %50 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %50, ptr %12, align 8, !tbaa !13
+  %51 = load ptr, ptr %7, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %51, i32 0, i32 5
+  %53 = load ptr, ptr %52, align 8, !tbaa !15
+  %54 = load ptr, ptr %12, align 8, !tbaa !13
+  %55 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %54, i32 0, i32 0
+  %56 = load i32, ptr %55, align 4, !tbaa !17
+  %57 = call noundef i32 %53(i32 noundef %56)
+  %58 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 0
+  store i32 %57, ptr %58, align 4, !tbaa !17
+  %59 = load ptr, ptr %7, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %59, i32 0, i32 5
+  %61 = load ptr, ptr %60, align 8, !tbaa !15
+  %62 = load ptr, ptr %12, align 8, !tbaa !13
+  %63 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %62, i32 0, i32 1
+  %64 = load i32, ptr %63, align 4, !tbaa !19
+  %65 = call noundef i32 %61(i32 noundef %64)
+  %66 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 1
+  store i32 %65, ptr %66, align 4, !tbaa !19
+  %67 = load ptr, ptr %7, align 8, !tbaa !3
+  %68 = load ptr, ptr %12, align 8, !tbaa !13
+  %69 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %68, i32 0, i32 2
+  %70 = load i32, ptr %69, align 4, !tbaa !20
+  %71 = call i32 @udata_readInt32_77(ptr noundef %67, i32 noundef %70)
+  %72 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 2
+  store i32 %71, ptr %72, align 4, !tbaa !20
+  %73 = load ptr, ptr %7, align 8, !tbaa !3
+  %74 = load ptr, ptr %12, align 8, !tbaa !13
+  %75 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %74, i32 0, i32 3
+  %76 = load i32, ptr %75, align 4, !tbaa !21
+  %77 = call i32 @udata_readInt32_77(ptr noundef %73, i32 noundef %76)
+  %78 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 3
+  store i32 %77, ptr %78, align 4, !tbaa !21
+  %79 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 0
+  %80 = load i32, ptr %79, align 4, !tbaa !17
+  %81 = icmp ne i32 %80, 1416784229
+  br i1 %81, label %120, label %82
 
-lor.lhs.false25:                                  ; preds = %if.end13
-  %options26 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 1
-  %27 = load i32, ptr %options26, align 4
-  %and = and i32 %27, 15
-  %cmp27 = icmp ne i32 %and, 5
-  br i1 %cmp27, label %if.then53, label %lor.lhs.false28
+82:                                               ; preds = %49
+  %83 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 1
+  %84 = load i32, ptr %83, align 4, !tbaa !19
+  %85 = and i32 %84, 15
+  %86 = icmp ne i32 %85, 5
+  br i1 %86, label %120, label %87
 
-lor.lhs.false28:                                  ; preds = %lor.lhs.false25
-  %options29 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 1
-  %28 = load i32, ptr %options29, align 4
-  %shr = lshr i32 %28, 4
-  %and30 = and i32 %shr, 15
-  %cmp31 = icmp ne i32 %and30, 2
-  br i1 %cmp31, label %if.then53, label %lor.lhs.false32
+87:                                               ; preds = %82
+  %88 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 1
+  %89 = load i32, ptr %88, align 4, !tbaa !19
+  %90 = lshr i32 %89, 4
+  %91 = and i32 %90, 15
+  %92 = icmp ne i32 %91, 2
+  br i1 %92, label %120, label %93
 
-lor.lhs.false32:                                  ; preds = %lor.lhs.false28
-  %indexLength33 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 2
-  %29 = load i32, ptr %indexLength33, align 4
-  %cmp34 = icmp slt i32 %29, 2048
-  br i1 %cmp34, label %if.then53, label %lor.lhs.false35
+93:                                               ; preds = %87
+  %94 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 2
+  %95 = load i32, ptr %94, align 4, !tbaa !20
+  %96 = icmp slt i32 %95, 2048
+  br i1 %96, label %120, label %97
 
-lor.lhs.false35:                                  ; preds = %lor.lhs.false32
-  %indexLength36 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 2
-  %30 = load i32, ptr %indexLength36, align 4
-  %and37 = and i32 %30, 31
-  %cmp38 = icmp ne i32 %and37, 0
-  br i1 %cmp38, label %if.then53, label %lor.lhs.false39
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 2
+  %99 = load i32, ptr %98, align 4, !tbaa !20
+  %100 = and i32 %99, 31
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %120, label %102
 
-lor.lhs.false39:                                  ; preds = %lor.lhs.false35
-  %dataLength40 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 3
-  %31 = load i32, ptr %dataLength40, align 4
-  %cmp41 = icmp slt i32 %31, 32
-  br i1 %cmp41, label %if.then53, label %lor.lhs.false42
+102:                                              ; preds = %97
+  %103 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 3
+  %104 = load i32, ptr %103, align 4, !tbaa !21
+  %105 = icmp slt i32 %104, 32
+  br i1 %105, label %120, label %106
 
-lor.lhs.false42:                                  ; preds = %lor.lhs.false39
-  %dataLength43 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 3
-  %32 = load i32, ptr %dataLength43, align 4
-  %and44 = and i32 %32, 3
-  %cmp45 = icmp ne i32 %and44, 0
-  br i1 %cmp45, label %if.then53, label %lor.lhs.false46
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 3
+  %108 = load i32, ptr %107, align 4, !tbaa !21
+  %109 = and i32 %108, 3
+  %110 = icmp ne i32 %109, 0
+  br i1 %110, label %120, label %111
 
-lor.lhs.false46:                                  ; preds = %lor.lhs.false42
-  %options47 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 1
-  %33 = load i32, ptr %options47, align 4
-  %and48 = and i32 %33, 512
-  %cmp49 = icmp ne i32 %and48, 0
-  br i1 %cmp49, label %land.lhs.true50, label %if.end54
+111:                                              ; preds = %106
+  %112 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 1
+  %113 = load i32, ptr %112, align 4, !tbaa !19
+  %114 = and i32 %113, 512
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %122
 
-land.lhs.true50:                                  ; preds = %lor.lhs.false46
-  %dataLength51 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 3
-  %34 = load i32, ptr %dataLength51, align 4
-  %cmp52 = icmp slt i32 %34, 288
-  br i1 %cmp52, label %if.then53, label %if.end54
+116:                                              ; preds = %111
+  %117 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 3
+  %118 = load i32, ptr %117, align 4, !tbaa !21
+  %119 = icmp slt i32 %118, 288
+  br i1 %119, label %120, label %122
 
-if.then53:                                        ; preds = %land.lhs.true50, %lor.lhs.false42, %lor.lhs.false39, %lor.lhs.false35, %lor.lhs.false32, %lor.lhs.false28, %lor.lhs.false25, %if.end13
-  %35 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 3, ptr %35, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+120:                                              ; preds = %116, %106, %102, %97, %93, %87, %82, %49
+  %121 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 3, ptr %121, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %220
 
-if.end54:                                         ; preds = %land.lhs.true50, %lor.lhs.false46
-  %options55 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 1
-  %36 = load i32, ptr %options55, align 4
-  %and56 = and i32 %36, 256
-  %cmp57 = icmp ne i32 %and56, 0
-  %conv58 = zext i1 %cmp57 to i8
-  store i8 %conv58, ptr %dataIs32, align 1
-  %indexLength59 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 2
-  %37 = load i32, ptr %indexLength59, align 4
-  %mul = mul nsw i32 %37, 2
-  %conv60 = sext i32 %mul to i64
-  %add = add i64 16, %conv60
-  %dataLength61 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 3
-  %38 = load i32, ptr %dataLength61, align 4
-  %39 = load i8, ptr %dataIs32, align 1
-  %tobool62 = icmp ne i8 %39, 0
-  %cond = select i1 %tobool62, i32 4, i32 2
-  %mul63 = mul nsw i32 %38, %cond
-  %conv64 = sext i32 %mul63 to i64
-  %add65 = add i64 %add, %conv64
-  %conv66 = trunc i64 %add65 to i32
-  store i32 %conv66, ptr %size, align 4
-  %40 = load i32, ptr %length.addr, align 4
-  %cmp67 = icmp sge i32 %40, 0
-  br i1 %cmp67, label %if.then68, label %if.end99
+122:                                              ; preds = %116, %111
+  %123 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 1
+  %124 = load i32, ptr %123, align 4, !tbaa !19
+  %125 = and i32 %124, 256
+  %126 = icmp ne i32 %125, 0
+  %127 = zext i1 %126 to i8
+  store i8 %127, ptr %15, align 1, !tbaa !22
+  %128 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 2
+  %129 = load i32, ptr %128, align 4, !tbaa !20
+  %130 = mul nsw i32 %129, 2
+  %131 = sext i32 %130 to i64
+  %132 = add i64 16, %131
+  %133 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 3
+  %134 = load i32, ptr %133, align 4, !tbaa !21
+  %135 = load i8, ptr %15, align 1, !tbaa !22
+  %136 = icmp ne i8 %135, 0
+  %137 = select i1 %136, i32 4, i32 2
+  %138 = mul nsw i32 %134, %137
+  %139 = sext i32 %138 to i64
+  %140 = add i64 %132, %139
+  %141 = trunc i64 %140 to i32
+  store i32 %141, ptr %14, align 4, !tbaa !9
+  %142 = load i32, ptr %9, align 4, !tbaa !9
+  %143 = icmp sge i32 %142, 0
+  br i1 %143, label %144, label %218
 
-if.then68:                                        ; preds = %if.end54
-  %41 = load i32, ptr %length.addr, align 4
-  %42 = load i32, ptr %size, align 4
-  %cmp69 = icmp slt i32 %41, %42
-  br i1 %cmp69, label %if.then70, label %if.end71
+144:                                              ; preds = %122
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %145 = load i32, ptr %9, align 4, !tbaa !9
+  %146 = load i32, ptr %14, align 4, !tbaa !9
+  %147 = icmp slt i32 %145, %146
+  br i1 %147, label %148, label %150
 
-if.then70:                                        ; preds = %if.then68
-  %43 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %43, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+148:                                              ; preds = %144
+  %149 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 8, ptr %149, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %215
 
-if.end71:                                         ; preds = %if.then68
-  %44 = load ptr, ptr %outData.addr, align 8
-  store ptr %44, ptr %outTrie, align 8
-  %45 = load ptr, ptr %ds.addr, align 8
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %45, i32 0, i32 10
-  %46 = load ptr, ptr %swapArray32, align 8
-  %47 = load ptr, ptr %ds.addr, align 8
-  %48 = load ptr, ptr %inTrie, align 8
-  %49 = load ptr, ptr %outTrie, align 8
-  %50 = load ptr, ptr %pErrorCode.addr, align 8
-  %call72 = call noundef i32 %46(ptr noundef %47, ptr noundef %48, i32 noundef 16, ptr noundef %49, ptr noundef %50)
-  %51 = load i8, ptr %dataIs32, align 1
-  %tobool73 = icmp ne i8 %51, 0
-  br i1 %tobool73, label %if.then74, label %if.else
+150:                                              ; preds = %144
+  %151 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %151, ptr %17, align 8, !tbaa !13
+  %152 = load ptr, ptr %7, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %152, i32 0, i32 10
+  %154 = load ptr, ptr %153, align 8, !tbaa !23
+  %155 = load ptr, ptr %7, align 8, !tbaa !3
+  %156 = load ptr, ptr %12, align 8, !tbaa !13
+  %157 = load ptr, ptr %17, align 8, !tbaa !13
+  %158 = load ptr, ptr %11, align 8, !tbaa !8
+  %159 = call noundef i32 %154(ptr noundef %155, ptr noundef %156, i32 noundef 16, ptr noundef %157, ptr noundef %158)
+  %160 = load i8, ptr %15, align 1, !tbaa !22
+  %161 = icmp ne i8 %160, 0
+  br i1 %161, label %162, label %197
 
-if.then74:                                        ; preds = %if.end71
-  %52 = load ptr, ptr %ds.addr, align 8
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %52, i32 0, i32 9
-  %53 = load ptr, ptr %swapArray16, align 8
-  %54 = load ptr, ptr %ds.addr, align 8
-  %55 = load ptr, ptr %inTrie, align 8
-  %add.ptr = getelementptr inbounds %struct.UTrieHeader, ptr %55, i64 1
-  %indexLength75 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 2
-  %56 = load i32, ptr %indexLength75, align 4
-  %mul76 = mul nsw i32 %56, 2
-  %57 = load ptr, ptr %outTrie, align 8
-  %add.ptr77 = getelementptr inbounds %struct.UTrieHeader, ptr %57, i64 1
-  %58 = load ptr, ptr %pErrorCode.addr, align 8
-  %call78 = call noundef i32 %53(ptr noundef %54, ptr noundef %add.ptr, i32 noundef %mul76, ptr noundef %add.ptr77, ptr noundef %58)
-  %59 = load ptr, ptr %ds.addr, align 8
-  %swapArray3279 = getelementptr inbounds %struct.UDataSwapper, ptr %59, i32 0, i32 10
-  %60 = load ptr, ptr %swapArray3279, align 8
-  %61 = load ptr, ptr %ds.addr, align 8
-  %62 = load ptr, ptr %inTrie, align 8
-  %add.ptr80 = getelementptr inbounds %struct.UTrieHeader, ptr %62, i64 1
-  %indexLength81 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 2
-  %63 = load i32, ptr %indexLength81, align 4
-  %idx.ext = sext i32 %63 to i64
-  %add.ptr82 = getelementptr inbounds i16, ptr %add.ptr80, i64 %idx.ext
-  %dataLength83 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 3
-  %64 = load i32, ptr %dataLength83, align 4
-  %mul84 = mul nsw i32 %64, 4
-  %65 = load ptr, ptr %outTrie, align 8
-  %add.ptr85 = getelementptr inbounds %struct.UTrieHeader, ptr %65, i64 1
-  %indexLength86 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 2
-  %66 = load i32, ptr %indexLength86, align 4
-  %idx.ext87 = sext i32 %66 to i64
-  %add.ptr88 = getelementptr inbounds i16, ptr %add.ptr85, i64 %idx.ext87
-  %67 = load ptr, ptr %pErrorCode.addr, align 8
-  %call89 = call noundef i32 %60(ptr noundef %61, ptr noundef %add.ptr82, i32 noundef %mul84, ptr noundef %add.ptr88, ptr noundef %67)
-  br label %if.end98
+162:                                              ; preds = %150
+  %163 = load ptr, ptr %7, align 8, !tbaa !3
+  %164 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %163, i32 0, i32 9
+  %165 = load ptr, ptr %164, align 8, !tbaa !24
+  %166 = load ptr, ptr %7, align 8, !tbaa !3
+  %167 = load ptr, ptr %12, align 8, !tbaa !13
+  %168 = getelementptr inbounds %struct.UTrieHeader, ptr %167, i64 1
+  %169 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 2
+  %170 = load i32, ptr %169, align 4, !tbaa !20
+  %171 = mul nsw i32 %170, 2
+  %172 = load ptr, ptr %17, align 8, !tbaa !13
+  %173 = getelementptr inbounds %struct.UTrieHeader, ptr %172, i64 1
+  %174 = load ptr, ptr %11, align 8, !tbaa !8
+  %175 = call noundef i32 %165(ptr noundef %166, ptr noundef %168, i32 noundef %171, ptr noundef %173, ptr noundef %174)
+  %176 = load ptr, ptr %7, align 8, !tbaa !3
+  %177 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %176, i32 0, i32 10
+  %178 = load ptr, ptr %177, align 8, !tbaa !23
+  %179 = load ptr, ptr %7, align 8, !tbaa !3
+  %180 = load ptr, ptr %12, align 8, !tbaa !13
+  %181 = getelementptr inbounds %struct.UTrieHeader, ptr %180, i64 1
+  %182 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 2
+  %183 = load i32, ptr %182, align 4, !tbaa !20
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds i16, ptr %181, i64 %184
+  %186 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 3
+  %187 = load i32, ptr %186, align 4, !tbaa !21
+  %188 = mul nsw i32 %187, 4
+  %189 = load ptr, ptr %17, align 8, !tbaa !13
+  %190 = getelementptr inbounds %struct.UTrieHeader, ptr %189, i64 1
+  %191 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 2
+  %192 = load i32, ptr %191, align 4, !tbaa !20
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds i16, ptr %190, i64 %193
+  %195 = load ptr, ptr %11, align 8, !tbaa !8
+  %196 = call noundef i32 %178(ptr noundef %179, ptr noundef %185, i32 noundef %188, ptr noundef %194, ptr noundef %195)
+  br label %214
 
-if.else:                                          ; preds = %if.end71
-  %68 = load ptr, ptr %ds.addr, align 8
-  %swapArray1690 = getelementptr inbounds %struct.UDataSwapper, ptr %68, i32 0, i32 9
-  %69 = load ptr, ptr %swapArray1690, align 8
-  %70 = load ptr, ptr %ds.addr, align 8
-  %71 = load ptr, ptr %inTrie, align 8
-  %add.ptr91 = getelementptr inbounds %struct.UTrieHeader, ptr %71, i64 1
-  %indexLength92 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 2
-  %72 = load i32, ptr %indexLength92, align 4
-  %dataLength93 = getelementptr inbounds %struct.UTrieHeader, ptr %trie, i32 0, i32 3
-  %73 = load i32, ptr %dataLength93, align 4
-  %add94 = add nsw i32 %72, %73
-  %mul95 = mul nsw i32 %add94, 2
-  %74 = load ptr, ptr %outTrie, align 8
-  %add.ptr96 = getelementptr inbounds %struct.UTrieHeader, ptr %74, i64 1
-  %75 = load ptr, ptr %pErrorCode.addr, align 8
-  %call97 = call noundef i32 %69(ptr noundef %70, ptr noundef %add.ptr91, i32 noundef %mul95, ptr noundef %add.ptr96, ptr noundef %75)
-  br label %if.end98
+197:                                              ; preds = %150
+  %198 = load ptr, ptr %7, align 8, !tbaa !3
+  %199 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %198, i32 0, i32 9
+  %200 = load ptr, ptr %199, align 8, !tbaa !24
+  %201 = load ptr, ptr %7, align 8, !tbaa !3
+  %202 = load ptr, ptr %12, align 8, !tbaa !13
+  %203 = getelementptr inbounds %struct.UTrieHeader, ptr %202, i64 1
+  %204 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 2
+  %205 = load i32, ptr %204, align 4, !tbaa !20
+  %206 = getelementptr inbounds nuw %struct.UTrieHeader, ptr %13, i32 0, i32 3
+  %207 = load i32, ptr %206, align 4, !tbaa !21
+  %208 = add nsw i32 %205, %207
+  %209 = mul nsw i32 %208, 2
+  %210 = load ptr, ptr %17, align 8, !tbaa !13
+  %211 = getelementptr inbounds %struct.UTrieHeader, ptr %210, i64 1
+  %212 = load ptr, ptr %11, align 8, !tbaa !8
+  %213 = call noundef i32 %200(ptr noundef %201, ptr noundef %203, i32 noundef %209, ptr noundef %211, ptr noundef %212)
+  br label %214
 
-if.end98:                                         ; preds = %if.else, %if.then74
-  br label %if.end99
+214:                                              ; preds = %197, %162
+  store i32 0, ptr %16, align 4
+  br label %215
 
-if.end99:                                         ; preds = %if.end98, %if.end54
-  %76 = load i32, ptr %size, align 4
-  store i32 %76, ptr %retval, align 4
-  br label %return
+215:                                              ; preds = %214, %148
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  %216 = load i32, ptr %16, align 4
+  switch i32 %216, label %220 [
+    i32 0, label %217
+  ]
 
-return:                                           ; preds = %if.end99, %if.then70, %if.then53, %if.then12, %if.then7, %if.then
-  %77 = load i32, ptr %retval, align 4
-  ret i32 %77
+217:                                              ; preds = %215
+  br label %218
+
+218:                                              ; preds = %217, %122
+  %219 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %219, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %220
+
+220:                                              ; preds = %218, %215, %120, %47, %38, %25
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %221 = load i32, ptr %6, align 4
+  ret i32 %221
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %code) #1 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %4 = icmp sgt i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
-declare i32 @udata_readInt32_75(ptr noundef, i32 noundef) #2
+declare i32 @udata_readInt32_77(ptr noundef, i32 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utrie2_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ds.addr = alloca ptr, align 8
-  %inData.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %outData.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %inTrie = alloca ptr, align 8
-  %trie = alloca %struct.UTrie2Header, align 4
-  %dataLength = alloca i32, align 4
-  %size = alloca i32, align 4
-  %valueBits = alloca i32, align 4
-  %outTrie = alloca ptr, align 8
-  store ptr %ds, ptr %ds.addr, align 8
-  store ptr %inData, ptr %inData.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %outData, ptr %outData.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define i32 @utrie2_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct.UTrie2Header, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store i32 %2, ptr %9, align 4, !tbaa !9
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %19 = load ptr, ptr %11, align 8, !tbaa !8
+  %20 = load i32, ptr %19, align 4, !tbaa !11
+  %21 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %20)
+  %22 = icmp ne i8 %21, 0
+  br i1 %22, label %23, label %24
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %222
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ds.addr, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then5, label %lor.lhs.false
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %7, align 8, !tbaa !3
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %36, label %27
 
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load ptr, ptr %inData.addr, align 8
-  %cmp1 = icmp eq ptr %3, null
-  br i1 %cmp1, label %if.then5, label %lor.lhs.false2
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %8, align 8, !tbaa !8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %36, label %30
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %4 = load i32, ptr %length.addr, align 4
-  %cmp3 = icmp sge i32 %4, 0
-  br i1 %cmp3, label %land.lhs.true, label %if.end6
+30:                                               ; preds = %27
+  %31 = load i32, ptr %9, align 4, !tbaa !9
+  %32 = icmp sge i32 %31, 0
+  br i1 %32, label %33, label %38
 
-land.lhs.true:                                    ; preds = %lor.lhs.false2
-  %5 = load ptr, ptr %outData.addr, align 8
-  %cmp4 = icmp eq ptr %5, null
-  br i1 %cmp4, label %if.then5, label %if.end6
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %10, align 8, !tbaa !8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %38
 
-if.then5:                                         ; preds = %land.lhs.true, %lor.lhs.false, %if.end
-  %6 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %6, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %33, %27, %24
+  %37 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 1, ptr %37, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %222
 
-if.end6:                                          ; preds = %land.lhs.true, %lor.lhs.false2
-  %7 = load i32, ptr %length.addr, align 4
-  %cmp7 = icmp sge i32 %7, 0
-  br i1 %cmp7, label %land.lhs.true8, label %if.end11
+38:                                               ; preds = %33, %30
+  %39 = load i32, ptr %9, align 4, !tbaa !9
+  %40 = icmp sge i32 %39, 0
+  br i1 %40, label %41, label %46
 
-land.lhs.true8:                                   ; preds = %if.end6
-  %8 = load i32, ptr %length.addr, align 4
-  %cmp9 = icmp slt i32 %8, 16
-  br i1 %cmp9, label %if.then10, label %if.end11
+41:                                               ; preds = %38
+  %42 = load i32, ptr %9, align 4, !tbaa !9
+  %43 = icmp slt i32 %42, 16
+  br i1 %43, label %44, label %46
 
-if.then10:                                        ; preds = %land.lhs.true8
-  %9 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %9, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 8, ptr %45, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %222
 
-if.end11:                                         ; preds = %land.lhs.true8, %if.end6
-  %10 = load ptr, ptr %inData.addr, align 8
-  store ptr %10, ptr %inTrie, align 8
-  %11 = load ptr, ptr %ds.addr, align 8
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %11, i32 0, i32 5
-  %12 = load ptr, ptr %readUInt32, align 8
-  %13 = load ptr, ptr %inTrie, align 8
-  %signature = getelementptr inbounds %struct.UTrie2Header, ptr %13, i32 0, i32 0
-  %14 = load i32, ptr %signature, align 4
-  %call12 = call noundef i32 %12(i32 noundef %14)
-  %signature13 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 0
-  store i32 %call12, ptr %signature13, align 4
-  %15 = load ptr, ptr %ds.addr, align 8
-  %readUInt16 = getelementptr inbounds %struct.UDataSwapper, ptr %15, i32 0, i32 4
-  %16 = load ptr, ptr %readUInt16, align 8
-  %17 = load ptr, ptr %inTrie, align 8
-  %options = getelementptr inbounds %struct.UTrie2Header, ptr %17, i32 0, i32 1
-  %18 = load i16, ptr %options, align 4
-  %call14 = call noundef zeroext i16 %16(i16 noundef zeroext %18)
-  %options15 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 1
-  store i16 %call14, ptr %options15, align 4
-  %19 = load ptr, ptr %ds.addr, align 8
-  %readUInt1616 = getelementptr inbounds %struct.UDataSwapper, ptr %19, i32 0, i32 4
-  %20 = load ptr, ptr %readUInt1616, align 8
-  %21 = load ptr, ptr %inTrie, align 8
-  %indexLength = getelementptr inbounds %struct.UTrie2Header, ptr %21, i32 0, i32 2
-  %22 = load i16, ptr %indexLength, align 2
-  %call17 = call noundef zeroext i16 %20(i16 noundef zeroext %22)
-  %indexLength18 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 2
-  store i16 %call17, ptr %indexLength18, align 2
-  %23 = load ptr, ptr %ds.addr, align 8
-  %readUInt1619 = getelementptr inbounds %struct.UDataSwapper, ptr %23, i32 0, i32 4
-  %24 = load ptr, ptr %readUInt1619, align 8
-  %25 = load ptr, ptr %inTrie, align 8
-  %shiftedDataLength = getelementptr inbounds %struct.UTrie2Header, ptr %25, i32 0, i32 3
-  %26 = load i16, ptr %shiftedDataLength, align 4
-  %call20 = call noundef zeroext i16 %24(i16 noundef zeroext %26)
-  %shiftedDataLength21 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 3
-  store i16 %call20, ptr %shiftedDataLength21, align 4
-  %options22 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 1
-  %27 = load i16, ptr %options22, align 4
-  %conv = zext i16 %27 to i32
-  %and = and i32 %conv, 15
-  store i32 %and, ptr %valueBits, align 4
-  %shiftedDataLength23 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 3
-  %28 = load i16, ptr %shiftedDataLength23, align 4
-  %conv24 = zext i16 %28 to i32
-  %shl = shl i32 %conv24, 2
-  store i32 %shl, ptr %dataLength, align 4
-  %signature25 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 0
-  %29 = load i32, ptr %signature25, align 4
-  %cmp26 = icmp ne i32 %29, 1416784178
-  br i1 %cmp26, label %if.then37, label %lor.lhs.false27
+46:                                               ; preds = %41, %38
+  %47 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %47, ptr %12, align 8, !tbaa !25
+  %48 = load ptr, ptr %7, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %48, i32 0, i32 5
+  %50 = load ptr, ptr %49, align 8, !tbaa !15
+  %51 = load ptr, ptr %12, align 8, !tbaa !25
+  %52 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr %52, align 4, !tbaa !27
+  %54 = call noundef i32 %50(i32 noundef %53)
+  %55 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 0
+  store i32 %54, ptr %55, align 4, !tbaa !27
+  %56 = load ptr, ptr %7, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %56, i32 0, i32 4
+  %58 = load ptr, ptr %57, align 8, !tbaa !30
+  %59 = load ptr, ptr %12, align 8, !tbaa !25
+  %60 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %59, i32 0, i32 1
+  %61 = load i16, ptr %60, align 4, !tbaa !31
+  %62 = call noundef zeroext i16 %58(i16 noundef zeroext %61)
+  %63 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 1
+  store i16 %62, ptr %63, align 4, !tbaa !31
+  %64 = load ptr, ptr %7, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %64, i32 0, i32 4
+  %66 = load ptr, ptr %65, align 8, !tbaa !30
+  %67 = load ptr, ptr %12, align 8, !tbaa !25
+  %68 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %67, i32 0, i32 2
+  %69 = load i16, ptr %68, align 2, !tbaa !32
+  %70 = call noundef zeroext i16 %66(i16 noundef zeroext %69)
+  %71 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 2
+  store i16 %70, ptr %71, align 2, !tbaa !32
+  %72 = load ptr, ptr %7, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %72, i32 0, i32 4
+  %74 = load ptr, ptr %73, align 8, !tbaa !30
+  %75 = load ptr, ptr %12, align 8, !tbaa !25
+  %76 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %75, i32 0, i32 3
+  %77 = load i16, ptr %76, align 4, !tbaa !33
+  %78 = call noundef zeroext i16 %74(i16 noundef zeroext %77)
+  %79 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 3
+  store i16 %78, ptr %79, align 4, !tbaa !33
+  %80 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 1
+  %81 = load i16, ptr %80, align 4, !tbaa !31
+  %82 = zext i16 %81 to i32
+  %83 = and i32 %82, 15
+  store i32 %83, ptr %16, align 4, !tbaa !34
+  %84 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 3
+  %85 = load i16, ptr %84, align 4, !tbaa !33
+  %86 = zext i16 %85 to i32
+  %87 = shl i32 %86, 2
+  store i32 %87, ptr %14, align 4, !tbaa !9
+  %88 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 0
+  %89 = load i32, ptr %88, align 4, !tbaa !27
+  %90 = icmp ne i32 %89, 1416784178
+  br i1 %90, label %105, label %91
 
-lor.lhs.false27:                                  ; preds = %if.end11
-  %30 = load i32, ptr %valueBits, align 4
-  %cmp28 = icmp slt i32 %30, 0
-  br i1 %cmp28, label %if.then37, label %lor.lhs.false29
+91:                                               ; preds = %46
+  %92 = load i32, ptr %16, align 4, !tbaa !34
+  %93 = icmp slt i32 %92, 0
+  br i1 %93, label %105, label %94
 
-lor.lhs.false29:                                  ; preds = %lor.lhs.false27
-  %31 = load i32, ptr %valueBits, align 4
-  %cmp30 = icmp sle i32 2, %31
-  br i1 %cmp30, label %if.then37, label %lor.lhs.false31
+94:                                               ; preds = %91
+  %95 = load i32, ptr %16, align 4, !tbaa !34
+  %96 = icmp sle i32 2, %95
+  br i1 %96, label %105, label %97
 
-lor.lhs.false31:                                  ; preds = %lor.lhs.false29
-  %indexLength32 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 2
-  %32 = load i16, ptr %indexLength32, align 2
-  %conv33 = zext i16 %32 to i32
-  %cmp34 = icmp slt i32 %conv33, 2112
-  br i1 %cmp34, label %if.then37, label %lor.lhs.false35
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 2
+  %99 = load i16, ptr %98, align 2, !tbaa !32
+  %100 = zext i16 %99 to i32
+  %101 = icmp slt i32 %100, 2112
+  br i1 %101, label %105, label %102
 
-lor.lhs.false35:                                  ; preds = %lor.lhs.false31
-  %33 = load i32, ptr %dataLength, align 4
-  %cmp36 = icmp slt i32 %33, 192
-  br i1 %cmp36, label %if.then37, label %if.end38
+102:                                              ; preds = %97
+  %103 = load i32, ptr %14, align 4, !tbaa !9
+  %104 = icmp slt i32 %103, 192
+  br i1 %104, label %105, label %107
 
-if.then37:                                        ; preds = %lor.lhs.false35, %lor.lhs.false31, %lor.lhs.false29, %lor.lhs.false27, %if.end11
-  %34 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 3, ptr %34, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+105:                                              ; preds = %102, %97, %94, %91, %46
+  %106 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 3, ptr %106, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %222
 
-if.end38:                                         ; preds = %lor.lhs.false35
-  %indexLength39 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 2
-  %35 = load i16, ptr %indexLength39, align 2
-  %conv40 = zext i16 %35 to i32
-  %mul = mul nsw i32 %conv40, 2
-  %conv41 = sext i32 %mul to i64
-  %add = add i64 16, %conv41
-  %conv42 = trunc i64 %add to i32
-  store i32 %conv42, ptr %size, align 4
-  %36 = load i32, ptr %valueBits, align 4
-  switch i32 %36, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb45
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 2
+  %109 = load i16, ptr %108, align 2, !tbaa !32
+  %110 = zext i16 %109 to i32
+  %111 = mul nsw i32 %110, 2
+  %112 = sext i32 %111 to i64
+  %113 = add i64 16, %112
+  %114 = trunc i64 %113 to i32
+  store i32 %114, ptr %15, align 4, !tbaa !9
+  %115 = load i32, ptr %16, align 4, !tbaa !34
+  switch i32 %115, label %126 [
+    i32 0, label %116
+    i32 1, label %121
   ]
 
-sw.bb:                                            ; preds = %if.end38
-  %37 = load i32, ptr %dataLength, align 4
-  %mul43 = mul nsw i32 %37, 2
-  %38 = load i32, ptr %size, align 4
-  %add44 = add nsw i32 %38, %mul43
-  store i32 %add44, ptr %size, align 4
-  br label %sw.epilog
+116:                                              ; preds = %107
+  %117 = load i32, ptr %14, align 4, !tbaa !9
+  %118 = mul nsw i32 %117, 2
+  %119 = load i32, ptr %15, align 4, !tbaa !9
+  %120 = add nsw i32 %119, %118
+  store i32 %120, ptr %15, align 4, !tbaa !9
+  br label %128
 
-sw.bb45:                                          ; preds = %if.end38
-  %39 = load i32, ptr %dataLength, align 4
-  %mul46 = mul nsw i32 %39, 4
-  %40 = load i32, ptr %size, align 4
-  %add47 = add nsw i32 %40, %mul46
-  store i32 %add47, ptr %size, align 4
-  br label %sw.epilog
+121:                                              ; preds = %107
+  %122 = load i32, ptr %14, align 4, !tbaa !9
+  %123 = mul nsw i32 %122, 4
+  %124 = load i32, ptr %15, align 4, !tbaa !9
+  %125 = add nsw i32 %124, %123
+  store i32 %125, ptr %15, align 4, !tbaa !9
+  br label %128
 
-sw.default:                                       ; preds = %if.end38
-  %41 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 3, ptr %41, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+126:                                              ; preds = %107
+  %127 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 3, ptr %127, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %222
 
-sw.epilog:                                        ; preds = %sw.bb45, %sw.bb
-  %42 = load i32, ptr %length.addr, align 4
-  %cmp48 = icmp sge i32 %42, 0
-  br i1 %cmp48, label %if.then49, label %if.end89
+128:                                              ; preds = %121, %116
+  %129 = load i32, ptr %9, align 4, !tbaa !9
+  %130 = icmp sge i32 %129, 0
+  br i1 %130, label %131, label %220
 
-if.then49:                                        ; preds = %sw.epilog
-  %43 = load i32, ptr %length.addr, align 4
-  %44 = load i32, ptr %size, align 4
-  %cmp50 = icmp slt i32 %43, %44
-  br i1 %cmp50, label %if.then51, label %if.end52
+131:                                              ; preds = %128
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  %132 = load i32, ptr %9, align 4, !tbaa !9
+  %133 = load i32, ptr %15, align 4, !tbaa !9
+  %134 = icmp slt i32 %132, %133
+  br i1 %134, label %135, label %137
 
-if.then51:                                        ; preds = %if.then49
-  %45 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %45, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+135:                                              ; preds = %131
+  %136 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 8, ptr %136, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %217
 
-if.end52:                                         ; preds = %if.then49
-  %46 = load ptr, ptr %outData.addr, align 8
-  store ptr %46, ptr %outTrie, align 8
-  %47 = load ptr, ptr %ds.addr, align 8
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %47, i32 0, i32 10
-  %48 = load ptr, ptr %swapArray32, align 8
-  %49 = load ptr, ptr %ds.addr, align 8
-  %50 = load ptr, ptr %inTrie, align 8
-  %signature53 = getelementptr inbounds %struct.UTrie2Header, ptr %50, i32 0, i32 0
-  %51 = load ptr, ptr %outTrie, align 8
-  %signature54 = getelementptr inbounds %struct.UTrie2Header, ptr %51, i32 0, i32 0
-  %52 = load ptr, ptr %pErrorCode.addr, align 8
-  %call55 = call noundef i32 %48(ptr noundef %49, ptr noundef %signature53, i32 noundef 4, ptr noundef %signature54, ptr noundef %52)
-  %53 = load ptr, ptr %ds.addr, align 8
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %53, i32 0, i32 9
-  %54 = load ptr, ptr %swapArray16, align 8
-  %55 = load ptr, ptr %ds.addr, align 8
-  %56 = load ptr, ptr %inTrie, align 8
-  %options56 = getelementptr inbounds %struct.UTrie2Header, ptr %56, i32 0, i32 1
-  %57 = load ptr, ptr %outTrie, align 8
-  %options57 = getelementptr inbounds %struct.UTrie2Header, ptr %57, i32 0, i32 1
-  %58 = load ptr, ptr %pErrorCode.addr, align 8
-  %call58 = call noundef i32 %54(ptr noundef %55, ptr noundef %options56, i32 noundef 12, ptr noundef %options57, ptr noundef %58)
-  %59 = load i32, ptr %valueBits, align 4
-  switch i32 %59, label %sw.default87 [
-    i32 0, label %sw.bb59
-    i32 1, label %sw.bb67
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %138, ptr %18, align 8, !tbaa !25
+  %139 = load ptr, ptr %7, align 8, !tbaa !3
+  %140 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %139, i32 0, i32 10
+  %141 = load ptr, ptr %140, align 8, !tbaa !23
+  %142 = load ptr, ptr %7, align 8, !tbaa !3
+  %143 = load ptr, ptr %12, align 8, !tbaa !25
+  %144 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %143, i32 0, i32 0
+  %145 = load ptr, ptr %18, align 8, !tbaa !25
+  %146 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %145, i32 0, i32 0
+  %147 = load ptr, ptr %11, align 8, !tbaa !8
+  %148 = call noundef i32 %141(ptr noundef %142, ptr noundef %144, i32 noundef 4, ptr noundef %146, ptr noundef %147)
+  %149 = load ptr, ptr %7, align 8, !tbaa !3
+  %150 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %149, i32 0, i32 9
+  %151 = load ptr, ptr %150, align 8, !tbaa !24
+  %152 = load ptr, ptr %7, align 8, !tbaa !3
+  %153 = load ptr, ptr %12, align 8, !tbaa !25
+  %154 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %18, align 8, !tbaa !25
+  %156 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %155, i32 0, i32 1
+  %157 = load ptr, ptr %11, align 8, !tbaa !8
+  %158 = call noundef i32 %151(ptr noundef %152, ptr noundef %154, i32 noundef 12, ptr noundef %156, ptr noundef %157)
+  %159 = load i32, ptr %16, align 4, !tbaa !34
+  switch i32 %159, label %214 [
+    i32 0, label %160
+    i32 1, label %177
   ]
 
-sw.bb59:                                          ; preds = %if.end52
-  %60 = load ptr, ptr %ds.addr, align 8
-  %swapArray1660 = getelementptr inbounds %struct.UDataSwapper, ptr %60, i32 0, i32 9
-  %61 = load ptr, ptr %swapArray1660, align 8
-  %62 = load ptr, ptr %ds.addr, align 8
-  %63 = load ptr, ptr %inTrie, align 8
-  %add.ptr = getelementptr inbounds %struct.UTrie2Header, ptr %63, i64 1
-  %indexLength61 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 2
-  %64 = load i16, ptr %indexLength61, align 2
-  %conv62 = zext i16 %64 to i32
-  %65 = load i32, ptr %dataLength, align 4
-  %add63 = add nsw i32 %conv62, %65
-  %mul64 = mul nsw i32 %add63, 2
-  %66 = load ptr, ptr %outTrie, align 8
-  %add.ptr65 = getelementptr inbounds %struct.UTrie2Header, ptr %66, i64 1
-  %67 = load ptr, ptr %pErrorCode.addr, align 8
-  %call66 = call noundef i32 %61(ptr noundef %62, ptr noundef %add.ptr, i32 noundef %mul64, ptr noundef %add.ptr65, ptr noundef %67)
-  br label %sw.epilog88
+160:                                              ; preds = %137
+  %161 = load ptr, ptr %7, align 8, !tbaa !3
+  %162 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %161, i32 0, i32 9
+  %163 = load ptr, ptr %162, align 8, !tbaa !24
+  %164 = load ptr, ptr %7, align 8, !tbaa !3
+  %165 = load ptr, ptr %12, align 8, !tbaa !25
+  %166 = getelementptr inbounds %struct.UTrie2Header, ptr %165, i64 1
+  %167 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 2
+  %168 = load i16, ptr %167, align 2, !tbaa !32
+  %169 = zext i16 %168 to i32
+  %170 = load i32, ptr %14, align 4, !tbaa !9
+  %171 = add nsw i32 %169, %170
+  %172 = mul nsw i32 %171, 2
+  %173 = load ptr, ptr %18, align 8, !tbaa !25
+  %174 = getelementptr inbounds %struct.UTrie2Header, ptr %173, i64 1
+  %175 = load ptr, ptr %11, align 8, !tbaa !8
+  %176 = call noundef i32 %163(ptr noundef %164, ptr noundef %166, i32 noundef %172, ptr noundef %174, ptr noundef %175)
+  br label %216
 
-sw.bb67:                                          ; preds = %if.end52
-  %68 = load ptr, ptr %ds.addr, align 8
-  %swapArray1668 = getelementptr inbounds %struct.UDataSwapper, ptr %68, i32 0, i32 9
-  %69 = load ptr, ptr %swapArray1668, align 8
-  %70 = load ptr, ptr %ds.addr, align 8
-  %71 = load ptr, ptr %inTrie, align 8
-  %add.ptr69 = getelementptr inbounds %struct.UTrie2Header, ptr %71, i64 1
-  %indexLength70 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 2
-  %72 = load i16, ptr %indexLength70, align 2
-  %conv71 = zext i16 %72 to i32
-  %mul72 = mul nsw i32 %conv71, 2
-  %73 = load ptr, ptr %outTrie, align 8
-  %add.ptr73 = getelementptr inbounds %struct.UTrie2Header, ptr %73, i64 1
-  %74 = load ptr, ptr %pErrorCode.addr, align 8
-  %call74 = call noundef i32 %69(ptr noundef %70, ptr noundef %add.ptr69, i32 noundef %mul72, ptr noundef %add.ptr73, ptr noundef %74)
-  %75 = load ptr, ptr %ds.addr, align 8
-  %swapArray3275 = getelementptr inbounds %struct.UDataSwapper, ptr %75, i32 0, i32 10
-  %76 = load ptr, ptr %swapArray3275, align 8
-  %77 = load ptr, ptr %ds.addr, align 8
-  %78 = load ptr, ptr %inTrie, align 8
-  %add.ptr76 = getelementptr inbounds %struct.UTrie2Header, ptr %78, i64 1
-  %indexLength77 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 2
-  %79 = load i16, ptr %indexLength77, align 2
-  %conv78 = zext i16 %79 to i32
-  %idx.ext = sext i32 %conv78 to i64
-  %add.ptr79 = getelementptr inbounds i16, ptr %add.ptr76, i64 %idx.ext
-  %80 = load i32, ptr %dataLength, align 4
-  %mul80 = mul nsw i32 %80, 4
-  %81 = load ptr, ptr %outTrie, align 8
-  %add.ptr81 = getelementptr inbounds %struct.UTrie2Header, ptr %81, i64 1
-  %indexLength82 = getelementptr inbounds %struct.UTrie2Header, ptr %trie, i32 0, i32 2
-  %82 = load i16, ptr %indexLength82, align 2
-  %conv83 = zext i16 %82 to i32
-  %idx.ext84 = sext i32 %conv83 to i64
-  %add.ptr85 = getelementptr inbounds i16, ptr %add.ptr81, i64 %idx.ext84
-  %83 = load ptr, ptr %pErrorCode.addr, align 8
-  %call86 = call noundef i32 %76(ptr noundef %77, ptr noundef %add.ptr79, i32 noundef %mul80, ptr noundef %add.ptr85, ptr noundef %83)
-  br label %sw.epilog88
+177:                                              ; preds = %137
+  %178 = load ptr, ptr %7, align 8, !tbaa !3
+  %179 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %178, i32 0, i32 9
+  %180 = load ptr, ptr %179, align 8, !tbaa !24
+  %181 = load ptr, ptr %7, align 8, !tbaa !3
+  %182 = load ptr, ptr %12, align 8, !tbaa !25
+  %183 = getelementptr inbounds %struct.UTrie2Header, ptr %182, i64 1
+  %184 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 2
+  %185 = load i16, ptr %184, align 2, !tbaa !32
+  %186 = zext i16 %185 to i32
+  %187 = mul nsw i32 %186, 2
+  %188 = load ptr, ptr %18, align 8, !tbaa !25
+  %189 = getelementptr inbounds %struct.UTrie2Header, ptr %188, i64 1
+  %190 = load ptr, ptr %11, align 8, !tbaa !8
+  %191 = call noundef i32 %180(ptr noundef %181, ptr noundef %183, i32 noundef %187, ptr noundef %189, ptr noundef %190)
+  %192 = load ptr, ptr %7, align 8, !tbaa !3
+  %193 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %192, i32 0, i32 10
+  %194 = load ptr, ptr %193, align 8, !tbaa !23
+  %195 = load ptr, ptr %7, align 8, !tbaa !3
+  %196 = load ptr, ptr %12, align 8, !tbaa !25
+  %197 = getelementptr inbounds %struct.UTrie2Header, ptr %196, i64 1
+  %198 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 2
+  %199 = load i16, ptr %198, align 2, !tbaa !32
+  %200 = zext i16 %199 to i32
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds i16, ptr %197, i64 %201
+  %203 = load i32, ptr %14, align 4, !tbaa !9
+  %204 = mul nsw i32 %203, 4
+  %205 = load ptr, ptr %18, align 8, !tbaa !25
+  %206 = getelementptr inbounds %struct.UTrie2Header, ptr %205, i64 1
+  %207 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %13, i32 0, i32 2
+  %208 = load i16, ptr %207, align 2, !tbaa !32
+  %209 = zext i16 %208 to i32
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds i16, ptr %206, i64 %210
+  %212 = load ptr, ptr %11, align 8, !tbaa !8
+  %213 = call noundef i32 %194(ptr noundef %195, ptr noundef %202, i32 noundef %204, ptr noundef %211, ptr noundef %212)
+  br label %216
 
-sw.default87:                                     ; preds = %if.end52
-  %84 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 3, ptr %84, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+214:                                              ; preds = %137
+  %215 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 3, ptr %215, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %217
 
-sw.epilog88:                                      ; preds = %sw.bb67, %sw.bb59
-  br label %if.end89
+216:                                              ; preds = %177, %160
+  store i32 0, ptr %17, align 4
+  br label %217
 
-if.end89:                                         ; preds = %sw.epilog88, %sw.epilog
-  %85 = load i32, ptr %size, align 4
-  store i32 %85, ptr %retval, align 4
-  br label %return
+217:                                              ; preds = %216, %214, %135
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  %218 = load i32, ptr %17, align 4
+  switch i32 %218, label %222 [
+    i32 0, label %219
+  ]
 
-return:                                           ; preds = %if.end89, %sw.default87, %if.then51, %sw.default, %if.then37, %if.then10, %if.then5, %if.then
-  %86 = load i32, ptr %retval, align 4
-  ret i32 %86
+219:                                              ; preds = %217
+  br label %220
+
+220:                                              ; preds = %219, %128
+  %221 = load i32, ptr %15, align 4, !tbaa !9
+  store i32 %221, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %222
+
+222:                                              ; preds = %220, %217, %126, %105, %44, %36, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %223 = load i32, ptr %6, align 4
+  ret i32 %223
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucptrie_swap_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ds.addr = alloca ptr, align 8
-  %inData.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %outData.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %inTrie = alloca ptr, align 8
-  %trie = alloca %struct.UCPTrieHeader, align 4
-  %dataLength = alloca i32, align 4
-  %size = alloca i32, align 4
-  %valueWidth = alloca i32, align 4
-  %type = alloca i32, align 4
-  %minIndexLength = alloca i32, align 4
-  %outTrie = alloca ptr, align 8
-  %inIndex = alloca ptr, align 8
-  %outIndex = alloca ptr, align 8
-  %inData80 = alloca ptr, align 8
-  %outData84 = alloca ptr, align 8
-  store ptr %ds, ptr %ds.addr, align 8
-  store ptr %inData, ptr %inData.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %outData, ptr %outData.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define i32 @ucptrie_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct.UCPTrieHeader, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store i32 %2, ptr %9, align 4, !tbaa !9
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %25 = load ptr, ptr %11, align 8, !tbaa !8
+  %26 = load i32, ptr %25, align 4, !tbaa !11
+  %27 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %26)
+  %28 = icmp ne i8 %27, 0
+  br i1 %28, label %29, label %30
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+29:                                               ; preds = %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %263
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %ds.addr, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then5, label %lor.lhs.false
+30:                                               ; preds = %5
+  %31 = load ptr, ptr %7, align 8, !tbaa !3
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %42, label %33
 
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load ptr, ptr %inData.addr, align 8
-  %cmp1 = icmp eq ptr %3, null
-  br i1 %cmp1, label %if.then5, label %lor.lhs.false2
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %8, align 8, !tbaa !8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %42, label %36
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %4 = load i32, ptr %length.addr, align 4
-  %cmp3 = icmp sge i32 %4, 0
-  br i1 %cmp3, label %land.lhs.true, label %if.end6
+36:                                               ; preds = %33
+  %37 = load i32, ptr %9, align 4, !tbaa !9
+  %38 = icmp sge i32 %37, 0
+  br i1 %38, label %39, label %44
 
-land.lhs.true:                                    ; preds = %lor.lhs.false2
-  %5 = load ptr, ptr %outData.addr, align 8
-  %cmp4 = icmp eq ptr %5, null
-  br i1 %cmp4, label %if.then5, label %if.end6
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %10, align 8, !tbaa !8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %44
 
-if.then5:                                         ; preds = %land.lhs.true, %lor.lhs.false, %if.end
-  %6 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %6, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %39, %33, %30
+  %43 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 1, ptr %43, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %263
 
-if.end6:                                          ; preds = %land.lhs.true, %lor.lhs.false2
-  %7 = load i32, ptr %length.addr, align 4
-  %cmp7 = icmp sge i32 %7, 0
-  br i1 %cmp7, label %land.lhs.true8, label %if.end11
+44:                                               ; preds = %39, %36
+  %45 = load i32, ptr %9, align 4, !tbaa !9
+  %46 = icmp sge i32 %45, 0
+  br i1 %46, label %47, label %52
 
-land.lhs.true8:                                   ; preds = %if.end6
-  %8 = load i32, ptr %length.addr, align 4
-  %cmp9 = icmp slt i32 %8, 16
-  br i1 %cmp9, label %if.then10, label %if.end11
+47:                                               ; preds = %44
+  %48 = load i32, ptr %9, align 4, !tbaa !9
+  %49 = icmp slt i32 %48, 16
+  br i1 %49, label %50, label %52
 
-if.then10:                                        ; preds = %land.lhs.true8
-  %9 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %9, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 8, ptr %51, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %263
 
-if.end11:                                         ; preds = %land.lhs.true8, %if.end6
-  %10 = load ptr, ptr %inData.addr, align 8
-  store ptr %10, ptr %inTrie, align 8
-  %11 = load ptr, ptr %ds.addr, align 8
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %11, i32 0, i32 5
-  %12 = load ptr, ptr %readUInt32, align 8
-  %13 = load ptr, ptr %inTrie, align 8
-  %signature = getelementptr inbounds %struct.UCPTrieHeader, ptr %13, i32 0, i32 0
-  %14 = load i32, ptr %signature, align 4
-  %call12 = call noundef i32 %12(i32 noundef %14)
-  %signature13 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 0
-  store i32 %call12, ptr %signature13, align 4
-  %15 = load ptr, ptr %ds.addr, align 8
-  %readUInt16 = getelementptr inbounds %struct.UDataSwapper, ptr %15, i32 0, i32 4
-  %16 = load ptr, ptr %readUInt16, align 8
-  %17 = load ptr, ptr %inTrie, align 8
-  %options = getelementptr inbounds %struct.UCPTrieHeader, ptr %17, i32 0, i32 1
-  %18 = load i16, ptr %options, align 4
-  %call14 = call noundef zeroext i16 %16(i16 noundef zeroext %18)
-  %options15 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 1
-  store i16 %call14, ptr %options15, align 4
-  %19 = load ptr, ptr %ds.addr, align 8
-  %readUInt1616 = getelementptr inbounds %struct.UDataSwapper, ptr %19, i32 0, i32 4
-  %20 = load ptr, ptr %readUInt1616, align 8
-  %21 = load ptr, ptr %inTrie, align 8
-  %indexLength = getelementptr inbounds %struct.UCPTrieHeader, ptr %21, i32 0, i32 2
-  %22 = load i16, ptr %indexLength, align 2
-  %call17 = call noundef zeroext i16 %20(i16 noundef zeroext %22)
-  %indexLength18 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 2
-  store i16 %call17, ptr %indexLength18, align 2
-  %23 = load ptr, ptr %ds.addr, align 8
-  %readUInt1619 = getelementptr inbounds %struct.UDataSwapper, ptr %23, i32 0, i32 4
-  %24 = load ptr, ptr %readUInt1619, align 8
-  %25 = load ptr, ptr %inTrie, align 8
-  %dataLength20 = getelementptr inbounds %struct.UCPTrieHeader, ptr %25, i32 0, i32 3
-  %26 = load i16, ptr %dataLength20, align 4
-  %call21 = call noundef zeroext i16 %24(i16 noundef zeroext %26)
-  %dataLength22 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 3
-  store i16 %call21, ptr %dataLength22, align 4
-  %options23 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 1
-  %27 = load i16, ptr %options23, align 4
-  %conv = zext i16 %27 to i32
-  %shr = ashr i32 %conv, 6
-  %and = and i32 %shr, 3
-  store i32 %and, ptr %type, align 4
-  %options24 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 1
-  %28 = load i16, ptr %options24, align 4
-  %conv25 = zext i16 %28 to i32
-  %and26 = and i32 %conv25, 7
-  store i32 %and26, ptr %valueWidth, align 4
-  %options27 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 1
-  %29 = load i16, ptr %options27, align 4
-  %conv28 = zext i16 %29 to i32
-  %and29 = and i32 %conv28, 61440
-  %shl = shl i32 %and29, 4
-  %dataLength30 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 3
-  %30 = load i16, ptr %dataLength30, align 4
-  %conv31 = zext i16 %30 to i32
-  %or = or i32 %shl, %conv31
-  store i32 %or, ptr %dataLength, align 4
-  %31 = load i32, ptr %type, align 4
-  %cmp32 = icmp eq i32 %31, 0
-  %cond = select i1 %cmp32, i32 1024, i32 64
-  store i32 %cond, ptr %minIndexLength, align 4
-  %signature33 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 0
-  %32 = load i32, ptr %signature33, align 4
-  %cmp34 = icmp ne i32 %32, 1416784179
-  br i1 %cmp34, label %if.then50, label %lor.lhs.false35
+52:                                               ; preds = %47, %44
+  %53 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %53, ptr %12, align 8, !tbaa !36
+  %54 = load ptr, ptr %7, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %54, i32 0, i32 5
+  %56 = load ptr, ptr %55, align 8, !tbaa !15
+  %57 = load ptr, ptr %12, align 8, !tbaa !36
+  %58 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %57, i32 0, i32 0
+  %59 = load i32, ptr %58, align 4, !tbaa !38
+  %60 = call noundef i32 %56(i32 noundef %59)
+  %61 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 0
+  store i32 %60, ptr %61, align 4, !tbaa !38
+  %62 = load ptr, ptr %7, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %62, i32 0, i32 4
+  %64 = load ptr, ptr %63, align 8, !tbaa !30
+  %65 = load ptr, ptr %12, align 8, !tbaa !36
+  %66 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %65, i32 0, i32 1
+  %67 = load i16, ptr %66, align 4, !tbaa !40
+  %68 = call noundef zeroext i16 %64(i16 noundef zeroext %67)
+  %69 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 1
+  store i16 %68, ptr %69, align 4, !tbaa !40
+  %70 = load ptr, ptr %7, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %70, i32 0, i32 4
+  %72 = load ptr, ptr %71, align 8, !tbaa !30
+  %73 = load ptr, ptr %12, align 8, !tbaa !36
+  %74 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %73, i32 0, i32 2
+  %75 = load i16, ptr %74, align 2, !tbaa !41
+  %76 = call noundef zeroext i16 %72(i16 noundef zeroext %75)
+  %77 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 2
+  store i16 %76, ptr %77, align 2, !tbaa !41
+  %78 = load ptr, ptr %7, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %78, i32 0, i32 4
+  %80 = load ptr, ptr %79, align 8, !tbaa !30
+  %81 = load ptr, ptr %12, align 8, !tbaa !36
+  %82 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %81, i32 0, i32 3
+  %83 = load i16, ptr %82, align 4, !tbaa !42
+  %84 = call noundef zeroext i16 %80(i16 noundef zeroext %83)
+  %85 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 3
+  store i16 %84, ptr %85, align 4, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %86 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 1
+  %87 = load i16, ptr %86, align 4, !tbaa !40
+  %88 = zext i16 %87 to i32
+  %89 = ashr i32 %88, 6
+  %90 = and i32 %89, 3
+  store i32 %90, ptr %18, align 4, !tbaa !43
+  %91 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 1
+  %92 = load i16, ptr %91, align 4, !tbaa !40
+  %93 = zext i16 %92 to i32
+  %94 = and i32 %93, 7
+  store i32 %94, ptr %16, align 4, !tbaa !45
+  %95 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 1
+  %96 = load i16, ptr %95, align 4, !tbaa !40
+  %97 = zext i16 %96 to i32
+  %98 = and i32 %97, 61440
+  %99 = shl i32 %98, 4
+  %100 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 3
+  %101 = load i16, ptr %100, align 4, !tbaa !42
+  %102 = zext i16 %101 to i32
+  %103 = or i32 %99, %102
+  store i32 %103, ptr %14, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %104 = load i32, ptr %18, align 4, !tbaa !43
+  %105 = icmp eq i32 %104, 0
+  %106 = select i1 %105, i32 1024, i32 64
+  store i32 %106, ptr %19, align 4, !tbaa !9
+  %107 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 0
+  %108 = load i32, ptr %107, align 4, !tbaa !38
+  %109 = icmp ne i32 %108, 1416784179
+  br i1 %109, label %131, label %110
 
-lor.lhs.false35:                                  ; preds = %if.end11
-  %33 = load i32, ptr %type, align 4
-  %cmp36 = icmp sgt i32 %33, 1
-  br i1 %cmp36, label %if.then50, label %lor.lhs.false37
+110:                                              ; preds = %52
+  %111 = load i32, ptr %18, align 4, !tbaa !43
+  %112 = icmp sgt i32 %111, 1
+  br i1 %112, label %131, label %113
 
-lor.lhs.false37:                                  ; preds = %lor.lhs.false35
-  %options38 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 1
-  %34 = load i16, ptr %options38, align 4
-  %conv39 = zext i16 %34 to i32
-  %and40 = and i32 %conv39, 56
-  %cmp41 = icmp ne i32 %and40, 0
-  br i1 %cmp41, label %if.then50, label %lor.lhs.false42
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 1
+  %115 = load i16, ptr %114, align 4, !tbaa !40
+  %116 = zext i16 %115 to i32
+  %117 = and i32 %116, 56
+  %118 = icmp ne i32 %117, 0
+  br i1 %118, label %131, label %119
 
-lor.lhs.false42:                                  ; preds = %lor.lhs.false37
-  %35 = load i32, ptr %valueWidth, align 4
-  %cmp43 = icmp sgt i32 %35, 2
-  br i1 %cmp43, label %if.then50, label %lor.lhs.false44
+119:                                              ; preds = %113
+  %120 = load i32, ptr %16, align 4, !tbaa !45
+  %121 = icmp sgt i32 %120, 2
+  br i1 %121, label %131, label %122
 
-lor.lhs.false44:                                  ; preds = %lor.lhs.false42
-  %indexLength45 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 2
-  %36 = load i16, ptr %indexLength45, align 2
-  %conv46 = zext i16 %36 to i32
-  %37 = load i32, ptr %minIndexLength, align 4
-  %cmp47 = icmp slt i32 %conv46, %37
-  br i1 %cmp47, label %if.then50, label %lor.lhs.false48
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 2
+  %124 = load i16, ptr %123, align 2, !tbaa !41
+  %125 = zext i16 %124 to i32
+  %126 = load i32, ptr %19, align 4, !tbaa !9
+  %127 = icmp slt i32 %125, %126
+  br i1 %127, label %131, label %128
 
-lor.lhs.false48:                                  ; preds = %lor.lhs.false44
-  %38 = load i32, ptr %dataLength, align 4
-  %cmp49 = icmp slt i32 %38, 128
-  br i1 %cmp49, label %if.then50, label %if.end51
+128:                                              ; preds = %122
+  %129 = load i32, ptr %14, align 4, !tbaa !9
+  %130 = icmp slt i32 %129, 128
+  br i1 %130, label %131, label %133
 
-if.then50:                                        ; preds = %lor.lhs.false48, %lor.lhs.false44, %lor.lhs.false42, %lor.lhs.false37, %lor.lhs.false35, %if.end11
-  %39 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 3, ptr %39, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+131:                                              ; preds = %128, %122, %119, %113, %110, %52
+  %132 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 3, ptr %132, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %262
 
-if.end51:                                         ; preds = %lor.lhs.false48
-  %indexLength52 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 2
-  %40 = load i16, ptr %indexLength52, align 2
-  %conv53 = zext i16 %40 to i32
-  %mul = mul nsw i32 %conv53, 2
-  %conv54 = sext i32 %mul to i64
-  %add = add i64 16, %conv54
-  %conv55 = trunc i64 %add to i32
-  store i32 %conv55, ptr %size, align 4
-  %41 = load i32, ptr %valueWidth, align 4
-  switch i32 %41, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb58
-    i32 2, label %sw.bb61
+133:                                              ; preds = %128
+  %134 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 2
+  %135 = load i16, ptr %134, align 2, !tbaa !41
+  %136 = zext i16 %135 to i32
+  %137 = mul nsw i32 %136, 2
+  %138 = sext i32 %137 to i64
+  %139 = add i64 16, %138
+  %140 = trunc i64 %139 to i32
+  store i32 %140, ptr %15, align 4, !tbaa !9
+  %141 = load i32, ptr %16, align 4, !tbaa !45
+  switch i32 %141, label %156 [
+    i32 0, label %142
+    i32 1, label %147
+    i32 2, label %152
   ]
 
-sw.bb:                                            ; preds = %if.end51
-  %42 = load i32, ptr %dataLength, align 4
-  %mul56 = mul nsw i32 %42, 2
-  %43 = load i32, ptr %size, align 4
-  %add57 = add nsw i32 %43, %mul56
-  store i32 %add57, ptr %size, align 4
-  br label %sw.epilog
+142:                                              ; preds = %133
+  %143 = load i32, ptr %14, align 4, !tbaa !9
+  %144 = mul nsw i32 %143, 2
+  %145 = load i32, ptr %15, align 4, !tbaa !9
+  %146 = add nsw i32 %145, %144
+  store i32 %146, ptr %15, align 4, !tbaa !9
+  br label %158
 
-sw.bb58:                                          ; preds = %if.end51
-  %44 = load i32, ptr %dataLength, align 4
-  %mul59 = mul nsw i32 %44, 4
-  %45 = load i32, ptr %size, align 4
-  %add60 = add nsw i32 %45, %mul59
-  store i32 %add60, ptr %size, align 4
-  br label %sw.epilog
+147:                                              ; preds = %133
+  %148 = load i32, ptr %14, align 4, !tbaa !9
+  %149 = mul nsw i32 %148, 4
+  %150 = load i32, ptr %15, align 4, !tbaa !9
+  %151 = add nsw i32 %150, %149
+  store i32 %151, ptr %15, align 4, !tbaa !9
+  br label %158
 
-sw.bb61:                                          ; preds = %if.end51
-  %46 = load i32, ptr %dataLength, align 4
-  %47 = load i32, ptr %size, align 4
-  %add62 = add nsw i32 %47, %46
-  store i32 %add62, ptr %size, align 4
-  br label %sw.epilog
+152:                                              ; preds = %133
+  %153 = load i32, ptr %14, align 4, !tbaa !9
+  %154 = load i32, ptr %15, align 4, !tbaa !9
+  %155 = add nsw i32 %154, %153
+  store i32 %155, ptr %15, align 4, !tbaa !9
+  br label %158
 
-sw.default:                                       ; preds = %if.end51
-  %48 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 3, ptr %48, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+156:                                              ; preds = %133
+  %157 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 3, ptr %157, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %262
 
-sw.epilog:                                        ; preds = %sw.bb61, %sw.bb58, %sw.bb
-  %49 = load i32, ptr %length.addr, align 4
-  %cmp63 = icmp sge i32 %49, 0
-  br i1 %cmp63, label %if.then64, label %if.end104
+158:                                              ; preds = %152, %147, %142
+  %159 = load i32, ptr %9, align 4, !tbaa !9
+  %160 = icmp sge i32 %159, 0
+  br i1 %160, label %161, label %260
 
-if.then64:                                        ; preds = %sw.epilog
-  %50 = load i32, ptr %length.addr, align 4
-  %51 = load i32, ptr %size, align 4
-  %cmp65 = icmp slt i32 %50, %51
-  br i1 %cmp65, label %if.then66, label %if.end67
+161:                                              ; preds = %158
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  %162 = load i32, ptr %9, align 4, !tbaa !9
+  %163 = load i32, ptr %15, align 4, !tbaa !9
+  %164 = icmp slt i32 %162, %163
+  br i1 %164, label %165, label %167
 
-if.then66:                                        ; preds = %if.then64
-  %52 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %52, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+165:                                              ; preds = %161
+  %166 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 8, ptr %166, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %257
 
-if.end67:                                         ; preds = %if.then64
-  %53 = load ptr, ptr %outData.addr, align 8
-  store ptr %53, ptr %outTrie, align 8
-  %54 = load ptr, ptr %ds.addr, align 8
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %54, i32 0, i32 10
-  %55 = load ptr, ptr %swapArray32, align 8
-  %56 = load ptr, ptr %ds.addr, align 8
-  %57 = load ptr, ptr %inTrie, align 8
-  %signature68 = getelementptr inbounds %struct.UCPTrieHeader, ptr %57, i32 0, i32 0
-  %58 = load ptr, ptr %outTrie, align 8
-  %signature69 = getelementptr inbounds %struct.UCPTrieHeader, ptr %58, i32 0, i32 0
-  %59 = load ptr, ptr %pErrorCode.addr, align 8
-  %call70 = call noundef i32 %55(ptr noundef %56, ptr noundef %signature68, i32 noundef 4, ptr noundef %signature69, ptr noundef %59)
-  %60 = load ptr, ptr %ds.addr, align 8
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %60, i32 0, i32 9
-  %61 = load ptr, ptr %swapArray16, align 8
-  %62 = load ptr, ptr %ds.addr, align 8
-  %63 = load ptr, ptr %inTrie, align 8
-  %options71 = getelementptr inbounds %struct.UCPTrieHeader, ptr %63, i32 0, i32 1
-  %64 = load ptr, ptr %outTrie, align 8
-  %options72 = getelementptr inbounds %struct.UCPTrieHeader, ptr %64, i32 0, i32 1
-  %65 = load ptr, ptr %pErrorCode.addr, align 8
-  %call73 = call noundef i32 %61(ptr noundef %62, ptr noundef %options71, i32 noundef 12, ptr noundef %options72, ptr noundef %65)
-  %66 = load ptr, ptr %inTrie, align 8
-  %add.ptr = getelementptr inbounds %struct.UCPTrieHeader, ptr %66, i64 1
-  store ptr %add.ptr, ptr %inIndex, align 8
-  %67 = load ptr, ptr %outTrie, align 8
-  %add.ptr74 = getelementptr inbounds %struct.UCPTrieHeader, ptr %67, i64 1
-  store ptr %add.ptr74, ptr %outIndex, align 8
-  %68 = load ptr, ptr %ds.addr, align 8
-  %swapArray1675 = getelementptr inbounds %struct.UDataSwapper, ptr %68, i32 0, i32 9
-  %69 = load ptr, ptr %swapArray1675, align 8
-  %70 = load ptr, ptr %ds.addr, align 8
-  %71 = load ptr, ptr %inIndex, align 8
-  %indexLength76 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 2
-  %72 = load i16, ptr %indexLength76, align 2
-  %conv77 = zext i16 %72 to i32
-  %mul78 = mul nsw i32 %conv77, 2
-  %73 = load ptr, ptr %outIndex, align 8
-  %74 = load ptr, ptr %pErrorCode.addr, align 8
-  %call79 = call noundef i32 %69(ptr noundef %70, ptr noundef %71, i32 noundef %mul78, ptr noundef %73, ptr noundef %74)
-  %75 = load ptr, ptr %inIndex, align 8
-  %indexLength81 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 2
-  %76 = load i16, ptr %indexLength81, align 2
-  %conv82 = zext i16 %76 to i32
-  %idx.ext = sext i32 %conv82 to i64
-  %add.ptr83 = getelementptr inbounds i16, ptr %75, i64 %idx.ext
-  store ptr %add.ptr83, ptr %inData80, align 8
-  %77 = load ptr, ptr %outIndex, align 8
-  %indexLength85 = getelementptr inbounds %struct.UCPTrieHeader, ptr %trie, i32 0, i32 2
-  %78 = load i16, ptr %indexLength85, align 2
-  %conv86 = zext i16 %78 to i32
-  %idx.ext87 = sext i32 %conv86 to i64
-  %add.ptr88 = getelementptr inbounds i16, ptr %77, i64 %idx.ext87
-  store ptr %add.ptr88, ptr %outData84, align 8
-  %79 = load i32, ptr %valueWidth, align 4
-  switch i32 %79, label %sw.default102 [
-    i32 0, label %sw.bb89
-    i32 1, label %sw.bb93
-    i32 2, label %sw.bb97
+167:                                              ; preds = %161
+  %168 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %168, ptr %20, align 8, !tbaa !36
+  %169 = load ptr, ptr %7, align 8, !tbaa !3
+  %170 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %169, i32 0, i32 10
+  %171 = load ptr, ptr %170, align 8, !tbaa !23
+  %172 = load ptr, ptr %7, align 8, !tbaa !3
+  %173 = load ptr, ptr %12, align 8, !tbaa !36
+  %174 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %173, i32 0, i32 0
+  %175 = load ptr, ptr %20, align 8, !tbaa !36
+  %176 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %175, i32 0, i32 0
+  %177 = load ptr, ptr %11, align 8, !tbaa !8
+  %178 = call noundef i32 %171(ptr noundef %172, ptr noundef %174, i32 noundef 4, ptr noundef %176, ptr noundef %177)
+  %179 = load ptr, ptr %7, align 8, !tbaa !3
+  %180 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %179, i32 0, i32 9
+  %181 = load ptr, ptr %180, align 8, !tbaa !24
+  %182 = load ptr, ptr %7, align 8, !tbaa !3
+  %183 = load ptr, ptr %12, align 8, !tbaa !36
+  %184 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %183, i32 0, i32 1
+  %185 = load ptr, ptr %20, align 8, !tbaa !36
+  %186 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %185, i32 0, i32 1
+  %187 = load ptr, ptr %11, align 8, !tbaa !8
+  %188 = call noundef i32 %181(ptr noundef %182, ptr noundef %184, i32 noundef 12, ptr noundef %186, ptr noundef %187)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  %189 = load ptr, ptr %12, align 8, !tbaa !36
+  %190 = getelementptr inbounds %struct.UCPTrieHeader, ptr %189, i64 1
+  store ptr %190, ptr %21, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  %191 = load ptr, ptr %20, align 8, !tbaa !36
+  %192 = getelementptr inbounds %struct.UCPTrieHeader, ptr %191, i64 1
+  store ptr %192, ptr %22, align 8, !tbaa !47
+  %193 = load ptr, ptr %7, align 8, !tbaa !3
+  %194 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %193, i32 0, i32 9
+  %195 = load ptr, ptr %194, align 8, !tbaa !24
+  %196 = load ptr, ptr %7, align 8, !tbaa !3
+  %197 = load ptr, ptr %21, align 8, !tbaa !47
+  %198 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 2
+  %199 = load i16, ptr %198, align 2, !tbaa !41
+  %200 = zext i16 %199 to i32
+  %201 = mul nsw i32 %200, 2
+  %202 = load ptr, ptr %22, align 8, !tbaa !47
+  %203 = load ptr, ptr %11, align 8, !tbaa !8
+  %204 = call noundef i32 %195(ptr noundef %196, ptr noundef %197, i32 noundef %201, ptr noundef %202, ptr noundef %203)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  %205 = load ptr, ptr %21, align 8, !tbaa !47
+  %206 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 2
+  %207 = load i16, ptr %206, align 2, !tbaa !41
+  %208 = zext i16 %207 to i32
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds i16, ptr %205, i64 %209
+  store ptr %210, ptr %23, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  %211 = load ptr, ptr %22, align 8, !tbaa !47
+  %212 = getelementptr inbounds nuw %struct.UCPTrieHeader, ptr %13, i32 0, i32 2
+  %213 = load i16, ptr %212, align 2, !tbaa !41
+  %214 = zext i16 %213 to i32
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds i16, ptr %211, i64 %215
+  store ptr %216, ptr %24, align 8, !tbaa !47
+  %217 = load i32, ptr %16, align 4, !tbaa !45
+  switch i32 %217, label %253 [
+    i32 0, label %218
+    i32 1, label %229
+    i32 2, label %240
   ]
 
-sw.bb89:                                          ; preds = %if.end67
-  %80 = load ptr, ptr %ds.addr, align 8
-  %swapArray1690 = getelementptr inbounds %struct.UDataSwapper, ptr %80, i32 0, i32 9
-  %81 = load ptr, ptr %swapArray1690, align 8
-  %82 = load ptr, ptr %ds.addr, align 8
-  %83 = load ptr, ptr %inData80, align 8
-  %84 = load i32, ptr %dataLength, align 4
-  %mul91 = mul nsw i32 %84, 2
-  %85 = load ptr, ptr %outData84, align 8
-  %86 = load ptr, ptr %pErrorCode.addr, align 8
-  %call92 = call noundef i32 %81(ptr noundef %82, ptr noundef %83, i32 noundef %mul91, ptr noundef %85, ptr noundef %86)
-  br label %sw.epilog103
+218:                                              ; preds = %167
+  %219 = load ptr, ptr %7, align 8, !tbaa !3
+  %220 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %219, i32 0, i32 9
+  %221 = load ptr, ptr %220, align 8, !tbaa !24
+  %222 = load ptr, ptr %7, align 8, !tbaa !3
+  %223 = load ptr, ptr %23, align 8, !tbaa !47
+  %224 = load i32, ptr %14, align 4, !tbaa !9
+  %225 = mul nsw i32 %224, 2
+  %226 = load ptr, ptr %24, align 8, !tbaa !47
+  %227 = load ptr, ptr %11, align 8, !tbaa !8
+  %228 = call noundef i32 %221(ptr noundef %222, ptr noundef %223, i32 noundef %225, ptr noundef %226, ptr noundef %227)
+  br label %255
 
-sw.bb93:                                          ; preds = %if.end67
-  %87 = load ptr, ptr %ds.addr, align 8
-  %swapArray3294 = getelementptr inbounds %struct.UDataSwapper, ptr %87, i32 0, i32 10
-  %88 = load ptr, ptr %swapArray3294, align 8
-  %89 = load ptr, ptr %ds.addr, align 8
-  %90 = load ptr, ptr %inData80, align 8
-  %91 = load i32, ptr %dataLength, align 4
-  %mul95 = mul nsw i32 %91, 4
-  %92 = load ptr, ptr %outData84, align 8
-  %93 = load ptr, ptr %pErrorCode.addr, align 8
-  %call96 = call noundef i32 %88(ptr noundef %89, ptr noundef %90, i32 noundef %mul95, ptr noundef %92, ptr noundef %93)
-  br label %sw.epilog103
+229:                                              ; preds = %167
+  %230 = load ptr, ptr %7, align 8, !tbaa !3
+  %231 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %230, i32 0, i32 10
+  %232 = load ptr, ptr %231, align 8, !tbaa !23
+  %233 = load ptr, ptr %7, align 8, !tbaa !3
+  %234 = load ptr, ptr %23, align 8, !tbaa !47
+  %235 = load i32, ptr %14, align 4, !tbaa !9
+  %236 = mul nsw i32 %235, 4
+  %237 = load ptr, ptr %24, align 8, !tbaa !47
+  %238 = load ptr, ptr %11, align 8, !tbaa !8
+  %239 = call noundef i32 %232(ptr noundef %233, ptr noundef %234, i32 noundef %236, ptr noundef %237, ptr noundef %238)
+  br label %255
 
-sw.bb97:                                          ; preds = %if.end67
-  %94 = load ptr, ptr %inTrie, align 8
-  %95 = load ptr, ptr %outTrie, align 8
-  %cmp98 = icmp ne ptr %94, %95
-  br i1 %cmp98, label %if.then99, label %if.end101
+240:                                              ; preds = %167
+  %241 = load ptr, ptr %12, align 8, !tbaa !36
+  %242 = load ptr, ptr %20, align 8, !tbaa !36
+  %243 = icmp ne ptr %241, %242
+  br i1 %243, label %244, label %252
 
-if.then99:                                        ; preds = %sw.bb97
-  br label %do.body
+244:                                              ; preds = %240
+  br label %245
 
-do.body:                                          ; preds = %if.then99
-  %96 = load ptr, ptr %outData84, align 8
-  %97 = load ptr, ptr %inData80, align 8
-  %98 = load i32, ptr %dataLength, align 4
-  %conv100 = sext i32 %98 to i64
-  call void @llvm.memmove.p0.p0.i64(ptr align 2 %96, ptr align 2 %97, i64 %conv100, i1 false)
-  br label %do.end
+245:                                              ; preds = %244
+  %246 = load ptr, ptr %24, align 8, !tbaa !47
+  %247 = load ptr, ptr %23, align 8, !tbaa !47
+  %248 = load i32, ptr %14, align 4, !tbaa !9
+  %249 = sext i32 %248 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr align 2 %246, ptr align 2 %247, i64 %249, i1 false)
+  br label %250
 
-do.end:                                           ; preds = %do.body
-  br label %if.end101
+250:                                              ; preds = %245
+  br label %251
 
-if.end101:                                        ; preds = %do.end, %sw.bb97
-  br label %sw.epilog103
+251:                                              ; preds = %250
+  br label %252
 
-sw.default102:                                    ; preds = %if.end67
-  %99 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 3, ptr %99, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+252:                                              ; preds = %251, %240
+  br label %255
 
-sw.epilog103:                                     ; preds = %if.end101, %sw.bb93, %sw.bb89
-  br label %if.end104
+253:                                              ; preds = %167
+  %254 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 3, ptr %254, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %256
 
-if.end104:                                        ; preds = %sw.epilog103, %sw.epilog
-  %100 = load i32, ptr %size, align 4
-  store i32 %100, ptr %retval, align 4
-  br label %return
+255:                                              ; preds = %252, %229, %218
+  store i32 0, ptr %17, align 4
+  br label %256
 
-return:                                           ; preds = %if.end104, %sw.default102, %if.then66, %sw.default, %if.then50, %if.then10, %if.then5, %if.then
-  %101 = load i32, ptr %retval, align 4
-  ret i32 %101
+256:                                              ; preds = %255, %253
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  br label %257
+
+257:                                              ; preds = %256, %165
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  %258 = load i32, ptr %17, align 4
+  switch i32 %258, label %262 [
+    i32 0, label %259
+  ]
+
+259:                                              ; preds = %257
+  br label %260
+
+260:                                              ; preds = %259, %158
+  %261 = load i32, ptr %15, align 4, !tbaa !9
+  store i32 %261, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %262
+
+262:                                              ; preds = %260, %257, %156, %131
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  br label %263
+
+263:                                              ; preds = %262, %50, %42, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %264 = load i32, ptr %6, align 4
+  ret i32 %264
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utrie_swapAnyVersion_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %ds.addr = alloca ptr, align 8
-  %inData.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %outData.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %ds, ptr %ds.addr, align 8
-  store ptr %inData, ptr %inData.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %outData, ptr %outData.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define i32 @utrie_swapAnyVersion_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !8
+  store i32 %2, ptr %9, align 4, !tbaa !9
+  store ptr %3, ptr %10, align 8, !tbaa !8
+  store ptr %4, ptr %11, align 8, !tbaa !8
+  %12 = load ptr, ptr %11, align 8, !tbaa !8
+  %13 = load i32, ptr %12, align 4, !tbaa !11
+  %14 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %13)
+  %15 = icmp ne i8 %14, 0
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+16:                                               ; preds = %5
+  store i32 0, ptr %6, align 4
+  br label %44
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %inData.addr, align 8
-  %3 = load i32, ptr %length.addr, align 4
-  %call1 = call noundef i32 @_ZN12_GLOBAL__N_110getVersionEPKvia(ptr noundef %2, i32 noundef %3, i8 noundef signext 1)
-  switch i32 %call1, label %sw.default [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb5
+17:                                               ; preds = %5
+  %18 = load ptr, ptr %8, align 8, !tbaa !8
+  %19 = load i32, ptr %9, align 4, !tbaa !9
+  %20 = call noundef i32 @_ZN12_GLOBAL__N_110getVersionEPKvia(ptr noundef %18, i32 noundef %19, i8 noundef signext 1)
+  switch i32 %20, label %42 [
+    i32 1, label %21
+    i32 2, label %28
+    i32 3, label %35
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %4 = load ptr, ptr %ds.addr, align 8
-  %5 = load ptr, ptr %inData.addr, align 8
-  %6 = load i32, ptr %length.addr, align 4
-  %7 = load ptr, ptr %outData.addr, align 8
-  %8 = load ptr, ptr %pErrorCode.addr, align 8
-  %call2 = call i32 @utrie_swap_75(ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8)
-  store i32 %call2, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %7, align 8, !tbaa !3
+  %23 = load ptr, ptr %8, align 8, !tbaa !8
+  %24 = load i32, ptr %9, align 4, !tbaa !9
+  %25 = load ptr, ptr %10, align 8, !tbaa !8
+  %26 = load ptr, ptr %11, align 8, !tbaa !8
+  %27 = call i32 @utrie_swap_77(ptr noundef %22, ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26)
+  store i32 %27, ptr %6, align 4
+  br label %44
 
-sw.bb3:                                           ; preds = %if.end
-  %9 = load ptr, ptr %ds.addr, align 8
-  %10 = load ptr, ptr %inData.addr, align 8
-  %11 = load i32, ptr %length.addr, align 4
-  %12 = load ptr, ptr %outData.addr, align 8
-  %13 = load ptr, ptr %pErrorCode.addr, align 8
-  %call4 = call i32 @utrie2_swap_75(ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, ptr noundef %13)
-  store i32 %call4, ptr %retval, align 4
-  br label %return
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %7, align 8, !tbaa !3
+  %30 = load ptr, ptr %8, align 8, !tbaa !8
+  %31 = load i32, ptr %9, align 4, !tbaa !9
+  %32 = load ptr, ptr %10, align 8, !tbaa !8
+  %33 = load ptr, ptr %11, align 8, !tbaa !8
+  %34 = call i32 @utrie2_swap_77(ptr noundef %29, ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33)
+  store i32 %34, ptr %6, align 4
+  br label %44
 
-sw.bb5:                                           ; preds = %if.end
-  %14 = load ptr, ptr %ds.addr, align 8
-  %15 = load ptr, ptr %inData.addr, align 8
-  %16 = load i32, ptr %length.addr, align 4
-  %17 = load ptr, ptr %outData.addr, align 8
-  %18 = load ptr, ptr %pErrorCode.addr, align 8
-  %call6 = call i32 @ucptrie_swap_75(ptr noundef %14, ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
-  store i32 %call6, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %17
+  %36 = load ptr, ptr %7, align 8, !tbaa !3
+  %37 = load ptr, ptr %8, align 8, !tbaa !8
+  %38 = load i32, ptr %9, align 4, !tbaa !9
+  %39 = load ptr, ptr %10, align 8, !tbaa !8
+  %40 = load ptr, ptr %11, align 8, !tbaa !8
+  %41 = call i32 @ucptrie_swap_77(ptr noundef %36, ptr noundef %37, i32 noundef %38, ptr noundef %39, ptr noundef %40)
+  store i32 %41, ptr %6, align 4
+  br label %44
 
-sw.default:                                       ; preds = %if.end
-  %19 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 3, ptr %19, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+42:                                               ; preds = %17
+  %43 = load ptr, ptr %11, align 8, !tbaa !8
+  store i32 3, ptr %43, align 4, !tbaa !11
+  store i32 0, ptr %6, align 4
+  br label %44
 
-return:                                           ; preds = %sw.default, %sw.bb5, %sw.bb3, %sw.bb, %if.then
-  %20 = load i32, ptr %retval, align 4
-  ret i32 %20
+44:                                               ; preds = %42, %35, %28, %21, %16
+  %45 = load i32, ptr %6, align 4
+  ret i32 %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_110getVersionEPKvia(ptr noundef %data, i32 noundef %length, i8 noundef signext %anyEndianOk) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %data.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %anyEndianOk.addr = alloca i8, align 1
-  %signature = alloca i32, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store i8 %anyEndianOk, ptr %anyEndianOk.addr, align 1
-  %0 = load i32, ptr %length.addr, align 4
-  %cmp = icmp slt i32 %0, 16
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal noundef i32 @_ZN12_GLOBAL__N_110getVersionEPKvia(ptr noundef %0, i32 noundef %1, i8 noundef signext %2) #5 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store i32 %1, ptr %6, align 4, !tbaa !9
+  store i8 %2, ptr %7, align 1, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %10 = load i32, ptr %6, align 4, !tbaa !9
+  %11 = icmp slt i32 %10, 16
+  br i1 %11, label %20, label %12
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %data.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %15
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %data.addr, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %and = and i64 %3, 3
-  %cmp3 = icmp ne i64 %and, 0
-  br i1 %cmp3, label %if.then, label %if.end
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %5, align 8, !tbaa !8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = and i64 %17, 3
+  %19 = icmp ne i64 %18, 0
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %15, %12, %3
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end:                                           ; preds = %lor.lhs.false2
-  %4 = load ptr, ptr %data.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  store i32 %5, ptr %signature, align 4
-  %6 = load i32, ptr %signature, align 4
-  %cmp4 = icmp eq i32 %6, 1416784179
-  br i1 %cmp4, label %if.then5, label %if.end6
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %5, align 8, !tbaa !8
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  store i32 %23, ptr %8, align 4, !tbaa !9
+  %24 = load i32, ptr %8, align 4, !tbaa !9
+  %25 = icmp eq i32 %24, 1416784179
+  br i1 %25, label %26, label %27
 
-if.then5:                                         ; preds = %if.end
-  store i32 3, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %21
+  store i32 3, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end6:                                          ; preds = %if.end
-  %7 = load i8, ptr %anyEndianOk.addr, align 1
-  %tobool = icmp ne i8 %7, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end9
+27:                                               ; preds = %21
+  %28 = load i8, ptr %7, align 1, !tbaa !22
+  %29 = icmp ne i8 %28, 0
+  br i1 %29, label %30, label %34
 
-land.lhs.true:                                    ; preds = %if.end6
-  %8 = load i32, ptr %signature, align 4
-  %cmp7 = icmp eq i32 %8, 862548564
-  br i1 %cmp7, label %if.then8, label %if.end9
+30:                                               ; preds = %27
+  %31 = load i32, ptr %8, align 4, !tbaa !9
+  %32 = icmp eq i32 %31, 862548564
+  br i1 %32, label %33, label %34
 
-if.then8:                                         ; preds = %land.lhs.true
-  store i32 3, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %30
+  store i32 3, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end9:                                          ; preds = %land.lhs.true, %if.end6
-  %9 = load i32, ptr %signature, align 4
-  %cmp10 = icmp eq i32 %9, 1416784178
-  br i1 %cmp10, label %if.then11, label %if.end12
+34:                                               ; preds = %30, %27
+  %35 = load i32, ptr %8, align 4, !tbaa !9
+  %36 = icmp eq i32 %35, 1416784178
+  br i1 %36, label %37, label %38
 
-if.then11:                                        ; preds = %if.end9
-  store i32 2, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %34
+  store i32 2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end12:                                         ; preds = %if.end9
-  %10 = load i8, ptr %anyEndianOk.addr, align 1
-  %tobool13 = icmp ne i8 %10, 0
-  br i1 %tobool13, label %land.lhs.true14, label %if.end17
+38:                                               ; preds = %34
+  %39 = load i8, ptr %7, align 1, !tbaa !22
+  %40 = icmp ne i8 %39, 0
+  br i1 %40, label %41, label %45
 
-land.lhs.true14:                                  ; preds = %if.end12
-  %11 = load i32, ptr %signature, align 4
-  %cmp15 = icmp eq i32 %11, 845771348
-  br i1 %cmp15, label %if.then16, label %if.end17
+41:                                               ; preds = %38
+  %42 = load i32, ptr %8, align 4, !tbaa !9
+  %43 = icmp eq i32 %42, 845771348
+  br i1 %43, label %44, label %45
 
-if.then16:                                        ; preds = %land.lhs.true14
-  store i32 2, ptr %retval, align 4
-  br label %return
+44:                                               ; preds = %41
+  store i32 2, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end17:                                         ; preds = %land.lhs.true14, %if.end12
-  %12 = load i32, ptr %signature, align 4
-  %cmp18 = icmp eq i32 %12, 1416784229
-  br i1 %cmp18, label %if.then19, label %if.end20
+45:                                               ; preds = %41, %38
+  %46 = load i32, ptr %8, align 4, !tbaa !9
+  %47 = icmp eq i32 %46, 1416784229
+  br i1 %47, label %48, label %49
 
-if.then19:                                        ; preds = %if.end17
-  store i32 1, ptr %retval, align 4
-  br label %return
+48:                                               ; preds = %45
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end20:                                         ; preds = %if.end17
-  %13 = load i8, ptr %anyEndianOk.addr, align 1
-  %tobool21 = icmp ne i8 %13, 0
-  br i1 %tobool21, label %land.lhs.true22, label %if.end25
+49:                                               ; preds = %45
+  %50 = load i8, ptr %7, align 1, !tbaa !22
+  %51 = icmp ne i8 %50, 0
+  br i1 %51, label %52, label %56
 
-land.lhs.true22:                                  ; preds = %if.end20
-  %14 = load i32, ptr %signature, align 4
-  %cmp23 = icmp eq i32 %14, 1701409364
-  br i1 %cmp23, label %if.then24, label %if.end25
+52:                                               ; preds = %49
+  %53 = load i32, ptr %8, align 4, !tbaa !9
+  %54 = icmp eq i32 %53, 1701409364
+  br i1 %54, label %55, label %56
 
-if.then24:                                        ; preds = %land.lhs.true22
-  store i32 1, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %52
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-if.end25:                                         ; preds = %land.lhs.true22, %if.end20
-  store i32 0, ptr %retval, align 4
-  br label %return
+56:                                               ; preds = %52, %49
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %57
 
-return:                                           ; preds = %if.end25, %if.then24, %if.then19, %if.then16, %if.then11, %if.then8, %if.then5, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+57:                                               ; preds = %56, %55, %48, %44, %37, %33, %26, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  %58 = load i32, ptr %4, align 4
+  ret i32 %58
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS12UDataSwapper", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS11UTrieHeader", !5, i64 0}
+!15 = !{!16, !5, i64 16}
+!16 = !{!"_ZTS12UDataSwapper", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88}
+!17 = !{!18, !10, i64 0}
+!18 = !{!"_ZTS11UTrieHeader", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12}
+!19 = !{!18, !10, i64 4}
+!20 = !{!18, !10, i64 8}
+!21 = !{!18, !10, i64 12}
+!22 = !{!6, !6, i64 0}
+!23 = !{!16, !5, i64 56}
+!24 = !{!16, !5, i64 48}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS12UTrie2Header", !5, i64 0}
+!27 = !{!28, !10, i64 0}
+!28 = !{!"_ZTS12UTrie2Header", !10, i64 0, !29, i64 4, !29, i64 6, !29, i64 8, !29, i64 10, !29, i64 12, !29, i64 14}
+!29 = !{!"short", !6, i64 0}
+!30 = !{!16, !5, i64 8}
+!31 = !{!28, !29, i64 4}
+!32 = !{!28, !29, i64 6}
+!33 = !{!28, !29, i64 8}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"_ZTS15UTrie2ValueBits", !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS13UCPTrieHeader", !5, i64 0}
+!38 = !{!39, !10, i64 0}
+!39 = !{!"_ZTS13UCPTrieHeader", !10, i64 0, !29, i64 4, !29, i64 6, !29, i64 8, !29, i64 10, !29, i64 12, !29, i64 14}
+!40 = !{!39, !29, i64 4}
+!41 = !{!39, !29, i64 6}
+!42 = !{!39, !29, i64 8}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"_ZTS11UCPTrieType", !6, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"_ZTS17UCPTrieValueWidth", !6, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 short", !5, i64 0}

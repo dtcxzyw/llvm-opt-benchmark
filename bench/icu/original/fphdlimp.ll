@@ -1,75 +1,74 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::FieldPositionHandler" = type <{ ptr, i32, [4 x i8] }>
-%"class.icu_75::FieldPositionOnlyHandler" = type <{ %"class.icu_75::FieldPositionHandler.base", [4 x i8], ptr, i8, i8, [6 x i8] }>
-%"class.icu_75::FieldPositionHandler.base" = type <{ ptr, i32 }>
-%"class.icu_75::FieldPosition" = type <{ %"class.icu_75::UObject", i32, i32, i32, [4 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::FieldPositionIteratorHandler" = type { %"class.icu_75::FieldPositionHandler.base", ptr, ptr, i32, i32 }
-%"class.icu_75::UVector32" = type { %"class.icu_75::UObject", i32, i32, i32, ptr }
+%"class.icu_77::FieldPositionHandler" = type <{ ptr, i32, [4 x i8] }>
+%"class.icu_77::FieldPositionOnlyHandler" = type <{ %"class.icu_77::FieldPositionHandler.base", [4 x i8], ptr, i8, i8, [6 x i8] }>
+%"class.icu_77::FieldPositionHandler.base" = type <{ ptr, i32 }>
+%"class.icu_77::FieldPosition" = type <{ %"class.icu_77::UObject", i32, i32, i32, [4 x i8] }>
+%"class.icu_77::UObject" = type { ptr }
+%"class.icu_77::FieldPositionIteratorHandler" = type { %"class.icu_77::FieldPositionHandler.base", ptr, ptr, i32, i32 }
+%"class.icu_77::UVector32" = type { %"class.icu_77::UObject", i32, i32, i32, ptr }
 
-$_ZN6icu_7520FieldPositionHandlerC2Ev = comdat any
+$_ZN6icu_7720FieldPositionHandlerC2Ev = comdat any
 
-$_ZNK6icu_7513FieldPosition8getFieldEv = comdat any
+$_ZNK6icu_7713FieldPosition8getFieldEv = comdat any
 
-$_ZN6icu_7513FieldPosition13setBeginIndexEi = comdat any
+$_ZN6icu_7713FieldPosition13setBeginIndexEi = comdat any
 
-$_ZN6icu_7513FieldPosition11setEndIndexEi = comdat any
+$_ZN6icu_7713FieldPosition11setEndIndexEi = comdat any
 
-$_ZNK6icu_7513FieldPosition13getBeginIndexEv = comdat any
+$_ZNK6icu_7713FieldPosition13getBeginIndexEv = comdat any
 
-$_ZNK6icu_7513FieldPosition11getEndIndexEv = comdat any
+$_ZNK6icu_7713FieldPosition11getEndIndexEv = comdat any
 
 $__clang_call_terminate = comdat any
 
-$_ZNK6icu_759UVector324sizeEv = comdat any
+$_ZNK6icu_779UVector324sizeEv = comdat any
 
-$_ZN6icu_759UVector3210addElementEiR10UErrorCode = comdat any
+$_ZN6icu_779UVector3210addElementEiR10UErrorCode = comdat any
 
-$_ZNK6icu_759UVector3210elementAtiEi = comdat any
+$_ZNK6icu_779UVector3210elementAtiEi = comdat any
 
-$_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode = comdat any
+$_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode = comdat any
 
-$_ZTSN6icu_757UMemoryE = comdat any
+$_ZTIN6icu_777UMemoryE = comdat any
 
-$_ZTIN6icu_757UMemoryE = comdat any
+$_ZTSN6icu_777UMemoryE = comdat any
 
-@_ZTVN6icu_7524FieldPositionOnlyHandlerE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_7524FieldPositionOnlyHandlerE, ptr @_ZN6icu_7524FieldPositionOnlyHandlerD1Ev, ptr @_ZN6icu_7524FieldPositionOnlyHandlerD0Ev, ptr @_ZN6icu_7524FieldPositionOnlyHandler12addAttributeEiii, ptr @_ZN6icu_7524FieldPositionOnlyHandler9shiftLastEi, ptr @_ZNK6icu_7524FieldPositionOnlyHandler11isRecordingEv] }, align 8
-@_ZTVN6icu_7528FieldPositionIteratorHandlerE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_7528FieldPositionIteratorHandlerE, ptr @_ZN6icu_7528FieldPositionIteratorHandlerD1Ev, ptr @_ZN6icu_7528FieldPositionIteratorHandlerD0Ev, ptr @_ZN6icu_7528FieldPositionIteratorHandler12addAttributeEiii, ptr @_ZN6icu_7528FieldPositionIteratorHandler9shiftLastEi, ptr @_ZNK6icu_7528FieldPositionIteratorHandler11isRecordingEv] }, align 8
-@_ZTVN6icu_7520FieldPositionHandlerE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_7520FieldPositionHandlerE, ptr @_ZN6icu_7520FieldPositionHandlerD1Ev, ptr @_ZN6icu_7520FieldPositionHandlerD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTVN6icu_7724FieldPositionOnlyHandlerE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_7724FieldPositionOnlyHandlerE, ptr @_ZN6icu_7724FieldPositionOnlyHandlerD1Ev, ptr @_ZN6icu_7724FieldPositionOnlyHandlerD0Ev, ptr @_ZN6icu_7724FieldPositionOnlyHandler12addAttributeEiii, ptr @_ZN6icu_7724FieldPositionOnlyHandler9shiftLastEi, ptr @_ZNK6icu_7724FieldPositionOnlyHandler11isRecordingEv] }, align 8
+@_ZTVN6icu_7728FieldPositionIteratorHandlerE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_7728FieldPositionIteratorHandlerE, ptr @_ZN6icu_7728FieldPositionIteratorHandlerD1Ev, ptr @_ZN6icu_7728FieldPositionIteratorHandlerD0Ev, ptr @_ZN6icu_7728FieldPositionIteratorHandler12addAttributeEiii, ptr @_ZN6icu_7728FieldPositionIteratorHandler9shiftLastEi, ptr @_ZNK6icu_7728FieldPositionIteratorHandler11isRecordingEv] }, align 8
+@_ZTVN6icu_7720FieldPositionHandlerE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_7720FieldPositionHandlerE, ptr @_ZN6icu_7720FieldPositionHandlerD1Ev, ptr @_ZN6icu_7720FieldPositionHandlerD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTIN6icu_7720FieldPositionHandlerE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7720FieldPositionHandlerE, ptr @_ZTIN6icu_777UMemoryE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN6icu_7520FieldPositionHandlerE = constant [32 x i8] c"N6icu_7520FieldPositionHandlerE\00", align 1
+@_ZTSN6icu_7720FieldPositionHandlerE = constant [32 x i8] c"N6icu_7720FieldPositionHandlerE\00", align 1
+@_ZTIN6icu_777UMemoryE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6icu_777UMemoryE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN6icu_757UMemoryE = linkonce_odr constant [18 x i8] c"N6icu_757UMemoryE\00", comdat, align 1
-@_ZTIN6icu_757UMemoryE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6icu_757UMemoryE }, comdat, align 8
-@_ZTIN6icu_7520FieldPositionHandlerE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7520FieldPositionHandlerE, ptr @_ZTIN6icu_757UMemoryE }, align 8
-@_ZTSN6icu_7524FieldPositionOnlyHandlerE = constant [36 x i8] c"N6icu_7524FieldPositionOnlyHandlerE\00", align 1
-@_ZTIN6icu_7524FieldPositionOnlyHandlerE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7524FieldPositionOnlyHandlerE, ptr @_ZTIN6icu_7520FieldPositionHandlerE }, align 8
-@_ZTSN6icu_7528FieldPositionIteratorHandlerE = constant [40 x i8] c"N6icu_7528FieldPositionIteratorHandlerE\00", align 1
-@_ZTIN6icu_7528FieldPositionIteratorHandlerE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7528FieldPositionIteratorHandlerE, ptr @_ZTIN6icu_7520FieldPositionHandlerE }, align 8
+@_ZTSN6icu_777UMemoryE = linkonce_odr constant [18 x i8] c"N6icu_777UMemoryE\00", comdat, align 1
+@_ZTIN6icu_7724FieldPositionOnlyHandlerE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7724FieldPositionOnlyHandlerE, ptr @_ZTIN6icu_7720FieldPositionHandlerE }, align 8
+@_ZTSN6icu_7724FieldPositionOnlyHandlerE = constant [36 x i8] c"N6icu_7724FieldPositionOnlyHandlerE\00", align 1
+@_ZTIN6icu_7728FieldPositionIteratorHandlerE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7728FieldPositionIteratorHandlerE, ptr @_ZTIN6icu_7720FieldPositionHandlerE }, align 8
+@_ZTSN6icu_7728FieldPositionIteratorHandlerE = constant [40 x i8] c"N6icu_7728FieldPositionIteratorHandlerE\00", align 1
 
-@_ZN6icu_7520FieldPositionHandlerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7520FieldPositionHandlerD2Ev
-@_ZN6icu_7524FieldPositionOnlyHandlerC1ERNS_13FieldPositionE = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7524FieldPositionOnlyHandlerC2ERNS_13FieldPositionE
-@_ZN6icu_7524FieldPositionOnlyHandlerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7524FieldPositionOnlyHandlerD2Ev
-@_ZN6icu_7528FieldPositionIteratorHandlerC1EPNS_21FieldPositionIteratorER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_21FieldPositionIteratorER10UErrorCode
-@_ZN6icu_7528FieldPositionIteratorHandlerC1EPNS_9UVector32ER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_9UVector32ER10UErrorCode
-@_ZN6icu_7528FieldPositionIteratorHandlerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7528FieldPositionIteratorHandlerD2Ev
+@_ZN6icu_7720FieldPositionHandlerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7720FieldPositionHandlerD2Ev
+@_ZN6icu_7724FieldPositionOnlyHandlerC1ERNS_13FieldPositionE = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7724FieldPositionOnlyHandlerC2ERNS_13FieldPositionE
+@_ZN6icu_7724FieldPositionOnlyHandlerD2Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7720FieldPositionHandlerD2Ev
+@_ZN6icu_7724FieldPositionOnlyHandlerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7724FieldPositionOnlyHandlerD2Ev
+@_ZN6icu_7728FieldPositionIteratorHandlerC1EPNS_21FieldPositionIteratorER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7728FieldPositionIteratorHandlerC2EPNS_21FieldPositionIteratorER10UErrorCode
+@_ZN6icu_7728FieldPositionIteratorHandlerC1EPNS_9UVector32ER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7728FieldPositionIteratorHandlerC2EPNS_9UVector32ER10UErrorCode
+@_ZN6icu_7728FieldPositionIteratorHandlerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7728FieldPositionIteratorHandlerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7520FieldPositionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define void @_ZN6icu_7720FieldPositionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7520FieldPositionHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #6
+define void @_ZN6icu_7720FieldPositionHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  call void @llvm.trap() #9
   unreachable
 }
 
@@ -77,466 +76,434 @@ entry:
 declare void @llvm.trap() #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7520FieldPositionHandler8setShiftEi(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %delta) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %delta.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %delta, ptr %delta.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %delta.addr, align 4
-  %fShift = getelementptr inbounds %"class.icu_75::FieldPositionHandler", ptr %this1, i32 0, i32 1
-  store i32 %0, ptr %fShift, align 8
+define void @_ZN6icu_7720FieldPositionHandler8setShiftEi(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.icu_77::FieldPositionHandler", ptr %5, i32 0, i32 1
+  store i32 %6, ptr %7, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7524FieldPositionOnlyHandlerC2ERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(26) %this, ptr noundef nonnull align 8 dereferenceable(20) %_pos) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %_pos.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %_pos, ptr %_pos.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7520FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #7
-  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7524FieldPositionOnlyHandlerE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %pos = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %_pos.addr, align 8
-  store ptr %1, ptr %pos, align 8
-  %acceptFirstOnly = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 3
-  store i8 0, ptr %acceptFirstOnly, align 8
-  %seenFirst = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 4
-  store i8 0, ptr %seenFirst, align 1
+define void @_ZN6icu_7724FieldPositionOnlyHandlerC2ERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(26) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN6icu_7720FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #10
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6icu_7724FieldPositionOnlyHandlerE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !16
+  %6 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %4, align 8, !tbaa !14
+  store ptr %7, ptr %6, align 8, !tbaa !14
+  %8 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 3
+  store i8 0, ptr %8, align 8, !tbaa !18
+  %9 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 4
+  store i8 0, ptr %9, align 1, !tbaa !20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_7720FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6icu_7720FieldPositionHandlerE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %"class.icu_77::FieldPositionHandler", ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7520FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7520FieldPositionHandlerE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %fShift = getelementptr inbounds %"class.icu_75::FieldPositionHandler", ptr %this1, i32 0, i32 1
-  store i32 0, ptr %fShift, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7524FieldPositionOnlyHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7520FieldPositionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #7
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7524FieldPositionOnlyHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(26) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7524FieldPositionOnlyHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %this1) #7
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %this1) #7
+define void @_ZN6icu_7724FieldPositionOnlyHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(26) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6icu_7724FieldPositionOnlyHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %3) #10
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %3) #10
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) #2
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7524FieldPositionOnlyHandler12addAttributeEiii(ptr noundef nonnull align 8 dereferenceable(26) %this, i32 noundef %id, i32 noundef %start, i32 noundef %limit) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %id.addr = alloca i32, align 4
-  %start.addr = alloca i32, align 4
-  %limit.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %id, ptr %id.addr, align 4
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %limit, ptr %limit.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %pos = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %pos, align 8
-  %call = call noundef i32 @_ZNK6icu_7513FieldPosition8getFieldEv(ptr noundef nonnull align 8 dereferenceable(20) %0)
-  %1 = load i32, ptr %id.addr, align 4
-  %cmp = icmp eq i32 %call, %1
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define void @_ZN6icu_7724FieldPositionOnlyHandler12addAttributeEiii(ptr noundef nonnull align 8 dereferenceable(26) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store i32 %3, ptr %8, align 4, !tbaa !8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %12 = call noundef i32 @_ZNK6icu_7713FieldPosition8getFieldEv(ptr noundef nonnull align 8 dereferenceable(20) %11)
+  %13 = load i32, ptr %6, align 4, !tbaa !8
+  %14 = icmp eq i32 %12, %13
+  br i1 %14, label %15, label %37
 
-land.lhs.true:                                    ; preds = %entry
-  %acceptFirstOnly = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 3
-  %2 = load i8, ptr %acceptFirstOnly, align 8
-  %tobool = icmp ne i8 %2, 0
-  br i1 %tobool, label %lor.lhs.false, label %if.then
+15:                                               ; preds = %4
+  %16 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %9, i32 0, i32 3
+  %17 = load i8, ptr %16, align 8, !tbaa !18
+  %18 = icmp ne i8 %17, 0
+  br i1 %18, label %19, label %23
 
-lor.lhs.false:                                    ; preds = %land.lhs.true
-  %seenFirst = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 4
-  %3 = load i8, ptr %seenFirst, align 1
-  %tobool2 = icmp ne i8 %3, 0
-  br i1 %tobool2, label %if.end, label %if.then
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %9, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !tbaa !20
+  %22 = icmp ne i8 %21, 0
+  br i1 %22, label %37, label %23
 
-if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true
-  %seenFirst3 = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 4
-  store i8 1, ptr %seenFirst3, align 1
-  %pos4 = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %pos4, align 8
-  %5 = load i32, ptr %start.addr, align 4
-  %fShift = getelementptr inbounds %"class.icu_75::FieldPositionHandler", ptr %this1, i32 0, i32 1
-  %6 = load i32, ptr %fShift, align 8
-  %add = add nsw i32 %5, %6
-  call void @_ZN6icu_7513FieldPosition13setBeginIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %4, i32 noundef %add)
-  %pos5 = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %pos5, align 8
-  %8 = load i32, ptr %limit.addr, align 4
-  %fShift6 = getelementptr inbounds %"class.icu_75::FieldPositionHandler", ptr %this1, i32 0, i32 1
-  %9 = load i32, ptr %fShift6, align 8
-  %add7 = add nsw i32 %8, %9
-  call void @_ZN6icu_7513FieldPosition11setEndIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %7, i32 noundef %add7)
-  br label %if.end
+23:                                               ; preds = %19, %15
+  %24 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %9, i32 0, i32 4
+  store i8 1, ptr %24, align 1, !tbaa !20
+  %25 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %9, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
+  %27 = load i32, ptr %7, align 4, !tbaa !8
+  %28 = getelementptr inbounds nuw %"class.icu_77::FieldPositionHandler", ptr %9, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8, !tbaa !10
+  %30 = add nsw i32 %27, %29
+  call void @_ZN6icu_7713FieldPosition13setBeginIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %26, i32 noundef %30)
+  %31 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %9, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8, !tbaa !21
+  %33 = load i32, ptr %8, align 4, !tbaa !8
+  %34 = getelementptr inbounds nuw %"class.icu_77::FieldPositionHandler", ptr %9, i32 0, i32 1
+  %35 = load i32, ptr %34, align 8, !tbaa !10
+  %36 = add nsw i32 %33, %35
+  call void @_ZN6icu_7713FieldPosition11setEndIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %32, i32 noundef %36)
+  br label %37
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false, %entry
+37:                                               ; preds = %23, %19, %4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_7513FieldPosition8getFieldEv(ptr noundef nonnull align 8 dereferenceable(20) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fField = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %fField, align 8
-  ret i32 %0
+define linkonce_odr noundef i32 @_ZNK6icu_7713FieldPosition8getFieldEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::FieldPosition", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !22
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7513FieldPosition13setBeginIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %bi) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %bi.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %bi, ptr %bi.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %bi.addr, align 4
-  %fBeginIndex = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %this1, i32 0, i32 2
-  store i32 %0, ptr %fBeginIndex, align 4
+define linkonce_odr void @_ZN6icu_7713FieldPosition13setBeginIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.icu_77::FieldPosition", ptr %5, i32 0, i32 2
+  store i32 %6, ptr %7, align 4, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7513FieldPosition11setEndIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %ei) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ei.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %ei, ptr %ei.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %ei.addr, align 4
-  %fEndIndex = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %this1, i32 0, i32 3
-  store i32 %0, ptr %fEndIndex, align 8
+define linkonce_odr void @_ZN6icu_7713FieldPosition11setEndIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !14
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.icu_77::FieldPosition", ptr %5, i32 0, i32 3
+  store i32 %6, ptr %7, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7524FieldPositionOnlyHandler9shiftLastEi(ptr noundef nonnull align 8 dereferenceable(26) %this, i32 noundef %delta) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %delta.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %delta, ptr %delta.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %delta.addr, align 4
-  %cmp = icmp ne i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define void @_ZN6icu_7724FieldPositionOnlyHandler9shiftLastEi(ptr noundef nonnull align 8 dereferenceable(26) %0, i32 noundef %1) unnamed_addr #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %33
 
-land.lhs.true:                                    ; preds = %entry
-  %pos = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %pos, align 8
-  %call = call noundef i32 @_ZNK6icu_7513FieldPosition8getFieldEv(ptr noundef nonnull align 8 dereferenceable(20) %1)
-  %cmp2 = icmp ne i32 %call, -1
-  br i1 %cmp2, label %land.lhs.true3, label %if.end
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %11 = call noundef i32 @_ZNK6icu_7713FieldPosition8getFieldEv(ptr noundef nonnull align 8 dereferenceable(20) %10)
+  %12 = icmp ne i32 %11, -1
+  br i1 %12, label %13, label %33
 
-land.lhs.true3:                                   ; preds = %land.lhs.true
-  %pos4 = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %pos4, align 8
-  %call5 = call noundef i32 @_ZNK6icu_7513FieldPosition13getBeginIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %2)
-  %cmp6 = icmp ne i32 %call5, -1
-  br i1 %cmp6, label %if.then, label %if.end
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
+  %16 = call noundef i32 @_ZNK6icu_7713FieldPosition13getBeginIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %15)
+  %17 = icmp ne i32 %16, -1
+  br i1 %17, label %18, label %33
 
-if.then:                                          ; preds = %land.lhs.true3
-  %pos7 = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %pos7, align 8
-  %4 = load i32, ptr %delta.addr, align 4
-  %pos8 = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %pos8, align 8
-  %call9 = call noundef i32 @_ZNK6icu_7513FieldPosition13getBeginIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %5)
-  %add = add nsw i32 %4, %call9
-  call void @_ZN6icu_7513FieldPosition13setBeginIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %3, i32 noundef %add)
-  %pos10 = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %6 = load ptr, ptr %pos10, align 8
-  %7 = load i32, ptr %delta.addr, align 4
-  %pos11 = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %8 = load ptr, ptr %pos11, align 8
-  %call12 = call noundef i32 @_ZNK6icu_7513FieldPosition11getEndIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %8)
-  %add13 = add nsw i32 %7, %call12
-  call void @_ZN6icu_7513FieldPosition11setEndIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef %add13)
-  br label %if.end
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  %21 = load i32, ptr %4, align 4, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
+  %24 = call noundef i32 @_ZNK6icu_7713FieldPosition13getBeginIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %23)
+  %25 = add nsw i32 %21, %24
+  call void @_ZN6icu_7713FieldPosition13setBeginIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %20, i32 noundef %25)
+  %26 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !21
+  %28 = load i32, ptr %4, align 4, !tbaa !8
+  %29 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !21
+  %31 = call noundef i32 @_ZNK6icu_7713FieldPosition11getEndIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %30)
+  %32 = add nsw i32 %28, %31
+  call void @_ZN6icu_7713FieldPosition11setEndIndexEi(ptr noundef nonnull align 8 dereferenceable(20) %27, i32 noundef %32)
+  br label %33
 
-if.end:                                           ; preds = %if.then, %land.lhs.true3, %land.lhs.true, %entry
+33:                                               ; preds = %18, %13, %8, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_7513FieldPosition13getBeginIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fBeginIndex = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %fBeginIndex, align 4
-  ret i32 %0
+define linkonce_odr noundef i32 @_ZNK6icu_7713FieldPosition13getBeginIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::FieldPosition", ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 4, !tbaa !25
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_7513FieldPosition11getEndIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fEndIndex = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %fEndIndex, align 8
-  ret i32 %0
+define linkonce_odr noundef i32 @_ZNK6icu_7713FieldPosition11getEndIndexEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::FieldPosition", ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 8, !tbaa !26
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7524FieldPositionOnlyHandler11isRecordingEv(ptr noundef nonnull align 8 dereferenceable(26) %this) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %pos = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %pos, align 8
-  %call = call noundef i32 @_ZNK6icu_7513FieldPosition8getFieldEv(ptr noundef nonnull align 8 dereferenceable(20) %0)
-  %cmp = icmp ne i32 %call, -1
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+define noundef signext i8 @_ZNK6icu_7724FieldPositionOnlyHandler11isRecordingEv(ptr noundef nonnull align 8 dereferenceable(26) %0) unnamed_addr #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %6 = call noundef i32 @_ZNK6icu_7713FieldPosition8getFieldEv(ptr noundef nonnull align 8 dereferenceable(20) %5)
+  %7 = icmp ne i32 %6, -1
+  %8 = zext i1 %7 to i8
+  ret i8 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7524FieldPositionOnlyHandler18setAcceptFirstOnlyEa(ptr noundef nonnull align 8 dereferenceable(26) %this, i8 noundef signext %acceptFirstOnly) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %acceptFirstOnly.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i8 %acceptFirstOnly, ptr %acceptFirstOnly.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i8, ptr %acceptFirstOnly.addr, align 1
-  %acceptFirstOnly2 = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 3
-  store i8 %0, ptr %acceptFirstOnly2, align 8
+define void @_ZN6icu_7724FieldPositionOnlyHandler18setAcceptFirstOnlyEa(ptr noundef nonnull align 8 dereferenceable(26) %0, i8 noundef signext %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i8 %1, ptr %4, align 1, !tbaa !27
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i8, ptr %4, align 1, !tbaa !27
+  %7 = getelementptr inbounds nuw %"class.icu_77::FieldPositionOnlyHandler", ptr %5, i32 0, i32 3
+  store i8 %6, ptr %7, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %posIter, ptr noundef nonnull align 4 dereferenceable(4) %_status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %posIter.addr = alloca ptr, align 8
-  %_status.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %saved-rvalue = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %posIter, ptr %posIter.addr, align 8
-  store ptr %_status, ptr %_status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7520FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #7
-  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %iter = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %posIter.addr, align 8
-  store ptr %1, ptr %iter, align 8
-  %vec = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  store ptr null, ptr %vec, align 8
-  %status = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %_status.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  store i32 %3, ptr %status, align 8
-  %fCategory = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 4
-  store i32 0, ptr %fCategory, align 4
-  %iter2 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %iter2, align 8
-  %tobool = icmp ne ptr %4, null
-  br i1 %tobool, label %land.lhs.true, label %if.end
+define void @_ZN6icu_7728FieldPositionIteratorHandlerC2EPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i1, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !30
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %11 = load ptr, ptr %4, align 8
+  call void @_ZN6icu_7720FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #10
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6icu_7728FieldPositionIteratorHandlerE, i32 0, i32 0, i32 2), ptr %11, align 8, !tbaa !16
+  %12 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8, !tbaa !30
+  store ptr %13, ptr %12, align 8, !tbaa !33
+  %14 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %11, i32 0, i32 2
+  store ptr null, ptr %14, align 8, !tbaa !38
+  %15 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %11, i32 0, i32 3
+  %16 = load ptr, ptr %6, align 8, !tbaa !32
+  %17 = load i32, ptr %16, align 4, !tbaa !39
+  store i32 %17, ptr %15, align 8, !tbaa !40
+  %18 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %11, i32 0, i32 4
+  store i32 0, ptr %18, align 4, !tbaa !41
+  %19 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %11, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !33
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %49
 
-land.lhs.true:                                    ; preds = %entry
-  %status3 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  %5 = load i32, ptr %status3, align 8
-  %call = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %5)
-          to label %invoke.cont unwind label %lpad
+22:                                               ; preds = %3
+  %23 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %11, i32 0, i32 3
+  %24 = load i32, ptr %23, align 8, !tbaa !40
+  %25 = invoke noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %24)
+          to label %26 unwind label %37
 
-invoke.cont:                                      ; preds = %land.lhs.true
-  %tobool4 = icmp ne i8 %call, 0
-  br i1 %tobool4, label %if.then, label %if.end
+26:                                               ; preds = %22
+  %27 = icmp ne i8 %25, 0
+  br i1 %27, label %28, label %49
 
-if.then:                                          ; preds = %invoke.cont
-  %call5 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #7
-  %new.isnull = icmp eq ptr %call5, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+28:                                               ; preds = %26
+  %29 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 32) #10
+  %30 = icmp eq ptr %29, null
+  store i1 false, ptr %10, align 1
+  br i1 %30, label %34, label %31
 
-new.notnull:                                      ; preds = %if.then
-  store ptr %call5, ptr %saved-rvalue, align 8
-  store i1 true, ptr %cleanup.cond, align 1
-  %status6 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  invoke void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %call5, ptr noundef nonnull align 4 dereferenceable(4) %status6)
-          to label %invoke.cont8 unwind label %lpad7
+31:                                               ; preds = %28
+  store ptr %29, ptr %9, align 8
+  store i1 true, ptr %10, align 1
+  %32 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %11, i32 0, i32 3
+  invoke void @_ZN6icu_779UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 4 dereferenceable(4) %32)
+          to label %33 unwind label %41
 
-invoke.cont8:                                     ; preds = %new.notnull
-  br label %new.cont
+33:                                               ; preds = %31
+  br label %34
 
-new.cont:                                         ; preds = %invoke.cont8, %if.then
-  %6 = phi ptr [ %call5, %invoke.cont8 ], [ null, %if.then ]
-  %vec9 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  store ptr %6, ptr %vec9, align 8
-  br label %if.end
+34:                                               ; preds = %33, %28
+  %35 = phi ptr [ %29, %33 ], [ null, %28 ]
+  %36 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %11, i32 0, i32 2
+  store ptr %35, ptr %36, align 8, !tbaa !38
+  br label %49
 
-lpad:                                             ; preds = %land.lhs.true
-  %7 = landingpad { ptr, i32 }
+37:                                               ; preds = %22
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %7, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %8, align 4
+  br label %50
 
-lpad7:                                            ; preds = %new.notnull
-  %10 = landingpad { ptr, i32 }
+41:                                               ; preds = %31
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %7, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %8, align 4
+  %45 = load i1, ptr %10, align 1
+  br i1 %45, label %46, label %48
 
-cleanup.action:                                   ; preds = %lpad7
-  %13 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %13) #7
-  br label %cleanup.done
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %9, align 8
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %47) #10
+  br label %48
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad7
-  br label %ehcleanup
+48:                                               ; preds = %46, %41
+  br label %50
 
-if.end:                                           ; preds = %new.cont, %invoke.cont, %entry
+49:                                               ; preds = %34, %26, %3
   ret void
 
-ehcleanup:                                        ; preds = %cleanup.done, %lpad
-  call void @_ZN6icu_7520FieldPositionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #7
-  br label %eh.resume
+50:                                               ; preds = %48, %37
+  call void @_ZN6icu_7720FieldPositionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #10
+  br label %51
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val10 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val10
+51:                                               ; preds = %50
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %8, align 4
+  %54 = insertvalue { ptr, i32 } poison, ptr %52, 0
+  %55 = insertvalue { ptr, i32 } %54, i32 %53, 1
+  resume { ptr, i32 } %55
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %code) #0 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !39
+  %3 = load i32, ptr %2, align 4, !tbaa !39
+  %4 = icmp sle i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) #2
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) #3
 
-declare void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare void @_ZN6icu_779UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7528FieldPositionIteratorHandlerC2EPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %vec, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %vec.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %vec, ptr %vec.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7520FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #7
-  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %iter = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %iter, align 8
-  %vec2 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %vec.addr, align 8
-  store ptr %1, ptr %vec2, align 8
-  %status3 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %status.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  store i32 %3, ptr %status3, align 8
-  %fCategory = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 4
-  store i32 0, ptr %fCategory, align 4
+define void @_ZN6icu_7728FieldPositionIteratorHandlerC2EPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !28
+  store ptr %1, ptr %5, align 8, !tbaa !42
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN6icu_7720FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7) #10
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6icu_7728FieldPositionIteratorHandlerE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !16
+  %8 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %7, i32 0, i32 1
+  store ptr null, ptr %8, align 8, !tbaa !33
+  %9 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %7, i32 0, i32 2
+  %10 = load ptr, ptr %5, align 8, !tbaa !42
+  store ptr %10, ptr %9, align 8, !tbaa !38
+  %11 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %7, i32 0, i32 3
+  %12 = load ptr, ptr %6, align 8, !tbaa !32
+  %13 = load i32, ptr %12, align 4, !tbaa !39
+  store i32 %13, ptr %11, align 8, !tbaa !40
+  %14 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %7, i32 0, i32 4
+  store i32 0, ptr %14, align 4, !tbaa !41
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7528FieldPositionIteratorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %iter = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %iter, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end
+define void @_ZN6icu_7728FieldPositionIteratorHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6icu_7728FieldPositionIteratorHandlerE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !16
+  %4 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %14
 
-if.then:                                          ; preds = %entry
-  %iter2 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %iter2, align 8
-  %vec = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %vec, align 8
-  %status = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  invoke void @_ZN6icu_7521FieldPositionIterator7setDataEPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont unwind label %terminate.lpad
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %3, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %3, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %12 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %3, i32 0, i32 3
+  invoke void @_ZN6icu_7721FieldPositionIterator7setDataEPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %13 unwind label %16
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+13:                                               ; preds = %7
+  br label %14
 
-if.end:                                           ; preds = %invoke.cont, %entry
-  %vec3 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  store ptr null, ptr %vec3, align 8
-  call void @_ZN6icu_7520FieldPositionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #7
+14:                                               ; preds = %13, %1
+  %15 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %3, i32 0, i32 2
+  store ptr null, ptr %15, align 8, !tbaa !38
+  call void @_ZN6icu_7720FieldPositionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #10
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+16:                                               ; preds = %7
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #6
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #9
   unreachable
 }
 
-declare void @_ZN6icu_7521FieldPositionIterator7setDataEPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) #4
+declare void @_ZN6icu_7721FieldPositionIterator7setDataEPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) #5
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #7
-  call void @_ZSt9terminatev() #6
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
+  call void @_ZSt9terminatev() #9
   unreachable
 }
 
@@ -545,325 +512,374 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7528FieldPositionIteratorHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7528FieldPositionIteratorHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #7
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %this1) #7
+define void @_ZN6icu_7728FieldPositionIteratorHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6icu_7728FieldPositionIteratorHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %3) #10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7528FieldPositionIteratorHandler12addAttributeEiii(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %id, i32 noundef %start, i32 noundef %limit) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %id.addr = alloca i32, align 4
-  %start.addr = alloca i32, align 4
-  %limit.addr = alloca i32, align 4
-  %size = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %id, ptr %id.addr, align 4
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %limit, ptr %limit.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %vec = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %0 = load ptr, ptr %vec, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %land.lhs.true, label %if.end21
+define void @_ZN6icu_7728FieldPositionIteratorHandler12addAttributeEiii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !28
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store i32 %3, ptr %8, align 4, !tbaa !8
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !38
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %59
 
-land.lhs.true:                                    ; preds = %entry
-  %status = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  %1 = load i32, ptr %status, align 8
-  %call = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %1)
-  %tobool2 = icmp ne i8 %call, 0
-  br i1 %tobool2, label %land.lhs.true3, label %if.end21
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 3
+  %16 = load i32, ptr %15, align 8, !tbaa !40
+  %17 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %16)
+  %18 = icmp ne i8 %17, 0
+  br i1 %18, label %19, label %59
 
-land.lhs.true3:                                   ; preds = %land.lhs.true
-  %2 = load i32, ptr %start.addr, align 4
-  %3 = load i32, ptr %limit.addr, align 4
-  %cmp = icmp slt i32 %2, %3
-  br i1 %cmp, label %if.then, label %if.end21
+19:                                               ; preds = %14
+  %20 = load i32, ptr %7, align 4, !tbaa !8
+  %21 = load i32, ptr %8, align 4, !tbaa !8
+  %22 = icmp slt i32 %20, %21
+  br i1 %22, label %23, label %59
 
-if.then:                                          ; preds = %land.lhs.true3
-  %vec4 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %vec4, align 8
-  %call5 = call noundef i32 @_ZNK6icu_759UVector324sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-  store i32 %call5, ptr %size, align 4
-  %vec6 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %vec6, align 8
-  %fCategory = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 4
-  %6 = load i32, ptr %fCategory, align 4
-  %status7 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  call void @_ZN6icu_759UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %status7)
-  %vec8 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %vec8, align 8
-  %8 = load i32, ptr %id.addr, align 4
-  %status9 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  call void @_ZN6icu_759UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %status9)
-  %vec10 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %9 = load ptr, ptr %vec10, align 8
-  %10 = load i32, ptr %start.addr, align 4
-  %fShift = getelementptr inbounds %"class.icu_75::FieldPositionHandler", ptr %this1, i32 0, i32 1
-  %11 = load i32, ptr %fShift, align 8
-  %add = add nsw i32 %10, %11
-  %status11 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  call void @_ZN6icu_759UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %status11)
-  %vec12 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %12 = load ptr, ptr %vec12, align 8
-  %13 = load i32, ptr %limit.addr, align 4
-  %fShift13 = getelementptr inbounds %"class.icu_75::FieldPositionHandler", ptr %this1, i32 0, i32 1
-  %14 = load i32, ptr %fShift13, align 8
-  %add14 = add nsw i32 %13, %14
-  %status15 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  call void @_ZN6icu_759UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef %add14, ptr noundef nonnull align 4 dereferenceable(4) %status15)
-  %status16 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  %15 = load i32, ptr %status16, align 8
-  %call17 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %15)
-  %tobool18 = icmp ne i8 %call17, 0
-  br i1 %tobool18, label %if.end, label %if.then19
+23:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %24 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !38
+  %26 = call noundef i32 @_ZNK6icu_779UVector324sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25)
+  store i32 %26, ptr %9, align 4, !tbaa !8
+  %27 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 2
+  %28 = load ptr, ptr %27, align 8, !tbaa !38
+  %29 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 4
+  %30 = load i32, ptr %29, align 4, !tbaa !41
+  %31 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 3
+  call void @_ZN6icu_779UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %31)
+  %32 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !38
+  %34 = load i32, ptr %6, align 4, !tbaa !8
+  %35 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 3
+  call void @_ZN6icu_779UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef %34, ptr noundef nonnull align 4 dereferenceable(4) %35)
+  %36 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !38
+  %38 = load i32, ptr %7, align 4, !tbaa !8
+  %39 = getelementptr inbounds nuw %"class.icu_77::FieldPositionHandler", ptr %10, i32 0, i32 1
+  %40 = load i32, ptr %39, align 8, !tbaa !10
+  %41 = add nsw i32 %38, %40
+  %42 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 3
+  call void @_ZN6icu_779UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef %41, ptr noundef nonnull align 4 dereferenceable(4) %42)
+  %43 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 2
+  %44 = load ptr, ptr %43, align 8, !tbaa !38
+  %45 = load i32, ptr %8, align 4, !tbaa !8
+  %46 = getelementptr inbounds nuw %"class.icu_77::FieldPositionHandler", ptr %10, i32 0, i32 1
+  %47 = load i32, ptr %46, align 8, !tbaa !10
+  %48 = add nsw i32 %45, %47
+  %49 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 3
+  call void @_ZN6icu_779UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(4) %49)
+  %50 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 3
+  %51 = load i32, ptr %50, align 8, !tbaa !40
+  %52 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %51)
+  %53 = icmp ne i8 %52, 0
+  br i1 %53, label %58, label %54
 
-if.then19:                                        ; preds = %if.then
-  %vec20 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %16 = load ptr, ptr %vec20, align 8
-  %17 = load i32, ptr %size, align 4
-  call void @_ZN6icu_759UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %17)
-  br label %if.end
+54:                                               ; preds = %23
+  %55 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %10, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !38
+  %57 = load i32, ptr %9, align 4, !tbaa !8
+  call void @_ZN6icu_779UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %56, i32 noundef %57)
+  br label %58
 
-if.end:                                           ; preds = %if.then19, %if.then
-  br label %if.end21
+58:                                               ; preds = %54, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %59
 
-if.end21:                                         ; preds = %if.end, %land.lhs.true3, %land.lhs.true, %entry
+59:                                               ; preds = %58, %19, %14, %4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_759UVector324sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %count = getelementptr inbounds %"class.icu_75::UVector32", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %count, align 8
-  ret i32 %0
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK6icu_779UVector324sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::UVector32", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !43
+  ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_759UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %elem, ptr noundef nonnull align 4 dereferenceable(4) %status) #3 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %elem.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %elem, ptr %elem.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %count = getelementptr inbounds %"class.icu_75::UVector32", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %count, align 8
-  %add = add nsw i32 %0, 1
-  %1 = load ptr, ptr %status.addr, align 8
-  %call = call noundef signext i8 @_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6icu_779UVector3210addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #8 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !42
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.icu_77::UVector32", ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 8, !tbaa !43
+  %10 = add nsw i32 %9, 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !32
+  %12 = call noundef signext i8 @_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %13 = icmp ne i8 %12, 0
+  br i1 %13, label %14, label %25
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %elem.addr, align 4
-  %elements = getelementptr inbounds %"class.icu_75::UVector32", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %elements, align 8
-  %count2 = getelementptr inbounds %"class.icu_75::UVector32", ptr %this1, i32 0, i32 1
-  %4 = load i32, ptr %count2, align 8
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %3, i64 %idxprom
-  store i32 %2, ptr %arrayidx, align 4
-  %count3 = getelementptr inbounds %"class.icu_75::UVector32", ptr %this1, i32 0, i32 1
-  %5 = load i32, ptr %count3, align 8
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %count3, align 8
-  br label %if.end
+14:                                               ; preds = %3
+  %15 = load i32, ptr %5, align 4, !tbaa !8
+  %16 = getelementptr inbounds nuw %"class.icu_77::UVector32", ptr %7, i32 0, i32 4
+  %17 = load ptr, ptr %16, align 8, !tbaa !46
+  %18 = getelementptr inbounds nuw %"class.icu_77::UVector32", ptr %7, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8, !tbaa !43
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i32, ptr %17, i64 %20
+  store i32 %15, ptr %21, align 4, !tbaa !8
+  %22 = getelementptr inbounds nuw %"class.icu_77::UVector32", ptr %7, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8, !tbaa !43
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %22, align 8, !tbaa !43
+  br label %25
 
-if.end:                                           ; preds = %if.then, %entry
+25:                                               ; preds = %14, %3
   ret void
 }
 
-declare void @_ZN6icu_759UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) #4
+declare void @_ZN6icu_779UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7528FieldPositionIteratorHandler9shiftLastEi(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %delta) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %delta.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %delta, ptr %delta.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %status = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %status, align 8
-  %call = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end13
+define void @_ZN6icu_7728FieldPositionIteratorHandler9shiftLastEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %6, i32 0, i32 3
+  %8 = load i32, ptr %7, align 8, !tbaa !40
+  %9 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %8)
+  %10 = icmp ne i8 %9, 0
+  br i1 %10, label %11, label %44
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %delta.addr, align 4
-  %cmp = icmp ne i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end13
+11:                                               ; preds = %2
+  %12 = load i32, ptr %4, align 4, !tbaa !8
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %44
 
-if.then:                                          ; preds = %land.lhs.true
-  %vec = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %vec, align 8
-  %call2 = call noundef i32 @_ZNK6icu_759UVector324sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store i32 %call2, ptr %i, align 4
-  %3 = load i32, ptr %i, align 4
-  %cmp3 = icmp sgt i32 %3, 0
-  br i1 %cmp3, label %if.then4, label %if.end
+14:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %15 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %6, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8, !tbaa !38
+  %17 = call noundef i32 @_ZNK6icu_779UVector324sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
+  store i32 %17, ptr %5, align 4, !tbaa !8
+  %18 = load i32, ptr %5, align 4, !tbaa !8
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %20, label %43
 
-if.then4:                                         ; preds = %if.then
-  %4 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %4, -1
-  store i32 %dec, ptr %i, align 4
-  %vec5 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %vec5, align 8
-  %6 = load i32, ptr %delta.addr, align 4
-  %vec6 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %7 = load ptr, ptr %vec6, align 8
-  %8 = load i32, ptr %i, align 4
-  %call7 = call noundef i32 @_ZNK6icu_759UVector3210elementAtiEi(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %8)
-  %add = add nsw i32 %6, %call7
-  %9 = load i32, ptr %i, align 4
-  call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %add, i32 noundef %9)
-  %10 = load i32, ptr %i, align 4
-  %dec8 = add nsw i32 %10, -1
-  store i32 %dec8, ptr %i, align 4
-  %vec9 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %11 = load ptr, ptr %vec9, align 8
-  %12 = load i32, ptr %delta.addr, align 4
-  %vec10 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
-  %13 = load ptr, ptr %vec10, align 8
-  %14 = load i32, ptr %i, align 4
-  %call11 = call noundef i32 @_ZNK6icu_759UVector3210elementAtiEi(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef %14)
-  %add12 = add nsw i32 %12, %call11
-  %15 = load i32, ptr %i, align 4
-  call void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef %add12, i32 noundef %15)
-  br label %if.end
+20:                                               ; preds = %14
+  %21 = load i32, ptr %5, align 4, !tbaa !8
+  %22 = add nsw i32 %21, -1
+  store i32 %22, ptr %5, align 4, !tbaa !8
+  %23 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %6, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
+  %25 = load i32, ptr %4, align 4, !tbaa !8
+  %26 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %6, i32 0, i32 2
+  %27 = load ptr, ptr %26, align 8, !tbaa !38
+  %28 = load i32, ptr %5, align 4, !tbaa !8
+  %29 = call noundef i32 @_ZNK6icu_779UVector3210elementAtiEi(ptr noundef nonnull align 8 dereferenceable(32) %27, i32 noundef %28)
+  %30 = add nsw i32 %25, %29
+  %31 = load i32, ptr %5, align 4, !tbaa !8
+  call void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef %30, i32 noundef %31)
+  %32 = load i32, ptr %5, align 4, !tbaa !8
+  %33 = add nsw i32 %32, -1
+  store i32 %33, ptr %5, align 4, !tbaa !8
+  %34 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %6, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !38
+  %36 = load i32, ptr %4, align 4, !tbaa !8
+  %37 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %6, i32 0, i32 2
+  %38 = load ptr, ptr %37, align 8, !tbaa !38
+  %39 = load i32, ptr %5, align 4, !tbaa !8
+  %40 = call noundef i32 @_ZNK6icu_779UVector3210elementAtiEi(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef %39)
+  %41 = add nsw i32 %36, %40
+  %42 = load i32, ptr %5, align 4, !tbaa !8
+  call void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef %41, i32 noundef %42)
+  br label %43
 
-if.end:                                           ; preds = %if.then4, %if.then
-  br label %if.end13
+43:                                               ; preds = %20, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %44
 
-if.end13:                                         ; preds = %if.end, %land.lhs.true, %entry
+44:                                               ; preds = %43, %11, %2
   ret void
 }
 
-declare void @_ZN6icu_759UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef) #4
+declare void @_ZN6icu_779UVector3212setElementAtEii(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef) #5
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_759UVector3210elementAtiEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %index) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %index.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %cond.false
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK6icu_779UVector3210elementAtiEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !42
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = icmp sge i32 %6, 0
+  br i1 %7, label %8, label %25
 
-land.lhs.true:                                    ; preds = %entry
-  %count = getelementptr inbounds %"class.icu_75::UVector32", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %count, align 8
-  %cmp2 = icmp sgt i32 %1, 0
-  br i1 %cmp2, label %land.lhs.true3, label %cond.false
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"class.icu_77::UVector32", ptr %5, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !43
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %12, label %25
 
-land.lhs.true3:                                   ; preds = %land.lhs.true
-  %count4 = getelementptr inbounds %"class.icu_75::UVector32", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %count4, align 8
-  %3 = load i32, ptr %index.addr, align 4
-  %sub = sub nsw i32 %2, %3
-  %cmp5 = icmp sgt i32 %sub, 0
-  br i1 %cmp5, label %cond.true, label %cond.false
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw %"class.icu_77::UVector32", ptr %5, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8, !tbaa !43
+  %15 = load i32, ptr %4, align 4, !tbaa !8
+  %16 = sub nsw i32 %14, %15
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %18, label %25
 
-cond.true:                                        ; preds = %land.lhs.true3
-  %elements = getelementptr inbounds %"class.icu_75::UVector32", ptr %this1, i32 0, i32 4
-  %4 = load ptr, ptr %elements, align 8
-  %5 = load i32, ptr %index.addr, align 4
-  %idxprom = sext i32 %5 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %4, i64 %idxprom
-  %6 = load i32, ptr %arrayidx, align 4
-  br label %cond.end
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw %"class.icu_77::UVector32", ptr %5, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8, !tbaa !46
+  %21 = load i32, ptr %4, align 4, !tbaa !8
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i32, ptr %20, i64 %22
+  %24 = load i32, ptr %23, align 4, !tbaa !8
+  br label %26
 
-cond.false:                                       ; preds = %land.lhs.true3, %land.lhs.true, %entry
-  br label %cond.end
+25:                                               ; preds = %12, %8, %2
+  br label %26
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %6, %cond.true ], [ 0, %cond.false ]
-  ret i32 %cond
+26:                                               ; preds = %25, %18
+  %27 = phi i32 [ %24, %18 ], [ 0, %25 ]
+  ret i32 %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7528FieldPositionIteratorHandler11isRecordingEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %status = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 3
-  %0 = load i32, ptr %status, align 8
-  %call = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %0)
-  ret i8 %call
+define noundef signext i8 @_ZNK6icu_7728FieldPositionIteratorHandler11isRecordingEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::FieldPositionIteratorHandler", ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 8, !tbaa !40
+  %6 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %5)
+  ret i8 %6
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef signext i8 @_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %minimumCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status) #3 comdat align 2 {
-entry:
-  %retval = alloca i8, align 1
-  %this.addr = alloca ptr, align 8
-  %minimumCapacity.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %minimumCapacity, ptr %minimumCapacity.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %minimumCapacity.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef signext i8 @_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #8 comdat align 2 {
+  %4 = alloca i8, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !42
+  store i32 %1, ptr %6, align 4, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !32
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i32, ptr %6, align 4, !tbaa !8
+  %10 = icmp sge i32 %9, 0
+  br i1 %10, label %11, label %17
 
-land.lhs.true:                                    ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::UVector32", ptr %this1, i32 0, i32 2
-  %1 = load i32, ptr %capacity, align 4
-  %2 = load i32, ptr %minimumCapacity.addr, align 4
-  %cmp2 = icmp sge i32 %1, %2
-  br i1 %cmp2, label %if.then, label %if.else
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw %"class.icu_77::UVector32", ptr %8, i32 0, i32 2
+  %13 = load i32, ptr %12, align 4, !tbaa !47
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  %15 = icmp sge i32 %13, %14
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %land.lhs.true
-  store i8 1, ptr %retval, align 1
-  br label %return
+16:                                               ; preds = %11
+  store i8 1, ptr %4, align 1
+  br label %21
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %3 = load i32, ptr %minimumCapacity.addr, align 4
-  %4 = load ptr, ptr %status.addr, align 8
-  %call = call noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+17:                                               ; preds = %11, %3
+  %18 = load i32, ptr %6, align 4, !tbaa !8
+  %19 = load ptr, ptr %7, align 8, !tbaa !32
+  %20 = call noundef signext i8 @_ZN6icu_779UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+  store i8 %20, ptr %4, align 1
+  br label %21
 
-return:                                           ; preds = %if.else, %if.then
-  %5 = load i8, ptr %retval, align 1
-  ret i8 %5
+21:                                               ; preds = %17, %16
+  %22 = load i8, ptr %4, align 1
+  ret i8 %22
 }
 
-declare noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #4
+declare noundef signext i8 @_ZN6icu_779UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #5
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6icu_7720FieldPositionHandlerE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !9, i64 8}
+!11 = !{!"_ZTSN6icu_7720FieldPositionHandlerE", !9, i64 8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN6icu_7724FieldPositionOnlyHandlerE", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN6icu_7713FieldPositionE", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"vtable pointer", !7, i64 0}
+!18 = !{!19, !6, i64 24}
+!19 = !{!"_ZTSN6icu_7724FieldPositionOnlyHandlerE", !11, i64 0, !15, i64 16, !6, i64 24, !6, i64 25}
+!20 = !{!19, !6, i64 25}
+!21 = !{!19, !15, i64 16}
+!22 = !{!23, !9, i64 8}
+!23 = !{!"_ZTSN6icu_7713FieldPositionE", !24, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!24 = !{!"_ZTSN6icu_777UObjectE"}
+!25 = !{!23, !9, i64 12}
+!26 = !{!23, !9, i64 16}
+!27 = !{!6, !6, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSN6icu_7728FieldPositionIteratorHandlerE", !5, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSN6icu_7721FieldPositionIteratorE", !5, i64 0}
+!32 = !{!5, !5, i64 0}
+!33 = !{!34, !31, i64 16}
+!34 = !{!"_ZTSN6icu_7728FieldPositionIteratorHandlerE", !11, i64 0, !31, i64 16, !35, i64 24, !36, i64 32, !37, i64 36}
+!35 = !{!"p1 _ZTSN6icu_779UVector32E", !5, i64 0}
+!36 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!37 = !{!"_ZTS14UFieldCategory", !6, i64 0}
+!38 = !{!34, !35, i64 24}
+!39 = !{!36, !36, i64 0}
+!40 = !{!34, !36, i64 32}
+!41 = !{!34, !37, i64 36}
+!42 = !{!35, !35, i64 0}
+!43 = !{!44, !9, i64 8}
+!44 = !{!"_ZTSN6icu_779UVector32E", !24, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !45, i64 24}
+!45 = !{!"p1 int", !5, i64 0}
+!46 = !{!44, !45, i64 24}
+!47 = !{!44, !9, i64 12}

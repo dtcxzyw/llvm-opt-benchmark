@@ -1,41 +1,40 @@
 ; ModuleID = 'bench/icu/original/number_grouping.ll'
 source_filename = "bench/icu/original/number_grouping.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase.7" }
-%"class.icu_75::LocalPointerBase.7" = type { ptr }
+%"class.icu_77::internal::LocalOpenPointer" = type { %"class.icu_77::LocalPointerBase.7" }
+%"class.icu_77::LocalPointerBase.7" = type { ptr }
 
-$_ZN6icu_7527LocalUResourceBundlePointerD2Ev = comdat any
+$_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev = comdat any
 
 $__clang_call_terminate = comdat any
 
 @.str = private unnamed_addr constant [37 x i8] c"NumberElements/minimumGroupingDigits\00", align 1
-@switch.table._ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy = private unnamed_addr constant [5 x i64] [i64 281466386776064, i64 281462091808768, i64 281466386776064, i64 4294967296, i64 4294967296], align 8
-@switch.table._ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy.2 = private unnamed_addr constant [5 x i64] [i64 65535, i64 65534, i64 65534, i64 65532, i64 3], align 8
+@switch.table._ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupingStrategy = private unnamed_addr constant [5 x i64] [i64 281466386776064, i64 281462091808768, i64 281466386776064, i64 4294967296, i64 4294967296], align 8
+@switch.table._ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupingStrategy.2 = private unnamed_addr constant [5 x i64] [i64 65535, i64 65534, i64 65534, i64 65532, i64 3], align 8
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define { i64, i32 } @_ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy(i32 noundef %grouping) local_unnamed_addr #0 align 2 {
-entry:
-  %0 = icmp ult i32 %grouping, 5
-  br i1 %0, label %switch.lookup, label %sw.default
+define { i64, i32 } @_ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupingStrategy(i32 noundef %0) local_unnamed_addr #0 align 2 {
+  %2 = icmp ult i32 %0, 5
+  br i1 %2, label %switch.lookup, label %3
 
-sw.default:                                       ; preds = %entry
-  tail call void @abort() #8
+3:                                                ; preds = %1
+  tail call void @abort() #9
   unreachable
 
-switch.lookup:                                    ; preds = %entry
-  %1 = zext nneg i32 %grouping to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy, i64 0, i64 %1
+switch.lookup:                                    ; preds = %1
+  %4 = zext nneg i32 %0 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupingStrategy, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext nneg i32 %grouping to i64
-  %switch.gep18 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy.2, i64 0, i64 %2
-  %switch.load19 = load i64, ptr %switch.gep18, align 8
-  %retval.sroa.6.0.insert.shift = shl nuw nsw i64 %switch.load19, 16
-  %retval.sroa.6.0.insert.insert = or disjoint i64 %retval.sroa.6.0.insert.shift, %switch.load
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.6.0.insert.insert, %switch.load19
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %grouping, 1
+  %5 = zext nneg i32 %0 to i64
+  %switch.gep11 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6icu_776number4impl7Grouper11forStrategyE23UNumberGroupingStrategy.2, i64 0, i64 %5
+  %switch.load12 = load i64, ptr %switch.gep11, align 8
+  %.sroa.6.0.insert.shift = shl nuw nsw i64 %switch.load12, 16
+  %.sroa.6.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %switch.load
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.insert, %switch.load12
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.insert.insert, 0
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %0, 1
   ret { i64, i32 } %.fca.1.insert
 }
 
@@ -43,271 +42,342 @@ switch.lookup:                                    ; preds = %entry
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i32 } @_ZN6icu_756number4impl7Grouper13forPropertiesERKNS1_23DecimalFormatPropertiesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(757) %properties) local_unnamed_addr #2 align 2 {
-entry:
-  %groupingUsed = getelementptr inbounds nuw i8, ptr %properties, i64 80
-  %0 = load i8, ptr %groupingUsed, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end, label %return
+define { i64, i32 } @_ZN6icu_776number4impl7Grouper13forPropertiesERKNS1_23DecimalFormatPropertiesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(757) %0) local_unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %3 = load i8, ptr %2, align 8, !tbaa !3, !range !34, !noundef !35
+  %4 = trunc nuw i8 %3 to i1
+  br i1 %4, label %5, label %26
 
-if.end:                                           ; preds = %entry
-  %groupingSize = getelementptr inbounds nuw i8, ptr %properties, i64 76
-  %1 = load i32, ptr %groupingSize, align 4
-  %conv = trunc i32 %1 to i16
-  %secondaryGroupingSize = getelementptr inbounds nuw i8, ptr %properties, i64 752
-  %2 = load i32, ptr %secondaryGroupingSize, align 8
-  %conv1 = trunc i32 %2 to i16
-  %minimumGroupingDigits = getelementptr inbounds nuw i8, ptr %properties, i64 108
-  %3 = load i32, ptr %minimumGroupingDigits, align 4
-  %cmp = icmp sgt i16 %conv, 0
-  %cmp5 = icmp sgt i16 %conv1, 0
-  %cond = select i1 %cmp5, i16 %conv1, i16 %conv
-  %cond9 = select i1 %cmp, i16 %conv, i16 %cond
-  %4 = and i32 %3, 65535
-  %5 = zext nneg i32 %4 to i64
-  %6 = shl nuw nsw i64 %5, 32
-  %7 = zext i16 %cond to i64
-  %8 = shl nuw nsw i64 %7, 16
-  %9 = or disjoint i64 %8, %6
-  %10 = zext i16 %cond9 to i64
-  %11 = or disjoint i64 %9, %10
-  br label %return
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %7 = load i32, ptr %6, align 4, !tbaa !36
+  %8 = trunc i32 %7 to i16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %10 = load i32, ptr %9, align 8, !tbaa !37
+  %11 = trunc i32 %10 to i16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %13 = load i32, ptr %12, align 4, !tbaa !38
+  %14 = icmp sgt i16 %8, 0
+  %15 = icmp sgt i16 %11, 0
+  %16 = select i1 %15, i16 %11, i16 %8
+  %17 = select i1 %14, i16 %8, i16 %16
+  %18 = and i32 %13, 65535
+  %19 = zext nneg i32 %18 to i64
+  %20 = shl nuw nsw i64 %19, 32
+  %21 = zext i16 %16 to i64
+  %22 = shl nuw nsw i64 %21, 16
+  %23 = or disjoint i64 %22, %20
+  %24 = zext i16 %17 to i64
+  %25 = or disjoint i64 %23, %24
+  br label %26
 
-return:                                           ; preds = %entry, %if.end
-  %retval.sroa.5.sroa.2.0 = phi i32 [ 5, %if.end ], [ 0, %entry ]
-  %retval.sroa.0.0.insert.insert = phi i64 [ %11, %if.end ], [ 281470681743359, %entry ]
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.5.sroa.2.0, 1
+26:                                               ; preds = %1, %5
+  %.sroa.5.sroa.2.0 = phi i32 [ 5, %5 ], [ 0, %1 ]
+  %.sroa.0.0.insert.insert = phi i64 [ %25, %5 ], [ 281470681743359, %1 ]
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.insert.insert, 0
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.sroa.2.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl7Grouper13setLocaleDataERKNS1_17ParsedPatternInfoERKNS_6LocaleE(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(433) %patternInfo, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(217) %locale) local_unnamed_addr #3 align 2 {
-entry:
-  %fMinGrouping = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %0 = load i16, ptr %fMinGrouping, align 4
-  switch i16 %0, label %if.end13 [
-    i16 -2, label %if.then
-    i16 -3, label %if.then6
+define void @_ZN6icu_776number4impl7Grouper13setLocaleDataERKNS1_17ParsedPatternInfoERKNS_6LocaleE(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(433) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(217) %2) local_unnamed_addr #4 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = load i16, ptr %4, align 4, !tbaa !39
+  switch i16 %5, label %15 [
+    i16 -2, label %6
+    i16 -3, label %9
   ]
 
-if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds nuw i8, ptr %locale, i64 40
-  %locale.val = load ptr, ptr %1, align 8
-  %call = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE(ptr %locale.val)
-  br label %if.end13.sink.split
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %.val = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_776LocaleE(ptr %.val)
+  br label %.sink.split
 
-if.then6:                                         ; preds = %entry
-  %2 = getelementptr inbounds nuw i8, ptr %locale, i64 40
-  %locale.val7 = load ptr, ptr %2, align 8
-  %call7 = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE(ptr %locale.val7)
-  %conv8 = sext i16 %call7 to i32
-  %call9 = tail call i32 @uprv_max_75(i32 noundef 2, i32 noundef %conv8)
-  %conv10 = trunc i32 %call9 to i16
-  br label %if.end13.sink.split
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %.val15 = load ptr, ptr %10, align 8, !tbaa !42
+  %11 = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_776LocaleE(ptr %.val15)
+  %12 = sext i16 %11 to i32
+  %13 = tail call i32 @uprv_max_77(i32 noundef 2, i32 noundef %12)
+  %14 = trunc i32 %13 to i16
+  br label %.sink.split
 
-if.end13.sink.split:                              ; preds = %if.then, %if.then6
-  %conv10.sink = phi i16 [ %conv10, %if.then6 ], [ %call, %if.then ]
-  store i16 %conv10.sink, ptr %fMinGrouping, align 4
-  br label %if.end13
+.sink.split:                                      ; preds = %6, %9
+  %.sink = phi i16 [ %14, %9 ], [ %8, %6 ]
+  store i16 %.sink, ptr %4, align 4, !tbaa !39
+  br label %15
 
-if.end13:                                         ; preds = %if.end13.sink.split, %entry
-  %3 = load i16, ptr %this, align 4
-  %cmp15.not = icmp eq i16 %3, -2
-  %fGrouping2 = getelementptr inbounds nuw i8, ptr %this, i64 2
-  %4 = load i16, ptr %fGrouping2, align 2
-  %cmp17.not = icmp eq i16 %4, -4
-  %or.cond = select i1 %cmp15.not, i1 true, i1 %cmp17.not
-  br i1 %or.cond, label %if.end19, label %return
+15:                                               ; preds = %.sink.split, %3
+  %16 = load i16, ptr %0, align 4, !tbaa !45
+  %.not = icmp eq i16 %16, -2
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %18 = load i16, ptr %17, align 2
+  %.not12 = icmp eq i16 %18, -4
+  %or.cond = select i1 %.not, i1 true, i1 %.not12
+  br i1 %or.cond, label %19, label %30
 
-if.end19:                                         ; preds = %if.end13
-  %positive = getelementptr inbounds nuw i8, ptr %patternInfo, i64 72
-  %5 = load i64, ptr %positive, align 8
-  %conv20 = trunc i64 %5 to i16
-  %shr = lshr i64 %5, 16
-  %conv24 = trunc i64 %shr to i16
-  %cmp31 = icmp eq i16 %conv24, -1
-  %cmp35 = icmp eq i16 %3, -4
-  %cond = select i1 %cmp35, i16 3, i16 -1
-  %grouping1.0 = select i1 %cmp31, i16 %cond, i16 %conv20
-  %6 = and i64 %5, 281470681743360
-  %cmp38 = icmp eq i64 %6, 281470681743360
-  %grouping2.0 = select i1 %cmp38, i16 %grouping1.0, i16 %conv24
-  store i16 %grouping1.0, ptr %this, align 4
-  store i16 %grouping2.0, ptr %fGrouping2, align 2
-  br label %return
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %21 = load i64, ptr %20, align 8, !tbaa !46
+  %22 = trunc i64 %21 to i16
+  %23 = lshr i64 %21, 16
+  %24 = trunc i64 %23 to i16
+  %25 = icmp eq i16 %24, -1
+  %26 = icmp eq i16 %16, -4
+  %27 = select i1 %26, i16 3, i16 -1
+  %.0 = select i1 %25, i16 %27, i16 %22
+  %28 = and i64 %21, 281470681743360
+  %29 = icmp eq i64 %28, 281470681743360
+  %.010 = select i1 %29, i16 %.0, i16 %24
+  store i16 %.0, ptr %0, align 4, !tbaa !45
+  store i16 %.010, ptr %17, align 2, !tbaa !57
+  br label %30
 
-return:                                           ; preds = %if.end13, %if.end19
+30:                                               ; preds = %15, %19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE(ptr %locale.40.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-entry:
-  %localStatus = alloca i32, align 4
-  %bundle = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
-  %resultLen = alloca i32, align 4
-  store i32 0, ptr %localStatus, align 4
-  %call1 = call ptr @ures_open_75(ptr noundef null, ptr noundef %locale.40.val, ptr noundef nonnull %localStatus)
-  store ptr %call1, ptr %bundle, align 8
-  store i32 0, ptr %resultLen, align 4
-  %call4 = invoke ptr @ures_getStringByKeyWithFallback_75(ptr noundef %call1, ptr noundef nonnull @.str, ptr noundef nonnull %resultLen, ptr noundef nonnull %localStatus)
-          to label %invoke.cont3 unwind label %lpad
+define internal fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_776LocaleE(ptr %.40.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+  %1 = alloca i32, align 4
+  %2 = alloca %"class.icu_77::internal::LocalOpenPointer", align 8
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  store i32 0, ptr %1, align 4, !tbaa !58
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  %4 = call ptr @ures_open_77(ptr noundef null, ptr noundef %.40.val, ptr noundef nonnull %1)
+  store ptr %4, ptr %2, align 8, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  store i32 0, ptr %3, align 4, !tbaa !63
+  %5 = invoke ptr @ures_getStringByKeyWithFallback_77(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %1)
+          to label %6 unwind label %11
 
-invoke.cont3:                                     ; preds = %entry
-  %0 = load i32, ptr %localStatus, align 4
-  %cmp.i = icmp sgt i32 %0, 0
-  %1 = load i32, ptr %resultLen, align 4
-  %cmp = icmp ne i32 %1, 1
-  %or.cond = select i1 %cmp.i, i1 true, i1 %cmp
-  br i1 %or.cond, label %cleanup, label %if.end
+6:                                                ; preds = %0
+  %7 = load i32, ptr %1, align 4, !tbaa !58
+  %8 = icmp sgt i32 %7, 0
+  %9 = load i32, ptr %3, align 4
+  %10 = icmp ne i32 %9, 1
+  %or.cond = select i1 %8, i1 true, i1 %10
+  br i1 %or.cond, label %16, label %13
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+11:                                               ; preds = %0
+  %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bundle) #9
-  resume { ptr, i32 } %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  resume { ptr, i32 } %12
 
-if.end:                                           ; preds = %invoke.cont3
-  %3 = load i16, ptr %call4, align 2
-  %sub = add i16 %3, -48
-  br label %cleanup
+13:                                               ; preds = %6
+  %14 = load i16, ptr %5, align 2, !tbaa !64
+  %15 = add i16 %14, -48
+  br label %16
 
-cleanup:                                          ; preds = %invoke.cont3, %if.end
-  %retval.0 = phi i16 [ %sub, %if.end ], [ 1, %invoke.cont3 ]
-  %cmp.not.i = icmp eq ptr %call1, null
-  br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
+16:                                               ; preds = %6, %13
+  %.0 = phi i16 [ %15, %13 ], [ 1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %17
 
-if.then.i:                                        ; preds = %cleanup
-  invoke void @ures_close_75(ptr noundef nonnull %call1)
-          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit unwind label %terminate.lpad.i
+17:                                               ; preds = %16
+  invoke void @ures_close_77(ptr noundef nonnull %4)
+          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit unwind label %18
 
-terminate.lpad.i:                                 ; preds = %if.then.i
-  %4 = landingpad { ptr, i32 }
+18:                                               ; preds = %17
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #8
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #9
   unreachable
 
-_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup, %if.then.i
-  ret i16 %retval.0
+_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %16, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  ret i16 %.0
 }
 
-declare i32 @uprv_max_75(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @uprv_max_77(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl7Grouper15groupAtPositionEiRKNS1_15DecimalQuantityE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this, i32 noundef %position, ptr noundef nonnull align 8 dereferenceable(66) %value) local_unnamed_addr #3 align 2 {
-entry:
-  %0 = load i16, ptr %this, align 4
-  switch i16 %0, label %if.end [
-    i16 -1, label %return
-    i16 0, label %return
+define noundef zeroext i1 @_ZNK6icu_776number4impl7Grouper15groupAtPositionEiRKNS1_15DecimalQuantityE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(66) %2) local_unnamed_addr #4 align 2 {
+  %4 = load i16, ptr %0, align 4, !tbaa !45
+  switch i16 %4, label %5 [
+    i16 -1, label %25
+    i16 0, label %25
   ]
 
-if.end:                                           ; preds = %entry
-  %conv = sext i16 %0 to i32
-  %sub = sub nsw i32 %position, %conv
-  %cmp7 = icmp sgt i32 %sub, -1
-  br i1 %cmp7, label %land.lhs.true, label %return
+5:                                                ; preds = %3
+  %6 = sext i16 %4 to i32
+  %7 = sub nsw i32 %1, %6
+  %8 = icmp sgt i32 %7, -1
+  br i1 %8, label %9, label %25
 
-land.lhs.true:                                    ; preds = %if.end
-  %fGrouping2 = getelementptr inbounds nuw i8, ptr %this, i64 2
-  %1 = load i16, ptr %fGrouping2, align 2
-  %conv8 = sext i16 %1 to i32
-  %rem = srem i32 %sub, %conv8
-  %cmp9 = icmp eq i32 %rem, 0
-  br i1 %cmp9, label %land.rhs, label %return
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %11 = load i16, ptr %10, align 2, !tbaa !57
+  %12 = sext i16 %11 to i32
+  %13 = srem i32 %7, %12
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %25
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %call = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity24getUpperDisplayMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %value)
-  %2 = load i16, ptr %this, align 4
-  %conv11 = sext i16 %2 to i32
-  %sub12 = add i32 %call, 1
-  %add = sub i32 %sub12, %conv11
-  %fMinGrouping = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %3 = load i16, ptr %fMinGrouping, align 4
-  %conv13 = sext i16 %3 to i32
-  %cmp14 = icmp sge i32 %add, %conv13
-  br label %return
+15:                                               ; preds = %9
+  %16 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity24getUpperDisplayMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %2)
+  %17 = load i16, ptr %0, align 4, !tbaa !45
+  %18 = sext i16 %17 to i32
+  %19 = add i32 %16, 1
+  %20 = sub i32 %19, %18
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %22 = load i16, ptr %21, align 4, !tbaa !39
+  %23 = sext i16 %22 to i32
+  %24 = icmp sge i32 %20, %23
+  br label %25
 
-return:                                           ; preds = %if.end, %land.lhs.true, %land.rhs, %entry, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %entry ], [ false, %land.lhs.true ], [ false, %if.end ], [ %cmp14, %land.rhs ]
-  ret i1 %retval.0
+25:                                               ; preds = %5, %9, %15, %3, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %3 ], [ false, %9 ], [ false, %5 ], [ %24, %15 ]
+  ret i1 %.0
 }
 
-declare noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity24getUpperDisplayMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #4
+declare noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity24getUpperDisplayMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i16 @_ZNK6icu_756number4impl7Grouper10getPrimaryEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
-entry:
-  %0 = load i16, ptr %this, align 4
-  ret i16 %0
+define noundef signext i16 @_ZNK6icu_776number4impl7Grouper10getPrimaryEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #2 align 2 {
+  %2 = load i16, ptr %0, align 4, !tbaa !45
+  ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i16 @_ZNK6icu_756number4impl7Grouper12getSecondaryEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
-entry:
-  %fGrouping2 = getelementptr inbounds nuw i8, ptr %this, i64 2
-  %0 = load i16, ptr %fGrouping2, align 2
-  ret i16 %0
+define noundef signext i16 @_ZNK6icu_776number4impl7Grouper12getSecondaryEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %3 = load i16, ptr %2, align 2, !tbaa !57
+  ret i16 %3
 }
 
-declare ptr @ures_open_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @ures_open_77(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @ures_getStringByKeyWithFallback_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @ures_getStringByKeyWithFallback_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+define linkonce_odr void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !60
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %4, label %3
 
-if.then:                                          ; preds = %entry
-  invoke void @ures_close_75(ptr noundef nonnull %0)
-          to label %if.end unwind label %terminate.lpad
+3:                                                ; preds = %1
+  invoke void @ures_close_77(ptr noundef nonnull %2)
+          to label %4 unwind label %5
 
-if.end:                                           ; preds = %if.then, %entry
+4:                                                ; preds = %3, %1
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %1 = landingpad { ptr, i32 }
+5:                                                ; preds = %3
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #8
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #9
   unreachable
 }
 
-declare void @ures_close_75(ptr noundef) local_unnamed_addr #4
+declare void @ures_close_77(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
-  tail call void @_ZSt9terminatev() #8
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #9
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
-attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { nounwind }
+attributes #0 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !6, i64 80}
+!4 = !{!"_ZTSN6icu_776number4impl23DecimalFormatPropertiesE", !5, i64 0, !10, i64 8, !17, i64 48, !21, i64 56, !6, i64 64, !6, i64 65, !6, i64 66, !6, i64 67, !6, i64 68, !23, i64 72, !23, i64 76, !6, i64 80, !23, i64 84, !23, i64 88, !23, i64 92, !23, i64 96, !23, i64 100, !23, i64 104, !23, i64 108, !23, i64 112, !23, i64 116, !23, i64 120, !23, i64 124, !24, i64 128, !24, i64 192, !24, i64 256, !24, i64 320, !26, i64 384, !24, i64 392, !6, i64 456, !6, i64 457, !28, i64 460, !6, i64 468, !6, i64 469, !30, i64 472, !24, i64 480, !24, i64 544, !24, i64 608, !24, i64 672, !31, i64 736, !32, i64 744, !23, i64 752, !6, i64 756}
+!5 = !{!"_ZTSN6icu_776number4impl13NullableValueI19UNumberCompactStyleEE", !6, i64 0, !9, i64 4}
+!6 = !{!"bool", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"_ZTS19UNumberCompactStyle", !7, i64 0}
+!10 = !{!"_ZTSN6icu_776number4impl13NullableValueINS_12CurrencyUnitEEE", !6, i64 0, !11, i64 8}
+!11 = !{!"_ZTSN6icu_7712CurrencyUnitE", !12, i64 0, !7, i64 20}
+!12 = !{!"_ZTSN6icu_7711MeasureUnitE", !13, i64 0, !14, i64 8, !16, i64 16, !7, i64 18}
+!13 = !{!"_ZTSN6icu_777UObjectE"}
+!14 = !{!"p1 _ZTSN6icu_7715MeasureUnitImplE", !15, i64 0}
+!15 = !{!"any pointer", !7, i64 0}
+!16 = !{!"short", !7, i64 0}
+!17 = !{!"_ZTSN6icu_776number4impl25CurrencyPluralInfoWrapperE", !18, i64 0}
+!18 = !{!"_ZTSN6icu_7712LocalPointerINS_18CurrencyPluralInfoEEE", !19, i64 0}
+!19 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_18CurrencyPluralInfoEEE", !20, i64 0}
+!20 = !{!"p1 _ZTSN6icu_7718CurrencyPluralInfoE", !15, i64 0}
+!21 = !{!"_ZTSN6icu_776number4impl13NullableValueI14UCurrencyUsageEE", !6, i64 0, !22, i64 4}
+!22 = !{!"_ZTS14UCurrencyUsage", !7, i64 0}
+!23 = !{!"int", !7, i64 0}
+!24 = !{!"_ZTSN6icu_7713UnicodeStringE", !25, i64 0, !7, i64 8}
+!25 = !{!"_ZTSN6icu_7711ReplaceableE", !13, i64 0}
+!26 = !{!"_ZTSN6icu_776number4impl13NullableValueI24UNumberFormatPadPositionEE", !6, i64 0, !27, i64 4}
+!27 = !{!"_ZTS24UNumberFormatPadPosition", !7, i64 0}
+!28 = !{!"_ZTSN6icu_776number4impl13NullableValueINS1_9ParseModeEEE", !6, i64 0, !29, i64 4}
+!29 = !{!"_ZTSN6icu_776number4impl9ParseModeE", !7, i64 0}
+!30 = !{!"_ZTS27UNumberFormatAttributeValue", !7, i64 0}
+!31 = !{!"double", !7, i64 0}
+!32 = !{!"_ZTSN6icu_776number4impl13NullableValueI25UNumberFormatRoundingModeEE", !6, i64 0, !33, i64 4}
+!33 = !{!"_ZTS25UNumberFormatRoundingMode", !7, i64 0}
+!34 = !{i8 0, i8 2}
+!35 = !{}
+!36 = !{!4, !23, i64 76}
+!37 = !{!4, !23, i64 752}
+!38 = !{!4, !23, i64 108}
+!39 = !{!40, !16, i64 4}
+!40 = !{!"_ZTSN6icu_776number4impl7GrouperE", !16, i64 0, !16, i64 2, !16, i64 4, !41, i64 8}
+!41 = !{!"_ZTS23UNumberGroupingStrategy", !7, i64 0}
+!42 = !{!43, !44, i64 40}
+!43 = !{!"_ZTSN6icu_776LocaleE", !13, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !23, i64 32, !44, i64 40, !7, i64 48, !44, i64 208, !7, i64 216}
+!44 = !{!"p1 omnipotent char", !15, i64 0}
+!45 = !{!40, !16, i64 0}
+!46 = !{!47, !50, i64 72}
+!47 = !{!"_ZTSN6icu_776number4impl17ParsedPatternInfoE", !48, i64 0, !24, i64 8, !49, i64 72, !49, i64 240, !54, i64 408, !56, i64 424, !6, i64 432}
+!48 = !{!"_ZTSN6icu_776number4impl20AffixPatternProviderE"}
+!49 = !{!"_ZTSN6icu_776number4impl20ParsedSubpatternInfoE", !50, i64 0, !23, i64 8, !23, i64 12, !23, i64 16, !23, i64 20, !23, i64 24, !23, i64 28, !23, i64 32, !23, i64 36, !6, i64 40, !23, i64 44, !6, i64 48, !27, i64 52, !51, i64 56, !6, i64 128, !23, i64 132, !6, i64 136, !6, i64 137, !6, i64 138, !6, i64 139, !6, i64 140, !6, i64 141, !53, i64 144, !53, i64 152, !53, i64 160}
+!50 = !{!"long", !7, i64 0}
+!51 = !{!"_ZTSN6icu_776number4impl15DecimalQuantityE", !52, i64 0, !6, i64 8, !23, i64 12, !23, i64 16, !7, i64 20, !7, i64 21, !31, i64 24, !23, i64 32, !23, i64 36, !23, i64 40, !23, i64 44, !7, i64 48, !6, i64 64, !6, i64 65}
+!52 = !{!"_ZTSN6icu_7713IFixedDecimalE"}
+!53 = !{!"_ZTSN6icu_776number4impl9EndpointsE", !23, i64 0, !23, i64 4}
+!54 = !{!"_ZTSN6icu_776number4impl17ParsedPatternInfo11ParserStateE", !55, i64 0, !23, i64 8}
+!55 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !15, i64 0}
+!56 = !{!"p1 _ZTSN6icu_776number4impl20ParsedSubpatternInfoE", !15, i64 0}
+!57 = !{!40, !16, i64 2}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"_ZTS10UErrorCode", !7, i64 0}
+!60 = !{!61, !62, i64 0}
+!61 = !{!"_ZTSN6icu_7716LocalPointerBaseI15UResourceBundleEE", !62, i64 0}
+!62 = !{!"p1 _ZTS15UResourceBundle", !15, i64 0}
+!63 = !{!23, !23, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"char16_t", !7, i64 0}

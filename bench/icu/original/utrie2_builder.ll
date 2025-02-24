@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UTrie2 = type { ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i32, i32, ptr, i32, i8, i8, i16, ptr }
 %struct.UNewTrie2 = type { [544 x i32], [35488 x i32], ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, [34852 x i32] }
@@ -8,4615 +8,5017 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.UTrie2Header = type { i32, i16, i16, i16, i16, i16, i16 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utrie2_open_75(i32 noundef %initialValue, i32 noundef %errorValue, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %initialValue.addr = alloca i32, align 4
-  %errorValue.addr = alloca i32, align 4
-  %pErrorCode.addr = alloca ptr, align 8
-  %trie = alloca ptr, align 8
-  %newTrie = alloca ptr, align 8
-  %data = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  store i32 %initialValue, ptr %initialValue.addr, align 4
-  store i32 %errorValue, ptr %errorValue.addr, align 4
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define ptr @utrie2_open_77(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  %14 = load ptr, ptr %7, align 8, !tbaa !7
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %15)
+  %17 = icmp ne i8 %16, 0
+  br i1 %17, label %18, label %19
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+18:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  br label %261
 
-if.end:                                           ; preds = %entry
-  %call1 = call noalias ptr @uprv_malloc_75(i64 noundef 80) #6
-  store ptr %call1, ptr %trie, align 8
-  %call2 = call noalias ptr @uprv_malloc_75(i64 noundef 283584) #6
-  store ptr %call2, ptr %newTrie, align 8
-  %call3 = call noalias ptr @uprv_malloc_75(i64 noundef 65536) #6
-  store ptr %call3, ptr %data, align 8
-  %2 = load ptr, ptr %trie, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then7, label %lor.lhs.false
+19:                                               ; preds = %3
+  %20 = call noalias ptr @uprv_malloc_77(i64 noundef 80) #10
+  store ptr %20, ptr %8, align 8, !tbaa !11
+  %21 = call noalias ptr @uprv_malloc_77(i64 noundef 283584) #10
+  store ptr %21, ptr %9, align 8, !tbaa !13
+  %22 = call noalias ptr @uprv_malloc_77(i64 noundef 65536) #10
+  store ptr %22, ptr %10, align 8, !tbaa !15
+  %23 = load ptr, ptr %8, align 8, !tbaa !11
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %31, label %25
 
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load ptr, ptr %newTrie, align 8
-  %cmp4 = icmp eq ptr %3, null
-  br i1 %cmp4, label %if.then7, label %lor.lhs.false5
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %9, align 8, !tbaa !13
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %31, label %28
 
-lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %data, align 8
-  %cmp6 = icmp eq ptr %4, null
-  br i1 %cmp6, label %if.then7, label %if.end8
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %10, align 8, !tbaa !15
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %36
 
-if.then7:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %if.end
-  %5 = load ptr, ptr %trie, align 8
-  call void @uprv_free_75(ptr noundef %5)
-  %6 = load ptr, ptr %newTrie, align 8
-  call void @uprv_free_75(ptr noundef %6)
-  %7 = load ptr, ptr %data, align 8
-  call void @uprv_free_75(ptr noundef %7)
-  %8 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %8, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+31:                                               ; preds = %28, %25, %19
+  %32 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @uprv_free_77(ptr noundef %32)
+  %33 = load ptr, ptr %9, align 8, !tbaa !13
+  call void @uprv_free_77(ptr noundef %33)
+  %34 = load ptr, ptr %10, align 8, !tbaa !15
+  call void @uprv_free_77(ptr noundef %34)
+  %35 = load ptr, ptr %7, align 8, !tbaa !7
+  store i32 7, ptr %35, align 4, !tbaa !9
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  br label %261
 
-if.end8:                                          ; preds = %lor.lhs.false5
-  %9 = load ptr, ptr %trie, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 80, i1 false)
-  %10 = load i32, ptr %initialValue.addr, align 4
-  %11 = load ptr, ptr %trie, align 8
-  %initialValue9 = getelementptr inbounds %struct.UTrie2, ptr %11, i32 0, i32 7
-  store i32 %10, ptr %initialValue9, align 4
-  %12 = load i32, ptr %errorValue.addr, align 4
-  %13 = load ptr, ptr %trie, align 8
-  %errorValue10 = getelementptr inbounds %struct.UTrie2, ptr %13, i32 0, i32 8
-  store i32 %12, ptr %errorValue10, align 8
-  %14 = load ptr, ptr %trie, align 8
-  %highStart = getelementptr inbounds %struct.UTrie2, ptr %14, i32 0, i32 9
-  store i32 1114112, ptr %highStart, align 4
-  %15 = load ptr, ptr %newTrie, align 8
-  %16 = load ptr, ptr %trie, align 8
-  %newTrie11 = getelementptr inbounds %struct.UTrie2, ptr %16, i32 0, i32 16
-  store ptr %15, ptr %newTrie11, align 8
-  %17 = load ptr, ptr %data, align 8
-  %18 = load ptr, ptr %newTrie, align 8
-  %data12 = getelementptr inbounds %struct.UNewTrie2, ptr %18, i32 0, i32 2
-  store ptr %17, ptr %data12, align 8
-  %19 = load ptr, ptr %newTrie, align 8
-  %dataCapacity = getelementptr inbounds %struct.UNewTrie2, ptr %19, i32 0, i32 6
-  store i32 16384, ptr %dataCapacity, align 4
-  %20 = load i32, ptr %initialValue.addr, align 4
-  %21 = load ptr, ptr %newTrie, align 8
-  %initialValue13 = getelementptr inbounds %struct.UNewTrie2, ptr %21, i32 0, i32 3
-  store i32 %20, ptr %initialValue13, align 8
-  %22 = load i32, ptr %errorValue.addr, align 4
-  %23 = load ptr, ptr %newTrie, align 8
-  %errorValue14 = getelementptr inbounds %struct.UNewTrie2, ptr %23, i32 0, i32 4
-  store i32 %22, ptr %errorValue14, align 4
-  %24 = load ptr, ptr %newTrie, align 8
-  %highStart15 = getelementptr inbounds %struct.UNewTrie2, ptr %24, i32 0, i32 11
-  store i32 1114112, ptr %highStart15, align 8
-  %25 = load ptr, ptr %newTrie, align 8
-  %firstFreeBlock = getelementptr inbounds %struct.UNewTrie2, ptr %25, i32 0, i32 8
-  store i32 0, ptr %firstFreeBlock, align 4
-  %26 = load ptr, ptr %newTrie, align 8
-  %isCompacted = getelementptr inbounds %struct.UNewTrie2, ptr %26, i32 0, i32 12
-  store i8 0, ptr %isCompacted, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @llvm.memset.p0.i64(ptr align 8 %37, i8 0, i64 80, i1 false)
+  %38 = load i32, ptr %5, align 4, !tbaa !3
+  %39 = load ptr, ptr %8, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw %struct.UTrie2, ptr %39, i32 0, i32 7
+  store i32 %38, ptr %40, align 4, !tbaa !17
+  %41 = load i32, ptr %6, align 4, !tbaa !3
+  %42 = load ptr, ptr %8, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %struct.UTrie2, ptr %42, i32 0, i32 8
+  store i32 %41, ptr %43, align 8, !tbaa !21
+  %44 = load ptr, ptr %8, align 8, !tbaa !11
+  %45 = getelementptr inbounds nuw %struct.UTrie2, ptr %44, i32 0, i32 9
+  store i32 1114112, ptr %45, align 4, !tbaa !22
+  %46 = load ptr, ptr %9, align 8, !tbaa !13
+  %47 = load ptr, ptr %8, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.UTrie2, ptr %47, i32 0, i32 16
+  store ptr %46, ptr %48, align 8, !tbaa !23
+  %49 = load ptr, ptr %10, align 8, !tbaa !15
+  %50 = load ptr, ptr %9, align 8, !tbaa !13
+  %51 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %50, i32 0, i32 2
+  store ptr %49, ptr %51, align 8, !tbaa !24
+  %52 = load ptr, ptr %9, align 8, !tbaa !13
+  %53 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %52, i32 0, i32 6
+  store i32 16384, ptr %53, align 4, !tbaa !26
+  %54 = load i32, ptr %5, align 4, !tbaa !3
+  %55 = load ptr, ptr %9, align 8, !tbaa !13
+  %56 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %55, i32 0, i32 3
+  store i32 %54, ptr %56, align 8, !tbaa !27
+  %57 = load i32, ptr %6, align 4, !tbaa !3
+  %58 = load ptr, ptr %9, align 8, !tbaa !13
+  %59 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %58, i32 0, i32 4
+  store i32 %57, ptr %59, align 4, !tbaa !28
+  %60 = load ptr, ptr %9, align 8, !tbaa !13
+  %61 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %60, i32 0, i32 11
+  store i32 1114112, ptr %61, align 8, !tbaa !29
+  %62 = load ptr, ptr %9, align 8, !tbaa !13
+  %63 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %62, i32 0, i32 8
+  store i32 0, ptr %63, align 4, !tbaa !30
+  %64 = load ptr, ptr %9, align 8, !tbaa !13
+  %65 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %64, i32 0, i32 12
+  store i8 0, ptr %65, align 4, !tbaa !31
+  store i32 0, ptr %11, align 4, !tbaa !3
+  br label %66
 
-for.cond:                                         ; preds = %for.inc, %if.end8
-  %27 = load i32, ptr %i, align 4
-  %cmp16 = icmp slt i32 %27, 128
-  br i1 %cmp16, label %for.body, label %for.end
+66:                                               ; preds = %77, %36
+  %67 = load i32, ptr %11, align 4, !tbaa !3
+  %68 = icmp slt i32 %67, 128
+  br i1 %68, label %69, label %80
 
-for.body:                                         ; preds = %for.cond
-  %28 = load i32, ptr %initialValue.addr, align 4
-  %29 = load ptr, ptr %newTrie, align 8
-  %data17 = getelementptr inbounds %struct.UNewTrie2, ptr %29, i32 0, i32 2
-  %30 = load ptr, ptr %data17, align 8
-  %31 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %31 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %30, i64 %idxprom
-  store i32 %28, ptr %arrayidx, align 4
-  br label %for.inc
+69:                                               ; preds = %66
+  %70 = load i32, ptr %5, align 4, !tbaa !3
+  %71 = load ptr, ptr %9, align 8, !tbaa !13
+  %72 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %71, i32 0, i32 2
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = load i32, ptr %11, align 4, !tbaa !3
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i32, ptr %73, i64 %75
+  store i32 %70, ptr %76, align 4, !tbaa !3
+  br label %77
 
-for.inc:                                          ; preds = %for.body
-  %32 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %32, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+77:                                               ; preds = %69
+  %78 = load i32, ptr %11, align 4, !tbaa !3
+  %79 = add nsw i32 %78, 1
+  store i32 %79, ptr %11, align 4, !tbaa !3
+  br label %66, !llvm.loop !32
 
-for.end:                                          ; preds = %for.cond
-  br label %for.cond18
+80:                                               ; preds = %66
+  br label %81
 
-for.cond18:                                       ; preds = %for.inc24, %for.end
-  %33 = load i32, ptr %i, align 4
-  %cmp19 = icmp slt i32 %33, 192
-  br i1 %cmp19, label %for.body20, label %for.end26
+81:                                               ; preds = %92, %80
+  %82 = load i32, ptr %11, align 4, !tbaa !3
+  %83 = icmp slt i32 %82, 192
+  br i1 %83, label %84, label %95
 
-for.body20:                                       ; preds = %for.cond18
-  %34 = load i32, ptr %errorValue.addr, align 4
-  %35 = load ptr, ptr %newTrie, align 8
-  %data21 = getelementptr inbounds %struct.UNewTrie2, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %data21, align 8
-  %37 = load i32, ptr %i, align 4
-  %idxprom22 = sext i32 %37 to i64
-  %arrayidx23 = getelementptr inbounds i32, ptr %36, i64 %idxprom22
-  store i32 %34, ptr %arrayidx23, align 4
-  br label %for.inc24
+84:                                               ; preds = %81
+  %85 = load i32, ptr %6, align 4, !tbaa !3
+  %86 = load ptr, ptr %9, align 8, !tbaa !13
+  %87 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %86, i32 0, i32 2
+  %88 = load ptr, ptr %87, align 8, !tbaa !24
+  %89 = load i32, ptr %11, align 4, !tbaa !3
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i32, ptr %88, i64 %90
+  store i32 %85, ptr %91, align 4, !tbaa !3
+  br label %92
 
-for.inc24:                                        ; preds = %for.body20
-  %38 = load i32, ptr %i, align 4
-  %inc25 = add nsw i32 %38, 1
-  store i32 %inc25, ptr %i, align 4
-  br label %for.cond18, !llvm.loop !6
+92:                                               ; preds = %84
+  %93 = load i32, ptr %11, align 4, !tbaa !3
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %11, align 4, !tbaa !3
+  br label %81, !llvm.loop !34
 
-for.end26:                                        ; preds = %for.cond18
-  store i32 192, ptr %i, align 4
-  br label %for.cond27
+95:                                               ; preds = %81
+  store i32 192, ptr %11, align 4, !tbaa !3
+  br label %96
 
-for.cond27:                                       ; preds = %for.inc33, %for.end26
-  %39 = load i32, ptr %i, align 4
-  %cmp28 = icmp slt i32 %39, 256
-  br i1 %cmp28, label %for.body29, label %for.end35
+96:                                               ; preds = %107, %95
+  %97 = load i32, ptr %11, align 4, !tbaa !3
+  %98 = icmp slt i32 %97, 256
+  br i1 %98, label %99, label %110
 
-for.body29:                                       ; preds = %for.cond27
-  %40 = load i32, ptr %initialValue.addr, align 4
-  %41 = load ptr, ptr %newTrie, align 8
-  %data30 = getelementptr inbounds %struct.UNewTrie2, ptr %41, i32 0, i32 2
-  %42 = load ptr, ptr %data30, align 8
-  %43 = load i32, ptr %i, align 4
-  %idxprom31 = sext i32 %43 to i64
-  %arrayidx32 = getelementptr inbounds i32, ptr %42, i64 %idxprom31
-  store i32 %40, ptr %arrayidx32, align 4
-  br label %for.inc33
+99:                                               ; preds = %96
+  %100 = load i32, ptr %5, align 4, !tbaa !3
+  %101 = load ptr, ptr %9, align 8, !tbaa !13
+  %102 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %101, i32 0, i32 2
+  %103 = load ptr, ptr %102, align 8, !tbaa !24
+  %104 = load i32, ptr %11, align 4, !tbaa !3
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds i32, ptr %103, i64 %105
+  store i32 %100, ptr %106, align 4, !tbaa !3
+  br label %107
 
-for.inc33:                                        ; preds = %for.body29
-  %44 = load i32, ptr %i, align 4
-  %inc34 = add nsw i32 %44, 1
-  store i32 %inc34, ptr %i, align 4
-  br label %for.cond27, !llvm.loop !7
+107:                                              ; preds = %99
+  %108 = load i32, ptr %11, align 4, !tbaa !3
+  %109 = add nsw i32 %108, 1
+  store i32 %109, ptr %11, align 4, !tbaa !3
+  br label %96, !llvm.loop !35
 
-for.end35:                                        ; preds = %for.cond27
-  %45 = load ptr, ptr %newTrie, align 8
-  %dataNullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %45, i32 0, i32 10
-  store i32 192, ptr %dataNullOffset, align 4
-  %46 = load ptr, ptr %newTrie, align 8
-  %dataLength = getelementptr inbounds %struct.UNewTrie2, ptr %46, i32 0, i32 7
-  store i32 256, ptr %dataLength, align 8
-  store i32 0, ptr %i, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond36
+110:                                              ; preds = %96
+  %111 = load ptr, ptr %9, align 8, !tbaa !13
+  %112 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %111, i32 0, i32 10
+  store i32 192, ptr %112, align 4, !tbaa !36
+  %113 = load ptr, ptr %9, align 8, !tbaa !13
+  %114 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %113, i32 0, i32 7
+  store i32 256, ptr %114, align 8, !tbaa !37
+  store i32 0, ptr %11, align 4, !tbaa !3
+  store i32 0, ptr %12, align 4, !tbaa !3
+  br label %115
 
-for.cond36:                                       ; preds = %for.inc43, %for.end35
-  %47 = load i32, ptr %j, align 4
-  %cmp37 = icmp slt i32 %47, 128
-  br i1 %cmp37, label %for.body38, label %for.end45
+115:                                              ; preds = %130, %110
+  %116 = load i32, ptr %12, align 4, !tbaa !3
+  %117 = icmp slt i32 %116, 128
+  br i1 %117, label %118, label %135
 
-for.body38:                                       ; preds = %for.cond36
-  %48 = load i32, ptr %j, align 4
-  %49 = load ptr, ptr %newTrie, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %49, i32 0, i32 1
-  %50 = load i32, ptr %i, align 4
-  %idxprom39 = sext i32 %50 to i64
-  %arrayidx40 = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 %idxprom39
-  store i32 %48, ptr %arrayidx40, align 4
-  %51 = load ptr, ptr %newTrie, align 8
-  %map = getelementptr inbounds %struct.UNewTrie2, ptr %51, i32 0, i32 13
-  %52 = load i32, ptr %i, align 4
-  %idxprom41 = sext i32 %52 to i64
-  %arrayidx42 = getelementptr inbounds [34852 x i32], ptr %map, i64 0, i64 %idxprom41
-  store i32 1, ptr %arrayidx42, align 4
-  br label %for.inc43
+118:                                              ; preds = %115
+  %119 = load i32, ptr %12, align 4, !tbaa !3
+  %120 = load ptr, ptr %9, align 8, !tbaa !13
+  %121 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %120, i32 0, i32 1
+  %122 = load i32, ptr %11, align 4, !tbaa !3
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds [35488 x i32], ptr %121, i64 0, i64 %123
+  store i32 %119, ptr %124, align 4, !tbaa !3
+  %125 = load ptr, ptr %9, align 8, !tbaa !13
+  %126 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %125, i32 0, i32 13
+  %127 = load i32, ptr %11, align 4, !tbaa !3
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr inbounds [34852 x i32], ptr %126, i64 0, i64 %128
+  store i32 1, ptr %129, align 4, !tbaa !3
+  br label %130
 
-for.inc43:                                        ; preds = %for.body38
-  %53 = load i32, ptr %i, align 4
-  %inc44 = add nsw i32 %53, 1
-  store i32 %inc44, ptr %i, align 4
-  %54 = load i32, ptr %j, align 4
-  %add = add nsw i32 %54, 32
-  store i32 %add, ptr %j, align 4
-  br label %for.cond36, !llvm.loop !8
+130:                                              ; preds = %118
+  %131 = load i32, ptr %11, align 4, !tbaa !3
+  %132 = add nsw i32 %131, 1
+  store i32 %132, ptr %11, align 4, !tbaa !3
+  %133 = load i32, ptr %12, align 4, !tbaa !3
+  %134 = add nsw i32 %133, 32
+  store i32 %134, ptr %12, align 4, !tbaa !3
+  br label %115, !llvm.loop !38
 
-for.end45:                                        ; preds = %for.cond36
-  br label %for.cond46
+135:                                              ; preds = %115
+  br label %136
 
-for.cond46:                                       ; preds = %for.inc52, %for.end45
-  %55 = load i32, ptr %j, align 4
-  %cmp47 = icmp slt i32 %55, 192
-  br i1 %cmp47, label %for.body48, label %for.end55
+136:                                              ; preds = %145, %135
+  %137 = load i32, ptr %12, align 4, !tbaa !3
+  %138 = icmp slt i32 %137, 192
+  br i1 %138, label %139, label %150
 
-for.body48:                                       ; preds = %for.cond46
-  %56 = load ptr, ptr %newTrie, align 8
-  %map49 = getelementptr inbounds %struct.UNewTrie2, ptr %56, i32 0, i32 13
-  %57 = load i32, ptr %i, align 4
-  %idxprom50 = sext i32 %57 to i64
-  %arrayidx51 = getelementptr inbounds [34852 x i32], ptr %map49, i64 0, i64 %idxprom50
-  store i32 0, ptr %arrayidx51, align 4
-  br label %for.inc52
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %9, align 8, !tbaa !13
+  %141 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %140, i32 0, i32 13
+  %142 = load i32, ptr %11, align 4, !tbaa !3
+  %143 = sext i32 %142 to i64
+  %144 = getelementptr inbounds [34852 x i32], ptr %141, i64 0, i64 %143
+  store i32 0, ptr %144, align 4, !tbaa !3
+  br label %145
 
-for.inc52:                                        ; preds = %for.body48
-  %58 = load i32, ptr %i, align 4
-  %inc53 = add nsw i32 %58, 1
-  store i32 %inc53, ptr %i, align 4
-  %59 = load i32, ptr %j, align 4
-  %add54 = add nsw i32 %59, 32
-  store i32 %add54, ptr %j, align 4
-  br label %for.cond46, !llvm.loop !9
+145:                                              ; preds = %139
+  %146 = load i32, ptr %11, align 4, !tbaa !3
+  %147 = add nsw i32 %146, 1
+  store i32 %147, ptr %11, align 4, !tbaa !3
+  %148 = load i32, ptr %12, align 4, !tbaa !3
+  %149 = add nsw i32 %148, 32
+  store i32 %149, ptr %12, align 4, !tbaa !3
+  br label %136, !llvm.loop !39
 
-for.end55:                                        ; preds = %for.cond46
-  %60 = load ptr, ptr %newTrie, align 8
-  %map56 = getelementptr inbounds %struct.UNewTrie2, ptr %60, i32 0, i32 13
-  %61 = load i32, ptr %i, align 4
-  %inc57 = add nsw i32 %61, 1
-  store i32 %inc57, ptr %i, align 4
-  %idxprom58 = sext i32 %61 to i64
-  %arrayidx59 = getelementptr inbounds [34852 x i32], ptr %map56, i64 0, i64 %idxprom58
-  store i32 34845, ptr %arrayidx59, align 4
-  %62 = load i32, ptr %j, align 4
-  %add60 = add nsw i32 %62, 32
-  store i32 %add60, ptr %j, align 4
-  br label %for.cond61
+150:                                              ; preds = %136
+  %151 = load ptr, ptr %9, align 8, !tbaa !13
+  %152 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %151, i32 0, i32 13
+  %153 = load i32, ptr %11, align 4, !tbaa !3
+  %154 = add nsw i32 %153, 1
+  store i32 %154, ptr %11, align 4, !tbaa !3
+  %155 = sext i32 %153 to i64
+  %156 = getelementptr inbounds [34852 x i32], ptr %152, i64 0, i64 %155
+  store i32 34845, ptr %156, align 4, !tbaa !3
+  %157 = load i32, ptr %12, align 4, !tbaa !3
+  %158 = add nsw i32 %157, 32
+  store i32 %158, ptr %12, align 4, !tbaa !3
+  br label %159
 
-for.cond61:                                       ; preds = %for.inc67, %for.end55
-  %63 = load i32, ptr %j, align 4
-  %cmp62 = icmp slt i32 %63, 256
-  br i1 %cmp62, label %for.body63, label %for.end70
+159:                                              ; preds = %168, %150
+  %160 = load i32, ptr %12, align 4, !tbaa !3
+  %161 = icmp slt i32 %160, 256
+  br i1 %161, label %162, label %173
 
-for.body63:                                       ; preds = %for.cond61
-  %64 = load ptr, ptr %newTrie, align 8
-  %map64 = getelementptr inbounds %struct.UNewTrie2, ptr %64, i32 0, i32 13
-  %65 = load i32, ptr %i, align 4
-  %idxprom65 = sext i32 %65 to i64
-  %arrayidx66 = getelementptr inbounds [34852 x i32], ptr %map64, i64 0, i64 %idxprom65
-  store i32 0, ptr %arrayidx66, align 4
-  br label %for.inc67
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %9, align 8, !tbaa !13
+  %164 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %163, i32 0, i32 13
+  %165 = load i32, ptr %11, align 4, !tbaa !3
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds [34852 x i32], ptr %164, i64 0, i64 %166
+  store i32 0, ptr %167, align 4, !tbaa !3
+  br label %168
 
-for.inc67:                                        ; preds = %for.body63
-  %66 = load i32, ptr %i, align 4
-  %inc68 = add nsw i32 %66, 1
-  store i32 %inc68, ptr %i, align 4
-  %67 = load i32, ptr %j, align 4
-  %add69 = add nsw i32 %67, 32
-  store i32 %add69, ptr %j, align 4
-  br label %for.cond61, !llvm.loop !10
+168:                                              ; preds = %162
+  %169 = load i32, ptr %11, align 4, !tbaa !3
+  %170 = add nsw i32 %169, 1
+  store i32 %170, ptr %11, align 4, !tbaa !3
+  %171 = load i32, ptr %12, align 4, !tbaa !3
+  %172 = add nsw i32 %171, 32
+  store i32 %172, ptr %12, align 4, !tbaa !3
+  br label %159, !llvm.loop !40
 
-for.end70:                                        ; preds = %for.cond61
-  store i32 4, ptr %i, align 4
-  br label %for.cond71
+173:                                              ; preds = %159
+  store i32 4, ptr %11, align 4, !tbaa !3
+  br label %174
 
-for.cond71:                                       ; preds = %for.inc77, %for.end70
-  %68 = load i32, ptr %i, align 4
-  %cmp72 = icmp slt i32 %68, 2080
-  br i1 %cmp72, label %for.body73, label %for.end79
+174:                                              ; preds = %183, %173
+  %175 = load i32, ptr %11, align 4, !tbaa !3
+  %176 = icmp slt i32 %175, 2080
+  br i1 %176, label %177, label %186
 
-for.body73:                                       ; preds = %for.cond71
-  %69 = load ptr, ptr %newTrie, align 8
-  %index274 = getelementptr inbounds %struct.UNewTrie2, ptr %69, i32 0, i32 1
-  %70 = load i32, ptr %i, align 4
-  %idxprom75 = sext i32 %70 to i64
-  %arrayidx76 = getelementptr inbounds [35488 x i32], ptr %index274, i64 0, i64 %idxprom75
-  store i32 192, ptr %arrayidx76, align 4
-  br label %for.inc77
+177:                                              ; preds = %174
+  %178 = load ptr, ptr %9, align 8, !tbaa !13
+  %179 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %178, i32 0, i32 1
+  %180 = load i32, ptr %11, align 4, !tbaa !3
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr inbounds [35488 x i32], ptr %179, i64 0, i64 %181
+  store i32 192, ptr %182, align 4, !tbaa !3
+  br label %183
 
-for.inc77:                                        ; preds = %for.body73
-  %71 = load i32, ptr %i, align 4
-  %inc78 = add nsw i32 %71, 1
-  store i32 %inc78, ptr %i, align 4
-  br label %for.cond71, !llvm.loop !11
+183:                                              ; preds = %177
+  %184 = load i32, ptr %11, align 4, !tbaa !3
+  %185 = add nsw i32 %184, 1
+  store i32 %185, ptr %11, align 4, !tbaa !3
+  br label %174, !llvm.loop !41
 
-for.end79:                                        ; preds = %for.cond71
-  store i32 0, ptr %i, align 4
-  br label %for.cond80
+186:                                              ; preds = %174
+  store i32 0, ptr %11, align 4, !tbaa !3
+  br label %187
 
-for.cond80:                                       ; preds = %for.inc87, %for.end79
-  %72 = load i32, ptr %i, align 4
-  %cmp81 = icmp slt i32 %72, 576
-  br i1 %cmp81, label %for.body82, label %for.end89
+187:                                              ; preds = %197, %186
+  %188 = load i32, ptr %11, align 4, !tbaa !3
+  %189 = icmp slt i32 %188, 576
+  br i1 %189, label %190, label %200
 
-for.body82:                                       ; preds = %for.cond80
-  %73 = load ptr, ptr %newTrie, align 8
-  %index283 = getelementptr inbounds %struct.UNewTrie2, ptr %73, i32 0, i32 1
-  %74 = load i32, ptr %i, align 4
-  %add84 = add nsw i32 2080, %74
-  %idxprom85 = sext i32 %add84 to i64
-  %arrayidx86 = getelementptr inbounds [35488 x i32], ptr %index283, i64 0, i64 %idxprom85
-  store i32 -1, ptr %arrayidx86, align 4
-  br label %for.inc87
+190:                                              ; preds = %187
+  %191 = load ptr, ptr %9, align 8, !tbaa !13
+  %192 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %191, i32 0, i32 1
+  %193 = load i32, ptr %11, align 4, !tbaa !3
+  %194 = add nsw i32 2080, %193
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds [35488 x i32], ptr %192, i64 0, i64 %195
+  store i32 -1, ptr %196, align 4, !tbaa !3
+  br label %197
 
-for.inc87:                                        ; preds = %for.body82
-  %75 = load i32, ptr %i, align 4
-  %inc88 = add nsw i32 %75, 1
-  store i32 %inc88, ptr %i, align 4
-  br label %for.cond80, !llvm.loop !12
+197:                                              ; preds = %190
+  %198 = load i32, ptr %11, align 4, !tbaa !3
+  %199 = add nsw i32 %198, 1
+  store i32 %199, ptr %11, align 4, !tbaa !3
+  br label %187, !llvm.loop !42
 
-for.end89:                                        ; preds = %for.cond80
-  store i32 0, ptr %i, align 4
-  br label %for.cond90
+200:                                              ; preds = %187
+  store i32 0, ptr %11, align 4, !tbaa !3
+  br label %201
 
-for.cond90:                                       ; preds = %for.inc97, %for.end89
-  %76 = load i32, ptr %i, align 4
-  %cmp91 = icmp slt i32 %76, 64
-  br i1 %cmp91, label %for.body92, label %for.end99
+201:                                              ; preds = %211, %200
+  %202 = load i32, ptr %11, align 4, !tbaa !3
+  %203 = icmp slt i32 %202, 64
+  br i1 %203, label %204, label %214
 
-for.body92:                                       ; preds = %for.cond90
-  %77 = load ptr, ptr %newTrie, align 8
-  %index293 = getelementptr inbounds %struct.UNewTrie2, ptr %77, i32 0, i32 1
-  %78 = load i32, ptr %i, align 4
-  %add94 = add nsw i32 2656, %78
-  %idxprom95 = sext i32 %add94 to i64
-  %arrayidx96 = getelementptr inbounds [35488 x i32], ptr %index293, i64 0, i64 %idxprom95
-  store i32 192, ptr %arrayidx96, align 4
-  br label %for.inc97
+204:                                              ; preds = %201
+  %205 = load ptr, ptr %9, align 8, !tbaa !13
+  %206 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %205, i32 0, i32 1
+  %207 = load i32, ptr %11, align 4, !tbaa !3
+  %208 = add nsw i32 2656, %207
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr inbounds [35488 x i32], ptr %206, i64 0, i64 %209
+  store i32 192, ptr %210, align 4, !tbaa !3
+  br label %211
 
-for.inc97:                                        ; preds = %for.body92
-  %79 = load i32, ptr %i, align 4
-  %inc98 = add nsw i32 %79, 1
-  store i32 %inc98, ptr %i, align 4
-  br label %for.cond90, !llvm.loop !13
+211:                                              ; preds = %204
+  %212 = load i32, ptr %11, align 4, !tbaa !3
+  %213 = add nsw i32 %212, 1
+  store i32 %213, ptr %11, align 4, !tbaa !3
+  br label %201, !llvm.loop !43
 
-for.end99:                                        ; preds = %for.cond90
-  %80 = load ptr, ptr %newTrie, align 8
-  %index2NullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %80, i32 0, i32 9
-  store i32 2656, ptr %index2NullOffset, align 8
-  %81 = load ptr, ptr %newTrie, align 8
-  %index2Length = getelementptr inbounds %struct.UNewTrie2, ptr %81, i32 0, i32 5
-  store i32 2720, ptr %index2Length, align 8
-  store i32 0, ptr %i, align 4
-  store i32 0, ptr %j, align 4
-  br label %for.cond100
+214:                                              ; preds = %201
+  %215 = load ptr, ptr %9, align 8, !tbaa !13
+  %216 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %215, i32 0, i32 9
+  store i32 2656, ptr %216, align 8, !tbaa !44
+  %217 = load ptr, ptr %9, align 8, !tbaa !13
+  %218 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %217, i32 0, i32 5
+  store i32 2720, ptr %218, align 8, !tbaa !45
+  store i32 0, ptr %11, align 4, !tbaa !3
+  store i32 0, ptr %12, align 4, !tbaa !3
+  br label %219
 
-for.cond100:                                      ; preds = %for.inc105, %for.end99
-  %82 = load i32, ptr %i, align 4
-  %cmp101 = icmp slt i32 %82, 32
-  br i1 %cmp101, label %for.body102, label %for.end108
+219:                                              ; preds = %229, %214
+  %220 = load i32, ptr %11, align 4, !tbaa !3
+  %221 = icmp slt i32 %220, 32
+  br i1 %221, label %222, label %234
 
-for.body102:                                      ; preds = %for.cond100
-  %83 = load i32, ptr %j, align 4
-  %84 = load ptr, ptr %newTrie, align 8
-  %index1 = getelementptr inbounds %struct.UNewTrie2, ptr %84, i32 0, i32 0
-  %85 = load i32, ptr %i, align 4
-  %idxprom103 = sext i32 %85 to i64
-  %arrayidx104 = getelementptr inbounds [544 x i32], ptr %index1, i64 0, i64 %idxprom103
-  store i32 %83, ptr %arrayidx104, align 4
-  br label %for.inc105
+222:                                              ; preds = %219
+  %223 = load i32, ptr %12, align 4, !tbaa !3
+  %224 = load ptr, ptr %9, align 8, !tbaa !13
+  %225 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %224, i32 0, i32 0
+  %226 = load i32, ptr %11, align 4, !tbaa !3
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds [544 x i32], ptr %225, i64 0, i64 %227
+  store i32 %223, ptr %228, align 4, !tbaa !3
+  br label %229
 
-for.inc105:                                       ; preds = %for.body102
-  %86 = load i32, ptr %i, align 4
-  %inc106 = add nsw i32 %86, 1
-  store i32 %inc106, ptr %i, align 4
-  %87 = load i32, ptr %j, align 4
-  %add107 = add nsw i32 %87, 64
-  store i32 %add107, ptr %j, align 4
-  br label %for.cond100, !llvm.loop !14
+229:                                              ; preds = %222
+  %230 = load i32, ptr %11, align 4, !tbaa !3
+  %231 = add nsw i32 %230, 1
+  store i32 %231, ptr %11, align 4, !tbaa !3
+  %232 = load i32, ptr %12, align 4, !tbaa !3
+  %233 = add nsw i32 %232, 64
+  store i32 %233, ptr %12, align 4, !tbaa !3
+  br label %219, !llvm.loop !46
 
-for.end108:                                       ; preds = %for.cond100
-  br label %for.cond109
+234:                                              ; preds = %219
+  br label %235
 
-for.cond109:                                      ; preds = %for.inc115, %for.end108
-  %88 = load i32, ptr %i, align 4
-  %cmp110 = icmp slt i32 %88, 544
-  br i1 %cmp110, label %for.body111, label %for.end117
+235:                                              ; preds = %244, %234
+  %236 = load i32, ptr %11, align 4, !tbaa !3
+  %237 = icmp slt i32 %236, 544
+  br i1 %237, label %238, label %247
 
-for.body111:                                      ; preds = %for.cond109
-  %89 = load ptr, ptr %newTrie, align 8
-  %index1112 = getelementptr inbounds %struct.UNewTrie2, ptr %89, i32 0, i32 0
-  %90 = load i32, ptr %i, align 4
-  %idxprom113 = sext i32 %90 to i64
-  %arrayidx114 = getelementptr inbounds [544 x i32], ptr %index1112, i64 0, i64 %idxprom113
-  store i32 2656, ptr %arrayidx114, align 4
-  br label %for.inc115
+238:                                              ; preds = %235
+  %239 = load ptr, ptr %9, align 8, !tbaa !13
+  %240 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %239, i32 0, i32 0
+  %241 = load i32, ptr %11, align 4, !tbaa !3
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr inbounds [544 x i32], ptr %240, i64 0, i64 %242
+  store i32 2656, ptr %243, align 4, !tbaa !3
+  br label %244
 
-for.inc115:                                       ; preds = %for.body111
-  %91 = load i32, ptr %i, align 4
-  %inc116 = add nsw i32 %91, 1
-  store i32 %inc116, ptr %i, align 4
-  br label %for.cond109, !llvm.loop !15
+244:                                              ; preds = %238
+  %245 = load i32, ptr %11, align 4, !tbaa !3
+  %246 = add nsw i32 %245, 1
+  store i32 %246, ptr %11, align 4, !tbaa !3
+  br label %235, !llvm.loop !47
 
-for.end117:                                       ; preds = %for.cond109
-  store i32 128, ptr %i, align 4
-  br label %for.cond118
+247:                                              ; preds = %235
+  store i32 128, ptr %11, align 4, !tbaa !3
+  br label %248
 
-for.cond118:                                      ; preds = %for.inc121, %for.end117
-  %92 = load i32, ptr %i, align 4
-  %cmp119 = icmp slt i32 %92, 2048
-  br i1 %cmp119, label %for.body120, label %for.end123
+248:                                              ; preds = %256, %247
+  %249 = load i32, ptr %11, align 4, !tbaa !3
+  %250 = icmp slt i32 %249, 2048
+  br i1 %250, label %251, label %259
 
-for.body120:                                      ; preds = %for.cond118
-  %93 = load ptr, ptr %trie, align 8
-  %94 = load i32, ptr %i, align 4
-  %95 = load i32, ptr %initialValue.addr, align 4
-  %96 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @utrie2_set32_75(ptr noundef %93, i32 noundef %94, i32 noundef %95, ptr noundef %96)
-  br label %for.inc121
+251:                                              ; preds = %248
+  %252 = load ptr, ptr %8, align 8, !tbaa !11
+  %253 = load i32, ptr %11, align 4, !tbaa !3
+  %254 = load i32, ptr %5, align 4, !tbaa !3
+  %255 = load ptr, ptr %7, align 8, !tbaa !7
+  call void @utrie2_set32_77(ptr noundef %252, i32 noundef %253, i32 noundef %254, ptr noundef %255)
+  br label %256
 
-for.inc121:                                       ; preds = %for.body120
-  %97 = load i32, ptr %i, align 4
-  %add122 = add nsw i32 %97, 32
-  store i32 %add122, ptr %i, align 4
-  br label %for.cond118, !llvm.loop !16
+256:                                              ; preds = %251
+  %257 = load i32, ptr %11, align 4, !tbaa !3
+  %258 = add nsw i32 %257, 32
+  store i32 %258, ptr %11, align 4, !tbaa !3
+  br label %248, !llvm.loop !48
 
-for.end123:                                       ; preds = %for.cond118
-  %98 = load ptr, ptr %trie, align 8
-  store ptr %98, ptr %retval, align 8
-  br label %return
+259:                                              ; preds = %248
+  %260 = load ptr, ptr %8, align 8, !tbaa !11
+  store ptr %260, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  br label %261
 
-return:                                           ; preds = %for.end123, %if.then7, %if.then
-  %99 = load ptr, ptr %retval, align 8
-  ret ptr %99
+261:                                              ; preds = %259, %31, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  %262 = load ptr, ptr %4, align 8
+  ret ptr %262
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %code) #1 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !9
+  %3 = load i32, ptr %2, align 4, !tbaa !9
+  %4 = icmp sgt i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) #2
+declare noalias ptr @uprv_malloc_77(i64 noundef) #3
 
-declare void @uprv_free_75(ptr noundef) #3
+declare void @uprv_free_77(ptr noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_set32_75(ptr noundef %trie, i32 noundef %c, i32 noundef %value, ptr noundef %pErrorCode) #0 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @utrie2_set32_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !7
+  %9 = load ptr, ptr %8, align 8, !tbaa !7
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %10)
+  %12 = icmp ne i8 %11, 0
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %entry
-  br label %return
+13:                                               ; preds = %4
+  br label %26
 
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %c.addr, align 4
-  %cmp = icmp ugt i32 %2, 1114111
-  br i1 %cmp, label %if.then1, label %if.end2
+14:                                               ; preds = %4
+  %15 = load i32, ptr %6, align 4, !tbaa !3
+  %16 = icmp ugt i32 %15, 1114111
+  br i1 %16, label %17, label %19
 
-if.then1:                                         ; preds = %if.end
-  %3 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %3, align 4
-  br label %return
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  store i32 1, ptr %18, align 4, !tbaa !9
+  br label %26
 
-if.end2:                                          ; preds = %if.end
-  %4 = load ptr, ptr %trie.addr, align 8
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %4, i32 0, i32 16
-  %5 = load ptr, ptr %newTrie, align 8
-  %6 = load i32, ptr %c.addr, align 4
-  %7 = load i32, ptr %value.addr, align 4
-  %8 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @_ZL5set32P9UNewTrie2iajP10UErrorCode(ptr noundef %5, i32 noundef %6, i8 noundef signext 1, i32 noundef %7, ptr noundef %8)
-  br label %return
+19:                                               ; preds = %14
+  %20 = load ptr, ptr %5, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.UTrie2, ptr %20, i32 0, i32 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %23 = load i32, ptr %6, align 4, !tbaa !3
+  %24 = load i32, ptr %7, align 4, !tbaa !3
+  %25 = load ptr, ptr %8, align 8, !tbaa !7
+  call void @_ZL5set32P9UNewTrie2iajP10UErrorCode(ptr noundef %22, i32 noundef %23, i8 noundef signext 1, i32 noundef %24, ptr noundef %25)
+  br label %26
 
-return:                                           ; preds = %if.end2, %if.then1, %if.then
+26:                                               ; preds = %19, %17, %13
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define ptr @utrie2_clone_75(ptr noundef %other, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %trie = alloca ptr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define ptr @utrie2_clone_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %8 = load ptr, ptr %5, align 8, !tbaa !7
+  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %10 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %9)
+  %11 = icmp ne i8 %10, 0
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %other.addr, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then3, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load ptr, ptr %other.addr, align 8
-  %memory = getelementptr inbounds %struct.UTrie2, ptr %3, i32 0, i32 11
-  %4 = load ptr, ptr %memory, align 8
-  %cmp1 = icmp eq ptr %4, null
-  br i1 %cmp1, label %land.lhs.true, label %if.end4
-
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %other.addr, align 8
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %5, i32 0, i32 16
-  %6 = load ptr, ptr %newTrie, align 8
-  %cmp2 = icmp eq ptr %6, null
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %land.lhs.true, %if.end
-  %7 = load ptr, ptr %pErrorCode.addr, align 8
+12:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
   store i32 1, ptr %7, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+  br label %155
 
-if.end4:                                          ; preds = %land.lhs.true, %lor.lhs.false
-  %call5 = call noalias ptr @uprv_malloc_75(i64 noundef 80) #6
-  store ptr %call5, ptr %trie, align 8
-  %8 = load ptr, ptr %trie, align 8
-  %cmp6 = icmp eq ptr %8, null
-  br i1 %cmp6, label %if.then7, label %if.end8
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !11
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %26, label %16
 
-if.then7:                                         ; preds = %if.end4
-  %9 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %9, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %4, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.UTrie2, ptr %17, i32 0, i32 11
+  %19 = load ptr, ptr %18, align 8, !tbaa !49
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %28
 
-if.end8:                                          ; preds = %if.end4
-  br label %do.body
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %4, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw %struct.UTrie2, ptr %22, i32 0, i32 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %28
 
-do.body:                                          ; preds = %if.end8
-  %10 = load ptr, ptr %trie, align 8
-  %11 = load ptr, ptr %other.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %11, i64 80, i1 false)
-  br label %do.end
+26:                                               ; preds = %21, %13
+  %27 = load ptr, ptr %5, align 8, !tbaa !7
+  store i32 1, ptr %27, align 4, !tbaa !9
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %155
 
-do.end:                                           ; preds = %do.body
-  %12 = load ptr, ptr %other.addr, align 8
-  %memory9 = getelementptr inbounds %struct.UTrie2, ptr %12, i32 0, i32 11
-  %13 = load ptr, ptr %memory9, align 8
-  %cmp10 = icmp ne ptr %13, null
-  br i1 %cmp10, label %if.then11, label %if.else
+28:                                               ; preds = %21, %16
+  %29 = call noalias ptr @uprv_malloc_77(i64 noundef 80) #10
+  store ptr %29, ptr %6, align 8, !tbaa !11
+  %30 = load ptr, ptr %6, align 8, !tbaa !11
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %34
 
-if.then11:                                        ; preds = %do.end
-  %14 = load ptr, ptr %other.addr, align 8
-  %length = getelementptr inbounds %struct.UTrie2, ptr %14, i32 0, i32 12
-  %15 = load i32, ptr %length, align 8
-  %conv = sext i32 %15 to i64
-  %call12 = call noalias ptr @uprv_malloc_75(i64 noundef %conv) #6
-  %16 = load ptr, ptr %trie, align 8
-  %memory13 = getelementptr inbounds %struct.UTrie2, ptr %16, i32 0, i32 11
-  store ptr %call12, ptr %memory13, align 8
-  %17 = load ptr, ptr %trie, align 8
-  %memory14 = getelementptr inbounds %struct.UTrie2, ptr %17, i32 0, i32 11
-  %18 = load ptr, ptr %memory14, align 8
-  %cmp15 = icmp ne ptr %18, null
-  br i1 %cmp15, label %if.then16, label %if.end50
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8, !tbaa !7
+  store i32 7, ptr %33, align 4, !tbaa !9
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %155
 
-if.then16:                                        ; preds = %if.then11
-  %19 = load ptr, ptr %trie, align 8
-  %isMemoryOwned = getelementptr inbounds %struct.UTrie2, ptr %19, i32 0, i32 13
-  store i8 1, ptr %isMemoryOwned, align 4
-  br label %do.body17
+34:                                               ; preds = %28
+  br label %35
 
-do.body17:                                        ; preds = %if.then16
-  %20 = load ptr, ptr %trie, align 8
-  %memory18 = getelementptr inbounds %struct.UTrie2, ptr %20, i32 0, i32 11
-  %21 = load ptr, ptr %memory18, align 8
-  %22 = load ptr, ptr %other.addr, align 8
-  %memory19 = getelementptr inbounds %struct.UTrie2, ptr %22, i32 0, i32 11
-  %23 = load ptr, ptr %memory19, align 8
-  %24 = load ptr, ptr %other.addr, align 8
-  %length20 = getelementptr inbounds %struct.UTrie2, ptr %24, i32 0, i32 12
-  %25 = load i32, ptr %length20, align 8
-  %conv21 = sext i32 %25 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 1 %23, i64 %conv21, i1 false)
-  br label %do.end22
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %6, align 8, !tbaa !11
+  %37 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %37, i64 80, i1 false)
+  br label %38
 
-do.end22:                                         ; preds = %do.body17
-  %26 = load ptr, ptr %trie, align 8
-  %memory23 = getelementptr inbounds %struct.UTrie2, ptr %26, i32 0, i32 11
-  %27 = load ptr, ptr %memory23, align 8
-  %28 = load ptr, ptr %other.addr, align 8
-  %index = getelementptr inbounds %struct.UTrie2, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %index, align 8
-  %30 = load ptr, ptr %other.addr, align 8
-  %memory24 = getelementptr inbounds %struct.UTrie2, ptr %30, i32 0, i32 11
-  %31 = load ptr, ptr %memory24, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %29 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %31 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 2
-  %add.ptr = getelementptr inbounds i16, ptr %27, i64 %sub.ptr.div
-  %32 = load ptr, ptr %trie, align 8
-  %index25 = getelementptr inbounds %struct.UTrie2, ptr %32, i32 0, i32 0
-  store ptr %add.ptr, ptr %index25, align 8
-  %33 = load ptr, ptr %other.addr, align 8
-  %data16 = getelementptr inbounds %struct.UTrie2, ptr %33, i32 0, i32 1
-  %34 = load ptr, ptr %data16, align 8
-  %cmp26 = icmp ne ptr %34, null
-  br i1 %cmp26, label %if.then27, label %if.end37
+38:                                               ; preds = %35
+  br label %39
 
-if.then27:                                        ; preds = %do.end22
-  %35 = load ptr, ptr %trie, align 8
-  %memory28 = getelementptr inbounds %struct.UTrie2, ptr %35, i32 0, i32 11
-  %36 = load ptr, ptr %memory28, align 8
-  %37 = load ptr, ptr %other.addr, align 8
-  %data1629 = getelementptr inbounds %struct.UTrie2, ptr %37, i32 0, i32 1
-  %38 = load ptr, ptr %data1629, align 8
-  %39 = load ptr, ptr %other.addr, align 8
-  %memory30 = getelementptr inbounds %struct.UTrie2, ptr %39, i32 0, i32 11
-  %40 = load ptr, ptr %memory30, align 8
-  %sub.ptr.lhs.cast31 = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast32 = ptrtoint ptr %40 to i64
-  %sub.ptr.sub33 = sub i64 %sub.ptr.lhs.cast31, %sub.ptr.rhs.cast32
-  %sub.ptr.div34 = sdiv exact i64 %sub.ptr.sub33, 2
-  %add.ptr35 = getelementptr inbounds i16, ptr %36, i64 %sub.ptr.div34
-  %41 = load ptr, ptr %trie, align 8
-  %data1636 = getelementptr inbounds %struct.UTrie2, ptr %41, i32 0, i32 1
-  store ptr %add.ptr35, ptr %data1636, align 8
-  br label %if.end37
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %4, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.UTrie2, ptr %40, i32 0, i32 11
+  %42 = load ptr, ptr %41, align 8, !tbaa !49
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %133
 
-if.end37:                                         ; preds = %if.then27, %do.end22
-  %42 = load ptr, ptr %other.addr, align 8
-  %data32 = getelementptr inbounds %struct.UTrie2, ptr %42, i32 0, i32 2
-  %43 = load ptr, ptr %data32, align 8
-  %cmp38 = icmp ne ptr %43, null
-  br i1 %cmp38, label %if.then39, label %if.end49
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %4, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.UTrie2, ptr %45, i32 0, i32 12
+  %47 = load i32, ptr %46, align 8, !tbaa !50
+  %48 = sext i32 %47 to i64
+  %49 = call noalias ptr @uprv_malloc_77(i64 noundef %48) #10
+  %50 = load ptr, ptr %6, align 8, !tbaa !11
+  %51 = getelementptr inbounds nuw %struct.UTrie2, ptr %50, i32 0, i32 11
+  store ptr %49, ptr %51, align 8, !tbaa !49
+  %52 = load ptr, ptr %6, align 8, !tbaa !11
+  %53 = getelementptr inbounds nuw %struct.UTrie2, ptr %52, i32 0, i32 11
+  %54 = load ptr, ptr %53, align 8, !tbaa !49
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %132
 
-if.then39:                                        ; preds = %if.end37
-  %44 = load ptr, ptr %trie, align 8
-  %memory40 = getelementptr inbounds %struct.UTrie2, ptr %44, i32 0, i32 11
-  %45 = load ptr, ptr %memory40, align 8
-  %46 = load ptr, ptr %other.addr, align 8
-  %data3241 = getelementptr inbounds %struct.UTrie2, ptr %46, i32 0, i32 2
-  %47 = load ptr, ptr %data3241, align 8
-  %48 = load ptr, ptr %other.addr, align 8
-  %memory42 = getelementptr inbounds %struct.UTrie2, ptr %48, i32 0, i32 11
-  %49 = load ptr, ptr %memory42, align 8
-  %sub.ptr.lhs.cast43 = ptrtoint ptr %47 to i64
-  %sub.ptr.rhs.cast44 = ptrtoint ptr %49 to i64
-  %sub.ptr.sub45 = sub i64 %sub.ptr.lhs.cast43, %sub.ptr.rhs.cast44
-  %sub.ptr.div46 = sdiv exact i64 %sub.ptr.sub45, 4
-  %add.ptr47 = getelementptr inbounds i32, ptr %45, i64 %sub.ptr.div46
-  %50 = load ptr, ptr %trie, align 8
-  %data3248 = getelementptr inbounds %struct.UTrie2, ptr %50, i32 0, i32 2
-  store ptr %add.ptr47, ptr %data3248, align 8
-  br label %if.end49
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %6, align 8, !tbaa !11
+  %58 = getelementptr inbounds nuw %struct.UTrie2, ptr %57, i32 0, i32 13
+  store i8 1, ptr %58, align 4, !tbaa !51
+  br label %59
 
-if.end49:                                         ; preds = %if.then39, %if.end37
-  br label %if.end50
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %6, align 8, !tbaa !11
+  %61 = getelementptr inbounds nuw %struct.UTrie2, ptr %60, i32 0, i32 11
+  %62 = load ptr, ptr %61, align 8, !tbaa !49
+  %63 = load ptr, ptr %4, align 8, !tbaa !11
+  %64 = getelementptr inbounds nuw %struct.UTrie2, ptr %63, i32 0, i32 11
+  %65 = load ptr, ptr %64, align 8, !tbaa !49
+  %66 = load ptr, ptr %4, align 8, !tbaa !11
+  %67 = getelementptr inbounds nuw %struct.UTrie2, ptr %66, i32 0, i32 12
+  %68 = load i32, ptr %67, align 8, !tbaa !50
+  %69 = sext i32 %68 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %65, i64 %69, i1 false)
+  br label %70
 
-if.end50:                                         ; preds = %if.end49, %if.then11
-  br label %if.end54
+70:                                               ; preds = %59
+  br label %71
 
-if.else:                                          ; preds = %do.end
-  %51 = load ptr, ptr %other.addr, align 8
-  %newTrie51 = getelementptr inbounds %struct.UTrie2, ptr %51, i32 0, i32 16
-  %52 = load ptr, ptr %newTrie51, align 8
-  %call52 = call noundef ptr @_ZL12cloneBuilderPK9UNewTrie2(ptr noundef %52)
-  %53 = load ptr, ptr %trie, align 8
-  %newTrie53 = getelementptr inbounds %struct.UTrie2, ptr %53, i32 0, i32 16
-  store ptr %call52, ptr %newTrie53, align 8
-  br label %if.end54
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %6, align 8, !tbaa !11
+  %73 = getelementptr inbounds nuw %struct.UTrie2, ptr %72, i32 0, i32 11
+  %74 = load ptr, ptr %73, align 8, !tbaa !49
+  %75 = load ptr, ptr %4, align 8, !tbaa !11
+  %76 = getelementptr inbounds nuw %struct.UTrie2, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8, !tbaa !52
+  %78 = load ptr, ptr %4, align 8, !tbaa !11
+  %79 = getelementptr inbounds nuw %struct.UTrie2, ptr %78, i32 0, i32 11
+  %80 = load ptr, ptr %79, align 8, !tbaa !49
+  %81 = ptrtoint ptr %77 to i64
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = sdiv exact i64 %83, 2
+  %85 = getelementptr inbounds i16, ptr %74, i64 %84
+  %86 = load ptr, ptr %6, align 8, !tbaa !11
+  %87 = getelementptr inbounds nuw %struct.UTrie2, ptr %86, i32 0, i32 0
+  store ptr %85, ptr %87, align 8, !tbaa !52
+  %88 = load ptr, ptr %4, align 8, !tbaa !11
+  %89 = getelementptr inbounds nuw %struct.UTrie2, ptr %88, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8, !tbaa !53
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %109
 
-if.end54:                                         ; preds = %if.else, %if.end50
-  %54 = load ptr, ptr %trie, align 8
-  %memory55 = getelementptr inbounds %struct.UTrie2, ptr %54, i32 0, i32 11
-  %55 = load ptr, ptr %memory55, align 8
-  %cmp56 = icmp eq ptr %55, null
-  br i1 %cmp56, label %land.lhs.true57, label %if.end61
+92:                                               ; preds = %71
+  %93 = load ptr, ptr %6, align 8, !tbaa !11
+  %94 = getelementptr inbounds nuw %struct.UTrie2, ptr %93, i32 0, i32 11
+  %95 = load ptr, ptr %94, align 8, !tbaa !49
+  %96 = load ptr, ptr %4, align 8, !tbaa !11
+  %97 = getelementptr inbounds nuw %struct.UTrie2, ptr %96, i32 0, i32 1
+  %98 = load ptr, ptr %97, align 8, !tbaa !53
+  %99 = load ptr, ptr %4, align 8, !tbaa !11
+  %100 = getelementptr inbounds nuw %struct.UTrie2, ptr %99, i32 0, i32 11
+  %101 = load ptr, ptr %100, align 8, !tbaa !49
+  %102 = ptrtoint ptr %98 to i64
+  %103 = ptrtoint ptr %101 to i64
+  %104 = sub i64 %102, %103
+  %105 = sdiv exact i64 %104, 2
+  %106 = getelementptr inbounds i16, ptr %95, i64 %105
+  %107 = load ptr, ptr %6, align 8, !tbaa !11
+  %108 = getelementptr inbounds nuw %struct.UTrie2, ptr %107, i32 0, i32 1
+  store ptr %106, ptr %108, align 8, !tbaa !53
+  br label %109
 
-land.lhs.true57:                                  ; preds = %if.end54
-  %56 = load ptr, ptr %trie, align 8
-  %newTrie58 = getelementptr inbounds %struct.UTrie2, ptr %56, i32 0, i32 16
-  %57 = load ptr, ptr %newTrie58, align 8
-  %cmp59 = icmp eq ptr %57, null
-  br i1 %cmp59, label %if.then60, label %if.end61
+109:                                              ; preds = %92, %71
+  %110 = load ptr, ptr %4, align 8, !tbaa !11
+  %111 = getelementptr inbounds nuw %struct.UTrie2, ptr %110, i32 0, i32 2
+  %112 = load ptr, ptr %111, align 8, !tbaa !54
+  %113 = icmp ne ptr %112, null
+  br i1 %113, label %114, label %131
 
-if.then60:                                        ; preds = %land.lhs.true57
-  %58 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %58, align 4
-  %59 = load ptr, ptr %trie, align 8
-  call void @uprv_free_75(ptr noundef %59)
-  store ptr null, ptr %trie, align 8
-  br label %if.end61
+114:                                              ; preds = %109
+  %115 = load ptr, ptr %6, align 8, !tbaa !11
+  %116 = getelementptr inbounds nuw %struct.UTrie2, ptr %115, i32 0, i32 11
+  %117 = load ptr, ptr %116, align 8, !tbaa !49
+  %118 = load ptr, ptr %4, align 8, !tbaa !11
+  %119 = getelementptr inbounds nuw %struct.UTrie2, ptr %118, i32 0, i32 2
+  %120 = load ptr, ptr %119, align 8, !tbaa !54
+  %121 = load ptr, ptr %4, align 8, !tbaa !11
+  %122 = getelementptr inbounds nuw %struct.UTrie2, ptr %121, i32 0, i32 11
+  %123 = load ptr, ptr %122, align 8, !tbaa !49
+  %124 = ptrtoint ptr %120 to i64
+  %125 = ptrtoint ptr %123 to i64
+  %126 = sub i64 %124, %125
+  %127 = sdiv exact i64 %126, 4
+  %128 = getelementptr inbounds i32, ptr %117, i64 %127
+  %129 = load ptr, ptr %6, align 8, !tbaa !11
+  %130 = getelementptr inbounds nuw %struct.UTrie2, ptr %129, i32 0, i32 2
+  store ptr %128, ptr %130, align 8, !tbaa !54
+  br label %131
 
-if.end61:                                         ; preds = %if.then60, %land.lhs.true57, %if.end54
-  %60 = load ptr, ptr %trie, align 8
-  store ptr %60, ptr %retval, align 8
-  br label %return
+131:                                              ; preds = %114, %109
+  br label %132
 
-return:                                           ; preds = %if.end61, %if.then7, %if.then3, %if.then
-  %61 = load ptr, ptr %retval, align 8
-  ret ptr %61
+132:                                              ; preds = %131, %44
+  br label %140
+
+133:                                              ; preds = %39
+  %134 = load ptr, ptr %4, align 8, !tbaa !11
+  %135 = getelementptr inbounds nuw %struct.UTrie2, ptr %134, i32 0, i32 16
+  %136 = load ptr, ptr %135, align 8, !tbaa !23
+  %137 = call noundef ptr @_ZL12cloneBuilderPK9UNewTrie2(ptr noundef %136)
+  %138 = load ptr, ptr %6, align 8, !tbaa !11
+  %139 = getelementptr inbounds nuw %struct.UTrie2, ptr %138, i32 0, i32 16
+  store ptr %137, ptr %139, align 8, !tbaa !23
+  br label %140
+
+140:                                              ; preds = %133, %132
+  %141 = load ptr, ptr %6, align 8, !tbaa !11
+  %142 = getelementptr inbounds nuw %struct.UTrie2, ptr %141, i32 0, i32 11
+  %143 = load ptr, ptr %142, align 8, !tbaa !49
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %145, label %153
+
+145:                                              ; preds = %140
+  %146 = load ptr, ptr %6, align 8, !tbaa !11
+  %147 = getelementptr inbounds nuw %struct.UTrie2, ptr %146, i32 0, i32 16
+  %148 = load ptr, ptr %147, align 8, !tbaa !23
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %150, label %153
+
+150:                                              ; preds = %145
+  %151 = load ptr, ptr %5, align 8, !tbaa !7
+  store i32 7, ptr %151, align 4, !tbaa !9
+  %152 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @uprv_free_77(ptr noundef %152)
+  store ptr null, ptr %6, align 8, !tbaa !11
+  br label %153
+
+153:                                              ; preds = %150, %145, %140
+  %154 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %154, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %155
+
+155:                                              ; preds = %153, %32, %26, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %156 = load ptr, ptr %3, align 8
+  ret ptr %156
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL12cloneBuilderPK9UNewTrie2(ptr noundef %other) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %trie = alloca ptr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %call = call noalias ptr @uprv_malloc_75(i64 noundef 283584) #6
-  store ptr %call, ptr %trie, align 8
-  %0 = load ptr, ptr %trie, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal noundef ptr @_ZL12cloneBuilderPK9UNewTrie2(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %6 = call noalias ptr @uprv_malloc_77(i64 noundef 283584) #10
+  store ptr %6, ptr %4, align 8, !tbaa !13
+  %7 = load ptr, ptr %4, align 8, !tbaa !13
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %138
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %other.addr, align 8
-  %dataCapacity = getelementptr inbounds %struct.UNewTrie2, ptr %1, i32 0, i32 6
-  %2 = load i32, ptr %dataCapacity, align 4
-  %mul = mul nsw i32 %2, 4
-  %conv = sext i32 %mul to i64
-  %call1 = call noalias ptr @uprv_malloc_75(i64 noundef %conv) #6
-  %3 = load ptr, ptr %trie, align 8
-  %data = getelementptr inbounds %struct.UNewTrie2, ptr %3, i32 0, i32 2
-  store ptr %call1, ptr %data, align 8
-  %4 = load ptr, ptr %trie, align 8
-  %data2 = getelementptr inbounds %struct.UNewTrie2, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %data2, align 8
-  %cmp3 = icmp eq ptr %5, null
-  br i1 %cmp3, label %if.then4, label %if.end5
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !13
+  %12 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %11, i32 0, i32 6
+  %13 = load i32, ptr %12, align 4, !tbaa !26
+  %14 = mul nsw i32 %13, 4
+  %15 = sext i32 %14 to i64
+  %16 = call noalias ptr @uprv_malloc_77(i64 noundef %15) #10
+  %17 = load ptr, ptr %4, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %17, i32 0, i32 2
+  store ptr %16, ptr %18, align 8, !tbaa !24
+  %19 = load ptr, ptr %4, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %19, i32 0, i32 2
+  %21 = load ptr, ptr %20, align 8, !tbaa !24
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %25
 
-if.then4:                                         ; preds = %if.end
-  %6 = load ptr, ptr %trie, align 8
-  call void @uprv_free_75(ptr noundef %6)
-  store ptr null, ptr %retval, align 8
-  br label %return
+23:                                               ; preds = %10
+  %24 = load ptr, ptr %4, align 8, !tbaa !13
+  call void @uprv_free_77(ptr noundef %24)
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %138
 
-if.end5:                                          ; preds = %if.end
-  %7 = load ptr, ptr %other.addr, align 8
-  %dataCapacity6 = getelementptr inbounds %struct.UNewTrie2, ptr %7, i32 0, i32 6
-  %8 = load i32, ptr %dataCapacity6, align 4
-  %9 = load ptr, ptr %trie, align 8
-  %dataCapacity7 = getelementptr inbounds %struct.UNewTrie2, ptr %9, i32 0, i32 6
-  store i32 %8, ptr %dataCapacity7, align 4
-  br label %do.body
+25:                                               ; preds = %10
+  %26 = load ptr, ptr %3, align 8, !tbaa !13
+  %27 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %26, i32 0, i32 6
+  %28 = load i32, ptr %27, align 4, !tbaa !26
+  %29 = load ptr, ptr %4, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %29, i32 0, i32 6
+  store i32 %28, ptr %30, align 4, !tbaa !26
+  br label %31
 
-do.body:                                          ; preds = %if.end5
-  %10 = load ptr, ptr %trie, align 8
-  %index1 = getelementptr inbounds %struct.UNewTrie2, ptr %10, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [544 x i32], ptr %index1, i64 0, i64 0
-  %11 = load ptr, ptr %other.addr, align 8
-  %index18 = getelementptr inbounds %struct.UNewTrie2, ptr %11, i32 0, i32 0
-  %arraydecay9 = getelementptr inbounds [544 x i32], ptr %index18, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay, ptr align 8 %arraydecay9, i64 2176, i1 false)
-  br label %do.end
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %4, align 8, !tbaa !13
+  %33 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %32, i32 0, i32 0
+  %34 = getelementptr inbounds [544 x i32], ptr %33, i64 0, i64 0
+  %35 = load ptr, ptr %3, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %35, i32 0, i32 0
+  %37 = getelementptr inbounds [544 x i32], ptr %36, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %37, i64 2176, i1 false)
+  br label %38
 
-do.end:                                           ; preds = %do.body
-  br label %do.body10
+38:                                               ; preds = %31
+  br label %39
 
-do.body10:                                        ; preds = %do.end
-  %12 = load ptr, ptr %trie, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %12, i32 0, i32 1
-  %arraydecay11 = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 0
-  %13 = load ptr, ptr %other.addr, align 8
-  %index212 = getelementptr inbounds %struct.UNewTrie2, ptr %13, i32 0, i32 1
-  %arraydecay13 = getelementptr inbounds [35488 x i32], ptr %index212, i64 0, i64 0
-  %14 = load ptr, ptr %other.addr, align 8
-  %index2Length = getelementptr inbounds %struct.UNewTrie2, ptr %14, i32 0, i32 5
-  %15 = load i32, ptr %index2Length, align 8
-  %conv14 = sext i32 %15 to i64
-  %mul15 = mul i64 %conv14, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay11, ptr align 8 %arraydecay13, i64 %mul15, i1 false)
-  br label %do.end16
+39:                                               ; preds = %38
+  br label %40
 
-do.end16:                                         ; preds = %do.body10
-  %16 = load ptr, ptr %other.addr, align 8
-  %index2NullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %16, i32 0, i32 9
-  %17 = load i32, ptr %index2NullOffset, align 8
-  %18 = load ptr, ptr %trie, align 8
-  %index2NullOffset17 = getelementptr inbounds %struct.UNewTrie2, ptr %18, i32 0, i32 9
-  store i32 %17, ptr %index2NullOffset17, align 8
-  %19 = load ptr, ptr %other.addr, align 8
-  %index2Length18 = getelementptr inbounds %struct.UNewTrie2, ptr %19, i32 0, i32 5
-  %20 = load i32, ptr %index2Length18, align 8
-  %21 = load ptr, ptr %trie, align 8
-  %index2Length19 = getelementptr inbounds %struct.UNewTrie2, ptr %21, i32 0, i32 5
-  store i32 %20, ptr %index2Length19, align 8
-  br label %do.body20
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %4, align 8, !tbaa !13
+  %42 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %41, i32 0, i32 1
+  %43 = getelementptr inbounds [35488 x i32], ptr %42, i64 0, i64 0
+  %44 = load ptr, ptr %3, align 8, !tbaa !13
+  %45 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %44, i32 0, i32 1
+  %46 = getelementptr inbounds [35488 x i32], ptr %45, i64 0, i64 0
+  %47 = load ptr, ptr %3, align 8, !tbaa !13
+  %48 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %47, i32 0, i32 5
+  %49 = load i32, ptr %48, align 8, !tbaa !45
+  %50 = sext i32 %49 to i64
+  %51 = mul i64 %50, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr align 8 %46, i64 %51, i1 false)
+  br label %52
 
-do.body20:                                        ; preds = %do.end16
-  %22 = load ptr, ptr %trie, align 8
-  %data21 = getelementptr inbounds %struct.UNewTrie2, ptr %22, i32 0, i32 2
-  %23 = load ptr, ptr %data21, align 8
-  %24 = load ptr, ptr %other.addr, align 8
-  %data22 = getelementptr inbounds %struct.UNewTrie2, ptr %24, i32 0, i32 2
-  %25 = load ptr, ptr %data22, align 8
-  %26 = load ptr, ptr %other.addr, align 8
-  %dataLength = getelementptr inbounds %struct.UNewTrie2, ptr %26, i32 0, i32 7
-  %27 = load i32, ptr %dataLength, align 8
-  %conv23 = sext i32 %27 to i64
-  %mul24 = mul i64 %conv23, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 4 %25, i64 %mul24, i1 false)
-  br label %do.end25
+52:                                               ; preds = %40
+  br label %53
 
-do.end25:                                         ; preds = %do.body20
-  %28 = load ptr, ptr %other.addr, align 8
-  %dataNullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %28, i32 0, i32 10
-  %29 = load i32, ptr %dataNullOffset, align 4
-  %30 = load ptr, ptr %trie, align 8
-  %dataNullOffset26 = getelementptr inbounds %struct.UNewTrie2, ptr %30, i32 0, i32 10
-  store i32 %29, ptr %dataNullOffset26, align 4
-  %31 = load ptr, ptr %other.addr, align 8
-  %dataLength27 = getelementptr inbounds %struct.UNewTrie2, ptr %31, i32 0, i32 7
-  %32 = load i32, ptr %dataLength27, align 8
-  %33 = load ptr, ptr %trie, align 8
-  %dataLength28 = getelementptr inbounds %struct.UNewTrie2, ptr %33, i32 0, i32 7
-  store i32 %32, ptr %dataLength28, align 8
-  %34 = load ptr, ptr %other.addr, align 8
-  %isCompacted = getelementptr inbounds %struct.UNewTrie2, ptr %34, i32 0, i32 12
-  %35 = load i8, ptr %isCompacted, align 4
-  %tobool = icmp ne i8 %35, 0
-  br i1 %tobool, label %if.then29, label %if.else
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %3, align 8, !tbaa !13
+  %55 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %54, i32 0, i32 9
+  %56 = load i32, ptr %55, align 8, !tbaa !44
+  %57 = load ptr, ptr %4, align 8, !tbaa !13
+  %58 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %57, i32 0, i32 9
+  store i32 %56, ptr %58, align 8, !tbaa !44
+  %59 = load ptr, ptr %3, align 8, !tbaa !13
+  %60 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %59, i32 0, i32 5
+  %61 = load i32, ptr %60, align 8, !tbaa !45
+  %62 = load ptr, ptr %4, align 8, !tbaa !13
+  %63 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %62, i32 0, i32 5
+  store i32 %61, ptr %63, align 8, !tbaa !45
+  br label %64
 
-if.then29:                                        ; preds = %do.end25
-  %36 = load ptr, ptr %trie, align 8
-  %firstFreeBlock = getelementptr inbounds %struct.UNewTrie2, ptr %36, i32 0, i32 8
-  store i32 0, ptr %firstFreeBlock, align 4
-  br label %if.end40
+64:                                               ; preds = %53
+  %65 = load ptr, ptr %4, align 8, !tbaa !13
+  %66 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %65, i32 0, i32 2
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = load ptr, ptr %3, align 8, !tbaa !13
+  %69 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %68, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8, !tbaa !24
+  %71 = load ptr, ptr %3, align 8, !tbaa !13
+  %72 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %71, i32 0, i32 7
+  %73 = load i32, ptr %72, align 8, !tbaa !37
+  %74 = sext i32 %73 to i64
+  %75 = mul i64 %74, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %67, ptr align 4 %70, i64 %75, i1 false)
+  br label %76
 
-if.else:                                          ; preds = %do.end25
-  br label %do.body30
+76:                                               ; preds = %64
+  br label %77
 
-do.body30:                                        ; preds = %if.else
-  %37 = load ptr, ptr %trie, align 8
-  %map = getelementptr inbounds %struct.UNewTrie2, ptr %37, i32 0, i32 13
-  %arraydecay31 = getelementptr inbounds [34852 x i32], ptr %map, i64 0, i64 0
-  %38 = load ptr, ptr %other.addr, align 8
-  %map32 = getelementptr inbounds %struct.UNewTrie2, ptr %38, i32 0, i32 13
-  %arraydecay33 = getelementptr inbounds [34852 x i32], ptr %map32, i64 0, i64 0
-  %39 = load ptr, ptr %other.addr, align 8
-  %dataLength34 = getelementptr inbounds %struct.UNewTrie2, ptr %39, i32 0, i32 7
-  %40 = load i32, ptr %dataLength34, align 8
-  %conv35 = sext i32 %40 to i64
-  %shr = lshr i64 %conv35, 5
-  %mul36 = mul i64 %shr, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arraydecay31, ptr align 8 %arraydecay33, i64 %mul36, i1 false)
-  br label %do.end37
+77:                                               ; preds = %76
+  %78 = load ptr, ptr %3, align 8, !tbaa !13
+  %79 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %78, i32 0, i32 10
+  %80 = load i32, ptr %79, align 4, !tbaa !36
+  %81 = load ptr, ptr %4, align 8, !tbaa !13
+  %82 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %81, i32 0, i32 10
+  store i32 %80, ptr %82, align 4, !tbaa !36
+  %83 = load ptr, ptr %3, align 8, !tbaa !13
+  %84 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %83, i32 0, i32 7
+  %85 = load i32, ptr %84, align 8, !tbaa !37
+  %86 = load ptr, ptr %4, align 8, !tbaa !13
+  %87 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %86, i32 0, i32 7
+  store i32 %85, ptr %87, align 8, !tbaa !37
+  %88 = load ptr, ptr %3, align 8, !tbaa !13
+  %89 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %88, i32 0, i32 12
+  %90 = load i8, ptr %89, align 4, !tbaa !31
+  %91 = icmp ne i8 %90, 0
+  br i1 %91, label %92, label %95
 
-do.end37:                                         ; preds = %do.body30
-  %41 = load ptr, ptr %other.addr, align 8
-  %firstFreeBlock38 = getelementptr inbounds %struct.UNewTrie2, ptr %41, i32 0, i32 8
-  %42 = load i32, ptr %firstFreeBlock38, align 4
-  %43 = load ptr, ptr %trie, align 8
-  %firstFreeBlock39 = getelementptr inbounds %struct.UNewTrie2, ptr %43, i32 0, i32 8
-  store i32 %42, ptr %firstFreeBlock39, align 4
-  br label %if.end40
+92:                                               ; preds = %77
+  %93 = load ptr, ptr %4, align 8, !tbaa !13
+  %94 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %93, i32 0, i32 8
+  store i32 0, ptr %94, align 4, !tbaa !30
+  br label %116
 
-if.end40:                                         ; preds = %do.end37, %if.then29
-  %44 = load ptr, ptr %other.addr, align 8
-  %initialValue = getelementptr inbounds %struct.UNewTrie2, ptr %44, i32 0, i32 3
-  %45 = load i32, ptr %initialValue, align 8
-  %46 = load ptr, ptr %trie, align 8
-  %initialValue41 = getelementptr inbounds %struct.UNewTrie2, ptr %46, i32 0, i32 3
-  store i32 %45, ptr %initialValue41, align 8
-  %47 = load ptr, ptr %other.addr, align 8
-  %errorValue = getelementptr inbounds %struct.UNewTrie2, ptr %47, i32 0, i32 4
-  %48 = load i32, ptr %errorValue, align 4
-  %49 = load ptr, ptr %trie, align 8
-  %errorValue42 = getelementptr inbounds %struct.UNewTrie2, ptr %49, i32 0, i32 4
-  store i32 %48, ptr %errorValue42, align 4
-  %50 = load ptr, ptr %other.addr, align 8
-  %highStart = getelementptr inbounds %struct.UNewTrie2, ptr %50, i32 0, i32 11
-  %51 = load i32, ptr %highStart, align 8
-  %52 = load ptr, ptr %trie, align 8
-  %highStart43 = getelementptr inbounds %struct.UNewTrie2, ptr %52, i32 0, i32 11
-  store i32 %51, ptr %highStart43, align 8
-  %53 = load ptr, ptr %other.addr, align 8
-  %isCompacted44 = getelementptr inbounds %struct.UNewTrie2, ptr %53, i32 0, i32 12
-  %54 = load i8, ptr %isCompacted44, align 4
-  %55 = load ptr, ptr %trie, align 8
-  %isCompacted45 = getelementptr inbounds %struct.UNewTrie2, ptr %55, i32 0, i32 12
-  store i8 %54, ptr %isCompacted45, align 4
-  %56 = load ptr, ptr %trie, align 8
-  store ptr %56, ptr %retval, align 8
-  br label %return
+95:                                               ; preds = %77
+  br label %96
 
-return:                                           ; preds = %if.end40, %if.then4, %if.then
-  %57 = load ptr, ptr %retval, align 8
-  ret ptr %57
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %4, align 8, !tbaa !13
+  %98 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %97, i32 0, i32 13
+  %99 = getelementptr inbounds [34852 x i32], ptr %98, i64 0, i64 0
+  %100 = load ptr, ptr %3, align 8, !tbaa !13
+  %101 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %100, i32 0, i32 13
+  %102 = getelementptr inbounds [34852 x i32], ptr %101, i64 0, i64 0
+  %103 = load ptr, ptr %3, align 8, !tbaa !13
+  %104 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %103, i32 0, i32 7
+  %105 = load i32, ptr %104, align 8, !tbaa !37
+  %106 = sext i32 %105 to i64
+  %107 = lshr i64 %106, 5
+  %108 = mul i64 %107, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %99, ptr align 8 %102, i64 %108, i1 false)
+  br label %109
+
+109:                                              ; preds = %96
+  br label %110
+
+110:                                              ; preds = %109
+  %111 = load ptr, ptr %3, align 8, !tbaa !13
+  %112 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %111, i32 0, i32 8
+  %113 = load i32, ptr %112, align 4, !tbaa !30
+  %114 = load ptr, ptr %4, align 8, !tbaa !13
+  %115 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %114, i32 0, i32 8
+  store i32 %113, ptr %115, align 4, !tbaa !30
+  br label %116
+
+116:                                              ; preds = %110, %92
+  %117 = load ptr, ptr %3, align 8, !tbaa !13
+  %118 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %117, i32 0, i32 3
+  %119 = load i32, ptr %118, align 8, !tbaa !27
+  %120 = load ptr, ptr %4, align 8, !tbaa !13
+  %121 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %120, i32 0, i32 3
+  store i32 %119, ptr %121, align 8, !tbaa !27
+  %122 = load ptr, ptr %3, align 8, !tbaa !13
+  %123 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %122, i32 0, i32 4
+  %124 = load i32, ptr %123, align 4, !tbaa !28
+  %125 = load ptr, ptr %4, align 8, !tbaa !13
+  %126 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %125, i32 0, i32 4
+  store i32 %124, ptr %126, align 4, !tbaa !28
+  %127 = load ptr, ptr %3, align 8, !tbaa !13
+  %128 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %127, i32 0, i32 11
+  %129 = load i32, ptr %128, align 8, !tbaa !29
+  %130 = load ptr, ptr %4, align 8, !tbaa !13
+  %131 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %130, i32 0, i32 11
+  store i32 %129, ptr %131, align 8, !tbaa !29
+  %132 = load ptr, ptr %3, align 8, !tbaa !13
+  %133 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %132, i32 0, i32 12
+  %134 = load i8, ptr %133, align 4, !tbaa !31
+  %135 = load ptr, ptr %4, align 8, !tbaa !13
+  %136 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %135, i32 0, i32 12
+  store i8 %134, ptr %136, align 4, !tbaa !31
+  %137 = load ptr, ptr %4, align 8, !tbaa !13
+  store ptr %137, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %138
+
+138:                                              ; preds = %116, %23, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  %139 = load ptr, ptr %2, align 8
+  ret ptr %139
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utrie2_cloneAsThawed_75(ptr noundef %other, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %context = alloca %struct.NewTrieAndStatus, align 8
-  %lead = alloca i16, align 2
-  %value = alloca i32, align 4
-  store ptr %other, ptr %other.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define ptr @utrie2_cloneAsThawed_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.NewTrieAndStatus, align 8
+  %7 = alloca i16, align 2
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #9
+  %10 = load ptr, ptr %5, align 8, !tbaa !7
+  %11 = load i32, ptr %10, align 4, !tbaa !9
+  %12 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %11)
+  %13 = icmp ne i8 %12, 0
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %155
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %other.addr, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then3, label %lor.lhs.false
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !11
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %28, label %18
 
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load ptr, ptr %other.addr, align 8
-  %memory = getelementptr inbounds %struct.UTrie2, ptr %3, i32 0, i32 11
-  %4 = load ptr, ptr %memory, align 8
-  %cmp1 = icmp eq ptr %4, null
-  br i1 %cmp1, label %land.lhs.true, label %if.end4
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %4, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %struct.UTrie2, ptr %19, i32 0, i32 11
+  %21 = load ptr, ptr %20, align 8, !tbaa !49
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %30
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %other.addr, align 8
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %5, i32 0, i32 16
-  %6 = load ptr, ptr %newTrie, align 8
-  %cmp2 = icmp eq ptr %6, null
-  br i1 %cmp2, label %if.then3, label %if.end4
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %4, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw %struct.UTrie2, ptr %24, i32 0, i32 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !23
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-if.then3:                                         ; preds = %land.lhs.true, %if.end
-  %7 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %7, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %23, %15
+  %29 = load ptr, ptr %5, align 8, !tbaa !7
+  store i32 1, ptr %29, align 4, !tbaa !9
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %155
 
-if.end4:                                          ; preds = %land.lhs.true, %lor.lhs.false
-  %8 = load ptr, ptr %other.addr, align 8
-  %newTrie5 = getelementptr inbounds %struct.UTrie2, ptr %8, i32 0, i32 16
-  %9 = load ptr, ptr %newTrie5, align 8
-  %cmp6 = icmp ne ptr %9, null
-  br i1 %cmp6, label %land.lhs.true7, label %if.end12
+30:                                               ; preds = %23, %18
+  %31 = load ptr, ptr %4, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.UTrie2, ptr %31, i32 0, i32 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !23
+  %34 = icmp ne ptr %33, null
+  br i1 %34, label %35, label %46
 
-land.lhs.true7:                                   ; preds = %if.end4
-  %10 = load ptr, ptr %other.addr, align 8
-  %newTrie8 = getelementptr inbounds %struct.UTrie2, ptr %10, i32 0, i32 16
-  %11 = load ptr, ptr %newTrie8, align 8
-  %isCompacted = getelementptr inbounds %struct.UNewTrie2, ptr %11, i32 0, i32 12
-  %12 = load i8, ptr %isCompacted, align 4
-  %tobool9 = icmp ne i8 %12, 0
-  br i1 %tobool9, label %if.end12, label %if.then10
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %4, align 8, !tbaa !11
+  %37 = getelementptr inbounds nuw %struct.UTrie2, ptr %36, i32 0, i32 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %38, i32 0, i32 12
+  %40 = load i8, ptr %39, align 4, !tbaa !31
+  %41 = icmp ne i8 %40, 0
+  br i1 %41, label %46, label %42
 
-if.then10:                                        ; preds = %land.lhs.true7
-  %13 = load ptr, ptr %other.addr, align 8
-  %14 = load ptr, ptr %pErrorCode.addr, align 8
-  %call11 = call ptr @utrie2_clone_75(ptr noundef %13, ptr noundef %14)
-  store ptr %call11, ptr %retval, align 8
-  br label %return
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %4, align 8, !tbaa !11
+  %44 = load ptr, ptr %5, align 8, !tbaa !7
+  %45 = call ptr @utrie2_clone_77(ptr noundef %43, ptr noundef %44)
+  store ptr %45, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %155
 
-if.end12:                                         ; preds = %land.lhs.true7, %if.end4
-  %15 = load ptr, ptr %other.addr, align 8
-  %initialValue = getelementptr inbounds %struct.UTrie2, ptr %15, i32 0, i32 7
-  %16 = load i32, ptr %initialValue, align 4
-  %17 = load ptr, ptr %other.addr, align 8
-  %errorValue = getelementptr inbounds %struct.UTrie2, ptr %17, i32 0, i32 8
-  %18 = load i32, ptr %errorValue, align 8
-  %19 = load ptr, ptr %pErrorCode.addr, align 8
-  %call13 = call ptr @utrie2_open_75(i32 noundef %16, i32 noundef %18, ptr noundef %19)
-  %trie = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  store ptr %call13, ptr %trie, align 8
-  %20 = load ptr, ptr %pErrorCode.addr, align 8
-  %21 = load i32, ptr %20, align 4
-  %call14 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %21)
-  %tobool15 = icmp ne i8 %call14, 0
-  br i1 %tobool15, label %if.then16, label %if.end17
+46:                                               ; preds = %35, %30
+  %47 = load ptr, ptr %4, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.UTrie2, ptr %47, i32 0, i32 7
+  %49 = load i32, ptr %48, align 4, !tbaa !17
+  %50 = load ptr, ptr %4, align 8, !tbaa !11
+  %51 = getelementptr inbounds nuw %struct.UTrie2, ptr %50, i32 0, i32 8
+  %52 = load i32, ptr %51, align 8, !tbaa !21
+  %53 = load ptr, ptr %5, align 8, !tbaa !7
+  %54 = call ptr @utrie2_open_77(i32 noundef %49, i32 noundef %52, ptr noundef %53)
+  %55 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %6, i32 0, i32 0
+  store ptr %54, ptr %55, align 8, !tbaa !55
+  %56 = load ptr, ptr %5, align 8, !tbaa !7
+  %57 = load i32, ptr %56, align 4, !tbaa !9
+  %58 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %57)
+  %59 = icmp ne i8 %58, 0
+  br i1 %59, label %60, label %61
 
-if.then16:                                        ; preds = %if.end12
-  store ptr null, ptr %retval, align 8
-  br label %return
+60:                                               ; preds = %46
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %155
 
-if.end17:                                         ; preds = %if.end12
-  %exclusiveLimit = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 2
-  store i8 0, ptr %exclusiveLimit, align 4
-  %22 = load ptr, ptr %pErrorCode.addr, align 8
-  %23 = load i32, ptr %22, align 4
-  %errorCode = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 1
-  store i32 %23, ptr %errorCode, align 8
-  %24 = load ptr, ptr %other.addr, align 8
-  call void @utrie2_enum_75(ptr noundef %24, ptr noundef null, ptr noundef @_ZL13copyEnumRangePKviij, ptr noundef %context)
-  %errorCode18 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 1
-  %25 = load i32, ptr %errorCode18, align 8
-  %26 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 %25, ptr %26, align 4
-  store i16 -10240, ptr %lead, align 2
-  br label %for.cond
+61:                                               ; preds = %46
+  %62 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %6, i32 0, i32 2
+  store i8 0, ptr %62, align 4, !tbaa !57
+  %63 = load ptr, ptr %5, align 8, !tbaa !7
+  %64 = load i32, ptr %63, align 4, !tbaa !9
+  %65 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %6, i32 0, i32 1
+  store i32 %64, ptr %65, align 8, !tbaa !58
+  %66 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @utrie2_enum_77(ptr noundef %66, ptr noundef null, ptr noundef @_ZL13copyEnumRangePKviij, ptr noundef %6)
+  %67 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %6, i32 0, i32 1
+  %68 = load i32, ptr %67, align 8, !tbaa !58
+  %69 = load ptr, ptr %5, align 8, !tbaa !7
+  store i32 %68, ptr %69, align 4, !tbaa !9
+  store i16 -10240, ptr %7, align 2, !tbaa !59
+  br label %70
 
-for.cond:                                         ; preds = %for.inc, %if.end17
-  %27 = load i16, ptr %lead, align 2
-  %conv = zext i16 %27 to i32
-  %cmp19 = icmp slt i32 %conv, 56320
-  br i1 %cmp19, label %for.body, label %for.end
+70:                                               ; preds = %140, %61
+  %71 = load i16, ptr %7, align 2, !tbaa !59
+  %72 = zext i16 %71 to i32
+  %73 = icmp slt i32 %72, 56320
+  br i1 %73, label %74, label %143
 
-for.body:                                         ; preds = %for.cond
-  %28 = load ptr, ptr %other.addr, align 8
-  %data32 = getelementptr inbounds %struct.UTrie2, ptr %28, i32 0, i32 2
-  %29 = load ptr, ptr %data32, align 8
-  %cmp20 = icmp eq ptr %29, null
-  br i1 %cmp20, label %if.then21, label %if.else
+74:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %75 = load ptr, ptr %4, align 8, !tbaa !11
+  %76 = getelementptr inbounds nuw %struct.UTrie2, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8, !tbaa !54
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %103
 
-if.then21:                                        ; preds = %for.body
-  %30 = load ptr, ptr %other.addr, align 8
-  %index = getelementptr inbounds %struct.UTrie2, ptr %30, i32 0, i32 0
-  %31 = load ptr, ptr %index, align 8
-  %32 = load ptr, ptr %other.addr, align 8
-  %index22 = getelementptr inbounds %struct.UTrie2, ptr %32, i32 0, i32 0
-  %33 = load ptr, ptr %index22, align 8
-  %34 = load i16, ptr %lead, align 2
-  %conv23 = zext i16 %34 to i32
-  %shr = ashr i32 %conv23, 5
-  %add = add nsw i32 0, %shr
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %33, i64 %idxprom
-  %35 = load i16, ptr %arrayidx, align 2
-  %conv24 = zext i16 %35 to i32
-  %shl = shl i32 %conv24, 2
-  %36 = load i16, ptr %lead, align 2
-  %conv25 = zext i16 %36 to i32
-  %and = and i32 %conv25, 31
-  %add26 = add nsw i32 %shl, %and
-  %idxprom27 = sext i32 %add26 to i64
-  %arrayidx28 = getelementptr inbounds i16, ptr %31, i64 %idxprom27
-  %37 = load i16, ptr %arrayidx28, align 2
-  %conv29 = zext i16 %37 to i32
-  store i32 %conv29, ptr %value, align 4
-  br label %if.end44
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %4, align 8, !tbaa !11
+  %81 = getelementptr inbounds nuw %struct.UTrie2, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8, !tbaa !52
+  %83 = load ptr, ptr %4, align 8, !tbaa !11
+  %84 = getelementptr inbounds nuw %struct.UTrie2, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8, !tbaa !52
+  %86 = load i16, ptr %7, align 2, !tbaa !59
+  %87 = zext i16 %86 to i32
+  %88 = ashr i32 %87, 5
+  %89 = add nsw i32 0, %88
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i16, ptr %85, i64 %90
+  %92 = load i16, ptr %91, align 2, !tbaa !61
+  %93 = zext i16 %92 to i32
+  %94 = shl i32 %93, 2
+  %95 = load i16, ptr %7, align 2, !tbaa !59
+  %96 = zext i16 %95 to i32
+  %97 = and i32 %96, 31
+  %98 = add nsw i32 %94, %97
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i16, ptr %82, i64 %99
+  %101 = load i16, ptr %100, align 2, !tbaa !61
+  %102 = zext i16 %101 to i32
+  store i32 %102, ptr %9, align 4, !tbaa !3
+  br label %126
 
-if.else:                                          ; preds = %for.body
-  %38 = load ptr, ptr %other.addr, align 8
-  %data3230 = getelementptr inbounds %struct.UTrie2, ptr %38, i32 0, i32 2
-  %39 = load ptr, ptr %data3230, align 8
-  %40 = load ptr, ptr %other.addr, align 8
-  %index31 = getelementptr inbounds %struct.UTrie2, ptr %40, i32 0, i32 0
-  %41 = load ptr, ptr %index31, align 8
-  %42 = load i16, ptr %lead, align 2
-  %conv32 = zext i16 %42 to i32
-  %shr33 = ashr i32 %conv32, 5
-  %add34 = add nsw i32 0, %shr33
-  %idxprom35 = sext i32 %add34 to i64
-  %arrayidx36 = getelementptr inbounds i16, ptr %41, i64 %idxprom35
-  %43 = load i16, ptr %arrayidx36, align 2
-  %conv37 = zext i16 %43 to i32
-  %shl38 = shl i32 %conv37, 2
-  %44 = load i16, ptr %lead, align 2
-  %conv39 = zext i16 %44 to i32
-  %and40 = and i32 %conv39, 31
-  %add41 = add nsw i32 %shl38, %and40
-  %idxprom42 = sext i32 %add41 to i64
-  %arrayidx43 = getelementptr inbounds i32, ptr %39, i64 %idxprom42
-  %45 = load i32, ptr %arrayidx43, align 4
-  store i32 %45, ptr %value, align 4
-  br label %if.end44
+103:                                              ; preds = %74
+  %104 = load ptr, ptr %4, align 8, !tbaa !11
+  %105 = getelementptr inbounds nuw %struct.UTrie2, ptr %104, i32 0, i32 2
+  %106 = load ptr, ptr %105, align 8, !tbaa !54
+  %107 = load ptr, ptr %4, align 8, !tbaa !11
+  %108 = getelementptr inbounds nuw %struct.UTrie2, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8, !tbaa !52
+  %110 = load i16, ptr %7, align 2, !tbaa !59
+  %111 = zext i16 %110 to i32
+  %112 = ashr i32 %111, 5
+  %113 = add nsw i32 0, %112
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i16, ptr %109, i64 %114
+  %116 = load i16, ptr %115, align 2, !tbaa !61
+  %117 = zext i16 %116 to i32
+  %118 = shl i32 %117, 2
+  %119 = load i16, ptr %7, align 2, !tbaa !59
+  %120 = zext i16 %119 to i32
+  %121 = and i32 %120, 31
+  %122 = add nsw i32 %118, %121
+  %123 = sext i32 %122 to i64
+  %124 = getelementptr inbounds i32, ptr %106, i64 %123
+  %125 = load i32, ptr %124, align 4, !tbaa !3
+  store i32 %125, ptr %9, align 4, !tbaa !3
+  br label %126
 
-if.end44:                                         ; preds = %if.else, %if.then21
-  %46 = load i32, ptr %value, align 4
-  %47 = load ptr, ptr %other.addr, align 8
-  %initialValue45 = getelementptr inbounds %struct.UTrie2, ptr %47, i32 0, i32 7
-  %48 = load i32, ptr %initialValue45, align 4
-  %cmp46 = icmp ne i32 %46, %48
-  br i1 %cmp46, label %if.then47, label %if.end50
+126:                                              ; preds = %103, %79
+  %127 = load i32, ptr %9, align 4, !tbaa !3
+  %128 = load ptr, ptr %4, align 8, !tbaa !11
+  %129 = getelementptr inbounds nuw %struct.UTrie2, ptr %128, i32 0, i32 7
+  %130 = load i32, ptr %129, align 4, !tbaa !17
+  %131 = icmp ne i32 %127, %130
+  br i1 %131, label %132, label %139
 
-if.then47:                                        ; preds = %if.end44
-  %trie48 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  %49 = load ptr, ptr %trie48, align 8
-  %50 = load i16, ptr %lead, align 2
-  %conv49 = zext i16 %50 to i32
-  %51 = load i32, ptr %value, align 4
-  %52 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @utrie2_set32ForLeadSurrogateCodeUnit_75(ptr noundef %49, i32 noundef %conv49, i32 noundef %51, ptr noundef %52)
-  br label %if.end50
+132:                                              ; preds = %126
+  %133 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %6, i32 0, i32 0
+  %134 = load ptr, ptr %133, align 8, !tbaa !55
+  %135 = load i16, ptr %7, align 2, !tbaa !59
+  %136 = zext i16 %135 to i32
+  %137 = load i32, ptr %9, align 4, !tbaa !3
+  %138 = load ptr, ptr %5, align 8, !tbaa !7
+  call void @utrie2_set32ForLeadSurrogateCodeUnit_77(ptr noundef %134, i32 noundef %136, i32 noundef %137, ptr noundef %138)
+  br label %139
 
-if.end50:                                         ; preds = %if.then47, %if.end44
-  br label %for.inc
+139:                                              ; preds = %132, %126
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  br label %140
 
-for.inc:                                          ; preds = %if.end50
-  %53 = load i16, ptr %lead, align 2
-  %inc = add i16 %53, 1
-  store i16 %inc, ptr %lead, align 2
-  br label %for.cond, !llvm.loop !17
+140:                                              ; preds = %139
+  %141 = load i16, ptr %7, align 2, !tbaa !59
+  %142 = add i16 %141, 1
+  store i16 %142, ptr %7, align 2, !tbaa !59
+  br label %70, !llvm.loop !62
 
-for.end:                                          ; preds = %for.cond
-  %54 = load ptr, ptr %pErrorCode.addr, align 8
-  %55 = load i32, ptr %54, align 4
-  %call51 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %55)
-  %tobool52 = icmp ne i8 %call51, 0
-  br i1 %tobool52, label %if.then53, label %if.end56
+143:                                              ; preds = %70
+  %144 = load ptr, ptr %5, align 8, !tbaa !7
+  %145 = load i32, ptr %144, align 4, !tbaa !9
+  %146 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %145)
+  %147 = icmp ne i8 %146, 0
+  br i1 %147, label %148, label %152
 
-if.then53:                                        ; preds = %for.end
-  %trie54 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  %56 = load ptr, ptr %trie54, align 8
-  call void @utrie2_close_75(ptr noundef %56)
-  %trie55 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  store ptr null, ptr %trie55, align 8
-  br label %if.end56
+148:                                              ; preds = %143
+  %149 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %6, i32 0, i32 0
+  %150 = load ptr, ptr %149, align 8, !tbaa !55
+  call void @utrie2_close_77(ptr noundef %150)
+  %151 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %6, i32 0, i32 0
+  store ptr null, ptr %151, align 8, !tbaa !55
+  br label %152
 
-if.end56:                                         ; preds = %if.then53, %for.end
-  %trie57 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  %57 = load ptr, ptr %trie57, align 8
-  store ptr %57, ptr %retval, align 8
-  br label %return
+152:                                              ; preds = %148, %143
+  %153 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %6, i32 0, i32 0
+  %154 = load ptr, ptr %153, align 8, !tbaa !55
+  store ptr %154, ptr %3, align 8
+  store i32 1, ptr %8, align 4
+  br label %155
 
-return:                                           ; preds = %if.end56, %if.then16, %if.then10, %if.then3, %if.then
-  %58 = load ptr, ptr %retval, align 8
-  ret ptr %58
+155:                                              ; preds = %152, %60, %42, %28, %14
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #9
+  %156 = load ptr, ptr %3, align 8
+  ret ptr %156
 }
 
-declare void @utrie2_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @utrie2_enum_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13copyEnumRangePKviij(ptr noundef %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %context.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %nt = alloca ptr, align 8
-  store ptr %context, ptr %context.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store i32 %value, ptr %value.addr, align 4
-  %0 = load ptr, ptr %context.addr, align 8
-  store ptr %0, ptr %nt, align 8
-  %1 = load i32, ptr %value.addr, align 4
-  %2 = load ptr, ptr %nt, align 8
-  %trie = getelementptr inbounds %struct.NewTrieAndStatus, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %trie, align 8
-  %initialValue = getelementptr inbounds %struct.UTrie2, ptr %3, i32 0, i32 7
-  %4 = load i32, ptr %initialValue, align 4
-  %cmp = icmp ne i32 %1, %4
-  br i1 %cmp, label %if.then, label %if.else9
+define internal noundef signext i8 @_ZL13copyEnumRangePKviij(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store i32 %3, ptr %9, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %12 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %12, ptr %10, align 8, !tbaa !63
+  %13 = load i32, ptr %9, align 4, !tbaa !3
+  %14 = load ptr, ptr %10, align 8, !tbaa !63
+  %15 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !55
+  %17 = getelementptr inbounds nuw %struct.UTrie2, ptr %16, i32 0, i32 7
+  %18 = load i32, ptr %17, align 4, !tbaa !17
+  %19 = icmp ne i32 %13, %18
+  br i1 %19, label %20, label %54
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %nt, align 8
-  %exclusiveLimit = getelementptr inbounds %struct.NewTrieAndStatus, ptr %5, i32 0, i32 2
-  %6 = load i8, ptr %exclusiveLimit, align 4
-  %tobool = icmp ne i8 %6, 0
-  br i1 %tobool, label %if.then1, label %if.end
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %10, align 8, !tbaa !63
+  %22 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %21, i32 0, i32 2
+  %23 = load i8, ptr %22, align 4, !tbaa !57
+  %24 = icmp ne i8 %23, 0
+  br i1 %24, label %25, label %28
 
-if.then1:                                         ; preds = %if.then
-  %7 = load i32, ptr %end.addr, align 4
-  %dec = add nsw i32 %7, -1
-  store i32 %dec, ptr %end.addr, align 4
-  br label %if.end
+25:                                               ; preds = %20
+  %26 = load i32, ptr %8, align 4, !tbaa !3
+  %27 = add nsw i32 %26, -1
+  store i32 %27, ptr %8, align 4, !tbaa !3
+  br label %28
 
-if.end:                                           ; preds = %if.then1, %if.then
-  %8 = load i32, ptr %start.addr, align 4
-  %9 = load i32, ptr %end.addr, align 4
-  %cmp2 = icmp eq i32 %8, %9
-  br i1 %cmp2, label %if.then3, label %if.else
+28:                                               ; preds = %25, %20
+  %29 = load i32, ptr %7, align 4, !tbaa !3
+  %30 = load i32, ptr %8, align 4, !tbaa !3
+  %31 = icmp eq i32 %29, %30
+  br i1 %31, label %32, label %40
 
-if.then3:                                         ; preds = %if.end
-  %10 = load ptr, ptr %nt, align 8
-  %trie4 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %trie4, align 8
-  %12 = load i32, ptr %start.addr, align 4
-  %13 = load i32, ptr %value.addr, align 4
-  %14 = load ptr, ptr %nt, align 8
-  %errorCode = getelementptr inbounds %struct.NewTrieAndStatus, ptr %14, i32 0, i32 1
-  call void @utrie2_set32_75(ptr noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %errorCode)
-  br label %if.end7
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %10, align 8, !tbaa !63
+  %34 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8, !tbaa !55
+  %36 = load i32, ptr %7, align 4, !tbaa !3
+  %37 = load i32, ptr %9, align 4, !tbaa !3
+  %38 = load ptr, ptr %10, align 8, !tbaa !63
+  %39 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %38, i32 0, i32 1
+  call void @utrie2_set32_77(ptr noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef %39)
+  br label %49
 
-if.else:                                          ; preds = %if.end
-  %15 = load ptr, ptr %nt, align 8
-  %trie5 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %15, i32 0, i32 0
-  %16 = load ptr, ptr %trie5, align 8
-  %17 = load i32, ptr %start.addr, align 4
-  %18 = load i32, ptr %end.addr, align 4
-  %19 = load i32, ptr %value.addr, align 4
-  %20 = load ptr, ptr %nt, align 8
-  %errorCode6 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %20, i32 0, i32 1
-  call void @utrie2_setRange32_75(ptr noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, i8 noundef signext 1, ptr noundef %errorCode6)
-  br label %if.end7
+40:                                               ; preds = %28
+  %41 = load ptr, ptr %10, align 8, !tbaa !63
+  %42 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8, !tbaa !55
+  %44 = load i32, ptr %7, align 4, !tbaa !3
+  %45 = load i32, ptr %8, align 4, !tbaa !3
+  %46 = load i32, ptr %9, align 4, !tbaa !3
+  %47 = load ptr, ptr %10, align 8, !tbaa !63
+  %48 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %47, i32 0, i32 1
+  call void @utrie2_setRange32_77(ptr noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef %46, i8 noundef signext 1, ptr noundef %48)
+  br label %49
 
-if.end7:                                          ; preds = %if.else, %if.then3
-  %21 = load ptr, ptr %nt, align 8
-  %errorCode8 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %21, i32 0, i32 1
-  %22 = load i32, ptr %errorCode8, align 8
-  %call = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %22)
-  store i8 %call, ptr %retval, align 1
-  br label %return
+49:                                               ; preds = %40, %32
+  %50 = load ptr, ptr %10, align 8, !tbaa !63
+  %51 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %50, i32 0, i32 1
+  %52 = load i32, ptr %51, align 8, !tbaa !58
+  %53 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %52)
+  store i8 %53, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %55
 
-if.else9:                                         ; preds = %entry
-  store i8 1, ptr %retval, align 1
-  br label %return
+54:                                               ; preds = %4
+  store i8 1, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %55
 
-return:                                           ; preds = %if.else9, %if.end7
-  %23 = load i8, ptr %retval, align 1
-  ret i8 %23
+55:                                               ; preds = %54, %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  %56 = load i8, ptr %5, align 1
+  ret i8 %56
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_set32ForLeadSurrogateCodeUnit_75(ptr noundef %trie, i32 noundef %c, i32 noundef %value, ptr noundef %pErrorCode) #0 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @utrie2_set32ForLeadSurrogateCodeUnit_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !7
+  %9 = load ptr, ptr %8, align 8, !tbaa !7
+  %10 = load i32, ptr %9, align 4, !tbaa !9
+  %11 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %10)
+  %12 = icmp ne i8 %11, 0
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %entry
-  br label %return
+13:                                               ; preds = %4
+  br label %27
 
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %c.addr, align 4
-  %and = and i32 %2, -1024
-  %cmp = icmp eq i32 %and, 55296
-  br i1 %cmp, label %if.end2, label %if.then1
+14:                                               ; preds = %4
+  %15 = load i32, ptr %6, align 4, !tbaa !3
+  %16 = and i32 %15, -1024
+  %17 = icmp eq i32 %16, 55296
+  br i1 %17, label %20, label %18
 
-if.then1:                                         ; preds = %if.end
-  %3 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %3, align 4
-  br label %return
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %8, align 8, !tbaa !7
+  store i32 1, ptr %19, align 4, !tbaa !9
+  br label %27
 
-if.end2:                                          ; preds = %if.end
-  %4 = load ptr, ptr %trie.addr, align 8
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %4, i32 0, i32 16
-  %5 = load ptr, ptr %newTrie, align 8
-  %6 = load i32, ptr %c.addr, align 4
-  %7 = load i32, ptr %value.addr, align 4
-  %8 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @_ZL5set32P9UNewTrie2iajP10UErrorCode(ptr noundef %5, i32 noundef %6, i8 noundef signext 0, i32 noundef %7, ptr noundef %8)
-  br label %return
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %5, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %struct.UTrie2, ptr %21, i32 0, i32 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !23
+  %24 = load i32, ptr %6, align 4, !tbaa !3
+  %25 = load i32, ptr %7, align 4, !tbaa !3
+  %26 = load ptr, ptr %8, align 8, !tbaa !7
+  call void @_ZL5set32P9UNewTrie2iajP10UErrorCode(ptr noundef %23, i32 noundef %24, i8 noundef signext 0, i32 noundef %25, ptr noundef %26)
+  br label %27
 
-return:                                           ; preds = %if.end2, %if.then1, %if.then
+27:                                               ; preds = %20, %18, %13
   ret void
 }
 
-declare void @utrie2_close_75(ptr noundef) #3
+declare void @utrie2_close_77(ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utrie2_fromUTrie_75(ptr noundef %trie1, i32 noundef %errorValue, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %trie1.addr = alloca ptr, align 8
-  %errorValue.addr = alloca i32, align 4
-  %pErrorCode.addr = alloca ptr, align 8
-  %context = alloca %struct.NewTrieAndStatus, align 8
-  %lead = alloca i16, align 2
-  %value = alloca i32, align 4
-  store ptr %trie1, ptr %trie1.addr, align 8
-  store i32 %errorValue, ptr %errorValue.addr, align 4
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define ptr @utrie2_fromUTrie_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.NewTrieAndStatus, align 8
+  %9 = alloca i16, align 2
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !65
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #9
+  %12 = load ptr, ptr %7, align 8, !tbaa !7
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  %14 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %13)
+  %15 = icmp ne i8 %14, 0
+  br i1 %15, label %16, label %17
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %143
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %trie1.addr, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then1, label %if.end2
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8, !tbaa !65
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %22
 
-if.then1:                                         ; preds = %if.end
-  %3 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %3, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %7, align 8, !tbaa !7
+  store i32 1, ptr %21, align 4, !tbaa !9
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %143
 
-if.end2:                                          ; preds = %if.end
-  %4 = load ptr, ptr %trie1.addr, align 8
-  %initialValue = getelementptr inbounds %struct.UTrie, ptr %4, i32 0, i32 5
-  %5 = load i32, ptr %initialValue, align 8
-  %6 = load i32, ptr %errorValue.addr, align 4
-  %7 = load ptr, ptr %pErrorCode.addr, align 8
-  %call3 = call ptr @utrie2_open_75(i32 noundef %5, i32 noundef %6, ptr noundef %7)
-  %trie = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  store ptr %call3, ptr %trie, align 8
-  %8 = load ptr, ptr %pErrorCode.addr, align 8
-  %9 = load i32, ptr %8, align 4
-  %call4 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %9)
-  %tobool5 = icmp ne i8 %call4, 0
-  br i1 %tobool5, label %if.then6, label %if.end7
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8, !tbaa !65
+  %24 = getelementptr inbounds nuw %struct.UTrie, ptr %23, i32 0, i32 5
+  %25 = load i32, ptr %24, align 8, !tbaa !67
+  %26 = load i32, ptr %6, align 4, !tbaa !3
+  %27 = load ptr, ptr %7, align 8, !tbaa !7
+  %28 = call ptr @utrie2_open_77(i32 noundef %25, i32 noundef %26, ptr noundef %27)
+  %29 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %8, i32 0, i32 0
+  store ptr %28, ptr %29, align 8, !tbaa !55
+  %30 = load ptr, ptr %7, align 8, !tbaa !7
+  %31 = load i32, ptr %30, align 4, !tbaa !9
+  %32 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %31)
+  %33 = icmp ne i8 %32, 0
+  br i1 %33, label %34, label %35
 
-if.then6:                                         ; preds = %if.end2
-  store ptr null, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %22
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %143
 
-if.end7:                                          ; preds = %if.end2
-  %exclusiveLimit = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 2
-  store i8 1, ptr %exclusiveLimit, align 4
-  %10 = load ptr, ptr %pErrorCode.addr, align 8
-  %11 = load i32, ptr %10, align 4
-  %errorCode = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 1
-  store i32 %11, ptr %errorCode, align 8
-  %12 = load ptr, ptr %trie1.addr, align 8
-  call void @utrie_enum_75(ptr noundef %12, ptr noundef null, ptr noundef @_ZL13copyEnumRangePKviij, ptr noundef %context)
-  %errorCode8 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 1
-  %13 = load i32, ptr %errorCode8, align 8
-  %14 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 %13, ptr %14, align 4
-  store i16 -10240, ptr %lead, align 2
-  br label %for.cond
+35:                                               ; preds = %22
+  %36 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %8, i32 0, i32 2
+  store i8 1, ptr %36, align 4, !tbaa !57
+  %37 = load ptr, ptr %7, align 8, !tbaa !7
+  %38 = load i32, ptr %37, align 4, !tbaa !9
+  %39 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %8, i32 0, i32 1
+  store i32 %38, ptr %39, align 8, !tbaa !58
+  %40 = load ptr, ptr %5, align 8, !tbaa !65
+  call void @utrie_enum_77(ptr noundef %40, ptr noundef null, ptr noundef @_ZL13copyEnumRangePKviij, ptr noundef %8)
+  %41 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %8, i32 0, i32 1
+  %42 = load i32, ptr %41, align 8, !tbaa !58
+  %43 = load ptr, ptr %7, align 8, !tbaa !7
+  store i32 %42, ptr %43, align 4, !tbaa !9
+  store i16 -10240, ptr %9, align 2, !tbaa !59
+  br label %44
 
-for.cond:                                         ; preds = %for.inc, %if.end7
-  %15 = load i16, ptr %lead, align 2
-  %conv = zext i16 %15 to i32
-  %cmp9 = icmp slt i32 %conv, 56320
-  br i1 %cmp9, label %for.body, label %for.end
+44:                                               ; preds = %114, %35
+  %45 = load i16, ptr %9, align 2, !tbaa !59
+  %46 = zext i16 %45 to i32
+  %47 = icmp slt i32 %46, 56320
+  br i1 %47, label %48, label %117
 
-for.body:                                         ; preds = %for.cond
-  %16 = load ptr, ptr %trie1.addr, align 8
-  %data32 = getelementptr inbounds %struct.UTrie, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %data32, align 8
-  %cmp10 = icmp eq ptr %17, null
-  br i1 %cmp10, label %if.then11, label %if.else
+48:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %49 = load ptr, ptr %5, align 8, !tbaa !65
+  %50 = getelementptr inbounds nuw %struct.UTrie, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8, !tbaa !69
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %77
 
-if.then11:                                        ; preds = %for.body
-  %18 = load ptr, ptr %trie1.addr, align 8
-  %index = getelementptr inbounds %struct.UTrie, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %index, align 8
-  %20 = load ptr, ptr %trie1.addr, align 8
-  %index12 = getelementptr inbounds %struct.UTrie, ptr %20, i32 0, i32 0
-  %21 = load ptr, ptr %index12, align 8
-  %22 = load i16, ptr %lead, align 2
-  %conv13 = zext i16 %22 to i32
-  %shr = ashr i32 %conv13, 5
-  %add = add nsw i32 0, %shr
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %21, i64 %idxprom
-  %23 = load i16, ptr %arrayidx, align 2
-  %conv14 = zext i16 %23 to i32
-  %shl = shl i32 %conv14, 2
-  %24 = load i16, ptr %lead, align 2
-  %conv15 = zext i16 %24 to i32
-  %and = and i32 %conv15, 31
-  %add16 = add nsw i32 %shl, %and
-  %idxprom17 = sext i32 %add16 to i64
-  %arrayidx18 = getelementptr inbounds i16, ptr %19, i64 %idxprom17
-  %25 = load i16, ptr %arrayidx18, align 2
-  %conv19 = zext i16 %25 to i32
-  store i32 %conv19, ptr %value, align 4
-  br label %if.end34
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %5, align 8, !tbaa !65
+  %55 = getelementptr inbounds nuw %struct.UTrie, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !70
+  %57 = load ptr, ptr %5, align 8, !tbaa !65
+  %58 = getelementptr inbounds nuw %struct.UTrie, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !70
+  %60 = load i16, ptr %9, align 2, !tbaa !59
+  %61 = zext i16 %60 to i32
+  %62 = ashr i32 %61, 5
+  %63 = add nsw i32 0, %62
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i16, ptr %59, i64 %64
+  %66 = load i16, ptr %65, align 2, !tbaa !61
+  %67 = zext i16 %66 to i32
+  %68 = shl i32 %67, 2
+  %69 = load i16, ptr %9, align 2, !tbaa !59
+  %70 = zext i16 %69 to i32
+  %71 = and i32 %70, 31
+  %72 = add nsw i32 %68, %71
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i16, ptr %56, i64 %73
+  %75 = load i16, ptr %74, align 2, !tbaa !61
+  %76 = zext i16 %75 to i32
+  store i32 %76, ptr %11, align 4, !tbaa !3
+  br label %100
 
-if.else:                                          ; preds = %for.body
-  %26 = load ptr, ptr %trie1.addr, align 8
-  %data3220 = getelementptr inbounds %struct.UTrie, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %data3220, align 8
-  %28 = load ptr, ptr %trie1.addr, align 8
-  %index21 = getelementptr inbounds %struct.UTrie, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %index21, align 8
-  %30 = load i16, ptr %lead, align 2
-  %conv22 = zext i16 %30 to i32
-  %shr23 = ashr i32 %conv22, 5
-  %add24 = add nsw i32 0, %shr23
-  %idxprom25 = sext i32 %add24 to i64
-  %arrayidx26 = getelementptr inbounds i16, ptr %29, i64 %idxprom25
-  %31 = load i16, ptr %arrayidx26, align 2
-  %conv27 = zext i16 %31 to i32
-  %shl28 = shl i32 %conv27, 2
-  %32 = load i16, ptr %lead, align 2
-  %conv29 = zext i16 %32 to i32
-  %and30 = and i32 %conv29, 31
-  %add31 = add nsw i32 %shl28, %and30
-  %idxprom32 = sext i32 %add31 to i64
-  %arrayidx33 = getelementptr inbounds i32, ptr %27, i64 %idxprom32
-  %33 = load i32, ptr %arrayidx33, align 4
-  store i32 %33, ptr %value, align 4
-  br label %if.end34
+77:                                               ; preds = %48
+  %78 = load ptr, ptr %5, align 8, !tbaa !65
+  %79 = getelementptr inbounds nuw %struct.UTrie, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8, !tbaa !69
+  %81 = load ptr, ptr %5, align 8, !tbaa !65
+  %82 = getelementptr inbounds nuw %struct.UTrie, ptr %81, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8, !tbaa !70
+  %84 = load i16, ptr %9, align 2, !tbaa !59
+  %85 = zext i16 %84 to i32
+  %86 = ashr i32 %85, 5
+  %87 = add nsw i32 0, %86
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i16, ptr %83, i64 %88
+  %90 = load i16, ptr %89, align 2, !tbaa !61
+  %91 = zext i16 %90 to i32
+  %92 = shl i32 %91, 2
+  %93 = load i16, ptr %9, align 2, !tbaa !59
+  %94 = zext i16 %93 to i32
+  %95 = and i32 %94, 31
+  %96 = add nsw i32 %92, %95
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i32, ptr %80, i64 %97
+  %99 = load i32, ptr %98, align 4, !tbaa !3
+  store i32 %99, ptr %11, align 4, !tbaa !3
+  br label %100
 
-if.end34:                                         ; preds = %if.else, %if.then11
-  %34 = load i32, ptr %value, align 4
-  %35 = load ptr, ptr %trie1.addr, align 8
-  %initialValue35 = getelementptr inbounds %struct.UTrie, ptr %35, i32 0, i32 5
-  %36 = load i32, ptr %initialValue35, align 8
-  %cmp36 = icmp ne i32 %34, %36
-  br i1 %cmp36, label %if.then37, label %if.end40
+100:                                              ; preds = %77, %53
+  %101 = load i32, ptr %11, align 4, !tbaa !3
+  %102 = load ptr, ptr %5, align 8, !tbaa !65
+  %103 = getelementptr inbounds nuw %struct.UTrie, ptr %102, i32 0, i32 5
+  %104 = load i32, ptr %103, align 8, !tbaa !67
+  %105 = icmp ne i32 %101, %104
+  br i1 %105, label %106, label %113
 
-if.then37:                                        ; preds = %if.end34
-  %trie38 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  %37 = load ptr, ptr %trie38, align 8
-  %38 = load i16, ptr %lead, align 2
-  %conv39 = zext i16 %38 to i32
-  %39 = load i32, ptr %value, align 4
-  %40 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @utrie2_set32ForLeadSurrogateCodeUnit_75(ptr noundef %37, i32 noundef %conv39, i32 noundef %39, ptr noundef %40)
-  br label %if.end40
+106:                                              ; preds = %100
+  %107 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %8, i32 0, i32 0
+  %108 = load ptr, ptr %107, align 8, !tbaa !55
+  %109 = load i16, ptr %9, align 2, !tbaa !59
+  %110 = zext i16 %109 to i32
+  %111 = load i32, ptr %11, align 4, !tbaa !3
+  %112 = load ptr, ptr %7, align 8, !tbaa !7
+  call void @utrie2_set32ForLeadSurrogateCodeUnit_77(ptr noundef %108, i32 noundef %110, i32 noundef %111, ptr noundef %112)
+  br label %113
 
-if.end40:                                         ; preds = %if.then37, %if.end34
-  br label %for.inc
+113:                                              ; preds = %106, %100
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  br label %114
 
-for.inc:                                          ; preds = %if.end40
-  %41 = load i16, ptr %lead, align 2
-  %inc = add i16 %41, 1
-  store i16 %inc, ptr %lead, align 2
-  br label %for.cond, !llvm.loop !18
+114:                                              ; preds = %113
+  %115 = load i16, ptr %9, align 2, !tbaa !59
+  %116 = add i16 %115, 1
+  store i16 %116, ptr %9, align 2, !tbaa !59
+  br label %44, !llvm.loop !71
 
-for.end:                                          ; preds = %for.cond
-  %42 = load ptr, ptr %pErrorCode.addr, align 8
-  %43 = load i32, ptr %42, align 4
-  %call41 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %43)
-  %tobool42 = icmp ne i8 %call41, 0
-  br i1 %tobool42, label %if.then43, label %if.end47
+117:                                              ; preds = %44
+  %118 = load ptr, ptr %7, align 8, !tbaa !7
+  %119 = load i32, ptr %118, align 4, !tbaa !9
+  %120 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %119)
+  %121 = icmp ne i8 %120, 0
+  br i1 %121, label %122, label %131
 
-if.then43:                                        ; preds = %for.end
-  %trie44 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  %44 = load ptr, ptr %trie44, align 8
-  %45 = load ptr, ptr %trie1.addr, align 8
-  %data3245 = getelementptr inbounds %struct.UTrie, ptr %45, i32 0, i32 1
-  %46 = load ptr, ptr %data3245, align 8
-  %cmp46 = icmp ne ptr %46, null
-  %cond = select i1 %cmp46, i32 1, i32 0
-  %47 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @utrie2_freeze_75(ptr noundef %44, i32 noundef %cond, ptr noundef %47)
-  br label %if.end47
+122:                                              ; preds = %117
+  %123 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %8, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8, !tbaa !55
+  %125 = load ptr, ptr %5, align 8, !tbaa !65
+  %126 = getelementptr inbounds nuw %struct.UTrie, ptr %125, i32 0, i32 1
+  %127 = load ptr, ptr %126, align 8, !tbaa !69
+  %128 = icmp ne ptr %127, null
+  %129 = select i1 %128, i32 1, i32 0
+  %130 = load ptr, ptr %7, align 8, !tbaa !7
+  call void @utrie2_freeze_77(ptr noundef %124, i32 noundef %129, ptr noundef %130)
+  br label %131
 
-if.end47:                                         ; preds = %if.then43, %for.end
-  %48 = load ptr, ptr %pErrorCode.addr, align 8
-  %49 = load i32, ptr %48, align 4
-  %call48 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %49)
-  %tobool49 = icmp ne i8 %call48, 0
-  br i1 %tobool49, label %if.then50, label %if.end53
+131:                                              ; preds = %122, %117
+  %132 = load ptr, ptr %7, align 8, !tbaa !7
+  %133 = load i32, ptr %132, align 4, !tbaa !9
+  %134 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %133)
+  %135 = icmp ne i8 %134, 0
+  br i1 %135, label %136, label %140
 
-if.then50:                                        ; preds = %if.end47
-  %trie51 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  %50 = load ptr, ptr %trie51, align 8
-  call void @utrie2_close_75(ptr noundef %50)
-  %trie52 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  store ptr null, ptr %trie52, align 8
-  br label %if.end53
+136:                                              ; preds = %131
+  %137 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %8, i32 0, i32 0
+  %138 = load ptr, ptr %137, align 8, !tbaa !55
+  call void @utrie2_close_77(ptr noundef %138)
+  %139 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %8, i32 0, i32 0
+  store ptr null, ptr %139, align 8, !tbaa !55
+  br label %140
 
-if.end53:                                         ; preds = %if.then50, %if.end47
-  %trie54 = getelementptr inbounds %struct.NewTrieAndStatus, ptr %context, i32 0, i32 0
-  %51 = load ptr, ptr %trie54, align 8
-  store ptr %51, ptr %retval, align 8
-  br label %return
+140:                                              ; preds = %136, %131
+  %141 = getelementptr inbounds nuw %struct.NewTrieAndStatus, ptr %8, i32 0, i32 0
+  %142 = load ptr, ptr %141, align 8, !tbaa !55
+  store ptr %142, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %143
 
-return:                                           ; preds = %if.end53, %if.then6, %if.then1, %if.then
-  %52 = load ptr, ptr %retval, align 8
-  ret ptr %52
+143:                                              ; preds = %140, %34, %20, %16
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #9
+  %144 = load ptr, ptr %4, align 8
+  ret ptr %144
 }
 
-declare void @utrie_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @utrie_enum_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %code) #1 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !9
+  %3 = load i32, ptr %2, align 4, !tbaa !9
+  %4 = icmp sle i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_freeze_75(ptr noundef %trie, i32 noundef %valueBits, ptr noundef %pErrorCode) #0 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %valueBits.addr = alloca i32, align 4
-  %pErrorCode.addr = alloca ptr, align 8
-  %newTrie = alloca ptr, align 8
-  %header = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %dest16 = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %length = alloca i32, align 4
-  %allIndexesLength = alloca i32, align 4
-  %dataMove = alloca i32, align 4
-  %highStart = alloca i32, align 4
-  %frozenValueBits = alloca i32, align 4
-  %index1Length = alloca i32, align 4
-  %index2Offset = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %valueBits, ptr %valueBits.addr, align 4
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store i32 %1, ptr %5, align 4, !tbaa !72
+  store ptr %2, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #9
+  %20 = load ptr, ptr %6, align 8, !tbaa !7
+  %21 = load i32, ptr %20, align 4, !tbaa !9
+  %22 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %21)
+  %23 = icmp ne i8 %22, 0
+  br i1 %23, label %24, label %25
 
-if.then:                                          ; preds = %entry
-  br label %return
+24:                                               ; preds = %3
+  store i32 1, ptr %16, align 4
+  br label %392
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %trie.addr, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then4, label %lor.lhs.false
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %4, align 8, !tbaa !11
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %34, label %28
 
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load i32, ptr %valueBits.addr, align 4
-  %cmp1 = icmp slt i32 %3, 0
-  br i1 %cmp1, label %if.then4, label %lor.lhs.false2
+28:                                               ; preds = %25
+  %29 = load i32, ptr %5, align 4, !tbaa !72
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %34, label %31
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %4 = load i32, ptr %valueBits.addr, align 4
-  %cmp3 = icmp sle i32 2, %4
-  br i1 %cmp3, label %if.then4, label %if.end5
+31:                                               ; preds = %28
+  %32 = load i32, ptr %5, align 4, !tbaa !72
+  %33 = icmp sle i32 2, %32
+  br i1 %33, label %34, label %36
 
-if.then4:                                         ; preds = %lor.lhs.false2, %lor.lhs.false, %if.end
-  %5 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %5, align 4
-  br label %return
+34:                                               ; preds = %31, %28, %25
+  %35 = load ptr, ptr %6, align 8, !tbaa !7
+  store i32 1, ptr %35, align 4, !tbaa !9
+  store i32 1, ptr %16, align 4
+  br label %392
 
-if.end5:                                          ; preds = %lor.lhs.false2
-  %6 = load ptr, ptr %trie.addr, align 8
-  %newTrie6 = getelementptr inbounds %struct.UTrie2, ptr %6, i32 0, i32 16
-  %7 = load ptr, ptr %newTrie6, align 8
-  store ptr %7, ptr %newTrie, align 8
-  %8 = load ptr, ptr %newTrie, align 8
-  %cmp7 = icmp eq ptr %8, null
-  br i1 %cmp7, label %if.then8, label %if.end13
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %4, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.UTrie2, ptr %37, i32 0, i32 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !23
+  store ptr %39, ptr %7, align 8, !tbaa !13
+  %40 = load ptr, ptr %7, align 8, !tbaa !13
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %54
 
-if.then8:                                         ; preds = %if.end5
-  %9 = load ptr, ptr %trie.addr, align 8
-  %data16 = getelementptr inbounds %struct.UTrie2, ptr %9, i32 0, i32 1
-  %10 = load ptr, ptr %data16, align 8
-  %cmp9 = icmp ne ptr %10, null
-  %cond = select i1 %cmp9, i32 0, i32 1
-  store i32 %cond, ptr %frozenValueBits, align 4
-  %11 = load i32, ptr %valueBits.addr, align 4
-  %12 = load i32, ptr %frozenValueBits, align 4
-  %cmp10 = icmp ne i32 %11, %12
-  br i1 %cmp10, label %if.then11, label %if.end12
+42:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #9
+  %43 = load ptr, ptr %4, align 8, !tbaa !11
+  %44 = getelementptr inbounds nuw %struct.UTrie2, ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !53
+  %46 = icmp ne ptr %45, null
+  %47 = select i1 %46, i32 0, i32 1
+  store i32 %47, ptr %17, align 4, !tbaa !72
+  %48 = load i32, ptr %5, align 4, !tbaa !72
+  %49 = load i32, ptr %17, align 4, !tbaa !72
+  %50 = icmp ne i32 %48, %49
+  br i1 %50, label %51, label %53
 
-if.then11:                                        ; preds = %if.then8
-  %13 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %13, align 4
-  br label %if.end12
+51:                                               ; preds = %42
+  %52 = load ptr, ptr %6, align 8, !tbaa !7
+  store i32 1, ptr %52, align 4, !tbaa !9
+  br label %53
 
-if.end12:                                         ; preds = %if.then11, %if.then8
-  br label %return
+53:                                               ; preds = %51, %42
+  store i32 1, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #9
+  br label %392
 
-if.end13:                                         ; preds = %if.end5
-  %14 = load ptr, ptr %newTrie, align 8
-  %isCompacted = getelementptr inbounds %struct.UNewTrie2, ptr %14, i32 0, i32 12
-  %15 = load i8, ptr %isCompacted, align 4
-  %tobool14 = icmp ne i8 %15, 0
-  br i1 %tobool14, label %if.end20, label %if.then15
+54:                                               ; preds = %36
+  %55 = load ptr, ptr %7, align 8, !tbaa !13
+  %56 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %55, i32 0, i32 12
+  %57 = load i8, ptr %56, align 4, !tbaa !31
+  %58 = icmp ne i8 %57, 0
+  br i1 %58, label %68, label %59
 
-if.then15:                                        ; preds = %if.end13
-  %16 = load ptr, ptr %trie.addr, align 8
-  %17 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @_ZL11compactTrieP6UTrie2P10UErrorCode(ptr noundef %16, ptr noundef %17)
-  %18 = load ptr, ptr %pErrorCode.addr, align 8
-  %19 = load i32, ptr %18, align 4
-  %call16 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %19)
-  %tobool17 = icmp ne i8 %call16, 0
-  br i1 %tobool17, label %if.then18, label %if.end19
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %4, align 8, !tbaa !11
+  %61 = load ptr, ptr %6, align 8, !tbaa !7
+  call void @_ZL11compactTrieP6UTrie2P10UErrorCode(ptr noundef %60, ptr noundef %61)
+  %62 = load ptr, ptr %6, align 8, !tbaa !7
+  %63 = load i32, ptr %62, align 4, !tbaa !9
+  %64 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %63)
+  %65 = icmp ne i8 %64, 0
+  br i1 %65, label %66, label %67
 
-if.then18:                                        ; preds = %if.then15
-  br label %return
+66:                                               ; preds = %59
+  store i32 1, ptr %16, align 4
+  br label %392
 
-if.end19:                                         ; preds = %if.then15
-  br label %if.end20
+67:                                               ; preds = %59
+  br label %68
 
-if.end20:                                         ; preds = %if.end19, %if.end13
-  %20 = load ptr, ptr %trie.addr, align 8
-  %highStart21 = getelementptr inbounds %struct.UTrie2, ptr %20, i32 0, i32 9
-  %21 = load i32, ptr %highStart21, align 4
-  store i32 %21, ptr %highStart, align 4
-  %22 = load i32, ptr %highStart, align 4
-  %cmp22 = icmp sle i32 %22, 65536
-  br i1 %cmp22, label %if.then23, label %if.else
+68:                                               ; preds = %67, %54
+  %69 = load ptr, ptr %4, align 8, !tbaa !11
+  %70 = getelementptr inbounds nuw %struct.UTrie2, ptr %69, i32 0, i32 9
+  %71 = load i32, ptr %70, align 4, !tbaa !22
+  store i32 %71, ptr %15, align 4, !tbaa !3
+  %72 = load i32, ptr %15, align 4, !tbaa !3
+  %73 = icmp sle i32 %72, 65536
+  br i1 %73, label %74, label %75
 
-if.then23:                                        ; preds = %if.end20
-  store i32 2112, ptr %allIndexesLength, align 4
-  br label %if.end24
+74:                                               ; preds = %68
+  store i32 2112, ptr %13, align 4, !tbaa !3
+  br label %79
 
-if.else:                                          ; preds = %if.end20
-  %23 = load ptr, ptr %newTrie, align 8
-  %index2Length = getelementptr inbounds %struct.UNewTrie2, ptr %23, i32 0, i32 5
-  %24 = load i32, ptr %index2Length, align 8
-  store i32 %24, ptr %allIndexesLength, align 4
-  br label %if.end24
+75:                                               ; preds = %68
+  %76 = load ptr, ptr %7, align 8, !tbaa !13
+  %77 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %76, i32 0, i32 5
+  %78 = load i32, ptr %77, align 8, !tbaa !45
+  store i32 %78, ptr %13, align 4, !tbaa !3
+  br label %79
 
-if.end24:                                         ; preds = %if.else, %if.then23
-  %25 = load i32, ptr %valueBits.addr, align 4
-  %cmp25 = icmp eq i32 %25, 0
-  br i1 %cmp25, label %if.then26, label %if.else27
+79:                                               ; preds = %75, %74
+  %80 = load i32, ptr %5, align 4, !tbaa !72
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %84
 
-if.then26:                                        ; preds = %if.end24
-  %26 = load i32, ptr %allIndexesLength, align 4
-  store i32 %26, ptr %dataMove, align 4
-  br label %if.end28
+82:                                               ; preds = %79
+  %83 = load i32, ptr %13, align 4, !tbaa !3
+  store i32 %83, ptr %14, align 4, !tbaa !3
+  br label %85
 
-if.else27:                                        ; preds = %if.end24
-  store i32 0, ptr %dataMove, align 4
-  br label %if.end28
+84:                                               ; preds = %79
+  store i32 0, ptr %14, align 4, !tbaa !3
+  br label %85
 
-if.end28:                                         ; preds = %if.else27, %if.then26
-  %27 = load i32, ptr %allIndexesLength, align 4
-  %cmp29 = icmp sgt i32 %27, 65535
-  br i1 %cmp29, label %if.then38, label %lor.lhs.false30
+85:                                               ; preds = %84, %82
+  %86 = load i32, ptr %13, align 4, !tbaa !3
+  %87 = icmp sgt i32 %86, 65535
+  br i1 %87, label %106, label %88
 
-lor.lhs.false30:                                  ; preds = %if.end28
-  %28 = load i32, ptr %dataMove, align 4
-  %29 = load ptr, ptr %newTrie, align 8
-  %dataNullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %29, i32 0, i32 10
-  %30 = load i32, ptr %dataNullOffset, align 4
-  %add = add nsw i32 %28, %30
-  %cmp31 = icmp sgt i32 %add, 65535
-  br i1 %cmp31, label %if.then38, label %lor.lhs.false32
+88:                                               ; preds = %85
+  %89 = load i32, ptr %14, align 4, !tbaa !3
+  %90 = load ptr, ptr %7, align 8, !tbaa !13
+  %91 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %90, i32 0, i32 10
+  %92 = load i32, ptr %91, align 4, !tbaa !36
+  %93 = add nsw i32 %89, %92
+  %94 = icmp sgt i32 %93, 65535
+  br i1 %94, label %106, label %95
 
-lor.lhs.false32:                                  ; preds = %lor.lhs.false30
-  %31 = load i32, ptr %dataMove, align 4
-  %add33 = add nsw i32 %31, 2176
-  %cmp34 = icmp sgt i32 %add33, 65535
-  br i1 %cmp34, label %if.then38, label %lor.lhs.false35
+95:                                               ; preds = %88
+  %96 = load i32, ptr %14, align 4, !tbaa !3
+  %97 = add nsw i32 %96, 2176
+  %98 = icmp sgt i32 %97, 65535
+  br i1 %98, label %106, label %99
 
-lor.lhs.false35:                                  ; preds = %lor.lhs.false32
-  %32 = load i32, ptr %dataMove, align 4
-  %33 = load ptr, ptr %newTrie, align 8
-  %dataLength = getelementptr inbounds %struct.UNewTrie2, ptr %33, i32 0, i32 7
-  %34 = load i32, ptr %dataLength, align 8
-  %add36 = add nsw i32 %32, %34
-  %cmp37 = icmp sgt i32 %add36, 262140
-  br i1 %cmp37, label %if.then38, label %if.end39
+99:                                               ; preds = %95
+  %100 = load i32, ptr %14, align 4, !tbaa !3
+  %101 = load ptr, ptr %7, align 8, !tbaa !13
+  %102 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %101, i32 0, i32 7
+  %103 = load i32, ptr %102, align 8, !tbaa !37
+  %104 = add nsw i32 %100, %103
+  %105 = icmp sgt i32 %104, 262140
+  br i1 %105, label %106, label %108
 
-if.then38:                                        ; preds = %lor.lhs.false35, %lor.lhs.false32, %lor.lhs.false30, %if.end28
-  %35 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %35, align 4
-  br label %return
+106:                                              ; preds = %99, %95, %88, %85
+  %107 = load ptr, ptr %6, align 8, !tbaa !7
+  store i32 8, ptr %107, align 4, !tbaa !9
+  store i32 1, ptr %16, align 4
+  br label %392
 
-if.end39:                                         ; preds = %lor.lhs.false35
-  %36 = load i32, ptr %allIndexesLength, align 4
-  %mul = mul nsw i32 %36, 2
-  %conv = sext i32 %mul to i64
-  %add40 = add i64 16, %conv
-  %conv41 = trunc i64 %add40 to i32
-  store i32 %conv41, ptr %length, align 4
-  %37 = load i32, ptr %valueBits.addr, align 4
-  %cmp42 = icmp eq i32 %37, 0
-  br i1 %cmp42, label %if.then43, label %if.else47
+108:                                              ; preds = %99
+  %109 = load i32, ptr %13, align 4, !tbaa !3
+  %110 = mul nsw i32 %109, 2
+  %111 = sext i32 %110 to i64
+  %112 = add i64 16, %111
+  %113 = trunc i64 %112 to i32
+  store i32 %113, ptr %12, align 4, !tbaa !3
+  %114 = load i32, ptr %5, align 4, !tbaa !72
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %123
 
-if.then43:                                        ; preds = %if.end39
-  %38 = load ptr, ptr %newTrie, align 8
-  %dataLength44 = getelementptr inbounds %struct.UNewTrie2, ptr %38, i32 0, i32 7
-  %39 = load i32, ptr %dataLength44, align 8
-  %mul45 = mul nsw i32 %39, 2
-  %40 = load i32, ptr %length, align 4
-  %add46 = add nsw i32 %40, %mul45
-  store i32 %add46, ptr %length, align 4
-  br label %if.end51
+116:                                              ; preds = %108
+  %117 = load ptr, ptr %7, align 8, !tbaa !13
+  %118 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %117, i32 0, i32 7
+  %119 = load i32, ptr %118, align 8, !tbaa !37
+  %120 = mul nsw i32 %119, 2
+  %121 = load i32, ptr %12, align 4, !tbaa !3
+  %122 = add nsw i32 %121, %120
+  store i32 %122, ptr %12, align 4, !tbaa !3
+  br label %130
 
-if.else47:                                        ; preds = %if.end39
-  %41 = load ptr, ptr %newTrie, align 8
-  %dataLength48 = getelementptr inbounds %struct.UNewTrie2, ptr %41, i32 0, i32 7
-  %42 = load i32, ptr %dataLength48, align 8
-  %mul49 = mul nsw i32 %42, 4
-  %43 = load i32, ptr %length, align 4
-  %add50 = add nsw i32 %43, %mul49
-  store i32 %add50, ptr %length, align 4
-  br label %if.end51
+123:                                              ; preds = %108
+  %124 = load ptr, ptr %7, align 8, !tbaa !13
+  %125 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %124, i32 0, i32 7
+  %126 = load i32, ptr %125, align 8, !tbaa !37
+  %127 = mul nsw i32 %126, 4
+  %128 = load i32, ptr %12, align 4, !tbaa !3
+  %129 = add nsw i32 %128, %127
+  store i32 %129, ptr %12, align 4, !tbaa !3
+  br label %130
 
-if.end51:                                         ; preds = %if.else47, %if.then43
-  %44 = load i32, ptr %length, align 4
-  %conv52 = sext i32 %44 to i64
-  %call53 = call noalias ptr @uprv_malloc_75(i64 noundef %conv52) #6
-  %45 = load ptr, ptr %trie.addr, align 8
-  %memory = getelementptr inbounds %struct.UTrie2, ptr %45, i32 0, i32 11
-  store ptr %call53, ptr %memory, align 8
-  %46 = load ptr, ptr %trie.addr, align 8
-  %memory54 = getelementptr inbounds %struct.UTrie2, ptr %46, i32 0, i32 11
-  %47 = load ptr, ptr %memory54, align 8
-  %cmp55 = icmp eq ptr %47, null
-  br i1 %cmp55, label %if.then56, label %if.end57
+130:                                              ; preds = %123, %116
+  %131 = load i32, ptr %12, align 4, !tbaa !3
+  %132 = sext i32 %131 to i64
+  %133 = call noalias ptr @uprv_malloc_77(i64 noundef %132) #10
+  %134 = load ptr, ptr %4, align 8, !tbaa !11
+  %135 = getelementptr inbounds nuw %struct.UTrie2, ptr %134, i32 0, i32 11
+  store ptr %133, ptr %135, align 8, !tbaa !49
+  %136 = load ptr, ptr %4, align 8, !tbaa !11
+  %137 = getelementptr inbounds nuw %struct.UTrie2, ptr %136, i32 0, i32 11
+  %138 = load ptr, ptr %137, align 8, !tbaa !49
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %140, label %142
 
-if.then56:                                        ; preds = %if.end51
-  %48 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %48, align 4
-  br label %return
+140:                                              ; preds = %130
+  %141 = load ptr, ptr %6, align 8, !tbaa !7
+  store i32 7, ptr %141, align 4, !tbaa !9
+  store i32 1, ptr %16, align 4
+  br label %392
 
-if.end57:                                         ; preds = %if.end51
-  %49 = load i32, ptr %length, align 4
-  %50 = load ptr, ptr %trie.addr, align 8
-  %length58 = getelementptr inbounds %struct.UTrie2, ptr %50, i32 0, i32 12
-  store i32 %49, ptr %length58, align 8
-  %51 = load ptr, ptr %trie.addr, align 8
-  %isMemoryOwned = getelementptr inbounds %struct.UTrie2, ptr %51, i32 0, i32 13
-  store i8 1, ptr %isMemoryOwned, align 4
-  %52 = load i32, ptr %allIndexesLength, align 4
-  %53 = load ptr, ptr %trie.addr, align 8
-  %indexLength = getelementptr inbounds %struct.UTrie2, ptr %53, i32 0, i32 3
-  store i32 %52, ptr %indexLength, align 8
-  %54 = load ptr, ptr %newTrie, align 8
-  %dataLength59 = getelementptr inbounds %struct.UNewTrie2, ptr %54, i32 0, i32 7
-  %55 = load i32, ptr %dataLength59, align 8
-  %56 = load ptr, ptr %trie.addr, align 8
-  %dataLength60 = getelementptr inbounds %struct.UTrie2, ptr %56, i32 0, i32 4
-  store i32 %55, ptr %dataLength60, align 4
-  %57 = load i32, ptr %highStart, align 4
-  %cmp61 = icmp sle i32 %57, 65536
-  br i1 %cmp61, label %if.then62, label %if.else63
+142:                                              ; preds = %130
+  %143 = load i32, ptr %12, align 4, !tbaa !3
+  %144 = load ptr, ptr %4, align 8, !tbaa !11
+  %145 = getelementptr inbounds nuw %struct.UTrie2, ptr %144, i32 0, i32 12
+  store i32 %143, ptr %145, align 8, !tbaa !50
+  %146 = load ptr, ptr %4, align 8, !tbaa !11
+  %147 = getelementptr inbounds nuw %struct.UTrie2, ptr %146, i32 0, i32 13
+  store i8 1, ptr %147, align 4, !tbaa !51
+  %148 = load i32, ptr %13, align 4, !tbaa !3
+  %149 = load ptr, ptr %4, align 8, !tbaa !11
+  %150 = getelementptr inbounds nuw %struct.UTrie2, ptr %149, i32 0, i32 3
+  store i32 %148, ptr %150, align 8, !tbaa !74
+  %151 = load ptr, ptr %7, align 8, !tbaa !13
+  %152 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %151, i32 0, i32 7
+  %153 = load i32, ptr %152, align 8, !tbaa !37
+  %154 = load ptr, ptr %4, align 8, !tbaa !11
+  %155 = getelementptr inbounds nuw %struct.UTrie2, ptr %154, i32 0, i32 4
+  store i32 %153, ptr %155, align 4, !tbaa !75
+  %156 = load i32, ptr %15, align 4, !tbaa !3
+  %157 = icmp sle i32 %156, 65536
+  br i1 %157, label %158, label %161
 
-if.then62:                                        ; preds = %if.end57
-  %58 = load ptr, ptr %trie.addr, align 8
-  %index2NullOffset = getelementptr inbounds %struct.UTrie2, ptr %58, i32 0, i32 5
-  store i16 -1, ptr %index2NullOffset, align 8
-  br label %if.end68
+158:                                              ; preds = %142
+  %159 = load ptr, ptr %4, align 8, !tbaa !11
+  %160 = getelementptr inbounds nuw %struct.UTrie2, ptr %159, i32 0, i32 5
+  store i16 -1, ptr %160, align 8, !tbaa !76
+  br label %169
 
-if.else63:                                        ; preds = %if.end57
-  %59 = load ptr, ptr %newTrie, align 8
-  %index2NullOffset64 = getelementptr inbounds %struct.UNewTrie2, ptr %59, i32 0, i32 9
-  %60 = load i32, ptr %index2NullOffset64, align 8
-  %add65 = add nsw i32 0, %60
-  %conv66 = trunc i32 %add65 to i16
-  %61 = load ptr, ptr %trie.addr, align 8
-  %index2NullOffset67 = getelementptr inbounds %struct.UTrie2, ptr %61, i32 0, i32 5
-  store i16 %conv66, ptr %index2NullOffset67, align 8
-  br label %if.end68
+161:                                              ; preds = %142
+  %162 = load ptr, ptr %7, align 8, !tbaa !13
+  %163 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %162, i32 0, i32 9
+  %164 = load i32, ptr %163, align 8, !tbaa !44
+  %165 = add nsw i32 0, %164
+  %166 = trunc i32 %165 to i16
+  %167 = load ptr, ptr %4, align 8, !tbaa !11
+  %168 = getelementptr inbounds nuw %struct.UTrie2, ptr %167, i32 0, i32 5
+  store i16 %166, ptr %168, align 8, !tbaa !76
+  br label %169
 
-if.end68:                                         ; preds = %if.else63, %if.then62
-  %62 = load i32, ptr %dataMove, align 4
-  %63 = load ptr, ptr %newTrie, align 8
-  %dataNullOffset69 = getelementptr inbounds %struct.UNewTrie2, ptr %63, i32 0, i32 10
-  %64 = load i32, ptr %dataNullOffset69, align 4
-  %add70 = add nsw i32 %62, %64
-  %conv71 = trunc i32 %add70 to i16
-  %65 = load ptr, ptr %trie.addr, align 8
-  %dataNullOffset72 = getelementptr inbounds %struct.UTrie2, ptr %65, i32 0, i32 6
-  store i16 %conv71, ptr %dataNullOffset72, align 2
-  %66 = load i32, ptr %dataMove, align 4
-  %67 = load ptr, ptr %trie.addr, align 8
-  %dataLength73 = getelementptr inbounds %struct.UTrie2, ptr %67, i32 0, i32 4
-  %68 = load i32, ptr %dataLength73, align 4
-  %add74 = add nsw i32 %66, %68
-  %sub = sub nsw i32 %add74, 4
-  %69 = load ptr, ptr %trie.addr, align 8
-  %highValueIndex = getelementptr inbounds %struct.UTrie2, ptr %69, i32 0, i32 10
-  store i32 %sub, ptr %highValueIndex, align 8
-  %70 = load ptr, ptr %trie.addr, align 8
-  %memory75 = getelementptr inbounds %struct.UTrie2, ptr %70, i32 0, i32 11
-  %71 = load ptr, ptr %memory75, align 8
-  store ptr %71, ptr %header, align 8
-  %72 = load ptr, ptr %header, align 8
-  %signature = getelementptr inbounds %struct.UTrie2Header, ptr %72, i32 0, i32 0
-  store i32 1416784178, ptr %signature, align 4
-  %73 = load i32, ptr %valueBits.addr, align 4
-  %conv76 = trunc i32 %73 to i16
-  %74 = load ptr, ptr %header, align 8
-  %options = getelementptr inbounds %struct.UTrie2Header, ptr %74, i32 0, i32 1
-  store i16 %conv76, ptr %options, align 4
-  %75 = load ptr, ptr %trie.addr, align 8
-  %indexLength77 = getelementptr inbounds %struct.UTrie2, ptr %75, i32 0, i32 3
-  %76 = load i32, ptr %indexLength77, align 8
-  %conv78 = trunc i32 %76 to i16
-  %77 = load ptr, ptr %header, align 8
-  %indexLength79 = getelementptr inbounds %struct.UTrie2Header, ptr %77, i32 0, i32 2
-  store i16 %conv78, ptr %indexLength79, align 2
-  %78 = load ptr, ptr %trie.addr, align 8
-  %dataLength80 = getelementptr inbounds %struct.UTrie2, ptr %78, i32 0, i32 4
-  %79 = load i32, ptr %dataLength80, align 4
-  %shr = ashr i32 %79, 2
-  %conv81 = trunc i32 %shr to i16
-  %80 = load ptr, ptr %header, align 8
-  %shiftedDataLength = getelementptr inbounds %struct.UTrie2Header, ptr %80, i32 0, i32 3
-  store i16 %conv81, ptr %shiftedDataLength, align 4
-  %81 = load ptr, ptr %trie.addr, align 8
-  %index2NullOffset82 = getelementptr inbounds %struct.UTrie2, ptr %81, i32 0, i32 5
-  %82 = load i16, ptr %index2NullOffset82, align 8
-  %83 = load ptr, ptr %header, align 8
-  %index2NullOffset83 = getelementptr inbounds %struct.UTrie2Header, ptr %83, i32 0, i32 4
-  store i16 %82, ptr %index2NullOffset83, align 2
-  %84 = load ptr, ptr %trie.addr, align 8
-  %dataNullOffset84 = getelementptr inbounds %struct.UTrie2, ptr %84, i32 0, i32 6
-  %85 = load i16, ptr %dataNullOffset84, align 2
-  %86 = load ptr, ptr %header, align 8
-  %dataNullOffset85 = getelementptr inbounds %struct.UTrie2Header, ptr %86, i32 0, i32 5
-  store i16 %85, ptr %dataNullOffset85, align 4
-  %87 = load i32, ptr %highStart, align 4
-  %shr86 = ashr i32 %87, 11
-  %conv87 = trunc i32 %shr86 to i16
-  %88 = load ptr, ptr %header, align 8
-  %shiftedHighStart = getelementptr inbounds %struct.UTrie2Header, ptr %88, i32 0, i32 6
-  store i16 %conv87, ptr %shiftedHighStart, align 2
-  %89 = load ptr, ptr %header, align 8
-  %add.ptr = getelementptr inbounds %struct.UTrie2Header, ptr %89, i64 1
-  store ptr %add.ptr, ptr %dest16, align 8
-  %90 = load ptr, ptr %dest16, align 8
-  %91 = load ptr, ptr %trie.addr, align 8
-  %index = getelementptr inbounds %struct.UTrie2, ptr %91, i32 0, i32 0
-  store ptr %90, ptr %index, align 8
-  %92 = load ptr, ptr %newTrie, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %92, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 0
-  store ptr %arraydecay, ptr %p, align 8
-  store i32 2080, ptr %i, align 4
-  br label %for.cond
+169:                                              ; preds = %161, %158
+  %170 = load i32, ptr %14, align 4, !tbaa !3
+  %171 = load ptr, ptr %7, align 8, !tbaa !13
+  %172 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %171, i32 0, i32 10
+  %173 = load i32, ptr %172, align 4, !tbaa !36
+  %174 = add nsw i32 %170, %173
+  %175 = trunc i32 %174 to i16
+  %176 = load ptr, ptr %4, align 8, !tbaa !11
+  %177 = getelementptr inbounds nuw %struct.UTrie2, ptr %176, i32 0, i32 6
+  store i16 %175, ptr %177, align 2, !tbaa !77
+  %178 = load i32, ptr %14, align 4, !tbaa !3
+  %179 = load ptr, ptr %4, align 8, !tbaa !11
+  %180 = getelementptr inbounds nuw %struct.UTrie2, ptr %179, i32 0, i32 4
+  %181 = load i32, ptr %180, align 4, !tbaa !75
+  %182 = add nsw i32 %178, %181
+  %183 = sub nsw i32 %182, 4
+  %184 = load ptr, ptr %4, align 8, !tbaa !11
+  %185 = getelementptr inbounds nuw %struct.UTrie2, ptr %184, i32 0, i32 10
+  store i32 %183, ptr %185, align 8, !tbaa !78
+  %186 = load ptr, ptr %4, align 8, !tbaa !11
+  %187 = getelementptr inbounds nuw %struct.UTrie2, ptr %186, i32 0, i32 11
+  %188 = load ptr, ptr %187, align 8, !tbaa !49
+  store ptr %188, ptr %8, align 8, !tbaa !79
+  %189 = load ptr, ptr %8, align 8, !tbaa !79
+  %190 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %189, i32 0, i32 0
+  store i32 1416784178, ptr %190, align 4, !tbaa !81
+  %191 = load i32, ptr %5, align 4, !tbaa !72
+  %192 = trunc i32 %191 to i16
+  %193 = load ptr, ptr %8, align 8, !tbaa !79
+  %194 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %193, i32 0, i32 1
+  store i16 %192, ptr %194, align 4, !tbaa !83
+  %195 = load ptr, ptr %4, align 8, !tbaa !11
+  %196 = getelementptr inbounds nuw %struct.UTrie2, ptr %195, i32 0, i32 3
+  %197 = load i32, ptr %196, align 8, !tbaa !74
+  %198 = trunc i32 %197 to i16
+  %199 = load ptr, ptr %8, align 8, !tbaa !79
+  %200 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %199, i32 0, i32 2
+  store i16 %198, ptr %200, align 2, !tbaa !84
+  %201 = load ptr, ptr %4, align 8, !tbaa !11
+  %202 = getelementptr inbounds nuw %struct.UTrie2, ptr %201, i32 0, i32 4
+  %203 = load i32, ptr %202, align 4, !tbaa !75
+  %204 = ashr i32 %203, 2
+  %205 = trunc i32 %204 to i16
+  %206 = load ptr, ptr %8, align 8, !tbaa !79
+  %207 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %206, i32 0, i32 3
+  store i16 %205, ptr %207, align 4, !tbaa !85
+  %208 = load ptr, ptr %4, align 8, !tbaa !11
+  %209 = getelementptr inbounds nuw %struct.UTrie2, ptr %208, i32 0, i32 5
+  %210 = load i16, ptr %209, align 8, !tbaa !76
+  %211 = load ptr, ptr %8, align 8, !tbaa !79
+  %212 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %211, i32 0, i32 4
+  store i16 %210, ptr %212, align 2, !tbaa !86
+  %213 = load ptr, ptr %4, align 8, !tbaa !11
+  %214 = getelementptr inbounds nuw %struct.UTrie2, ptr %213, i32 0, i32 6
+  %215 = load i16, ptr %214, align 2, !tbaa !77
+  %216 = load ptr, ptr %8, align 8, !tbaa !79
+  %217 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %216, i32 0, i32 5
+  store i16 %215, ptr %217, align 4, !tbaa !87
+  %218 = load i32, ptr %15, align 4, !tbaa !3
+  %219 = ashr i32 %218, 11
+  %220 = trunc i32 %219 to i16
+  %221 = load ptr, ptr %8, align 8, !tbaa !79
+  %222 = getelementptr inbounds nuw %struct.UTrie2Header, ptr %221, i32 0, i32 6
+  store i16 %220, ptr %222, align 2, !tbaa !88
+  %223 = load ptr, ptr %8, align 8, !tbaa !79
+  %224 = getelementptr inbounds %struct.UTrie2Header, ptr %223, i64 1
+  store ptr %224, ptr %10, align 8, !tbaa !89
+  %225 = load ptr, ptr %10, align 8, !tbaa !89
+  %226 = load ptr, ptr %4, align 8, !tbaa !11
+  %227 = getelementptr inbounds nuw %struct.UTrie2, ptr %226, i32 0, i32 0
+  store ptr %225, ptr %227, align 8, !tbaa !52
+  %228 = load ptr, ptr %7, align 8, !tbaa !13
+  %229 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %228, i32 0, i32 1
+  %230 = getelementptr inbounds [35488 x i32], ptr %229, i64 0, i64 0
+  store ptr %230, ptr %9, align 8, !tbaa !15
+  store i32 2080, ptr %11, align 4, !tbaa !3
+  br label %231
 
-for.cond:                                         ; preds = %for.inc, %if.end68
-  %93 = load i32, ptr %i, align 4
-  %cmp88 = icmp sgt i32 %93, 0
-  br i1 %cmp88, label %for.body, label %for.end
+231:                                              ; preds = %244, %169
+  %232 = load i32, ptr %11, align 4, !tbaa !3
+  %233 = icmp sgt i32 %232, 0
+  br i1 %233, label %234, label %247
 
-for.body:                                         ; preds = %for.cond
-  %94 = load i32, ptr %dataMove, align 4
-  %95 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %95, i32 1
-  store ptr %incdec.ptr, ptr %p, align 8
-  %96 = load i32, ptr %95, align 4
-  %add89 = add i32 %94, %96
-  %shr90 = lshr i32 %add89, 2
-  %conv91 = trunc i32 %shr90 to i16
-  %97 = load ptr, ptr %dest16, align 8
-  %incdec.ptr92 = getelementptr inbounds i16, ptr %97, i32 1
-  store ptr %incdec.ptr92, ptr %dest16, align 8
-  store i16 %conv91, ptr %97, align 2
-  br label %for.inc
+234:                                              ; preds = %231
+  %235 = load i32, ptr %14, align 4, !tbaa !3
+  %236 = load ptr, ptr %9, align 8, !tbaa !15
+  %237 = getelementptr inbounds nuw i32, ptr %236, i32 1
+  store ptr %237, ptr %9, align 8, !tbaa !15
+  %238 = load i32, ptr %236, align 4, !tbaa !3
+  %239 = add i32 %235, %238
+  %240 = lshr i32 %239, 2
+  %241 = trunc i32 %240 to i16
+  %242 = load ptr, ptr %10, align 8, !tbaa !89
+  %243 = getelementptr inbounds nuw i16, ptr %242, i32 1
+  store ptr %243, ptr %10, align 8, !tbaa !89
+  store i16 %241, ptr %242, align 2, !tbaa !61
+  br label %244
 
-for.inc:                                          ; preds = %for.body
-  %98 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %98, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond, !llvm.loop !19
+244:                                              ; preds = %234
+  %245 = load i32, ptr %11, align 4, !tbaa !3
+  %246 = add nsw i32 %245, -1
+  store i32 %246, ptr %11, align 4, !tbaa !3
+  br label %231, !llvm.loop !90
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %i, align 4
-  br label %for.cond93
+247:                                              ; preds = %231
+  store i32 0, ptr %11, align 4, !tbaa !3
+  br label %248
 
-for.cond93:                                       ; preds = %for.inc99, %for.end
-  %99 = load i32, ptr %i, align 4
-  %cmp94 = icmp slt i32 %99, 2
-  br i1 %cmp94, label %for.body95, label %for.end100
+248:                                              ; preds = %257, %247
+  %249 = load i32, ptr %11, align 4, !tbaa !3
+  %250 = icmp slt i32 %249, 2
+  br i1 %250, label %251, label %260
 
-for.body95:                                       ; preds = %for.cond93
-  %100 = load i32, ptr %dataMove, align 4
-  %add96 = add nsw i32 %100, 128
-  %conv97 = trunc i32 %add96 to i16
-  %101 = load ptr, ptr %dest16, align 8
-  %incdec.ptr98 = getelementptr inbounds i16, ptr %101, i32 1
-  store ptr %incdec.ptr98, ptr %dest16, align 8
-  store i16 %conv97, ptr %101, align 2
-  br label %for.inc99
+251:                                              ; preds = %248
+  %252 = load i32, ptr %14, align 4, !tbaa !3
+  %253 = add nsw i32 %252, 128
+  %254 = trunc i32 %253 to i16
+  %255 = load ptr, ptr %10, align 8, !tbaa !89
+  %256 = getelementptr inbounds nuw i16, ptr %255, i32 1
+  store ptr %256, ptr %10, align 8, !tbaa !89
+  store i16 %254, ptr %255, align 2, !tbaa !61
+  br label %257
 
-for.inc99:                                        ; preds = %for.body95
-  %102 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %102, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond93, !llvm.loop !20
+257:                                              ; preds = %251
+  %258 = load i32, ptr %11, align 4, !tbaa !3
+  %259 = add nsw i32 %258, 1
+  store i32 %259, ptr %11, align 4, !tbaa !3
+  br label %248, !llvm.loop !91
 
-for.end100:                                       ; preds = %for.cond93
-  br label %for.cond101
+260:                                              ; preds = %248
+  br label %261
 
-for.cond101:                                      ; preds = %for.inc108, %for.end100
-  %103 = load i32, ptr %i, align 4
-  %cmp102 = icmp slt i32 %103, 32
-  br i1 %cmp102, label %for.body103, label %for.end110
+261:                                              ; preds = %277, %260
+  %262 = load i32, ptr %11, align 4, !tbaa !3
+  %263 = icmp slt i32 %262, 32
+  br i1 %263, label %264, label %280
 
-for.body103:                                      ; preds = %for.cond101
-  %104 = load i32, ptr %dataMove, align 4
-  %105 = load ptr, ptr %newTrie, align 8
-  %index2104 = getelementptr inbounds %struct.UNewTrie2, ptr %105, i32 0, i32 1
-  %106 = load i32, ptr %i, align 4
-  %shl = shl i32 %106, 1
-  %idxprom = sext i32 %shl to i64
-  %arrayidx = getelementptr inbounds [35488 x i32], ptr %index2104, i64 0, i64 %idxprom
-  %107 = load i32, ptr %arrayidx, align 4
-  %add105 = add nsw i32 %104, %107
-  %conv106 = trunc i32 %add105 to i16
-  %108 = load ptr, ptr %dest16, align 8
-  %incdec.ptr107 = getelementptr inbounds i16, ptr %108, i32 1
-  store ptr %incdec.ptr107, ptr %dest16, align 8
-  store i16 %conv106, ptr %108, align 2
-  br label %for.inc108
+264:                                              ; preds = %261
+  %265 = load i32, ptr %14, align 4, !tbaa !3
+  %266 = load ptr, ptr %7, align 8, !tbaa !13
+  %267 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %266, i32 0, i32 1
+  %268 = load i32, ptr %11, align 4, !tbaa !3
+  %269 = shl i32 %268, 1
+  %270 = sext i32 %269 to i64
+  %271 = getelementptr inbounds [35488 x i32], ptr %267, i64 0, i64 %270
+  %272 = load i32, ptr %271, align 4, !tbaa !3
+  %273 = add nsw i32 %265, %272
+  %274 = trunc i32 %273 to i16
+  %275 = load ptr, ptr %10, align 8, !tbaa !89
+  %276 = getelementptr inbounds nuw i16, ptr %275, i32 1
+  store ptr %276, ptr %10, align 8, !tbaa !89
+  store i16 %274, ptr %275, align 2, !tbaa !61
+  br label %277
 
-for.inc108:                                       ; preds = %for.body103
-  %109 = load i32, ptr %i, align 4
-  %inc109 = add nsw i32 %109, 1
-  store i32 %inc109, ptr %i, align 4
-  br label %for.cond101, !llvm.loop !21
+277:                                              ; preds = %264
+  %278 = load i32, ptr %11, align 4, !tbaa !3
+  %279 = add nsw i32 %278, 1
+  store i32 %279, ptr %11, align 4, !tbaa !3
+  br label %261, !llvm.loop !92
 
-for.end110:                                       ; preds = %for.cond101
-  %110 = load i32, ptr %highStart, align 4
-  %cmp111 = icmp sgt i32 %110, 65536
-  br i1 %cmp111, label %if.then112, label %if.end144
+280:                                              ; preds = %261
+  %281 = load i32, ptr %15, align 4, !tbaa !3
+  %282 = icmp sgt i32 %281, 65536
+  br i1 %282, label %283, label %337
 
-if.then112:                                       ; preds = %for.end110
-  %111 = load i32, ptr %highStart, align 4
-  %sub113 = sub nsw i32 %111, 65536
-  %shr114 = ashr i32 %sub113, 11
-  store i32 %shr114, ptr %index1Length, align 4
-  %112 = load i32, ptr %index1Length, align 4
-  %add115 = add nsw i32 2112, %112
-  store i32 %add115, ptr %index2Offset, align 4
-  %113 = load ptr, ptr %newTrie, align 8
-  %index1 = getelementptr inbounds %struct.UNewTrie2, ptr %113, i32 0, i32 0
-  %arraydecay116 = getelementptr inbounds [544 x i32], ptr %index1, i64 0, i64 0
-  %add.ptr117 = getelementptr inbounds i32, ptr %arraydecay116, i64 32
-  store ptr %add.ptr117, ptr %p, align 8
-  %114 = load i32, ptr %index1Length, align 4
-  store i32 %114, ptr %i, align 4
-  br label %for.cond118
+283:                                              ; preds = %280
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #9
+  %284 = load i32, ptr %15, align 4, !tbaa !3
+  %285 = sub nsw i32 %284, 65536
+  %286 = ashr i32 %285, 11
+  store i32 %286, ptr %18, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #9
+  %287 = load i32, ptr %18, align 4, !tbaa !3
+  %288 = add nsw i32 2112, %287
+  store i32 %288, ptr %19, align 4, !tbaa !3
+  %289 = load ptr, ptr %7, align 8, !tbaa !13
+  %290 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %289, i32 0, i32 0
+  %291 = getelementptr inbounds [544 x i32], ptr %290, i64 0, i64 0
+  %292 = getelementptr inbounds i32, ptr %291, i64 32
+  store ptr %292, ptr %9, align 8, !tbaa !15
+  %293 = load i32, ptr %18, align 4, !tbaa !3
+  store i32 %293, ptr %11, align 4, !tbaa !3
+  br label %294
 
-for.cond118:                                      ; preds = %for.inc125, %if.then112
-  %115 = load i32, ptr %i, align 4
-  %cmp119 = icmp sgt i32 %115, 0
-  br i1 %cmp119, label %for.body120, label %for.end127
+294:                                              ; preds = %305, %283
+  %295 = load i32, ptr %11, align 4, !tbaa !3
+  %296 = icmp sgt i32 %295, 0
+  br i1 %296, label %297, label %308
 
-for.body120:                                      ; preds = %for.cond118
-  %116 = load ptr, ptr %p, align 8
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %116, i32 1
-  store ptr %incdec.ptr121, ptr %p, align 8
-  %117 = load i32, ptr %116, align 4
-  %add122 = add i32 0, %117
-  %conv123 = trunc i32 %add122 to i16
-  %118 = load ptr, ptr %dest16, align 8
-  %incdec.ptr124 = getelementptr inbounds i16, ptr %118, i32 1
-  store ptr %incdec.ptr124, ptr %dest16, align 8
-  store i16 %conv123, ptr %118, align 2
-  br label %for.inc125
+297:                                              ; preds = %294
+  %298 = load ptr, ptr %9, align 8, !tbaa !15
+  %299 = getelementptr inbounds nuw i32, ptr %298, i32 1
+  store ptr %299, ptr %9, align 8, !tbaa !15
+  %300 = load i32, ptr %298, align 4, !tbaa !3
+  %301 = add i32 0, %300
+  %302 = trunc i32 %301 to i16
+  %303 = load ptr, ptr %10, align 8, !tbaa !89
+  %304 = getelementptr inbounds nuw i16, ptr %303, i32 1
+  store ptr %304, ptr %10, align 8, !tbaa !89
+  store i16 %302, ptr %303, align 2, !tbaa !61
+  br label %305
 
-for.inc125:                                       ; preds = %for.body120
-  %119 = load i32, ptr %i, align 4
-  %dec126 = add nsw i32 %119, -1
-  store i32 %dec126, ptr %i, align 4
-  br label %for.cond118, !llvm.loop !22
+305:                                              ; preds = %297
+  %306 = load i32, ptr %11, align 4, !tbaa !3
+  %307 = add nsw i32 %306, -1
+  store i32 %307, ptr %11, align 4, !tbaa !3
+  br label %294, !llvm.loop !93
 
-for.end127:                                       ; preds = %for.cond118
-  %120 = load ptr, ptr %newTrie, align 8
-  %index2128 = getelementptr inbounds %struct.UNewTrie2, ptr %120, i32 0, i32 1
-  %arraydecay129 = getelementptr inbounds [35488 x i32], ptr %index2128, i64 0, i64 0
-  %121 = load i32, ptr %index2Offset, align 4
-  %idx.ext = sext i32 %121 to i64
-  %add.ptr130 = getelementptr inbounds i32, ptr %arraydecay129, i64 %idx.ext
-  store ptr %add.ptr130, ptr %p, align 8
-  %122 = load ptr, ptr %newTrie, align 8
-  %index2Length131 = getelementptr inbounds %struct.UNewTrie2, ptr %122, i32 0, i32 5
-  %123 = load i32, ptr %index2Length131, align 8
-  %124 = load i32, ptr %index2Offset, align 4
-  %sub132 = sub nsw i32 %123, %124
-  store i32 %sub132, ptr %i, align 4
-  br label %for.cond133
+308:                                              ; preds = %294
+  %309 = load ptr, ptr %7, align 8, !tbaa !13
+  %310 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %309, i32 0, i32 1
+  %311 = getelementptr inbounds [35488 x i32], ptr %310, i64 0, i64 0
+  %312 = load i32, ptr %19, align 4, !tbaa !3
+  %313 = sext i32 %312 to i64
+  %314 = getelementptr inbounds i32, ptr %311, i64 %313
+  store ptr %314, ptr %9, align 8, !tbaa !15
+  %315 = load ptr, ptr %7, align 8, !tbaa !13
+  %316 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %315, i32 0, i32 5
+  %317 = load i32, ptr %316, align 8, !tbaa !45
+  %318 = load i32, ptr %19, align 4, !tbaa !3
+  %319 = sub nsw i32 %317, %318
+  store i32 %319, ptr %11, align 4, !tbaa !3
+  br label %320
 
-for.cond133:                                      ; preds = %for.inc141, %for.end127
-  %125 = load i32, ptr %i, align 4
-  %cmp134 = icmp sgt i32 %125, 0
-  br i1 %cmp134, label %for.body135, label %for.end143
+320:                                              ; preds = %333, %308
+  %321 = load i32, ptr %11, align 4, !tbaa !3
+  %322 = icmp sgt i32 %321, 0
+  br i1 %322, label %323, label %336
 
-for.body135:                                      ; preds = %for.cond133
-  %126 = load i32, ptr %dataMove, align 4
-  %127 = load ptr, ptr %p, align 8
-  %incdec.ptr136 = getelementptr inbounds i32, ptr %127, i32 1
-  store ptr %incdec.ptr136, ptr %p, align 8
-  %128 = load i32, ptr %127, align 4
-  %add137 = add i32 %126, %128
-  %shr138 = lshr i32 %add137, 2
-  %conv139 = trunc i32 %shr138 to i16
-  %129 = load ptr, ptr %dest16, align 8
-  %incdec.ptr140 = getelementptr inbounds i16, ptr %129, i32 1
-  store ptr %incdec.ptr140, ptr %dest16, align 8
-  store i16 %conv139, ptr %129, align 2
-  br label %for.inc141
+323:                                              ; preds = %320
+  %324 = load i32, ptr %14, align 4, !tbaa !3
+  %325 = load ptr, ptr %9, align 8, !tbaa !15
+  %326 = getelementptr inbounds nuw i32, ptr %325, i32 1
+  store ptr %326, ptr %9, align 8, !tbaa !15
+  %327 = load i32, ptr %325, align 4, !tbaa !3
+  %328 = add i32 %324, %327
+  %329 = lshr i32 %328, 2
+  %330 = trunc i32 %329 to i16
+  %331 = load ptr, ptr %10, align 8, !tbaa !89
+  %332 = getelementptr inbounds nuw i16, ptr %331, i32 1
+  store ptr %332, ptr %10, align 8, !tbaa !89
+  store i16 %330, ptr %331, align 2, !tbaa !61
+  br label %333
 
-for.inc141:                                       ; preds = %for.body135
-  %130 = load i32, ptr %i, align 4
-  %dec142 = add nsw i32 %130, -1
-  store i32 %dec142, ptr %i, align 4
-  br label %for.cond133, !llvm.loop !23
+333:                                              ; preds = %323
+  %334 = load i32, ptr %11, align 4, !tbaa !3
+  %335 = add nsw i32 %334, -1
+  store i32 %335, ptr %11, align 4, !tbaa !3
+  br label %320, !llvm.loop !94
 
-for.end143:                                       ; preds = %for.cond133
-  br label %if.end144
+336:                                              ; preds = %320
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #9
+  br label %337
 
-if.end144:                                        ; preds = %for.end143, %for.end110
-  %131 = load i32, ptr %valueBits.addr, align 4
-  switch i32 %131, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb156
+337:                                              ; preds = %336, %280
+  %338 = load i32, ptr %5, align 4, !tbaa !72
+  switch i32 %338, label %383 [
+    i32 0, label %339
+    i32 1, label %365
   ]
 
-sw.bb:                                            ; preds = %if.end144
-  %132 = load ptr, ptr %dest16, align 8
-  %133 = load ptr, ptr %trie.addr, align 8
-  %data16145 = getelementptr inbounds %struct.UTrie2, ptr %133, i32 0, i32 1
-  store ptr %132, ptr %data16145, align 8
-  %134 = load ptr, ptr %trie.addr, align 8
-  %data32 = getelementptr inbounds %struct.UTrie2, ptr %134, i32 0, i32 2
-  store ptr null, ptr %data32, align 8
-  %135 = load ptr, ptr %newTrie, align 8
-  %data = getelementptr inbounds %struct.UNewTrie2, ptr %135, i32 0, i32 2
-  %136 = load ptr, ptr %data, align 8
-  store ptr %136, ptr %p, align 8
-  %137 = load ptr, ptr %newTrie, align 8
-  %dataLength146 = getelementptr inbounds %struct.UNewTrie2, ptr %137, i32 0, i32 7
-  %138 = load i32, ptr %dataLength146, align 8
-  store i32 %138, ptr %i, align 4
-  br label %for.cond147
+339:                                              ; preds = %337
+  %340 = load ptr, ptr %10, align 8, !tbaa !89
+  %341 = load ptr, ptr %4, align 8, !tbaa !11
+  %342 = getelementptr inbounds nuw %struct.UTrie2, ptr %341, i32 0, i32 1
+  store ptr %340, ptr %342, align 8, !tbaa !53
+  %343 = load ptr, ptr %4, align 8, !tbaa !11
+  %344 = getelementptr inbounds nuw %struct.UTrie2, ptr %343, i32 0, i32 2
+  store ptr null, ptr %344, align 8, !tbaa !54
+  %345 = load ptr, ptr %7, align 8, !tbaa !13
+  %346 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %345, i32 0, i32 2
+  %347 = load ptr, ptr %346, align 8, !tbaa !24
+  store ptr %347, ptr %9, align 8, !tbaa !15
+  %348 = load ptr, ptr %7, align 8, !tbaa !13
+  %349 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %348, i32 0, i32 7
+  %350 = load i32, ptr %349, align 8, !tbaa !37
+  store i32 %350, ptr %11, align 4, !tbaa !3
+  br label %351
 
-for.cond147:                                      ; preds = %for.inc153, %sw.bb
-  %139 = load i32, ptr %i, align 4
-  %cmp148 = icmp sgt i32 %139, 0
-  br i1 %cmp148, label %for.body149, label %for.end155
+351:                                              ; preds = %361, %339
+  %352 = load i32, ptr %11, align 4, !tbaa !3
+  %353 = icmp sgt i32 %352, 0
+  br i1 %353, label %354, label %364
 
-for.body149:                                      ; preds = %for.cond147
-  %140 = load ptr, ptr %p, align 8
-  %incdec.ptr150 = getelementptr inbounds i32, ptr %140, i32 1
-  store ptr %incdec.ptr150, ptr %p, align 8
-  %141 = load i32, ptr %140, align 4
-  %conv151 = trunc i32 %141 to i16
-  %142 = load ptr, ptr %dest16, align 8
-  %incdec.ptr152 = getelementptr inbounds i16, ptr %142, i32 1
-  store ptr %incdec.ptr152, ptr %dest16, align 8
-  store i16 %conv151, ptr %142, align 2
-  br label %for.inc153
+354:                                              ; preds = %351
+  %355 = load ptr, ptr %9, align 8, !tbaa !15
+  %356 = getelementptr inbounds nuw i32, ptr %355, i32 1
+  store ptr %356, ptr %9, align 8, !tbaa !15
+  %357 = load i32, ptr %355, align 4, !tbaa !3
+  %358 = trunc i32 %357 to i16
+  %359 = load ptr, ptr %10, align 8, !tbaa !89
+  %360 = getelementptr inbounds nuw i16, ptr %359, i32 1
+  store ptr %360, ptr %10, align 8, !tbaa !89
+  store i16 %358, ptr %359, align 2, !tbaa !61
+  br label %361
 
-for.inc153:                                       ; preds = %for.body149
-  %143 = load i32, ptr %i, align 4
-  %dec154 = add nsw i32 %143, -1
-  store i32 %dec154, ptr %i, align 4
-  br label %for.cond147, !llvm.loop !24
+361:                                              ; preds = %354
+  %362 = load i32, ptr %11, align 4, !tbaa !3
+  %363 = add nsw i32 %362, -1
+  store i32 %363, ptr %11, align 4, !tbaa !3
+  br label %351, !llvm.loop !95
 
-for.end155:                                       ; preds = %for.cond147
-  br label %sw.epilog
+364:                                              ; preds = %351
+  br label %385
 
-sw.bb156:                                         ; preds = %if.end144
-  %144 = load ptr, ptr %trie.addr, align 8
-  %data16157 = getelementptr inbounds %struct.UTrie2, ptr %144, i32 0, i32 1
-  store ptr null, ptr %data16157, align 8
-  %145 = load ptr, ptr %dest16, align 8
-  %146 = load ptr, ptr %trie.addr, align 8
-  %data32158 = getelementptr inbounds %struct.UTrie2, ptr %146, i32 0, i32 2
-  store ptr %145, ptr %data32158, align 8
-  br label %do.body
+365:                                              ; preds = %337
+  %366 = load ptr, ptr %4, align 8, !tbaa !11
+  %367 = getelementptr inbounds nuw %struct.UTrie2, ptr %366, i32 0, i32 1
+  store ptr null, ptr %367, align 8, !tbaa !53
+  %368 = load ptr, ptr %10, align 8, !tbaa !89
+  %369 = load ptr, ptr %4, align 8, !tbaa !11
+  %370 = getelementptr inbounds nuw %struct.UTrie2, ptr %369, i32 0, i32 2
+  store ptr %368, ptr %370, align 8, !tbaa !54
+  br label %371
 
-do.body:                                          ; preds = %sw.bb156
-  %147 = load ptr, ptr %dest16, align 8
-  %148 = load ptr, ptr %newTrie, align 8
-  %data159 = getelementptr inbounds %struct.UNewTrie2, ptr %148, i32 0, i32 2
-  %149 = load ptr, ptr %data159, align 8
-  %150 = load ptr, ptr %newTrie, align 8
-  %dataLength160 = getelementptr inbounds %struct.UNewTrie2, ptr %150, i32 0, i32 7
-  %151 = load i32, ptr %dataLength160, align 8
-  %conv161 = sext i32 %151 to i64
-  %mul162 = mul i64 %conv161, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %147, ptr align 4 %149, i64 %mul162, i1 false)
-  br label %do.end
+371:                                              ; preds = %365
+  %372 = load ptr, ptr %10, align 8, !tbaa !89
+  %373 = load ptr, ptr %7, align 8, !tbaa !13
+  %374 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %373, i32 0, i32 2
+  %375 = load ptr, ptr %374, align 8, !tbaa !24
+  %376 = load ptr, ptr %7, align 8, !tbaa !13
+  %377 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %376, i32 0, i32 7
+  %378 = load i32, ptr %377, align 8, !tbaa !37
+  %379 = sext i32 %378 to i64
+  %380 = mul i64 %379, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %372, ptr align 4 %375, i64 %380, i1 false)
+  br label %381
 
-do.end:                                           ; preds = %do.body
-  br label %sw.epilog
+381:                                              ; preds = %371
+  br label %382
 
-sw.default:                                       ; preds = %if.end144
-  %152 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %152, align 4
-  br label %return
+382:                                              ; preds = %381
+  br label %385
 
-sw.epilog:                                        ; preds = %do.end, %for.end155
-  %153 = load ptr, ptr %newTrie, align 8
-  %data163 = getelementptr inbounds %struct.UNewTrie2, ptr %153, i32 0, i32 2
-  %154 = load ptr, ptr %data163, align 8
-  call void @uprv_free_75(ptr noundef %154)
-  %155 = load ptr, ptr %newTrie, align 8
-  call void @uprv_free_75(ptr noundef %155)
-  %156 = load ptr, ptr %trie.addr, align 8
-  %newTrie164 = getelementptr inbounds %struct.UTrie2, ptr %156, i32 0, i32 16
-  store ptr null, ptr %newTrie164, align 8
-  br label %return
+383:                                              ; preds = %337
+  %384 = load ptr, ptr %6, align 8, !tbaa !7
+  store i32 1, ptr %384, align 4, !tbaa !9
+  store i32 1, ptr %16, align 4
+  br label %392
 
-return:                                           ; preds = %sw.epilog, %sw.default, %if.then56, %if.then38, %if.then18, %if.end12, %if.then4, %if.then
+385:                                              ; preds = %382, %364
+  %386 = load ptr, ptr %7, align 8, !tbaa !13
+  %387 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %386, i32 0, i32 2
+  %388 = load ptr, ptr %387, align 8, !tbaa !24
+  call void @uprv_free_77(ptr noundef %388)
+  %389 = load ptr, ptr %7, align 8, !tbaa !13
+  call void @uprv_free_77(ptr noundef %389)
+  %390 = load ptr, ptr %4, align 8, !tbaa !11
+  %391 = getelementptr inbounds nuw %struct.UTrie2, ptr %390, i32 0, i32 16
+  store ptr null, ptr %391, align 8, !tbaa !23
+  store i32 0, ptr %16, align 4
+  br label %392
+
+392:                                              ; preds = %385, %383, %140, %106, %66, %53, %34, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  %393 = load i32, ptr %16, align 4
+  switch i32 %393, label %395 [
+    i32 0, label %394
+    i32 1, label %394
+  ]
+
+394:                                              ; preds = %392, %392
+  ret void
+
+395:                                              ; preds = %392
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL5set32P9UNewTrie2iajP10UErrorCode(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !13
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i8 %2, ptr %8, align 1, !tbaa !96
+  store i32 %3, ptr %9, align 4, !tbaa !3
+  store ptr %4, ptr %10, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  %13 = load ptr, ptr %6, align 8, !tbaa !13
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %15
+
+15:                                               ; preds = %5
+  %16 = load ptr, ptr %6, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %16, i32 0, i32 12
+  %18 = load i8, ptr %17, align 4, !tbaa !31
+  %19 = icmp ne i8 %18, 0
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %15, %5
+  %21 = load ptr, ptr %10, align 8, !tbaa !7
+  store i32 30, ptr %21, align 4, !tbaa !9
+  store i32 1, ptr %12, align 4
+  br label %42
+
+22:                                               ; preds = %15
+  %23 = load ptr, ptr %6, align 8, !tbaa !13
+  %24 = load i32, ptr %7, align 4, !tbaa !3
+  %25 = load i8, ptr %8, align 1, !tbaa !96
+  %26 = call noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %23, i32 noundef %24, i8 noundef signext %25)
+  store i32 %26, ptr %11, align 4, !tbaa !3
+  %27 = load i32, ptr %11, align 4, !tbaa !3
+  %28 = icmp slt i32 %27, 0
+  br i1 %28, label %29, label %31
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %10, align 8, !tbaa !7
+  store i32 7, ptr %30, align 4, !tbaa !9
+  store i32 1, ptr %12, align 4
+  br label %42
+
+31:                                               ; preds = %22
+  %32 = load i32, ptr %9, align 4, !tbaa !3
+  %33 = load ptr, ptr %6, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %36 = load i32, ptr %11, align 4, !tbaa !3
+  %37 = load i32, ptr %7, align 4, !tbaa !3
+  %38 = and i32 %37, 31
+  %39 = add nsw i32 %36, %38
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %35, i64 %40
+  store i32 %32, ptr %41, align 4, !tbaa !3
+  store i32 0, ptr %12, align 4
+  br label %42
+
+42:                                               ; preds = %31, %29, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  %43 = load i32, ptr %12, align 4
+  switch i32 %43, label %45 [
+    i32 0, label %44
+    i32 1, label %44
+  ]
+
+44:                                               ; preds = %42, %42
+  ret void
+
+45:                                               ; preds = %42
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define void @utrie2_setRange32_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef signext %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i8, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i8, align 1
+  store ptr %0, ptr %7, align 8, !tbaa !11
+  store i32 %1, ptr %8, align 4, !tbaa !3
+  store i32 %2, ptr %9, align 4, !tbaa !3
+  store i32 %3, ptr %10, align 4, !tbaa !3
+  store i8 %4, ptr %11, align 1, !tbaa !96
+  store ptr %5, ptr %12, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #9
+  %22 = load ptr, ptr %12, align 8, !tbaa !7
+  %23 = load i32, ptr %22, align 4, !tbaa !9
+  %24 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %23)
+  %25 = icmp ne i8 %24, 0
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %6
+  store i32 1, ptr %18, align 4
+  br label %275
+
+27:                                               ; preds = %6
+  %28 = load i32, ptr %8, align 4, !tbaa !3
+  %29 = icmp ugt i32 %28, 1114111
+  br i1 %29, label %37, label %30
+
+30:                                               ; preds = %27
+  %31 = load i32, ptr %9, align 4, !tbaa !3
+  %32 = icmp ugt i32 %31, 1114111
+  br i1 %32, label %37, label %33
+
+33:                                               ; preds = %30
+  %34 = load i32, ptr %8, align 4, !tbaa !3
+  %35 = load i32, ptr %9, align 4, !tbaa !3
+  %36 = icmp sgt i32 %34, %35
+  br i1 %36, label %37, label %39
+
+37:                                               ; preds = %33, %30, %27
+  %38 = load ptr, ptr %12, align 8, !tbaa !7
+  store i32 1, ptr %38, align 4, !tbaa !9
+  store i32 1, ptr %18, align 4
+  br label %275
+
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %7, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.UTrie2, ptr %40, i32 0, i32 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !23
+  store ptr %42, ptr %13, align 8, !tbaa !13
+  %43 = load ptr, ptr %13, align 8, !tbaa !13
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %50, label %45
+
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %13, align 8, !tbaa !13
+  %47 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %46, i32 0, i32 12
+  %48 = load i8, ptr %47, align 4, !tbaa !31
+  %49 = icmp ne i8 %48, 0
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %45, %39
+  %51 = load ptr, ptr %12, align 8, !tbaa !7
+  store i32 30, ptr %51, align 4, !tbaa !9
+  store i32 1, ptr %18, align 4
+  br label %275
+
+52:                                               ; preds = %45
+  %53 = load i8, ptr %11, align 1, !tbaa !96
+  %54 = icmp ne i8 %53, 0
+  br i1 %54, label %62, label %55
+
+55:                                               ; preds = %52
+  %56 = load i32, ptr %10, align 4, !tbaa !3
+  %57 = load ptr, ptr %13, align 8, !tbaa !13
+  %58 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %57, i32 0, i32 3
+  %59 = load i32, ptr %58, align 8, !tbaa !27
+  %60 = icmp eq i32 %56, %59
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %55
+  store i32 1, ptr %18, align 4
+  br label %275
+
+62:                                               ; preds = %55, %52
+  %63 = load i32, ptr %9, align 4, !tbaa !3
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %17, align 4, !tbaa !3
+  %65 = load i32, ptr %8, align 4, !tbaa !3
+  %66 = and i32 %65, 31
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %118
+
+68:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #9
+  %69 = load ptr, ptr %13, align 8, !tbaa !13
+  %70 = load i32, ptr %8, align 4, !tbaa !3
+  %71 = call noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %69, i32 noundef %70, i8 noundef signext 1)
+  store i32 %71, ptr %14, align 4, !tbaa !3
+  %72 = load i32, ptr %14, align 4, !tbaa !3
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %76
+
+74:                                               ; preds = %68
+  %75 = load ptr, ptr %12, align 8, !tbaa !7
+  store i32 7, ptr %75, align 4, !tbaa !9
+  store i32 1, ptr %18, align 4
+  br label %115
+
+76:                                               ; preds = %68
+  %77 = load i32, ptr %8, align 4, !tbaa !3
+  %78 = add nsw i32 %77, 31
+  %79 = and i32 %78, -32
+  store i32 %79, ptr %19, align 4, !tbaa !3
+  %80 = load i32, ptr %19, align 4, !tbaa !3
+  %81 = load i32, ptr %17, align 4, !tbaa !3
+  %82 = icmp sle i32 %80, %81
+  br i1 %82, label %83, label %98
+
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %13, align 8, !tbaa !13
+  %85 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %84, i32 0, i32 2
+  %86 = load ptr, ptr %85, align 8, !tbaa !24
+  %87 = load i32, ptr %14, align 4, !tbaa !3
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i32, ptr %86, i64 %88
+  %90 = load i32, ptr %8, align 4, !tbaa !3
+  %91 = and i32 %90, 31
+  %92 = load i32, ptr %10, align 4, !tbaa !3
+  %93 = load ptr, ptr %13, align 8, !tbaa !13
+  %94 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %93, i32 0, i32 3
+  %95 = load i32, ptr %94, align 8, !tbaa !27
+  %96 = load i8, ptr %11, align 1, !tbaa !96
+  call void @_ZL9fillBlockPjiijja(ptr noundef %89, i32 noundef %91, i32 noundef 32, i32 noundef %92, i32 noundef %95, i8 noundef signext %96)
+  %97 = load i32, ptr %19, align 4, !tbaa !3
+  store i32 %97, ptr %8, align 4, !tbaa !3
+  br label %114
+
+98:                                               ; preds = %76
+  %99 = load ptr, ptr %13, align 8, !tbaa !13
+  %100 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %100, align 8, !tbaa !24
+  %102 = load i32, ptr %14, align 4, !tbaa !3
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds i32, ptr %101, i64 %103
+  %105 = load i32, ptr %8, align 4, !tbaa !3
+  %106 = and i32 %105, 31
+  %107 = load i32, ptr %17, align 4, !tbaa !3
+  %108 = and i32 %107, 31
+  %109 = load i32, ptr %10, align 4, !tbaa !3
+  %110 = load ptr, ptr %13, align 8, !tbaa !13
+  %111 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %110, i32 0, i32 3
+  %112 = load i32, ptr %111, align 8, !tbaa !27
+  %113 = load i8, ptr %11, align 1, !tbaa !96
+  call void @_ZL9fillBlockPjiijja(ptr noundef %104, i32 noundef %106, i32 noundef %108, i32 noundef %109, i32 noundef %112, i8 noundef signext %113)
+  store i32 1, ptr %18, align 4
+  br label %115
+
+114:                                              ; preds = %83
+  store i32 0, ptr %18, align 4
+  br label %115
+
+115:                                              ; preds = %114, %98, %74
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #9
+  %116 = load i32, ptr %18, align 4
+  switch i32 %116, label %275 [
+    i32 0, label %117
+  ]
+
+117:                                              ; preds = %115
+  br label %118
+
+118:                                              ; preds = %117, %62
+  %119 = load i32, ptr %17, align 4, !tbaa !3
+  %120 = and i32 %119, 31
+  store i32 %120, ptr %15, align 4, !tbaa !3
+  %121 = load i32, ptr %17, align 4, !tbaa !3
+  %122 = and i32 %121, -32
+  store i32 %122, ptr %17, align 4, !tbaa !3
+  %123 = load i32, ptr %10, align 4, !tbaa !3
+  %124 = load ptr, ptr %13, align 8, !tbaa !13
+  %125 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %124, i32 0, i32 3
+  %126 = load i32, ptr %125, align 8, !tbaa !27
+  %127 = icmp eq i32 %123, %126
+  br i1 %127, label %128, label %132
+
+128:                                              ; preds = %118
+  %129 = load ptr, ptr %13, align 8, !tbaa !13
+  %130 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %129, i32 0, i32 10
+  %131 = load i32, ptr %130, align 4, !tbaa !36
+  store i32 %131, ptr %16, align 4, !tbaa !3
+  br label %133
+
+132:                                              ; preds = %118
+  store i32 -1, ptr %16, align 4, !tbaa !3
+  br label %133
+
+133:                                              ; preds = %132, %128
+  br label %134
+
+134:                                              ; preds = %249, %247, %133
+  %135 = load i32, ptr %8, align 4, !tbaa !3
+  %136 = load i32, ptr %17, align 4, !tbaa !3
+  %137 = icmp slt i32 %135, %136
+  br i1 %137, label %138, label %250
+
+138:                                              ; preds = %134
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #9
+  store i8 0, ptr %21, align 1, !tbaa !96
+  %139 = load i32, ptr %10, align 4, !tbaa !3
+  %140 = load ptr, ptr %13, align 8, !tbaa !13
+  %141 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %140, i32 0, i32 3
+  %142 = load i32, ptr %141, align 8, !tbaa !27
+  %143 = icmp eq i32 %139, %142
+  br i1 %143, label %144, label %152
+
+144:                                              ; preds = %138
+  %145 = load ptr, ptr %13, align 8, !tbaa !13
+  %146 = load i32, ptr %8, align 4, !tbaa !3
+  %147 = call noundef signext i8 @_ZL13isInNullBlockP9UNewTrie2ia(ptr noundef %145, i32 noundef %146, i8 noundef signext 1)
+  %148 = icmp ne i8 %147, 0
+  br i1 %148, label %149, label %152
+
+149:                                              ; preds = %144
+  %150 = load i32, ptr %8, align 4, !tbaa !3
+  %151 = add nsw i32 %150, 32
+  store i32 %151, ptr %8, align 4, !tbaa !3
+  store i32 2, ptr %18, align 4
+  br label %247, !llvm.loop !97
+
+152:                                              ; preds = %144, %138
+  %153 = load ptr, ptr %13, align 8, !tbaa !13
+  %154 = load i32, ptr %8, align 4, !tbaa !3
+  %155 = call noundef i32 @_ZL14getIndex2BlockP9UNewTrie2ia(ptr noundef %153, i32 noundef %154, i8 noundef signext 1)
+  store i32 %155, ptr %20, align 4, !tbaa !3
+  %156 = load i32, ptr %20, align 4, !tbaa !3
+  %157 = icmp slt i32 %156, 0
+  br i1 %157, label %158, label %160
+
+158:                                              ; preds = %152
+  %159 = load ptr, ptr %12, align 8, !tbaa !7
+  store i32 5, ptr %159, align 4, !tbaa !9
+  store i32 1, ptr %18, align 4
+  br label %247
+
+160:                                              ; preds = %152
+  %161 = load i32, ptr %8, align 4, !tbaa !3
+  %162 = ashr i32 %161, 5
+  %163 = and i32 %162, 63
+  %164 = load i32, ptr %20, align 4, !tbaa !3
+  %165 = add nsw i32 %164, %163
+  store i32 %165, ptr %20, align 4, !tbaa !3
+  %166 = load ptr, ptr %13, align 8, !tbaa !13
+  %167 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %166, i32 0, i32 1
+  %168 = load i32, ptr %20, align 4, !tbaa !3
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds [35488 x i32], ptr %167, i64 0, i64 %169
+  %171 = load i32, ptr %170, align 4, !tbaa !3
+  store i32 %171, ptr %14, align 4, !tbaa !3
+  %172 = load ptr, ptr %13, align 8, !tbaa !13
+  %173 = load i32, ptr %14, align 4, !tbaa !3
+  %174 = call noundef signext i8 @_ZL15isWritableBlockP9UNewTrie2i(ptr noundef %172, i32 noundef %173)
+  %175 = icmp ne i8 %174, 0
+  br i1 %175, label %176, label %196
+
+176:                                              ; preds = %160
+  %177 = load i8, ptr %11, align 1, !tbaa !96
+  %178 = icmp ne i8 %177, 0
+  br i1 %178, label %179, label %183
+
+179:                                              ; preds = %176
+  %180 = load i32, ptr %14, align 4, !tbaa !3
+  %181 = icmp sge i32 %180, 2176
+  br i1 %181, label %182, label %183
+
+182:                                              ; preds = %179
+  store i8 1, ptr %21, align 1, !tbaa !96
+  br label %195
+
+183:                                              ; preds = %179, %176
+  %184 = load ptr, ptr %13, align 8, !tbaa !13
+  %185 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %184, i32 0, i32 2
+  %186 = load ptr, ptr %185, align 8, !tbaa !24
+  %187 = load i32, ptr %14, align 4, !tbaa !3
+  %188 = sext i32 %187 to i64
+  %189 = getelementptr inbounds i32, ptr %186, i64 %188
+  %190 = load i32, ptr %10, align 4, !tbaa !3
+  %191 = load ptr, ptr %13, align 8, !tbaa !13
+  %192 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %191, i32 0, i32 3
+  %193 = load i32, ptr %192, align 8, !tbaa !27
+  %194 = load i8, ptr %11, align 1, !tbaa !96
+  call void @_ZL9fillBlockPjiijja(ptr noundef %189, i32 noundef 0, i32 noundef 32, i32 noundef %190, i32 noundef %193, i8 noundef signext %194)
+  br label %195
+
+195:                                              ; preds = %183, %182
+  br label %217
+
+196:                                              ; preds = %160
+  %197 = load ptr, ptr %13, align 8, !tbaa !13
+  %198 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %197, i32 0, i32 2
+  %199 = load ptr, ptr %198, align 8, !tbaa !24
+  %200 = load i32, ptr %14, align 4, !tbaa !3
+  %201 = sext i32 %200 to i64
+  %202 = getelementptr inbounds i32, ptr %199, i64 %201
+  %203 = load i32, ptr %202, align 4, !tbaa !3
+  %204 = load i32, ptr %10, align 4, !tbaa !3
+  %205 = icmp ne i32 %203, %204
+  br i1 %205, label %206, label %216
+
+206:                                              ; preds = %196
+  %207 = load i8, ptr %11, align 1, !tbaa !96
+  %208 = icmp ne i8 %207, 0
+  br i1 %208, label %215, label %209
+
+209:                                              ; preds = %206
+  %210 = load i32, ptr %14, align 4, !tbaa !3
+  %211 = load ptr, ptr %13, align 8, !tbaa !13
+  %212 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %211, i32 0, i32 10
+  %213 = load i32, ptr %212, align 4, !tbaa !36
+  %214 = icmp eq i32 %210, %213
+  br i1 %214, label %215, label %216
+
+215:                                              ; preds = %209, %206
+  store i8 1, ptr %21, align 1, !tbaa !96
+  br label %216
+
+216:                                              ; preds = %215, %209, %196
+  br label %217
+
+217:                                              ; preds = %216, %195
+  %218 = load i8, ptr %21, align 1, !tbaa !96
+  %219 = icmp ne i8 %218, 0
+  br i1 %219, label %220, label %244
+
+220:                                              ; preds = %217
+  %221 = load i32, ptr %16, align 4, !tbaa !3
+  %222 = icmp sge i32 %221, 0
+  br i1 %222, label %223, label %227
+
+223:                                              ; preds = %220
+  %224 = load ptr, ptr %13, align 8, !tbaa !13
+  %225 = load i32, ptr %20, align 4, !tbaa !3
+  %226 = load i32, ptr %16, align 4, !tbaa !3
+  call void @_ZL14setIndex2EntryP9UNewTrie2ii(ptr noundef %224, i32 noundef %225, i32 noundef %226)
+  br label %243
+
+227:                                              ; preds = %220
+  %228 = load ptr, ptr %13, align 8, !tbaa !13
+  %229 = load i32, ptr %8, align 4, !tbaa !3
+  %230 = call noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %228, i32 noundef %229, i8 noundef signext 1)
+  store i32 %230, ptr %16, align 4, !tbaa !3
+  %231 = load i32, ptr %16, align 4, !tbaa !3
+  %232 = icmp slt i32 %231, 0
+  br i1 %232, label %233, label %235
+
+233:                                              ; preds = %227
+  %234 = load ptr, ptr %12, align 8, !tbaa !7
+  store i32 7, ptr %234, align 4, !tbaa !9
+  store i32 1, ptr %18, align 4
+  br label %247
+
+235:                                              ; preds = %227
+  %236 = load ptr, ptr %13, align 8, !tbaa !13
+  %237 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %236, i32 0, i32 2
+  %238 = load ptr, ptr %237, align 8, !tbaa !24
+  %239 = load i32, ptr %16, align 4, !tbaa !3
+  %240 = sext i32 %239 to i64
+  %241 = getelementptr inbounds i32, ptr %238, i64 %240
+  %242 = load i32, ptr %10, align 4, !tbaa !3
+  call void @_ZL10writeBlockPjj(ptr noundef %241, i32 noundef %242)
+  br label %243
+
+243:                                              ; preds = %235, %223
+  br label %244
+
+244:                                              ; preds = %243, %217
+  %245 = load i32, ptr %8, align 4, !tbaa !3
+  %246 = add nsw i32 %245, 32
+  store i32 %246, ptr %8, align 4, !tbaa !3
+  store i32 0, ptr %18, align 4
+  br label %247
+
+247:                                              ; preds = %244, %233, %158, %149
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #9
+  %248 = load i32, ptr %18, align 4
+  switch i32 %248, label %275 [
+    i32 0, label %249
+    i32 2, label %134
+  ]
+
+249:                                              ; preds = %247
+  br label %134, !llvm.loop !97
+
+250:                                              ; preds = %134
+  %251 = load i32, ptr %15, align 4, !tbaa !3
+  %252 = icmp sgt i32 %251, 0
+  br i1 %252, label %253, label %274
+
+253:                                              ; preds = %250
+  %254 = load ptr, ptr %13, align 8, !tbaa !13
+  %255 = load i32, ptr %8, align 4, !tbaa !3
+  %256 = call noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %254, i32 noundef %255, i8 noundef signext 1)
+  store i32 %256, ptr %14, align 4, !tbaa !3
+  %257 = load i32, ptr %14, align 4, !tbaa !3
+  %258 = icmp slt i32 %257, 0
+  br i1 %258, label %259, label %261
+
+259:                                              ; preds = %253
+  %260 = load ptr, ptr %12, align 8, !tbaa !7
+  store i32 7, ptr %260, align 4, !tbaa !9
+  store i32 1, ptr %18, align 4
+  br label %275
+
+261:                                              ; preds = %253
+  %262 = load ptr, ptr %13, align 8, !tbaa !13
+  %263 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %262, i32 0, i32 2
+  %264 = load ptr, ptr %263, align 8, !tbaa !24
+  %265 = load i32, ptr %14, align 4, !tbaa !3
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr inbounds i32, ptr %264, i64 %266
+  %268 = load i32, ptr %15, align 4, !tbaa !3
+  %269 = load i32, ptr %10, align 4, !tbaa !3
+  %270 = load ptr, ptr %13, align 8, !tbaa !13
+  %271 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %270, i32 0, i32 3
+  %272 = load i32, ptr %271, align 8, !tbaa !27
+  %273 = load i8, ptr %11, align 1, !tbaa !96
+  call void @_ZL9fillBlockPjiijja(ptr noundef %267, i32 noundef 0, i32 noundef %268, i32 noundef %269, i32 noundef %272, i8 noundef signext %273)
+  br label %274
+
+274:                                              ; preds = %261, %250
+  store i32 0, ptr %18, align 4
+  br label %275
+
+275:                                              ; preds = %274, %259, %247, %115, %61, %50, %37, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  %276 = load i32, ptr %18, align 4
+  switch i32 %276, label %278 [
+    i32 0, label %277
+    i32 1, label %277
+  ]
+
+277:                                              ; preds = %275, %275
+  ret void
+
+278:                                              ; preds = %275
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %0, i32 noundef %1, i8 noundef signext %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i8 %2, ptr %7, align 1, !tbaa !96
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %12 = load ptr, ptr %5, align 8, !tbaa !13
+  %13 = load i32, ptr %6, align 4, !tbaa !3
+  %14 = load i8, ptr %7, align 1, !tbaa !96
+  %15 = call noundef i32 @_ZL14getIndex2BlockP9UNewTrie2ia(ptr noundef %12, i32 noundef %13, i8 noundef signext %14)
+  store i32 %15, ptr %8, align 4, !tbaa !3
+  %16 = load i32, ptr %8, align 4, !tbaa !3
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %3
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %49
+
+19:                                               ; preds = %3
+  %20 = load i32, ptr %6, align 4, !tbaa !3
+  %21 = ashr i32 %20, 5
+  %22 = and i32 %21, 63
+  %23 = load i32, ptr %8, align 4, !tbaa !3
+  %24 = add nsw i32 %23, %22
+  store i32 %24, ptr %8, align 4, !tbaa !3
+  %25 = load ptr, ptr %5, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %25, i32 0, i32 1
+  %27 = load i32, ptr %8, align 4, !tbaa !3
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [35488 x i32], ptr %26, i64 0, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !3
+  store i32 %30, ptr %9, align 4, !tbaa !3
+  %31 = load ptr, ptr %5, align 8, !tbaa !13
+  %32 = load i32, ptr %9, align 4, !tbaa !3
+  %33 = call noundef signext i8 @_ZL15isWritableBlockP9UNewTrie2i(ptr noundef %31, i32 noundef %32)
+  %34 = icmp ne i8 %33, 0
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %19
+  %36 = load i32, ptr %9, align 4, !tbaa !3
+  store i32 %36, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %49
+
+37:                                               ; preds = %19
+  %38 = load ptr, ptr %5, align 8, !tbaa !13
+  %39 = load i32, ptr %9, align 4, !tbaa !3
+  %40 = call noundef i32 @_ZL14allocDataBlockP9UNewTrie2i(ptr noundef %38, i32 noundef %39)
+  store i32 %40, ptr %10, align 4, !tbaa !3
+  %41 = load i32, ptr %10, align 4, !tbaa !3
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %44
+
+43:                                               ; preds = %37
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %49
+
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %5, align 8, !tbaa !13
+  %46 = load i32, ptr %8, align 4, !tbaa !3
+  %47 = load i32, ptr %10, align 4, !tbaa !3
+  call void @_ZL14setIndex2EntryP9UNewTrie2ii(ptr noundef %45, i32 noundef %46, i32 noundef %47)
+  %48 = load i32, ptr %10, align 4, !tbaa !3
+  store i32 %48, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %49
+
+49:                                               ; preds = %44, %43, %35, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  %50 = load i32, ptr %4, align 4
+  ret i32 %50
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL9fillBlockPjiijja(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef signext %5) #7 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !15
+  store i32 %1, ptr %8, align 4, !tbaa !3
+  store i32 %2, ptr %9, align 4, !tbaa !3
+  store i32 %3, ptr %10, align 4, !tbaa !3
+  store i32 %4, ptr %11, align 4, !tbaa !3
+  store i8 %5, ptr %12, align 1, !tbaa !96
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  %14 = load ptr, ptr %7, align 8, !tbaa !15
+  %15 = load i32, ptr %9, align 4, !tbaa !3
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i32, ptr %14, i64 %16
+  store ptr %17, ptr %13, align 8, !tbaa !15
+  %18 = load i32, ptr %8, align 4, !tbaa !3
+  %19 = load ptr, ptr %7, align 8, !tbaa !15
+  %20 = sext i32 %18 to i64
+  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  store ptr %21, ptr %7, align 8, !tbaa !15
+  %22 = load i8, ptr %12, align 1, !tbaa !96
+  %23 = icmp ne i8 %22, 0
+  br i1 %23, label %24, label %34
+
+24:                                               ; preds = %6
+  br label %25
+
+25:                                               ; preds = %29, %24
+  %26 = load ptr, ptr %7, align 8, !tbaa !15
+  %27 = load ptr, ptr %13, align 8, !tbaa !15
+  %28 = icmp ult ptr %26, %27
+  br i1 %28, label %29, label %33
+
+29:                                               ; preds = %25
+  %30 = load i32, ptr %10, align 4, !tbaa !3
+  %31 = load ptr, ptr %7, align 8, !tbaa !15
+  %32 = getelementptr inbounds nuw i32, ptr %31, i32 1
+  store ptr %32, ptr %7, align 8, !tbaa !15
+  store i32 %30, ptr %31, align 4, !tbaa !3
+  br label %25, !llvm.loop !98
+
+33:                                               ; preds = %25
+  br label %51
+
+34:                                               ; preds = %6
+  br label %35
+
+35:                                               ; preds = %47, %34
+  %36 = load ptr, ptr %7, align 8, !tbaa !15
+  %37 = load ptr, ptr %13, align 8, !tbaa !15
+  %38 = icmp ult ptr %36, %37
+  br i1 %38, label %39, label %50
+
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %7, align 8, !tbaa !15
+  %41 = load i32, ptr %40, align 4, !tbaa !3
+  %42 = load i32, ptr %11, align 4, !tbaa !3
+  %43 = icmp eq i32 %41, %42
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %39
+  %45 = load i32, ptr %10, align 4, !tbaa !3
+  %46 = load ptr, ptr %7, align 8, !tbaa !15
+  store i32 %45, ptr %46, align 4, !tbaa !3
+  br label %47
+
+47:                                               ; preds = %44, %39
+  %48 = load ptr, ptr %7, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw i32, ptr %48, i32 1
+  store ptr %49, ptr %7, align 8, !tbaa !15
+  br label %35, !llvm.loop !99
+
+50:                                               ; preds = %35
+  br label %51
+
+51:                                               ; preds = %50, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL13isInNullBlockP9UNewTrie2ia(ptr noundef %0, i32 noundef %1, i8 noundef signext %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store i8 %2, ptr %6, align 1, !tbaa !96
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %9 = load i32, ptr %5, align 4, !tbaa !3
+  %10 = and i32 %9, -1024
+  %11 = icmp eq i32 %10, 55296
+  br i1 %11, label %12, label %19
+
+12:                                               ; preds = %3
+  %13 = load i8, ptr %6, align 1, !tbaa !96
+  %14 = icmp ne i8 %13, 0
+  br i1 %14, label %15, label %19
+
+15:                                               ; preds = %12
+  %16 = load i32, ptr %5, align 4, !tbaa !3
+  %17 = ashr i32 %16, 5
+  %18 = add nsw i32 320, %17
+  store i32 %18, ptr %7, align 4, !tbaa !3
+  br label %31
+
+19:                                               ; preds = %12, %3
+  %20 = load ptr, ptr %4, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %5, align 4, !tbaa !3
+  %23 = ashr i32 %22, 11
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds [544 x i32], ptr %21, i64 0, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !3
+  %27 = load i32, ptr %5, align 4, !tbaa !3
+  %28 = ashr i32 %27, 5
+  %29 = and i32 %28, 63
+  %30 = add nsw i32 %26, %29
+  store i32 %30, ptr %7, align 4, !tbaa !3
+  br label %31
+
+31:                                               ; preds = %19, %15
+  %32 = load ptr, ptr %4, align 8, !tbaa !13
+  %33 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %7, align 4, !tbaa !3
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds [35488 x i32], ptr %33, i64 0, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !3
+  store i32 %37, ptr %8, align 4, !tbaa !3
+  %38 = load i32, ptr %8, align 4, !tbaa !3
+  %39 = load ptr, ptr %4, align 8, !tbaa !13
+  %40 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %39, i32 0, i32 10
+  %41 = load i32, ptr %40, align 4, !tbaa !36
+  %42 = icmp eq i32 %38, %41
+  %43 = zext i1 %42 to i8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  ret i8 %43
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZL14getIndex2BlockP9UNewTrie2ia(ptr noundef %0, i32 noundef %1, i8 noundef signext %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !13
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i8 %2, ptr %7, align 1, !tbaa !96
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %11 = load i32, ptr %6, align 4, !tbaa !3
+  %12 = and i32 %11, -1024
+  %13 = icmp eq i32 %12, 55296
+  br i1 %13, label %14, label %18
+
+14:                                               ; preds = %3
+  %15 = load i8, ptr %7, align 1, !tbaa !96
+  %16 = icmp ne i8 %15, 0
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  store i32 2048, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %47
+
+18:                                               ; preds = %14, %3
+  %19 = load i32, ptr %6, align 4, !tbaa !3
+  %20 = ashr i32 %19, 11
+  store i32 %20, ptr %8, align 4, !tbaa !3
+  %21 = load ptr, ptr %5, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %8, align 4, !tbaa !3
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds [544 x i32], ptr %22, i64 0, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !3
+  store i32 %26, ptr %9, align 4, !tbaa !3
+  %27 = load i32, ptr %9, align 4, !tbaa !3
+  %28 = load ptr, ptr %5, align 8, !tbaa !13
+  %29 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %28, i32 0, i32 9
+  %30 = load i32, ptr %29, align 8, !tbaa !44
+  %31 = icmp eq i32 %27, %30
+  br i1 %31, label %32, label %45
+
+32:                                               ; preds = %18
+  %33 = load ptr, ptr %5, align 8, !tbaa !13
+  %34 = call noundef i32 @_ZL16allocIndex2BlockP9UNewTrie2(ptr noundef %33)
+  store i32 %34, ptr %9, align 4, !tbaa !3
+  %35 = load i32, ptr %9, align 4, !tbaa !3
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %32
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %47
+
+38:                                               ; preds = %32
+  %39 = load i32, ptr %9, align 4, !tbaa !3
+  %40 = load ptr, ptr %5, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %8, align 4, !tbaa !3
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds [544 x i32], ptr %41, i64 0, i64 %43
+  store i32 %39, ptr %44, align 4, !tbaa !3
+  br label %45
+
+45:                                               ; preds = %38, %18
+  %46 = load i32, ptr %9, align 4, !tbaa !3
+  store i32 %46, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %47
+
+47:                                               ; preds = %45, %37, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  %48 = load i32, ptr %4, align 4
+  ret i32 %48
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL15isWritableBlockP9UNewTrie2i(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load i32, ptr %4, align 4, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %6, i32 0, i32 10
+  %8 = load i32, ptr %7, align 4, !tbaa !36
+  %9 = icmp ne i32 %5, %8
+  br i1 %9, label %10, label %19
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !13
+  %12 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %11, i32 0, i32 13
+  %13 = load i32, ptr %4, align 4, !tbaa !3
+  %14 = ashr i32 %13, 5
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds [34852 x i32], ptr %12, i64 0, i64 %15
+  %17 = load i32, ptr %16, align 4, !tbaa !3
+  %18 = icmp eq i32 1, %17
+  br label %19
+
+19:                                               ; preds = %10, %2
+  %20 = phi i1 [ false, %2 ], [ %18, %10 ]
+  %21 = zext i1 %20 to i8
+  ret i8 %21
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL14setIndex2EntryP9UNewTrie2ii(ptr noundef %0, i32 noundef %1, i32 noundef %2) #8 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %8 = load ptr, ptr %4, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %8, i32 0, i32 13
+  %10 = load i32, ptr %6, align 4, !tbaa !3
+  %11 = ashr i32 %10, 5
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds [34852 x i32], ptr %9, i64 0, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !3
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %13, align 4, !tbaa !3
+  %16 = load ptr, ptr %4, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %16, i32 0, i32 1
+  %18 = load i32, ptr %5, align 4, !tbaa !3
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds [35488 x i32], ptr %17, i64 0, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !3
+  store i32 %21, ptr %7, align 4, !tbaa !3
+  %22 = load ptr, ptr %4, align 8, !tbaa !13
+  %23 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %22, i32 0, i32 13
+  %24 = load i32, ptr %7, align 4, !tbaa !3
+  %25 = ashr i32 %24, 5
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds [34852 x i32], ptr %23, i64 0, i64 %26
+  %28 = load i32, ptr %27, align 4, !tbaa !3
+  %29 = add nsw i32 %28, -1
+  store i32 %29, ptr %27, align 4, !tbaa !3
+  %30 = icmp eq i32 0, %29
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %3
+  %32 = load ptr, ptr %4, align 8, !tbaa !13
+  %33 = load i32, ptr %7, align 4, !tbaa !3
+  call void @_ZL16releaseDataBlockP9UNewTrie2i(ptr noundef %32, i32 noundef %33)
+  br label %34
+
+34:                                               ; preds = %31, %3
+  %35 = load i32, ptr %6, align 4, !tbaa !3
+  %36 = load ptr, ptr %4, align 8, !tbaa !13
+  %37 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %5, align 4, !tbaa !3
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [35488 x i32], ptr %37, i64 0, i64 %39
+  store i32 %35, ptr %40, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL10writeBlockPjj(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !15
+  %7 = getelementptr inbounds i32, ptr %6, i64 32
+  store ptr %7, ptr %5, align 8, !tbaa !15
+  br label %8
+
+8:                                                ; preds = %12, %2
+  %9 = load ptr, ptr %3, align 8, !tbaa !15
+  %10 = load ptr, ptr %5, align 8, !tbaa !15
+  %11 = icmp ult ptr %9, %10
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %8
+  %13 = load i32, ptr %4, align 4, !tbaa !3
+  %14 = load ptr, ptr %3, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw i32, ptr %14, i32 1
+  store ptr %15, ptr %3, align 8, !tbaa !15
+  store i32 %13, ptr %14, align 4, !tbaa !3
+  br label %8, !llvm.loop !100
+
+16:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL5set32P9UNewTrie2iajP10UErrorCode(ptr noundef %trie, i32 noundef %c, i8 noundef signext %forLSCP, i32 noundef %value, ptr noundef %pErrorCode) #0 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %forLSCP.addr = alloca i8, align 1
-  %value.addr = alloca i32, align 4
-  %pErrorCode.addr = alloca ptr, align 8
-  %block = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  store i8 %forLSCP, ptr %forLSCP.addr, align 1
-  store i32 %value, ptr %value.addr, align 4
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %trie.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal void @_ZL11compactTrieP6UTrie2P10UErrorCode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UTrie2, ptr %10, i32 0, i32 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  store ptr %12, ptr %5, align 8, !tbaa !13
+  %13 = load ptr, ptr %3, align 8, !tbaa !11
+  %14 = call i32 @utrie2_get32_77(ptr noundef %13, i32 noundef 1114111)
+  store i32 %14, ptr %8, align 4, !tbaa !3
+  %15 = load ptr, ptr %5, align 8, !tbaa !13
+  %16 = load i32, ptr %8, align 4, !tbaa !3
+  %17 = call noundef i32 @_ZL13findHighStartP9UNewTrie2j(ptr noundef %15, i32 noundef %16)
+  store i32 %17, ptr %6, align 4, !tbaa !3
+  %18 = load i32, ptr %6, align 4, !tbaa !3
+  %19 = add nsw i32 %18, 2047
+  %20 = and i32 %19, -2048
+  store i32 %20, ptr %6, align 4, !tbaa !3
+  %21 = load i32, ptr %6, align 4, !tbaa !3
+  %22 = icmp eq i32 %21, 1114112
+  br i1 %22, label %23, label %27
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %trie.addr, align 8
-  %isCompacted = getelementptr inbounds %struct.UNewTrie2, ptr %1, i32 0, i32 12
-  %2 = load i8, ptr %isCompacted, align 4
-  %tobool = icmp ne i8 %2, 0
-  br i1 %tobool, label %if.then, label %if.end
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %3, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw %struct.UTrie2, ptr %24, i32 0, i32 8
+  %26 = load i32, ptr %25, align 8, !tbaa !21
+  store i32 %26, ptr %8, align 4, !tbaa !3
+  br label %27
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %3 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 30, ptr %3, align 4
-  br label %return
+27:                                               ; preds = %23, %2
+  %28 = load i32, ptr %6, align 4, !tbaa !3
+  %29 = load ptr, ptr %5, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %29, i32 0, i32 11
+  store i32 %28, ptr %30, align 8, !tbaa !29
+  %31 = load ptr, ptr %3, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.UTrie2, ptr %31, i32 0, i32 9
+  store i32 %28, ptr %32, align 4, !tbaa !22
+  %33 = load i32, ptr %6, align 4, !tbaa !3
+  %34 = icmp slt i32 %33, 1114112
+  br i1 %34, label %35, label %55
 
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %trie.addr, align 8
-  %5 = load i32, ptr %c.addr, align 4
-  %6 = load i8, ptr %forLSCP.addr, align 1
-  %call = call noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %4, i32 noundef %5, i8 noundef signext %6)
-  store i32 %call, ptr %block, align 4
-  %7 = load i32, ptr %block, align 4
-  %cmp1 = icmp slt i32 %7, 0
-  br i1 %cmp1, label %if.then2, label %if.end3
+35:                                               ; preds = %27
+  %36 = load i32, ptr %6, align 4, !tbaa !3
+  %37 = icmp sle i32 %36, 65536
+  br i1 %37, label %38, label %39
 
-if.then2:                                         ; preds = %if.end
-  %8 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %8, align 4
-  br label %return
+38:                                               ; preds = %35
+  br label %41
 
-if.end3:                                          ; preds = %if.end
-  %9 = load i32, ptr %value.addr, align 4
-  %10 = load ptr, ptr %trie.addr, align 8
-  %data = getelementptr inbounds %struct.UNewTrie2, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %data, align 8
-  %12 = load i32, ptr %block, align 4
-  %13 = load i32, ptr %c.addr, align 4
-  %and = and i32 %13, 31
-  %add = add nsw i32 %12, %and
-  %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds i32, ptr %11, i64 %idxprom
-  store i32 %9, ptr %arrayidx, align 4
-  br label %return
+39:                                               ; preds = %35
+  %40 = load i32, ptr %6, align 4, !tbaa !3
+  br label %41
 
-return:                                           ; preds = %if.end3, %if.then2, %if.then
+41:                                               ; preds = %39, %38
+  %42 = phi i32 [ 65536, %38 ], [ %40, %39 ]
+  store i32 %42, ptr %7, align 4, !tbaa !3
+  %43 = load ptr, ptr %3, align 8, !tbaa !11
+  %44 = load i32, ptr %7, align 4, !tbaa !3
+  %45 = load ptr, ptr %3, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.UTrie2, ptr %45, i32 0, i32 7
+  %47 = load i32, ptr %46, align 4, !tbaa !17
+  %48 = load ptr, ptr %4, align 8, !tbaa !7
+  call void @utrie2_setRange32_77(ptr noundef %43, i32 noundef %44, i32 noundef 1114111, i32 noundef %47, i8 noundef signext 1, ptr noundef %48)
+  %49 = load ptr, ptr %4, align 8, !tbaa !7
+  %50 = load i32, ptr %49, align 4, !tbaa !9
+  %51 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %50)
+  %52 = icmp ne i8 %51, 0
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %41
+  store i32 1, ptr %9, align 4
+  br label %94
+
+54:                                               ; preds = %41
+  br label %55
+
+55:                                               ; preds = %54, %27
+  %56 = load ptr, ptr %5, align 8, !tbaa !13
+  call void @_ZL11compactDataP9UNewTrie2(ptr noundef %56)
+  %57 = load i32, ptr %6, align 4, !tbaa !3
+  %58 = icmp sgt i32 %57, 65536
+  br i1 %58, label %59, label %61
+
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %5, align 8, !tbaa !13
+  call void @_ZL13compactIndex2P9UNewTrie2(ptr noundef %60)
+  br label %61
+
+61:                                               ; preds = %59, %55
+  %62 = load i32, ptr %8, align 4, !tbaa !3
+  %63 = load ptr, ptr %5, align 8, !tbaa !13
+  %64 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %63, i32 0, i32 2
+  %65 = load ptr, ptr %64, align 8, !tbaa !24
+  %66 = load ptr, ptr %5, align 8, !tbaa !13
+  %67 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %66, i32 0, i32 7
+  %68 = load i32, ptr %67, align 8, !tbaa !37
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %67, align 8, !tbaa !37
+  %70 = sext i32 %68 to i64
+  %71 = getelementptr inbounds i32, ptr %65, i64 %70
+  store i32 %62, ptr %71, align 4, !tbaa !3
+  br label %72
+
+72:                                               ; preds = %78, %61
+  %73 = load ptr, ptr %5, align 8, !tbaa !13
+  %74 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %73, i32 0, i32 7
+  %75 = load i32, ptr %74, align 8, !tbaa !37
+  %76 = and i32 %75, 3
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %91
+
+78:                                               ; preds = %72
+  %79 = load ptr, ptr %3, align 8, !tbaa !11
+  %80 = getelementptr inbounds nuw %struct.UTrie2, ptr %79, i32 0, i32 7
+  %81 = load i32, ptr %80, align 4, !tbaa !17
+  %82 = load ptr, ptr %5, align 8, !tbaa !13
+  %83 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %82, i32 0, i32 2
+  %84 = load ptr, ptr %83, align 8, !tbaa !24
+  %85 = load ptr, ptr %5, align 8, !tbaa !13
+  %86 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %85, i32 0, i32 7
+  %87 = load i32, ptr %86, align 8, !tbaa !37
+  %88 = add nsw i32 %87, 1
+  store i32 %88, ptr %86, align 8, !tbaa !37
+  %89 = sext i32 %87 to i64
+  %90 = getelementptr inbounds i32, ptr %84, i64 %89
+  store i32 %81, ptr %90, align 4, !tbaa !3
+  br label %72, !llvm.loop !101
+
+91:                                               ; preds = %72
+  %92 = load ptr, ptr %5, align 8, !tbaa !13
+  %93 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %92, i32 0, i32 12
+  store i8 1, ptr %93, align 4, !tbaa !31
+  store i32 0, ptr %9, align 4
+  br label %94
+
+94:                                               ; preds = %91, %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  %95 = load i32, ptr %9, align 4
+  switch i32 %95, label %97 [
+    i32 0, label %96
+    i32 1, label %96
+  ]
+
+96:                                               ; preds = %94, %94
   ret void
+
+97:                                               ; preds = %94
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_setRange32_75(ptr noundef %trie, i32 noundef %start, i32 noundef %end, i32 noundef %value, i8 noundef signext %overwrite, ptr noundef %pErrorCode) #0 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %end.addr = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %overwrite.addr = alloca i8, align 1
-  %pErrorCode.addr = alloca ptr, align 8
-  %newTrie = alloca ptr, align 8
-  %block = alloca i32, align 4
-  %rest = alloca i32, align 4
-  %repeatBlock = alloca i32, align 4
-  %limit = alloca i32, align 4
-  %nextStart = alloca i32, align 4
-  %i2 = alloca i32, align 4
-  %setRepeatBlock = alloca i8, align 1
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %end, ptr %end.addr, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store i8 %overwrite, ptr %overwrite.addr, align 1
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal noundef i32 @_ZL14allocDataBlockP9UNewTrie2i(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %11 = load ptr, ptr %4, align 8, !tbaa !13
+  %12 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %11, i32 0, i32 8
+  %13 = load i32, ptr %12, align 4, !tbaa !30
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %15, label %29
 
-if.then:                                          ; preds = %entry
-  br label %return
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %16, i32 0, i32 8
+  %18 = load i32, ptr %17, align 4, !tbaa !30
+  store i32 %18, ptr %6, align 4, !tbaa !3
+  %19 = load ptr, ptr %4, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %19, i32 0, i32 13
+  %21 = load i32, ptr %6, align 4, !tbaa !3
+  %22 = ashr i32 %21, 5
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [34852 x i32], ptr %20, i64 0, i64 %23
+  %25 = load i32, ptr %24, align 4, !tbaa !3
+  %26 = sub nsw i32 0, %25
+  %27 = load ptr, ptr %4, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %27, i32 0, i32 8
+  store i32 %26, ptr %28, align 4, !tbaa !30
+  br label %91
 
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %start.addr, align 4
-  %cmp = icmp ugt i32 %2, 1114111
-  br i1 %cmp, label %if.then4, label %lor.lhs.false
+29:                                               ; preds = %2
+  %30 = load ptr, ptr %4, align 8, !tbaa !13
+  %31 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %30, i32 0, i32 7
+  %32 = load i32, ptr %31, align 8, !tbaa !37
+  store i32 %32, ptr %6, align 4, !tbaa !3
+  %33 = load i32, ptr %6, align 4, !tbaa !3
+  %34 = add nsw i32 %33, 32
+  store i32 %34, ptr %7, align 4, !tbaa !3
+  %35 = load i32, ptr %7, align 4, !tbaa !3
+  %36 = load ptr, ptr %4, align 8, !tbaa !13
+  %37 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %36, i32 0, i32 6
+  %38 = load i32, ptr %37, align 4, !tbaa !26
+  %39 = icmp sgt i32 %35, %38
+  br i1 %39, label %40, label %87
 
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load i32, ptr %end.addr, align 4
-  %cmp1 = icmp ugt i32 %3, 1114111
-  br i1 %cmp1, label %if.then4, label %lor.lhs.false2
+40:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %41 = load ptr, ptr %4, align 8, !tbaa !13
+  %42 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %41, i32 0, i32 6
+  %43 = load i32, ptr %42, align 4, !tbaa !26
+  %44 = icmp slt i32 %43, 131072
+  br i1 %44, label %45, label %46
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %4 = load i32, ptr %start.addr, align 4
-  %5 = load i32, ptr %end.addr, align 4
-  %cmp3 = icmp sgt i32 %4, %5
-  br i1 %cmp3, label %if.then4, label %if.end5
+45:                                               ; preds = %40
+  store i32 131072, ptr %8, align 4, !tbaa !3
+  br label %54
 
-if.then4:                                         ; preds = %lor.lhs.false2, %lor.lhs.false, %if.end
-  %6 = load ptr, ptr %pErrorCode.addr, align 8
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %4, align 8, !tbaa !13
+  %48 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %47, i32 0, i32 6
+  %49 = load i32, ptr %48, align 4, !tbaa !26
+  %50 = icmp slt i32 %49, 1115264
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %46
+  store i32 1115264, ptr %8, align 4, !tbaa !3
+  br label %53
+
+52:                                               ; preds = %46
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
+
+53:                                               ; preds = %51
+  br label %54
+
+54:                                               ; preds = %53, %45
+  %55 = load i32, ptr %8, align 4, !tbaa !3
+  %56 = mul nsw i32 %55, 4
+  %57 = sext i32 %56 to i64
+  %58 = call noalias ptr @uprv_malloc_77(i64 noundef %57) #10
+  store ptr %58, ptr %9, align 8, !tbaa !15
+  %59 = load ptr, ptr %9, align 8, !tbaa !15
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %54
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %84
+
+62:                                               ; preds = %54
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %9, align 8, !tbaa !15
+  %65 = load ptr, ptr %4, align 8, !tbaa !13
+  %66 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %65, i32 0, i32 2
+  %67 = load ptr, ptr %66, align 8, !tbaa !24
+  %68 = load ptr, ptr %4, align 8, !tbaa !13
+  %69 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %68, i32 0, i32 7
+  %70 = load i32, ptr %69, align 8, !tbaa !37
+  %71 = sext i32 %70 to i64
+  %72 = mul i64 %71, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %64, ptr align 4 %67, i64 %72, i1 false)
+  br label %73
+
+73:                                               ; preds = %63
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %4, align 8, !tbaa !13
+  %76 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
+  call void @uprv_free_77(ptr noundef %77)
+  %78 = load ptr, ptr %9, align 8, !tbaa !15
+  %79 = load ptr, ptr %4, align 8, !tbaa !13
+  %80 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %79, i32 0, i32 2
+  store ptr %78, ptr %80, align 8, !tbaa !24
+  %81 = load i32, ptr %8, align 4, !tbaa !3
+  %82 = load ptr, ptr %4, align 8, !tbaa !13
+  %83 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %82, i32 0, i32 6
+  store i32 %81, ptr %83, align 4, !tbaa !26
+  store i32 0, ptr %10, align 4
+  br label %84
+
+84:                                               ; preds = %74, %61, %52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  %85 = load i32, ptr %10, align 4
+  switch i32 %85, label %114 [
+    i32 0, label %86
+  ]
+
+86:                                               ; preds = %84
+  br label %87
+
+87:                                               ; preds = %86, %29
+  %88 = load i32, ptr %7, align 4, !tbaa !3
+  %89 = load ptr, ptr %4, align 8, !tbaa !13
+  %90 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %89, i32 0, i32 7
+  store i32 %88, ptr %90, align 8, !tbaa !37
+  br label %91
+
+91:                                               ; preds = %87, %15
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %4, align 8, !tbaa !13
+  %94 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %93, i32 0, i32 2
+  %95 = load ptr, ptr %94, align 8, !tbaa !24
+  %96 = load i32, ptr %6, align 4, !tbaa !3
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i32, ptr %95, i64 %97
+  %99 = load ptr, ptr %4, align 8, !tbaa !13
+  %100 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %100, align 8, !tbaa !24
+  %102 = load i32, ptr %5, align 4, !tbaa !3
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds i32, ptr %101, i64 %103
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %98, ptr align 4 %104, i64 128, i1 false)
+  br label %105
+
+105:                                              ; preds = %92
+  br label %106
+
+106:                                              ; preds = %105
+  %107 = load ptr, ptr %4, align 8, !tbaa !13
+  %108 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %107, i32 0, i32 13
+  %109 = load i32, ptr %6, align 4, !tbaa !3
+  %110 = ashr i32 %109, 5
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds [34852 x i32], ptr %108, i64 0, i64 %111
+  store i32 0, ptr %112, align 4, !tbaa !3
+  %113 = load i32, ptr %6, align 4, !tbaa !3
+  store i32 %113, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %114
+
+114:                                              ; preds = %106, %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  %115 = load i32, ptr %3, align 4
+  ret i32 %115
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i32 @_ZL16allocIndex2BlockP9UNewTrie2(ptr noundef %0) #7 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %7 = load ptr, ptr %3, align 8, !tbaa !13
+  %8 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %7, i32 0, i32 5
+  %9 = load i32, ptr %8, align 8, !tbaa !45
+  store i32 %9, ptr %4, align 4, !tbaa !3
+  %10 = load i32, ptr %4, align 4, !tbaa !3
+  %11 = add nsw i32 %10, 64
+  store i32 %11, ptr %5, align 4, !tbaa !3
+  %12 = load i32, ptr %5, align 4, !tbaa !3
+  %13 = icmp sgt i32 %12, 35488
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %1
+  store i32 -1, ptr %2, align 4
   store i32 1, ptr %6, align 4
-  br label %return
+  br label %37
 
-if.end5:                                          ; preds = %lor.lhs.false2
-  %7 = load ptr, ptr %trie.addr, align 8
-  %newTrie6 = getelementptr inbounds %struct.UTrie2, ptr %7, i32 0, i32 16
-  %8 = load ptr, ptr %newTrie6, align 8
-  store ptr %8, ptr %newTrie, align 8
-  %9 = load ptr, ptr %newTrie, align 8
-  %cmp7 = icmp eq ptr %9, null
-  br i1 %cmp7, label %if.then10, label %lor.lhs.false8
+15:                                               ; preds = %1
+  %16 = load i32, ptr %5, align 4, !tbaa !3
+  %17 = load ptr, ptr %3, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %17, i32 0, i32 5
+  store i32 %16, ptr %18, align 8, !tbaa !45
+  br label %19
 
-lor.lhs.false8:                                   ; preds = %if.end5
-  %10 = load ptr, ptr %newTrie, align 8
-  %isCompacted = getelementptr inbounds %struct.UNewTrie2, ptr %10, i32 0, i32 12
-  %11 = load i8, ptr %isCompacted, align 4
-  %tobool9 = icmp ne i8 %11, 0
-  br i1 %tobool9, label %if.then10, label %if.end11
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %3, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds [35488 x i32], ptr %21, i64 0, i64 0
+  %23 = load i32, ptr %4, align 4, !tbaa !3
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i32, ptr %22, i64 %24
+  %26 = load ptr, ptr %3, align 8, !tbaa !13
+  %27 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %26, i32 0, i32 1
+  %28 = getelementptr inbounds [35488 x i32], ptr %27, i64 0, i64 0
+  %29 = load ptr, ptr %3, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %29, i32 0, i32 9
+  %31 = load i32, ptr %30, align 8, !tbaa !44
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i32, ptr %28, i64 %32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %25, ptr align 4 %33, i64 256, i1 false)
+  br label %34
 
-if.then10:                                        ; preds = %lor.lhs.false8, %if.end5
-  %12 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 30, ptr %12, align 4
-  br label %return
+34:                                               ; preds = %19
+  br label %35
 
-if.end11:                                         ; preds = %lor.lhs.false8
-  %13 = load i8, ptr %overwrite.addr, align 1
-  %tobool12 = icmp ne i8 %13, 0
-  br i1 %tobool12, label %if.end15, label %land.lhs.true
+35:                                               ; preds = %34
+  %36 = load i32, ptr %4, align 4, !tbaa !3
+  store i32 %36, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %37
 
-land.lhs.true:                                    ; preds = %if.end11
-  %14 = load i32, ptr %value.addr, align 4
-  %15 = load ptr, ptr %newTrie, align 8
-  %initialValue = getelementptr inbounds %struct.UNewTrie2, ptr %15, i32 0, i32 3
-  %16 = load i32, ptr %initialValue, align 8
-  %cmp13 = icmp eq i32 %14, %16
-  br i1 %cmp13, label %if.then14, label %if.end15
+37:                                               ; preds = %35, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #9
+  %38 = load i32, ptr %2, align 4
+  ret i32 %38
+}
 
-if.then14:                                        ; preds = %land.lhs.true
-  br label %return
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL16releaseDataBlockP9UNewTrie2i(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !13
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !13
+  %6 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %5, i32 0, i32 8
+  %7 = load i32, ptr %6, align 4, !tbaa !30
+  %8 = sub nsw i32 0, %7
+  %9 = load ptr, ptr %3, align 8, !tbaa !13
+  %10 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %9, i32 0, i32 13
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  %12 = ashr i32 %11, 5
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds [34852 x i32], ptr %10, i64 0, i64 %13
+  store i32 %8, ptr %14, align 4, !tbaa !3
+  %15 = load i32, ptr %4, align 4, !tbaa !3
+  %16 = load ptr, ptr %3, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %16, i32 0, i32 8
+  store i32 %15, ptr %17, align 4, !tbaa !30
+  ret void
+}
 
-if.end15:                                         ; preds = %land.lhs.true, %if.end11
-  %17 = load i32, ptr %end.addr, align 4
-  %add = add nsw i32 %17, 1
-  store i32 %add, ptr %limit, align 4
-  %18 = load i32, ptr %start.addr, align 4
-  %and = and i32 %18, 31
-  %tobool16 = icmp ne i32 %and, 0
-  br i1 %tobool16, label %if.then17, label %if.end35
+declare i32 @utrie2_get32_77(ptr noundef, i32 noundef) #4
 
-if.then17:                                        ; preds = %if.end15
-  %19 = load ptr, ptr %newTrie, align 8
-  %20 = load i32, ptr %start.addr, align 4
-  %call18 = call noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %19, i32 noundef %20, i8 noundef signext 1)
-  store i32 %call18, ptr %block, align 4
-  %21 = load i32, ptr %block, align 4
-  %cmp19 = icmp slt i32 %21, 0
-  br i1 %cmp19, label %if.then20, label %if.end21
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i32 @_ZL13findHighStartP9UNewTrie2j(ptr noundef %0, i32 noundef %1) #7 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !13
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #9
+  %21 = load ptr, ptr %4, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %21, i32 0, i32 2
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
+  store ptr %23, ptr %6, align 8, !tbaa !15
+  %24 = load ptr, ptr %4, align 8, !tbaa !13
+  %25 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %24, i32 0, i32 3
+  %26 = load i32, ptr %25, align 8, !tbaa !27
+  store i32 %26, ptr %8, align 4, !tbaa !3
+  %27 = load ptr, ptr %4, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %27, i32 0, i32 9
+  %29 = load i32, ptr %28, align 8, !tbaa !44
+  store i32 %29, ptr %16, align 4, !tbaa !3
+  %30 = load ptr, ptr %4, align 8, !tbaa !13
+  %31 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %30, i32 0, i32 10
+  %32 = load i32, ptr %31, align 4, !tbaa !36
+  store i32 %32, ptr %19, align 4, !tbaa !3
+  %33 = load i32, ptr %5, align 4, !tbaa !3
+  %34 = load i32, ptr %8, align 4, !tbaa !3
+  %35 = icmp eq i32 %33, %34
+  br i1 %35, label %36, label %39
 
-if.then20:                                        ; preds = %if.then17
-  %22 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %22, align 4
-  br label %return
+36:                                               ; preds = %2
+  %37 = load i32, ptr %16, align 4, !tbaa !3
+  store i32 %37, ptr %15, align 4, !tbaa !3
+  %38 = load i32, ptr %19, align 4, !tbaa !3
+  store i32 %38, ptr %18, align 4, !tbaa !3
+  br label %40
 
-if.end21:                                         ; preds = %if.then17
-  %23 = load i32, ptr %start.addr, align 4
-  %add22 = add nsw i32 %23, 31
-  %and23 = and i32 %add22, -32
-  store i32 %and23, ptr %nextStart, align 4
-  %24 = load i32, ptr %nextStart, align 4
-  %25 = load i32, ptr %limit, align 4
-  %cmp24 = icmp sle i32 %24, %25
-  br i1 %cmp24, label %if.then25, label %if.else
+39:                                               ; preds = %2
+  store i32 -1, ptr %15, align 4, !tbaa !3
+  store i32 -1, ptr %18, align 4, !tbaa !3
+  br label %40
 
-if.then25:                                        ; preds = %if.end21
-  %26 = load ptr, ptr %newTrie, align 8
-  %data = getelementptr inbounds %struct.UNewTrie2, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %data, align 8
-  %28 = load i32, ptr %block, align 4
-  %idx.ext = sext i32 %28 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %27, i64 %idx.ext
-  %29 = load i32, ptr %start.addr, align 4
-  %and26 = and i32 %29, 31
-  %30 = load i32, ptr %value.addr, align 4
-  %31 = load ptr, ptr %newTrie, align 8
-  %initialValue27 = getelementptr inbounds %struct.UNewTrie2, ptr %31, i32 0, i32 3
-  %32 = load i32, ptr %initialValue27, align 8
-  %33 = load i8, ptr %overwrite.addr, align 1
-  call void @_ZL9fillBlockPjiijja(ptr noundef %add.ptr, i32 noundef %and26, i32 noundef 32, i32 noundef %30, i32 noundef %32, i8 noundef signext %33)
-  %34 = load i32, ptr %nextStart, align 4
-  store i32 %34, ptr %start.addr, align 4
-  br label %if.end34
+40:                                               ; preds = %39, %36
+  store i32 1114112, ptr %10, align 4, !tbaa !3
+  store i32 544, ptr %11, align 4, !tbaa !3
+  %41 = load i32, ptr %10, align 4, !tbaa !3
+  store i32 %41, ptr %9, align 4, !tbaa !3
+  br label %42
 
-if.else:                                          ; preds = %if.end21
-  %35 = load ptr, ptr %newTrie, align 8
-  %data28 = getelementptr inbounds %struct.UNewTrie2, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %data28, align 8
-  %37 = load i32, ptr %block, align 4
-  %idx.ext29 = sext i32 %37 to i64
-  %add.ptr30 = getelementptr inbounds i32, ptr %36, i64 %idx.ext29
-  %38 = load i32, ptr %start.addr, align 4
-  %and31 = and i32 %38, 31
-  %39 = load i32, ptr %limit, align 4
-  %and32 = and i32 %39, 31
-  %40 = load i32, ptr %value.addr, align 4
-  %41 = load ptr, ptr %newTrie, align 8
-  %initialValue33 = getelementptr inbounds %struct.UNewTrie2, ptr %41, i32 0, i32 3
-  %42 = load i32, ptr %initialValue33, align 8
-  %43 = load i8, ptr %overwrite.addr, align 1
-  call void @_ZL9fillBlockPjiijja(ptr noundef %add.ptr30, i32 noundef %and31, i32 noundef %and32, i32 noundef %40, i32 noundef %42, i8 noundef signext %43)
-  br label %return
+42:                                               ; preds = %131, %56, %40
+  %43 = load i32, ptr %9, align 4, !tbaa !3
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %45, label %132
 
-if.end34:                                         ; preds = %if.then25
-  br label %if.end35
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %4, align 8, !tbaa !13
+  %47 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %46, i32 0, i32 0
+  %48 = load i32, ptr %11, align 4, !tbaa !3
+  %49 = add nsw i32 %48, -1
+  store i32 %49, ptr %11, align 4, !tbaa !3
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds [544 x i32], ptr %47, i64 0, i64 %50
+  %52 = load i32, ptr %51, align 4, !tbaa !3
+  store i32 %52, ptr %14, align 4, !tbaa !3
+  %53 = load i32, ptr %14, align 4, !tbaa !3
+  %54 = load i32, ptr %15, align 4, !tbaa !3
+  %55 = icmp eq i32 %53, %54
+  br i1 %55, label %56, label %59
 
-if.end35:                                         ; preds = %if.end34, %if.end15
-  %44 = load i32, ptr %limit, align 4
-  %and36 = and i32 %44, 31
-  store i32 %and36, ptr %rest, align 4
-  %45 = load i32, ptr %limit, align 4
-  %and37 = and i32 %45, -32
-  store i32 %and37, ptr %limit, align 4
-  %46 = load i32, ptr %value.addr, align 4
-  %47 = load ptr, ptr %newTrie, align 8
-  %initialValue38 = getelementptr inbounds %struct.UNewTrie2, ptr %47, i32 0, i32 3
-  %48 = load i32, ptr %initialValue38, align 8
-  %cmp39 = icmp eq i32 %46, %48
-  br i1 %cmp39, label %if.then40, label %if.else41
+56:                                               ; preds = %45
+  %57 = load i32, ptr %9, align 4, !tbaa !3
+  %58 = sub nsw i32 %57, 2048
+  store i32 %58, ptr %9, align 4, !tbaa !3
+  br label %42, !llvm.loop !102
 
-if.then40:                                        ; preds = %if.end35
-  %49 = load ptr, ptr %newTrie, align 8
-  %dataNullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %49, i32 0, i32 10
-  %50 = load i32, ptr %dataNullOffset, align 4
-  store i32 %50, ptr %repeatBlock, align 4
-  br label %if.end42
+59:                                               ; preds = %45
+  %60 = load i32, ptr %14, align 4, !tbaa !3
+  store i32 %60, ptr %15, align 4, !tbaa !3
+  %61 = load i32, ptr %14, align 4, !tbaa !3
+  %62 = load i32, ptr %16, align 4, !tbaa !3
+  %63 = icmp eq i32 %61, %62
+  br i1 %63, label %64, label %73
 
-if.else41:                                        ; preds = %if.end35
-  store i32 -1, ptr %repeatBlock, align 4
-  br label %if.end42
+64:                                               ; preds = %59
+  %65 = load i32, ptr %5, align 4, !tbaa !3
+  %66 = load i32, ptr %8, align 4, !tbaa !3
+  %67 = icmp ne i32 %65, %66
+  br i1 %67, label %68, label %70
 
-if.end42:                                         ; preds = %if.else41, %if.then40
-  br label %while.cond
+68:                                               ; preds = %64
+  %69 = load i32, ptr %9, align 4, !tbaa !3
+  store i32 %69, ptr %3, align 4
+  store i32 1, ptr %20, align 4
+  br label %133
 
-while.cond:                                       ; preds = %if.end97, %if.then49, %if.end42
-  %51 = load i32, ptr %start.addr, align 4
-  %52 = load i32, ptr %limit, align 4
-  %cmp43 = icmp slt i32 %51, %52
-  br i1 %cmp43, label %while.body, label %while.end
+70:                                               ; preds = %64
+  %71 = load i32, ptr %9, align 4, !tbaa !3
+  %72 = sub nsw i32 %71, 2048
+  store i32 %72, ptr %9, align 4, !tbaa !3
+  br label %131
 
-while.body:                                       ; preds = %while.cond
-  store i8 0, ptr %setRepeatBlock, align 1
-  %53 = load i32, ptr %value.addr, align 4
-  %54 = load ptr, ptr %newTrie, align 8
-  %initialValue44 = getelementptr inbounds %struct.UNewTrie2, ptr %54, i32 0, i32 3
-  %55 = load i32, ptr %initialValue44, align 8
-  %cmp45 = icmp eq i32 %53, %55
-  br i1 %cmp45, label %land.lhs.true46, label %if.end51
+73:                                               ; preds = %59
+  store i32 64, ptr %12, align 4, !tbaa !3
+  br label %74
 
-land.lhs.true46:                                  ; preds = %while.body
-  %56 = load ptr, ptr %newTrie, align 8
-  %57 = load i32, ptr %start.addr, align 4
-  %call47 = call noundef signext i8 @_ZL13isInNullBlockP9UNewTrie2ia(ptr noundef %56, i32 noundef %57, i8 noundef signext 1)
-  %tobool48 = icmp ne i8 %call47, 0
-  br i1 %tobool48, label %if.then49, label %if.end51
+74:                                               ; preds = %129, %90, %73
+  %75 = load i32, ptr %12, align 4, !tbaa !3
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %77, label %130
 
-if.then49:                                        ; preds = %land.lhs.true46
-  %58 = load i32, ptr %start.addr, align 4
-  %add50 = add nsw i32 %58, 32
-  store i32 %add50, ptr %start.addr, align 4
-  br label %while.cond, !llvm.loop !25
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %4, align 8, !tbaa !13
+  %79 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %78, i32 0, i32 1
+  %80 = load i32, ptr %14, align 4, !tbaa !3
+  %81 = load i32, ptr %12, align 4, !tbaa !3
+  %82 = add nsw i32 %81, -1
+  store i32 %82, ptr %12, align 4, !tbaa !3
+  %83 = add nsw i32 %80, %82
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds [35488 x i32], ptr %79, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4, !tbaa !3
+  store i32 %86, ptr %17, align 4, !tbaa !3
+  %87 = load i32, ptr %17, align 4, !tbaa !3
+  %88 = load i32, ptr %18, align 4, !tbaa !3
+  %89 = icmp eq i32 %87, %88
+  br i1 %89, label %90, label %93
 
-if.end51:                                         ; preds = %land.lhs.true46, %while.body
-  %59 = load ptr, ptr %newTrie, align 8
-  %60 = load i32, ptr %start.addr, align 4
-  %call52 = call noundef i32 @_ZL14getIndex2BlockP9UNewTrie2ia(ptr noundef %59, i32 noundef %60, i8 noundef signext 1)
-  store i32 %call52, ptr %i2, align 4
-  %61 = load i32, ptr %i2, align 4
-  %cmp53 = icmp slt i32 %61, 0
-  br i1 %cmp53, label %if.then54, label %if.end55
+90:                                               ; preds = %77
+  %91 = load i32, ptr %9, align 4, !tbaa !3
+  %92 = sub nsw i32 %91, 32
+  store i32 %92, ptr %9, align 4, !tbaa !3
+  br label %74, !llvm.loop !103
 
-if.then54:                                        ; preds = %if.end51
-  %62 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 5, ptr %62, align 4
-  br label %return
+93:                                               ; preds = %77
+  %94 = load i32, ptr %17, align 4, !tbaa !3
+  store i32 %94, ptr %18, align 4, !tbaa !3
+  %95 = load i32, ptr %17, align 4, !tbaa !3
+  %96 = load i32, ptr %19, align 4, !tbaa !3
+  %97 = icmp eq i32 %95, %96
+  br i1 %97, label %98, label %107
 
-if.end55:                                         ; preds = %if.end51
-  %63 = load i32, ptr %start.addr, align 4
-  %shr = ashr i32 %63, 5
-  %and56 = and i32 %shr, 63
-  %64 = load i32, ptr %i2, align 4
-  %add57 = add nsw i32 %64, %and56
-  store i32 %add57, ptr %i2, align 4
-  %65 = load ptr, ptr %newTrie, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %65, i32 0, i32 1
-  %66 = load i32, ptr %i2, align 4
-  %idxprom = sext i32 %66 to i64
-  %arrayidx = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 %idxprom
-  %67 = load i32, ptr %arrayidx, align 4
-  store i32 %67, ptr %block, align 4
-  %68 = load ptr, ptr %newTrie, align 8
-  %69 = load i32, ptr %block, align 4
-  %call58 = call noundef signext i8 @_ZL15isWritableBlockP9UNewTrie2i(ptr noundef %68, i32 noundef %69)
-  %tobool59 = icmp ne i8 %call58, 0
-  br i1 %tobool59, label %if.then60, label %if.else71
+98:                                               ; preds = %93
+  %99 = load i32, ptr %5, align 4, !tbaa !3
+  %100 = load i32, ptr %8, align 4, !tbaa !3
+  %101 = icmp ne i32 %99, %100
+  br i1 %101, label %102, label %104
 
-if.then60:                                        ; preds = %if.end55
-  %70 = load i8, ptr %overwrite.addr, align 1
-  %tobool61 = icmp ne i8 %70, 0
-  br i1 %tobool61, label %land.lhs.true62, label %if.else65
+102:                                              ; preds = %98
+  %103 = load i32, ptr %9, align 4, !tbaa !3
+  store i32 %103, ptr %3, align 4
+  store i32 1, ptr %20, align 4
+  br label %133
 
-land.lhs.true62:                                  ; preds = %if.then60
-  %71 = load i32, ptr %block, align 4
-  %cmp63 = icmp sge i32 %71, 2176
-  br i1 %cmp63, label %if.then64, label %if.else65
+104:                                              ; preds = %98
+  %105 = load i32, ptr %9, align 4, !tbaa !3
+  %106 = sub nsw i32 %105, 32
+  store i32 %106, ptr %9, align 4, !tbaa !3
+  br label %129
 
-if.then64:                                        ; preds = %land.lhs.true62
-  store i8 1, ptr %setRepeatBlock, align 1
-  br label %if.end70
+107:                                              ; preds = %93
+  store i32 32, ptr %13, align 4, !tbaa !3
+  br label %108
 
-if.else65:                                        ; preds = %land.lhs.true62, %if.then60
-  %72 = load ptr, ptr %newTrie, align 8
-  %data66 = getelementptr inbounds %struct.UNewTrie2, ptr %72, i32 0, i32 2
-  %73 = load ptr, ptr %data66, align 8
-  %74 = load i32, ptr %block, align 4
-  %idx.ext67 = sext i32 %74 to i64
-  %add.ptr68 = getelementptr inbounds i32, ptr %73, i64 %idx.ext67
-  %75 = load i32, ptr %value.addr, align 4
-  %76 = load ptr, ptr %newTrie, align 8
-  %initialValue69 = getelementptr inbounds %struct.UNewTrie2, ptr %76, i32 0, i32 3
-  %77 = load i32, ptr %initialValue69, align 8
-  %78 = load i8, ptr %overwrite.addr, align 1
-  call void @_ZL9fillBlockPjiijja(ptr noundef %add.ptr68, i32 noundef 0, i32 noundef 32, i32 noundef %75, i32 noundef %77, i8 noundef signext %78)
-  br label %if.end70
+108:                                              ; preds = %125, %107
+  %109 = load i32, ptr %13, align 4, !tbaa !3
+  %110 = icmp sgt i32 %109, 0
+  br i1 %110, label %111, label %128
 
-if.end70:                                         ; preds = %if.else65, %if.then64
-  br label %if.end83
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %6, align 8, !tbaa !15
+  %113 = load i32, ptr %17, align 4, !tbaa !3
+  %114 = load i32, ptr %13, align 4, !tbaa !3
+  %115 = add nsw i32 %114, -1
+  store i32 %115, ptr %13, align 4, !tbaa !3
+  %116 = add nsw i32 %113, %115
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds i32, ptr %112, i64 %117
+  %119 = load i32, ptr %118, align 4, !tbaa !3
+  store i32 %119, ptr %7, align 4, !tbaa !3
+  %120 = load i32, ptr %7, align 4, !tbaa !3
+  %121 = load i32, ptr %5, align 4, !tbaa !3
+  %122 = icmp ne i32 %120, %121
+  br i1 %122, label %123, label %125
 
-if.else71:                                        ; preds = %if.end55
-  %79 = load ptr, ptr %newTrie, align 8
-  %data72 = getelementptr inbounds %struct.UNewTrie2, ptr %79, i32 0, i32 2
-  %80 = load ptr, ptr %data72, align 8
-  %81 = load i32, ptr %block, align 4
-  %idxprom73 = sext i32 %81 to i64
-  %arrayidx74 = getelementptr inbounds i32, ptr %80, i64 %idxprom73
-  %82 = load i32, ptr %arrayidx74, align 4
-  %83 = load i32, ptr %value.addr, align 4
-  %cmp75 = icmp ne i32 %82, %83
-  br i1 %cmp75, label %land.lhs.true76, label %if.end82
+123:                                              ; preds = %111
+  %124 = load i32, ptr %9, align 4, !tbaa !3
+  store i32 %124, ptr %3, align 4
+  store i32 1, ptr %20, align 4
+  br label %133
 
-land.lhs.true76:                                  ; preds = %if.else71
-  %84 = load i8, ptr %overwrite.addr, align 1
-  %tobool77 = icmp ne i8 %84, 0
-  br i1 %tobool77, label %if.then81, label %lor.lhs.false78
+125:                                              ; preds = %111
+  %126 = load i32, ptr %9, align 4, !tbaa !3
+  %127 = add nsw i32 %126, -1
+  store i32 %127, ptr %9, align 4, !tbaa !3
+  br label %108, !llvm.loop !104
 
-lor.lhs.false78:                                  ; preds = %land.lhs.true76
-  %85 = load i32, ptr %block, align 4
-  %86 = load ptr, ptr %newTrie, align 8
-  %dataNullOffset79 = getelementptr inbounds %struct.UNewTrie2, ptr %86, i32 0, i32 10
-  %87 = load i32, ptr %dataNullOffset79, align 4
-  %cmp80 = icmp eq i32 %85, %87
-  br i1 %cmp80, label %if.then81, label %if.end82
+128:                                              ; preds = %108
+  br label %129
 
-if.then81:                                        ; preds = %lor.lhs.false78, %land.lhs.true76
-  store i8 1, ptr %setRepeatBlock, align 1
-  br label %if.end82
+129:                                              ; preds = %128, %104
+  br label %74, !llvm.loop !103
 
-if.end82:                                         ; preds = %if.then81, %lor.lhs.false78, %if.else71
-  br label %if.end83
+130:                                              ; preds = %74
+  br label %131
 
-if.end83:                                         ; preds = %if.end82, %if.end70
-  %88 = load i8, ptr %setRepeatBlock, align 1
-  %tobool84 = icmp ne i8 %88, 0
-  br i1 %tobool84, label %if.then85, label %if.end97
+131:                                              ; preds = %130, %70
+  br label %42, !llvm.loop !102
 
-if.then85:                                        ; preds = %if.end83
-  %89 = load i32, ptr %repeatBlock, align 4
-  %cmp86 = icmp sge i32 %89, 0
-  br i1 %cmp86, label %if.then87, label %if.else88
+132:                                              ; preds = %42
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %20, align 4
+  br label %133
 
-if.then87:                                        ; preds = %if.then85
-  %90 = load ptr, ptr %newTrie, align 8
-  %91 = load i32, ptr %i2, align 4
-  %92 = load i32, ptr %repeatBlock, align 4
-  call void @_ZL14setIndex2EntryP9UNewTrie2ii(ptr noundef %90, i32 noundef %91, i32 noundef %92)
-  br label %if.end96
+133:                                              ; preds = %132, %123, %102, %68
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %134 = load i32, ptr %3, align 4
+  ret i32 %134
+}
 
-if.else88:                                        ; preds = %if.then85
-  %93 = load ptr, ptr %newTrie, align 8
-  %94 = load i32, ptr %start.addr, align 4
-  %call89 = call noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %93, i32 noundef %94, i8 noundef signext 1)
-  store i32 %call89, ptr %repeatBlock, align 4
-  %95 = load i32, ptr %repeatBlock, align 4
-  %cmp90 = icmp slt i32 %95, 0
-  br i1 %cmp90, label %if.then91, label %if.end92
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL11compactDataP9UNewTrie2(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  store i32 192, ptr %4, align 4, !tbaa !3
+  store i32 0, ptr %3, align 4, !tbaa !3
+  store i32 0, ptr %8, align 4, !tbaa !3
+  br label %11
 
-if.then91:                                        ; preds = %if.else88
-  %96 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %96, align 4
-  br label %return
+11:                                               ; preds = %22, %1
+  %12 = load i32, ptr %3, align 4, !tbaa !3
+  %13 = load i32, ptr %4, align 4, !tbaa !3
+  %14 = icmp slt i32 %12, %13
+  br i1 %14, label %15, label %27
 
-if.end92:                                         ; preds = %if.else88
-  %97 = load ptr, ptr %newTrie, align 8
-  %data93 = getelementptr inbounds %struct.UNewTrie2, ptr %97, i32 0, i32 2
-  %98 = load ptr, ptr %data93, align 8
-  %99 = load i32, ptr %repeatBlock, align 4
-  %idx.ext94 = sext i32 %99 to i64
-  %add.ptr95 = getelementptr inbounds i32, ptr %98, i64 %idx.ext94
-  %100 = load i32, ptr %value.addr, align 4
-  call void @_ZL10writeBlockPjj(ptr noundef %add.ptr95, i32 noundef %100)
-  br label %if.end96
+15:                                               ; preds = %11
+  %16 = load i32, ptr %3, align 4, !tbaa !3
+  %17 = load ptr, ptr %2, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %17, i32 0, i32 13
+  %19 = load i32, ptr %8, align 4, !tbaa !3
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds [34852 x i32], ptr %18, i64 0, i64 %20
+  store i32 %16, ptr %21, align 4, !tbaa !3
+  br label %22
 
-if.end96:                                         ; preds = %if.end92, %if.then87
-  br label %if.end97
+22:                                               ; preds = %15
+  %23 = load i32, ptr %3, align 4, !tbaa !3
+  %24 = add nsw i32 %23, 32
+  store i32 %24, ptr %3, align 4, !tbaa !3
+  %25 = load i32, ptr %8, align 4, !tbaa !3
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %8, align 4, !tbaa !3
+  br label %11, !llvm.loop !105
 
-if.end97:                                         ; preds = %if.end96, %if.end83
-  %101 = load i32, ptr %start.addr, align 4
-  %add98 = add nsw i32 %101, 32
-  store i32 %add98, ptr %start.addr, align 4
-  br label %while.cond, !llvm.loop !25
+27:                                               ; preds = %11
+  store i32 64, ptr %6, align 4, !tbaa !3
+  %28 = load i32, ptr %6, align 4, !tbaa !3
+  %29 = ashr i32 %28, 5
+  store i32 %29, ptr %10, align 4, !tbaa !3
+  %30 = load i32, ptr %4, align 4, !tbaa !3
+  store i32 %30, ptr %3, align 4, !tbaa !3
+  br label %31
 
-while.end:                                        ; preds = %while.cond
-  %102 = load i32, ptr %rest, align 4
-  %cmp99 = icmp sgt i32 %102, 0
-  br i1 %cmp99, label %if.then100, label %if.end109
+31:                                               ; preds = %200, %83, %50, %27
+  %32 = load i32, ptr %3, align 4, !tbaa !3
+  %33 = load ptr, ptr %2, align 8, !tbaa !13
+  %34 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %33, i32 0, i32 7
+  %35 = load i32, ptr %34, align 8, !tbaa !37
+  %36 = icmp slt i32 %32, %35
+  br i1 %36, label %37, label %201
 
-if.then100:                                       ; preds = %while.end
-  %103 = load ptr, ptr %newTrie, align 8
-  %104 = load i32, ptr %start.addr, align 4
-  %call101 = call noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %103, i32 noundef %104, i8 noundef signext 1)
-  store i32 %call101, ptr %block, align 4
-  %105 = load i32, ptr %block, align 4
-  %cmp102 = icmp slt i32 %105, 0
-  br i1 %cmp102, label %if.then103, label %if.end104
+37:                                               ; preds = %31
+  %38 = load i32, ptr %3, align 4, !tbaa !3
+  %39 = icmp eq i32 %38, 2176
+  br i1 %39, label %40, label %41
 
-if.then103:                                       ; preds = %if.then100
-  %106 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %106, align 4
-  br label %return
+40:                                               ; preds = %37
+  store i32 32, ptr %6, align 4, !tbaa !3
+  store i32 1, ptr %10, align 4, !tbaa !3
+  br label %41
 
-if.end104:                                        ; preds = %if.then100
-  %107 = load ptr, ptr %newTrie, align 8
-  %data105 = getelementptr inbounds %struct.UNewTrie2, ptr %107, i32 0, i32 2
-  %108 = load ptr, ptr %data105, align 8
-  %109 = load i32, ptr %block, align 4
-  %idx.ext106 = sext i32 %109 to i64
-  %add.ptr107 = getelementptr inbounds i32, ptr %108, i64 %idx.ext106
-  %110 = load i32, ptr %rest, align 4
-  %111 = load i32, ptr %value.addr, align 4
-  %112 = load ptr, ptr %newTrie, align 8
-  %initialValue108 = getelementptr inbounds %struct.UNewTrie2, ptr %112, i32 0, i32 3
-  %113 = load i32, ptr %initialValue108, align 8
-  %114 = load i8, ptr %overwrite.addr, align 1
-  call void @_ZL9fillBlockPjiijja(ptr noundef %add.ptr107, i32 noundef 0, i32 noundef %110, i32 noundef %111, i32 noundef %113, i8 noundef signext %114)
-  br label %if.end109
+41:                                               ; preds = %40, %37
+  %42 = load ptr, ptr %2, align 8, !tbaa !13
+  %43 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %42, i32 0, i32 13
+  %44 = load i32, ptr %3, align 4, !tbaa !3
+  %45 = ashr i32 %44, 5
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds [34852 x i32], ptr %43, i64 0, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !3
+  %49 = icmp sle i32 %48, 0
+  br i1 %49, label %50, label %54
 
-if.end109:                                        ; preds = %if.end104, %while.end
-  br label %return
+50:                                               ; preds = %41
+  %51 = load i32, ptr %6, align 4, !tbaa !3
+  %52 = load i32, ptr %3, align 4, !tbaa !3
+  %53 = add nsw i32 %52, %51
+  store i32 %53, ptr %3, align 4, !tbaa !3
+  br label %31, !llvm.loop !106
 
-return:                                           ; preds = %if.end109, %if.then103, %if.then91, %if.then54, %if.else, %if.then20, %if.then14, %if.then10, %if.then4, %if.then
+54:                                               ; preds = %41
+  %55 = load ptr, ptr %2, align 8, !tbaa !13
+  %56 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %55, i32 0, i32 2
+  %57 = load ptr, ptr %56, align 8, !tbaa !24
+  %58 = load i32, ptr %4, align 4, !tbaa !3
+  %59 = load i32, ptr %3, align 4, !tbaa !3
+  %60 = load i32, ptr %6, align 4, !tbaa !3
+  %61 = call noundef i32 @_ZL17findSameDataBlockPKjiii(ptr noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef %60)
+  store i32 %61, ptr %5, align 4, !tbaa !3
+  %62 = icmp sge i32 %61, 0
+  br i1 %62, label %63, label %87
+
+63:                                               ; preds = %54
+  %64 = load i32, ptr %10, align 4, !tbaa !3
+  store i32 %64, ptr %8, align 4, !tbaa !3
+  %65 = load i32, ptr %3, align 4, !tbaa !3
+  %66 = ashr i32 %65, 5
+  store i32 %66, ptr %9, align 4, !tbaa !3
+  br label %67
+
+67:                                               ; preds = %80, %63
+  %68 = load i32, ptr %8, align 4, !tbaa !3
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %70, label %83
+
+70:                                               ; preds = %67
+  %71 = load i32, ptr %5, align 4, !tbaa !3
+  %72 = load ptr, ptr %2, align 8, !tbaa !13
+  %73 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %72, i32 0, i32 13
+  %74 = load i32, ptr %9, align 4, !tbaa !3
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %9, align 4, !tbaa !3
+  %76 = sext i32 %74 to i64
+  %77 = getelementptr inbounds [34852 x i32], ptr %73, i64 0, i64 %76
+  store i32 %71, ptr %77, align 4, !tbaa !3
+  %78 = load i32, ptr %5, align 4, !tbaa !3
+  %79 = add nsw i32 %78, 32
+  store i32 %79, ptr %5, align 4, !tbaa !3
+  br label %80
+
+80:                                               ; preds = %70
+  %81 = load i32, ptr %8, align 4, !tbaa !3
+  %82 = add nsw i32 %81, -1
+  store i32 %82, ptr %8, align 4, !tbaa !3
+  br label %67, !llvm.loop !107
+
+83:                                               ; preds = %67
+  %84 = load i32, ptr %6, align 4, !tbaa !3
+  %85 = load i32, ptr %3, align 4, !tbaa !3
+  %86 = add nsw i32 %85, %84
+  store i32 %86, ptr %3, align 4, !tbaa !3
+  br label %31, !llvm.loop !106
+
+87:                                               ; preds = %54
+  %88 = load i32, ptr %6, align 4, !tbaa !3
+  %89 = sub nsw i32 %88, 4
+  store i32 %89, ptr %7, align 4, !tbaa !3
+  br label %90
+
+90:                                               ; preds = %115, %87
+  %91 = load i32, ptr %7, align 4, !tbaa !3
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %112
+
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %2, align 8, !tbaa !13
+  %95 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %94, i32 0, i32 2
+  %96 = load ptr, ptr %95, align 8, !tbaa !24
+  %97 = load i32, ptr %4, align 4, !tbaa !3
+  %98 = load i32, ptr %7, align 4, !tbaa !3
+  %99 = sub nsw i32 %97, %98
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds i32, ptr %96, i64 %100
+  %102 = load ptr, ptr %2, align 8, !tbaa !13
+  %103 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %102, i32 0, i32 2
+  %104 = load ptr, ptr %103, align 8, !tbaa !24
+  %105 = load i32, ptr %3, align 4, !tbaa !3
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i32, ptr %104, i64 %106
+  %108 = load i32, ptr %7, align 4, !tbaa !3
+  %109 = call noundef signext i8 @_ZL12equal_uint32PKjS0_i(ptr noundef %101, ptr noundef %107, i32 noundef %108)
+  %110 = icmp ne i8 %109, 0
+  %111 = xor i1 %110, true
+  br label %112
+
+112:                                              ; preds = %93, %90
+  %113 = phi i1 [ false, %90 ], [ %111, %93 ]
+  br i1 %113, label %114, label %118
+
+114:                                              ; preds = %112
+  br label %115
+
+115:                                              ; preds = %114
+  %116 = load i32, ptr %7, align 4, !tbaa !3
+  %117 = sub nsw i32 %116, 4
+  store i32 %117, ptr %7, align 4, !tbaa !3
+  br label %90, !llvm.loop !108
+
+118:                                              ; preds = %112
+  %119 = load i32, ptr %7, align 4, !tbaa !3
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %125, label %121
+
+121:                                              ; preds = %118
+  %122 = load i32, ptr %4, align 4, !tbaa !3
+  %123 = load i32, ptr %3, align 4, !tbaa !3
+  %124 = icmp slt i32 %122, %123
+  br i1 %124, label %125, label %178
+
+125:                                              ; preds = %121, %118
+  %126 = load i32, ptr %4, align 4, !tbaa !3
+  %127 = load i32, ptr %7, align 4, !tbaa !3
+  %128 = sub nsw i32 %126, %127
+  store i32 %128, ptr %5, align 4, !tbaa !3
+  %129 = load i32, ptr %10, align 4, !tbaa !3
+  store i32 %129, ptr %8, align 4, !tbaa !3
+  %130 = load i32, ptr %3, align 4, !tbaa !3
+  %131 = ashr i32 %130, 5
+  store i32 %131, ptr %9, align 4, !tbaa !3
+  br label %132
+
+132:                                              ; preds = %145, %125
+  %133 = load i32, ptr %8, align 4, !tbaa !3
+  %134 = icmp sgt i32 %133, 0
+  br i1 %134, label %135, label %148
+
+135:                                              ; preds = %132
+  %136 = load i32, ptr %5, align 4, !tbaa !3
+  %137 = load ptr, ptr %2, align 8, !tbaa !13
+  %138 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %137, i32 0, i32 13
+  %139 = load i32, ptr %9, align 4, !tbaa !3
+  %140 = add nsw i32 %139, 1
+  store i32 %140, ptr %9, align 4, !tbaa !3
+  %141 = sext i32 %139 to i64
+  %142 = getelementptr inbounds [34852 x i32], ptr %138, i64 0, i64 %141
+  store i32 %136, ptr %142, align 4, !tbaa !3
+  %143 = load i32, ptr %5, align 4, !tbaa !3
+  %144 = add nsw i32 %143, 32
+  store i32 %144, ptr %5, align 4, !tbaa !3
+  br label %145
+
+145:                                              ; preds = %135
+  %146 = load i32, ptr %8, align 4, !tbaa !3
+  %147 = add nsw i32 %146, -1
+  store i32 %147, ptr %8, align 4, !tbaa !3
+  br label %132, !llvm.loop !109
+
+148:                                              ; preds = %132
+  %149 = load i32, ptr %7, align 4, !tbaa !3
+  %150 = load i32, ptr %3, align 4, !tbaa !3
+  %151 = add nsw i32 %150, %149
+  store i32 %151, ptr %3, align 4, !tbaa !3
+  %152 = load i32, ptr %6, align 4, !tbaa !3
+  %153 = load i32, ptr %7, align 4, !tbaa !3
+  %154 = sub nsw i32 %152, %153
+  store i32 %154, ptr %8, align 4, !tbaa !3
+  br label %155
+
+155:                                              ; preds = %174, %148
+  %156 = load i32, ptr %8, align 4, !tbaa !3
+  %157 = icmp sgt i32 %156, 0
+  br i1 %157, label %158, label %177
+
+158:                                              ; preds = %155
+  %159 = load ptr, ptr %2, align 8, !tbaa !13
+  %160 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %159, i32 0, i32 2
+  %161 = load ptr, ptr %160, align 8, !tbaa !24
+  %162 = load i32, ptr %3, align 4, !tbaa !3
+  %163 = add nsw i32 %162, 1
+  store i32 %163, ptr %3, align 4, !tbaa !3
+  %164 = sext i32 %162 to i64
+  %165 = getelementptr inbounds i32, ptr %161, i64 %164
+  %166 = load i32, ptr %165, align 4, !tbaa !3
+  %167 = load ptr, ptr %2, align 8, !tbaa !13
+  %168 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %167, i32 0, i32 2
+  %169 = load ptr, ptr %168, align 8, !tbaa !24
+  %170 = load i32, ptr %4, align 4, !tbaa !3
+  %171 = add nsw i32 %170, 1
+  store i32 %171, ptr %4, align 4, !tbaa !3
+  %172 = sext i32 %170 to i64
+  %173 = getelementptr inbounds i32, ptr %169, i64 %172
+  store i32 %166, ptr %173, align 4, !tbaa !3
+  br label %174
+
+174:                                              ; preds = %158
+  %175 = load i32, ptr %8, align 4, !tbaa !3
+  %176 = add nsw i32 %175, -1
+  store i32 %176, ptr %8, align 4, !tbaa !3
+  br label %155, !llvm.loop !110
+
+177:                                              ; preds = %155
+  br label %200
+
+178:                                              ; preds = %121
+  %179 = load i32, ptr %10, align 4, !tbaa !3
+  store i32 %179, ptr %8, align 4, !tbaa !3
+  %180 = load i32, ptr %3, align 4, !tbaa !3
+  %181 = ashr i32 %180, 5
+  store i32 %181, ptr %9, align 4, !tbaa !3
+  br label %182
+
+182:                                              ; preds = %195, %178
+  %183 = load i32, ptr %8, align 4, !tbaa !3
+  %184 = icmp sgt i32 %183, 0
+  br i1 %184, label %185, label %198
+
+185:                                              ; preds = %182
+  %186 = load i32, ptr %3, align 4, !tbaa !3
+  %187 = load ptr, ptr %2, align 8, !tbaa !13
+  %188 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %187, i32 0, i32 13
+  %189 = load i32, ptr %9, align 4, !tbaa !3
+  %190 = add nsw i32 %189, 1
+  store i32 %190, ptr %9, align 4, !tbaa !3
+  %191 = sext i32 %189 to i64
+  %192 = getelementptr inbounds [34852 x i32], ptr %188, i64 0, i64 %191
+  store i32 %186, ptr %192, align 4, !tbaa !3
+  %193 = load i32, ptr %3, align 4, !tbaa !3
+  %194 = add nsw i32 %193, 32
+  store i32 %194, ptr %3, align 4, !tbaa !3
+  br label %195
+
+195:                                              ; preds = %185
+  %196 = load i32, ptr %8, align 4, !tbaa !3
+  %197 = add nsw i32 %196, -1
+  store i32 %197, ptr %8, align 4, !tbaa !3
+  br label %182, !llvm.loop !111
+
+198:                                              ; preds = %182
+  %199 = load i32, ptr %3, align 4, !tbaa !3
+  store i32 %199, ptr %4, align 4, !tbaa !3
+  br label %200
+
+200:                                              ; preds = %198, %177
+  br label %31, !llvm.loop !106
+
+201:                                              ; preds = %31
+  store i32 0, ptr %8, align 4, !tbaa !3
+  br label %202
+
+202:                                              ; preds = %232, %201
+  %203 = load i32, ptr %8, align 4, !tbaa !3
+  %204 = load ptr, ptr %2, align 8, !tbaa !13
+  %205 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %204, i32 0, i32 5
+  %206 = load i32, ptr %205, align 8, !tbaa !45
+  %207 = icmp slt i32 %203, %206
+  br i1 %207, label %208, label %235
+
+208:                                              ; preds = %202
+  %209 = load i32, ptr %8, align 4, !tbaa !3
+  %210 = icmp eq i32 %209, 2080
+  br i1 %210, label %211, label %214
+
+211:                                              ; preds = %208
+  %212 = load i32, ptr %8, align 4, !tbaa !3
+  %213 = add nsw i32 %212, 576
+  store i32 %213, ptr %8, align 4, !tbaa !3
+  br label %214
+
+214:                                              ; preds = %211, %208
+  %215 = load ptr, ptr %2, align 8, !tbaa !13
+  %216 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %215, i32 0, i32 13
+  %217 = load ptr, ptr %2, align 8, !tbaa !13
+  %218 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %217, i32 0, i32 1
+  %219 = load i32, ptr %8, align 4, !tbaa !3
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds [35488 x i32], ptr %218, i64 0, i64 %220
+  %222 = load i32, ptr %221, align 4, !tbaa !3
+  %223 = ashr i32 %222, 5
+  %224 = sext i32 %223 to i64
+  %225 = getelementptr inbounds [34852 x i32], ptr %216, i64 0, i64 %224
+  %226 = load i32, ptr %225, align 4, !tbaa !3
+  %227 = load ptr, ptr %2, align 8, !tbaa !13
+  %228 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %227, i32 0, i32 1
+  %229 = load i32, ptr %8, align 4, !tbaa !3
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds [35488 x i32], ptr %228, i64 0, i64 %230
+  store i32 %226, ptr %231, align 4, !tbaa !3
+  br label %232
+
+232:                                              ; preds = %214
+  %233 = load i32, ptr %8, align 4, !tbaa !3
+  %234 = add nsw i32 %233, 1
+  store i32 %234, ptr %8, align 4, !tbaa !3
+  br label %202, !llvm.loop !112
+
+235:                                              ; preds = %202
+  %236 = load ptr, ptr %2, align 8, !tbaa !13
+  %237 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %236, i32 0, i32 13
+  %238 = load ptr, ptr %2, align 8, !tbaa !13
+  %239 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %238, i32 0, i32 10
+  %240 = load i32, ptr %239, align 4, !tbaa !36
+  %241 = ashr i32 %240, 5
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr inbounds [34852 x i32], ptr %237, i64 0, i64 %242
+  %244 = load i32, ptr %243, align 4, !tbaa !3
+  %245 = load ptr, ptr %2, align 8, !tbaa !13
+  %246 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %245, i32 0, i32 10
+  store i32 %244, ptr %246, align 4, !tbaa !36
+  br label %247
+
+247:                                              ; preds = %251, %235
+  %248 = load i32, ptr %4, align 4, !tbaa !3
+  %249 = and i32 %248, 3
+  %250 = icmp ne i32 %249, 0
+  br i1 %250, label %251, label %262
+
+251:                                              ; preds = %247
+  %252 = load ptr, ptr %2, align 8, !tbaa !13
+  %253 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %252, i32 0, i32 3
+  %254 = load i32, ptr %253, align 8, !tbaa !27
+  %255 = load ptr, ptr %2, align 8, !tbaa !13
+  %256 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %255, i32 0, i32 2
+  %257 = load ptr, ptr %256, align 8, !tbaa !24
+  %258 = load i32, ptr %4, align 4, !tbaa !3
+  %259 = add nsw i32 %258, 1
+  store i32 %259, ptr %4, align 4, !tbaa !3
+  %260 = sext i32 %258 to i64
+  %261 = getelementptr inbounds i32, ptr %257, i64 %260
+  store i32 %254, ptr %261, align 4, !tbaa !3
+  br label %247, !llvm.loop !113
+
+262:                                              ; preds = %247
+  %263 = load i32, ptr %4, align 4, !tbaa !3
+  %264 = load ptr, ptr %2, align 8, !tbaa !13
+  %265 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %264, i32 0, i32 7
+  store i32 %263, ptr %265, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef %trie, i32 noundef %c, i8 noundef signext %forLSCP) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %trie.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %forLSCP.addr = alloca i8, align 1
-  %i2 = alloca i32, align 4
-  %oldBlock = alloca i32, align 4
-  %newBlock = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  store i8 %forLSCP, ptr %forLSCP.addr, align 1
-  %0 = load ptr, ptr %trie.addr, align 8
-  %1 = load i32, ptr %c.addr, align 4
-  %2 = load i8, ptr %forLSCP.addr, align 1
-  %call = call noundef i32 @_ZL14getIndex2BlockP9UNewTrie2ia(ptr noundef %0, i32 noundef %1, i8 noundef signext %2)
-  store i32 %call, ptr %i2, align 4
-  %3 = load i32, ptr %i2, align 4
-  %cmp = icmp slt i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZL13compactIndex2P9UNewTrie2(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  store i32 2080, ptr %5, align 4, !tbaa !3
+  store i32 0, ptr %4, align 4, !tbaa !3
+  store i32 0, ptr %3, align 4, !tbaa !3
+  br label %8
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %19, %1
+  %9 = load i32, ptr %4, align 4, !tbaa !3
+  %10 = load i32, ptr %5, align 4, !tbaa !3
+  %11 = icmp slt i32 %9, %10
+  br i1 %11, label %12, label %24
 
-if.end:                                           ; preds = %entry
-  %4 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %4, 5
-  %and = and i32 %shr, 63
-  %5 = load i32, ptr %i2, align 4
-  %add = add nsw i32 %5, %and
-  store i32 %add, ptr %i2, align 4
-  %6 = load ptr, ptr %trie.addr, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %i2, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 %idxprom
-  %8 = load i32, ptr %arrayidx, align 4
-  store i32 %8, ptr %oldBlock, align 4
-  %9 = load ptr, ptr %trie.addr, align 8
-  %10 = load i32, ptr %oldBlock, align 4
-  %call1 = call noundef signext i8 @_ZL15isWritableBlockP9UNewTrie2i(ptr noundef %9, i32 noundef %10)
-  %tobool = icmp ne i8 %call1, 0
-  br i1 %tobool, label %if.then2, label %if.end3
+12:                                               ; preds = %8
+  %13 = load i32, ptr %4, align 4, !tbaa !3
+  %14 = load ptr, ptr %2, align 8, !tbaa !13
+  %15 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %14, i32 0, i32 13
+  %16 = load i32, ptr %3, align 4, !tbaa !3
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [34852 x i32], ptr %15, i64 0, i64 %17
+  store i32 %13, ptr %18, align 4, !tbaa !3
+  br label %19
 
-if.then2:                                         ; preds = %if.end
-  %11 = load i32, ptr %oldBlock, align 4
-  store i32 %11, ptr %retval, align 4
-  br label %return
+19:                                               ; preds = %12
+  %20 = load i32, ptr %4, align 4, !tbaa !3
+  %21 = add nsw i32 %20, 64
+  store i32 %21, ptr %4, align 4, !tbaa !3
+  %22 = load i32, ptr %3, align 4, !tbaa !3
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %3, align 4, !tbaa !3
+  br label %8, !llvm.loop !114
 
-if.end3:                                          ; preds = %if.end
-  %12 = load ptr, ptr %trie.addr, align 8
-  %13 = load i32, ptr %oldBlock, align 4
-  %call4 = call noundef i32 @_ZL14allocDataBlockP9UNewTrie2i(ptr noundef %12, i32 noundef %13)
-  store i32 %call4, ptr %newBlock, align 4
-  %14 = load i32, ptr %newBlock, align 4
-  %cmp5 = icmp slt i32 %14, 0
-  br i1 %cmp5, label %if.then6, label %if.end7
+24:                                               ; preds = %8
+  %25 = load ptr, ptr %2, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %25, i32 0, i32 11
+  %27 = load i32, ptr %26, align 8, !tbaa !29
+  %28 = sub nsw i32 %27, 65536
+  %29 = ashr i32 %28, 11
+  %30 = add nsw i32 32, %29
+  %31 = load i32, ptr %5, align 4, !tbaa !3
+  %32 = add nsw i32 %31, %30
+  store i32 %32, ptr %5, align 4, !tbaa !3
+  store i32 2656, ptr %4, align 4, !tbaa !3
+  br label %33
 
-if.then6:                                         ; preds = %if.end3
-  store i32 -1, ptr %retval, align 4
-  br label %return
+33:                                               ; preds = %140, %47, %24
+  %34 = load i32, ptr %4, align 4, !tbaa !3
+  %35 = load ptr, ptr %2, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %35, i32 0, i32 5
+  %37 = load i32, ptr %36, align 8, !tbaa !45
+  %38 = icmp slt i32 %34, %37
+  br i1 %38, label %39, label %141
 
-if.end7:                                          ; preds = %if.end3
-  %15 = load ptr, ptr %trie.addr, align 8
-  %16 = load i32, ptr %i2, align 4
-  %17 = load i32, ptr %newBlock, align 4
-  call void @_ZL14setIndex2EntryP9UNewTrie2ii(ptr noundef %15, i32 noundef %16, i32 noundef %17)
-  %18 = load i32, ptr %newBlock, align 4
-  store i32 %18, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %2, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %40, i32 0, i32 1
+  %42 = getelementptr inbounds [35488 x i32], ptr %41, i64 0, i64 0
+  %43 = load i32, ptr %5, align 4, !tbaa !3
+  %44 = load i32, ptr %4, align 4, !tbaa !3
+  %45 = call noundef i32 @_ZL19findSameIndex2BlockPKiii(ptr noundef %42, i32 noundef %43, i32 noundef %44)
+  store i32 %45, ptr %6, align 4, !tbaa !3
+  %46 = icmp sge i32 %45, 0
+  br i1 %46, label %47, label %57
 
-return:                                           ; preds = %if.end7, %if.then6, %if.then2, %if.then
-  %19 = load i32, ptr %retval, align 4
-  ret i32 %19
-}
+47:                                               ; preds = %39
+  %48 = load i32, ptr %6, align 4, !tbaa !3
+  %49 = load ptr, ptr %2, align 8, !tbaa !13
+  %50 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %49, i32 0, i32 13
+  %51 = load i32, ptr %4, align 4, !tbaa !3
+  %52 = ashr i32 %51, 6
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds [34852 x i32], ptr %50, i64 0, i64 %53
+  store i32 %48, ptr %54, align 4, !tbaa !3
+  %55 = load i32, ptr %4, align 4, !tbaa !3
+  %56 = add nsw i32 %55, 64
+  store i32 %56, ptr %4, align 4, !tbaa !3
+  br label %33, !llvm.loop !115
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL9fillBlockPjiijja(ptr noundef %block, i32 noundef %start, i32 noundef %limit, i32 noundef %value, i32 noundef %initialValue, i8 noundef signext %overwrite) #1 {
-entry:
-  %block.addr = alloca ptr, align 8
-  %start.addr = alloca i32, align 4
-  %limit.addr = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %initialValue.addr = alloca i32, align 4
-  %overwrite.addr = alloca i8, align 1
-  %pLimit = alloca ptr, align 8
-  store ptr %block, ptr %block.addr, align 8
-  store i32 %start, ptr %start.addr, align 4
-  store i32 %limit, ptr %limit.addr, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store i32 %initialValue, ptr %initialValue.addr, align 4
-  store i8 %overwrite, ptr %overwrite.addr, align 1
-  %0 = load ptr, ptr %block.addr, align 8
-  %1 = load i32, ptr %limit.addr, align 4
-  %idx.ext = sext i32 %1 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
-  store ptr %add.ptr, ptr %pLimit, align 8
-  %2 = load i32, ptr %start.addr, align 4
-  %3 = load ptr, ptr %block.addr, align 8
-  %idx.ext1 = sext i32 %2 to i64
-  %add.ptr2 = getelementptr inbounds i32, ptr %3, i64 %idx.ext1
-  store ptr %add.ptr2, ptr %block.addr, align 8
-  %4 = load i8, ptr %overwrite.addr, align 1
-  %tobool = icmp ne i8 %4, 0
-  br i1 %tobool, label %if.then, label %if.else
+57:                                               ; preds = %39
+  store i32 63, ptr %7, align 4, !tbaa !3
+  br label %58
 
-if.then:                                          ; preds = %entry
-  br label %while.cond
+58:                                               ; preds = %83, %57
+  %59 = load i32, ptr %7, align 4, !tbaa !3
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %61, label %80
 
-while.cond:                                       ; preds = %while.body, %if.then
-  %5 = load ptr, ptr %block.addr, align 8
-  %6 = load ptr, ptr %pLimit, align 8
-  %cmp = icmp ult ptr %5, %6
-  br i1 %cmp, label %while.body, label %while.end
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %2, align 8, !tbaa !13
+  %63 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %62, i32 0, i32 1
+  %64 = getelementptr inbounds [35488 x i32], ptr %63, i64 0, i64 0
+  %65 = load i32, ptr %5, align 4, !tbaa !3
+  %66 = load i32, ptr %7, align 4, !tbaa !3
+  %67 = sub nsw i32 %65, %66
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i32, ptr %64, i64 %68
+  %70 = load ptr, ptr %2, align 8, !tbaa !13
+  %71 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %70, i32 0, i32 1
+  %72 = getelementptr inbounds [35488 x i32], ptr %71, i64 0, i64 0
+  %73 = load i32, ptr %4, align 4, !tbaa !3
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i32, ptr %72, i64 %74
+  %76 = load i32, ptr %7, align 4, !tbaa !3
+  %77 = call noundef signext i8 @_ZL11equal_int32PKiS0_i(ptr noundef %69, ptr noundef %75, i32 noundef %76)
+  %78 = icmp ne i8 %77, 0
+  %79 = xor i1 %78, true
+  br label %80
 
-while.body:                                       ; preds = %while.cond
-  %7 = load i32, ptr %value.addr, align 4
-  %8 = load ptr, ptr %block.addr, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %8, i32 1
-  store ptr %incdec.ptr, ptr %block.addr, align 8
-  store i32 %7, ptr %8, align 4
-  br label %while.cond, !llvm.loop !26
+80:                                               ; preds = %61, %58
+  %81 = phi i1 [ false, %58 ], [ %79, %61 ]
+  br i1 %81, label %82, label %86
 
-while.end:                                        ; preds = %while.cond
-  br label %if.end10
+82:                                               ; preds = %80
+  br label %83
 
-if.else:                                          ; preds = %entry
-  br label %while.cond3
+83:                                               ; preds = %82
+  %84 = load i32, ptr %7, align 4, !tbaa !3
+  %85 = add nsw i32 %84, -1
+  store i32 %85, ptr %7, align 4, !tbaa !3
+  br label %58, !llvm.loop !116
 
-while.cond3:                                      ; preds = %if.end, %if.else
-  %9 = load ptr, ptr %block.addr, align 8
-  %10 = load ptr, ptr %pLimit, align 8
-  %cmp4 = icmp ult ptr %9, %10
-  br i1 %cmp4, label %while.body5, label %while.end9
+86:                                               ; preds = %80
+  %87 = load i32, ptr %7, align 4, !tbaa !3
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %93, label %89
 
-while.body5:                                      ; preds = %while.cond3
-  %11 = load ptr, ptr %block.addr, align 8
-  %12 = load i32, ptr %11, align 4
-  %13 = load i32, ptr %initialValue.addr, align 4
-  %cmp6 = icmp eq i32 %12, %13
-  br i1 %cmp6, label %if.then7, label %if.end
+89:                                               ; preds = %86
+  %90 = load i32, ptr %5, align 4, !tbaa !3
+  %91 = load i32, ptr %4, align 4, !tbaa !3
+  %92 = icmp slt i32 %90, %91
+  br i1 %92, label %93, label %129
 
-if.then7:                                         ; preds = %while.body5
-  %14 = load i32, ptr %value.addr, align 4
-  %15 = load ptr, ptr %block.addr, align 8
-  store i32 %14, ptr %15, align 4
-  br label %if.end
+93:                                               ; preds = %89, %86
+  %94 = load i32, ptr %5, align 4, !tbaa !3
+  %95 = load i32, ptr %7, align 4, !tbaa !3
+  %96 = sub nsw i32 %94, %95
+  %97 = load ptr, ptr %2, align 8, !tbaa !13
+  %98 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %97, i32 0, i32 13
+  %99 = load i32, ptr %4, align 4, !tbaa !3
+  %100 = ashr i32 %99, 6
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds [34852 x i32], ptr %98, i64 0, i64 %101
+  store i32 %96, ptr %102, align 4, !tbaa !3
+  %103 = load i32, ptr %7, align 4, !tbaa !3
+  %104 = load i32, ptr %4, align 4, !tbaa !3
+  %105 = add nsw i32 %104, %103
+  store i32 %105, ptr %4, align 4, !tbaa !3
+  %106 = load i32, ptr %7, align 4, !tbaa !3
+  %107 = sub nsw i32 64, %106
+  store i32 %107, ptr %3, align 4, !tbaa !3
+  br label %108
 
-if.end:                                           ; preds = %if.then7, %while.body5
-  %16 = load ptr, ptr %block.addr, align 8
-  %incdec.ptr8 = getelementptr inbounds i32, ptr %16, i32 1
-  store ptr %incdec.ptr8, ptr %block.addr, align 8
-  br label %while.cond3, !llvm.loop !27
+108:                                              ; preds = %125, %93
+  %109 = load i32, ptr %3, align 4, !tbaa !3
+  %110 = icmp sgt i32 %109, 0
+  br i1 %110, label %111, label %128
 
-while.end9:                                       ; preds = %while.cond3
-  br label %if.end10
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %2, align 8, !tbaa !13
+  %113 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %112, i32 0, i32 1
+  %114 = load i32, ptr %4, align 4, !tbaa !3
+  %115 = add nsw i32 %114, 1
+  store i32 %115, ptr %4, align 4, !tbaa !3
+  %116 = sext i32 %114 to i64
+  %117 = getelementptr inbounds [35488 x i32], ptr %113, i64 0, i64 %116
+  %118 = load i32, ptr %117, align 4, !tbaa !3
+  %119 = load ptr, ptr %2, align 8, !tbaa !13
+  %120 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %119, i32 0, i32 1
+  %121 = load i32, ptr %5, align 4, !tbaa !3
+  %122 = add nsw i32 %121, 1
+  store i32 %122, ptr %5, align 4, !tbaa !3
+  %123 = sext i32 %121 to i64
+  %124 = getelementptr inbounds [35488 x i32], ptr %120, i64 0, i64 %123
+  store i32 %118, ptr %124, align 4, !tbaa !3
+  br label %125
 
-if.end10:                                         ; preds = %while.end9, %while.end
-  ret void
-}
+125:                                              ; preds = %111
+  %126 = load i32, ptr %3, align 4, !tbaa !3
+  %127 = add nsw i32 %126, -1
+  store i32 %127, ptr %3, align 4, !tbaa !3
+  br label %108, !llvm.loop !117
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL13isInNullBlockP9UNewTrie2ia(ptr noundef %trie, i32 noundef %c, i8 noundef signext %forLSCP) #1 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %forLSCP.addr = alloca i8, align 1
-  %i2 = alloca i32, align 4
-  %block = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  store i8 %forLSCP, ptr %forLSCP.addr, align 1
-  %0 = load i32, ptr %c.addr, align 4
-  %and = and i32 %0, -1024
-  %cmp = icmp eq i32 %and, 55296
-  br i1 %cmp, label %land.lhs.true, label %if.else
+128:                                              ; preds = %108
+  br label %140
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i8, ptr %forLSCP.addr, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %if.then, label %if.else
+129:                                              ; preds = %89
+  %130 = load i32, ptr %4, align 4, !tbaa !3
+  %131 = load ptr, ptr %2, align 8, !tbaa !13
+  %132 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %131, i32 0, i32 13
+  %133 = load i32, ptr %4, align 4, !tbaa !3
+  %134 = ashr i32 %133, 6
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds [34852 x i32], ptr %132, i64 0, i64 %135
+  store i32 %130, ptr %136, align 4, !tbaa !3
+  %137 = load i32, ptr %4, align 4, !tbaa !3
+  %138 = add nsw i32 %137, 64
+  store i32 %138, ptr %4, align 4, !tbaa !3
+  %139 = load i32, ptr %4, align 4, !tbaa !3
+  store i32 %139, ptr %5, align 4, !tbaa !3
+  br label %140
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %2, 5
-  %add = add nsw i32 320, %shr
-  store i32 %add, ptr %i2, align 4
-  br label %if.end
+140:                                              ; preds = %129, %128
+  br label %33, !llvm.loop !115
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %3 = load ptr, ptr %trie.addr, align 8
-  %index1 = getelementptr inbounds %struct.UNewTrie2, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %c.addr, align 4
-  %shr1 = ashr i32 %4, 11
-  %idxprom = sext i32 %shr1 to i64
-  %arrayidx = getelementptr inbounds [544 x i32], ptr %index1, i64 0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  %6 = load i32, ptr %c.addr, align 4
-  %shr2 = ashr i32 %6, 5
-  %and3 = and i32 %shr2, 63
-  %add4 = add nsw i32 %5, %and3
-  store i32 %add4, ptr %i2, align 4
-  br label %if.end
+141:                                              ; preds = %33
+  store i32 0, ptr %3, align 4, !tbaa !3
+  br label %142
 
-if.end:                                           ; preds = %if.else, %if.then
-  %7 = load ptr, ptr %trie.addr, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %7, i32 0, i32 1
-  %8 = load i32, ptr %i2, align 4
-  %idxprom5 = sext i32 %8 to i64
-  %arrayidx6 = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 %idxprom5
-  %9 = load i32, ptr %arrayidx6, align 4
-  store i32 %9, ptr %block, align 4
-  %10 = load i32, ptr %block, align 4
-  %11 = load ptr, ptr %trie.addr, align 8
-  %dataNullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %11, i32 0, i32 10
-  %12 = load i32, ptr %dataNullOffset, align 4
-  %cmp7 = icmp eq i32 %10, %12
-  %conv = zext i1 %cmp7 to i8
-  ret i8 %conv
-}
+142:                                              ; preds = %163, %141
+  %143 = load i32, ptr %3, align 4, !tbaa !3
+  %144 = icmp slt i32 %143, 544
+  br i1 %144, label %145, label %166
 
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL14getIndex2BlockP9UNewTrie2ia(ptr noundef %trie, i32 noundef %c, i8 noundef signext %forLSCP) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %trie.addr = alloca ptr, align 8
-  %c.addr = alloca i32, align 4
-  %forLSCP.addr = alloca i8, align 1
-  %i1 = alloca i32, align 4
-  %i2 = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %c, ptr %c.addr, align 4
-  store i8 %forLSCP, ptr %forLSCP.addr, align 1
-  %0 = load i32, ptr %c.addr, align 4
-  %and = and i32 %0, -1024
-  %cmp = icmp eq i32 %and, 55296
-  br i1 %cmp, label %land.lhs.true, label %if.end
+145:                                              ; preds = %142
+  %146 = load ptr, ptr %2, align 8, !tbaa !13
+  %147 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %146, i32 0, i32 13
+  %148 = load ptr, ptr %2, align 8, !tbaa !13
+  %149 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %148, i32 0, i32 0
+  %150 = load i32, ptr %3, align 4, !tbaa !3
+  %151 = sext i32 %150 to i64
+  %152 = getelementptr inbounds [544 x i32], ptr %149, i64 0, i64 %151
+  %153 = load i32, ptr %152, align 4, !tbaa !3
+  %154 = ashr i32 %153, 6
+  %155 = sext i32 %154 to i64
+  %156 = getelementptr inbounds [34852 x i32], ptr %147, i64 0, i64 %155
+  %157 = load i32, ptr %156, align 4, !tbaa !3
+  %158 = load ptr, ptr %2, align 8, !tbaa !13
+  %159 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %158, i32 0, i32 0
+  %160 = load i32, ptr %3, align 4, !tbaa !3
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds [544 x i32], ptr %159, i64 0, i64 %161
+  store i32 %157, ptr %162, align 4, !tbaa !3
+  br label %163
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i8, ptr %forLSCP.addr, align 1
-  %tobool = icmp ne i8 %1, 0
-  br i1 %tobool, label %if.then, label %if.end
+163:                                              ; preds = %145
+  %164 = load i32, ptr %3, align 4, !tbaa !3
+  %165 = add nsw i32 %164, 1
+  store i32 %165, ptr %3, align 4, !tbaa !3
+  br label %142, !llvm.loop !118
 
-if.then:                                          ; preds = %land.lhs.true
-  store i32 2048, ptr %retval, align 4
-  br label %return
+166:                                              ; preds = %142
+  %167 = load ptr, ptr %2, align 8, !tbaa !13
+  %168 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %167, i32 0, i32 13
+  %169 = load ptr, ptr %2, align 8, !tbaa !13
+  %170 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %169, i32 0, i32 9
+  %171 = load i32, ptr %170, align 8, !tbaa !44
+  %172 = ashr i32 %171, 6
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds [34852 x i32], ptr %168, i64 0, i64 %173
+  %175 = load i32, ptr %174, align 4, !tbaa !3
+  %176 = load ptr, ptr %2, align 8, !tbaa !13
+  %177 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %176, i32 0, i32 9
+  store i32 %175, ptr %177, align 8, !tbaa !44
+  br label %178
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %2 = load i32, ptr %c.addr, align 4
-  %shr = ashr i32 %2, 11
-  store i32 %shr, ptr %i1, align 4
-  %3 = load ptr, ptr %trie.addr, align 8
-  %index1 = getelementptr inbounds %struct.UNewTrie2, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %i1, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [544 x i32], ptr %index1, i64 0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  store i32 %5, ptr %i2, align 4
-  %6 = load i32, ptr %i2, align 4
-  %7 = load ptr, ptr %trie.addr, align 8
-  %index2NullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %7, i32 0, i32 9
-  %8 = load i32, ptr %index2NullOffset, align 8
-  %cmp1 = icmp eq i32 %6, %8
-  br i1 %cmp1, label %if.then2, label %if.end9
+178:                                              ; preds = %182, %166
+  %179 = load i32, ptr %5, align 4, !tbaa !3
+  %180 = and i32 %179, 3
+  %181 = icmp ne i32 %180, 0
+  br i1 %181, label %182, label %189
 
-if.then2:                                         ; preds = %if.end
-  %9 = load ptr, ptr %trie.addr, align 8
-  %call = call noundef i32 @_ZL16allocIndex2BlockP9UNewTrie2(ptr noundef %9)
-  store i32 %call, ptr %i2, align 4
-  %10 = load i32, ptr %i2, align 4
-  %cmp3 = icmp slt i32 %10, 0
-  br i1 %cmp3, label %if.then4, label %if.end5
+182:                                              ; preds = %178
+  %183 = load ptr, ptr %2, align 8, !tbaa !13
+  %184 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %183, i32 0, i32 1
+  %185 = load i32, ptr %5, align 4, !tbaa !3
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %5, align 4, !tbaa !3
+  %187 = sext i32 %185 to i64
+  %188 = getelementptr inbounds [35488 x i32], ptr %184, i64 0, i64 %187
+  store i32 262140, ptr %188, align 4, !tbaa !3
+  br label %178, !llvm.loop !119
 
-if.then4:                                         ; preds = %if.then2
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end5:                                          ; preds = %if.then2
-  %11 = load i32, ptr %i2, align 4
-  %12 = load ptr, ptr %trie.addr, align 8
-  %index16 = getelementptr inbounds %struct.UNewTrie2, ptr %12, i32 0, i32 0
-  %13 = load i32, ptr %i1, align 4
-  %idxprom7 = sext i32 %13 to i64
-  %arrayidx8 = getelementptr inbounds [544 x i32], ptr %index16, i64 0, i64 %idxprom7
-  store i32 %11, ptr %arrayidx8, align 4
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.end5, %if.end
-  %14 = load i32, ptr %i2, align 4
-  store i32 %14, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end9, %if.then4, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL15isWritableBlockP9UNewTrie2i(ptr noundef %trie, i32 noundef %block) #1 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %block.addr = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %block, ptr %block.addr, align 4
-  %0 = load i32, ptr %block.addr, align 4
-  %1 = load ptr, ptr %trie.addr, align 8
-  %dataNullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %1, i32 0, i32 10
-  %2 = load i32, ptr %dataNullOffset, align 4
-  %cmp = icmp ne i32 %0, %2
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %3 = load ptr, ptr %trie.addr, align 8
-  %map = getelementptr inbounds %struct.UNewTrie2, ptr %3, i32 0, i32 13
-  %4 = load i32, ptr %block.addr, align 4
-  %shr = ashr i32 %4, 5
-  %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds [34852 x i32], ptr %map, i64 0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  %cmp1 = icmp eq i32 1, %5
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %6 = phi i1 [ false, %entry ], [ %cmp1, %land.rhs ]
-  %conv = zext i1 %6 to i8
-  ret i8 %conv
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL14setIndex2EntryP9UNewTrie2ii(ptr noundef %trie, i32 noundef %i2, i32 noundef %block) #0 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %i2.addr = alloca i32, align 4
-  %block.addr = alloca i32, align 4
-  %oldBlock = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %i2, ptr %i2.addr, align 4
-  store i32 %block, ptr %block.addr, align 4
-  %0 = load ptr, ptr %trie.addr, align 8
-  %map = getelementptr inbounds %struct.UNewTrie2, ptr %0, i32 0, i32 13
-  %1 = load i32, ptr %block.addr, align 4
-  %shr = ashr i32 %1, 5
-  %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds [34852 x i32], ptr %map, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
-  %inc = add nsw i32 %2, 1
-  store i32 %inc, ptr %arrayidx, align 4
-  %3 = load ptr, ptr %trie.addr, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %i2.addr, align 4
-  %idxprom1 = sext i32 %4 to i64
-  %arrayidx2 = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 %idxprom1
-  %5 = load i32, ptr %arrayidx2, align 4
-  store i32 %5, ptr %oldBlock, align 4
-  %6 = load ptr, ptr %trie.addr, align 8
-  %map3 = getelementptr inbounds %struct.UNewTrie2, ptr %6, i32 0, i32 13
-  %7 = load i32, ptr %oldBlock, align 4
-  %shr4 = ashr i32 %7, 5
-  %idxprom5 = sext i32 %shr4 to i64
-  %arrayidx6 = getelementptr inbounds [34852 x i32], ptr %map3, i64 0, i64 %idxprom5
-  %8 = load i32, ptr %arrayidx6, align 4
-  %dec = add nsw i32 %8, -1
-  store i32 %dec, ptr %arrayidx6, align 4
-  %cmp = icmp eq i32 0, %dec
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %9 = load ptr, ptr %trie.addr, align 8
-  %10 = load i32, ptr %oldBlock, align 4
-  call void @_ZL16releaseDataBlockP9UNewTrie2i(ptr noundef %9, i32 noundef %10)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %11 = load i32, ptr %block.addr, align 4
-  %12 = load ptr, ptr %trie.addr, align 8
-  %index27 = getelementptr inbounds %struct.UNewTrie2, ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %i2.addr, align 4
-  %idxprom8 = sext i32 %13 to i64
-  %arrayidx9 = getelementptr inbounds [35488 x i32], ptr %index27, i64 0, i64 %idxprom8
-  store i32 %11, ptr %arrayidx9, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL10writeBlockPjj(ptr noundef %block, i32 noundef %value) #1 {
-entry:
-  %block.addr = alloca ptr, align 8
-  %value.addr = alloca i32, align 4
-  %limit = alloca ptr, align 8
-  store ptr %block, ptr %block.addr, align 8
-  store i32 %value, ptr %value.addr, align 4
-  %0 = load ptr, ptr %block.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 32
-  store ptr %add.ptr, ptr %limit, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %1 = load ptr, ptr %block.addr, align 8
-  %2 = load ptr, ptr %limit, align 8
-  %cmp = icmp ult ptr %1, %2
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %3 = load i32, ptr %value.addr, align 4
-  %4 = load ptr, ptr %block.addr, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %block.addr, align 8
-  store i32 %3, ptr %4, align 4
-  br label %while.cond, !llvm.loop !28
-
-while.end:                                        ; preds = %while.cond
+189:                                              ; preds = %178
+  %190 = load i32, ptr %5, align 4, !tbaa !3
+  %191 = load ptr, ptr %2, align 8, !tbaa !13
+  %192 = getelementptr inbounds nuw %struct.UNewTrie2, ptr %191, i32 0, i32 5
+  store i32 %190, ptr %192, align 8, !tbaa !45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL11compactTrieP6UTrie2P10UErrorCode(ptr noundef %trie, ptr noundef %pErrorCode) #0 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %newTrie = alloca ptr, align 8
-  %highStart = alloca i32, align 4
-  %suppHighStart = alloca i32, align 4
-  %highValue = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %trie.addr, align 8
-  %newTrie1 = getelementptr inbounds %struct.UTrie2, ptr %0, i32 0, i32 16
-  %1 = load ptr, ptr %newTrie1, align 8
-  store ptr %1, ptr %newTrie, align 8
-  %2 = load ptr, ptr %trie.addr, align 8
-  %call = call i32 @utrie2_get32_75(ptr noundef %2, i32 noundef 1114111)
-  store i32 %call, ptr %highValue, align 4
-  %3 = load ptr, ptr %newTrie, align 8
-  %4 = load i32, ptr %highValue, align 4
-  %call2 = call noundef i32 @_ZL13findHighStartP9UNewTrie2j(ptr noundef %3, i32 noundef %4)
-  store i32 %call2, ptr %highStart, align 4
-  %5 = load i32, ptr %highStart, align 4
-  %add = add nsw i32 %5, 2047
-  %and = and i32 %add, -2048
-  store i32 %and, ptr %highStart, align 4
-  %6 = load i32, ptr %highStart, align 4
-  %cmp = icmp eq i32 %6, 1114112
-  br i1 %cmp, label %if.then, label %if.end
+define internal noundef i32 @_ZL17findSameDataBlockPKjiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !15
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store i32 %3, ptr %9, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  %12 = load i32, ptr %9, align 4, !tbaa !3
+  %13 = load i32, ptr %7, align 4, !tbaa !3
+  %14 = sub nsw i32 %13, %12
+  store i32 %14, ptr %7, align 4, !tbaa !3
+  store i32 0, ptr %10, align 4, !tbaa !3
+  br label %15
 
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %trie.addr, align 8
-  %errorValue = getelementptr inbounds %struct.UTrie2, ptr %7, i32 0, i32 8
-  %8 = load i32, ptr %errorValue, align 8
-  store i32 %8, ptr %highValue, align 4
-  br label %if.end
+15:                                               ; preds = %34, %4
+  %16 = load i32, ptr %10, align 4, !tbaa !3
+  %17 = load i32, ptr %7, align 4, !tbaa !3
+  %18 = icmp sle i32 %16, %17
+  br i1 %18, label %19, label %37
 
-if.end:                                           ; preds = %if.then, %entry
-  %9 = load i32, ptr %highStart, align 4
-  %10 = load ptr, ptr %newTrie, align 8
-  %highStart3 = getelementptr inbounds %struct.UNewTrie2, ptr %10, i32 0, i32 11
-  store i32 %9, ptr %highStart3, align 8
-  %11 = load ptr, ptr %trie.addr, align 8
-  %highStart4 = getelementptr inbounds %struct.UTrie2, ptr %11, i32 0, i32 9
-  store i32 %9, ptr %highStart4, align 4
-  %12 = load i32, ptr %highStart, align 4
-  %cmp5 = icmp slt i32 %12, 1114112
-  br i1 %cmp5, label %if.then6, label %if.end11
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %6, align 8, !tbaa !15
+  %21 = load i32, ptr %10, align 4, !tbaa !3
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i32, ptr %20, i64 %22
+  %24 = load ptr, ptr %6, align 8, !tbaa !15
+  %25 = load i32, ptr %8, align 4, !tbaa !3
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i32, ptr %24, i64 %26
+  %28 = load i32, ptr %9, align 4, !tbaa !3
+  %29 = call noundef signext i8 @_ZL12equal_uint32PKjS0_i(ptr noundef %23, ptr noundef %27, i32 noundef %28)
+  %30 = icmp ne i8 %29, 0
+  br i1 %30, label %31, label %33
 
-if.then6:                                         ; preds = %if.end
-  %13 = load i32, ptr %highStart, align 4
-  %cmp7 = icmp sle i32 %13, 65536
-  br i1 %cmp7, label %cond.true, label %cond.false
+31:                                               ; preds = %19
+  %32 = load i32, ptr %10, align 4, !tbaa !3
+  store i32 %32, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %38
 
-cond.true:                                        ; preds = %if.then6
-  br label %cond.end
+33:                                               ; preds = %19
+  br label %34
 
-cond.false:                                       ; preds = %if.then6
-  %14 = load i32, ptr %highStart, align 4
-  br label %cond.end
+34:                                               ; preds = %33
+  %35 = load i32, ptr %10, align 4, !tbaa !3
+  %36 = add nsw i32 %35, 4
+  store i32 %36, ptr %10, align 4, !tbaa !3
+  br label %15, !llvm.loop !120
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 65536, %cond.true ], [ %14, %cond.false ]
-  store i32 %cond, ptr %suppHighStart, align 4
-  %15 = load ptr, ptr %trie.addr, align 8
-  %16 = load i32, ptr %suppHighStart, align 4
-  %17 = load ptr, ptr %trie.addr, align 8
-  %initialValue = getelementptr inbounds %struct.UTrie2, ptr %17, i32 0, i32 7
-  %18 = load i32, ptr %initialValue, align 4
-  %19 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @utrie2_setRange32_75(ptr noundef %15, i32 noundef %16, i32 noundef 1114111, i32 noundef %18, i8 noundef signext 1, ptr noundef %19)
-  %20 = load ptr, ptr %pErrorCode.addr, align 8
-  %21 = load i32, ptr %20, align 4
-  %call8 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %21)
-  %tobool = icmp ne i8 %call8, 0
-  br i1 %tobool, label %if.then9, label %if.end10
+37:                                               ; preds = %15
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %38
 
-if.then9:                                         ; preds = %cond.end
-  br label %return
+38:                                               ; preds = %37, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  %39 = load i32, ptr %5, align 4
+  ret i32 %39
+}
 
-if.end10:                                         ; preds = %cond.end
-  br label %if.end11
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL12equal_uint32PKjS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !15
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  br label %7
 
-if.end11:                                         ; preds = %if.end10, %if.end
-  %22 = load ptr, ptr %newTrie, align 8
-  call void @_ZL11compactDataP9UNewTrie2(ptr noundef %22)
-  %23 = load i32, ptr %highStart, align 4
-  %cmp12 = icmp sgt i32 %23, 65536
-  br i1 %cmp12, label %if.then13, label %if.end14
+7:                                                ; preds = %18, %3
+  %8 = load i32, ptr %6, align 4, !tbaa !3
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %10, label %16
 
-if.then13:                                        ; preds = %if.end11
-  %24 = load ptr, ptr %newTrie, align 8
-  call void @_ZL13compactIndex2P9UNewTrie2(ptr noundef %24)
-  br label %if.end14
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %4, align 8, !tbaa !15
+  %12 = load i32, ptr %11, align 4, !tbaa !3
+  %13 = load ptr, ptr %5, align 8, !tbaa !15
+  %14 = load i32, ptr %13, align 4, !tbaa !3
+  %15 = icmp eq i32 %12, %14
+  br label %16
 
-if.end14:                                         ; preds = %if.then13, %if.end11
-  %25 = load i32, ptr %highValue, align 4
-  %26 = load ptr, ptr %newTrie, align 8
-  %data = getelementptr inbounds %struct.UNewTrie2, ptr %26, i32 0, i32 2
-  %27 = load ptr, ptr %data, align 8
-  %28 = load ptr, ptr %newTrie, align 8
-  %dataLength = getelementptr inbounds %struct.UNewTrie2, ptr %28, i32 0, i32 7
-  %29 = load i32, ptr %dataLength, align 8
-  %inc = add nsw i32 %29, 1
-  store i32 %inc, ptr %dataLength, align 8
-  %idxprom = sext i32 %29 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %27, i64 %idxprom
-  store i32 %25, ptr %arrayidx, align 4
-  br label %while.cond
+16:                                               ; preds = %10, %7
+  %17 = phi i1 [ false, %7 ], [ %15, %10 ]
+  br i1 %17, label %18, label %25
 
-while.cond:                                       ; preds = %while.body, %if.end14
-  %30 = load ptr, ptr %newTrie, align 8
-  %dataLength15 = getelementptr inbounds %struct.UNewTrie2, ptr %30, i32 0, i32 7
-  %31 = load i32, ptr %dataLength15, align 8
-  %and16 = and i32 %31, 3
-  %cmp17 = icmp ne i32 %and16, 0
-  br i1 %cmp17, label %while.body, label %while.end
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %4, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i32, ptr %19, i32 1
+  store ptr %20, ptr %4, align 8, !tbaa !15
+  %21 = load ptr, ptr %5, align 8, !tbaa !15
+  %22 = getelementptr inbounds nuw i32, ptr %21, i32 1
+  store ptr %22, ptr %5, align 8, !tbaa !15
+  %23 = load i32, ptr %6, align 4, !tbaa !3
+  %24 = add nsw i32 %23, -1
+  store i32 %24, ptr %6, align 4, !tbaa !3
+  br label %7, !llvm.loop !121
 
-while.body:                                       ; preds = %while.cond
-  %32 = load ptr, ptr %trie.addr, align 8
-  %initialValue18 = getelementptr inbounds %struct.UTrie2, ptr %32, i32 0, i32 7
-  %33 = load i32, ptr %initialValue18, align 4
-  %34 = load ptr, ptr %newTrie, align 8
-  %data19 = getelementptr inbounds %struct.UNewTrie2, ptr %34, i32 0, i32 2
-  %35 = load ptr, ptr %data19, align 8
-  %36 = load ptr, ptr %newTrie, align 8
-  %dataLength20 = getelementptr inbounds %struct.UNewTrie2, ptr %36, i32 0, i32 7
-  %37 = load i32, ptr %dataLength20, align 8
-  %inc21 = add nsw i32 %37, 1
-  store i32 %inc21, ptr %dataLength20, align 8
-  %idxprom22 = sext i32 %37 to i64
-  %arrayidx23 = getelementptr inbounds i32, ptr %35, i64 %idxprom22
-  store i32 %33, ptr %arrayidx23, align 4
-  br label %while.cond, !llvm.loop !29
-
-while.end:                                        ; preds = %while.cond
-  %38 = load ptr, ptr %newTrie, align 8
-  %isCompacted = getelementptr inbounds %struct.UNewTrie2, ptr %38, i32 0, i32 12
-  store i8 1, ptr %isCompacted, align 4
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then9
-  ret void
+25:                                               ; preds = %16
+  %26 = load i32, ptr %6, align 4, !tbaa !3
+  %27 = icmp eq i32 %26, 0
+  %28 = zext i1 %27 to i8
+  ret i8 %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL14allocDataBlockP9UNewTrie2i(ptr noundef %trie, i32 noundef %copyBlock) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %trie.addr = alloca ptr, align 8
-  %copyBlock.addr = alloca i32, align 4
-  %newBlock = alloca i32, align 4
-  %newTop = alloca i32, align 4
-  %capacity = alloca i32, align 4
-  %data = alloca ptr, align 8
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %copyBlock, ptr %copyBlock.addr, align 4
-  %0 = load ptr, ptr %trie.addr, align 8
-  %firstFreeBlock = getelementptr inbounds %struct.UNewTrie2, ptr %0, i32 0, i32 8
-  %1 = load i32, ptr %firstFreeBlock, align 4
-  %cmp = icmp ne i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal noundef i32 @_ZL19findSameIndex2BlockPKiii(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %10 = load i32, ptr %6, align 4, !tbaa !3
+  %11 = sub nsw i32 %10, 64
+  store i32 %11, ptr %6, align 4, !tbaa !3
+  store i32 0, ptr %8, align 4, !tbaa !3
+  br label %12
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %trie.addr, align 8
-  %firstFreeBlock1 = getelementptr inbounds %struct.UNewTrie2, ptr %2, i32 0, i32 8
-  %3 = load i32, ptr %firstFreeBlock1, align 4
-  store i32 %3, ptr %newBlock, align 4
-  %4 = load ptr, ptr %trie.addr, align 8
-  %map = getelementptr inbounds %struct.UNewTrie2, ptr %4, i32 0, i32 13
-  %5 = load i32, ptr %newBlock, align 4
-  %shr = ashr i32 %5, 5
-  %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds [34852 x i32], ptr %map, i64 0, i64 %idxprom
-  %6 = load i32, ptr %arrayidx, align 4
-  %sub = sub nsw i32 0, %6
-  %7 = load ptr, ptr %trie.addr, align 8
-  %firstFreeBlock2 = getelementptr inbounds %struct.UNewTrie2, ptr %7, i32 0, i32 8
-  store i32 %sub, ptr %firstFreeBlock2, align 4
-  br label %if.end26
+12:                                               ; preds = %30, %3
+  %13 = load i32, ptr %8, align 4, !tbaa !3
+  %14 = load i32, ptr %6, align 4, !tbaa !3
+  %15 = icmp sle i32 %13, %14
+  br i1 %15, label %16, label %33
 
-if.else:                                          ; preds = %entry
-  %8 = load ptr, ptr %trie.addr, align 8
-  %dataLength = getelementptr inbounds %struct.UNewTrie2, ptr %8, i32 0, i32 7
-  %9 = load i32, ptr %dataLength, align 8
-  store i32 %9, ptr %newBlock, align 4
-  %10 = load i32, ptr %newBlock, align 4
-  %add = add nsw i32 %10, 32
-  store i32 %add, ptr %newTop, align 4
-  %11 = load i32, ptr %newTop, align 4
-  %12 = load ptr, ptr %trie.addr, align 8
-  %dataCapacity = getelementptr inbounds %struct.UNewTrie2, ptr %12, i32 0, i32 6
-  %13 = load i32, ptr %dataCapacity, align 4
-  %cmp3 = icmp sgt i32 %11, %13
-  br i1 %cmp3, label %if.then4, label %if.end24
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8, !tbaa !15
+  %18 = load i32, ptr %8, align 4, !tbaa !3
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i32, ptr %17, i64 %19
+  %21 = load ptr, ptr %5, align 8, !tbaa !15
+  %22 = load i32, ptr %7, align 4, !tbaa !3
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i32, ptr %21, i64 %23
+  %25 = call noundef signext i8 @_ZL11equal_int32PKiS0_i(ptr noundef %20, ptr noundef %24, i32 noundef 64)
+  %26 = icmp ne i8 %25, 0
+  br i1 %26, label %27, label %29
 
-if.then4:                                         ; preds = %if.else
-  %14 = load ptr, ptr %trie.addr, align 8
-  %dataCapacity5 = getelementptr inbounds %struct.UNewTrie2, ptr %14, i32 0, i32 6
-  %15 = load i32, ptr %dataCapacity5, align 4
-  %cmp6 = icmp slt i32 %15, 131072
-  br i1 %cmp6, label %if.then7, label %if.else8
+27:                                               ; preds = %16
+  %28 = load i32, ptr %8, align 4, !tbaa !3
+  store i32 %28, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %34
 
-if.then7:                                         ; preds = %if.then4
-  store i32 131072, ptr %capacity, align 4
-  br label %if.end13
+29:                                               ; preds = %16
+  br label %30
 
-if.else8:                                         ; preds = %if.then4
-  %16 = load ptr, ptr %trie.addr, align 8
-  %dataCapacity9 = getelementptr inbounds %struct.UNewTrie2, ptr %16, i32 0, i32 6
-  %17 = load i32, ptr %dataCapacity9, align 4
-  %cmp10 = icmp slt i32 %17, 1115264
-  br i1 %cmp10, label %if.then11, label %if.else12
+30:                                               ; preds = %29
+  %31 = load i32, ptr %8, align 4, !tbaa !3
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %8, align 4, !tbaa !3
+  br label %12, !llvm.loop !122
 
-if.then11:                                        ; preds = %if.else8
-  store i32 1115264, ptr %capacity, align 4
-  br label %if.end
+33:                                               ; preds = %12
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %34
 
-if.else12:                                        ; preds = %if.else8
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then11
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.end, %if.then7
-  %18 = load i32, ptr %capacity, align 4
-  %mul = mul nsw i32 %18, 4
-  %conv = sext i32 %mul to i64
-  %call = call noalias ptr @uprv_malloc_75(i64 noundef %conv) #6
-  store ptr %call, ptr %data, align 8
-  %19 = load ptr, ptr %data, align 8
-  %cmp14 = icmp eq ptr %19, null
-  br i1 %cmp14, label %if.then15, label %if.end16
-
-if.then15:                                        ; preds = %if.end13
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-if.end16:                                         ; preds = %if.end13
-  br label %do.body
-
-do.body:                                          ; preds = %if.end16
-  %20 = load ptr, ptr %data, align 8
-  %21 = load ptr, ptr %trie.addr, align 8
-  %data17 = getelementptr inbounds %struct.UNewTrie2, ptr %21, i32 0, i32 2
-  %22 = load ptr, ptr %data17, align 8
-  %23 = load ptr, ptr %trie.addr, align 8
-  %dataLength18 = getelementptr inbounds %struct.UNewTrie2, ptr %23, i32 0, i32 7
-  %24 = load i32, ptr %dataLength18, align 8
-  %conv19 = sext i32 %24 to i64
-  %mul20 = mul i64 %conv19, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %20, ptr align 4 %22, i64 %mul20, i1 false)
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %25 = load ptr, ptr %trie.addr, align 8
-  %data21 = getelementptr inbounds %struct.UNewTrie2, ptr %25, i32 0, i32 2
-  %26 = load ptr, ptr %data21, align 8
-  call void @uprv_free_75(ptr noundef %26)
-  %27 = load ptr, ptr %data, align 8
-  %28 = load ptr, ptr %trie.addr, align 8
-  %data22 = getelementptr inbounds %struct.UNewTrie2, ptr %28, i32 0, i32 2
-  store ptr %27, ptr %data22, align 8
-  %29 = load i32, ptr %capacity, align 4
-  %30 = load ptr, ptr %trie.addr, align 8
-  %dataCapacity23 = getelementptr inbounds %struct.UNewTrie2, ptr %30, i32 0, i32 6
-  store i32 %29, ptr %dataCapacity23, align 4
-  br label %if.end24
-
-if.end24:                                         ; preds = %do.end, %if.else
-  %31 = load i32, ptr %newTop, align 4
-  %32 = load ptr, ptr %trie.addr, align 8
-  %dataLength25 = getelementptr inbounds %struct.UNewTrie2, ptr %32, i32 0, i32 7
-  store i32 %31, ptr %dataLength25, align 8
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end24, %if.then
-  br label %do.body27
-
-do.body27:                                        ; preds = %if.end26
-  %33 = load ptr, ptr %trie.addr, align 8
-  %data28 = getelementptr inbounds %struct.UNewTrie2, ptr %33, i32 0, i32 2
-  %34 = load ptr, ptr %data28, align 8
-  %35 = load i32, ptr %newBlock, align 4
-  %idx.ext = sext i32 %35 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %34, i64 %idx.ext
-  %36 = load ptr, ptr %trie.addr, align 8
-  %data29 = getelementptr inbounds %struct.UNewTrie2, ptr %36, i32 0, i32 2
-  %37 = load ptr, ptr %data29, align 8
-  %38 = load i32, ptr %copyBlock.addr, align 4
-  %idx.ext30 = sext i32 %38 to i64
-  %add.ptr31 = getelementptr inbounds i32, ptr %37, i64 %idx.ext30
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr, ptr align 4 %add.ptr31, i64 128, i1 false)
-  br label %do.end32
-
-do.end32:                                         ; preds = %do.body27
-  %39 = load ptr, ptr %trie.addr, align 8
-  %map33 = getelementptr inbounds %struct.UNewTrie2, ptr %39, i32 0, i32 13
-  %40 = load i32, ptr %newBlock, align 4
-  %shr34 = ashr i32 %40, 5
-  %idxprom35 = sext i32 %shr34 to i64
-  %arrayidx36 = getelementptr inbounds [34852 x i32], ptr %map33, i64 0, i64 %idxprom35
-  store i32 0, ptr %arrayidx36, align 4
-  %41 = load i32, ptr %newBlock, align 4
-  store i32 %41, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end32, %if.then15, %if.else12
-  %42 = load i32, ptr %retval, align 4
-  ret i32 %42
+34:                                               ; preds = %33, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  %35 = load i32, ptr %4, align 4
+  ret i32 %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL16allocIndex2BlockP9UNewTrie2(ptr noundef %trie) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %trie.addr = alloca ptr, align 8
-  %newBlock = alloca i32, align 4
-  %newTop = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  %0 = load ptr, ptr %trie.addr, align 8
-  %index2Length = getelementptr inbounds %struct.UNewTrie2, ptr %0, i32 0, i32 5
-  %1 = load i32, ptr %index2Length, align 8
-  store i32 %1, ptr %newBlock, align 4
-  %2 = load i32, ptr %newBlock, align 4
-  %add = add nsw i32 %2, 64
-  store i32 %add, ptr %newTop, align 4
-  %3 = load i32, ptr %newTop, align 4
-  %cmp = icmp sgt i32 %3, 35488
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL11equal_int32PKiS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !15
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  br label %7
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %18, %3
+  %8 = load i32, ptr %6, align 4, !tbaa !3
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %10, label %16
 
-if.end:                                           ; preds = %entry
-  %4 = load i32, ptr %newTop, align 4
-  %5 = load ptr, ptr %trie.addr, align 8
-  %index2Length1 = getelementptr inbounds %struct.UNewTrie2, ptr %5, i32 0, i32 5
-  store i32 %4, ptr %index2Length1, align 8
-  br label %do.body
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %4, align 8, !tbaa !15
+  %12 = load i32, ptr %11, align 4, !tbaa !3
+  %13 = load ptr, ptr %5, align 8, !tbaa !15
+  %14 = load i32, ptr %13, align 4, !tbaa !3
+  %15 = icmp eq i32 %12, %14
+  br label %16
 
-do.body:                                          ; preds = %if.end
-  %6 = load ptr, ptr %trie.addr, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %6, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 0
-  %7 = load i32, ptr %newBlock, align 4
-  %idx.ext = sext i32 %7 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %arraydecay, i64 %idx.ext
-  %8 = load ptr, ptr %trie.addr, align 8
-  %index22 = getelementptr inbounds %struct.UNewTrie2, ptr %8, i32 0, i32 1
-  %arraydecay3 = getelementptr inbounds [35488 x i32], ptr %index22, i64 0, i64 0
-  %9 = load ptr, ptr %trie.addr, align 8
-  %index2NullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %9, i32 0, i32 9
-  %10 = load i32, ptr %index2NullOffset, align 8
-  %idx.ext4 = sext i32 %10 to i64
-  %add.ptr5 = getelementptr inbounds i32, ptr %arraydecay3, i64 %idx.ext4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr, ptr align 4 %add.ptr5, i64 256, i1 false)
-  br label %do.end
+16:                                               ; preds = %10, %7
+  %17 = phi i1 [ false, %7 ], [ %15, %10 ]
+  br i1 %17, label %18, label %25
 
-do.end:                                           ; preds = %do.body
-  %11 = load i32, ptr %newBlock, align 4
-  store i32 %11, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %4, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i32, ptr %19, i32 1
+  store ptr %20, ptr %4, align 8, !tbaa !15
+  %21 = load ptr, ptr %5, align 8, !tbaa !15
+  %22 = getelementptr inbounds nuw i32, ptr %21, i32 1
+  store ptr %22, ptr %5, align 8, !tbaa !15
+  %23 = load i32, ptr %6, align 4, !tbaa !3
+  %24 = add nsw i32 %23, -1
+  store i32 %24, ptr %6, align 4, !tbaa !3
+  br label %7, !llvm.loop !123
 
-return:                                           ; preds = %do.end, %if.then
-  %12 = load i32, ptr %retval, align 4
-  ret i32 %12
+25:                                               ; preds = %16
+  %26 = load i32, ptr %6, align 4, !tbaa !3
+  %27 = icmp eq i32 %26, 0
+  %28 = zext i1 %27 to i8
+  ret i8 %28
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL16releaseDataBlockP9UNewTrie2i(ptr noundef %trie, i32 noundef %block) #1 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %block.addr = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %block, ptr %block.addr, align 4
-  %0 = load ptr, ptr %trie.addr, align 8
-  %firstFreeBlock = getelementptr inbounds %struct.UNewTrie2, ptr %0, i32 0, i32 8
-  %1 = load i32, ptr %firstFreeBlock, align 4
-  %sub = sub nsw i32 0, %1
-  %2 = load ptr, ptr %trie.addr, align 8
-  %map = getelementptr inbounds %struct.UNewTrie2, ptr %2, i32 0, i32 13
-  %3 = load i32, ptr %block.addr, align 4
-  %shr = ashr i32 %3, 5
-  %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds [34852 x i32], ptr %map, i64 0, i64 %idxprom
-  store i32 %sub, ptr %arrayidx, align 4
-  %4 = load i32, ptr %block.addr, align 4
-  %5 = load ptr, ptr %trie.addr, align 8
-  %firstFreeBlock1 = getelementptr inbounds %struct.UNewTrie2, ptr %5, i32 0, i32 8
-  store i32 %4, ptr %firstFreeBlock1, align 4
-  ret void
-}
-
-declare i32 @utrie2_get32_75(ptr noundef, i32 noundef) #3
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL13findHighStartP9UNewTrie2j(ptr noundef %trie, i32 noundef %highValue) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %trie.addr = alloca ptr, align 8
-  %highValue.addr = alloca i32, align 4
-  %data32 = alloca ptr, align 8
-  %value = alloca i32, align 4
-  %initialValue = alloca i32, align 4
-  %c = alloca i32, align 4
-  %prev = alloca i32, align 4
-  %i1 = alloca i32, align 4
-  %i2 = alloca i32, align 4
-  %j = alloca i32, align 4
-  %i2Block = alloca i32, align 4
-  %prevI2Block = alloca i32, align 4
-  %index2NullOffset = alloca i32, align 4
-  %block = alloca i32, align 4
-  %prevBlock = alloca i32, align 4
-  %nullBlock = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 %highValue, ptr %highValue.addr, align 4
-  %0 = load ptr, ptr %trie.addr, align 8
-  %data = getelementptr inbounds %struct.UNewTrie2, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %data, align 8
-  store ptr %1, ptr %data32, align 8
-  %2 = load ptr, ptr %trie.addr, align 8
-  %initialValue1 = getelementptr inbounds %struct.UNewTrie2, ptr %2, i32 0, i32 3
-  %3 = load i32, ptr %initialValue1, align 8
-  store i32 %3, ptr %initialValue, align 4
-  %4 = load ptr, ptr %trie.addr, align 8
-  %index2NullOffset2 = getelementptr inbounds %struct.UNewTrie2, ptr %4, i32 0, i32 9
-  %5 = load i32, ptr %index2NullOffset2, align 8
-  store i32 %5, ptr %index2NullOffset, align 4
-  %6 = load ptr, ptr %trie.addr, align 8
-  %dataNullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %6, i32 0, i32 10
-  %7 = load i32, ptr %dataNullOffset, align 4
-  store i32 %7, ptr %nullBlock, align 4
-  %8 = load i32, ptr %highValue.addr, align 4
-  %9 = load i32, ptr %initialValue, align 4
-  %cmp = icmp eq i32 %8, %9
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %10 = load i32, ptr %index2NullOffset, align 4
-  store i32 %10, ptr %prevI2Block, align 4
-  %11 = load i32, ptr %nullBlock, align 4
-  store i32 %11, ptr %prevBlock, align 4
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  store i32 -1, ptr %prevI2Block, align 4
-  store i32 -1, ptr %prevBlock, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  store i32 1114112, ptr %prev, align 4
-  store i32 544, ptr %i1, align 4
-  %12 = load i32, ptr %prev, align 4
-  store i32 %12, ptr %c, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end42, %if.then5, %if.end
-  %13 = load i32, ptr %c, align 4
-  %cmp3 = icmp sgt i32 %13, 0
-  br i1 %cmp3, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %14 = load ptr, ptr %trie.addr, align 8
-  %index1 = getelementptr inbounds %struct.UNewTrie2, ptr %14, i32 0, i32 0
-  %15 = load i32, ptr %i1, align 4
-  %dec = add nsw i32 %15, -1
-  store i32 %dec, ptr %i1, align 4
-  %idxprom = sext i32 %dec to i64
-  %arrayidx = getelementptr inbounds [544 x i32], ptr %index1, i64 0, i64 %idxprom
-  %16 = load i32, ptr %arrayidx, align 4
-  store i32 %16, ptr %i2Block, align 4
-  %17 = load i32, ptr %i2Block, align 4
-  %18 = load i32, ptr %prevI2Block, align 4
-  %cmp4 = icmp eq i32 %17, %18
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %while.body
-  %19 = load i32, ptr %c, align 4
-  %sub = sub nsw i32 %19, 2048
-  store i32 %sub, ptr %c, align 4
-  br label %while.cond, !llvm.loop !30
-
-if.end6:                                          ; preds = %while.body
-  %20 = load i32, ptr %i2Block, align 4
-  store i32 %20, ptr %prevI2Block, align 4
-  %21 = load i32, ptr %i2Block, align 4
-  %22 = load i32, ptr %index2NullOffset, align 4
-  %cmp7 = icmp eq i32 %21, %22
-  br i1 %cmp7, label %if.then8, label %if.else13
-
-if.then8:                                         ; preds = %if.end6
-  %23 = load i32, ptr %highValue.addr, align 4
-  %24 = load i32, ptr %initialValue, align 4
-  %cmp9 = icmp ne i32 %23, %24
-  br i1 %cmp9, label %if.then10, label %if.end11
-
-if.then10:                                        ; preds = %if.then8
-  %25 = load i32, ptr %c, align 4
-  store i32 %25, ptr %retval, align 4
-  br label %return
-
-if.end11:                                         ; preds = %if.then8
-  %26 = load i32, ptr %c, align 4
-  %sub12 = sub nsw i32 %26, 2048
-  store i32 %sub12, ptr %c, align 4
-  br label %if.end42
-
-if.else13:                                        ; preds = %if.end6
-  store i32 64, ptr %i2, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %if.end40, %if.then19, %if.else13
-  %27 = load i32, ptr %i2, align 4
-  %cmp14 = icmp sgt i32 %27, 0
-  br i1 %cmp14, label %for.body, label %for.end41
-
-for.body:                                         ; preds = %for.cond
-  %28 = load ptr, ptr %trie.addr, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %28, i32 0, i32 1
-  %29 = load i32, ptr %i2Block, align 4
-  %30 = load i32, ptr %i2, align 4
-  %dec15 = add nsw i32 %30, -1
-  store i32 %dec15, ptr %i2, align 4
-  %add = add nsw i32 %29, %dec15
-  %idxprom16 = sext i32 %add to i64
-  %arrayidx17 = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 %idxprom16
-  %31 = load i32, ptr %arrayidx17, align 4
-  store i32 %31, ptr %block, align 4
-  %32 = load i32, ptr %block, align 4
-  %33 = load i32, ptr %prevBlock, align 4
-  %cmp18 = icmp eq i32 %32, %33
-  br i1 %cmp18, label %if.then19, label %if.end21
-
-if.then19:                                        ; preds = %for.body
-  %34 = load i32, ptr %c, align 4
-  %sub20 = sub nsw i32 %34, 32
-  store i32 %sub20, ptr %c, align 4
-  br label %for.cond, !llvm.loop !31
-
-if.end21:                                         ; preds = %for.body
-  %35 = load i32, ptr %block, align 4
-  store i32 %35, ptr %prevBlock, align 4
-  %36 = load i32, ptr %block, align 4
-  %37 = load i32, ptr %nullBlock, align 4
-  %cmp22 = icmp eq i32 %36, %37
-  br i1 %cmp22, label %if.then23, label %if.else28
-
-if.then23:                                        ; preds = %if.end21
-  %38 = load i32, ptr %highValue.addr, align 4
-  %39 = load i32, ptr %initialValue, align 4
-  %cmp24 = icmp ne i32 %38, %39
-  br i1 %cmp24, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %if.then23
-  %40 = load i32, ptr %c, align 4
-  store i32 %40, ptr %retval, align 4
-  br label %return
-
-if.end26:                                         ; preds = %if.then23
-  %41 = load i32, ptr %c, align 4
-  %sub27 = sub nsw i32 %41, 32
-  store i32 %sub27, ptr %c, align 4
-  br label %if.end40
-
-if.else28:                                        ; preds = %if.end21
-  store i32 32, ptr %j, align 4
-  br label %for.cond29
-
-for.cond29:                                       ; preds = %if.end38, %if.else28
-  %42 = load i32, ptr %j, align 4
-  %cmp30 = icmp sgt i32 %42, 0
-  br i1 %cmp30, label %for.body31, label %for.end
-
-for.body31:                                       ; preds = %for.cond29
-  %43 = load ptr, ptr %data32, align 8
-  %44 = load i32, ptr %block, align 4
-  %45 = load i32, ptr %j, align 4
-  %dec32 = add nsw i32 %45, -1
-  store i32 %dec32, ptr %j, align 4
-  %add33 = add nsw i32 %44, %dec32
-  %idxprom34 = sext i32 %add33 to i64
-  %arrayidx35 = getelementptr inbounds i32, ptr %43, i64 %idxprom34
-  %46 = load i32, ptr %arrayidx35, align 4
-  store i32 %46, ptr %value, align 4
-  %47 = load i32, ptr %value, align 4
-  %48 = load i32, ptr %highValue.addr, align 4
-  %cmp36 = icmp ne i32 %47, %48
-  br i1 %cmp36, label %if.then37, label %if.end38
-
-if.then37:                                        ; preds = %for.body31
-  %49 = load i32, ptr %c, align 4
-  store i32 %49, ptr %retval, align 4
-  br label %return
-
-if.end38:                                         ; preds = %for.body31
-  %50 = load i32, ptr %c, align 4
-  %dec39 = add nsw i32 %50, -1
-  store i32 %dec39, ptr %c, align 4
-  br label %for.cond29, !llvm.loop !32
-
-for.end:                                          ; preds = %for.cond29
-  br label %if.end40
-
-if.end40:                                         ; preds = %for.end, %if.end26
-  br label %for.cond, !llvm.loop !31
-
-for.end41:                                        ; preds = %for.cond
-  br label %if.end42
-
-if.end42:                                         ; preds = %for.end41, %if.end11
-  br label %while.cond, !llvm.loop !30
-
-while.end:                                        ; preds = %while.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then37, %if.then25, %if.then10
-  %51 = load i32, ptr %retval, align 4
-  ret i32 %51
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL11compactDataP9UNewTrie2(ptr noundef %trie) #0 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %start = alloca i32, align 4
-  %newStart = alloca i32, align 4
-  %movedStart = alloca i32, align 4
-  %blockLength = alloca i32, align 4
-  %overlap = alloca i32, align 4
-  %i = alloca i32, align 4
-  %mapIndex = alloca i32, align 4
-  %blockCount = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 192, ptr %newStart, align 4
-  store i32 0, ptr %start, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %start, align 4
-  %1 = load i32, ptr %newStart, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %start, align 4
-  %3 = load ptr, ptr %trie.addr, align 8
-  %map = getelementptr inbounds %struct.UNewTrie2, ptr %3, i32 0, i32 13
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [34852 x i32], ptr %map, i64 0, i64 %idxprom
-  store i32 %2, ptr %arrayidx, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %start, align 4
-  %add = add nsw i32 %5, 32
-  store i32 %add, ptr %start, align 4
-  %6 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !33
-
-for.end:                                          ; preds = %for.cond
-  store i32 64, ptr %blockLength, align 4
-  %7 = load i32, ptr %blockLength, align 4
-  %shr = ashr i32 %7, 5
-  store i32 %shr, ptr %blockCount, align 4
-  %8 = load i32, ptr %newStart, align 4
-  store i32 %8, ptr %start, align 4
-  br label %for.cond1
-
-for.cond1:                                        ; preds = %if.end84, %for.end25, %if.then10, %for.end
-  %9 = load i32, ptr %start, align 4
-  %10 = load ptr, ptr %trie.addr, align 8
-  %dataLength = getelementptr inbounds %struct.UNewTrie2, ptr %10, i32 0, i32 7
-  %11 = load i32, ptr %dataLength, align 8
-  %cmp2 = icmp slt i32 %9, %11
-  br i1 %cmp2, label %for.body3, label %for.end85
-
-for.body3:                                        ; preds = %for.cond1
-  %12 = load i32, ptr %start, align 4
-  %cmp4 = icmp eq i32 %12, 2176
-  br i1 %cmp4, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body3
-  store i32 32, ptr %blockLength, align 4
-  store i32 1, ptr %blockCount, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %for.body3
-  %13 = load ptr, ptr %trie.addr, align 8
-  %map5 = getelementptr inbounds %struct.UNewTrie2, ptr %13, i32 0, i32 13
-  %14 = load i32, ptr %start, align 4
-  %shr6 = ashr i32 %14, 5
-  %idxprom7 = sext i32 %shr6 to i64
-  %arrayidx8 = getelementptr inbounds [34852 x i32], ptr %map5, i64 0, i64 %idxprom7
-  %15 = load i32, ptr %arrayidx8, align 4
-  %cmp9 = icmp sle i32 %15, 0
-  br i1 %cmp9, label %if.then10, label %if.end12
-
-if.then10:                                        ; preds = %if.end
-  %16 = load i32, ptr %blockLength, align 4
-  %17 = load i32, ptr %start, align 4
-  %add11 = add nsw i32 %17, %16
-  store i32 %add11, ptr %start, align 4
-  br label %for.cond1, !llvm.loop !34
-
-if.end12:                                         ; preds = %if.end
-  %18 = load ptr, ptr %trie.addr, align 8
-  %data = getelementptr inbounds %struct.UNewTrie2, ptr %18, i32 0, i32 2
-  %19 = load ptr, ptr %data, align 8
-  %20 = load i32, ptr %newStart, align 4
-  %21 = load i32, ptr %start, align 4
-  %22 = load i32, ptr %blockLength, align 4
-  %call = call noundef i32 @_ZL17findSameDataBlockPKjiii(ptr noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef %22)
-  store i32 %call, ptr %movedStart, align 4
-  %cmp13 = icmp sge i32 %call, 0
-  br i1 %cmp13, label %if.then14, label %if.end27
-
-if.then14:                                        ; preds = %if.end12
-  %23 = load i32, ptr %blockCount, align 4
-  store i32 %23, ptr %i, align 4
-  %24 = load i32, ptr %start, align 4
-  %shr15 = ashr i32 %24, 5
-  store i32 %shr15, ptr %mapIndex, align 4
-  br label %for.cond16
-
-for.cond16:                                       ; preds = %for.inc24, %if.then14
-  %25 = load i32, ptr %i, align 4
-  %cmp17 = icmp sgt i32 %25, 0
-  br i1 %cmp17, label %for.body18, label %for.end25
-
-for.body18:                                       ; preds = %for.cond16
-  %26 = load i32, ptr %movedStart, align 4
-  %27 = load ptr, ptr %trie.addr, align 8
-  %map19 = getelementptr inbounds %struct.UNewTrie2, ptr %27, i32 0, i32 13
-  %28 = load i32, ptr %mapIndex, align 4
-  %inc20 = add nsw i32 %28, 1
-  store i32 %inc20, ptr %mapIndex, align 4
-  %idxprom21 = sext i32 %28 to i64
-  %arrayidx22 = getelementptr inbounds [34852 x i32], ptr %map19, i64 0, i64 %idxprom21
-  store i32 %26, ptr %arrayidx22, align 4
-  %29 = load i32, ptr %movedStart, align 4
-  %add23 = add nsw i32 %29, 32
-  store i32 %add23, ptr %movedStart, align 4
-  br label %for.inc24
-
-for.inc24:                                        ; preds = %for.body18
-  %30 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %30, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond16, !llvm.loop !35
-
-for.end25:                                        ; preds = %for.cond16
-  %31 = load i32, ptr %blockLength, align 4
-  %32 = load i32, ptr %start, align 4
-  %add26 = add nsw i32 %32, %31
-  store i32 %add26, ptr %start, align 4
-  br label %for.cond1, !llvm.loop !34
-
-if.end27:                                         ; preds = %if.end12
-  %33 = load i32, ptr %blockLength, align 4
-  %sub = sub nsw i32 %33, 4
-  store i32 %sub, ptr %overlap, align 4
-  br label %for.cond28
-
-for.cond28:                                       ; preds = %for.inc37, %if.end27
-  %34 = load i32, ptr %overlap, align 4
-  %cmp29 = icmp sgt i32 %34, 0
-  br i1 %cmp29, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond28
-  %35 = load ptr, ptr %trie.addr, align 8
-  %data30 = getelementptr inbounds %struct.UNewTrie2, ptr %35, i32 0, i32 2
-  %36 = load ptr, ptr %data30, align 8
-  %37 = load i32, ptr %newStart, align 4
-  %38 = load i32, ptr %overlap, align 4
-  %sub31 = sub nsw i32 %37, %38
-  %idx.ext = sext i32 %sub31 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %36, i64 %idx.ext
-  %39 = load ptr, ptr %trie.addr, align 8
-  %data32 = getelementptr inbounds %struct.UNewTrie2, ptr %39, i32 0, i32 2
-  %40 = load ptr, ptr %data32, align 8
-  %41 = load i32, ptr %start, align 4
-  %idx.ext33 = sext i32 %41 to i64
-  %add.ptr34 = getelementptr inbounds i32, ptr %40, i64 %idx.ext33
-  %42 = load i32, ptr %overlap, align 4
-  %call35 = call noundef signext i8 @_ZL12equal_uint32PKjS0_i(ptr noundef %add.ptr, ptr noundef %add.ptr34, i32 noundef %42)
-  %tobool = icmp ne i8 %call35, 0
-  %lnot = xor i1 %tobool, true
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond28
-  %43 = phi i1 [ false, %for.cond28 ], [ %lnot, %land.rhs ]
-  br i1 %43, label %for.body36, label %for.end39
-
-for.body36:                                       ; preds = %land.end
-  br label %for.inc37
-
-for.inc37:                                        ; preds = %for.body36
-  %44 = load i32, ptr %overlap, align 4
-  %sub38 = sub nsw i32 %44, 4
-  store i32 %sub38, ptr %overlap, align 4
-  br label %for.cond28, !llvm.loop !36
-
-for.end39:                                        ; preds = %land.end
-  %45 = load i32, ptr %overlap, align 4
-  %cmp40 = icmp sgt i32 %45, 0
-  br i1 %cmp40, label %if.then42, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %for.end39
-  %46 = load i32, ptr %newStart, align 4
-  %47 = load i32, ptr %start, align 4
-  %cmp41 = icmp slt i32 %46, %47
-  br i1 %cmp41, label %if.then42, label %if.else
-
-if.then42:                                        ; preds = %lor.lhs.false, %for.end39
-  %48 = load i32, ptr %newStart, align 4
-  %49 = load i32, ptr %overlap, align 4
-  %sub43 = sub nsw i32 %48, %49
-  store i32 %sub43, ptr %movedStart, align 4
-  %50 = load i32, ptr %blockCount, align 4
-  store i32 %50, ptr %i, align 4
-  %51 = load i32, ptr %start, align 4
-  %shr44 = ashr i32 %51, 5
-  store i32 %shr44, ptr %mapIndex, align 4
-  br label %for.cond45
-
-for.cond45:                                       ; preds = %for.inc53, %if.then42
-  %52 = load i32, ptr %i, align 4
-  %cmp46 = icmp sgt i32 %52, 0
-  br i1 %cmp46, label %for.body47, label %for.end55
-
-for.body47:                                       ; preds = %for.cond45
-  %53 = load i32, ptr %movedStart, align 4
-  %54 = load ptr, ptr %trie.addr, align 8
-  %map48 = getelementptr inbounds %struct.UNewTrie2, ptr %54, i32 0, i32 13
-  %55 = load i32, ptr %mapIndex, align 4
-  %inc49 = add nsw i32 %55, 1
-  store i32 %inc49, ptr %mapIndex, align 4
-  %idxprom50 = sext i32 %55 to i64
-  %arrayidx51 = getelementptr inbounds [34852 x i32], ptr %map48, i64 0, i64 %idxprom50
-  store i32 %53, ptr %arrayidx51, align 4
-  %56 = load i32, ptr %movedStart, align 4
-  %add52 = add nsw i32 %56, 32
-  store i32 %add52, ptr %movedStart, align 4
-  br label %for.inc53
-
-for.inc53:                                        ; preds = %for.body47
-  %57 = load i32, ptr %i, align 4
-  %dec54 = add nsw i32 %57, -1
-  store i32 %dec54, ptr %i, align 4
-  br label %for.cond45, !llvm.loop !37
-
-for.end55:                                        ; preds = %for.cond45
-  %58 = load i32, ptr %overlap, align 4
-  %59 = load i32, ptr %start, align 4
-  %add56 = add nsw i32 %59, %58
-  store i32 %add56, ptr %start, align 4
-  %60 = load i32, ptr %blockLength, align 4
-  %61 = load i32, ptr %overlap, align 4
-  %sub57 = sub nsw i32 %60, %61
-  store i32 %sub57, ptr %i, align 4
-  br label %for.cond58
-
-for.cond58:                                       ; preds = %for.inc69, %for.end55
-  %62 = load i32, ptr %i, align 4
-  %cmp59 = icmp sgt i32 %62, 0
-  br i1 %cmp59, label %for.body60, label %for.end71
-
-for.body60:                                       ; preds = %for.cond58
-  %63 = load ptr, ptr %trie.addr, align 8
-  %data61 = getelementptr inbounds %struct.UNewTrie2, ptr %63, i32 0, i32 2
-  %64 = load ptr, ptr %data61, align 8
-  %65 = load i32, ptr %start, align 4
-  %inc62 = add nsw i32 %65, 1
-  store i32 %inc62, ptr %start, align 4
-  %idxprom63 = sext i32 %65 to i64
-  %arrayidx64 = getelementptr inbounds i32, ptr %64, i64 %idxprom63
-  %66 = load i32, ptr %arrayidx64, align 4
-  %67 = load ptr, ptr %trie.addr, align 8
-  %data65 = getelementptr inbounds %struct.UNewTrie2, ptr %67, i32 0, i32 2
-  %68 = load ptr, ptr %data65, align 8
-  %69 = load i32, ptr %newStart, align 4
-  %inc66 = add nsw i32 %69, 1
-  store i32 %inc66, ptr %newStart, align 4
-  %idxprom67 = sext i32 %69 to i64
-  %arrayidx68 = getelementptr inbounds i32, ptr %68, i64 %idxprom67
-  store i32 %66, ptr %arrayidx68, align 4
-  br label %for.inc69
-
-for.inc69:                                        ; preds = %for.body60
-  %70 = load i32, ptr %i, align 4
-  %dec70 = add nsw i32 %70, -1
-  store i32 %dec70, ptr %i, align 4
-  br label %for.cond58, !llvm.loop !38
-
-for.end71:                                        ; preds = %for.cond58
-  br label %if.end84
-
-if.else:                                          ; preds = %lor.lhs.false
-  %71 = load i32, ptr %blockCount, align 4
-  store i32 %71, ptr %i, align 4
-  %72 = load i32, ptr %start, align 4
-  %shr72 = ashr i32 %72, 5
-  store i32 %shr72, ptr %mapIndex, align 4
-  br label %for.cond73
-
-for.cond73:                                       ; preds = %for.inc81, %if.else
-  %73 = load i32, ptr %i, align 4
-  %cmp74 = icmp sgt i32 %73, 0
-  br i1 %cmp74, label %for.body75, label %for.end83
-
-for.body75:                                       ; preds = %for.cond73
-  %74 = load i32, ptr %start, align 4
-  %75 = load ptr, ptr %trie.addr, align 8
-  %map76 = getelementptr inbounds %struct.UNewTrie2, ptr %75, i32 0, i32 13
-  %76 = load i32, ptr %mapIndex, align 4
-  %inc77 = add nsw i32 %76, 1
-  store i32 %inc77, ptr %mapIndex, align 4
-  %idxprom78 = sext i32 %76 to i64
-  %arrayidx79 = getelementptr inbounds [34852 x i32], ptr %map76, i64 0, i64 %idxprom78
-  store i32 %74, ptr %arrayidx79, align 4
-  %77 = load i32, ptr %start, align 4
-  %add80 = add nsw i32 %77, 32
-  store i32 %add80, ptr %start, align 4
-  br label %for.inc81
-
-for.inc81:                                        ; preds = %for.body75
-  %78 = load i32, ptr %i, align 4
-  %dec82 = add nsw i32 %78, -1
-  store i32 %dec82, ptr %i, align 4
-  br label %for.cond73, !llvm.loop !39
-
-for.end83:                                        ; preds = %for.cond73
-  %79 = load i32, ptr %start, align 4
-  store i32 %79, ptr %newStart, align 4
-  br label %if.end84
-
-if.end84:                                         ; preds = %for.end83, %for.end71
-  br label %for.cond1, !llvm.loop !34
-
-for.end85:                                        ; preds = %for.cond1
-  store i32 0, ptr %i, align 4
-  br label %for.cond86
-
-for.cond86:                                       ; preds = %for.inc102, %for.end85
-  %80 = load i32, ptr %i, align 4
-  %81 = load ptr, ptr %trie.addr, align 8
-  %index2Length = getelementptr inbounds %struct.UNewTrie2, ptr %81, i32 0, i32 5
-  %82 = load i32, ptr %index2Length, align 8
-  %cmp87 = icmp slt i32 %80, %82
-  br i1 %cmp87, label %for.body88, label %for.end104
-
-for.body88:                                       ; preds = %for.cond86
-  %83 = load i32, ptr %i, align 4
-  %cmp89 = icmp eq i32 %83, 2080
-  br i1 %cmp89, label %if.then90, label %if.end92
-
-if.then90:                                        ; preds = %for.body88
-  %84 = load i32, ptr %i, align 4
-  %add91 = add nsw i32 %84, 576
-  store i32 %add91, ptr %i, align 4
-  br label %if.end92
-
-if.end92:                                         ; preds = %if.then90, %for.body88
-  %85 = load ptr, ptr %trie.addr, align 8
-  %map93 = getelementptr inbounds %struct.UNewTrie2, ptr %85, i32 0, i32 13
-  %86 = load ptr, ptr %trie.addr, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %86, i32 0, i32 1
-  %87 = load i32, ptr %i, align 4
-  %idxprom94 = sext i32 %87 to i64
-  %arrayidx95 = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 %idxprom94
-  %88 = load i32, ptr %arrayidx95, align 4
-  %shr96 = ashr i32 %88, 5
-  %idxprom97 = sext i32 %shr96 to i64
-  %arrayidx98 = getelementptr inbounds [34852 x i32], ptr %map93, i64 0, i64 %idxprom97
-  %89 = load i32, ptr %arrayidx98, align 4
-  %90 = load ptr, ptr %trie.addr, align 8
-  %index299 = getelementptr inbounds %struct.UNewTrie2, ptr %90, i32 0, i32 1
-  %91 = load i32, ptr %i, align 4
-  %idxprom100 = sext i32 %91 to i64
-  %arrayidx101 = getelementptr inbounds [35488 x i32], ptr %index299, i64 0, i64 %idxprom100
-  store i32 %89, ptr %arrayidx101, align 4
-  br label %for.inc102
-
-for.inc102:                                       ; preds = %if.end92
-  %92 = load i32, ptr %i, align 4
-  %inc103 = add nsw i32 %92, 1
-  store i32 %inc103, ptr %i, align 4
-  br label %for.cond86, !llvm.loop !40
-
-for.end104:                                       ; preds = %for.cond86
-  %93 = load ptr, ptr %trie.addr, align 8
-  %map105 = getelementptr inbounds %struct.UNewTrie2, ptr %93, i32 0, i32 13
-  %94 = load ptr, ptr %trie.addr, align 8
-  %dataNullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %94, i32 0, i32 10
-  %95 = load i32, ptr %dataNullOffset, align 4
-  %shr106 = ashr i32 %95, 5
-  %idxprom107 = sext i32 %shr106 to i64
-  %arrayidx108 = getelementptr inbounds [34852 x i32], ptr %map105, i64 0, i64 %idxprom107
-  %96 = load i32, ptr %arrayidx108, align 4
-  %97 = load ptr, ptr %trie.addr, align 8
-  %dataNullOffset109 = getelementptr inbounds %struct.UNewTrie2, ptr %97, i32 0, i32 10
-  store i32 %96, ptr %dataNullOffset109, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %for.end104
-  %98 = load i32, ptr %newStart, align 4
-  %and = and i32 %98, 3
-  %cmp110 = icmp ne i32 %and, 0
-  br i1 %cmp110, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %99 = load ptr, ptr %trie.addr, align 8
-  %initialValue = getelementptr inbounds %struct.UNewTrie2, ptr %99, i32 0, i32 3
-  %100 = load i32, ptr %initialValue, align 8
-  %101 = load ptr, ptr %trie.addr, align 8
-  %data111 = getelementptr inbounds %struct.UNewTrie2, ptr %101, i32 0, i32 2
-  %102 = load ptr, ptr %data111, align 8
-  %103 = load i32, ptr %newStart, align 4
-  %inc112 = add nsw i32 %103, 1
-  store i32 %inc112, ptr %newStart, align 4
-  %idxprom113 = sext i32 %103 to i64
-  %arrayidx114 = getelementptr inbounds i32, ptr %102, i64 %idxprom113
-  store i32 %100, ptr %arrayidx114, align 4
-  br label %while.cond, !llvm.loop !41
-
-while.end:                                        ; preds = %while.cond
-  %104 = load i32, ptr %newStart, align 4
-  %105 = load ptr, ptr %trie.addr, align 8
-  %dataLength115 = getelementptr inbounds %struct.UNewTrie2, ptr %105, i32 0, i32 7
-  store i32 %104, ptr %dataLength115, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL13compactIndex2P9UNewTrie2(ptr noundef %trie) #0 {
-entry:
-  %trie.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %start = alloca i32, align 4
-  %newStart = alloca i32, align 4
-  %movedStart = alloca i32, align 4
-  %overlap = alloca i32, align 4
-  store ptr %trie, ptr %trie.addr, align 8
-  store i32 2080, ptr %newStart, align 4
-  store i32 0, ptr %start, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %start, align 4
-  %1 = load i32, ptr %newStart, align 4
-  %cmp = icmp slt i32 %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %start, align 4
-  %3 = load ptr, ptr %trie.addr, align 8
-  %map = getelementptr inbounds %struct.UNewTrie2, ptr %3, i32 0, i32 13
-  %4 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [34852 x i32], ptr %map, i64 0, i64 %idxprom
-  store i32 %2, ptr %arrayidx, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %5 = load i32, ptr %start, align 4
-  %add = add nsw i32 %5, 64
-  store i32 %add, ptr %start, align 4
-  %6 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %6, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !42
-
-for.end:                                          ; preds = %for.cond
-  %7 = load ptr, ptr %trie.addr, align 8
-  %highStart = getelementptr inbounds %struct.UNewTrie2, ptr %7, i32 0, i32 11
-  %8 = load i32, ptr %highStart, align 8
-  %sub = sub nsw i32 %8, 65536
-  %shr = ashr i32 %sub, 11
-  %add1 = add nsw i32 32, %shr
-  %9 = load i32, ptr %newStart, align 4
-  %add2 = add nsw i32 %9, %add1
-  store i32 %add2, ptr %newStart, align 4
-  store i32 2656, ptr %start, align 4
-  br label %for.cond3
-
-for.cond3:                                        ; preds = %if.end54, %if.then, %for.end
-  %10 = load i32, ptr %start, align 4
-  %11 = load ptr, ptr %trie.addr, align 8
-  %index2Length = getelementptr inbounds %struct.UNewTrie2, ptr %11, i32 0, i32 5
-  %12 = load i32, ptr %index2Length, align 8
-  %cmp4 = icmp slt i32 %10, %12
-  br i1 %cmp4, label %for.body5, label %for.end55
-
-for.body5:                                        ; preds = %for.cond3
-  %13 = load ptr, ptr %trie.addr, align 8
-  %index2 = getelementptr inbounds %struct.UNewTrie2, ptr %13, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 0
-  %14 = load i32, ptr %newStart, align 4
-  %15 = load i32, ptr %start, align 4
-  %call = call noundef i32 @_ZL19findSameIndex2BlockPKiii(ptr noundef %arraydecay, i32 noundef %14, i32 noundef %15)
-  store i32 %call, ptr %movedStart, align 4
-  %cmp6 = icmp sge i32 %call, 0
-  br i1 %cmp6, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body5
-  %16 = load i32, ptr %movedStart, align 4
-  %17 = load ptr, ptr %trie.addr, align 8
-  %map7 = getelementptr inbounds %struct.UNewTrie2, ptr %17, i32 0, i32 13
-  %18 = load i32, ptr %start, align 4
-  %shr8 = ashr i32 %18, 6
-  %idxprom9 = sext i32 %shr8 to i64
-  %arrayidx10 = getelementptr inbounds [34852 x i32], ptr %map7, i64 0, i64 %idxprom9
-  store i32 %16, ptr %arrayidx10, align 4
-  %19 = load i32, ptr %start, align 4
-  %add11 = add nsw i32 %19, 64
-  store i32 %add11, ptr %start, align 4
-  br label %for.cond3, !llvm.loop !43
-
-if.end:                                           ; preds = %for.body5
-  store i32 63, ptr %overlap, align 4
-  br label %for.cond12
-
-for.cond12:                                       ; preds = %for.inc23, %if.end
-  %20 = load i32, ptr %overlap, align 4
-  %cmp13 = icmp sgt i32 %20, 0
-  br i1 %cmp13, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond12
-  %21 = load ptr, ptr %trie.addr, align 8
-  %index214 = getelementptr inbounds %struct.UNewTrie2, ptr %21, i32 0, i32 1
-  %arraydecay15 = getelementptr inbounds [35488 x i32], ptr %index214, i64 0, i64 0
-  %22 = load i32, ptr %newStart, align 4
-  %23 = load i32, ptr %overlap, align 4
-  %sub16 = sub nsw i32 %22, %23
-  %idx.ext = sext i32 %sub16 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %arraydecay15, i64 %idx.ext
-  %24 = load ptr, ptr %trie.addr, align 8
-  %index217 = getelementptr inbounds %struct.UNewTrie2, ptr %24, i32 0, i32 1
-  %arraydecay18 = getelementptr inbounds [35488 x i32], ptr %index217, i64 0, i64 0
-  %25 = load i32, ptr %start, align 4
-  %idx.ext19 = sext i32 %25 to i64
-  %add.ptr20 = getelementptr inbounds i32, ptr %arraydecay18, i64 %idx.ext19
-  %26 = load i32, ptr %overlap, align 4
-  %call21 = call noundef signext i8 @_ZL11equal_int32PKiS0_i(ptr noundef %add.ptr, ptr noundef %add.ptr20, i32 noundef %26)
-  %tobool = icmp ne i8 %call21, 0
-  %lnot = xor i1 %tobool, true
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond12
-  %27 = phi i1 [ false, %for.cond12 ], [ %lnot, %land.rhs ]
-  br i1 %27, label %for.body22, label %for.end24
-
-for.body22:                                       ; preds = %land.end
-  br label %for.inc23
-
-for.inc23:                                        ; preds = %for.body22
-  %28 = load i32, ptr %overlap, align 4
-  %dec = add nsw i32 %28, -1
-  store i32 %dec, ptr %overlap, align 4
-  br label %for.cond12, !llvm.loop !44
-
-for.end24:                                        ; preds = %land.end
-  %29 = load i32, ptr %overlap, align 4
-  %cmp25 = icmp sgt i32 %29, 0
-  br i1 %cmp25, label %if.then27, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %for.end24
-  %30 = load i32, ptr %newStart, align 4
-  %31 = load i32, ptr %start, align 4
-  %cmp26 = icmp slt i32 %30, %31
-  br i1 %cmp26, label %if.then27, label %if.else
-
-if.then27:                                        ; preds = %lor.lhs.false, %for.end24
-  %32 = load i32, ptr %newStart, align 4
-  %33 = load i32, ptr %overlap, align 4
-  %sub28 = sub nsw i32 %32, %33
-  %34 = load ptr, ptr %trie.addr, align 8
-  %map29 = getelementptr inbounds %struct.UNewTrie2, ptr %34, i32 0, i32 13
-  %35 = load i32, ptr %start, align 4
-  %shr30 = ashr i32 %35, 6
-  %idxprom31 = sext i32 %shr30 to i64
-  %arrayidx32 = getelementptr inbounds [34852 x i32], ptr %map29, i64 0, i64 %idxprom31
-  store i32 %sub28, ptr %arrayidx32, align 4
-  %36 = load i32, ptr %overlap, align 4
-  %37 = load i32, ptr %start, align 4
-  %add33 = add nsw i32 %37, %36
-  store i32 %add33, ptr %start, align 4
-  %38 = load i32, ptr %overlap, align 4
-  %sub34 = sub nsw i32 64, %38
-  store i32 %sub34, ptr %i, align 4
-  br label %for.cond35
-
-for.cond35:                                       ; preds = %for.inc46, %if.then27
-  %39 = load i32, ptr %i, align 4
-  %cmp36 = icmp sgt i32 %39, 0
-  br i1 %cmp36, label %for.body37, label %for.end48
-
-for.body37:                                       ; preds = %for.cond35
-  %40 = load ptr, ptr %trie.addr, align 8
-  %index238 = getelementptr inbounds %struct.UNewTrie2, ptr %40, i32 0, i32 1
-  %41 = load i32, ptr %start, align 4
-  %inc39 = add nsw i32 %41, 1
-  store i32 %inc39, ptr %start, align 4
-  %idxprom40 = sext i32 %41 to i64
-  %arrayidx41 = getelementptr inbounds [35488 x i32], ptr %index238, i64 0, i64 %idxprom40
-  %42 = load i32, ptr %arrayidx41, align 4
-  %43 = load ptr, ptr %trie.addr, align 8
-  %index242 = getelementptr inbounds %struct.UNewTrie2, ptr %43, i32 0, i32 1
-  %44 = load i32, ptr %newStart, align 4
-  %inc43 = add nsw i32 %44, 1
-  store i32 %inc43, ptr %newStart, align 4
-  %idxprom44 = sext i32 %44 to i64
-  %arrayidx45 = getelementptr inbounds [35488 x i32], ptr %index242, i64 0, i64 %idxprom44
-  store i32 %42, ptr %arrayidx45, align 4
-  br label %for.inc46
-
-for.inc46:                                        ; preds = %for.body37
-  %45 = load i32, ptr %i, align 4
-  %dec47 = add nsw i32 %45, -1
-  store i32 %dec47, ptr %i, align 4
-  br label %for.cond35, !llvm.loop !45
-
-for.end48:                                        ; preds = %for.cond35
-  br label %if.end54
-
-if.else:                                          ; preds = %lor.lhs.false
-  %46 = load i32, ptr %start, align 4
-  %47 = load ptr, ptr %trie.addr, align 8
-  %map49 = getelementptr inbounds %struct.UNewTrie2, ptr %47, i32 0, i32 13
-  %48 = load i32, ptr %start, align 4
-  %shr50 = ashr i32 %48, 6
-  %idxprom51 = sext i32 %shr50 to i64
-  %arrayidx52 = getelementptr inbounds [34852 x i32], ptr %map49, i64 0, i64 %idxprom51
-  store i32 %46, ptr %arrayidx52, align 4
-  %49 = load i32, ptr %start, align 4
-  %add53 = add nsw i32 %49, 64
-  store i32 %add53, ptr %start, align 4
-  %50 = load i32, ptr %start, align 4
-  store i32 %50, ptr %newStart, align 4
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.else, %for.end48
-  br label %for.cond3, !llvm.loop !43
-
-for.end55:                                        ; preds = %for.cond3
-  store i32 0, ptr %i, align 4
-  br label %for.cond56
-
-for.cond56:                                       ; preds = %for.inc68, %for.end55
-  %51 = load i32, ptr %i, align 4
-  %cmp57 = icmp slt i32 %51, 544
-  br i1 %cmp57, label %for.body58, label %for.end70
-
-for.body58:                                       ; preds = %for.cond56
-  %52 = load ptr, ptr %trie.addr, align 8
-  %map59 = getelementptr inbounds %struct.UNewTrie2, ptr %52, i32 0, i32 13
-  %53 = load ptr, ptr %trie.addr, align 8
-  %index1 = getelementptr inbounds %struct.UNewTrie2, ptr %53, i32 0, i32 0
-  %54 = load i32, ptr %i, align 4
-  %idxprom60 = sext i32 %54 to i64
-  %arrayidx61 = getelementptr inbounds [544 x i32], ptr %index1, i64 0, i64 %idxprom60
-  %55 = load i32, ptr %arrayidx61, align 4
-  %shr62 = ashr i32 %55, 6
-  %idxprom63 = sext i32 %shr62 to i64
-  %arrayidx64 = getelementptr inbounds [34852 x i32], ptr %map59, i64 0, i64 %idxprom63
-  %56 = load i32, ptr %arrayidx64, align 4
-  %57 = load ptr, ptr %trie.addr, align 8
-  %index165 = getelementptr inbounds %struct.UNewTrie2, ptr %57, i32 0, i32 0
-  %58 = load i32, ptr %i, align 4
-  %idxprom66 = sext i32 %58 to i64
-  %arrayidx67 = getelementptr inbounds [544 x i32], ptr %index165, i64 0, i64 %idxprom66
-  store i32 %56, ptr %arrayidx67, align 4
-  br label %for.inc68
-
-for.inc68:                                        ; preds = %for.body58
-  %59 = load i32, ptr %i, align 4
-  %inc69 = add nsw i32 %59, 1
-  store i32 %inc69, ptr %i, align 4
-  br label %for.cond56, !llvm.loop !46
-
-for.end70:                                        ; preds = %for.cond56
-  %60 = load ptr, ptr %trie.addr, align 8
-  %map71 = getelementptr inbounds %struct.UNewTrie2, ptr %60, i32 0, i32 13
-  %61 = load ptr, ptr %trie.addr, align 8
-  %index2NullOffset = getelementptr inbounds %struct.UNewTrie2, ptr %61, i32 0, i32 9
-  %62 = load i32, ptr %index2NullOffset, align 8
-  %shr72 = ashr i32 %62, 6
-  %idxprom73 = sext i32 %shr72 to i64
-  %arrayidx74 = getelementptr inbounds [34852 x i32], ptr %map71, i64 0, i64 %idxprom73
-  %63 = load i32, ptr %arrayidx74, align 4
-  %64 = load ptr, ptr %trie.addr, align 8
-  %index2NullOffset75 = getelementptr inbounds %struct.UNewTrie2, ptr %64, i32 0, i32 9
-  store i32 %63, ptr %index2NullOffset75, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %for.end70
-  %65 = load i32, ptr %newStart, align 4
-  %and = and i32 %65, 3
-  %cmp76 = icmp ne i32 %and, 0
-  br i1 %cmp76, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %66 = load ptr, ptr %trie.addr, align 8
-  %index277 = getelementptr inbounds %struct.UNewTrie2, ptr %66, i32 0, i32 1
-  %67 = load i32, ptr %newStart, align 4
-  %inc78 = add nsw i32 %67, 1
-  store i32 %inc78, ptr %newStart, align 4
-  %idxprom79 = sext i32 %67 to i64
-  %arrayidx80 = getelementptr inbounds [35488 x i32], ptr %index277, i64 0, i64 %idxprom79
-  store i32 262140, ptr %arrayidx80, align 4
-  br label %while.cond, !llvm.loop !47
-
-while.end:                                        ; preds = %while.cond
-  %68 = load i32, ptr %newStart, align 4
-  %69 = load ptr, ptr %trie.addr, align 8
-  %index2Length81 = getelementptr inbounds %struct.UNewTrie2, ptr %69, i32 0, i32 5
-  store i32 %68, ptr %index2Length81, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL17findSameDataBlockPKjiii(ptr noundef %data, i32 noundef %dataLength, i32 noundef %otherBlock, i32 noundef %blockLength) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %data.addr = alloca ptr, align 8
-  %dataLength.addr = alloca i32, align 4
-  %otherBlock.addr = alloca i32, align 4
-  %blockLength.addr = alloca i32, align 4
-  %block = alloca i32, align 4
-  store ptr %data, ptr %data.addr, align 8
-  store i32 %dataLength, ptr %dataLength.addr, align 4
-  store i32 %otherBlock, ptr %otherBlock.addr, align 4
-  store i32 %blockLength, ptr %blockLength.addr, align 4
-  %0 = load i32, ptr %blockLength.addr, align 4
-  %1 = load i32, ptr %dataLength.addr, align 4
-  %sub = sub nsw i32 %1, %0
-  store i32 %sub, ptr %dataLength.addr, align 4
-  store i32 0, ptr %block, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %block, align 4
-  %3 = load i32, ptr %dataLength.addr, align 4
-  %cmp = icmp sle i32 %2, %3
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %data.addr, align 8
-  %5 = load i32, ptr %block, align 4
-  %idx.ext = sext i32 %5 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %4, i64 %idx.ext
-  %6 = load ptr, ptr %data.addr, align 8
-  %7 = load i32, ptr %otherBlock.addr, align 4
-  %idx.ext1 = sext i32 %7 to i64
-  %add.ptr2 = getelementptr inbounds i32, ptr %6, i64 %idx.ext1
-  %8 = load i32, ptr %blockLength.addr, align 4
-  %call = call noundef signext i8 @_ZL12equal_uint32PKjS0_i(ptr noundef %add.ptr, ptr noundef %add.ptr2, i32 noundef %8)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %9 = load i32, ptr %block, align 4
-  store i32 %9, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %10 = load i32, ptr %block, align 4
-  %add = add nsw i32 %10, 4
-  store i32 %add, ptr %block, align 4
-  br label %for.cond, !llvm.loop !48
-
-for.end:                                          ; preds = %for.cond
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL12equal_uint32PKjS0_i(ptr noundef %s, ptr noundef %t, i32 noundef %length) #1 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %length.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %1 = load ptr, ptr %s.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %3 = load ptr, ptr %t.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %cmp1 = icmp eq i32 %2, %4
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %5 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
-  br i1 %5, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %6 = load ptr, ptr %s.addr, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %s.addr, align 8
-  %7 = load ptr, ptr %t.addr, align 8
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %7, i32 1
-  store ptr %incdec.ptr2, ptr %t.addr, align 8
-  %8 = load i32, ptr %length.addr, align 4
-  %dec = add nsw i32 %8, -1
-  store i32 %dec, ptr %length.addr, align 4
-  br label %while.cond, !llvm.loop !49
-
-while.end:                                        ; preds = %land.end
-  %9 = load i32, ptr %length.addr, align 4
-  %cmp3 = icmp eq i32 %9, 0
-  %conv = zext i1 %cmp3 to i8
-  ret i8 %conv
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL19findSameIndex2BlockPKiii(ptr noundef %idx, i32 noundef %index2Length, i32 noundef %otherBlock) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %idx.addr = alloca ptr, align 8
-  %index2Length.addr = alloca i32, align 4
-  %otherBlock.addr = alloca i32, align 4
-  %block = alloca i32, align 4
-  store ptr %idx, ptr %idx.addr, align 8
-  store i32 %index2Length, ptr %index2Length.addr, align 4
-  store i32 %otherBlock, ptr %otherBlock.addr, align 4
-  %0 = load i32, ptr %index2Length.addr, align 4
-  %sub = sub nsw i32 %0, 64
-  store i32 %sub, ptr %index2Length.addr, align 4
-  store i32 0, ptr %block, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %block, align 4
-  %2 = load i32, ptr %index2Length.addr, align 4
-  %cmp = icmp sle i32 %1, %2
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %idx.addr, align 8
-  %4 = load i32, ptr %block, align 4
-  %idx.ext = sext i32 %4 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %3, i64 %idx.ext
-  %5 = load ptr, ptr %idx.addr, align 8
-  %6 = load i32, ptr %otherBlock.addr, align 4
-  %idx.ext1 = sext i32 %6 to i64
-  %add.ptr2 = getelementptr inbounds i32, ptr %5, i64 %idx.ext1
-  %call = call noundef signext i8 @_ZL11equal_int32PKiS0_i(ptr noundef %add.ptr, ptr noundef %add.ptr2, i32 noundef 64)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %7 = load i32, ptr %block, align 4
-  store i32 %7, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %8 = load i32, ptr %block, align 4
-  %inc = add nsw i32 %8, 1
-  store i32 %inc, ptr %block, align 4
-  br label %for.cond, !llvm.loop !50
-
-for.end:                                          ; preds = %for.cond
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL11equal_int32PKiS0_i(ptr noundef %s, ptr noundef %t, i32 noundef %length) #1 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %length.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %1 = load ptr, ptr %s.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %3 = load ptr, ptr %t.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  %cmp1 = icmp eq i32 %2, %4
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %5 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
-  br i1 %5, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %6 = load ptr, ptr %s.addr, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %s.addr, align 8
-  %7 = load ptr, ptr %t.addr, align 8
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %7, i32 1
-  store ptr %incdec.ptr2, ptr %t.addr, align 8
-  %8 = load i32, ptr %length.addr, align 4
-  %dec = add nsw i32 %8, -1
-  store i32 %dec, ptr %length.addr, align 4
-  br label %while.cond, !llvm.loop !51
-
-while.end:                                        ; preds = %land.end
-  %9 = load i32, ptr %length.addr, align 4
-  %cmp3 = icmp eq i32 %9, 0
-  %conv = zext i1 %cmp3 to i8
-  ret i8 %conv
-}
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { allocsize(0) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"_ZTS10UErrorCode", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS6UTrie2", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS9UNewTrie2", !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 int", !8, i64 0}
+!17 = !{!18, !4, i64 36}
+!18 = !{!"_ZTS6UTrie2", !19, i64 0, !19, i64 8, !16, i64 16, !4, i64 24, !4, i64 28, !20, i64 32, !20, i64 34, !4, i64 36, !4, i64 40, !4, i64 44, !4, i64 48, !8, i64 56, !4, i64 64, !5, i64 68, !5, i64 69, !20, i64 70, !14, i64 72}
+!19 = !{!"p1 short", !8, i64 0}
+!20 = !{!"short", !5, i64 0}
+!21 = !{!18, !4, i64 40}
+!22 = !{!18, !4, i64 44}
+!23 = !{!18, !14, i64 72}
+!24 = !{!25, !16, i64 144128}
+!25 = !{!"_ZTS9UNewTrie2", !5, i64 0, !5, i64 2176, !16, i64 144128, !4, i64 144136, !4, i64 144140, !4, i64 144144, !4, i64 144148, !4, i64 144152, !4, i64 144156, !4, i64 144160, !4, i64 144164, !4, i64 144168, !5, i64 144172, !5, i64 144176}
+!26 = !{!25, !4, i64 144148}
+!27 = !{!25, !4, i64 144136}
+!28 = !{!25, !4, i64 144140}
+!29 = !{!25, !4, i64 144168}
+!30 = !{!25, !4, i64 144156}
+!31 = !{!25, !5, i64 144172}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.mustprogress"}
+!34 = distinct !{!34, !33}
+!35 = distinct !{!35, !33}
+!36 = !{!25, !4, i64 144164}
+!37 = !{!25, !4, i64 144152}
+!38 = distinct !{!38, !33}
+!39 = distinct !{!39, !33}
+!40 = distinct !{!40, !33}
+!41 = distinct !{!41, !33}
+!42 = distinct !{!42, !33}
+!43 = distinct !{!43, !33}
+!44 = !{!25, !4, i64 144160}
+!45 = !{!25, !4, i64 144144}
+!46 = distinct !{!46, !33}
+!47 = distinct !{!47, !33}
+!48 = distinct !{!48, !33}
+!49 = !{!18, !8, i64 56}
+!50 = !{!18, !4, i64 64}
+!51 = !{!18, !5, i64 68}
+!52 = !{!18, !19, i64 0}
+!53 = !{!18, !19, i64 8}
+!54 = !{!18, !16, i64 16}
+!55 = !{!56, !12, i64 0}
+!56 = !{!"_ZTS16NewTrieAndStatus", !12, i64 0, !10, i64 8, !5, i64 12}
+!57 = !{!56, !5, i64 12}
+!58 = !{!56, !10, i64 8}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"char16_t", !5, i64 0}
+!61 = !{!20, !20, i64 0}
+!62 = distinct !{!62, !33}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS16NewTrieAndStatus", !8, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS5UTrie", !8, i64 0}
+!67 = !{!68, !4, i64 32}
+!68 = !{!"_ZTS5UTrie", !19, i64 0, !16, i64 8, !8, i64 16, !4, i64 24, !4, i64 28, !4, i64 32, !5, i64 36}
+!69 = !{!68, !16, i64 8}
+!70 = !{!68, !19, i64 0}
+!71 = distinct !{!71, !33}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"_ZTS15UTrie2ValueBits", !5, i64 0}
+!74 = !{!18, !4, i64 24}
+!75 = !{!18, !4, i64 28}
+!76 = !{!18, !20, i64 32}
+!77 = !{!18, !20, i64 34}
+!78 = !{!18, !4, i64 48}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTS12UTrie2Header", !8, i64 0}
+!81 = !{!82, !4, i64 0}
+!82 = !{!"_ZTS12UTrie2Header", !4, i64 0, !20, i64 4, !20, i64 6, !20, i64 8, !20, i64 10, !20, i64 12, !20, i64 14}
+!83 = !{!82, !20, i64 4}
+!84 = !{!82, !20, i64 6}
+!85 = !{!82, !20, i64 8}
+!86 = !{!82, !20, i64 10}
+!87 = !{!82, !20, i64 12}
+!88 = !{!82, !20, i64 14}
+!89 = !{!19, !19, i64 0}
+!90 = distinct !{!90, !33}
+!91 = distinct !{!91, !33}
+!92 = distinct !{!92, !33}
+!93 = distinct !{!93, !33}
+!94 = distinct !{!94, !33}
+!95 = distinct !{!95, !33}
+!96 = !{!5, !5, i64 0}
+!97 = distinct !{!97, !33}
+!98 = distinct !{!98, !33}
+!99 = distinct !{!99, !33}
+!100 = distinct !{!100, !33}
+!101 = distinct !{!101, !33}
+!102 = distinct !{!102, !33}
+!103 = distinct !{!103, !33}
+!104 = distinct !{!104, !33}
+!105 = distinct !{!105, !33}
+!106 = distinct !{!106, !33}
+!107 = distinct !{!107, !33}
+!108 = distinct !{!108, !33}
+!109 = distinct !{!109, !33}
+!110 = distinct !{!110, !33}
+!111 = distinct !{!111, !33}
+!112 = distinct !{!112, !33}
+!113 = distinct !{!113, !33}
+!114 = distinct !{!114, !33}
+!115 = distinct !{!115, !33}
+!116 = distinct !{!116, !33}
+!117 = distinct !{!117, !33}
+!118 = distinct !{!118, !33}
+!119 = distinct !{!119, !33}
+!120 = distinct !{!120, !33}
+!121 = distinct !{!121, !33}
+!122 = distinct !{!122, !33}
+!123 = distinct !{!123, !33}

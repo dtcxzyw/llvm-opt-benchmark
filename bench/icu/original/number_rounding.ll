@@ -1,356 +1,355 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
-%"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
+%"class.icu_77::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
+%"class.icu_77::CharString" = type { %"class.icu_77::MaybeStackArray", i32, [4 x i8] }
+%"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
+%"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
+%"class.icu_77::UObject" = type { ptr }
+%"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"class.icu_75::number::impl::DecimalQuantity" = type <{ %"class.icu_75::IFixedDecimal", i8, [3 x i8], i32, i32, i8, i8, [2 x i8], double, i32, i32, i32, i32, %union.anon, i8, i8, [6 x i8] }>
-%"class.icu_75::IFixedDecimal" = type { ptr }
+%"class.icu_77::ConstChar16Ptr" = type { ptr }
+%"class.icu_77::number::impl::DecimalQuantity" = type <{ %"class.icu_77::IFixedDecimal", i8, [3 x i8], i32, i32, i8, i8, [2 x i8], double, i32, i32, i32, i32, %union.anon, i8, i8, [6 x i8] }>
+%"class.icu_77::IFixedDecimal" = type { ptr }
 %union.anon = type { %struct.anon.1 }
 %struct.anon.1 = type { ptr, i32 }
-%"class.icu_75::StringPiece" = type <{ ptr, i32, [4 x i8] }>
-%"class.icu_75::number::IncrementPrecision" = type { %"class.icu_75::number::Precision.base", [4 x i8] }
-%"class.icu_75::number::Precision.base" = type <{ i32, [4 x i8], %"union.icu_75::number::Precision::PrecisionUnion", i32 }>
-%"union.icu_75::number::Precision::PrecisionUnion" = type { %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings" }
-%"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings" = type { i64, i16, i16 }
+%"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
+%"class.icu_77::number::IncrementPrecision" = type { %"class.icu_77::number::Precision.base", [4 x i8] }
+%"class.icu_77::number::Precision.base" = type <{ i32, [4 x i8], %"union.icu_77::number::Precision::PrecisionUnion", i32 }>
+%"union.icu_77::number::Precision::PrecisionUnion" = type { %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings" }
+%"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings" = type { i64, i16, i16 }
 %struct.anon = type { i16, [27 x i16] }
-%"class.icu_75::number::Precision" = type <{ i32, [4 x i8], %"union.icu_75::number::Precision::PrecisionUnion", i32, [4 x i8] }>
-%"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings" = type { i16, i16, i16, i16, i32, i8 }
-%"class.icu_75::number::FractionPrecision" = type { %"class.icu_75::number::Precision.base", [4 x i8] }
-%"class.icu_75::number::CurrencyPrecision" = type { %"class.icu_75::number::Precision.base", [4 x i8] }
-%"class.icu_75::CurrencyUnit" = type { %"class.icu_75::MeasureUnit.base", [4 x i16], [4 x i8] }
-%"class.icu_75::MeasureUnit.base" = type <{ %"class.icu_75::UObject", ptr, i16, i8 }>
-%"class.icu_75::number::impl::RoundingImpl" = type <{ %"class.icu_75::number::Precision", i32, i8, [3 x i8] }>
+%"class.icu_77::number::Precision" = type <{ i32, [4 x i8], %"union.icu_77::number::Precision::PrecisionUnion", i32, [4 x i8] }>
+%"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings" = type { i16, i16, i16, i16, i32, i8 }
+%"class.icu_77::number::FractionPrecision" = type { %"class.icu_77::number::Precision.base", [4 x i8] }
+%"class.icu_77::number::CurrencyPrecision" = type { %"class.icu_77::number::Precision.base", [4 x i8] }
+%"class.icu_77::CurrencyUnit" = type { %"class.icu_77::MeasureUnit.base", [4 x i16], [4 x i8] }
+%"class.icu_77::MeasureUnit.base" = type <{ %"class.icu_77::UObject", ptr, i16, i8 }>
+%"class.icu_77::number::impl::RoundingImpl" = type <{ %"class.icu_77::number::Precision", i32, i8, [3 x i8] }>
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ei10UErrorCode = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE6resizeEii = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EED5Ev = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv = comdat any
 
 $__clang_call_terminate = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEC5EOS1_ = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEC5EOS1_ = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE17resetToStackArrayEv = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_ = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEaSEOS1_ = comdat any
 
-$_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv = comdat any
+$_ZNK6icu_7715MaybeStackArrayIcLi40EE11getCapacityEv = comdat any
 
-$_ZNK6icu_7515MaybeStackArrayIcLi40EE8getAliasEv = comdat any
+$_ZNK6icu_7715MaybeStackArrayIcLi40EE8getAliasEv = comdat any
 
-$_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv = comdat any
+$_ZNK6icu_7715MaybeStackArrayIcLi40EE13getArrayLimitEv = comdat any
 
-$_ZNK6icu_7515MaybeStackArrayIcLi40EEixEl = comdat any
+$_ZNK6icu_7715MaybeStackArrayIcLi40EEixEl = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEixEl = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEixEl = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE12aliasInsteadEPci = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE12aliasInsteadEPci = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneEiRi = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
 
-$_ZN6icu_7510CharStringC2Ev = comdat any
+$_ZN6icu_7710CharStringC2Ev = comdat any
 
-$_ZNK6icu_7513UnicodeString9getBufferEv = comdat any
+$_ZNK6icu_7713UnicodeString9getBufferEv = comdat any
 
-$_ZN6icu_7514ConstChar16PtrC2EPKDs = comdat any
+$_ZN6icu_7714ConstChar16PtrC2EPKDs = comdat any
 
-$_ZN6icu_7514ConstChar16PtrD2Ev = comdat any
+$_ZN6icu_7714ConstChar16PtrD2Ev = comdat any
 
-$_ZN6icu_7510CharString4dataEv = comdat any
+$_ZN6icu_7710CharString4dataEv = comdat any
 
-$_ZNK6icu_7510CharString6lengthEv = comdat any
+$_ZNK6icu_7710CharString6lengthEv = comdat any
 
-$_ZN6icu_7511StringPieceC2EPKci = comdat any
+$_ZN6icu_7711StringPieceC2EPKci = comdat any
 
-$_ZNK6icu_7510CharStringixEi = comdat any
+$_ZNK6icu_7710CharStringixEi = comdat any
 
-$_ZN6icu_7510CharStringD2Ev = comdat any
+$_ZN6icu_7710CharStringD2Ev = comdat any
 
-$_ZN6icu_756number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE = comdat any
+$_ZN6icu_776number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE = comdat any
 
-$_ZN6icu_756number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode = comdat any
+$_ZN6icu_776number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode = comdat any
 
-$_ZN6icu_756number9PrecisionC2E10UErrorCode = comdat any
+$_ZN6icu_776number9PrecisionC2E10UErrorCode = comdat any
 
-$_ZN6icu_756number18IncrementPrecisionCI2NS0_9PrecisionEE10UErrorCode = comdat any
+$_ZN6icu_776number18IncrementPrecisionCI2NS0_9PrecisionEE10UErrorCode = comdat any
 
-$_ZNK6icu_7512CurrencyUnit14getISOCurrencyEv = comdat any
+$_ZNK6icu_7712CurrencyUnit14getISOCurrencyEv = comdat any
 
-$_ZN6icu_756number17FractionPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE = comdat any
+$_ZN6icu_776number17FractionPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE = comdat any
 
-$_ZN6icu_756number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE = comdat any
+$_ZN6icu_776number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE = comdat any
 
-$_ZN6icu_756number17CurrencyPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE = comdat any
+$_ZN6icu_776number17CurrencyPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE = comdat any
 
-$_ZN6icu_756number4impl12RoundingImplC2Ev = comdat any
+$_ZN6icu_776number4impl12RoundingImplC2Ev = comdat any
 
-$_ZN6icu_756number9PrecisionC2Ev = comdat any
+$_ZN6icu_776number9PrecisionC2Ev = comdat any
 
-@_ZTVN6icu_756number4impl18MultiplierProducerE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6icu_756number4impl18MultiplierProducerE, ptr @_ZN6icu_756number4impl18MultiplierProducerD1Ev, ptr @_ZN6icu_756number4impl18MultiplierProducerD0Ev, ptr @__cxa_pure_virtual] }, align 8
+@_ZTVN6icu_776number4impl18MultiplierProducerE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN6icu_776number4impl18MultiplierProducerE, ptr @_ZN6icu_776number4impl18MultiplierProducerD1Ev, ptr @_ZN6icu_776number4impl18MultiplierProducerD0Ev, ptr @__cxa_pure_virtual] }, align 8
+@_ZTIN6icu_776number4impl18MultiplierProducerE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6icu_776number4impl18MultiplierProducerE }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
-@_ZTSN6icu_756number4impl18MultiplierProducerE = constant [42 x i8] c"N6icu_756number4impl18MultiplierProducerE\00", align 1
-@_ZTIN6icu_756number4impl18MultiplierProducerE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6icu_756number4impl18MultiplierProducerE }, align 8
+@_ZTSN6icu_776number4impl18MultiplierProducerE = constant [42 x i8] c"N6icu_776number4impl18MultiplierProducerE\00", align 1
 
-@_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev
-@_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode
-@_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev
-@_ZN6icu_7515MaybeStackArrayIcLi40EEC1EOS1_ = weak_odr unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_
-@_ZN6icu_756number4impl18MultiplierProducerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_756number4impl18MultiplierProducerD2Ev
-@_ZN6icu_756number4impl12RoundingImplC1ERKNS0_9PrecisionE25UNumberFormatRoundingModeRKNS_12CurrencyUnitER10UErrorCode = unnamed_addr alias void (ptr, ptr, i32, ptr, ptr), ptr @_ZN6icu_756number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFormatRoundingModeRKNS_12CurrencyUnitER10UErrorCode
+@_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ev
+@_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode
+@_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev
+@_ZN6icu_7715MaybeStackArrayIcLi40EEC1EOS1_ = weak_odr unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2EOS1_
+@_ZN6icu_776number4impl18MultiplierProducerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_776number4impl18MultiplierProducerD2Ev
+@_ZN6icu_776number4impl12RoundingImplC1ERKNS0_9PrecisionE25UNumberFormatRoundingModeRKNS_12CurrencyUnitER10UErrorCode = unnamed_addr alias void (ptr, ptr, i32, ptr, ptr), ptr @_ZN6icu_776number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFormatRoundingModeRKNS_12CurrencyUnitER10UErrorCode
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [40 x i8], ptr %stackArray, i64 0, i64 0
-  store ptr %arraydecay, ptr %ptr, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 2
-  store i8 0, ptr %needToRelease, align 4
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) unnamed_addr #0 comdat($_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev) align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 3
+  %6 = getelementptr inbounds [40 x i8], ptr %5, i64 0, i64 0
+  store ptr %6, ptr %4, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 1
+  store i32 40, ptr %7, align 8, !tbaa !12
+  %8 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 2
+  store i8 0, ptr %8, align 4, !tbaa !13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %newCapacity.addr = alloca i32, align 4
-  %status.addr = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newCapacity, ptr %newCapacity.addr, align 4
-  store i32 %status, ptr %status.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this1)
-  %0 = load i32, ptr %status.addr, align 4
-  %call = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0)
-          to label %invoke.cont unwind label %lpad
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 comdat($_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store i32 %2, ptr %6, align 4, !tbaa !15
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %9)
+  %10 = load i32, ptr %6, align 4, !tbaa !15
+  %11 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %10)
+          to label %12 unwind label %15
 
-invoke.cont:                                      ; preds = %entry
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+12:                                               ; preds = %3
+  %13 = icmp ne i8 %11, 0
+  br i1 %13, label %14, label %19
 
-if.then:                                          ; preds = %invoke.cont
-  br label %if.end8
+14:                                               ; preds = %12
+  br label %31
 
-lpad:                                             ; preds = %if.then2, %entry
-  %1 = landingpad { ptr, i32 }
+15:                                               ; preds = %24, %3
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this1) #10
-  br label %eh.resume
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %9) #13
+  br label %32
 
-if.end:                                           ; preds = %invoke.cont
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  %4 = load i32, ptr %capacity, align 8
-  %5 = load i32, ptr %newCapacity.addr, align 4
-  %cmp = icmp slt i32 %4, %5
-  br i1 %cmp, label %if.then2, label %if.end8
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %9, i32 0, i32 1
+  %21 = load i32, ptr %20, align 8, !tbaa !12
+  %22 = load i32, ptr %5, align 4, !tbaa !14
+  %23 = icmp slt i32 %21, %22
+  br i1 %23, label %24, label %31
 
-if.then2:                                         ; preds = %if.end
-  %6 = load i32, ptr %newCapacity.addr, align 4
-  %call4 = invoke noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE6resizeEii(ptr noundef nonnull align 8 dereferenceable(53) %this1, i32 noundef %6, i32 noundef 0)
-          to label %invoke.cont3 unwind label %lpad
+24:                                               ; preds = %19
+  %25 = load i32, ptr %5, align 4, !tbaa !14
+  %26 = invoke noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii(ptr noundef nonnull align 8 dereferenceable(53) %9, i32 noundef %25, i32 noundef 0)
+          to label %27 unwind label %15
 
-invoke.cont3:                                     ; preds = %if.then2
-  %cmp5 = icmp eq ptr %call4, null
-  br i1 %cmp5, label %if.then6, label %if.end7
+27:                                               ; preds = %24
+  %28 = icmp eq ptr %26, null
+  br i1 %28, label %29, label %30
 
-if.then6:                                         ; preds = %invoke.cont3
-  store i32 7, ptr %status.addr, align 4
-  br label %if.end7
+29:                                               ; preds = %27
+  store i32 7, ptr %6, align 4, !tbaa !15
+  br label %30
 
-if.end7:                                          ; preds = %if.then6, %invoke.cont3
-  br label %if.end8
+30:                                               ; preds = %29, %27
+  br label %31
 
-if.end8:                                          ; preds = %if.end7, %if.end, %if.then
+31:                                               ; preds = %14, %30, %19
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val9 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val9
+32:                                               ; preds = %15
+  %33 = load ptr, ptr %7, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %code) #0 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !15
+  %3 = load i32, ptr %2, align 4, !tbaa !15
+  %4 = icmp sgt i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE6resizeEii(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %length) #1 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %newCapacity.addr = alloca i32, align 4
-  %length.addr = alloca i32, align 4
-  %p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newCapacity, ptr %newCapacity.addr, align 4
-  store i32 %length, ptr %length.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %newCapacity.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii(ptr noundef nonnull align 8 dereferenceable(53) %0, i32 noundef %1, i32 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !14
+  store i32 %2, ptr %7, align 4, !tbaa !14
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %6, align 4, !tbaa !14
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %12, label %54
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %newCapacity.addr, align 4
-  %conv = sext i32 %1 to i64
-  %mul = mul i64 %conv, 1
-  %call = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #11
-  store ptr %call, ptr %p, align 8
-  %2 = load ptr, ptr %p, align 8
-  %cmp2 = icmp ne ptr %2, null
-  br i1 %cmp2, label %if.then3, label %if.end17
+12:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %13 = load i32, ptr %6, align 4, !tbaa !14
+  %14 = sext i32 %13 to i64
+  %15 = mul i64 %14, 1
+  %16 = call noalias ptr @uprv_malloc_77(i64 noundef %15) #14
+  store ptr %16, ptr %8, align 8, !tbaa !17
+  %17 = load ptr, ptr %8, align 8, !tbaa !17
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %52
 
-if.then3:                                         ; preds = %if.then
-  %3 = load i32, ptr %length.addr, align 4
-  %cmp4 = icmp sgt i32 %3, 0
-  br i1 %cmp4, label %if.then5, label %if.end14
+19:                                               ; preds = %12
+  %20 = load i32, ptr %7, align 4, !tbaa !14
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %22, label %46
 
-if.then5:                                         ; preds = %if.then3
-  %4 = load i32, ptr %length.addr, align 4
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  %5 = load i32, ptr %capacity, align 8
-  %cmp6 = icmp sgt i32 %4, %5
-  br i1 %cmp6, label %if.then7, label %if.end
+22:                                               ; preds = %19
+  %23 = load i32, ptr %7, align 4, !tbaa !14
+  %24 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %9, i32 0, i32 1
+  %25 = load i32, ptr %24, align 8, !tbaa !12
+  %26 = icmp sgt i32 %23, %25
+  br i1 %26, label %27, label %30
 
-if.then7:                                         ; preds = %if.then5
-  %capacity8 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  %6 = load i32, ptr %capacity8, align 8
-  store i32 %6, ptr %length.addr, align 4
-  br label %if.end
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %9, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8, !tbaa !12
+  store i32 %29, ptr %7, align 4, !tbaa !14
+  br label %30
 
-if.end:                                           ; preds = %if.then7, %if.then5
-  %7 = load i32, ptr %length.addr, align 4
-  %8 = load i32, ptr %newCapacity.addr, align 4
-  %cmp9 = icmp sgt i32 %7, %8
-  br i1 %cmp9, label %if.then10, label %if.end11
+30:                                               ; preds = %27, %22
+  %31 = load i32, ptr %7, align 4, !tbaa !14
+  %32 = load i32, ptr %6, align 4, !tbaa !14
+  %33 = icmp sgt i32 %31, %32
+  br i1 %33, label %34, label %36
 
-if.then10:                                        ; preds = %if.end
-  %9 = load i32, ptr %newCapacity.addr, align 4
-  store i32 %9, ptr %length.addr, align 4
-  br label %if.end11
+34:                                               ; preds = %30
+  %35 = load i32, ptr %6, align 4, !tbaa !14
+  store i32 %35, ptr %7, align 4, !tbaa !14
+  br label %36
 
-if.end11:                                         ; preds = %if.then10, %if.end
-  br label %do.body
+36:                                               ; preds = %34, %30
+  br label %37
 
-do.body:                                          ; preds = %if.end11
-  %10 = load ptr, ptr %p, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %11 = load ptr, ptr %ptr, align 8
-  %12 = load i32, ptr %length.addr, align 4
-  %conv12 = sext i32 %12 to i64
-  %mul13 = mul i64 %conv12, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %11, i64 %mul13, i1 false)
-  br label %do.end
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %8, align 8, !tbaa !17
+  %39 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %9, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !8
+  %41 = load i32, ptr %7, align 4, !tbaa !14
+  %42 = sext i32 %41 to i64
+  %43 = mul i64 %42, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %40, i64 %43, i1 false)
+  br label %44
 
-do.end:                                           ; preds = %do.body
-  br label %if.end14
+44:                                               ; preds = %37
+  br label %45
 
-if.end14:                                         ; preds = %do.end, %if.then3
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this1)
-  %13 = load ptr, ptr %p, align 8
-  %ptr15 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  store ptr %13, ptr %ptr15, align 8
-  %14 = load i32, ptr %newCapacity.addr, align 4
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  store i32 %14, ptr %capacity16, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 2
-  store i8 1, ptr %needToRelease, align 4
-  br label %if.end17
+45:                                               ; preds = %44
+  br label %46
 
-if.end17:                                         ; preds = %if.end14, %if.then
-  %15 = load ptr, ptr %p, align 8
-  store ptr %15, ptr %retval, align 8
-  br label %return
+46:                                               ; preds = %45, %19
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %9)
+  %47 = load ptr, ptr %8, align 8, !tbaa !17
+  %48 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %9, i32 0, i32 0
+  store ptr %47, ptr %48, align 8, !tbaa !8
+  %49 = load i32, ptr %6, align 4, !tbaa !14
+  %50 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %9, i32 0, i32 1
+  store i32 %49, ptr %50, align 8, !tbaa !12
+  %51 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %9, i32 0, i32 2
+  store i8 1, ptr %51, align 4, !tbaa !13
+  br label %52
 
-if.else:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+52:                                               ; preds = %46, %12
+  %53 = load ptr, ptr %8, align 8, !tbaa !17
+  store ptr %53, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  br label %55
 
-return:                                           ; preds = %if.else, %if.end17
-  %16 = load ptr, ptr %retval, align 8
-  ret ptr %16
+54:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %55
+
+55:                                               ; preds = %54, %52
+  %56 = load ptr, ptr %4, align 8
+  ret ptr %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) unnamed_addr #0 comdat($_ZN6icu_7715MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
+4:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #12
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #15
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %needToRelease, align 4
-  %tobool = icmp ne i8 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 2
+  %5 = load i8, ptr %4, align 4, !tbaa !13
+  %6 = icmp ne i8 %5, 0
+  br i1 %6, label %7, label %10
 
-if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %ptr, align 8
-  call void @uprv_free_75(ptr noundef %1)
-  br label %if.end
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @uprv_free_77(ptr noundef %9)
+  br label %10
 
-if.end:                                           ; preds = %if.then, %entry
+10:                                               ; preds = %7, %1
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #2 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #10
-  call void @_ZSt9terminatev() #12
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #4 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #13
+  call void @_ZSt9terminatev() #15
   unreachable
 }
 
@@ -359,2689 +358,2982 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5EOS1_) align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %src.addr, align 8
-  %ptr2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %ptr2, align 8
-  store ptr %1, ptr %ptr, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %src.addr, align 8
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %capacity3, align 8
-  store i32 %3, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %src.addr, align 8
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %4, i32 0, i32 2
-  %5 = load i8, ptr %needToRelease4, align 4
-  store i8 %5, ptr %needToRelease, align 4
-  %6 = load ptr, ptr %src.addr, align 8
-  %ptr5 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %ptr5, align 8
-  %8 = load ptr, ptr %src.addr, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %8, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [40 x i8], ptr %stackArray, i64 0, i64 0
-  %cmp = icmp eq ptr %7, %arraydecay
-  br i1 %cmp, label %if.then, label %if.else
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(53) %1) unnamed_addr #0 comdat($_ZN6icu_7715MaybeStackArrayIcLi40EEC5EOS1_) align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %9, ptr %6, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %11, i32 0, i32 1
+  %13 = load i32, ptr %12, align 8, !tbaa !12
+  store i32 %13, ptr %10, align 8, !tbaa !12
+  %14 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %15, i32 0, i32 2
+  %17 = load i8, ptr %16, align 4, !tbaa !13
+  store i8 %17, ptr %14, align 4, !tbaa !13
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !8
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %21, i32 0, i32 3
+  %23 = getelementptr inbounds [40 x i8], ptr %22, i64 0, i64 0
+  %24 = icmp eq ptr %20, %23
+  br i1 %24, label %25, label %42
 
-if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 3
-  %arraydecay7 = getelementptr inbounds [40 x i8], ptr %stackArray6, i64 0, i64 0
-  %ptr8 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  store ptr %arraydecay7, ptr %ptr8, align 8
-  br label %do.body
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 3
+  %27 = getelementptr inbounds [40 x i8], ptr %26, i64 0, i64 0
+  %28 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 0
+  store ptr %27, ptr %28, align 8, !tbaa !8
+  br label %29
 
-do.body:                                          ; preds = %if.then
-  %stackArray9 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 3
-  %arraydecay10 = getelementptr inbounds [40 x i8], ptr %stackArray9, i64 0, i64 0
-  %9 = load ptr, ptr %src.addr, align 8
-  %stackArray11 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %9, i32 0, i32 3
-  %arraydecay12 = getelementptr inbounds [40 x i8], ptr %stackArray11, i64 0, i64 0
-  %10 = load ptr, ptr %src.addr, align 8
-  %capacity13 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %10, i32 0, i32 1
-  %11 = load i32, ptr %capacity13, align 8
-  %conv = sext i32 %11 to i64
-  %mul = mul i64 1, %conv
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arraydecay10, ptr align 1 %arraydecay12, i64 %mul, i1 false)
-  br label %do.cond
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 3
+  %31 = getelementptr inbounds [40 x i8], ptr %30, i64 0, i64 0
+  %32 = load ptr, ptr %4, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %32, i32 0, i32 3
+  %34 = getelementptr inbounds [40 x i8], ptr %33, i64 0, i64 0
+  %35 = load ptr, ptr %4, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 8, !tbaa !12
+  %38 = sext i32 %37 to i64
+  %39 = mul i64 1, %38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %34, i64 %39, i1 false)
+  br label %40
 
-do.cond:                                          ; preds = %do.body
-  br label %do.end
+40:                                               ; preds = %29
+  br label %41
 
-do.end:                                           ; preds = %do.cond
-  br label %if.end
+41:                                               ; preds = %40
+  br label %45
 
-if.else:                                          ; preds = %entry
-  %12 = load ptr, ptr %src.addr, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %12)
-          to label %invoke.cont unwind label %terminate.lpad
+42:                                               ; preds = %2
+  %43 = load ptr, ptr %4, align 8, !tbaa !3
+  invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %43)
+          to label %44 unwind label %46
 
-invoke.cont:                                      ; preds = %if.else
-  br label %if.end
+44:                                               ; preds = %42
+  br label %45
 
-if.end:                                           ; preds = %invoke.cont, %do.end
+45:                                               ; preds = %44, %41
   ret void
 
-terminate.lpad:                                   ; preds = %if.else
-  %13 = landingpad { ptr, i32 }
+46:                                               ; preds = %42
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #12
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #15
   unreachable
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [40 x i8], ptr %stackArray, i64 0, i64 0
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  store ptr %arraydecay, ptr %ptr, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 2
-  store i8 0, ptr %needToRelease, align 4
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 3
+  %5 = getelementptr inbounds [40 x i8], ptr %4, i64 0, i64 0
+  %6 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 0
+  store ptr %5, ptr %6, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 1
+  store i32 40, ptr %7, align 8, !tbaa !12
+  %8 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 2
+  store i8 0, ptr %8, align 4, !tbaa !13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(53) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %5)
+          to label %6 unwind label %47
 
-invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %src.addr, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  store i32 %1, ptr %capacity2, align 8
-  %2 = load ptr, ptr %src.addr, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %2, i32 0, i32 2
-  %3 = load i8, ptr %needToRelease, align 4
-  %needToRelease3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 2
-  store i8 %3, ptr %needToRelease3, align 4
-  %4 = load ptr, ptr %src.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %ptr, align 8
-  %6 = load ptr, ptr %src.addr, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %6, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [40 x i8], ptr %stackArray, i64 0, i64 0
-  %cmp = icmp eq ptr %5, %arraydecay
-  br i1 %cmp, label %if.then, label %if.else
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 1
+  store i32 %9, ptr %10, align 8, !tbaa !12
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %11, i32 0, i32 2
+  %13 = load i8, ptr %12, align 4, !tbaa !13
+  %14 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 2
+  store i8 %13, ptr %14, align 4, !tbaa !13
+  %15 = load ptr, ptr %4, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !8
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %18, i32 0, i32 3
+  %20 = getelementptr inbounds [40 x i8], ptr %19, i64 0, i64 0
+  %21 = icmp eq ptr %17, %20
+  br i1 %21, label %22, label %39
 
-if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 3
-  %arraydecay5 = getelementptr inbounds [40 x i8], ptr %stackArray4, i64 0, i64 0
-  %ptr6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  store ptr %arraydecay5, ptr %ptr6, align 8
-  br label %do.body
+22:                                               ; preds = %6
+  %23 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 3
+  %24 = getelementptr inbounds [40 x i8], ptr %23, i64 0, i64 0
+  %25 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 0
+  store ptr %24, ptr %25, align 8, !tbaa !8
+  br label %26
 
-do.body:                                          ; preds = %if.then
-  %stackArray7 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 3
-  %arraydecay8 = getelementptr inbounds [40 x i8], ptr %stackArray7, i64 0, i64 0
-  %7 = load ptr, ptr %src.addr, align 8
-  %stackArray9 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %7, i32 0, i32 3
-  %arraydecay10 = getelementptr inbounds [40 x i8], ptr %stackArray9, i64 0, i64 0
-  %8 = load ptr, ptr %src.addr, align 8
-  %capacity11 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %8, i32 0, i32 1
-  %9 = load i32, ptr %capacity11, align 8
-  %conv = sext i32 %9 to i64
-  %mul = mul i64 1, %conv
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arraydecay8, ptr align 1 %arraydecay10, i64 %mul, i1 false)
-  br label %do.cond
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 3
+  %28 = getelementptr inbounds [40 x i8], ptr %27, i64 0, i64 0
+  %29 = load ptr, ptr %4, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %29, i32 0, i32 3
+  %31 = getelementptr inbounds [40 x i8], ptr %30, i64 0, i64 0
+  %32 = load ptr, ptr %4, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %32, i32 0, i32 1
+  %34 = load i32, ptr %33, align 8, !tbaa !12
+  %35 = sext i32 %34 to i64
+  %36 = mul i64 1, %35
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %31, i64 %36, i1 false)
+  br label %37
 
-do.cond:                                          ; preds = %do.body
-  br label %do.end
+37:                                               ; preds = %26
+  br label %38
 
-do.end:                                           ; preds = %do.cond
-  br label %if.end
+38:                                               ; preds = %37
+  br label %46
 
-if.else:                                          ; preds = %invoke.cont
-  %10 = load ptr, ptr %src.addr, align 8
-  %ptr12 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %ptr12, align 8
-  %ptr13 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  store ptr %11, ptr %ptr13, align 8
-  %12 = load ptr, ptr %src.addr, align 8
-  invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %12)
-          to label %invoke.cont14 unwind label %terminate.lpad
+39:                                               ; preds = %6
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !8
+  %43 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 0
+  store ptr %42, ptr %43, align 8, !tbaa !8
+  %44 = load ptr, ptr %4, align 8, !tbaa !3
+  invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %44)
+          to label %45 unwind label %47
 
-invoke.cont14:                                    ; preds = %if.else
-  br label %if.end
+45:                                               ; preds = %39
+  br label %46
 
-if.end:                                           ; preds = %invoke.cont14, %do.end
-  ret ptr %this1
+46:                                               ; preds = %45, %38
+  ret ptr %5
 
-terminate.lpad:                                   ; preds = %if.else, %entry
-  %13 = landingpad { ptr, i32 }
+47:                                               ; preds = %39, %2
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #12
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #15
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %capacity, align 8
-  ret i32 %0
+define weak_odr noundef i32 @_ZNK6icu_7715MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !12
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(53) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  ret ptr %0
+define weak_odr noundef ptr @_ZNK6icu_7715MaybeStackArrayIcLi40EE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(53) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(53) %this1)
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %capacity, align 8
-  %idx.ext = sext i32 %0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %idx.ext
-  ret ptr %add.ptr
+define weak_odr noundef ptr @_ZNK6icu_7715MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK6icu_7715MaybeStackArrayIcLi40EE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(53) %3)
+  %5 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %3, i32 0, i32 1
+  %6 = load i32, ptr %5, align 8, !tbaa !12
+  %7 = sext i32 %6 to i64
+  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %this, i64 noundef %i) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %i, ptr %i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %1 = load i64, ptr %i.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %1
-  ret ptr %arrayidx
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6icu_7715MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %8 = load i64, ptr %4, align 8, !tbaa !18
+  %9 = getelementptr inbounds i8, ptr %7, i64 %8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %this, i64 noundef %i) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %i, ptr %i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %1 = load i64, ptr %i.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %1
-  ret ptr %arrayidx
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !8
+  %8 = load i64, ptr %4, align 8, !tbaa !18
+  %9 = getelementptr inbounds i8, ptr %7, i64 %8
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12aliasInsteadEPci(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef %otherArray, i32 noundef %otherCapacity) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %otherArray.addr = alloca ptr, align 8
-  %otherCapacity.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %otherArray, ptr %otherArray.addr, align 8
-  store i32 %otherCapacity, ptr %otherCapacity.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %otherArray.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE12aliasInsteadEPci(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef %1, i32 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store i32 %2, ptr %6, align 4, !tbaa !14
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !17
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %19
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %otherCapacity.addr, align 4
-  %cmp2 = icmp sgt i32 %1, 0
-  br i1 %cmp2, label %if.then, label %if.end
+10:                                               ; preds = %3
+  %11 = load i32, ptr %6, align 4, !tbaa !14
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %13, label %19
 
-if.then:                                          ; preds = %land.lhs.true
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this1)
-  %2 = load ptr, ptr %otherArray.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  store ptr %2, ptr %ptr, align 8
-  %3 = load i32, ptr %otherCapacity.addr, align 4
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  store i32 %3, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 2
-  store i8 0, ptr %needToRelease, align 4
-  br label %if.end
+13:                                               ; preds = %10
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %7)
+  %14 = load ptr, ptr %5, align 8, !tbaa !17
+  %15 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %7, i32 0, i32 0
+  store ptr %14, ptr %15, align 8, !tbaa !8
+  %16 = load i32, ptr %6, align 4, !tbaa !14
+  %17 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %7, i32 0, i32 1
+  store i32 %16, ptr %17, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %7, i32 0, i32 2
+  store i8 0, ptr %18, align 4, !tbaa !13
+  br label %19
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+19:                                               ; preds = %13, %10, %3
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) #4
+declare noalias ptr @uprv_malloc_77(i64 noundef) #7
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) #1 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %resultCapacity.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %resultCapacity, ptr %resultCapacity.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 2
-  %0 = load i8, ptr %needToRelease, align 4
-  %tobool = icmp ne i8 %0, 0
-  br i1 %tobool, label %if.then, label %if.else
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
-if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %ptr, align 8
-  store ptr %1, ptr %p, align 8
-  br label %if.end14
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !20
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %11 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %10, i32 0, i32 2
+  %12 = load i8, ptr %11, align 4, !tbaa !13
+  %13 = icmp ne i8 %12, 0
+  br i1 %13, label %14, label %17
 
-if.else:                                          ; preds = %entry
-  %2 = load i32, ptr %length.addr, align 4
-  %cmp = icmp sle i32 %2, 0
-  br i1 %cmp, label %if.then2, label %if.else3
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %10, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !8
+  store ptr %16, ptr %8, align 8, !tbaa !17
+  br label %48
 
-if.then2:                                         ; preds = %if.else
-  store ptr null, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %3
+  %18 = load i32, ptr %6, align 4, !tbaa !14
+  %19 = icmp sle i32 %18, 0
+  br i1 %19, label %20, label %21
 
-if.else3:                                         ; preds = %if.else
-  %3 = load i32, ptr %length.addr, align 4
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  %4 = load i32, ptr %capacity, align 8
-  %cmp4 = icmp sgt i32 %3, %4
-  br i1 %cmp4, label %if.then5, label %if.end
+20:                                               ; preds = %17
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %52
 
-if.then5:                                         ; preds = %if.else3
-  %capacity6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  %5 = load i32, ptr %capacity6, align 8
-  store i32 %5, ptr %length.addr, align 4
-  br label %if.end
+21:                                               ; preds = %17
+  %22 = load i32, ptr %6, align 4, !tbaa !14
+  %23 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %10, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8, !tbaa !12
+  %25 = icmp sgt i32 %22, %24
+  br i1 %25, label %26, label %29
 
-if.end:                                           ; preds = %if.then5, %if.else3
-  %6 = load i32, ptr %length.addr, align 4
-  %conv = sext i32 %6 to i64
-  %mul = mul i64 %conv, 1
-  %call = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #11
-  store ptr %call, ptr %p, align 8
-  %7 = load ptr, ptr %p, align 8
-  %cmp7 = icmp eq ptr %7, null
-  br i1 %cmp7, label %if.then8, label %if.end9
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %10, i32 0, i32 1
+  %28 = load i32, ptr %27, align 8, !tbaa !12
+  store i32 %28, ptr %6, align 4, !tbaa !14
+  br label %29
 
-if.then8:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+29:                                               ; preds = %26, %21
+  %30 = load i32, ptr %6, align 4, !tbaa !14
+  %31 = sext i32 %30 to i64
+  %32 = mul i64 %31, 1
+  %33 = call noalias ptr @uprv_malloc_77(i64 noundef %32) #14
+  store ptr %33, ptr %8, align 8, !tbaa !17
+  %34 = load ptr, ptr %8, align 8, !tbaa !17
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %37
 
-if.end9:                                          ; preds = %if.end
-  br label %do.body
+36:                                               ; preds = %29
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %52
 
-do.body:                                          ; preds = %if.end9
-  %8 = load ptr, ptr %p, align 8
-  %ptr10 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %ptr10, align 8
-  %10 = load i32, ptr %length.addr, align 4
-  %conv11 = sext i32 %10 to i64
-  %mul12 = mul i64 %conv11, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %9, i64 %mul12, i1 false)
-  br label %do.end
+37:                                               ; preds = %29
+  br label %38
 
-do.end:                                           ; preds = %do.body
-  br label %if.end13
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %8, align 8, !tbaa !17
+  %40 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %10, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8, !tbaa !8
+  %42 = load i32, ptr %6, align 4, !tbaa !14
+  %43 = sext i32 %42 to i64
+  %44 = mul i64 %43, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %41, i64 %44, i1 false)
+  br label %45
 
-if.end13:                                         ; preds = %do.end
-  br label %if.end14
+45:                                               ; preds = %38
+  br label %46
 
-if.end14:                                         ; preds = %if.end13, %if.then
-  %11 = load i32, ptr %length.addr, align 4
-  %12 = load ptr, ptr %resultCapacity.addr, align 8
-  store i32 %11, ptr %12, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this1)
-  %13 = load ptr, ptr %p, align 8
-  store ptr %13, ptr %retval, align 8
-  br label %return
+46:                                               ; preds = %45
+  br label %47
 
-return:                                           ; preds = %if.end14, %if.then8, %if.then2
-  %14 = load ptr, ptr %retval, align 8
-  ret ptr %14
+47:                                               ; preds = %46
+  br label %48
+
+48:                                               ; preds = %47, %14
+  %49 = load i32, ptr %6, align 4, !tbaa !14
+  %50 = load ptr, ptr %7, align 8, !tbaa !20
+  store i32 %49, ptr %50, align 4, !tbaa !14
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %10)
+  %51 = load ptr, ptr %8, align 8, !tbaa !17
+  store ptr %51, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %52
+
+52:                                               ; preds = %48, %36, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  %53 = load ptr, ptr %4, align 8
+  ret ptr %53
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(53) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !22
+  %9 = load i32, ptr %8, align 4, !tbaa !15
+  %10 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %9)
+  %11 = icmp ne i8 %10, 0
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %entry
-  br label %do.end
+12:                                               ; preds = %3
+  br label %32
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %src.addr, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %capacity, align 8
-  %call2 = call noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE6resizeEii(ptr noundef nonnull align 8 dereferenceable(53) %this1, i32 noundef %3, i32 noundef 0)
-  %cmp = icmp eq ptr %call2, null
-  br i1 %cmp, label %if.then3, label %if.end4
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 8, !tbaa !12
+  %17 = call noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii(ptr noundef nonnull align 8 dereferenceable(53) %7, i32 noundef %16, i32 noundef 0)
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %21
 
-if.then3:                                         ; preds = %if.end
-  %4 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %4, align 4
-  br label %do.end
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8, !tbaa !22
+  store i32 7, ptr %20, align 4, !tbaa !15
+  br label %32
 
-if.end4:                                          ; preds = %if.end
-  br label %do.body
+21:                                               ; preds = %13
+  br label %22
 
-do.body:                                          ; preds = %if.end4
-  %ptr = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 0
-  %5 = load ptr, ptr %ptr, align 8
-  %6 = load ptr, ptr %src.addr, align 8
-  %ptr5 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %ptr5, align 8
-  %capacity6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this1, i32 0, i32 1
-  %8 = load i32, ptr %capacity6, align 8
-  %conv = sext i32 %8 to i64
-  %mul = mul i64 %conv, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %7, i64 %mul, i1 false)
-  br label %do.end
+22:                                               ; preds = %21
+  %23 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %7, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !8
+  %25 = load ptr, ptr %5, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %"class.icu_77::MaybeStackArray", ptr %7, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8, !tbaa !12
+  %30 = sext i32 %29 to i64
+  %31 = mul i64 %30, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %27, i64 %31, i1 false)
+  br label %32
 
-do.end:                                           ; preds = %do.body, %if.then3, %if.then
+32:                                               ; preds = %12, %19, %22
   ret void
 }
 
-declare void @uprv_free_75(ptr noundef) #5
+declare void @uprv_free_77(ptr noundef) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl20parseIncrementOptionERKNS_13StringSegmentERNS0_9PrecisionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(28) %outPrecision, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %outPrecision.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %buffer = alloca %"class.icu_75::CharString", align 8
-  %conversionStatus = alloca i32, align 4
-  %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %ref.tmp1 = alloca %"class.icu_75::UnicodeString", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %dq = alloca %"class.icu_75::number::impl::DecimalQuantity", align 8
-  %localStatus = alloca i32, align 4
-  %agg.tmp18 = alloca %"class.icu_75::StringPiece", align 8
-  %magnitude = alloca i32, align 4
-  %i = alloca i32, align 4
-  %newMagnitude = alloca i32, align 4
-  %ref.tmp53 = alloca %"class.icu_75::number::IncrementPrecision", align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %outPrecision, ptr %outPrecision.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  call void @_ZN6icu_7510CharStringC2Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer)
-  br label %do.body
+define void @_ZN6icu_776number4impl20parseIncrementOptionERKNS_13StringSegmentERNS0_9PrecisionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #1 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.icu_77::CharString", align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.icu_77::UnicodeString", align 8
+  %10 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %11 = alloca %"class.icu_77::UnicodeString", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.icu_77::number::impl::DecimalQuantity", align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %"class.icu_77::StringPiece", align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca %"class.icu_77::number::IncrementPrecision", align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 64, ptr %7) #13
+  call void @_ZN6icu_7710CharStringC2Ev(ptr noundef nonnull align 8 dereferenceable(60) %7)
+  br label %22
 
-do.body:                                          ; preds = %entry
-  store i32 0, ptr %conversionStatus, align 4
-  %0 = load ptr, ptr %segment.addr, align 8
-  invoke void @_ZNK6icu_7513StringSegment19toTempUnicodeStringEv(ptr sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(17) %0)
-          to label %invoke.cont unwind label %lpad
+22:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 0, ptr %8, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 64, ptr %9) #13
+  call void @llvm.lifetime.start.p0(i64 64, ptr %11) #13
+  %23 = load ptr, ptr %4, align 8, !tbaa !23
+  invoke void @_ZNK6icu_7713StringSegment19toTempUnicodeStringEv(ptr dead_on_unwind writable sret(%"class.icu_77::UnicodeString") align 8 %11, ptr noundef nonnull align 8 dereferenceable(17) %23)
+          to label %24 unwind label %40
 
-invoke.cont:                                      ; preds = %do.body
-  %call = invoke noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp1)
-          to label %invoke.cont3 unwind label %lpad2
+24:                                               ; preds = %22
+  %25 = invoke noundef ptr @_ZNK6icu_7713UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
+          to label %26 unwind label %44
 
-invoke.cont3:                                     ; preds = %invoke.cont
-  %add.ptr = getelementptr inbounds i16, ptr %call, i64 0
-  invoke void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %add.ptr)
-          to label %invoke.cont4 unwind label %lpad2
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds i16, ptr %25, i64 0
+  invoke void @_ZN6icu_7714ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %27)
+          to label %28 unwind label %44
 
-invoke.cont4:                                     ; preds = %invoke.cont3
-  %1 = load ptr, ptr %segment.addr, align 8
-  %call7 = invoke noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %invoke.cont6 unwind label %lpad5
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %4, align 8, !tbaa !23
+  %30 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %29)
+          to label %31 unwind label %48
 
-invoke.cont6:                                     ; preds = %invoke.cont4
-  %sub = sub nsw i32 %call7, 0
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i8 noundef signext 0, ptr noundef %agg.tmp, i32 noundef %sub)
-          to label %invoke.cont8 unwind label %lpad5
+31:                                               ; preds = %28
+  %32 = sub nsw i32 %30, 0
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 noundef signext 0, ptr noundef %10, i32 noundef %32)
+          to label %33 unwind label %48
 
-invoke.cont8:                                     ; preds = %invoke.cont6
-  %call11 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %buffer, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %conversionStatus)
-          to label %invoke.cont10 unwind label %lpad9
+33:                                               ; preds = %31
+  %34 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %7, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(4) %8)
+          to label %35 unwind label %52
 
-invoke.cont10:                                    ; preds = %invoke.cont8
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #10
-  call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #10
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp1) #10
-  %2 = load i32, ptr %conversionStatus, align 4
-  %cmp = icmp eq i32 %2, 26
-  br i1 %cmp, label %if.then, label %if.else
+35:                                               ; preds = %33
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
+  call void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #13
+  call void @llvm.lifetime.end.p0(i64 64, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 64, ptr %9) #13
+  %36 = load i32, ptr %8, align 4, !tbaa !15
+  %37 = icmp eq i32 %36, 26
+  br i1 %37, label %38, label %59
 
-if.then:                                          ; preds = %invoke.cont10
-  %3 = load ptr, ptr %status.addr, align 8
-  store i32 65811, ptr %3, align 4
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup59
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %6, align 8, !tbaa !22
+  store i32 65811, ptr %39, align 4, !tbaa !15
+  store i32 1, ptr %14, align 4
+  br label %73
 
-lpad:                                             ; preds = %do.end, %if.else, %do.body
-  %4 = landingpad { ptr, i32 }
+40:                                               ; preds = %22
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  br label %ehcleanup60
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %12, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %13, align 4
+  br label %58
 
-lpad2:                                            ; preds = %invoke.cont3, %invoke.cont
-  %7 = landingpad { ptr, i32 }
+44:                                               ; preds = %26, %24
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  br label %ehcleanup12
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %12, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %13, align 4
+  br label %57
 
-lpad5:                                            ; preds = %invoke.cont6, %invoke.cont4
-  %10 = landingpad { ptr, i32 }
+48:                                               ; preds = %31, %28
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %12, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %13, align 4
+  br label %56
 
-lpad9:                                            ; preds = %invoke.cont8
-  %13 = landingpad { ptr, i32 }
+52:                                               ; preds = %33
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #10
-  br label %ehcleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %12, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %13, align 4
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #13
+  br label %56
 
-ehcleanup:                                        ; preds = %lpad9, %lpad5
-  call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #10
-  br label %ehcleanup12
+56:                                               ; preds = %52, %48
+  call void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
+  br label %57
 
-ehcleanup12:                                      ; preds = %ehcleanup, %lpad2
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp1) #10
-  br label %ehcleanup60
+57:                                               ; preds = %56, %44
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %11) #13
+  br label %58
 
-if.else:                                          ; preds = %invoke.cont10
-  %16 = load i32, ptr %conversionStatus, align 4
-  %call14 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %16)
-          to label %invoke.cont13 unwind label %lpad
+58:                                               ; preds = %57, %40
+  call void @llvm.lifetime.end.p0(i64 64, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 64, ptr %9) #13
+  br label %102
 
-invoke.cont13:                                    ; preds = %if.else
-  %tobool = icmp ne i8 %call14, 0
-  br i1 %tobool, label %if.then15, label %if.end
+59:                                               ; preds = %35
+  %60 = load i32, ptr %8, align 4, !tbaa !15
+  %61 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %60)
+          to label %62 unwind label %67
 
-if.then15:                                        ; preds = %invoke.cont13
-  %17 = load i32, ptr %conversionStatus, align 4
-  %18 = load ptr, ptr %status.addr, align 8
-  store i32 %17, ptr %18, align 4
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup59
+62:                                               ; preds = %59
+  %63 = icmp ne i8 %61, 0
+  br i1 %63, label %64, label %71
 
-if.end:                                           ; preds = %invoke.cont13
-  br label %if.end16
+64:                                               ; preds = %62
+  %65 = load i32, ptr %8, align 4, !tbaa !15
+  %66 = load ptr, ptr %6, align 8, !tbaa !22
+  store i32 %65, ptr %66, align 4, !tbaa !15
+  store i32 1, ptr %14, align 4
+  br label %73
 
-if.end16:                                         ; preds = %if.end
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end16
-  br label %do.end
-
-do.end:                                           ; preds = %do.cond
-  invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq)
-          to label %invoke.cont17 unwind label %lpad
-
-invoke.cont17:                                    ; preds = %do.end
-  store i32 0, ptr %localStatus, align 4
-  %call21 = invoke noundef ptr @_ZN6icu_7510CharString4dataEv(ptr noundef nonnull align 8 dereferenceable(60) %buffer)
-          to label %invoke.cont20 unwind label %lpad19
-
-invoke.cont20:                                    ; preds = %invoke.cont17
-  %call23 = invoke noundef i32 @_ZNK6icu_7510CharString6lengthEv(ptr noundef nonnull align 8 dereferenceable(60) %buffer)
-          to label %invoke.cont22 unwind label %lpad19
-
-invoke.cont22:                                    ; preds = %invoke.cont20
-  invoke void @_ZN6icu_7511StringPieceC2EPKci(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp18, ptr noundef %call21, i32 noundef %call23)
-          to label %invoke.cont24 unwind label %lpad19
-
-invoke.cont24:                                    ; preds = %invoke.cont22
-  %19 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp18, i32 0, i32 1
-  %22 = load i32, ptr %21, align 8
-  %call26 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %dq, ptr %20, i32 %22, ptr noundef nonnull align 4 dereferenceable(4) %localStatus)
-          to label %invoke.cont25 unwind label %lpad19
-
-invoke.cont25:                                    ; preds = %invoke.cont24
-  %23 = load i32, ptr %localStatus, align 4
-  %call28 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %23)
-          to label %invoke.cont27 unwind label %lpad19
-
-invoke.cont27:                                    ; preds = %invoke.cont25
-  %tobool29 = icmp ne i8 %call28, 0
-  br i1 %tobool29, label %if.then35, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %invoke.cont27
-  %call31 = invoke noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity5isNaNEv(ptr noundef nonnull align 8 dereferenceable(66) %dq)
-          to label %invoke.cont30 unwind label %lpad19
-
-invoke.cont30:                                    ; preds = %lor.lhs.false
-  br i1 %call31, label %if.then35, label %lor.lhs.false32
-
-lor.lhs.false32:                                  ; preds = %invoke.cont30
-  %call34 = invoke noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity10isInfiniteEv(ptr noundef nonnull align 8 dereferenceable(66) %dq)
-          to label %invoke.cont33 unwind label %lpad19
-
-invoke.cont33:                                    ; preds = %lor.lhs.false32
-  br i1 %call34, label %if.then35, label %if.end36
-
-if.then35:                                        ; preds = %invoke.cont33, %invoke.cont30, %invoke.cont27
-  %24 = load ptr, ptr %status.addr, align 8
-  store i32 65811, ptr %24, align 4
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad19:                                           ; preds = %invoke.cont54, %for.end, %invoke.cont46, %if.then45, %for.body, %for.cond, %if.end36, %lor.lhs.false32, %lor.lhs.false, %invoke.cont25, %invoke.cont24, %invoke.cont22, %invoke.cont20, %invoke.cont17
-  %25 = landingpad { ptr, i32 }
+67:                                               ; preds = %59
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq) #10
-  br label %ehcleanup60
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %12, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %13, align 4
+  br label %102
 
-if.end36:                                         ; preds = %invoke.cont33
-  %call38 = invoke noundef i32 @_ZN6icu_756number4impl15DecimalQuantity17adjustToZeroScaleEv(ptr noundef nonnull align 8 dereferenceable(66) %dq)
-          to label %invoke.cont37 unwind label %lpad19
+71:                                               ; preds = %62
+  br label %72
 
-invoke.cont37:                                    ; preds = %if.end36
-  store i32 %call38, ptr %magnitude, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+72:                                               ; preds = %71
+  store i32 0, ptr %14, align 4
+  br label %73
 
-for.cond:                                         ; preds = %for.inc, %invoke.cont37
-  %28 = load i32, ptr %i, align 4
-  %call40 = invoke noundef i32 @_ZNK6icu_7510CharString6lengthEv(ptr noundef nonnull align 8 dereferenceable(60) %buffer)
-          to label %invoke.cont39 unwind label %lpad19
-
-invoke.cont39:                                    ; preds = %for.cond
-  %cmp41 = icmp slt i32 %28, %call40
-  br i1 %cmp41, label %for.body, label %for.end
-
-for.body:                                         ; preds = %invoke.cont39
-  %29 = load i32, ptr %i, align 4
-  %call43 = invoke noundef signext i8 @_ZNK6icu_7510CharStringixEi(ptr noundef nonnull align 8 dereferenceable(60) %buffer, i32 noundef %29)
-          to label %invoke.cont42 unwind label %lpad19
-
-invoke.cont42:                                    ; preds = %for.body
-  %conv = sext i8 %call43 to i32
-  %cmp44 = icmp eq i32 %conv, 46
-  br i1 %cmp44, label %if.then45, label %if.end52
-
-if.then45:                                        ; preds = %invoke.cont42
-  %30 = load i32, ptr %i, align 4
-  %call47 = invoke noundef i32 @_ZNK6icu_7510CharString6lengthEv(ptr noundef nonnull align 8 dereferenceable(60) %buffer)
-          to label %invoke.cont46 unwind label %lpad19
-
-invoke.cont46:                                    ; preds = %if.then45
-  %sub48 = sub nsw i32 %30, %call47
-  %add = add nsw i32 %sub48, 1
-  store i32 %add, ptr %newMagnitude, align 4
-  %31 = load i32, ptr %magnitude, align 4
-  %32 = load i32, ptr %newMagnitude, align 4
-  %sub49 = sub nsw i32 %31, %32
-  %call51 = invoke noundef zeroext i1 @_ZN6icu_756number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %dq, i32 noundef %sub49)
-          to label %invoke.cont50 unwind label %lpad19
-
-invoke.cont50:                                    ; preds = %invoke.cont46
-  %33 = load i32, ptr %newMagnitude, align 4
-  store i32 %33, ptr %magnitude, align 4
-  br label %for.end
-
-if.end52:                                         ; preds = %invoke.cont42
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end52
-  %34 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %34, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
-
-for.end:                                          ; preds = %invoke.cont50, %invoke.cont39
-  %call55 = invoke noundef i64 @_ZNK6icu_756number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66) %dq, i1 noundef zeroext false)
-          to label %invoke.cont54 unwind label %lpad19
-
-invoke.cont54:                                    ; preds = %for.end
-  %35 = load i32, ptr %magnitude, align 4
-  %conv56 = trunc i32 %35 to i16
-  invoke void @_ZN6icu_756number9Precision14incrementExactEms(ptr sret(%"class.icu_75::number::IncrementPrecision") align 8 %ref.tmp53, i64 noundef %call55, i16 noundef signext %conv56)
-          to label %invoke.cont57 unwind label %lpad19
-
-invoke.cont57:                                    ; preds = %invoke.cont54
-  %36 = load ptr, ptr %outPrecision.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 %ref.tmp53, i64 28, i1 false)
-  store i32 0, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont57, %if.then35
-  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq) #10
-  br label %cleanup59
-
-cleanup59:                                        ; preds = %cleanup, %if.then15, %if.then
-  call void @_ZN6icu_7510CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer) #10
-  %cleanup.dest = load i32, ptr %cleanup.dest.slot, align 4
-  switch i32 %cleanup.dest, label %unreachable [
-    i32 0, label %cleanup.cont
-    i32 1, label %cleanup.cont
+73:                                               ; preds = %72, %64, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  %74 = load i32, ptr %14, align 4
+  switch i32 %74, label %164 [
+    i32 0, label %75
   ]
 
-cleanup.cont:                                     ; preds = %cleanup59, %cleanup59
+75:                                               ; preds = %73
+  br label %76
+
+76:                                               ; preds = %75
+  br label %77
+
+77:                                               ; preds = %76
+  call void @llvm.lifetime.start.p0(i64 72, ptr %15) #13
+  invoke void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %15)
+          to label %78 unwind label %103
+
+78:                                               ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #13
+  store i32 0, ptr %16, align 4, !tbaa !15
+  %79 = invoke noundef ptr @_ZN6icu_7710CharString4dataEv(ptr noundef nonnull align 8 dereferenceable(60) %7)
+          to label %80 unwind label %107
+
+80:                                               ; preds = %78
+  %81 = invoke noundef i32 @_ZNK6icu_7710CharString6lengthEv(ptr noundef nonnull align 8 dereferenceable(60) %7)
+          to label %82 unwind label %107
+
+82:                                               ; preds = %80
+  invoke void @_ZN6icu_7711StringPieceC2EPKci(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef %79, i32 noundef %81)
+          to label %83 unwind label %107
+
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw { ptr, i32 }, ptr %17, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds nuw { ptr, i32 }, ptr %17, i32 0, i32 1
+  %87 = load i32, ptr %86, align 8
+  %88 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %15, ptr %85, i32 %87, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %89 unwind label %107
+
+89:                                               ; preds = %83
+  %90 = load i32, ptr %16, align 4, !tbaa !15
+  %91 = invoke noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %90)
+          to label %92 unwind label %107
+
+92:                                               ; preds = %89
+  %93 = icmp ne i8 %91, 0
+  br i1 %93, label %100, label %94
+
+94:                                               ; preds = %92
+  %95 = invoke noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity5isNaNEv(ptr noundef nonnull align 8 dereferenceable(66) %15)
+          to label %96 unwind label %107
+
+96:                                               ; preds = %94
+  br i1 %95, label %100, label %97
+
+97:                                               ; preds = %96
+  %98 = invoke noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10isInfiniteEv(ptr noundef nonnull align 8 dereferenceable(66) %15)
+          to label %99 unwind label %107
+
+99:                                               ; preds = %97
+  br i1 %98, label %100, label %111
+
+100:                                              ; preds = %99, %96, %92
+  %101 = load ptr, ptr %6, align 8, !tbaa !22
+  store i32 65811, ptr %101, align 4, !tbaa !15
+  store i32 1, ptr %14, align 4
+  br label %163
+
+102:                                              ; preds = %67, %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %174
+
+103:                                              ; preds = %77
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  %105 = extractvalue { ptr, i32 } %104, 0
+  store ptr %105, ptr %12, align 8
+  %106 = extractvalue { ptr, i32 } %104, 1
+  store i32 %106, ptr %13, align 4
+  br label %173
+
+107:                                              ; preds = %97, %94, %89, %83, %82, %80, %78
+  %108 = landingpad { ptr, i32 }
+          cleanup
+  %109 = extractvalue { ptr, i32 } %108, 0
+  store ptr %109, ptr %12, align 8
+  %110 = extractvalue { ptr, i32 } %108, 1
+  store i32 %110, ptr %13, align 4
+  br label %172
+
+111:                                              ; preds = %99
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #13
+  %112 = invoke noundef i32 @_ZN6icu_776number4impl15DecimalQuantity17adjustToZeroScaleEv(ptr noundef nonnull align 8 dereferenceable(66) %15)
+          to label %113 unwind label %120
+
+113:                                              ; preds = %111
+  store i32 %112, ptr %18, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #13
+  store i32 0, ptr %19, align 4, !tbaa !14
+  br label %114
+
+114:                                              ; preds = %151, %113
+  %115 = load i32, ptr %19, align 4, !tbaa !14
+  %116 = invoke noundef i32 @_ZNK6icu_7710CharString6lengthEv(ptr noundef nonnull align 8 dereferenceable(60) %7)
+          to label %117 unwind label %124
+
+117:                                              ; preds = %114
+  %118 = icmp slt i32 %115, %116
+  br i1 %118, label %128, label %119
+
+119:                                              ; preds = %117
+  store i32 4, ptr %14, align 4
+  br label %154
+
+120:                                              ; preds = %111
+  %121 = landingpad { ptr, i32 }
+          cleanup
+  %122 = extractvalue { ptr, i32 } %121, 0
+  store ptr %122, ptr %12, align 8
+  %123 = extractvalue { ptr, i32 } %121, 1
+  store i32 %123, ptr %13, align 4
+  br label %171
+
+124:                                              ; preds = %128, %114
+  %125 = landingpad { ptr, i32 }
+          cleanup
+  %126 = extractvalue { ptr, i32 } %125, 0
+  store ptr %126, ptr %12, align 8
+  %127 = extractvalue { ptr, i32 } %125, 1
+  store i32 %127, ptr %13, align 4
+  br label %155
+
+128:                                              ; preds = %117
+  %129 = load i32, ptr %19, align 4, !tbaa !14
+  %130 = invoke noundef signext i8 @_ZNK6icu_7710CharStringixEi(ptr noundef nonnull align 8 dereferenceable(60) %7, i32 noundef %129)
+          to label %131 unwind label %124
+
+131:                                              ; preds = %128
+  %132 = sext i8 %130 to i32
+  %133 = icmp eq i32 %132, 46
+  br i1 %133, label %134, label %150
+
+134:                                              ; preds = %131
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #13
+  %135 = load i32, ptr %19, align 4, !tbaa !14
+  %136 = invoke noundef i32 @_ZNK6icu_7710CharString6lengthEv(ptr noundef nonnull align 8 dereferenceable(60) %7)
+          to label %137 unwind label %146
+
+137:                                              ; preds = %134
+  %138 = sub nsw i32 %135, %136
+  %139 = add nsw i32 %138, 1
+  store i32 %139, ptr %20, align 4, !tbaa !14
+  %140 = load i32, ptr %18, align 4, !tbaa !14
+  %141 = load i32, ptr %20, align 4, !tbaa !14
+  %142 = sub nsw i32 %140, %141
+  %143 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %15, i32 noundef %142)
+          to label %144 unwind label %146
+
+144:                                              ; preds = %137
+  %145 = load i32, ptr %20, align 4, !tbaa !14
+  store i32 %145, ptr %18, align 4, !tbaa !14
+  store i32 4, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #13
+  br label %154
+
+146:                                              ; preds = %137, %134
+  %147 = landingpad { ptr, i32 }
+          cleanup
+  %148 = extractvalue { ptr, i32 } %147, 0
+  store ptr %148, ptr %12, align 8
+  %149 = extractvalue { ptr, i32 } %147, 1
+  store i32 %149, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #13
+  br label %155
+
+150:                                              ; preds = %131
+  br label %151
+
+151:                                              ; preds = %150
+  %152 = load i32, ptr %19, align 4, !tbaa !14
+  %153 = add nsw i32 %152, 1
+  store i32 %153, ptr %19, align 4, !tbaa !14
+  br label %114, !llvm.loop !27
+
+154:                                              ; preds = %144, %119
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #13
+  br label %156
+
+155:                                              ; preds = %146, %124
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #13
+  br label %171
+
+156:                                              ; preds = %154
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #13
+  %157 = invoke noundef i64 @_ZNK6icu_776number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66) %15, i1 noundef zeroext false)
+          to label %158 unwind label %167
+
+158:                                              ; preds = %156
+  %159 = load i32, ptr %18, align 4, !tbaa !14
+  %160 = trunc i32 %159 to i16
+  invoke void @_ZN6icu_776number9Precision14incrementExactEms(ptr dead_on_unwind writable sret(%"class.icu_77::number::IncrementPrecision") align 8 %21, i64 noundef %157, i16 noundef signext %160)
+          to label %161 unwind label %167
+
+161:                                              ; preds = %158
+  %162 = load ptr, ptr %5, align 8, !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %162, ptr align 8 %21, i64 28, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #13
+  store i32 0, ptr %14, align 4
+  br label %163
+
+163:                                              ; preds = %161, %100
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %15) #13
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #13
+  br label %164
+
+164:                                              ; preds = %163, %73
+  call void @_ZN6icu_7710CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #13
+  call void @llvm.lifetime.end.p0(i64 64, ptr %7) #13
+  %165 = load i32, ptr %14, align 4
+  switch i32 %165, label %180 [
+    i32 0, label %166
+    i32 1, label %166
+  ]
+
+166:                                              ; preds = %164, %164
   ret void
 
-ehcleanup60:                                      ; preds = %lpad19, %ehcleanup12, %lpad
-  call void @_ZN6icu_7510CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %buffer) #10
-  br label %eh.resume
+167:                                              ; preds = %158, %156
+  %168 = landingpad { ptr, i32 }
+          cleanup
+  %169 = extractvalue { ptr, i32 } %168, 0
+  store ptr %169, ptr %12, align 8
+  %170 = extractvalue { ptr, i32 } %168, 1
+  store i32 %170, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #13
+  br label %171
 
-eh.resume:                                        ; preds = %ehcleanup60
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val61 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val61
+171:                                              ; preds = %167, %155, %120
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #13
+  br label %172
 
-unreachable:                                      ; preds = %cleanup59
+172:                                              ; preds = %171, %107
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #13
+  call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %15) #13
+  br label %173
+
+173:                                              ; preds = %172, %103
+  call void @llvm.lifetime.end.p0(i64 72, ptr %15) #13
+  br label %174
+
+174:                                              ; preds = %173, %102
+  call void @_ZN6icu_7710CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #13
+  call void @llvm.lifetime.end.p0(i64 64, ptr %7) #13
+  br label %175
+
+175:                                              ; preds = %174
+  %176 = load ptr, ptr %12, align 8
+  %177 = load i32, ptr %13, align 4
+  %178 = insertvalue { ptr, i32 } poison, ptr %176, 0
+  %179 = insertvalue { ptr, i32 } %178, i32 %177, 1
+  resume { ptr, i32 } %179
+
+180:                                              ; preds = %164
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7510CharStringC2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %buffer = getelementptr inbounds %"class.icu_75::CharString", ptr %this1, i32 0, i32 0
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer)
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this1, i32 0, i32 1
-  store i32 0, ptr %len, align 8
-  %buffer2 = getelementptr inbounds %"class.icu_75::CharString", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %buffer2, i64 noundef 0)
-  store i8 0, ptr %call, align 1
+define linkonce_odr void @_ZN6icu_7710CharStringC2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %3, i32 0, i32 0
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %4)
+  %5 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 8, !tbaa !31
+  %6 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %3, i32 0, i32 0
+  %7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %6, i64 noundef 0)
+  store i8 0, ptr %7, align 1, !tbaa !33
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) #5
+declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) #8
 
-declare void @_ZNK6icu_7513StringSegment19toTempUnicodeStringEv(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(17)) #5
+declare void @_ZNK6icu_7713StringSegment19toTempUnicodeStringEv(ptr dead_on_unwind writable sret(%"class.icu_77::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(17)) #8
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK6icu_7513UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fLengthAndFlags = getelementptr inbounds %struct.anon.0, ptr %fUnion, i32 0, i32 0
-  %0 = load i16, ptr %fLengthAndFlags, align 8
-  %conv = sext i16 %0 to i32
-  %and = and i32 %conv, 17
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK6icu_7713UnicodeString9getBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %4, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.anon.0, ptr %5, i32 0, i32 0
+  %7 = load i16, ptr %6, align 8, !tbaa !33
+  %8 = sext i16 %7 to i32
+  %9 = and i32 %8, 17
+  %10 = icmp ne i32 %9, 0
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %27
 
-if.else:                                          ; preds = %entry
-  %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fLengthAndFlags3 = getelementptr inbounds %struct.anon.0, ptr %fUnion2, i32 0, i32 0
-  %1 = load i16, ptr %fLengthAndFlags3, align 8
-  %conv4 = sext i16 %1 to i32
-  %and5 = and i32 %conv4, 2
-  %tobool6 = icmp ne i32 %and5, 0
-  br i1 %tobool6, label %if.then7, label %if.else9
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %4, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.anon.0, ptr %13, i32 0, i32 0
+  %15 = load i16, ptr %14, align 8, !tbaa !33
+  %16 = sext i16 %15 to i32
+  %17 = and i32 %16, 2
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %23
 
-if.then7:                                         ; preds = %if.else
-  %fUnion8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fBuffer = getelementptr inbounds %struct.anon, ptr %fUnion8, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [27 x i16], ptr %fBuffer, i64 0, i64 0
-  store ptr %arraydecay, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %4, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.anon, ptr %20, i32 0, i32 1
+  %22 = getelementptr inbounds [27 x i16], ptr %21, i64 0, i64 0
+  store ptr %22, ptr %2, align 8
+  br label %27
 
-if.else9:                                         ; preds = %if.else
-  %fUnion10 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
-  %fArray = getelementptr inbounds %struct.anon.0, ptr %fUnion10, i32 0, i32 3
-  %2 = load ptr, ptr %fArray, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+23:                                               ; preds = %12
+  %24 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %4, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct.anon.0, ptr %24, i32 0, i32 3
+  %26 = load ptr, ptr %25, align 8, !tbaa !33
+  store ptr %26, ptr %2, align 8
+  br label %27
 
-return:                                           ; preds = %if.else9, %if.then7, %if.then
-  %3 = load ptr, ptr %retval, align 8
-  ret ptr %3
+27:                                               ; preds = %23, %19, %11
+  %28 = load ptr, ptr %2, align 8
+  ret ptr %28
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %p_ = getelementptr inbounds %"class.icu_75::ConstChar16Ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %p_, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_7714ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::ConstChar16Ptr", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !38
+  store ptr %7, ptr %6, align 8, !tbaa !40
   ret void
 }
 
-declare noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17)) #5
+declare noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17)) #8
 
-declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #5
+declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
+declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #9
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %p_ = getelementptr inbounds %"class.icu_75::ConstChar16Ptr", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %p_, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #10, !srcloc !6
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_7714ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::ConstChar16Ptr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #13, !srcloc !42
   ret void
 }
 
-declare void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #5
+declare void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #8
 
-declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) #5
+declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN6icu_7510CharString4dataEv(ptr noundef nonnull align 8 dereferenceable(60) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %buffer = getelementptr inbounds %"class.icu_75::CharString", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(53) %buffer)
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZN6icu_7710CharString4dataEv(ptr noundef nonnull align 8 dereferenceable(60) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK6icu_7715MaybeStackArrayIcLi40EE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(53) %4)
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6icu_7510CharString6lengthEv(ptr noundef nonnull align 8 dereferenceable(60) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %len = getelementptr inbounds %"class.icu_75::CharString", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %len, align 8
-  ret i32 %0
+define linkonce_odr noundef i32 @_ZNK6icu_7710CharString6lengthEv(ptr noundef nonnull align 8 dereferenceable(60) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !31
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7511StringPieceC2EPKci(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %offset, i32 noundef %len) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %offset.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %offset, ptr %offset.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr_ = getelementptr inbounds %"class.icu_75::StringPiece", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %offset.addr, align 8
-  store ptr %0, ptr %ptr_, align 8
-  %length_ = getelementptr inbounds %"class.icu_75::StringPiece", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %len.addr, align 4
-  store i32 %1, ptr %length_, align 8
+define linkonce_odr void @_ZN6icu_7711StringPieceC2EPKci(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !43
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store i32 %2, ptr %6, align 4, !tbaa !14
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.icu_77::StringPiece", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !17
+  store ptr %9, ptr %8, align 8, !tbaa !45
+  %10 = getelementptr inbounds nuw %"class.icu_77::StringPiece", ptr %7, i32 0, i32 1
+  %11 = load i32, ptr %6, align 4, !tbaa !14
+  store i32 %11, ptr %10, align 8, !tbaa !47
   ret void
 }
 
-declare noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity5isNaNEv(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #5
+declare noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity5isNaNEv(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #8
 
-declare noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity10isInfiniteEv(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #5
+declare noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10isInfiniteEv(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #8
 
-declare noundef i32 @_ZN6icu_756number4impl15DecimalQuantity17adjustToZeroScaleEv(ptr noundef nonnull align 8 dereferenceable(66)) #5
+declare noundef i32 @_ZN6icu_776number4impl15DecimalQuantity17adjustToZeroScaleEv(ptr noundef nonnull align 8 dereferenceable(66)) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef signext i8 @_ZNK6icu_7510CharStringixEi(ptr noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %index) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %buffer = getelementptr inbounds %"class.icu_75::CharString", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %index.addr, align 4
-  %conv = sext i32 %0 to i64
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %buffer, i64 noundef %conv)
-  %1 = load i8, ptr %call, align 1
-  ret i8 %1
+define linkonce_odr noundef signext i8 @_ZNK6icu_7710CharStringixEi(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !14
+  %8 = sext i32 %7 to i64
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6icu_7715MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %6, i64 noundef %8)
+  %10 = load i8, ptr %9, align 1, !tbaa !33
+  ret i8 %10
 }
 
-declare noundef zeroext i1 @_ZN6icu_756number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #5
+declare noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision14incrementExactEms(ptr noalias sret(%"class.icu_75::number::IncrementPrecision") align 8 %agg.result, i64 noundef %mantissa, i16 noundef signext %magnitude) #1 align 2 {
-entry:
-  %mantissa.addr = alloca i64, align 8
-  %magnitude.addr = alloca i16, align 2
-  store i64 %mantissa, ptr %mantissa.addr, align 8
-  store i16 %magnitude, ptr %magnitude.addr, align 2
-  %0 = load i64, ptr %mantissa.addr, align 8
-  %conv = uitofp i64 %0 to double
-  %cmp = fcmp ogt double %conv, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
+define void @_ZN6icu_776number9Precision14incrementExactEms(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::IncrementPrecision") align 8 %0, i64 noundef %1, i16 noundef signext %2) #1 align 2 {
+  %4 = alloca i64, align 8
+  %5 = alloca i16, align 2
+  store i64 %1, ptr %4, align 8, !tbaa !18
+  store i16 %2, ptr %5, align 2, !tbaa !48
+  %6 = load i64, ptr %4, align 8, !tbaa !18
+  %7 = uitofp i64 %6 to double
+  %8 = fcmp ogt double %7, 0.000000e+00
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %mantissa.addr, align 8
-  %2 = load i16, ptr %magnitude.addr, align 2
-  call void @_ZN6icu_756number9Precision18constructIncrementEms(ptr sret(%"class.icu_75::number::IncrementPrecision") align 8 %agg.result, i64 noundef %1, i16 noundef signext %2)
-  br label %return
+9:                                                ; preds = %3
+  %10 = load i64, ptr %4, align 8, !tbaa !18
+  %11 = load i16, ptr %5, align 2, !tbaa !48
+  call void @_ZN6icu_776number9Precision18constructIncrementEms(ptr dead_on_unwind writable sret(%"class.icu_77::number::IncrementPrecision") align 8 %0, i64 noundef %10, i16 noundef signext %11)
+  br label %13
 
-if.else:                                          ; preds = %entry
-  call void @_ZN6icu_756number18IncrementPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+12:                                               ; preds = %3
+  call void @_ZN6icu_776number18IncrementPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %13
 
-return:                                           ; preds = %if.else, %if.then
+13:                                               ; preds = %12, %9
   ret void
 }
 
-declare noundef i64 @_ZNK6icu_756number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) #5
+declare noundef i64 @_ZNK6icu_776number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #6
+declare void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7510CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %buffer = getelementptr inbounds %"class.icu_75::CharString", ptr %this1, i32 0, i32 0
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer) #10
+define linkonce_odr void @_ZN6icu_7710CharStringD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::CharString", ptr %3, i32 0, i32 0
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %4) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define void @_ZN6icu_776number4impl18MultiplierProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number4impl18MultiplierProducerD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #12
+define void @_ZN6icu_776number4impl18MultiplierProducerD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  call void @llvm.trap() #15
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #7
+declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision9unlimitedEv(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result) #1 align 2 {
-entry:
-  %ref.tmp = alloca i32, align 4
-  %ref.tmp1 = alloca %"union.icu_75::number::Precision::PrecisionUnion", align 8
-  store i32 1, ptr %ref.tmp, align 4
-  %fMinFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %ref.tmp1, i32 0, i32 0
-  store i16 0, ptr %fMinFrac, align 8
-  %fMaxFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %ref.tmp1, i32 0, i32 1
-  store i16 0, ptr %fMaxFrac, align 2
-  %fMinSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %ref.tmp1, i32 0, i32 2
-  store i16 0, ptr %fMinSig, align 4
-  %fMaxSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %ref.tmp1, i32 0, i32 3
-  store i16 0, ptr %fMaxSig, align 2
-  %fPriority = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %ref.tmp1, i32 0, i32 4
-  store i32 0, ptr %fPriority, align 8
-  %fRetain = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %ref.tmp1, i32 0, i32 5
-  store i8 0, ptr %fRetain, align 4
-  call void @_ZN6icu_756number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1)
+define void @_ZN6icu_776number9Precision9unlimitedEv(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0) #1 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca %"union.icu_77::number::Precision::PrecisionUnion", align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #13
+  store i32 1, ptr %2, align 4, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 16, ptr %3) #13
+  %4 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %3, i32 0, i32 0
+  store i16 0, ptr %4, align 8, !tbaa !54
+  %5 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %3, i32 0, i32 1
+  store i16 0, ptr %5, align 2, !tbaa !58
+  %6 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %3, i32 0, i32 2
+  store i16 0, ptr %6, align 4, !tbaa !59
+  %7 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %3, i32 0, i32 3
+  store i16 0, ptr %7, align 2, !tbaa !60
+  %8 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %3, i32 0, i32 4
+  store i32 0, ptr %8, align 8, !tbaa !61
+  %9 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %3, i32 0, i32 5
+  store i8 0, ptr %9, align 4, !tbaa !62
+  call void @_ZN6icu_776number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %3) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_756number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 4 dereferenceable(4) %type, ptr noundef nonnull align 8 dereferenceable(16) %union_) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %type.addr = alloca ptr, align 8
-  %union_.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %type, ptr %type.addr, align 8
-  store ptr %union_, ptr %union_.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %type.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  store i32 %1, ptr %fType, align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %union_.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %fUnion, ptr align 8 %2, i64 16, i1 false)
-  %fTrailingZeroDisplay = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 3
-  store i32 0, ptr %fTrailingZeroDisplay, align 8
+define linkonce_odr void @_ZN6icu_776number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !25
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !22
+  %10 = load i32, ptr %9, align 4, !tbaa !52
+  store i32 %10, ptr %8, align 8, !tbaa !65
+  %11 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %7, i32 0, i32 2
+  %12 = load ptr, ptr %6, align 8, !tbaa !63
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %12, i64 16, i1 false), !tbaa.struct !68
+  %13 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %7, i32 0, i32 3
+  store i32 0, ptr %13, align 8, !tbaa !69
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision7integerEv(ptr noalias sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result) #1 align 2 {
-entry:
-  call void @_ZN6icu_756number9Precision17constructFractionEii(ptr sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef 0, i32 noundef 0)
+define void @_ZN6icu_776number9Precision7integerEv(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0) #1 align 2 {
+  call void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwind writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef 0, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision17constructFractionEii(ptr noalias sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %minFrac, i32 noundef %maxFrac) #1 align 2 {
-entry:
-  %minFrac.addr = alloca i32, align 4
-  %maxFrac.addr = alloca i32, align 4
-  %settings = alloca %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", align 4
-  %union_ = alloca %"union.icu_75::number::Precision::PrecisionUnion", align 8
-  %ref.tmp = alloca i32, align 4
-  store i32 %minFrac, ptr %minFrac.addr, align 4
-  store i32 %maxFrac, ptr %maxFrac.addr, align 4
-  %0 = load i32, ptr %minFrac.addr, align 4
-  %conv = trunc i32 %0 to i16
-  %fMinFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 0
-  store i16 %conv, ptr %fMinFrac, align 4
-  %1 = load i32, ptr %maxFrac.addr, align 4
-  %conv1 = trunc i32 %1 to i16
-  %fMaxFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 1
-  store i16 %conv1, ptr %fMaxFrac, align 2
-  %fMinSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 2
-  store i16 -1, ptr %fMinSig, align 4
-  %fMaxSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 3
-  store i16 -1, ptr %fMaxSig, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %union_, ptr align 4 %settings, i64 16, i1 false)
-  store i32 2, ptr %ref.tmp, align 4
-  call void @_ZN6icu_756number17FractionPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %union_)
+define void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef %1, i32 noundef %2) #1 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", align 4
+  %7 = alloca %"union.icu_77::number::Precision::PrecisionUnion", align 8
+  %8 = alloca i32, align 4
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  store i32 %2, ptr %5, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #13
+  call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 16, i1 false)
+  %9 = load i32, ptr %4, align 4, !tbaa !14
+  %10 = trunc i32 %9 to i16
+  %11 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %6, i32 0, i32 0
+  store i16 %10, ptr %11, align 4, !tbaa !54
+  %12 = load i32, ptr %5, align 4, !tbaa !14
+  %13 = trunc i32 %12 to i16
+  %14 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %6, i32 0, i32 1
+  store i16 %13, ptr %14, align 2, !tbaa !58
+  %15 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %6, i32 0, i32 2
+  store i16 -1, ptr %15, align 4, !tbaa !59
+  %16 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %6, i32 0, i32 3
+  store i16 -1, ptr %16, align 2, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #13
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %6, i64 16, i1 false), !tbaa.struct !70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 2, ptr %8, align 4, !tbaa !52
+  call void @_ZN6icu_776number17FractionPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision13fixedFractionEi(ptr noalias sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %minMaxFractionPlaces) #1 align 2 {
-entry:
-  %minMaxFractionPlaces.addr = alloca i32, align 4
-  store i32 %minMaxFractionPlaces, ptr %minMaxFractionPlaces.addr, align 4
-  %0 = load i32, ptr %minMaxFractionPlaces.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define void @_ZN6icu_776number9Precision13fixedFractionEi(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  store i32 %1, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
+  %5 = icmp sge i32 %4, 0
+  br i1 %5, label %6, label %12
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %minMaxFractionPlaces.addr, align 4
-  %cmp1 = icmp sle i32 %1, 999
-  br i1 %cmp1, label %if.then, label %if.else
+6:                                                ; preds = %2
+  %7 = load i32, ptr %3, align 4, !tbaa !14
+  %8 = icmp sle i32 %7, 999
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %minMaxFractionPlaces.addr, align 4
-  %3 = load i32, ptr %minMaxFractionPlaces.addr, align 4
-  call void @_ZN6icu_756number9Precision17constructFractionEii(ptr sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %2, i32 noundef %3)
-  br label %return
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !14
+  %11 = load i32, ptr %3, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwind writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef %10, i32 noundef %11)
+  br label %13
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  call void @_ZN6icu_756number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+12:                                               ; preds = %6, %2
+  call void @_ZN6icu_776number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %13
 
-return:                                           ; preds = %if.else, %if.then
+13:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6icu_776number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !73
+  store i32 %1, ptr %4, align 4, !tbaa !15
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !15
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_756number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %0) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %0, ptr %.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load i32, ptr %.addr, align 4
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %this1, i32 noundef %1)
+define void @_ZN6icu_776number9Precision11minFractionEi(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  store i32 %1, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
+  %5 = icmp sge i32 %4, 0
+  br i1 %5, label %6, label %11
+
+6:                                                ; preds = %2
+  %7 = load i32, ptr %3, align 4, !tbaa !14
+  %8 = icmp sle i32 %7, 999
+  br i1 %8, label %9, label %11
+
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwind writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef %10, i32 noundef -1)
+  br label %12
+
+11:                                               ; preds = %6, %2
+  call void @_ZN6icu_776number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %12
+
+12:                                               ; preds = %11, %9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision11minFractionEi(ptr noalias sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %minFractionPlaces) #1 align 2 {
-entry:
-  %minFractionPlaces.addr = alloca i32, align 4
-  store i32 %minFractionPlaces, ptr %minFractionPlaces.addr, align 4
-  %0 = load i32, ptr %minFractionPlaces.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define void @_ZN6icu_776number9Precision11maxFractionEi(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  store i32 %1, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
+  %5 = icmp sge i32 %4, 0
+  br i1 %5, label %6, label %11
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %minFractionPlaces.addr, align 4
-  %cmp1 = icmp sle i32 %1, 999
-  br i1 %cmp1, label %if.then, label %if.else
+6:                                                ; preds = %2
+  %7 = load i32, ptr %3, align 4, !tbaa !14
+  %8 = icmp sle i32 %7, 999
+  br i1 %8, label %9, label %11
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %minFractionPlaces.addr, align 4
-  call void @_ZN6icu_756number9Precision17constructFractionEii(ptr sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %2, i32 noundef -1)
-  br label %return
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwind writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef 0, i32 noundef %10)
+  br label %12
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  call void @_ZN6icu_756number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+11:                                               ; preds = %6, %2
+  call void @_ZN6icu_776number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %12
 
-return:                                           ; preds = %if.else, %if.then
+12:                                               ; preds = %11, %9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision11maxFractionEi(ptr noalias sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %maxFractionPlaces) #1 align 2 {
-entry:
-  %maxFractionPlaces.addr = alloca i32, align 4
-  store i32 %maxFractionPlaces, ptr %maxFractionPlaces.addr, align 4
-  %0 = load i32, ptr %maxFractionPlaces.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define void @_ZN6icu_776number9Precision14minMaxFractionEii(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef %1, i32 noundef %2) #1 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  store i32 %2, ptr %5, align 4, !tbaa !14
+  %6 = load i32, ptr %4, align 4, !tbaa !14
+  %7 = icmp sge i32 %6, 0
+  br i1 %7, label %8, label %18
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %maxFractionPlaces.addr, align 4
-  %cmp1 = icmp sle i32 %1, 999
-  br i1 %cmp1, label %if.then, label %if.else
+8:                                                ; preds = %3
+  %9 = load i32, ptr %5, align 4, !tbaa !14
+  %10 = icmp sle i32 %9, 999
+  br i1 %10, label %11, label %18
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %maxFractionPlaces.addr, align 4
-  call void @_ZN6icu_756number9Precision17constructFractionEii(ptr sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef 0, i32 noundef %2)
-  br label %return
+11:                                               ; preds = %8
+  %12 = load i32, ptr %4, align 4, !tbaa !14
+  %13 = load i32, ptr %5, align 4, !tbaa !14
+  %14 = icmp sle i32 %12, %13
+  br i1 %14, label %15, label %18
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  call void @_ZN6icu_756number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+15:                                               ; preds = %11
+  %16 = load i32, ptr %4, align 4, !tbaa !14
+  %17 = load i32, ptr %5, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision17constructFractionEii(ptr dead_on_unwind writable sret(%"class.icu_77::number::FractionPrecision") align 8 %0, i32 noundef %16, i32 noundef %17)
+  br label %19
 
-return:                                           ; preds = %if.else, %if.then
+18:                                               ; preds = %11, %8, %3
+  call void @_ZN6icu_776number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %19
+
+19:                                               ; preds = %18, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision14minMaxFractionEii(ptr noalias sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %minFractionPlaces, i32 noundef %maxFractionPlaces) #1 align 2 {
-entry:
-  %minFractionPlaces.addr = alloca i32, align 4
-  %maxFractionPlaces.addr = alloca i32, align 4
-  store i32 %minFractionPlaces, ptr %minFractionPlaces.addr, align 4
-  store i32 %maxFractionPlaces, ptr %maxFractionPlaces.addr, align 4
-  %0 = load i32, ptr %minFractionPlaces.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define void @_ZN6icu_776number9Precision22fixedSignificantDigitsEi(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  store i32 %1, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
+  %5 = icmp sge i32 %4, 1
+  br i1 %5, label %6, label %12
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %maxFractionPlaces.addr, align 4
-  %cmp1 = icmp sle i32 %1, 999
-  br i1 %cmp1, label %land.lhs.true2, label %if.else
+6:                                                ; preds = %2
+  %7 = load i32, ptr %3, align 4, !tbaa !14
+  %8 = icmp sle i32 %7, 999
+  br i1 %8, label %9, label %12
 
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %2 = load i32, ptr %minFractionPlaces.addr, align 4
-  %3 = load i32, ptr %maxFractionPlaces.addr, align 4
-  %cmp3 = icmp sle i32 %2, %3
-  br i1 %cmp3, label %if.then, label %if.else
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !14
+  %11 = load i32, ptr %3, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_unwind writable sret(%"class.icu_77::number::Precision") align 8 %0, i32 noundef %10, i32 noundef %11)
+  br label %13
 
-if.then:                                          ; preds = %land.lhs.true2
-  %4 = load i32, ptr %minFractionPlaces.addr, align 4
-  %5 = load i32, ptr %maxFractionPlaces.addr, align 4
-  call void @_ZN6icu_756number9Precision17constructFractionEii(ptr sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %4, i32 noundef %5)
-  br label %return
+12:                                               ; preds = %6, %2
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %13
 
-if.else:                                          ; preds = %land.lhs.true2, %land.lhs.true, %entry
-  call void @_ZN6icu_756number17FractionPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
+13:                                               ; preds = %12, %9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision22fixedSignificantDigitsEi(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %minMaxSignificantDigits) #1 align 2 {
-entry:
-  %minMaxSignificantDigits.addr = alloca i32, align 4
-  store i32 %minMaxSignificantDigits, ptr %minMaxSignificantDigits.addr, align 4
-  %0 = load i32, ptr %minMaxSignificantDigits.addr, align 4
-  %cmp = icmp sge i32 %0, 1
-  br i1 %cmp, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %minMaxSignificantDigits.addr, align 4
-  %cmp1 = icmp sle i32 %1, 999
-  br i1 %cmp1, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %minMaxSignificantDigits.addr, align 4
-  %3 = load i32, ptr %minMaxSignificantDigits.addr, align 4
-  call void @_ZN6icu_756number9Precision20constructSignificantEii(ptr sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %2, i32 noundef %3)
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true, %entry
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision20constructSignificantEii(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %minSig, i32 noundef %maxSig) #1 align 2 {
-entry:
-  %minSig.addr = alloca i32, align 4
-  %maxSig.addr = alloca i32, align 4
-  %settings = alloca %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", align 4
-  %union_ = alloca %"union.icu_75::number::Precision::PrecisionUnion", align 8
-  %ref.tmp = alloca i32, align 4
-  store i32 %minSig, ptr %minSig.addr, align 4
-  store i32 %maxSig, ptr %maxSig.addr, align 4
-  %fMinFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 0
-  store i16 -1, ptr %fMinFrac, align 4
-  %fMaxFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 1
-  store i16 -1, ptr %fMaxFrac, align 2
-  %0 = load i32, ptr %minSig.addr, align 4
-  %conv = trunc i32 %0 to i16
-  %fMinSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 2
-  store i16 %conv, ptr %fMinSig, align 4
-  %1 = load i32, ptr %maxSig.addr, align 4
-  %conv1 = trunc i32 %1 to i16
-  %fMaxSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 3
-  store i16 %conv1, ptr %fMaxSig, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %union_, ptr align 4 %settings, i64 16, i1 false)
-  store i32 3, ptr %ref.tmp, align 4
-  call void @_ZN6icu_756number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %union_)
+define void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, i32 noundef %1, i32 noundef %2) #1 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", align 4
+  %7 = alloca %"union.icu_77::number::Precision::PrecisionUnion", align 8
+  %8 = alloca i32, align 4
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  store i32 %2, ptr %5, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #13
+  call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 16, i1 false)
+  %9 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %6, i32 0, i32 0
+  store i16 -1, ptr %9, align 4, !tbaa !54
+  %10 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %6, i32 0, i32 1
+  store i16 -1, ptr %10, align 2, !tbaa !58
+  %11 = load i32, ptr %4, align 4, !tbaa !14
+  %12 = trunc i32 %11 to i16
+  %13 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %6, i32 0, i32 2
+  store i16 %12, ptr %13, align 4, !tbaa !59
+  %14 = load i32, ptr %5, align 4, !tbaa !14
+  %15 = trunc i32 %14 to i16
+  %16 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %6, i32 0, i32 3
+  store i16 %15, ptr %16, align 2, !tbaa !60
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #13
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %6, i64 16, i1 false), !tbaa.struct !70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 3, ptr %8, align 4, !tbaa !52
+  call void @_ZN6icu_776number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %errorCode) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %errorCode.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %errorCode, ptr %errorCode.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 0
-  store i32 9, ptr %fType, align 8
-  %fTrailingZeroDisplay = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 3
-  store i32 0, ptr %fTrailingZeroDisplay, align 8
-  %0 = load i32, ptr %errorCode.addr, align 4
-  %fUnion2 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 2
-  store i32 %0, ptr %fUnion2, align 8
+define linkonce_odr void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store i32 %1, ptr %4, align 4, !tbaa !15
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %5, i32 0, i32 0
+  store i32 9, ptr %6, align 8, !tbaa !65
+  %7 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %5, i32 0, i32 3
+  store i32 0, ptr %7, align 8, !tbaa !69
+  %8 = load i32, ptr %4, align 4, !tbaa !15
+  %9 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %5, i32 0, i32 2
+  store i32 %8, ptr %9, align 8, !tbaa !33
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision20minSignificantDigitsEi(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %minSignificantDigits) #1 align 2 {
-entry:
-  %minSignificantDigits.addr = alloca i32, align 4
-  store i32 %minSignificantDigits, ptr %minSignificantDigits.addr, align 4
-  %0 = load i32, ptr %minSignificantDigits.addr, align 4
-  %cmp = icmp sge i32 %0, 1
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define void @_ZN6icu_776number9Precision20minSignificantDigitsEi(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  store i32 %1, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
+  %5 = icmp sge i32 %4, 1
+  br i1 %5, label %6, label %11
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %minSignificantDigits.addr, align 4
-  %cmp1 = icmp sle i32 %1, 999
-  br i1 %cmp1, label %if.then, label %if.else
+6:                                                ; preds = %2
+  %7 = load i32, ptr %3, align 4, !tbaa !14
+  %8 = icmp sle i32 %7, 999
+  br i1 %8, label %9, label %11
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %minSignificantDigits.addr, align 4
-  call void @_ZN6icu_756number9Precision20constructSignificantEii(ptr sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %2, i32 noundef -1)
-  br label %return
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_unwind writable sret(%"class.icu_77::number::Precision") align 8 %0, i32 noundef %10, i32 noundef -1)
+  br label %12
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+11:                                               ; preds = %6, %2
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %12
 
-return:                                           ; preds = %if.else, %if.then
+12:                                               ; preds = %11, %9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision20maxSignificantDigitsEi(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %maxSignificantDigits) #1 align 2 {
-entry:
-  %maxSignificantDigits.addr = alloca i32, align 4
-  store i32 %maxSignificantDigits, ptr %maxSignificantDigits.addr, align 4
-  %0 = load i32, ptr %maxSignificantDigits.addr, align 4
-  %cmp = icmp sge i32 %0, 1
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define void @_ZN6icu_776number9Precision20maxSignificantDigitsEi(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  store i32 %1, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
+  %5 = icmp sge i32 %4, 1
+  br i1 %5, label %6, label %11
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %maxSignificantDigits.addr, align 4
-  %cmp1 = icmp sle i32 %1, 999
-  br i1 %cmp1, label %if.then, label %if.else
+6:                                                ; preds = %2
+  %7 = load i32, ptr %3, align 4, !tbaa !14
+  %8 = icmp sle i32 %7, 999
+  br i1 %8, label %9, label %11
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %maxSignificantDigits.addr, align 4
-  call void @_ZN6icu_756number9Precision20constructSignificantEii(ptr sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef 1, i32 noundef %2)
-  br label %return
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_unwind writable sret(%"class.icu_77::number::Precision") align 8 %0, i32 noundef 1, i32 noundef %10)
+  br label %12
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+11:                                               ; preds = %6, %2
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %12
 
-return:                                           ; preds = %if.else, %if.then
+12:                                               ; preds = %11, %9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision23minMaxSignificantDigitsEii(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %minSignificantDigits, i32 noundef %maxSignificantDigits) #1 align 2 {
-entry:
-  %minSignificantDigits.addr = alloca i32, align 4
-  %maxSignificantDigits.addr = alloca i32, align 4
-  store i32 %minSignificantDigits, ptr %minSignificantDigits.addr, align 4
-  store i32 %maxSignificantDigits, ptr %maxSignificantDigits.addr, align 4
-  %0 = load i32, ptr %minSignificantDigits.addr, align 4
-  %cmp = icmp sge i32 %0, 1
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define void @_ZN6icu_776number9Precision23minMaxSignificantDigitsEii(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, i32 noundef %1, i32 noundef %2) #1 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  store i32 %2, ptr %5, align 4, !tbaa !14
+  %6 = load i32, ptr %4, align 4, !tbaa !14
+  %7 = icmp sge i32 %6, 1
+  br i1 %7, label %8, label %18
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %maxSignificantDigits.addr, align 4
-  %cmp1 = icmp sle i32 %1, 999
-  br i1 %cmp1, label %land.lhs.true2, label %if.else
+8:                                                ; preds = %3
+  %9 = load i32, ptr %5, align 4, !tbaa !14
+  %10 = icmp sle i32 %9, 999
+  br i1 %10, label %11, label %18
 
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %2 = load i32, ptr %minSignificantDigits.addr, align 4
-  %3 = load i32, ptr %maxSignificantDigits.addr, align 4
-  %cmp3 = icmp sle i32 %2, %3
-  br i1 %cmp3, label %if.then, label %if.else
+11:                                               ; preds = %8
+  %12 = load i32, ptr %4, align 4, !tbaa !14
+  %13 = load i32, ptr %5, align 4, !tbaa !14
+  %14 = icmp sle i32 %12, %13
+  br i1 %14, label %15, label %18
 
-if.then:                                          ; preds = %land.lhs.true2
-  %4 = load i32, ptr %minSignificantDigits.addr, align 4
-  %5 = load i32, ptr %maxSignificantDigits.addr, align 4
-  call void @_ZN6icu_756number9Precision20constructSignificantEii(ptr sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %4, i32 noundef %5)
-  br label %return
+15:                                               ; preds = %11
+  %16 = load i32, ptr %4, align 4, !tbaa !14
+  %17 = load i32, ptr %5, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision20constructSignificantEii(ptr dead_on_unwind writable sret(%"class.icu_77::number::Precision") align 8 %0, i32 noundef %16, i32 noundef %17)
+  br label %19
 
-if.else:                                          ; preds = %land.lhs.true2, %land.lhs.true, %entry
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+18:                                               ; preds = %11, %8, %3
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %19
 
-return:                                           ; preds = %if.else, %if.then
+19:                                               ; preds = %18, %15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK6icu_756number9Precision19trailingZeroDisplayE26UNumberTrailingZeroDisplay(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %trailingZeroDisplay) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %trailingZeroDisplay.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %trailingZeroDisplay, ptr %trailingZeroDisplay.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %this1, i64 32, i1 false)
-  %0 = load i32, ptr %trailingZeroDisplay.addr, align 4
-  %fTrailingZeroDisplay = getelementptr inbounds %"class.icu_75::number::Precision", ptr %agg.result, i32 0, i32 3
-  store i32 %0, ptr %fTrailingZeroDisplay, align 8
+define void @_ZNK6icu_776number9Precision19trailingZeroDisplayE26UNumberTrailingZeroDisplay(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %1, ptr %4, align 8, !tbaa !25
+  store i32 %2, ptr %5, align 4, !tbaa !75
+  %6 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 32, i1 false)
+  %7 = load i32, ptr %5, align 4, !tbaa !75
+  %8 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %0, i32 0, i32 3
+  store i32 %7, ptr %8, align 8, !tbaa !69
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision9incrementEd(ptr noalias sret(%"class.icu_75::number::IncrementPrecision") align 8 %agg.result, double noundef %roundingIncrement) #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %roundingIncrement.addr = alloca double, align 8
-  %dq = alloca %"class.icu_75::number::impl::DecimalQuantity", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %magnitude = alloca i32, align 4
-  store double %roundingIncrement, ptr %roundingIncrement.addr, align 8
-  %0 = load double, ptr %roundingIncrement.addr, align 8
-  %cmp = fcmp ogt double %0, 0.000000e+00
-  br i1 %cmp, label %if.then, label %if.else
+define void @_ZN6icu_776number9Precision9incrementEd(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::IncrementPrecision") align 8 %0, double noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca double, align 8
+  %4 = alloca %"class.icu_77::number::impl::DecimalQuantity", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store double %1, ptr %3, align 8, !tbaa !76
+  %8 = load double, ptr %3, align 8, !tbaa !76
+  %9 = fcmp ogt double %8, 0.000000e+00
+  br i1 %9, label %10, label %31
 
-if.then:                                          ; preds = %entry
-  call void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq)
-  %1 = load double, ptr %roundingIncrement.addr, align 8
-  %call = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66) %dq, double noundef %1)
-          to label %invoke.cont unwind label %lpad
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 72, ptr %4) #13
+  call void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %4)
+  %11 = load double, ptr %3, align 8, !tbaa !76
+  %12 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66) %4, double noundef %11)
+          to label %13 unwind label %22
 
-invoke.cont:                                      ; preds = %if.then
-  invoke void @_ZN6icu_756number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66) %dq)
-          to label %invoke.cont1 unwind label %lpad
+13:                                               ; preds = %10
+  invoke void @_ZN6icu_776number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66) %4)
+          to label %14 unwind label %22
 
-invoke.cont1:                                     ; preds = %invoke.cont
-  %call3 = invoke noundef i32 @_ZN6icu_756number4impl15DecimalQuantity17adjustToZeroScaleEv(ptr noundef nonnull align 8 dereferenceable(66) %dq)
-          to label %invoke.cont2 unwind label %lpad
+14:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  %15 = invoke noundef i32 @_ZN6icu_776number4impl15DecimalQuantity17adjustToZeroScaleEv(ptr noundef nonnull align 8 dereferenceable(66) %4)
+          to label %16 unwind label %26
 
-invoke.cont2:                                     ; preds = %invoke.cont1
-  store i32 %call3, ptr %magnitude, align 4
-  %call5 = invoke noundef i64 @_ZNK6icu_756number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66) %dq, i1 noundef zeroext false)
-          to label %invoke.cont4 unwind label %lpad
+16:                                               ; preds = %14
+  store i32 %15, ptr %7, align 4, !tbaa !14
+  %17 = invoke noundef i64 @_ZNK6icu_776number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66) %4, i1 noundef zeroext false)
+          to label %18 unwind label %26
 
-invoke.cont4:                                     ; preds = %invoke.cont2
-  %2 = load i32, ptr %magnitude, align 4
-  %conv = trunc i32 %2 to i16
-  invoke void @_ZN6icu_756number9Precision18constructIncrementEms(ptr sret(%"class.icu_75::number::IncrementPrecision") align 8 %agg.result, i64 noundef %call5, i16 noundef signext %conv)
-          to label %invoke.cont6 unwind label %lpad
+18:                                               ; preds = %16
+  %19 = load i32, ptr %7, align 4, !tbaa !14
+  %20 = trunc i32 %19 to i16
+  invoke void @_ZN6icu_776number9Precision18constructIncrementEms(ptr dead_on_unwind writable sret(%"class.icu_77::number::IncrementPrecision") align 8 %0, i64 noundef %17, i16 noundef signext %20)
+          to label %21 unwind label %26
 
-invoke.cont6:                                     ; preds = %invoke.cont4
-  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq) #10
-  br label %return
+21:                                               ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %4) #13
+  call void @llvm.lifetime.end.p0(i64 72, ptr %4) #13
+  br label %32
 
-lpad:                                             ; preds = %invoke.cont4, %invoke.cont2, %invoke.cont1, %invoke.cont, %if.then
-  %3 = landingpad { ptr, i32 }
+22:                                               ; preds = %13, %10
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq) #10
-  br label %eh.resume
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %5, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %6, align 4
+  br label %30
 
-if.else:                                          ; preds = %entry
-  call void @_ZN6icu_756number18IncrementPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+26:                                               ; preds = %18, %16, %14
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %5, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  br label %30
 
-return:                                           ; preds = %if.else, %invoke.cont6
+30:                                               ; preds = %26, %22
+  call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %4) #13
+  call void @llvm.lifetime.end.p0(i64 72, ptr %4) #13
+  br label %33
+
+31:                                               ; preds = %2
+  call void @_ZN6icu_776number18IncrementPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %32
+
+32:                                               ; preds = %31, %21
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val7
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr %6, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
 }
 
-declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66), double noundef) #5
+declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66), double noundef) #8
 
-declare void @_ZN6icu_756number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66)) #5
+declare void @_ZN6icu_776number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66)) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision18constructIncrementEms(ptr noalias sret(%"class.icu_75::number::IncrementPrecision") align 8 %agg.result, i64 noundef %increment, i16 noundef signext %magnitude) #1 align 2 {
-entry:
-  %increment.addr = alloca i64, align 8
-  %magnitude.addr = alloca i16, align 2
-  %settings = alloca %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", align 8
-  %union_ = alloca %"union.icu_75::number::Precision::PrecisionUnion", align 8
-  %ref.tmp = alloca i32, align 4
-  %ref.tmp6 = alloca i32, align 4
-  %ref.tmp8 = alloca i32, align 4
-  store i64 %increment, ptr %increment.addr, align 8
-  store i16 %magnitude, ptr %magnitude.addr, align 2
-  %0 = load i64, ptr %increment.addr, align 8
-  %fIncrement = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %settings, i32 0, i32 0
-  store i64 %0, ptr %fIncrement, align 8
-  %1 = load i16, ptr %magnitude.addr, align 2
-  %fIncrementMagnitude = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %settings, i32 0, i32 1
-  store i16 %1, ptr %fIncrementMagnitude, align 8
-  %2 = load i16, ptr %magnitude.addr, align 2
-  %conv = sext i16 %2 to i32
-  %cmp = icmp sgt i32 %conv, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+define void @_ZN6icu_776number9Precision18constructIncrementEms(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::IncrementPrecision") align 8 %0, i64 noundef %1, i16 noundef signext %2) #1 align 2 {
+  %4 = alloca i64, align 8
+  %5 = alloca i16, align 2
+  %6 = alloca %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", align 8
+  %7 = alloca %"union.icu_77::number::Precision::PrecisionUnion", align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store i64 %1, ptr %4, align 8, !tbaa !18
+  store i16 %2, ptr %5, align 2, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #13
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 16, i1 false)
+  %12 = load i64, ptr %4, align 8, !tbaa !18
+  %13 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %6, i32 0, i32 0
+  store i64 %12, ptr %13, align 8, !tbaa !78
+  %14 = load i16, ptr %5, align 2, !tbaa !48
+  %15 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %6, i32 0, i32 1
+  store i16 %14, ptr %15, align 8, !tbaa !80
+  %16 = load i16, ptr %5, align 2, !tbaa !48
+  %17 = sext i16 %16 to i32
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %19, label %20
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+19:                                               ; preds = %3
+  br label %24
 
-cond.false:                                       ; preds = %entry
-  %3 = load i16, ptr %magnitude.addr, align 2
-  %conv1 = sext i16 %3 to i32
-  %sub = sub nsw i32 0, %conv1
-  br label %cond.end
+20:                                               ; preds = %3
+  %21 = load i16, ptr %5, align 2, !tbaa !48
+  %22 = sext i16 %21 to i32
+  %23 = sub nsw i32 0, %22
+  br label %24
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %sub, %cond.false ]
-  %conv2 = trunc i32 %cond to i16
-  %fMinFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %settings, i32 0, i32 2
-  store i16 %conv2, ptr %fMinFrac, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %union_, ptr align 8 %settings, i64 16, i1 false)
-  %4 = load i64, ptr %increment.addr, align 8
-  %cmp3 = icmp eq i64 %4, 1
-  br i1 %cmp3, label %if.then, label %if.else
+24:                                               ; preds = %20, %19
+  %25 = phi i32 [ 0, %19 ], [ %23, %20 ]
+  %26 = trunc i32 %25 to i16
+  %27 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %6, i32 0, i32 2
+  store i16 %26, ptr %27, align 2, !tbaa !81
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #13
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !82
+  %28 = load i64, ptr %4, align 8, !tbaa !18
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %31
 
-if.then:                                          ; preds = %cond.end
-  store i32 6, ptr %ref.tmp, align 4
-  call void @_ZN6icu_756number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %union_)
-  br label %return
+30:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 6, ptr %8, align 4, !tbaa !52
+  call void @_ZN6icu_776number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  store i32 1, ptr %9, align 4
+  br label %36
 
-if.else:                                          ; preds = %cond.end
-  %5 = load i64, ptr %increment.addr, align 8
-  %cmp4 = icmp eq i64 %5, 5
-  br i1 %cmp4, label %if.then5, label %if.else7
+31:                                               ; preds = %24
+  %32 = load i64, ptr %4, align 8, !tbaa !18
+  %33 = icmp eq i64 %32, 5
+  br i1 %33, label %34, label %35
 
-if.then5:                                         ; preds = %if.else
-  store i32 7, ptr %ref.tmp6, align 4
-  call void @_ZN6icu_756number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %union_)
-  br label %return
+34:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  store i32 7, ptr %10, align 4, !tbaa !52
+  call void @_ZN6icu_776number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  store i32 1, ptr %9, align 4
+  br label %36
 
-if.else7:                                         ; preds = %if.else
-  store i32 5, ptr %ref.tmp8, align 4
-  call void @_ZN6icu_756number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %union_)
-  br label %return
+35:                                               ; preds = %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  store i32 5, ptr %11, align 4, !tbaa !52
+  call void @_ZN6icu_776number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  store i32 1, ptr %9, align 4
+  br label %36
 
-return:                                           ; preds = %if.else7, %if.then5, %if.then
+36:                                               ; preds = %35, %34, %30
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_756number18IncrementPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %0) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %0, ptr %.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load i32, ptr %.addr, align 4
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %this1, i32 noundef %1)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision8currencyE14UCurrencyUsage(ptr noalias sret(%"class.icu_75::number::CurrencyPrecision") align 8 %agg.result, i32 noundef %currencyUsage) #1 align 2 {
-entry:
-  %currencyUsage.addr = alloca i32, align 4
-  store i32 %currencyUsage, ptr %currencyUsage.addr, align 4
-  %0 = load i32, ptr %currencyUsage.addr, align 4
-  call void @_ZN6icu_756number9Precision17constructCurrencyE14UCurrencyUsage(ptr sret(%"class.icu_75::number::CurrencyPrecision") align 8 %agg.result, i32 noundef %0)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision17constructCurrencyE14UCurrencyUsage(ptr noalias sret(%"class.icu_75::number::CurrencyPrecision") align 8 %agg.result, i32 noundef %usage) #1 align 2 {
-entry:
-  %usage.addr = alloca i32, align 4
-  %union_ = alloca %"union.icu_75::number::Precision::PrecisionUnion", align 8
-  %ref.tmp = alloca i32, align 4
-  store i32 %usage, ptr %usage.addr, align 4
-  %0 = load i32, ptr %usage.addr, align 4
-  store i32 %0, ptr %union_, align 8
-  store i32 8, ptr %ref.tmp, align 4
-  call void @_ZN6icu_756number17CurrencyPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %union_)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number17FractionPrecision21withSignificantDigitsEii23UNumberRoundingPriority(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %minSignificantDigits, i32 noundef %maxSignificantDigits, i32 noundef %priority) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %minSignificantDigits.addr = alloca i32, align 4
-  %maxSignificantDigits.addr = alloca i32, align 4
-  %priority.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %minSignificantDigits, ptr %minSignificantDigits.addr, align 4
-  store i32 %maxSignificantDigits, ptr %maxSignificantDigits.addr, align 4
-  store i32 %priority, ptr %priority.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %fType, align 8
-  %cmp = icmp eq i32 %0, 9
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %this1, i64 32, i1 false)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %minSignificantDigits.addr, align 4
-  %cmp2 = icmp sge i32 %1, 1
-  br i1 %cmp2, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %if.end
-  %2 = load i32, ptr %maxSignificantDigits.addr, align 4
-  %3 = load i32, ptr %minSignificantDigits.addr, align 4
-  %cmp3 = icmp sge i32 %2, %3
-  br i1 %cmp3, label %land.lhs.true4, label %if.else
-
-land.lhs.true4:                                   ; preds = %land.lhs.true
-  %4 = load i32, ptr %maxSignificantDigits.addr, align 4
-  %cmp5 = icmp sle i32 %4, 999
-  br i1 %cmp5, label %if.then6, label %if.else
-
-if.then6:                                         ; preds = %land.lhs.true4
-  %5 = load i32, ptr %minSignificantDigits.addr, align 4
-  %6 = load i32, ptr %maxSignificantDigits.addr, align 4
-  %7 = load i32, ptr %priority.addr, align 4
-  call void @_ZN6icu_756number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this1, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext false)
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true4, %land.lhs.true, %if.end
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then6, %if.then
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_776number18IncrementPrecisionCI2NS0_9PrecisionEE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !83
+  store i32 %1, ptr %4, align 4, !tbaa !15
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !15
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %5, i32 noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %base, i32 noundef %minSig, i32 noundef %maxSig, i32 noundef %priority, i1 noundef zeroext %retain) #1 align 2 {
-entry:
-  %base.addr = alloca ptr, align 8
-  %minSig.addr = alloca i32, align 4
-  %maxSig.addr = alloca i32, align 4
-  %priority.addr = alloca i32, align 4
-  %retain.addr = alloca i8, align 1
-  %settings = alloca %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", align 4
-  %union_ = alloca %"union.icu_75::number::Precision::PrecisionUnion", align 8
-  %ref.tmp = alloca i32, align 4
-  store ptr %base, ptr %base.addr, align 8
-  store i32 %minSig, ptr %minSig.addr, align 4
-  store i32 %maxSig, ptr %maxSig.addr, align 4
-  store i32 %priority, ptr %priority.addr, align 4
-  %frombool = zext i1 %retain to i8
-  store i8 %frombool, ptr %retain.addr, align 1
-  %0 = load ptr, ptr %base.addr, align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::number::Precision", ptr %0, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %settings, ptr align 8 %fUnion, i64 16, i1 false)
-  %1 = load i32, ptr %minSig.addr, align 4
-  %conv = trunc i32 %1 to i16
-  %fMinSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 2
-  store i16 %conv, ptr %fMinSig, align 4
-  %2 = load i32, ptr %maxSig.addr, align 4
-  %conv1 = trunc i32 %2 to i16
-  %fMaxSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 3
-  store i16 %conv1, ptr %fMaxSig, align 2
-  %3 = load i32, ptr %priority.addr, align 4
-  %fPriority = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 4
-  store i32 %3, ptr %fPriority, align 4
-  %4 = load i8, ptr %retain.addr, align 1
-  %tobool = trunc i8 %4 to i1
-  %fRetain = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %settings, i32 0, i32 5
-  %frombool2 = zext i1 %tobool to i8
-  store i8 %frombool2, ptr %fRetain, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %union_, ptr align 4 %settings, i64 16, i1 false)
-  store i32 4, ptr %ref.tmp, align 4
-  call void @_ZN6icu_756number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %union_)
+define void @_ZN6icu_776number9Precision8currencyE14UCurrencyUsage(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::CurrencyPrecision") align 8 %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  store i32 %1, ptr %3, align 4, !tbaa !85
+  %4 = load i32, ptr %3, align 4, !tbaa !85
+  call void @_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage(ptr dead_on_unwind writable sret(%"class.icu_77::number::CurrencyPrecision") align 8 %0, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number17FractionPrecision13withMinDigitsEi(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %minSignificantDigits) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %minSignificantDigits.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %minSignificantDigits, ptr %minSignificantDigits.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %fType, align 8
-  %cmp = icmp eq i32 %0, 9
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %this1, i64 32, i1 false)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %minSignificantDigits.addr, align 4
-  %cmp2 = icmp sge i32 %1, 1
-  br i1 %cmp2, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %if.end
-  %2 = load i32, ptr %minSignificantDigits.addr, align 4
-  %cmp3 = icmp sle i32 %2, 999
-  br i1 %cmp3, label %if.then4, label %if.else
-
-if.then4:                                         ; preds = %land.lhs.true
-  %3 = load i32, ptr %minSignificantDigits.addr, align 4
-  call void @_ZN6icu_756number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this1, i32 noundef 1, i32 noundef %3, i32 noundef 0, i1 noundef zeroext true)
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true, %if.end
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then4, %if.then
+define void @_ZN6icu_776number9Precision17constructCurrencyE14UCurrencyUsage(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::CurrencyPrecision") align 8 %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca %"union.icu_77::number::Precision::PrecisionUnion", align 8
+  %5 = alloca i32, align 4
+  store i32 %1, ptr %3, align 4, !tbaa !85
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #13
+  call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 16, i1 false)
+  %6 = load i32, ptr %3, align 4, !tbaa !85
+  store i32 %6, ptr %4, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  store i32 8, ptr %5, align 4, !tbaa !52
+  call void @_ZN6icu_776number17CurrencyPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number17FractionPrecision13withMaxDigitsEi(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %maxSignificantDigits) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %maxSignificantDigits.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %maxSignificantDigits, ptr %maxSignificantDigits.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %fType, align 8
-  %cmp = icmp eq i32 %0, 9
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZNK6icu_776number17FractionPrecision21withSignificantDigitsEii23UNumberRoundingPriority(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %1, ptr %6, align 8, !tbaa !73
+  store i32 %2, ptr %7, align 4, !tbaa !14
+  store i32 %3, ptr %8, align 4, !tbaa !14
+  store i32 %4, ptr %9, align 4, !tbaa !71
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8, !tbaa !65
+  %13 = icmp eq i32 %12, 9
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %this1, i64 32, i1 false)
-  br label %return
+14:                                               ; preds = %5
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %10, i64 32, i1 false)
+  br label %30
 
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %maxSignificantDigits.addr, align 4
-  %cmp2 = icmp sge i32 %1, 1
-  br i1 %cmp2, label %land.lhs.true, label %if.else
+15:                                               ; preds = %5
+  %16 = load i32, ptr %7, align 4, !tbaa !14
+  %17 = icmp sge i32 %16, 1
+  br i1 %17, label %18, label %29
 
-land.lhs.true:                                    ; preds = %if.end
-  %2 = load i32, ptr %maxSignificantDigits.addr, align 4
-  %cmp3 = icmp sle i32 %2, 999
-  br i1 %cmp3, label %if.then4, label %if.else
+18:                                               ; preds = %15
+  %19 = load i32, ptr %8, align 4, !tbaa !14
+  %20 = load i32, ptr %7, align 4, !tbaa !14
+  %21 = icmp sge i32 %19, %20
+  br i1 %21, label %22, label %29
 
-if.then4:                                         ; preds = %land.lhs.true
-  %3 = load i32, ptr %maxSignificantDigits.addr, align 4
-  call void @_ZN6icu_756number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this1, i32 noundef 1, i32 noundef %3, i32 noundef 1, i1 noundef zeroext true)
-  br label %return
+22:                                               ; preds = %18
+  %23 = load i32, ptr %8, align 4, !tbaa !14
+  %24 = icmp sle i32 %23, 999
+  br i1 %24, label %25, label %29
 
-if.else:                                          ; preds = %land.lhs.true, %if.end
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+25:                                               ; preds = %22
+  %26 = load i32, ptr %7, align 4, !tbaa !14
+  %27 = load i32, ptr %8, align 4, !tbaa !14
+  %28 = load i32, ptr %9, align 4, !tbaa !71
+  call void @_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr dead_on_unwind writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %10, i32 noundef %26, i32 noundef %27, i32 noundef %28, i1 noundef zeroext false)
+  br label %30
 
-return:                                           ; preds = %if.else, %if.then4, %if.then
+29:                                               ; preds = %22, %18, %15
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %30
+
+30:                                               ; preds = %29, %25, %14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(28) %currency, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %currency.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %isoCode = alloca ptr, align 8
-  %increment = alloca double, align 8
-  %minMaxFrac = alloca i32, align 4
-  %ref.tmp = alloca %"class.icu_75::number::IncrementPrecision", align 8
-  %ref.tmp6 = alloca %"class.icu_75::number::FractionPrecision", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %currency, ptr %currency.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %fType, align 8
-  %cmp = icmp eq i32 %0, 9
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %this1, i64 32, i1 false)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %currency.addr, align 8
-  %call = call noundef ptr @_ZNK6icu_7512CurrencyUnit14getISOCurrencyEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
-  store ptr %call, ptr %isoCode, align 8
-  %2 = load ptr, ptr %isoCode, align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 2
-  %3 = load i32, ptr %fUnion, align 8
-  %4 = load ptr, ptr %status.addr, align 8
-  %call2 = call double @ucurr_getRoundingIncrementForUsage_75(ptr noundef %2, i32 noundef %3, ptr noundef %4)
-  store double %call2, ptr %increment, align 8
-  %5 = load ptr, ptr %isoCode, align 8
-  %fUnion3 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 2
-  %6 = load i32, ptr %fUnion3, align 8
-  %7 = load ptr, ptr %status.addr, align 8
-  %call4 = call i32 @ucurr_getDefaultFractionDigitsForUsage_75(ptr noundef %5, i32 noundef %6, ptr noundef %7)
-  store i32 %call4, ptr %minMaxFrac, align 4
-  %8 = load double, ptr %increment, align 8
-  %cmp5 = fcmp une double %8, 0.000000e+00
-  br i1 %cmp5, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end
-  %9 = load double, ptr %increment, align 8
-  call void @_ZN6icu_756number9Precision9incrementEd(ptr sret(%"class.icu_75::number::IncrementPrecision") align 8 %ref.tmp, double noundef %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %ref.tmp, i64 32, i1 false)
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end
-  %10 = load i32, ptr %minMaxFrac, align 4
-  call void @_ZN6icu_756number9Precision13fixedFractionEi(ptr sret(%"class.icu_75::number::FractionPrecision") align 8 %ref.tmp6, i32 noundef %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %ref.tmp6, i64 32, i1 false)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %fTrailingZeroDisplay = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 3
-  %11 = load i32, ptr %fTrailingZeroDisplay, align 8
-  %fTrailingZeroDisplay7 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %agg.result, i32 0, i32 3
-  store i32 %11, ptr %fTrailingZeroDisplay7, align 8
-  br label %return
-
-return:                                           ; preds = %cond.end, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK6icu_7512CurrencyUnit14getISOCurrencyEv(ptr noundef nonnull align 8 dereferenceable(28) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %isoCode = getelementptr inbounds %"class.icu_75::CurrencyUnit", ptr %this1, i32 0, i32 1
-  %arraydecay = getelementptr inbounds [4 x i16], ptr %isoCode, i64 0, i64 0
-  ret ptr %arraydecay
-}
-
-declare double @ucurr_getRoundingIncrementForUsage_75(ptr noundef, i32 noundef, ptr noundef) #5
-
-declare i32 @ucurr_getDefaultFractionDigitsForUsage_75(ptr noundef, i32 noundef, ptr noundef) #5
-
-; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number17CurrencyPrecision12withCurrencyERKNS_12CurrencyUnitE(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(28) %currency) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %currency.addr = alloca ptr, align 8
-  %localStatus = alloca i32, align 4
-  %result = alloca %"class.icu_75::number::Precision", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %currency, ptr %currency.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %localStatus, align 4
-  %0 = load ptr, ptr %currency.addr, align 8
-  call void @_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode(ptr sret(%"class.icu_75::number::Precision") align 8 %result, ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %localStatus)
-  %1 = load i32, ptr %localStatus, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %localStatus, align 4
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef %2)
-  br label %return
-
-if.end:                                           ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %result, i64 32, i1 false)
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
+define void @_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) #1 align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i8, align 1
+  %12 = alloca %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", align 4
+  %13 = alloca %"union.icu_77::number::Precision::PrecisionUnion", align 8
+  %14 = alloca i32, align 4
+  store ptr %1, ptr %7, align 8, !tbaa !73
+  store i32 %2, ptr %8, align 4, !tbaa !14
+  store i32 %3, ptr %9, align 4, !tbaa !14
+  store i32 %4, ptr %10, align 4, !tbaa !71
+  %15 = zext i1 %5 to i8
+  store i8 %15, ptr %11, align 1, !tbaa !72
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #13
+  %16 = load ptr, ptr %7, align 8, !tbaa !73
+  %17 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %16, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 8 %17, i64 16, i1 false), !tbaa.struct !70
+  %18 = load i32, ptr %8, align 4, !tbaa !14
+  %19 = trunc i32 %18 to i16
+  %20 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %12, i32 0, i32 2
+  store i16 %19, ptr %20, align 4, !tbaa !59
+  %21 = load i32, ptr %9, align 4, !tbaa !14
+  %22 = trunc i32 %21 to i16
+  %23 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %12, i32 0, i32 3
+  store i16 %22, ptr %23, align 2, !tbaa !60
+  %24 = load i32, ptr %10, align 4, !tbaa !71
+  %25 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %12, i32 0, i32 4
+  store i32 %24, ptr %25, align 4, !tbaa !61
+  %26 = load i8, ptr %11, align 1, !tbaa !72, !range !87, !noundef !88
+  %27 = trunc i8 %26 to i1
+  %28 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %12, i32 0, i32 5
+  %29 = zext i1 %27 to i8
+  store i8 %29, ptr %28, align 4, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #13
+  call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 4 %12, i64 16, i1 false), !tbaa.struct !70
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  store i32 4, ptr %14, align 4, !tbaa !52
+  call void @_ZN6icu_776number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number18IncrementPrecision15withMinFractionEi(ptr noalias sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %minFrac) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %minFrac.addr = alloca i32, align 4
-  %copy = alloca %"class.icu_75::number::IncrementPrecision", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %minFrac, ptr %minFrac.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %fType, align 8
-  %cmp = icmp eq i32 %0, 9
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZNK6icu_776number17FractionPrecision13withMinDigitsEi(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %1, ptr %4, align 8, !tbaa !73
+  store i32 %2, ptr %5, align 4, !tbaa !14
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 8, !tbaa !65
+  %9 = icmp eq i32 %8, 9
+  br i1 %9, label %10, label %11
 
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %this1, i64 32, i1 false)
-  br label %return
+10:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 32, i1 false)
+  br label %20
 
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %minFrac.addr, align 4
-  %cmp2 = icmp sge i32 %1, 0
-  br i1 %cmp2, label %land.lhs.true, label %if.else
+11:                                               ; preds = %3
+  %12 = load i32, ptr %5, align 4, !tbaa !14
+  %13 = icmp sge i32 %12, 1
+  br i1 %13, label %14, label %19
 
-land.lhs.true:                                    ; preds = %if.end
-  %2 = load i32, ptr %minFrac.addr, align 4
-  %cmp3 = icmp sle i32 %2, 999
-  br i1 %cmp3, label %if.then4, label %if.else
+14:                                               ; preds = %11
+  %15 = load i32, ptr %5, align 4, !tbaa !14
+  %16 = icmp sle i32 %15, 999
+  br i1 %16, label %17, label %19
 
-if.then4:                                         ; preds = %land.lhs.true
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %copy, ptr align 8 %this1, i64 32, i1 false)
-  %3 = load i32, ptr %minFrac.addr, align 4
-  %conv = trunc i32 %3 to i16
-  %fUnion = getelementptr inbounds %"class.icu_75::number::Precision", ptr %copy, i32 0, i32 2
-  %fMinFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %fUnion, i32 0, i32 2
-  store i16 %conv, ptr %fMinFrac, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.result, ptr align 8 %copy, i64 32, i1 false)
-  br label %return
+17:                                               ; preds = %14
+  %18 = load i32, ptr %5, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr dead_on_unwind writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %6, i32 noundef 1, i32 noundef %18, i32 noundef 0, i1 noundef zeroext true)
+  br label %20
 
-if.else:                                          ; preds = %land.lhs.true, %if.end
-  call void @_ZN6icu_756number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %agg.result, i32 noundef 65810)
-  br label %return
+19:                                               ; preds = %14, %11
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %20
 
-return:                                           ; preds = %if.else, %if.then4, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_756number17FractionPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  %this2 = load ptr, ptr %this.addr, align 8
-  %2 = load ptr, ptr %.addr, align 8
-  %3 = load ptr, ptr %.addr1, align 8
-  call void @_ZN6icu_756number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %this2, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_756number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  %this2 = load ptr, ptr %this.addr, align 8
-  %2 = load ptr, ptr %.addr, align 8
-  %3 = load ptr, ptr %.addr1, align 8
-  call void @_ZN6icu_756number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %this2, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_756number17CurrencyPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  %this2 = load ptr, ptr %this.addr, align 8
-  %2 = load ptr, ptr %.addr, align 8
-  %3 = load ptr, ptr %.addr1, align 8
-  call void @_ZN6icu_756number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %this2, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+20:                                               ; preds = %19, %17, %10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFormatRoundingModeRKNS_12CurrencyUnitER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %this, ptr noundef nonnull align 8 dereferenceable(28) %precision, i32 noundef %roundingMode, ptr noundef nonnull align 8 dereferenceable(28) %currency, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %precision.addr = alloca ptr, align 8
-  %roundingMode.addr = alloca i32, align 4
-  %currency.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.icu_75::number::Precision", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %precision, ptr %precision.addr, align 8
-  store i32 %roundingMode, ptr %roundingMode.addr, align 4
-  store ptr %currency, ptr %currency.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fPrecision = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %precision.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %fPrecision, ptr align 8 %0, i64 32, i1 false)
-  %fRoundingMode = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %roundingMode.addr, align 4
-  store i32 %1, ptr %fRoundingMode, align 8
-  %fPassThrough = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 2
-  store i8 0, ptr %fPassThrough, align 4
-  %2 = load ptr, ptr %precision.addr, align 8
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %fType, align 8
-  %cmp = icmp eq i32 %3, 8
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZNK6icu_776number17FractionPrecision13withMaxDigitsEi(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %1, ptr %4, align 8, !tbaa !73
+  store i32 %2, ptr %5, align 4, !tbaa !14
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 8, !tbaa !65
+  %9 = icmp eq i32 %8, 9
+  br i1 %9, label %10, label %11
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %precision.addr, align 8
-  %5 = load ptr, ptr %currency.addr, align 8
-  %6 = load ptr, ptr %status.addr, align 8
-  call void @_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode(ptr sret(%"class.icu_75::number::Precision") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  %fPrecision2 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %fPrecision2, ptr align 8 %ref.tmp, i64 28, i1 false)
-  br label %if.end
+10:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 32, i1 false)
+  br label %20
 
-if.end:                                           ; preds = %if.then, %entry
+11:                                               ; preds = %3
+  %12 = load i32, ptr %5, align 4, !tbaa !14
+  %13 = icmp sge i32 %12, 1
+  br i1 %13, label %14, label %19
+
+14:                                               ; preds = %11
+  %15 = load i32, ptr %5, align 4, !tbaa !14
+  %16 = icmp sle i32 %15, 999
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %14
+  %18 = load i32, ptr %5, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr dead_on_unwind writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %6, i32 noundef 1, i32 noundef %18, i32 noundef 1, i1 noundef zeroext true)
+  br label %20
+
+19:                                               ; preds = %14, %11
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %20
+
+20:                                               ; preds = %19, %17, %10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl12RoundingImpl11passThroughEv(ptr noalias sret(%"class.icu_75::number::impl::RoundingImpl") align 8 %agg.result) #1 align 2 {
-entry:
-  call void @llvm.memset.p0.i64(ptr align 8 %agg.result, i8 0, i64 40, i1 false)
-  call void @_ZN6icu_756number4impl12RoundingImplC2Ev(ptr noundef nonnull align 8 dereferenceable(37) %agg.result)
+define void @_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #1 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca double, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %"class.icu_77::number::IncrementPrecision", align 8
+  %12 = alloca %"class.icu_77::number::FractionPrecision", align 8
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  store ptr %2, ptr %6, align 8, !tbaa !89
+  store ptr %3, ptr %7, align 8, !tbaa !22
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %13, i32 0, i32 0
+  %15 = load i32, ptr %14, align 8, !tbaa !65
+  %16 = icmp eq i32 %15, 9
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %13, i64 32, i1 false)
+  br label %41
+
+18:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %19 = load ptr, ptr %6, align 8, !tbaa !89
+  %20 = call noundef ptr @_ZNK6icu_7712CurrencyUnit14getISOCurrencyEv(ptr noundef nonnull align 8 dereferenceable(28) %19)
+  store ptr %20, ptr %8, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %21 = load ptr, ptr %8, align 8, !tbaa !38
+  %22 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %13, i32 0, i32 2
+  %23 = load i32, ptr %22, align 8, !tbaa !33
+  %24 = load ptr, ptr %7, align 8, !tbaa !22
+  %25 = call double @ucurr_getRoundingIncrementForUsage_77(ptr noundef %21, i32 noundef %23, ptr noundef %24)
+  store double %25, ptr %9, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %26 = load ptr, ptr %8, align 8, !tbaa !38
+  %27 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %13, i32 0, i32 2
+  %28 = load i32, ptr %27, align 8, !tbaa !33
+  %29 = load ptr, ptr %7, align 8, !tbaa !22
+  %30 = call i32 @ucurr_getDefaultFractionDigitsForUsage_77(ptr noundef %26, i32 noundef %28, ptr noundef %29)
+  store i32 %30, ptr %10, align 4, !tbaa !14
+  %31 = load double, ptr %9, align 8, !tbaa !76
+  %32 = fcmp une double %31, 0.000000e+00
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr %12) #13
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %18
+  %34 = load double, ptr %9, align 8, !tbaa !76
+  call void @_ZN6icu_776number9Precision9incrementEd(ptr dead_on_unwind writable sret(%"class.icu_77::number::IncrementPrecision") align 8 %11, double noundef %34)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %11, i64 32, i1 false)
+  br label %37
+
+35:                                               ; preds = %18
+  %36 = load i32, ptr %10, align 4, !tbaa !14
+  call void @_ZN6icu_776number9Precision13fixedFractionEi(ptr dead_on_unwind writable sret(%"class.icu_77::number::FractionPrecision") align 8 %12, i32 noundef %36)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %12, i64 32, i1 false)
+  br label %37
+
+37:                                               ; preds = %35, %33
+  call void @llvm.lifetime.end.p0(i64 32, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #13
+  %38 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %13, i32 0, i32 3
+  %39 = load i32, ptr %38, align 8, !tbaa !69
+  %40 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %0, i32 0, i32 3
+  store i32 %39, ptr %40, align 8, !tbaa !69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  br label %41
+
+41:                                               ; preds = %37, %17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK6icu_7712CurrencyUnit14getISOCurrencyEv(ptr noundef nonnull align 8 dereferenceable(28) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::CurrencyUnit", ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds [4 x i16], ptr %4, i64 0, i64 0
+  ret ptr %5
+}
+
+declare double @ucurr_getRoundingIncrementForUsage_77(ptr noundef, i32 noundef, ptr noundef) #8
+
+declare i32 @ucurr_getDefaultFractionDigitsForUsage_77(ptr noundef, i32 noundef, ptr noundef) #8
+
+; Function Attrs: mustprogress uwtable
+define void @_ZNK6icu_776number17CurrencyPrecision12withCurrencyERKNS_12CurrencyUnitE(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.icu_77::number::Precision", align 8
+  %8 = alloca i32, align 4
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  store ptr %2, ptr %5, align 8, !tbaa !89
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  store i32 0, ptr %6, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #13
+  %10 = load ptr, ptr %5, align 8, !tbaa !89
+  call void @_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode(ptr dead_on_unwind writable sret(%"class.icu_77::number::Precision") align 8 %7, ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  %11 = load i32, ptr %6, align 4, !tbaa !15
+  %12 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %11)
+  %13 = icmp ne i8 %12, 0
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %3
+  %15 = load i32, ptr %6, align 4, !tbaa !15
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %15)
+  store i32 1, ptr %8, align 4
+  br label %17
+
+16:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %7, i64 32, i1 false)
+  store i32 1, ptr %8, align 4
+  br label %17
+
+17:                                               ; preds = %16, %14
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZNK6icu_776number18IncrementPrecision15withMinFractionEi(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::Precision") align 8 %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.icu_77::number::IncrementPrecision", align 8
+  store ptr %1, ptr %4, align 8, !tbaa !83
+  store i32 %2, ptr %5, align 4, !tbaa !14
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8, !tbaa !65
+  %10 = icmp eq i32 %9, 9
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %7, i64 32, i1 false)
+  br label %24
+
+12:                                               ; preds = %3
+  %13 = load i32, ptr %5, align 4, !tbaa !14
+  %14 = icmp sge i32 %13, 0
+  br i1 %14, label %15, label %23
+
+15:                                               ; preds = %12
+  %16 = load i32, ptr %5, align 4, !tbaa !14
+  %17 = icmp sle i32 %16, 999
+  br i1 %17, label %18, label %23
+
+18:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 32, ptr %6) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 32, i1 false)
+  %19 = load i32, ptr %5, align 4, !tbaa !14
+  %20 = trunc i32 %19 to i16
+  %21 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %6, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %21, i32 0, i32 2
+  store i16 %20, ptr %22, align 2, !tbaa !33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %6, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %6) #13
+  br label %24
+
+23:                                               ; preds = %15, %12
+  call void @_ZN6icu_776number9PrecisionC2E10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 65810)
+  br label %24
+
+24:                                               ; preds = %23, %18, %11
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_776number17FractionPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !73
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZN6icu_776number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_776number18IncrementPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !83
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZN6icu_776number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN6icu_776number17CurrencyPrecisionCI2NS0_9PrecisionEERKNS0_9Precision13PrecisionTypeERKNS2_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !91
+  store ptr %1, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZN6icu_776number9PrecisionC2ERKNS1_13PrecisionTypeERKNS1_14PrecisionUnionE(ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  ret void
+}
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_756number4impl12RoundingImplC2Ev(ptr noundef nonnull align 8 dereferenceable(37) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fPrecision = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  call void @_ZN6icu_756number9PrecisionC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %fPrecision)
-  %fPassThrough = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 2
-  store i8 1, ptr %fPassThrough, align 4
+define void @_ZN6icu_776number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFormatRoundingModeRKNS_12CurrencyUnitER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #1 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.icu_77::number::Precision", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !93
+  store ptr %1, ptr %7, align 8, !tbaa !25
+  store i32 %2, ptr %8, align 4, !tbaa !95
+  store ptr %3, ptr %9, align 8, !tbaa !89
+  store ptr %4, ptr %10, align 8, !tbaa !22
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %7, align 8, !tbaa !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %14, i64 32, i1 false)
+  %15 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %12, i32 0, i32 1
+  %16 = load i32, ptr %8, align 4, !tbaa !95
+  store i32 %16, ptr %15, align 8, !tbaa !97
+  %17 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %12, i32 0, i32 2
+  store i8 0, ptr %17, align 4, !tbaa !99
+  %18 = load ptr, ptr %7, align 8, !tbaa !25
+  %19 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %19, align 8, !tbaa !65
+  %21 = icmp eq i32 %20, 8
+  br i1 %21, label %22, label %27
+
+22:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #13
+  %23 = load ptr, ptr %7, align 8, !tbaa !25
+  %24 = load ptr, ptr %9, align 8, !tbaa !89
+  %25 = load ptr, ptr %10, align 8, !tbaa !22
+  call void @_ZNK6icu_776number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode(ptr dead_on_unwind writable sret(%"class.icu_77::number::Precision") align 8 %11, ptr noundef nonnull align 8 dereferenceable(28) %23, ptr noundef nonnull align 8 dereferenceable(28) %24, ptr noundef nonnull align 4 dereferenceable(4) %25)
+  %26 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %12, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %11, i64 28, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #13
+  br label %27
+
+27:                                               ; preds = %22, %5
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_776number4impl12RoundingImpl11passThroughEv(ptr dead_on_unwind noalias writable sret(%"class.icu_77::number::impl::RoundingImpl") align 8 %0) #1 align 2 {
+  call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 40, i1 false)
+  call void @_ZN6icu_776number4impl12RoundingImplC2Ev(ptr noundef nonnull align 8 dereferenceable(37) %0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN6icu_776number4impl12RoundingImplC2Ev(ptr noundef nonnull align 8 dereferenceable(37) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %3, i32 0, i32 0
+  call void @_ZN6icu_776number9PrecisionC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4)
+  %5 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %3, i32 0, i32 2
+  store i8 1, ptr %5, align 4, !tbaa !99
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK6icu_756number4impl12RoundingImpl19isSignificantDigitsEv(ptr noundef nonnull align 8 dereferenceable(37) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fPrecision = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision, i32 0, i32 0
-  %0 = load i32, ptr %fType, align 8
-  %cmp = icmp eq i32 %0, 3
-  ret i1 %cmp
+define noundef zeroext i1 @_ZNK6icu_776number4impl12RoundingImpl19isSignificantDigitsEv(ptr noundef nonnull align 8 dereferenceable(37) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %4, i32 0, i32 0
+  %6 = load i32, ptr %5, align 8, !tbaa !100
+  %7 = icmp eq i32 %6, 3
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_756number4impl12RoundingImpl24chooseMultiplierAndApplyERNS1_15DecimalQuantityERKNS1_18MultiplierProducerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %this, ptr noundef nonnull align 8 dereferenceable(66) %input, ptr noundef nonnull align 8 dereferenceable(8) %producer, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %input.addr = alloca ptr, align 8
-  %producer.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %magnitude = alloca i32, align 4
-  %multiplier = alloca i32, align 4
-  %_multiplier = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %input, ptr %input.addr, align 8
-  store ptr %producer, ptr %producer.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %input.addr, align 8
-  %call = call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %0)
-  store i32 %call, ptr %magnitude, align 4
-  %1 = load ptr, ptr %producer.addr, align 8
-  %2 = load i32, ptr %magnitude, align 4
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2)
-  store i32 %call2, ptr %multiplier, align 4
-  %4 = load ptr, ptr %input.addr, align 8
-  %5 = load i32, ptr %multiplier, align 4
-  %call3 = call noundef zeroext i1 @_ZN6icu_756number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %4, i32 noundef %5)
-  %6 = load ptr, ptr %input.addr, align 8
-  %7 = load ptr, ptr %status.addr, align 8
-  call void @_ZNK6icu_756number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %this1, ptr noundef nonnull align 8 dereferenceable(66) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %8 = load ptr, ptr %input.addr, align 8
-  %call4 = call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %8)
-  br i1 %call4, label %if.then, label %lor.lhs.false
+define noundef i32 @_ZN6icu_776number4impl12RoundingImpl24chooseMultiplierAndApplyERNS1_15DecimalQuantityERKNS1_18MultiplierProducerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #1 align 2 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !93
+  store ptr %1, ptr %7, align 8, !tbaa !101
+  store ptr %2, ptr %8, align 8, !tbaa !50
+  store ptr %3, ptr %9, align 8, !tbaa !22
+  %14 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %15 = load ptr, ptr %7, align 8, !tbaa !101
+  %16 = call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %15)
+  store i32 %16, ptr %10, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %17 = load ptr, ptr %8, align 8, !tbaa !50
+  %18 = load i32, ptr %10, align 4, !tbaa !14
+  %19 = load ptr, ptr %17, align 8, !tbaa !103
+  %20 = getelementptr inbounds ptr, ptr %19, i64 2
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %18)
+  store i32 %22, ptr %11, align 4, !tbaa !14
+  %23 = load ptr, ptr %7, align 8, !tbaa !101
+  %24 = load i32, ptr %11, align 4, !tbaa !14
+  %25 = call noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %23, i32 noundef %24)
+  %26 = load ptr, ptr %7, align 8, !tbaa !101
+  %27 = load ptr, ptr %9, align 8, !tbaa !22
+  call void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %14, ptr noundef nonnull align 8 dereferenceable(66) %26, ptr noundef nonnull align 4 dereferenceable(4) %27)
+  %28 = load ptr, ptr %7, align 8, !tbaa !101
+  %29 = call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %28)
+  br i1 %29, label %35, label %30
 
-lor.lhs.false:                                    ; preds = %entry
-  %9 = load ptr, ptr %status.addr, align 8
-  %10 = load i32, ptr %9, align 4
-  %call5 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %10)
-  %tobool = icmp ne i8 %call5, 0
-  br i1 %tobool, label %if.then, label %if.end
+30:                                               ; preds = %4
+  %31 = load ptr, ptr %9, align 8, !tbaa !22
+  %32 = load i32, ptr %31, align 4, !tbaa !15
+  %33 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %32)
+  %34 = icmp ne i8 %33, 0
+  br i1 %34, label %35, label %37
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %11 = load i32, ptr %multiplier, align 4
-  store i32 %11, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %30, %4
+  %36 = load i32, ptr %11, align 4, !tbaa !14
+  store i32 %36, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %69
 
-if.end:                                           ; preds = %lor.lhs.false
-  %12 = load ptr, ptr %input.addr, align 8
-  %call6 = call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %12)
-  %13 = load i32, ptr %magnitude, align 4
-  %14 = load i32, ptr %multiplier, align 4
-  %add = add nsw i32 %13, %14
-  %cmp = icmp eq i32 %call6, %add
-  br i1 %cmp, label %if.then7, label %if.end8
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %7, align 8, !tbaa !101
+  %39 = call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %38)
+  %40 = load i32, ptr %10, align 4, !tbaa !14
+  %41 = load i32, ptr %11, align 4, !tbaa !14
+  %42 = add nsw i32 %40, %41
+  %43 = icmp eq i32 %39, %42
+  br i1 %43, label %44, label %46
 
-if.then7:                                         ; preds = %if.end
-  %15 = load i32, ptr %multiplier, align 4
-  store i32 %15, ptr %retval, align 4
-  br label %return
+44:                                               ; preds = %37
+  %45 = load i32, ptr %11, align 4, !tbaa !14
+  store i32 %45, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %69
 
-if.end8:                                          ; preds = %if.end
-  %16 = load ptr, ptr %producer.addr, align 8
-  %17 = load i32, ptr %magnitude, align 4
-  %add9 = add nsw i32 %17, 1
-  %vtable10 = load ptr, ptr %16, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 2
-  %18 = load ptr, ptr %vfn11, align 8
-  %call12 = call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef %add9)
-  store i32 %call12, ptr %_multiplier, align 4
-  %19 = load i32, ptr %multiplier, align 4
-  %20 = load i32, ptr %_multiplier, align 4
-  %cmp13 = icmp eq i32 %19, %20
-  br i1 %cmp13, label %if.then14, label %if.end15
+46:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  %47 = load ptr, ptr %8, align 8, !tbaa !50
+  %48 = load i32, ptr %10, align 4, !tbaa !14
+  %49 = add nsw i32 %48, 1
+  %50 = load ptr, ptr %47, align 8, !tbaa !103
+  %51 = getelementptr inbounds ptr, ptr %50, i64 2
+  %52 = load ptr, ptr %51, align 8
+  %53 = call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %49)
+  store i32 %53, ptr %13, align 4, !tbaa !14
+  %54 = load i32, ptr %11, align 4, !tbaa !14
+  %55 = load i32, ptr %13, align 4, !tbaa !14
+  %56 = icmp eq i32 %54, %55
+  br i1 %56, label %57, label %59
 
-if.then14:                                        ; preds = %if.end8
-  %21 = load i32, ptr %multiplier, align 4
-  store i32 %21, ptr %retval, align 4
-  br label %return
+57:                                               ; preds = %46
+  %58 = load i32, ptr %11, align 4, !tbaa !14
+  store i32 %58, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %68
 
-if.end15:                                         ; preds = %if.end8
-  %22 = load ptr, ptr %input.addr, align 8
-  %23 = load i32, ptr %_multiplier, align 4
-  %24 = load i32, ptr %multiplier, align 4
-  %sub = sub nsw i32 %23, %24
-  %call16 = call noundef zeroext i1 @_ZN6icu_756number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %22, i32 noundef %sub)
-  %25 = load ptr, ptr %input.addr, align 8
-  %26 = load ptr, ptr %status.addr, align 8
-  call void @_ZNK6icu_756number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %this1, ptr noundef nonnull align 8 dereferenceable(66) %25, ptr noundef nonnull align 4 dereferenceable(4) %26)
-  %27 = load i32, ptr %_multiplier, align 4
-  store i32 %27, ptr %retval, align 4
-  br label %return
+59:                                               ; preds = %46
+  %60 = load ptr, ptr %7, align 8, !tbaa !101
+  %61 = load i32, ptr %13, align 4, !tbaa !14
+  %62 = load i32, ptr %11, align 4, !tbaa !14
+  %63 = sub nsw i32 %61, %62
+  %64 = call noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %60, i32 noundef %63)
+  %65 = load ptr, ptr %7, align 8, !tbaa !101
+  %66 = load ptr, ptr %9, align 8, !tbaa !22
+  call void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %14, ptr noundef nonnull align 8 dereferenceable(66) %65, ptr noundef nonnull align 4 dereferenceable(4) %66)
+  %67 = load i32, ptr %13, align 4, !tbaa !14
+  store i32 %67, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %68
 
-return:                                           ; preds = %if.end15, %if.then14, %if.then7, %if.then
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+68:                                               ; preds = %59, %57
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  br label %69
+
+69:                                               ; preds = %68, %44, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  %70 = load i32, ptr %5, align 4
+  ret i32 %70
 }
 
-declare noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) #5
+declare noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %this, ptr noundef nonnull align 8 dereferenceable(66) %value, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %resolvedMinFraction = alloca i32, align 4
-  %roundingMag1 = alloca i32, align 4
-  %roundingMag2 = alloca i32, align 4
-  %roundingMag = alloca i32, align 4
-  %upperMag = alloca i32, align 4
-  %displayMag1 = alloca i32, align 4
-  %displayMag2 = alloca i32, align 4
-  %displayMag = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !93
+  store ptr %1, ptr %5, align 8, !tbaa !101
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  %15 = load ptr, ptr %4, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !22
+  %17 = load i32, ptr %16, align 4, !tbaa !15
+  %18 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %17)
+  %19 = icmp ne i8 %18, 0
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %entry
-  br label %if.end134
+20:                                               ; preds = %3
+  br label %257
 
-if.end:                                           ; preds = %entry
-  %fPassThrough = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 2
-  %2 = load i8, ptr %fPassThrough, align 4
-  %tobool2 = trunc i8 %2 to i1
-  br i1 %tobool2, label %if.then3, label %if.end4
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 2
+  %23 = load i8, ptr %22, align 4, !tbaa !99, !range !87, !noundef !88
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %26
 
-if.then3:                                         ; preds = %if.end
-  br label %if.end134
+25:                                               ; preds = %21
+  br label %257
 
-if.end4:                                          ; preds = %if.end
-  store i32 0, ptr %resolvedMinFraction, align 4
-  %fPrecision = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision, i32 0, i32 0
-  %3 = load i32, ptr %fType, align 8
-  switch i32 %3, label %sw.default [
-    i32 0, label %sw.bb
-    i32 9, label %sw.bb
-    i32 1, label %sw.bb5
-    i32 2, label %sw.bb6
-    i32 3, label %sw.bb14
-    i32 4, label %sw.bb33
-    i32 5, label %sw.bb98
-    i32 6, label %sw.bb108
-    i32 7, label %sw.bb118
-    i32 8, label %sw.bb128
+26:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #13
+  store i32 0, ptr %7, align 4, !tbaa !14
+  %27 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %27, i32 0, i32 0
+  %29 = load i32, ptr %28, align 8, !tbaa !100
+  switch i32 %29, label %240 [
+    i32 0, label %30
+    i32 9, label %30
+    i32 1, label %32
+    i32 2, label %34
+    i32 3, label %53
+    i32 4, label %86
+    i32 5, label %191
+    i32 6, label %209
+    i32 7, label %224
+    i32 8, label %239
   ]
 
-sw.bb:                                            ; preds = %if.end4, %if.end4
-  %4 = load ptr, ptr %status.addr, align 8
-  store i32 5, ptr %4, align 4
-  br label %sw.epilog
+30:                                               ; preds = %26, %26
+  %31 = load ptr, ptr %6, align 8, !tbaa !22
+  store i32 5, ptr %31, align 4, !tbaa !15
+  br label %241
 
-sw.bb5:                                           ; preds = %if.end4
-  %5 = load ptr, ptr %value.addr, align 8
-  call void @_ZN6icu_756number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66) %5)
-  br label %sw.epilog
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %5, align 8, !tbaa !101
+  call void @_ZN6icu_776number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66) %33)
+  br label %241
 
-sw.bb6:                                           ; preds = %if.end4
-  %6 = load ptr, ptr %value.addr, align 8
-  %fPrecision7 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision7, i32 0, i32 2
-  %fMaxFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion, i32 0, i32 1
-  %7 = load i16, ptr %fMaxFrac, align 2
-  %conv = sext i16 %7 to i32
-  %call8 = call noundef i32 @_ZN12_GLOBAL__N_128getRoundingMagnitudeFractionEi(i32 noundef %conv)
-  %fRoundingMode = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 1
-  %8 = load i32, ptr %fRoundingMode, align 8
-  %9 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %6, i32 noundef %call8, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %fPrecision9 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion10 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision9, i32 0, i32 2
-  %fMinFrac = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion10, i32 0, i32 0
-  %10 = load i16, ptr %fMinFrac, align 8
-  %conv11 = sext i16 %10 to i32
-  %call12 = call noundef i32 @_ZN12_GLOBAL__N_127getDisplayMagnitudeFractionEi(i32 noundef %conv11)
-  %sub = sub nsw i32 0, %call12
-  %call13 = call i32 @uprv_max_75(i32 noundef 0, i32 noundef %sub)
-  store i32 %call13, ptr %resolvedMinFraction, align 4
-  br label %sw.epilog
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %5, align 8, !tbaa !101
+  %36 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %36, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %37, i32 0, i32 1
+  %39 = load i16, ptr %38, align 2, !tbaa !33
+  %40 = sext i16 %39 to i32
+  %41 = call noundef i32 @_ZN12_GLOBAL__N_128getRoundingMagnitudeFractionEi(i32 noundef %40)
+  %42 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 1
+  %43 = load i32, ptr %42, align 8, !tbaa !97
+  %44 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %35, i32 noundef %41, i32 noundef %43, ptr noundef nonnull align 4 dereferenceable(4) %44)
+  %45 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %45, i32 0, i32 2
+  %47 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %46, i32 0, i32 0
+  %48 = load i16, ptr %47, align 8, !tbaa !33
+  %49 = sext i16 %48 to i32
+  %50 = call noundef i32 @_ZN12_GLOBAL__N_127getDisplayMagnitudeFractionEi(i32 noundef %49)
+  %51 = sub nsw i32 0, %50
+  %52 = call i32 @uprv_max_77(i32 noundef 0, i32 noundef %51)
+  store i32 %52, ptr %7, align 4, !tbaa !14
+  br label %241
 
-sw.bb14:                                          ; preds = %if.end4
-  %11 = load ptr, ptr %value.addr, align 8
-  %12 = load ptr, ptr %value.addr, align 8
-  %fPrecision15 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion16 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision15, i32 0, i32 2
-  %fMaxSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion16, i32 0, i32 3
-  %13 = load i16, ptr %fMaxSig, align 2
-  %conv17 = sext i16 %13 to i32
-  %call18 = call noundef i32 @_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %12, i32 noundef %conv17)
-  %fRoundingMode19 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 1
-  %14 = load i32, ptr %fRoundingMode19, align 8
-  %15 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %11, i32 noundef %call18, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15)
-  %16 = load ptr, ptr %value.addr, align 8
-  %fPrecision20 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion21 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision20, i32 0, i32 2
-  %fMinSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion21, i32 0, i32 2
-  %17 = load i16, ptr %fMinSig, align 4
-  %conv22 = sext i16 %17 to i32
-  %call23 = call noundef i32 @_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %16, i32 noundef %conv22)
-  %sub24 = sub nsw i32 0, %call23
-  %call25 = call i32 @uprv_max_75(i32 noundef 0, i32 noundef %sub24)
-  store i32 %call25, ptr %resolvedMinFraction, align 4
-  %18 = load ptr, ptr %value.addr, align 8
-  %call26 = call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %18)
-  br i1 %call26, label %land.lhs.true, label %if.end32
+53:                                               ; preds = %26
+  %54 = load ptr, ptr %5, align 8, !tbaa !101
+  %55 = load ptr, ptr %5, align 8, !tbaa !101
+  %56 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %56, i32 0, i32 2
+  %58 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %57, i32 0, i32 3
+  %59 = load i16, ptr %58, align 2, !tbaa !33
+  %60 = sext i16 %59 to i32
+  %61 = call noundef i32 @_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %55, i32 noundef %60)
+  %62 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 1
+  %63 = load i32, ptr %62, align 8, !tbaa !97
+  %64 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %54, i32 noundef %61, i32 noundef %63, ptr noundef nonnull align 4 dereferenceable(4) %64)
+  %65 = load ptr, ptr %5, align 8, !tbaa !101
+  %66 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %66, i32 0, i32 2
+  %68 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %67, i32 0, i32 2
+  %69 = load i16, ptr %68, align 4, !tbaa !33
+  %70 = sext i16 %69 to i32
+  %71 = call noundef i32 @_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %65, i32 noundef %70)
+  %72 = sub nsw i32 0, %71
+  %73 = call i32 @uprv_max_77(i32 noundef 0, i32 noundef %72)
+  store i32 %73, ptr %7, align 4, !tbaa !14
+  %74 = load ptr, ptr %5, align 8, !tbaa !101
+  %75 = call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %74)
+  br i1 %75, label %76, label %85
 
-land.lhs.true:                                    ; preds = %sw.bb14
-  %fPrecision27 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion28 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision27, i32 0, i32 2
-  %fMinSig29 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion28, i32 0, i32 2
-  %19 = load i16, ptr %fMinSig29, align 4
-  %conv30 = sext i16 %19 to i32
-  %cmp = icmp sgt i32 %conv30, 0
-  br i1 %cmp, label %if.then31, label %if.end32
+76:                                               ; preds = %53
+  %77 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %77, i32 0, i32 2
+  %79 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %78, i32 0, i32 2
+  %80 = load i16, ptr %79, align 4, !tbaa !33
+  %81 = sext i16 %80 to i32
+  %82 = icmp sgt i32 %81, 0
+  br i1 %82, label %83, label %85
 
-if.then31:                                        ; preds = %land.lhs.true
-  %20 = load ptr, ptr %value.addr, align 8
-  call void @_ZN6icu_756number4impl15DecimalQuantity13setMinIntegerEi(ptr noundef nonnull align 8 dereferenceable(66) %20, i32 noundef 1)
-  br label %if.end32
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %5, align 8, !tbaa !101
+  call void @_ZN6icu_776number4impl15DecimalQuantity20increaseMinIntegerToEi(ptr noundef nonnull align 8 dereferenceable(66) %84, i32 noundef 1)
+  br label %85
 
-if.end32:                                         ; preds = %if.then31, %land.lhs.true, %sw.bb14
-  br label %sw.epilog
+85:                                               ; preds = %83, %76, %53
+  br label %241
 
-sw.bb33:                                          ; preds = %if.end4
-  %fPrecision34 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion35 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision34, i32 0, i32 2
-  %fMaxFrac36 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion35, i32 0, i32 1
-  %21 = load i16, ptr %fMaxFrac36, align 2
-  %conv37 = sext i16 %21 to i32
-  %call38 = call noundef i32 @_ZN12_GLOBAL__N_128getRoundingMagnitudeFractionEi(i32 noundef %conv37)
-  store i32 %call38, ptr %roundingMag1, align 4
-  %22 = load ptr, ptr %value.addr, align 8
-  %fPrecision39 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion40 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision39, i32 0, i32 2
-  %fMaxSig41 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion40, i32 0, i32 3
-  %23 = load i16, ptr %fMaxSig41, align 2
-  %conv42 = sext i16 %23 to i32
-  %call43 = call noundef i32 @_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %22, i32 noundef %conv42)
-  store i32 %call43, ptr %roundingMag2, align 4
-  %fPrecision44 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion45 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision44, i32 0, i32 2
-  %fPriority = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion45, i32 0, i32 4
-  %24 = load i32, ptr %fPriority, align 8
-  %cmp46 = icmp eq i32 %24, 0
-  br i1 %cmp46, label %if.then47, label %if.else
+86:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  %87 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %88 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %87, i32 0, i32 2
+  %89 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %88, i32 0, i32 1
+  %90 = load i16, ptr %89, align 2, !tbaa !33
+  %91 = sext i16 %90 to i32
+  %92 = call noundef i32 @_ZN12_GLOBAL__N_128getRoundingMagnitudeFractionEi(i32 noundef %91)
+  store i32 %92, ptr %8, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #13
+  %93 = load ptr, ptr %5, align 8, !tbaa !101
+  %94 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %95 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %94, i32 0, i32 2
+  %96 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %95, i32 0, i32 3
+  %97 = load i16, ptr %96, align 2, !tbaa !33
+  %98 = sext i16 %97 to i32
+  %99 = call noundef i32 @_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %93, i32 noundef %98)
+  store i32 %99, ptr %9, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %100 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %101 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %100, i32 0, i32 2
+  %102 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %101, i32 0, i32 4
+  %103 = load i32, ptr %102, align 8, !tbaa !33
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %109
 
-if.then47:                                        ; preds = %sw.bb33
-  %25 = load i32, ptr %roundingMag1, align 4
-  %26 = load i32, ptr %roundingMag2, align 4
-  %call48 = call i32 @uprv_min_75(i32 noundef %25, i32 noundef %26)
-  store i32 %call48, ptr %roundingMag, align 4
-  br label %if.end50
+105:                                              ; preds = %86
+  %106 = load i32, ptr %8, align 4, !tbaa !14
+  %107 = load i32, ptr %9, align 4, !tbaa !14
+  %108 = call i32 @uprv_min_77(i32 noundef %106, i32 noundef %107)
+  store i32 %108, ptr %10, align 4, !tbaa !14
+  br label %113
 
-if.else:                                          ; preds = %sw.bb33
-  %27 = load i32, ptr %roundingMag1, align 4
-  %28 = load i32, ptr %roundingMag2, align 4
-  %call49 = call i32 @uprv_max_75(i32 noundef %27, i32 noundef %28)
-  store i32 %call49, ptr %roundingMag, align 4
-  br label %if.end50
+109:                                              ; preds = %86
+  %110 = load i32, ptr %8, align 4, !tbaa !14
+  %111 = load i32, ptr %9, align 4, !tbaa !14
+  %112 = call i32 @uprv_max_77(i32 noundef %110, i32 noundef %111)
+  store i32 %112, ptr %10, align 4, !tbaa !14
+  br label %113
 
-if.end50:                                         ; preds = %if.else, %if.then47
-  %29 = load ptr, ptr %value.addr, align 8
-  %call51 = call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %29)
-  br i1 %call51, label %if.end63, label %if.then52
+113:                                              ; preds = %109, %105
+  %114 = load ptr, ptr %5, align 8, !tbaa !101
+  %115 = call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %114)
+  br i1 %115, label %139, label %116
 
-if.then52:                                        ; preds = %if.end50
-  %30 = load ptr, ptr %value.addr, align 8
-  %call53 = call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %30)
-  store i32 %call53, ptr %upperMag, align 4
-  %31 = load ptr, ptr %value.addr, align 8
-  %32 = load i32, ptr %roundingMag, align 4
-  %fRoundingMode54 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 1
-  %33 = load i32, ptr %fRoundingMode54, align 8
-  %34 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %31, i32 noundef %32, i32 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %34)
-  %35 = load ptr, ptr %value.addr, align 8
-  %call55 = call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %35)
-  br i1 %call55, label %if.end62, label %land.lhs.true56
+116:                                              ; preds = %113
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #13
+  %117 = load ptr, ptr %5, align 8, !tbaa !101
+  %118 = call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %117)
+  store i32 %118, ptr %11, align 4, !tbaa !14
+  %119 = load ptr, ptr %5, align 8, !tbaa !101
+  %120 = load i32, ptr %10, align 4, !tbaa !14
+  %121 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 1
+  %122 = load i32, ptr %121, align 8, !tbaa !97
+  %123 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %119, i32 noundef %120, i32 noundef %122, ptr noundef nonnull align 4 dereferenceable(4) %123)
+  %124 = load ptr, ptr %5, align 8, !tbaa !101
+  %125 = call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %124)
+  br i1 %125, label %138, label %126
 
-land.lhs.true56:                                  ; preds = %if.then52
-  %36 = load ptr, ptr %value.addr, align 8
-  %call57 = call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %36)
-  %37 = load i32, ptr %upperMag, align 4
-  %cmp58 = icmp ne i32 %call57, %37
-  br i1 %cmp58, label %land.lhs.true59, label %if.end62
+126:                                              ; preds = %116
+  %127 = load ptr, ptr %5, align 8, !tbaa !101
+  %128 = call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %127)
+  %129 = load i32, ptr %11, align 4, !tbaa !14
+  %130 = icmp ne i32 %128, %129
+  br i1 %130, label %131, label %138
 
-land.lhs.true59:                                  ; preds = %land.lhs.true56
-  %38 = load i32, ptr %roundingMag1, align 4
-  %39 = load i32, ptr %roundingMag2, align 4
-  %cmp60 = icmp eq i32 %38, %39
-  br i1 %cmp60, label %if.then61, label %if.end62
+131:                                              ; preds = %126
+  %132 = load i32, ptr %8, align 4, !tbaa !14
+  %133 = load i32, ptr %9, align 4, !tbaa !14
+  %134 = icmp eq i32 %132, %133
+  br i1 %134, label %135, label %138
 
-if.then61:                                        ; preds = %land.lhs.true59
-  %40 = load i32, ptr %roundingMag2, align 4
-  %add = add nsw i32 %40, 1
-  store i32 %add, ptr %roundingMag2, align 4
-  br label %if.end62
+135:                                              ; preds = %131
+  %136 = load i32, ptr %9, align 4, !tbaa !14
+  %137 = add nsw i32 %136, 1
+  store i32 %137, ptr %9, align 4, !tbaa !14
+  br label %138
 
-if.end62:                                         ; preds = %if.then61, %land.lhs.true59, %land.lhs.true56, %if.then52
-  br label %if.end63
+138:                                              ; preds = %135, %131, %126, %116
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #13
+  br label %139
 
-if.end63:                                         ; preds = %if.end62, %if.end50
-  %fPrecision64 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion65 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision64, i32 0, i32 2
-  %fMinFrac66 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion65, i32 0, i32 0
-  %41 = load i16, ptr %fMinFrac66, align 8
-  %conv67 = sext i16 %41 to i32
-  %call68 = call noundef i32 @_ZN12_GLOBAL__N_127getDisplayMagnitudeFractionEi(i32 noundef %conv67)
-  store i32 %call68, ptr %displayMag1, align 4
-  %42 = load ptr, ptr %value.addr, align 8
-  %fPrecision69 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion70 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision69, i32 0, i32 2
-  %fMinSig71 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion70, i32 0, i32 2
-  %43 = load i16, ptr %fMinSig71, align 4
-  %conv72 = sext i16 %43 to i32
-  %call73 = call noundef i32 @_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %42, i32 noundef %conv72)
-  store i32 %call73, ptr %displayMag2, align 4
-  %fPrecision74 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion75 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision74, i32 0, i32 2
-  %fRetain = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion75, i32 0, i32 5
-  %44 = load i8, ptr %fRetain, align 4
-  %tobool76 = trunc i8 %44 to i1
-  br i1 %tobool76, label %if.then77, label %if.else79
+139:                                              ; preds = %138, %113
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %140 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %141 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %140, i32 0, i32 2
+  %142 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %141, i32 0, i32 0
+  %143 = load i16, ptr %142, align 8, !tbaa !33
+  %144 = sext i16 %143 to i32
+  %145 = call noundef i32 @_ZN12_GLOBAL__N_127getDisplayMagnitudeFractionEi(i32 noundef %144)
+  store i32 %145, ptr %12, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  %146 = load ptr, ptr %5, align 8, !tbaa !101
+  %147 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %148 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %147, i32 0, i32 2
+  %149 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %148, i32 0, i32 2
+  %150 = load i16, ptr %149, align 4, !tbaa !33
+  %151 = sext i16 %150 to i32
+  %152 = call noundef i32 @_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %146, i32 noundef %151)
+  store i32 %152, ptr %13, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
+  %153 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %154 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %153, i32 0, i32 2
+  %155 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %154, i32 0, i32 5
+  %156 = load i8, ptr %155, align 4, !tbaa !33, !range !87, !noundef !88
+  %157 = trunc i8 %156 to i1
+  br i1 %157, label %158, label %162
 
-if.then77:                                        ; preds = %if.end63
-  %45 = load i32, ptr %displayMag1, align 4
-  %46 = load i32, ptr %displayMag2, align 4
-  %call78 = call i32 @uprv_min_75(i32 noundef %45, i32 noundef %46)
-  store i32 %call78, ptr %displayMag, align 4
-  br label %if.end95
+158:                                              ; preds = %139
+  %159 = load i32, ptr %12, align 4, !tbaa !14
+  %160 = load i32, ptr %13, align 4, !tbaa !14
+  %161 = call i32 @uprv_min_77(i32 noundef %159, i32 noundef %160)
+  store i32 %161, ptr %14, align 4, !tbaa !14
+  br label %187
 
-if.else79:                                        ; preds = %if.end63
-  %fPrecision80 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion81 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision80, i32 0, i32 2
-  %fPriority82 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion81, i32 0, i32 4
-  %47 = load i32, ptr %fPriority82, align 8
-  %cmp83 = icmp eq i32 %47, 0
-  br i1 %cmp83, label %if.then84, label %if.else89
+162:                                              ; preds = %139
+  %163 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %164 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %163, i32 0, i32 2
+  %165 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %164, i32 0, i32 4
+  %166 = load i32, ptr %165, align 8, !tbaa !33
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %177
 
-if.then84:                                        ; preds = %if.else79
-  %48 = load i32, ptr %roundingMag2, align 4
-  %49 = load i32, ptr %roundingMag1, align 4
-  %cmp85 = icmp sle i32 %48, %49
-  br i1 %cmp85, label %if.then86, label %if.else87
+168:                                              ; preds = %162
+  %169 = load i32, ptr %9, align 4, !tbaa !14
+  %170 = load i32, ptr %8, align 4, !tbaa !14
+  %171 = icmp sle i32 %169, %170
+  br i1 %171, label %172, label %174
 
-if.then86:                                        ; preds = %if.then84
-  %50 = load i32, ptr %displayMag2, align 4
-  store i32 %50, ptr %displayMag, align 4
-  br label %if.end88
+172:                                              ; preds = %168
+  %173 = load i32, ptr %13, align 4, !tbaa !14
+  store i32 %173, ptr %14, align 4, !tbaa !14
+  br label %176
 
-if.else87:                                        ; preds = %if.then84
-  %51 = load i32, ptr %displayMag1, align 4
-  store i32 %51, ptr %displayMag, align 4
-  br label %if.end88
+174:                                              ; preds = %168
+  %175 = load i32, ptr %12, align 4, !tbaa !14
+  store i32 %175, ptr %14, align 4, !tbaa !14
+  br label %176
 
-if.end88:                                         ; preds = %if.else87, %if.then86
-  br label %if.end94
+176:                                              ; preds = %174, %172
+  br label %186
 
-if.else89:                                        ; preds = %if.else79
-  %52 = load i32, ptr %roundingMag2, align 4
-  %53 = load i32, ptr %roundingMag1, align 4
-  %cmp90 = icmp sle i32 %52, %53
-  br i1 %cmp90, label %if.then91, label %if.else92
+177:                                              ; preds = %162
+  %178 = load i32, ptr %9, align 4, !tbaa !14
+  %179 = load i32, ptr %8, align 4, !tbaa !14
+  %180 = icmp sle i32 %178, %179
+  br i1 %180, label %181, label %183
 
-if.then91:                                        ; preds = %if.else89
-  %54 = load i32, ptr %displayMag1, align 4
-  store i32 %54, ptr %displayMag, align 4
-  br label %if.end93
+181:                                              ; preds = %177
+  %182 = load i32, ptr %12, align 4, !tbaa !14
+  store i32 %182, ptr %14, align 4, !tbaa !14
+  br label %185
 
-if.else92:                                        ; preds = %if.else89
-  %55 = load i32, ptr %displayMag2, align 4
-  store i32 %55, ptr %displayMag, align 4
-  br label %if.end93
+183:                                              ; preds = %177
+  %184 = load i32, ptr %13, align 4, !tbaa !14
+  store i32 %184, ptr %14, align 4, !tbaa !14
+  br label %185
 
-if.end93:                                         ; preds = %if.else92, %if.then91
-  br label %if.end94
+185:                                              ; preds = %183, %181
+  br label %186
 
-if.end94:                                         ; preds = %if.end93, %if.end88
-  br label %if.end95
+186:                                              ; preds = %185, %176
+  br label %187
 
-if.end95:                                         ; preds = %if.end94, %if.then77
-  %56 = load i32, ptr %displayMag, align 4
-  %sub96 = sub nsw i32 0, %56
-  %call97 = call i32 @uprv_max_75(i32 noundef 0, i32 noundef %sub96)
-  store i32 %call97, ptr %resolvedMinFraction, align 4
-  br label %sw.epilog
+187:                                              ; preds = %186, %158
+  %188 = load i32, ptr %14, align 4, !tbaa !14
+  %189 = sub nsw i32 0, %188
+  %190 = call i32 @uprv_max_77(i32 noundef 0, i32 noundef %189)
+  store i32 %190, ptr %7, align 4, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %241
 
-sw.bb98:                                          ; preds = %if.end4
-  %57 = load ptr, ptr %value.addr, align 8
-  %fPrecision99 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion100 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision99, i32 0, i32 2
-  %fIncrement = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %fUnion100, i32 0, i32 0
-  %58 = load i64, ptr %fIncrement, align 8
-  %fPrecision101 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion102 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision101, i32 0, i32 2
-  %fIncrementMagnitude = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %fUnion102, i32 0, i32 1
-  %59 = load i16, ptr %fIncrementMagnitude, align 8
-  %fRoundingMode103 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 1
-  %60 = load i32, ptr %fRoundingMode103, align 8
-  %61 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_756number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %57, i64 noundef %58, i16 noundef signext %59, i32 noundef %60, ptr noundef nonnull align 4 dereferenceable(4) %61)
-  %fPrecision104 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion105 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision104, i32 0, i32 2
-  %fMinFrac106 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %fUnion105, i32 0, i32 2
-  %62 = load i16, ptr %fMinFrac106, align 2
-  %conv107 = sext i16 %62 to i32
-  store i32 %conv107, ptr %resolvedMinFraction, align 4
-  br label %sw.epilog
+191:                                              ; preds = %26
+  %192 = load ptr, ptr %5, align 8, !tbaa !101
+  %193 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %194 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %193, i32 0, i32 2
+  %195 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %194, i32 0, i32 0
+  %196 = load i64, ptr %195, align 8, !tbaa !33
+  %197 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %198 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %197, i32 0, i32 2
+  %199 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %198, i32 0, i32 1
+  %200 = load i16, ptr %199, align 8, !tbaa !33
+  %201 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 1
+  %202 = load i32, ptr %201, align 8, !tbaa !97
+  %203 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @_ZN6icu_776number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %192, i64 noundef %196, i16 noundef signext %200, i32 noundef %202, ptr noundef nonnull align 4 dereferenceable(4) %203)
+  %204 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %205 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %204, i32 0, i32 2
+  %206 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %205, i32 0, i32 2
+  %207 = load i16, ptr %206, align 2, !tbaa !33
+  %208 = sext i16 %207 to i32
+  store i32 %208, ptr %7, align 4, !tbaa !14
+  br label %241
 
-sw.bb108:                                         ; preds = %if.end4
-  %63 = load ptr, ptr %value.addr, align 8
-  %fPrecision109 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion110 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision109, i32 0, i32 2
-  %fIncrementMagnitude111 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %fUnion110, i32 0, i32 1
-  %64 = load i16, ptr %fIncrementMagnitude111, align 8
-  %conv112 = sext i16 %64 to i32
-  %fRoundingMode113 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 1
-  %65 = load i32, ptr %fRoundingMode113, align 8
-  %66 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %63, i32 noundef %conv112, i32 noundef %65, ptr noundef nonnull align 4 dereferenceable(4) %66)
-  %fPrecision114 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion115 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision114, i32 0, i32 2
-  %fMinFrac116 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %fUnion115, i32 0, i32 2
-  %67 = load i16, ptr %fMinFrac116, align 2
-  %conv117 = sext i16 %67 to i32
-  store i32 %conv117, ptr %resolvedMinFraction, align 4
-  br label %sw.epilog
+209:                                              ; preds = %26
+  %210 = load ptr, ptr %5, align 8, !tbaa !101
+  %211 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %212 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %211, i32 0, i32 2
+  %213 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %212, i32 0, i32 1
+  %214 = load i16, ptr %213, align 8, !tbaa !33
+  %215 = sext i16 %214 to i32
+  %216 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 1
+  %217 = load i32, ptr %216, align 8, !tbaa !97
+  %218 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %210, i32 noundef %215, i32 noundef %217, ptr noundef nonnull align 4 dereferenceable(4) %218)
+  %219 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %220 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %219, i32 0, i32 2
+  %221 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %220, i32 0, i32 2
+  %222 = load i16, ptr %221, align 2, !tbaa !33
+  %223 = sext i16 %222 to i32
+  store i32 %223, ptr %7, align 4, !tbaa !14
+  br label %241
 
-sw.bb118:                                         ; preds = %if.end4
-  %68 = load ptr, ptr %value.addr, align 8
-  %fPrecision119 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion120 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision119, i32 0, i32 2
-  %fIncrementMagnitude121 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %fUnion120, i32 0, i32 1
-  %69 = load i16, ptr %fIncrementMagnitude121, align 8
-  %conv122 = sext i16 %69 to i32
-  %fRoundingMode123 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 1
-  %70 = load i32, ptr %fRoundingMode123, align 8
-  %71 = load ptr, ptr %status.addr, align 8
-  call void @_ZN6icu_756number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %68, i32 noundef %conv122, i32 noundef %70, ptr noundef nonnull align 4 dereferenceable(4) %71)
-  %fPrecision124 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion125 = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision124, i32 0, i32 2
-  %fMinFrac126 = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::IncrementSettings", ptr %fUnion125, i32 0, i32 2
-  %72 = load i16, ptr %fMinFrac126, align 2
-  %conv127 = sext i16 %72 to i32
-  store i32 %conv127, ptr %resolvedMinFraction, align 4
-  br label %sw.epilog
+224:                                              ; preds = %26
+  %225 = load ptr, ptr %5, align 8, !tbaa !101
+  %226 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %227 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %226, i32 0, i32 2
+  %228 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %227, i32 0, i32 1
+  %229 = load i16, ptr %228, align 8, !tbaa !33
+  %230 = sext i16 %229 to i32
+  %231 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 1
+  %232 = load i32, ptr %231, align 8, !tbaa !97
+  %233 = load ptr, ptr %6, align 8, !tbaa !22
+  call void @_ZN6icu_776number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %225, i32 noundef %230, i32 noundef %232, ptr noundef nonnull align 4 dereferenceable(4) %233)
+  %234 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %235 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %234, i32 0, i32 2
+  %236 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::IncrementSettings", ptr %235, i32 0, i32 2
+  %237 = load i16, ptr %236, align 2, !tbaa !33
+  %238 = sext i16 %237 to i32
+  store i32 %238, ptr %7, align 4, !tbaa !14
+  br label %241
 
-sw.bb128:                                         ; preds = %if.end4
-  call void @abort() #12
+239:                                              ; preds = %26
+  call void @abort() #15
   unreachable
 
-sw.default:                                       ; preds = %if.end4
-  call void @abort() #12
+240:                                              ; preds = %26
+  call void @abort() #15
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb118, %sw.bb108, %sw.bb98, %if.end95, %if.end32, %sw.bb6, %sw.bb5, %sw.bb
-  %fPrecision129 = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fTrailingZeroDisplay = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision129, i32 0, i32 3
-  %73 = load i32, ptr %fTrailingZeroDisplay, align 8
-  %cmp130 = icmp eq i32 %73, 0
-  br i1 %cmp130, label %if.then133, label %lor.lhs.false
+241:                                              ; preds = %224, %209, %191, %187, %85, %34, %32, %30
+  %242 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %15, i32 0, i32 0
+  %243 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %242, i32 0, i32 3
+  %244 = load i32, ptr %243, align 8, !tbaa !105
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %253, label %246
 
-lor.lhs.false:                                    ; preds = %sw.epilog
-  %74 = load ptr, ptr %value.addr, align 8
-  %vtable = load ptr, ptr %74, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %75 = load ptr, ptr %vfn, align 8
-  %call131 = call noundef double %75(ptr noundef nonnull align 8 dereferenceable(66) %74, i32 noundef 3)
-  %cmp132 = fcmp une double %call131, 0.000000e+00
-  br i1 %cmp132, label %if.then133, label %if.end134
+246:                                              ; preds = %241
+  %247 = load ptr, ptr %5, align 8, !tbaa !101
+  %248 = load ptr, ptr %247, align 8, !tbaa !103
+  %249 = getelementptr inbounds ptr, ptr %248, i64 2
+  %250 = load ptr, ptr %249, align 8
+  %251 = call noundef double %250(ptr noundef nonnull align 8 dereferenceable(66) %247, i32 noundef 3)
+  %252 = fcmp une double %251, 0.000000e+00
+  br i1 %252, label %253, label %256
 
-if.then133:                                       ; preds = %lor.lhs.false, %sw.epilog
-  %76 = load ptr, ptr %value.addr, align 8
-  %77 = load i32, ptr %resolvedMinFraction, align 4
-  call void @_ZN6icu_756number4impl15DecimalQuantity14setMinFractionEi(ptr noundef nonnull align 8 dereferenceable(66) %76, i32 noundef %77)
-  br label %if.end134
+253:                                              ; preds = %246, %241
+  %254 = load ptr, ptr %5, align 8, !tbaa !101
+  %255 = load i32, ptr %7, align 4, !tbaa !14
+  call void @_ZN6icu_776number4impl15DecimalQuantity14setMinFractionEi(ptr noundef nonnull align 8 dereferenceable(66) %254, i32 noundef %255)
+  br label %256
 
-if.end134:                                        ; preds = %if.then133, %lor.lhs.false, %if.then3, %if.then
+256:                                              ; preds = %253, %246
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #13
+  br label %257
+
+257:                                              ; preds = %256, %25, %20
   ret void
 }
 
-declare noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66)) #5
+declare noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66)) #8
 
-declare void @_ZN6icu_756number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #5
+declare void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_128getRoundingMagnitudeFractionEi(i32 noundef %maxFrac) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %maxFrac.addr = alloca i32, align 4
-  store i32 %maxFrac, ptr %maxFrac.addr, align 4
-  %0 = load i32, ptr %maxFrac.addr, align 4
-  %cmp = icmp eq i32 %0, -1
-  br i1 %cmp, label %if.then, label %if.end
+define internal noundef i32 @_ZN12_GLOBAL__N_128getRoundingMagnitudeFractionEi(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
+  %5 = icmp eq i32 %4, -1
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  store i32 -2147483648, ptr %retval, align 4
-  br label %return
+6:                                                ; preds = %1
+  store i32 -2147483648, ptr %2, align 4
+  br label %10
 
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %maxFrac.addr, align 4
-  %sub = sub nsw i32 0, %1
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %1
+  %8 = load i32, ptr %3, align 4, !tbaa !14
+  %9 = sub nsw i32 0, %8
+  store i32 %9, ptr %2, align 4
+  br label %10
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+10:                                               ; preds = %7, %6
+  %11 = load i32, ptr %2, align 4
+  ret i32 %11
 }
 
-declare i32 @uprv_max_75(i32 noundef, i32 noundef) #5
+declare i32 @uprv_max_77(i32 noundef, i32 noundef) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_127getDisplayMagnitudeFractionEi(i32 noundef %minFrac) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %minFrac.addr = alloca i32, align 4
-  store i32 %minFrac, ptr %minFrac.addr, align 4
-  %0 = load i32, ptr %minFrac.addr, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal noundef i32 @_ZN12_GLOBAL__N_127getDisplayMagnitudeFractionEi(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %6, label %7
 
-if.then:                                          ; preds = %entry
-  store i32 2147483647, ptr %retval, align 4
-  br label %return
+6:                                                ; preds = %1
+  store i32 2147483647, ptr %2, align 4
+  br label %10
 
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr %minFrac.addr, align 4
-  %sub = sub nsw i32 0, %1
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+7:                                                ; preds = %1
+  %8 = load i32, ptr %3, align 4, !tbaa !14
+  %9 = sub nsw i32 0, %8
+  store i32 %9, ptr %2, align 4
+  br label %10
 
-return:                                           ; preds = %if.end, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
+10:                                               ; preds = %7, %6
+  %11 = load i32, ptr %2, align 4
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %maxSig) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %value.addr = alloca ptr, align 8
-  %maxSig.addr = alloca i32, align 4
-  %magnitude = alloca i32, align 4
-  store ptr %value, ptr %value.addr, align 8
-  store i32 %maxSig, ptr %maxSig.addr, align 4
-  %0 = load i32, ptr %maxSig.addr, align 4
-  %cmp = icmp eq i32 %0, -1
-  br i1 %cmp, label %if.then, label %if.end
+define internal noundef i32 @_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %0, i32 noundef %1) #1 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !101
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  %7 = load i32, ptr %5, align 4, !tbaa !14
+  %8 = icmp eq i32 %7, -1
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store i32 -2147483648, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %2
+  store i32 -2147483648, ptr %3, align 4
+  br label %23
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %value.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br i1 %call, label %cond.true, label %cond.false
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  %11 = load ptr, ptr %4, align 8, !tbaa !101
+  %12 = call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %11)
+  br i1 %12, label %13, label %14
 
-cond.true:                                        ; preds = %if.end
-  br label %cond.end
+13:                                               ; preds = %10
+  br label %17
 
-cond.false:                                       ; preds = %if.end
-  %2 = load ptr, ptr %value.addr, align 8
-  %call1 = call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %2)
-  br label %cond.end
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %4, align 8, !tbaa !101
+  %16 = call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %15)
+  br label %17
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %call1, %cond.false ]
-  store i32 %cond, ptr %magnitude, align 4
-  %3 = load i32, ptr %magnitude, align 4
-  %4 = load i32, ptr %maxSig.addr, align 4
-  %sub = sub nsw i32 %3, %4
-  %add = add nsw i32 %sub, 1
-  store i32 %add, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %14, %13
+  %18 = phi i32 [ 0, %13 ], [ %16, %14 ]
+  store i32 %18, ptr %6, align 4, !tbaa !14
+  %19 = load i32, ptr %6, align 4, !tbaa !14
+  %20 = load i32, ptr %5, align 4, !tbaa !14
+  %21 = sub nsw i32 %19, %20
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  br label %23
 
-return:                                           ; preds = %cond.end, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
+23:                                               ; preds = %17, %9
+  %24 = load i32, ptr %3, align 4
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_756number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %minSig) #1 {
-entry:
-  %value.addr = alloca ptr, align 8
-  %minSig.addr = alloca i32, align 4
-  %magnitude = alloca i32, align 4
-  store ptr %value, ptr %value.addr, align 8
-  store i32 %minSig, ptr %minSig.addr, align 4
-  %0 = load ptr, ptr %value.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %0)
-  br i1 %call, label %cond.true, label %cond.false
+define internal noundef i32 @_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi(ptr noundef nonnull align 8 dereferenceable(66) %0, i32 noundef %1) #1 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !101
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #13
+  %6 = load ptr, ptr %3, align 8, !tbaa !101
+  %7 = call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %6)
+  br i1 %7, label %8, label %9
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+8:                                                ; preds = %2
+  br label %12
 
-cond.false:                                       ; preds = %entry
-  %1 = load ptr, ptr %value.addr, align 8
-  %call1 = call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br label %cond.end
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !101
+  %11 = call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %10)
+  br label %12
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %call1, %cond.false ]
-  store i32 %cond, ptr %magnitude, align 4
-  %2 = load i32, ptr %magnitude, align 4
-  %3 = load i32, ptr %minSig.addr, align 4
-  %sub = sub nsw i32 %2, %3
-  %add = add nsw i32 %sub, 1
-  ret i32 %add
+12:                                               ; preds = %9, %8
+  %13 = phi i32 [ 0, %8 ], [ %11, %9 ]
+  store i32 %13, ptr %5, align 4, !tbaa !14
+  %14 = load i32, ptr %5, align 4, !tbaa !14
+  %15 = load i32, ptr %4, align 4, !tbaa !14
+  %16 = sub nsw i32 %14, %15
+  %17 = add nsw i32 %16, 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #13
+  ret i32 %17
 }
 
-declare void @_ZN6icu_756number4impl15DecimalQuantity13setMinIntegerEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #5
+declare void @_ZN6icu_776number4impl15DecimalQuantity20increaseMinIntegerToEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #8
 
-declare i32 @uprv_min_75(i32 noundef, i32 noundef) #5
+declare i32 @uprv_min_77(i32 noundef, i32 noundef) #8
 
-declare void @_ZN6icu_756number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i64 noundef, i16 noundef signext, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #5
+declare void @_ZN6icu_776number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i64 noundef, i16 noundef signext, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #8
 
-declare void @_ZN6icu_756number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #5
+declare void @_ZN6icu_776number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #8
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #9
+declare void @abort() #12
 
-declare void @_ZN6icu_756number4impl15DecimalQuantity14setMinFractionEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #5
+declare void @_ZN6icu_776number4impl15DecimalQuantity14setMinFractionEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl12RoundingImpl5applyERNS1_15DecimalQuantityEi10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %this, ptr noundef nonnull align 8 dereferenceable(66) %value, i32 noundef %minInt, i32 noundef %0) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %minInt.addr = alloca i32, align 4
-  %.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store i32 %minInt, ptr %minInt.addr, align 4
-  store i32 %0, ptr %.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load ptr, ptr %value.addr, align 8
-  %fPrecision = getelementptr inbounds %"class.icu_75::number::impl::RoundingImpl", ptr %this1, i32 0, i32 0
-  %fUnion = getelementptr inbounds %"class.icu_75::number::Precision", ptr %fPrecision, i32 0, i32 2
-  %fMinSig = getelementptr inbounds %"struct.icu_75::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %fUnion, i32 0, i32 2
-  %2 = load i16, ptr %fMinSig, align 4
-  %conv = sext i16 %2 to i32
-  %3 = load i32, ptr %minInt.addr, align 4
-  %sub = sub nsw i32 %conv, %3
-  call void @_ZN6icu_756number4impl15DecimalQuantity14setMinFractionEi(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %sub)
+define void @_ZN6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityEi10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %2, i32 noundef %3) #1 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !93
+  store ptr %1, ptr %6, align 8, !tbaa !101
+  store i32 %2, ptr %7, align 4, !tbaa !14
+  store i32 %3, ptr %8, align 4, !tbaa !15
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !101
+  %11 = getelementptr inbounds nuw %"class.icu_77::number::impl::RoundingImpl", ptr %9, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %11, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %"struct.icu_77::number::Precision::PrecisionUnion::FractionSignificantSettings", ptr %12, i32 0, i32 2
+  %14 = load i16, ptr %13, align 4, !tbaa !33
+  %15 = sext i16 %14 to i32
+  %16 = load i32, ptr %7, align 4, !tbaa !14
+  %17 = sub nsw i32 %15, %16
+  call void @_ZN6icu_776number4impl15DecimalQuantity14setMinFractionEi(ptr noundef nonnull align 8 dereferenceable(66) %10, i32 noundef %17)
   ret void
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_756number9PrecisionC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fType = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 0
-  store i32 0, ptr %fType, align 8
-  %fTrailingZeroDisplay = getelementptr inbounds %"class.icu_75::number::Precision", ptr %this1, i32 0, i32 3
-  store i32 0, ptr %fTrailingZeroDisplay, align 8
+define linkonce_odr void @_ZN6icu_776number9PrecisionC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 8, !tbaa !65
+  %5 = getelementptr inbounds nuw %"class.icu_77::number::Precision", ptr %3, i32 0, i32 3
+  store i32 0, ptr %5, align 8, !tbaa !69
   ret void
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { allocsize(0) }
-attributes #12 = { noreturn nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind }
+attributes #14 = { allocsize(0) }
+attributes #15 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i64 2148199593}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6icu_7715MaybeStackArrayIcLi40EEE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"_ZTSN6icu_7715MaybeStackArrayIcLi40EEE", !10, i64 0, !11, i64 8, !6, i64 12, !6, i64 13}
+!10 = !{!"p1 omnipotent char", !5, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!9, !11, i64 8}
+!13 = !{!9, !6, i64 12}
+!14 = !{!11, !11, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!17 = !{!10, !10, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 int", !5, i64 0}
+!22 = !{!5, !5, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN6icu_7713StringSegmentE", !5, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTSN6icu_776number9PrecisionE", !5, i64 0}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTSN6icu_7710CharStringE", !5, i64 0}
+!31 = !{!32, !11, i64 56}
+!32 = !{!"_ZTSN6icu_7710CharStringE", !9, i64 0, !11, i64 56}
+!33 = !{!6, !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSN6icu_7714ConstChar16PtrE", !5, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 char16_t", !5, i64 0}
+!40 = !{!41, !39, i64 0}
+!41 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !39, i64 0}
+!42 = !{i64 2148849190}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTSN6icu_7711StringPieceE", !5, i64 0}
+!45 = !{!46, !10, i64 0}
+!46 = !{!"_ZTSN6icu_7711StringPieceE", !10, i64 0, !11, i64 8}
+!47 = !{!46, !11, i64 8}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"short", !6, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSN6icu_776number4impl18MultiplierProducerE", !5, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"_ZTSN6icu_776number9Precision13PrecisionTypeE", !6, i64 0}
+!54 = !{!55, !49, i64 0}
+!55 = !{!"_ZTSN6icu_776number9Precision14PrecisionUnion27FractionSignificantSettingsE", !49, i64 0, !49, i64 2, !49, i64 4, !49, i64 6, !56, i64 8, !57, i64 12}
+!56 = !{!"_ZTS23UNumberRoundingPriority", !6, i64 0}
+!57 = !{!"bool", !6, i64 0}
+!58 = !{!55, !49, i64 2}
+!59 = !{!55, !49, i64 4}
+!60 = !{!55, !49, i64 6}
+!61 = !{!55, !56, i64 8}
+!62 = !{!55, !57, i64 12}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTSN6icu_776number9Precision14PrecisionUnionE", !5, i64 0}
+!65 = !{!66, !53, i64 0}
+!66 = !{!"_ZTSN6icu_776number9PrecisionE", !53, i64 0, !6, i64 8, !67, i64 24}
+!67 = !{!"_ZTS26UNumberTrailingZeroDisplay", !6, i64 0}
+!68 = !{i64 0, i64 16, !33}
+!69 = !{!66, !67, i64 24}
+!70 = !{i64 0, i64 2, !48, i64 2, i64 2, !48, i64 4, i64 2, !48, i64 6, i64 2, !48, i64 8, i64 4, !71, i64 12, i64 1, !72}
+!71 = !{!56, !56, i64 0}
+!72 = !{!57, !57, i64 0}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTSN6icu_776number17FractionPrecisionE", !5, i64 0}
+!75 = !{!67, !67, i64 0}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"double", !6, i64 0}
+!78 = !{!79, !19, i64 0}
+!79 = !{!"_ZTSN6icu_776number9Precision14PrecisionUnion17IncrementSettingsE", !19, i64 0, !49, i64 8, !49, i64 10}
+!80 = !{!79, !49, i64 8}
+!81 = !{!79, !49, i64 10}
+!82 = !{i64 0, i64 8, !18, i64 8, i64 2, !48, i64 10, i64 2, !48}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTSN6icu_776number18IncrementPrecisionE", !5, i64 0}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"_ZTS14UCurrencyUsage", !6, i64 0}
+!87 = !{i8 0, i8 2}
+!88 = !{}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTSN6icu_7712CurrencyUnitE", !5, i64 0}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTSN6icu_776number17CurrencyPrecisionE", !5, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTSN6icu_776number4impl12RoundingImplE", !5, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"_ZTS25UNumberFormatRoundingMode", !6, i64 0}
+!97 = !{!98, !96, i64 32}
+!98 = !{!"_ZTSN6icu_776number4impl12RoundingImplE", !66, i64 0, !96, i64 32, !57, i64 36}
+!99 = !{!98, !57, i64 36}
+!100 = !{!98, !53, i64 0}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 _ZTSN6icu_776number4impl15DecimalQuantityE", !5, i64 0}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"vtable pointer", !7, i64 0}
+!105 = !{!98, !67, i64 24}

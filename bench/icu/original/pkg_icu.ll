@@ -1,30 +1,30 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon = type { ptr, i32 }
-%"class.icu_75::Package" = type <{ [64 x i8], [64 x i8], ptr, [1024 x i8], i32, i32, i8, i8, i8, i8, i32, i32, [4 x i8], ptr, i32, i32, [100000 x i8], [100000 x i8], i32, [4 x i8], ptr, ptr, i32, i32, i32, i8, [3 x i8] }>
-%"class.icu_75::LocalPointer" = type { %"class.icu_75::LocalPointerBase" }
-%"class.icu_75::LocalPointerBase" = type { ptr }
+%"class.icu_77::Package" = type <{ [64 x i8], [64 x i8], ptr, [1024 x i8], i32, i32, i8, i8, i8, i8, i32, i32, [4 x i8], ptr, i32, i32, [100000 x i8], [100000 x i8], i32, [4 x i8], ptr, ptr, i32, i32, i32, i8, [3 x i8] }>
+%"class.icu_77::LocalPointer" = type { %"class.icu_77::LocalPointerBase" }
+%"class.icu_77::LocalPointerBase" = type { ptr }
 
-$_ZN6icu_757Package13setAutoPrefixEv = comdat any
+$_ZN6icu_777Package13setAutoPrefixEv = comdat any
 
-$_ZN6icu_7512LocalPointerINS_7PackageEEC2EPS1_ = comdat any
+$_ZN6icu_7712LocalPointerINS_7PackageEEC2EPS1_ = comdat any
 
-$_ZN6icu_7512LocalPointerINS_7PackageEE12adoptInsteadEPS1_ = comdat any
+$_ZN6icu_7712LocalPointerINS_7PackageEE12adoptInsteadEPS1_ = comdat any
 
-$_ZNK6icu_7516LocalPointerBaseINS_7PackageEE6isNullEv = comdat any
+$_ZNK6icu_7716LocalPointerBaseINS_7PackageEE6isNullEv = comdat any
 
-$_ZNK6icu_7516LocalPointerBaseINS_7PackageEE8getAliasEv = comdat any
+$_ZNK6icu_7716LocalPointerBaseINS_7PackageEE8getAliasEv = comdat any
 
-$_ZNK6icu_7516LocalPointerBaseINS_7PackageEE7isValidEv = comdat any
+$_ZNK6icu_7716LocalPointerBaseINS_7PackageEE7isValidEv = comdat any
 
-$_ZNK6icu_7516LocalPointerBaseINS_7PackageEEdeEv = comdat any
+$_ZNK6icu_7716LocalPointerBaseINS_7PackageEEdeEv = comdat any
 
-$_ZN6icu_7512LocalPointerINS_7PackageEED2Ev = comdat any
+$_ZN6icu_7712LocalPointerINS_7PackageEED2Ev = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_7PackageEEC2EPS1_ = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_7PackageEEC2EPS1_ = comdat any
 
-$_ZN6icu_7516LocalPointerBaseINS_7PackageEED2Ev = comdat any
+$_ZN6icu_7716LocalPointerBaseINS_7PackageEED2Ev = comdat any
 
 @stderr = external global ptr, align 8
 @.str = private unnamed_addr constant [19 x i8] c"missing list file\0A\00", align 1
@@ -39,824 +39,874 @@ $_ZN6icu_7516LocalPointerBaseINS_7PackageEED2Ev = comdat any
 @.str.8 = private unnamed_addr constant [5 x i8] c".tmp\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @readList(ptr noundef %filesPath, ptr noundef %listname, i8 noundef signext %readContents, ptr noundef %listPkgIn) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca ptr, align 8
-  %filesPath.addr = alloca ptr, align 8
-  %listname.addr = alloca ptr, align 8
-  %readContents.addr = alloca i8, align 1
-  %listPkgIn.addr = alloca ptr, align 8
-  %listPkg = alloca ptr, align 8
-  %file = alloca ptr, align 8
-  %listNameEnd = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %line = alloca [1024 x i8], align 16
-  %end = alloca ptr, align 8
-  %start = alloca ptr, align 8
-  store ptr %filesPath, ptr %filesPath.addr, align 8
-  store ptr %listname, ptr %listname.addr, align 8
-  store i8 %readContents, ptr %readContents.addr, align 1
-  store ptr %listPkgIn, ptr %listPkgIn.addr, align 8
-  %0 = load ptr, ptr %listPkgIn.addr, align 8
-  store ptr %0, ptr %listPkg, align 8
-  %1 = load ptr, ptr %listname.addr, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define ptr @readList(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3) #0 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca [1024 x i8], align 16
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store i8 %2, ptr %8, align 1, !tbaa !8
+  store ptr %3, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %19 = load ptr, ptr %9, align 8, !tbaa !9
+  store ptr %19, ptr %10, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  %20 = load ptr, ptr %7, align 8, !tbaa !3
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %28, label %22
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %listname.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 0
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %3 to i32
-  %cmp1 = icmp eq i32 %conv, 0
-  br i1 %cmp1, label %if.then, label %if.end
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %7, align 8, !tbaa !3
+  %24 = getelementptr inbounds i8, ptr %23, i64 0
+  %25 = load i8, ptr %24, align 1, !tbaa !8
+  %26 = sext i8 %25 to i32
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %31
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %4 = load ptr, ptr @stderr, align 8
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef @.str)
-  store ptr null, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %22, %4
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef @.str) #9
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %208
 
-if.end:                                           ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %listPkg, align 8
-  %cmp2 = icmp eq ptr %5, null
-  br i1 %cmp2, label %if.then3, label %if.end9
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %10, align 8, !tbaa !9
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %47
 
-if.then3:                                         ; preds = %if.end
-  %call4 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 201240) #8
-  invoke void @_ZN6icu_757PackageC1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %call4)
-          to label %invoke.cont unwind label %lpad
+34:                                               ; preds = %31
+  %35 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 201240) #10
+  invoke void @_ZN6icu_777PackageC1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %35)
+          to label %36 unwind label %42
 
-invoke.cont:                                      ; preds = %if.then3
-  store ptr %call4, ptr %listPkg, align 8
-  %6 = load ptr, ptr %listPkg, align 8
-  %cmp5 = icmp eq ptr %6, null
-  br i1 %cmp5, label %if.then6, label %if.end8
+36:                                               ; preds = %34
+  store ptr %35, ptr %10, align 8, !tbaa !9
+  %37 = load ptr, ptr %10, align 8, !tbaa !9
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %46
 
-if.then6:                                         ; preds = %invoke.cont
-  %7 = load ptr, ptr @stderr, align 8
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.1)
-  call void @exit(i32 noundef 7) #9
+39:                                               ; preds = %36
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef @.str.1) #9
+  call void @exit(i32 noundef 7) #11
   unreachable
 
-lpad:                                             ; preds = %if.then3
-  %8 = landingpad { ptr, i32 }
+42:                                               ; preds = %34
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call4) #10
-  br label %eh.resume
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %14, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %15, align 4
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef 201240) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  br label %210
 
-if.end8:                                          ; preds = %invoke.cont
-  br label %if.end9
+46:                                               ; preds = %36
+  br label %47
 
-if.end9:                                          ; preds = %if.end8, %if.end
-  %11 = load ptr, ptr %listname.addr, align 8
-  %call10 = call noundef ptr @strchr(ptr noundef %11, i32 noundef 0) #11
-  store ptr %call10, ptr %listNameEnd, align 8
-  %12 = load ptr, ptr %listname.addr, align 8
-  %call11 = call noundef signext i8 @_ZL14isListTextFilePKc(ptr noundef %12)
-  %tobool = icmp ne i8 %call11, 0
-  br i1 %tobool, label %if.then12, label %if.else76
+47:                                               ; preds = %46, %31
+  %48 = load ptr, ptr %7, align 8, !tbaa !3
+  %49 = call noundef ptr @strchr(ptr noundef %48, i32 noundef 0) #13
+  store ptr %49, ptr %12, align 8, !tbaa !3
+  %50 = load ptr, ptr %7, align 8, !tbaa !3
+  %51 = call noundef signext i8 @_ZL14isListTextFilePKc(ptr noundef %50)
+  %52 = icmp ne i8 %51, 0
+  br i1 %52, label %53, label %178
 
-if.then12:                                        ; preds = %if.end9
-  %13 = load ptr, ptr %listname.addr, align 8
-  %call13 = call noalias ptr @fopen(ptr noundef %13, ptr noundef @.str.2)
-  store ptr %call13, ptr %file, align 8
-  %14 = load ptr, ptr %file, align 8
-  %cmp14 = icmp eq ptr %14, null
-  br i1 %cmp14, label %if.then15, label %if.end17
+53:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #9
+  %54 = load ptr, ptr %7, align 8, !tbaa !3
+  %55 = call noalias ptr @fopen(ptr noundef %54, ptr noundef @.str.2)
+  store ptr %55, ptr %11, align 8, !tbaa !11
+  %56 = load ptr, ptr %11, align 8, !tbaa !11
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %66
 
-if.then15:                                        ; preds = %if.then12
-  %15 = load ptr, ptr @stderr, align 8
-  %16 = load ptr, ptr %listname.addr, align 8
-  %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef @.str.3, ptr noundef %16)
-  %17 = load ptr, ptr %listPkg, align 8
-  %isnull = icmp eq ptr %17, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+58:                                               ; preds = %53
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %60 = load ptr, ptr %7, align 8, !tbaa !3
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef @.str.3, ptr noundef %60) #9
+  %62 = load ptr, ptr %10, align 8, !tbaa !9
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %65, label %64
 
-delete.notnull:                                   ; preds = %if.then15
-  call void @_ZN6icu_757PackageD1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %17) #12
-  call void @_ZdlPv(ptr noundef %17) #10
-  br label %delete.end
+64:                                               ; preds = %58
+  call void @_ZN6icu_777PackageD1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %62) #9
+  call void @_ZdlPvm(ptr noundef %62, i64 noundef 201240) #12
+  br label %65
 
-delete.end:                                       ; preds = %delete.notnull, %if.then15
-  call void @exit(i32 noundef 4) #9
+65:                                               ; preds = %64, %58
+  call void @exit(i32 noundef 4) #11
   unreachable
 
-if.end17:                                         ; preds = %if.then12
-  br label %while.cond
+66:                                               ; preds = %53
+  br label %67
 
-while.cond:                                       ; preds = %for.end73, %if.then44, %if.end17
-  %arraydecay = getelementptr inbounds [1024 x i8], ptr %line, i64 0, i64 0
-  %18 = load ptr, ptr %file, align 8
-  %call18 = call ptr @fgets(ptr noundef %arraydecay, i32 noundef 1024, ptr noundef %18)
-  %tobool19 = icmp ne ptr %call18, null
-  br i1 %tobool19, label %while.body, label %while.end74
+67:                                               ; preds = %174, %119, %66
+  %68 = getelementptr inbounds [1024 x i8], ptr %16, i64 0, i64 0
+  %69 = load ptr, ptr %11, align 8, !tbaa !11
+  %70 = call ptr @fgets(ptr noundef %68, i32 noundef 1024, ptr noundef %69)
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %72, label %175
 
-while.body:                                       ; preds = %while.cond
-  %arraydecay20 = getelementptr inbounds [1024 x i8], ptr %line, i64 0, i64 0
-  %call21 = call noundef ptr @strchr(ptr noundef %arraydecay20, i32 noundef 35) #11
-  store ptr %call21, ptr %end, align 8
-  %19 = load ptr, ptr %end, align 8
-  %cmp22 = icmp ne ptr %19, null
-  br i1 %cmp22, label %if.then23, label %if.else
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds [1024 x i8], ptr %16, i64 0, i64 0
+  %74 = call noundef ptr @strchr(ptr noundef %73, i32 noundef 35) #13
+  store ptr %74, ptr %17, align 8, !tbaa !3
+  %75 = load ptr, ptr %17, align 8, !tbaa !3
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %79
 
-if.then23:                                        ; preds = %while.body
-  %20 = load ptr, ptr %end, align 8
-  store i8 0, ptr %20, align 1
-  br label %if.end35
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %17, align 8, !tbaa !3
+  store i8 0, ptr %78, align 1, !tbaa !8
+  br label %106
 
-if.else:                                          ; preds = %while.body
-  %arraydecay24 = getelementptr inbounds [1024 x i8], ptr %line, i64 0, i64 0
-  %call25 = call noundef ptr @strchr(ptr noundef %arraydecay24, i32 noundef 0) #11
-  store ptr %call25, ptr %end, align 8
-  br label %while.cond26
+79:                                               ; preds = %72
+  %80 = getelementptr inbounds [1024 x i8], ptr %16, i64 0, i64 0
+  %81 = call noundef ptr @strchr(ptr noundef %80, i32 noundef 0) #13
+  store ptr %81, ptr %17, align 8, !tbaa !3
+  br label %82
 
-while.cond26:                                     ; preds = %while.body34, %if.else
-  %arraydecay27 = getelementptr inbounds [1024 x i8], ptr %line, i64 0, i64 0
-  %21 = load ptr, ptr %end, align 8
-  %cmp28 = icmp ult ptr %arraydecay27, %21
-  br i1 %cmp28, label %land.rhs, label %land.end
+82:                                               ; preds = %102, %79
+  %83 = getelementptr inbounds [1024 x i8], ptr %16, i64 0, i64 0
+  %84 = load ptr, ptr %17, align 8, !tbaa !3
+  %85 = icmp ult ptr %83, %84
+  br i1 %85, label %86, label %100
 
-land.rhs:                                         ; preds = %while.cond26
-  %22 = load ptr, ptr %end, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %22, i64 -1
-  %23 = load i8, ptr %add.ptr, align 1
-  %conv29 = sext i8 %23 to i32
-  %cmp30 = icmp eq i32 %conv29, 13
-  br i1 %cmp30, label %lor.end, label %lor.rhs
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %17, align 8, !tbaa !3
+  %88 = getelementptr inbounds i8, ptr %87, i64 -1
+  %89 = load i8, ptr %88, align 1, !tbaa !8
+  %90 = sext i8 %89 to i32
+  %91 = icmp eq i32 %90, 13
+  br i1 %91, label %98, label %92
 
-lor.rhs:                                          ; preds = %land.rhs
-  %24 = load ptr, ptr %end, align 8
-  %add.ptr31 = getelementptr inbounds i8, ptr %24, i64 -1
-  %25 = load i8, ptr %add.ptr31, align 1
-  %conv32 = sext i8 %25 to i32
-  %cmp33 = icmp eq i32 %conv32, 10
-  br label %lor.end
+92:                                               ; preds = %86
+  %93 = load ptr, ptr %17, align 8, !tbaa !3
+  %94 = getelementptr inbounds i8, ptr %93, i64 -1
+  %95 = load i8, ptr %94, align 1, !tbaa !8
+  %96 = sext i8 %95 to i32
+  %97 = icmp eq i32 %96, 10
+  br label %98
 
-lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %26 = phi i1 [ true, %land.rhs ], [ %cmp33, %lor.rhs ]
-  br label %land.end
+98:                                               ; preds = %92, %86
+  %99 = phi i1 [ true, %86 ], [ %97, %92 ]
+  br label %100
 
-land.end:                                         ; preds = %lor.end, %while.cond26
-  %27 = phi i1 [ false, %while.cond26 ], [ %26, %lor.end ]
-  br i1 %27, label %while.body34, label %while.end
+100:                                              ; preds = %98, %82
+  %101 = phi i1 [ false, %82 ], [ %99, %98 ]
+  br i1 %101, label %102, label %105
 
-while.body34:                                     ; preds = %land.end
-  %28 = load ptr, ptr %end, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %28, i32 -1
-  store ptr %incdec.ptr, ptr %end, align 8
-  store i8 0, ptr %incdec.ptr, align 1
-  br label %while.cond26, !llvm.loop !4
+102:                                              ; preds = %100
+  %103 = load ptr, ptr %17, align 8, !tbaa !3
+  %104 = getelementptr inbounds i8, ptr %103, i32 -1
+  store ptr %104, ptr %17, align 8, !tbaa !3
+  store i8 0, ptr %104, align 1, !tbaa !8
+  br label %82, !llvm.loop !13
 
-while.end:                                        ; preds = %land.end
-  br label %if.end35
+105:                                              ; preds = %100
+  br label %106
 
-if.end35:                                         ; preds = %while.end, %if.then23
-  %arraydecay36 = getelementptr inbounds [1024 x i8], ptr %line, i64 0, i64 0
-  %call37 = call ptr @u_skipWhitespace(ptr noundef %arraydecay36)
-  store ptr %call37, ptr %start, align 8
-  %29 = load ptr, ptr %start, align 8
-  %30 = load i8, ptr %29, align 1
-  %conv38 = sext i8 %30 to i32
-  %cmp39 = icmp eq i32 %conv38, 0
-  br i1 %cmp39, label %if.then44, label %lor.lhs.false40
+106:                                              ; preds = %105, %77
+  %107 = getelementptr inbounds [1024 x i8], ptr %16, i64 0, i64 0
+  %108 = call ptr @u_skipWhitespace(ptr noundef %107)
+  store ptr %108, ptr %18, align 8, !tbaa !3
+  %109 = load ptr, ptr %18, align 8, !tbaa !3
+  %110 = load i8, ptr %109, align 1, !tbaa !8
+  %111 = sext i8 %110 to i32
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %119, label %113
 
-lor.lhs.false40:                                  ; preds = %if.end35
-  %31 = load ptr, ptr %start, align 8
-  %32 = load i8, ptr %31, align 1
-  %conv41 = sext i8 %32 to i32
-  %call42 = call noundef ptr @strchr(ptr noundef @.str.4, i32 noundef %conv41) #11
-  %cmp43 = icmp ne ptr null, %call42
-  br i1 %cmp43, label %if.then44, label %if.end45
+113:                                              ; preds = %106
+  %114 = load ptr, ptr %18, align 8, !tbaa !3
+  %115 = load i8, ptr %114, align 1, !tbaa !8
+  %116 = sext i8 %115 to i32
+  %117 = call noundef ptr @strchr(ptr noundef @.str.4, i32 noundef %116) #13
+  %118 = icmp ne ptr null, %117
+  br i1 %118, label %119, label %120
 
-if.then44:                                        ; preds = %lor.lhs.false40, %if.end35
-  br label %while.cond, !llvm.loop !6
+119:                                              ; preds = %113, %106
+  br label %67, !llvm.loop !15
 
-if.end45:                                         ; preds = %lor.lhs.false40
-  br label %for.cond
+120:                                              ; preds = %113
+  br label %121
 
-for.cond:                                         ; preds = %if.end72, %if.end45
-  %33 = load ptr, ptr %start, align 8
-  store ptr %33, ptr %end, align 8
-  br label %for.cond46
+121:                                              ; preds = %173, %120
+  %122 = load ptr, ptr %18, align 8, !tbaa !3
+  store ptr %122, ptr %17, align 8, !tbaa !3
+  br label %123
 
-for.cond46:                                       ; preds = %for.inc, %for.cond
-  %34 = load ptr, ptr %end, align 8
-  %35 = load i8, ptr %34, align 1
-  %conv47 = sext i8 %35 to i32
-  %cmp48 = icmp ne i32 %conv47, 0
-  br i1 %cmp48, label %land.lhs.true, label %land.end54
+123:                                              ; preds = %141, %121
+  %124 = load ptr, ptr %17, align 8, !tbaa !3
+  %125 = load i8, ptr %124, align 1, !tbaa !8
+  %126 = sext i8 %125 to i32
+  %127 = icmp ne i32 %126, 0
+  br i1 %127, label %128, label %138
 
-land.lhs.true:                                    ; preds = %for.cond46
-  %36 = load ptr, ptr %end, align 8
-  %37 = load i8, ptr %36, align 1
-  %conv49 = sext i8 %37 to i32
-  %cmp50 = icmp ne i32 %conv49, 32
-  br i1 %cmp50, label %land.rhs51, label %land.end54
+128:                                              ; preds = %123
+  %129 = load ptr, ptr %17, align 8, !tbaa !3
+  %130 = load i8, ptr %129, align 1, !tbaa !8
+  %131 = sext i8 %130 to i32
+  %132 = icmp ne i32 %131, 32
+  br i1 %132, label %133, label %138
 
-land.rhs51:                                       ; preds = %land.lhs.true
-  %38 = load ptr, ptr %end, align 8
-  %39 = load i8, ptr %38, align 1
-  %conv52 = sext i8 %39 to i32
-  %cmp53 = icmp ne i32 %conv52, 9
-  br label %land.end54
+133:                                              ; preds = %128
+  %134 = load ptr, ptr %17, align 8, !tbaa !3
+  %135 = load i8, ptr %134, align 1, !tbaa !8
+  %136 = sext i8 %135 to i32
+  %137 = icmp ne i32 %136, 9
+  br label %138
 
-land.end54:                                       ; preds = %land.rhs51, %land.lhs.true, %for.cond46
-  %40 = phi i1 [ false, %land.lhs.true ], [ false, %for.cond46 ], [ %cmp53, %land.rhs51 ]
-  br i1 %40, label %for.body, label %for.end
+138:                                              ; preds = %133, %128, %123
+  %139 = phi i1 [ false, %128 ], [ false, %123 ], [ %137, %133 ]
+  br i1 %139, label %140, label %144
 
-for.body:                                         ; preds = %land.end54
-  br label %for.inc
+140:                                              ; preds = %138
+  br label %141
 
-for.inc:                                          ; preds = %for.body
-  %41 = load ptr, ptr %end, align 8
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %41, i32 1
-  store ptr %incdec.ptr55, ptr %end, align 8
-  br label %for.cond46, !llvm.loop !7
+141:                                              ; preds = %140
+  %142 = load ptr, ptr %17, align 8, !tbaa !3
+  %143 = getelementptr inbounds nuw i8, ptr %142, i32 1
+  store ptr %143, ptr %17, align 8, !tbaa !3
+  br label %123, !llvm.loop !16
 
-for.end:                                          ; preds = %land.end54
-  %42 = load ptr, ptr %end, align 8
-  %43 = load i8, ptr %42, align 1
-  %conv56 = sext i8 %43 to i32
-  %cmp57 = icmp eq i32 %conv56, 0
-  br i1 %cmp57, label %if.then58, label %if.else59
+144:                                              ; preds = %138
+  %145 = load ptr, ptr %17, align 8, !tbaa !3
+  %146 = load i8, ptr %145, align 1, !tbaa !8
+  %147 = sext i8 %146 to i32
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %149, label %150
 
-if.then58:                                        ; preds = %for.end
-  store ptr null, ptr %end, align 8
-  br label %if.end60
+149:                                              ; preds = %144
+  store ptr null, ptr %17, align 8, !tbaa !3
+  br label %152
 
-if.else59:                                        ; preds = %for.end
-  %44 = load ptr, ptr %end, align 8
-  store i8 0, ptr %44, align 1
-  br label %if.end60
+150:                                              ; preds = %144
+  %151 = load ptr, ptr %17, align 8, !tbaa !3
+  store i8 0, ptr %151, align 1, !tbaa !8
+  br label %152
 
-if.end60:                                         ; preds = %if.else59, %if.then58
-  %45 = load i8, ptr %readContents.addr, align 1
-  %tobool61 = icmp ne i8 %45, 0
-  br i1 %tobool61, label %if.then62, label %if.else63
+152:                                              ; preds = %150, %149
+  %153 = load i8, ptr %8, align 1, !tbaa !8
+  %154 = icmp ne i8 %153, 0
+  br i1 %154, label %155, label %159
 
-if.then62:                                        ; preds = %if.end60
-  %46 = load ptr, ptr %listPkg, align 8
-  %47 = load ptr, ptr %filesPath.addr, align 8
-  %48 = load ptr, ptr %start, align 8
-  call void @_ZN6icu_757Package7addFileEPKcS2_(ptr noundef nonnull align 8 dereferenceable(201237) %46, ptr noundef %47, ptr noundef %48)
-  br label %if.end64
+155:                                              ; preds = %152
+  %156 = load ptr, ptr %10, align 8, !tbaa !9
+  %157 = load ptr, ptr %6, align 8, !tbaa !3
+  %158 = load ptr, ptr %18, align 8, !tbaa !3
+  call void @_ZN6icu_777Package7addFileEPKcS2_(ptr noundef nonnull align 8 dereferenceable(201237) %156, ptr noundef %157, ptr noundef %158)
+  br label %162
 
-if.else63:                                        ; preds = %if.end60
-  %49 = load ptr, ptr %listPkg, align 8
-  %50 = load ptr, ptr %start, align 8
-  call void @_ZN6icu_757Package7addItemEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %49, ptr noundef %50)
-  br label %if.end64
+159:                                              ; preds = %152
+  %160 = load ptr, ptr %10, align 8, !tbaa !9
+  %161 = load ptr, ptr %18, align 8, !tbaa !3
+  call void @_ZN6icu_777Package7addItemEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %160, ptr noundef %161)
+  br label %162
 
-if.end64:                                         ; preds = %if.else63, %if.then62
-  %51 = load ptr, ptr %end, align 8
-  %cmp65 = icmp eq ptr %51, null
-  br i1 %cmp65, label %if.then71, label %lor.lhs.false66
+162:                                              ; preds = %159, %155
+  %163 = load ptr, ptr %17, align 8, !tbaa !3
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %172, label %165
 
-lor.lhs.false66:                                  ; preds = %if.end64
-  %52 = load ptr, ptr %end, align 8
-  %add.ptr67 = getelementptr inbounds i8, ptr %52, i64 1
-  %call68 = call ptr @u_skipWhitespace(ptr noundef %add.ptr67)
-  store ptr %call68, ptr %start, align 8
-  %53 = load i8, ptr %call68, align 1
-  %conv69 = sext i8 %53 to i32
-  %cmp70 = icmp eq i32 %conv69, 0
-  br i1 %cmp70, label %if.then71, label %if.end72
+165:                                              ; preds = %162
+  %166 = load ptr, ptr %17, align 8, !tbaa !3
+  %167 = getelementptr inbounds i8, ptr %166, i64 1
+  %168 = call ptr @u_skipWhitespace(ptr noundef %167)
+  store ptr %168, ptr %18, align 8, !tbaa !3
+  %169 = load i8, ptr %168, align 1, !tbaa !8
+  %170 = sext i8 %169 to i32
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %172, label %173
 
-if.then71:                                        ; preds = %lor.lhs.false66, %if.end64
-  br label %for.end73
+172:                                              ; preds = %165, %162
+  br label %174
 
-if.end72:                                         ; preds = %lor.lhs.false66
-  br label %for.cond, !llvm.loop !8
+173:                                              ; preds = %165
+  br label %121, !llvm.loop !17
 
-for.end73:                                        ; preds = %if.then71
-  br label %while.cond, !llvm.loop !6
+174:                                              ; preds = %172
+  br label %67, !llvm.loop !15
 
-while.end74:                                      ; preds = %while.cond
-  %54 = load ptr, ptr %file, align 8
-  %call75 = call i32 @fclose(ptr noundef %54)
-  br label %if.end89
+175:                                              ; preds = %67
+  %176 = load ptr, ptr %11, align 8, !tbaa !11
+  %177 = call i32 @fclose(ptr noundef %176)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %16) #9
+  br label %206
 
-if.else76:                                        ; preds = %if.end9
-  %55 = load ptr, ptr %listNameEnd, align 8
-  %56 = load ptr, ptr %listname.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %55 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %56 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp77 = icmp sgt i64 %sub.ptr.sub, 4
-  br i1 %cmp77, label %land.lhs.true78, label %if.else83
+178:                                              ; preds = %47
+  %179 = load ptr, ptr %12, align 8, !tbaa !3
+  %180 = load ptr, ptr %7, align 8, !tbaa !3
+  %181 = ptrtoint ptr %179 to i64
+  %182 = ptrtoint ptr %180 to i64
+  %183 = sub i64 %181, %182
+  %184 = icmp sgt i64 %183, 4
+  br i1 %184, label %185, label %194
 
-land.lhs.true78:                                  ; preds = %if.else76
-  %57 = load ptr, ptr %listNameEnd, align 8
-  %add.ptr79 = getelementptr inbounds i8, ptr %57, i64 -4
-  %call80 = call i32 @memcmp(ptr noundef %add.ptr79, ptr noundef @.str.5, i64 noundef 4) #11
-  %cmp81 = icmp eq i32 0, %call80
-  br i1 %cmp81, label %if.then82, label %if.else83
+185:                                              ; preds = %178
+  %186 = load ptr, ptr %12, align 8, !tbaa !3
+  %187 = getelementptr inbounds i8, ptr %186, i64 -4
+  %188 = call i32 @memcmp(ptr noundef %187, ptr noundef @.str.5, i64 noundef 4) #13
+  %189 = icmp eq i32 0, %188
+  br i1 %189, label %190, label %194
 
-if.then82:                                        ; preds = %land.lhs.true78
-  %58 = load ptr, ptr %listPkg, align 8
-  call void @_ZN6icu_757Package13setAutoPrefixEv(ptr noundef nonnull align 8 dereferenceable(201237) %58)
-  %59 = load ptr, ptr %listPkg, align 8
-  %60 = load ptr, ptr %listname.addr, align 8
-  call void @_ZN6icu_757Package11readPackageEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %59, ptr noundef %60)
-  br label %if.end88
+190:                                              ; preds = %185
+  %191 = load ptr, ptr %10, align 8, !tbaa !9
+  call void @_ZN6icu_777Package13setAutoPrefixEv(ptr noundef nonnull align 8 dereferenceable(201237) %191)
+  %192 = load ptr, ptr %10, align 8, !tbaa !9
+  %193 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @_ZN6icu_777Package11readPackageEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %192, ptr noundef %193)
+  br label %205
 
-if.else83:                                        ; preds = %land.lhs.true78, %if.else76
-  %61 = load i8, ptr %readContents.addr, align 1
-  %tobool84 = icmp ne i8 %61, 0
-  br i1 %tobool84, label %if.then85, label %if.else86
+194:                                              ; preds = %185, %178
+  %195 = load i8, ptr %8, align 1, !tbaa !8
+  %196 = icmp ne i8 %195, 0
+  br i1 %196, label %197, label %201
 
-if.then85:                                        ; preds = %if.else83
-  %62 = load ptr, ptr %listPkg, align 8
-  %63 = load ptr, ptr %filesPath.addr, align 8
-  %64 = load ptr, ptr %listname.addr, align 8
-  call void @_ZN6icu_757Package7addFileEPKcS2_(ptr noundef nonnull align 8 dereferenceable(201237) %62, ptr noundef %63, ptr noundef %64)
-  br label %if.end87
+197:                                              ; preds = %194
+  %198 = load ptr, ptr %10, align 8, !tbaa !9
+  %199 = load ptr, ptr %6, align 8, !tbaa !3
+  %200 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @_ZN6icu_777Package7addFileEPKcS2_(ptr noundef nonnull align 8 dereferenceable(201237) %198, ptr noundef %199, ptr noundef %200)
+  br label %204
 
-if.else86:                                        ; preds = %if.else83
-  %65 = load ptr, ptr %listPkg, align 8
-  %66 = load ptr, ptr %listname.addr, align 8
-  call void @_ZN6icu_757Package7addItemEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %65, ptr noundef %66)
-  br label %if.end87
+201:                                              ; preds = %194
+  %202 = load ptr, ptr %10, align 8, !tbaa !9
+  %203 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @_ZN6icu_777Package7addItemEPKc(ptr noundef nonnull align 8 dereferenceable(201237) %202, ptr noundef %203)
+  br label %204
 
-if.end87:                                         ; preds = %if.else86, %if.then85
-  br label %if.end88
+204:                                              ; preds = %201, %197
+  br label %205
 
-if.end88:                                         ; preds = %if.end87, %if.then82
-  br label %if.end89
+205:                                              ; preds = %204, %190
+  br label %206
 
-if.end89:                                         ; preds = %if.end88, %while.end74
-  %67 = load ptr, ptr %listPkg, align 8
-  store ptr %67, ptr %retval, align 8
-  br label %return
+206:                                              ; preds = %205, %175
+  %207 = load ptr, ptr %10, align 8, !tbaa !9
+  store ptr %207, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %208
 
-return:                                           ; preds = %if.end89, %if.then
-  %68 = load ptr, ptr %retval, align 8
-  ret ptr %68
+208:                                              ; preds = %206, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  %209 = load ptr, ptr %5, align 8
+  ret ptr %209
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val90 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val90
+210:                                              ; preds = %42
+  %211 = load ptr, ptr %14, align 8
+  %212 = load i32, ptr %15, align 4
+  %213 = insertvalue { ptr, i32 } poison, ptr %211, 0
+  %214 = insertvalue { ptr, i32 } %213, i32 %212, 1
+  resume { ptr, i32 } %214
 }
 
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #2
+declare noundef nonnull ptr @_Znwm(i64 noundef) #3
 
-declare void @_ZN6icu_757PackageC1Ev(ptr noundef nonnull align 8 dereferenceable(201237)) unnamed_addr #1
+declare void @_ZN6icu_777PackageC1Ev(ptr noundef nonnull align 8 dereferenceable(201237)) unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #5
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #4
+declare void @exit(i32 noundef) #6
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) #5
+declare noundef ptr @strchr(ptr noundef, i32 noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL14isListTextFilePKc(ptr noundef %listname) #6 {
-entry:
-  %retval = alloca i8, align 1
-  %listname.addr = alloca ptr, align 8
-  %listNameEnd = alloca ptr, align 8
-  %suffix = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %length = alloca i32, align 4
-  store ptr %listname, ptr %listname.addr, align 8
-  %0 = load ptr, ptr %listname.addr, align 8
-  %call = call noundef ptr @strchr(ptr noundef %0, i32 noundef 0) #11
-  store ptr %call, ptr %listNameEnd, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal noundef signext i8 @_ZL14isListTextFilePKc(ptr noundef %0) #8 {
+  %2 = alloca i8, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = call noundef ptr @strchr(ptr noundef %9, i32 noundef 0) #13
+  store ptr %10, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  store i32 0, ptr %6, align 4, !tbaa !18
+  br label %11
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %1, 3
-  br i1 %cmp, label %for.body, label %for.end
+11:                                               ; preds = %46, %1
+  %12 = load i32, ptr %6, align 4, !tbaa !18
+  %13 = icmp slt i32 %12, 3
+  br i1 %13, label %14, label %49
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [3 x %struct.anon], ptr @_ZL16listFileSuffixes, i64 0, i64 %idxprom
-  %suffix1 = getelementptr inbounds %struct.anon, ptr %arrayidx, i32 0, i32 0
-  %3 = load ptr, ptr %suffix1, align 16
-  store ptr %3, ptr %suffix, align 8
-  %4 = load i32, ptr %i, align 4
-  %idxprom2 = sext i32 %4 to i64
-  %arrayidx3 = getelementptr inbounds [3 x %struct.anon], ptr @_ZL16listFileSuffixes, i64 0, i64 %idxprom2
-  %length4 = getelementptr inbounds %struct.anon, ptr %arrayidx3, i32 0, i32 1
-  %5 = load i32, ptr %length4, align 8
-  store i32 %5, ptr %length, align 4
-  %6 = load ptr, ptr %listNameEnd, align 8
-  %7 = load ptr, ptr %listname.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %8 = load i32, ptr %length, align 4
-  %conv = sext i32 %8 to i64
-  %cmp5 = icmp sgt i64 %sub.ptr.sub, %conv
-  br i1 %cmp5, label %land.lhs.true, label %if.end
+14:                                               ; preds = %11
+  %15 = load i32, ptr %6, align 4, !tbaa !18
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds [3 x %struct.anon], ptr @_ZL16listFileSuffixes, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 16, !tbaa !20
+  store ptr %19, ptr %5, align 8, !tbaa !3
+  %20 = load i32, ptr %6, align 4, !tbaa !18
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [3 x %struct.anon], ptr @_ZL16listFileSuffixes, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw %struct.anon, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8, !tbaa !22
+  store i32 %24, ptr %7, align 4, !tbaa !18
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = ptrtoint ptr %25 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = load i32, ptr %7, align 4, !tbaa !18
+  %31 = sext i32 %30 to i64
+  %32 = icmp sgt i64 %29, %31
+  br i1 %32, label %33, label %45
 
-land.lhs.true:                                    ; preds = %for.body
-  %9 = load ptr, ptr %listNameEnd, align 8
-  %10 = load i32, ptr %length, align 4
-  %idx.ext = sext i32 %10 to i64
-  %idx.neg = sub i64 0, %idx.ext
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %idx.neg
-  %11 = load ptr, ptr %suffix, align 8
-  %12 = load i32, ptr %length, align 4
-  %conv6 = sext i32 %12 to i64
-  %call7 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %11, i64 noundef %conv6) #11
-  %cmp8 = icmp eq i32 0, %call7
-  br i1 %cmp8, label %if.then, label %if.end
+33:                                               ; preds = %14
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = load i32, ptr %7, align 4, !tbaa !18
+  %36 = sext i32 %35 to i64
+  %37 = sub i64 0, %36
+  %38 = getelementptr inbounds i8, ptr %34, i64 %37
+  %39 = load ptr, ptr %5, align 8, !tbaa !3
+  %40 = load i32, ptr %7, align 4, !tbaa !18
+  %41 = sext i32 %40 to i64
+  %42 = call i32 @memcmp(ptr noundef %38, ptr noundef %39, i64 noundef %41) #13
+  %43 = icmp eq i32 0, %42
+  br i1 %43, label %44, label %45
 
-if.then:                                          ; preds = %land.lhs.true
-  store i8 1, ptr %retval, align 1
-  br label %return
+44:                                               ; preds = %33
+  store i8 1, ptr %2, align 1
+  store i32 1, ptr %8, align 4
+  br label %50
 
-if.end:                                           ; preds = %land.lhs.true, %for.body
-  br label %for.inc
+45:                                               ; preds = %33, %14
+  br label %46
 
-for.inc:                                          ; preds = %if.end
-  %13 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %13, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+46:                                               ; preds = %45
+  %47 = load i32, ptr %6, align 4, !tbaa !18
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %6, align 4, !tbaa !18
+  br label %11, !llvm.loop !23
 
-for.end:                                          ; preds = %for.cond
-  store i8 0, ptr %retval, align 1
-  br label %return
+49:                                               ; preds = %11
+  store i8 0, ptr %2, align 1
+  store i32 1, ptr %8, align 4
+  br label %50
 
-return:                                           ; preds = %for.end, %if.then
-  %14 = load i8, ptr %retval, align 1
-  ret i8 %14
+50:                                               ; preds = %49, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  %51 = load i8, ptr %2, align 1
+  ret i8 %51
 }
 
-declare noalias ptr @fopen(ptr noundef, ptr noundef) #1
+declare noalias ptr @fopen(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757PackageD1Ev(ptr noundef nonnull align 8 dereferenceable(201237)) unnamed_addr #7
+declare void @_ZN6icu_777PackageD1Ev(ptr noundef nonnull align 8 dereferenceable(201237)) unnamed_addr #2
 
-declare ptr @fgets(ptr noundef, i32 noundef, ptr noundef) #1
+declare ptr @fgets(ptr noundef, i32 noundef, ptr noundef) #4
 
-declare ptr @u_skipWhitespace(ptr noundef) #1
+declare ptr @u_skipWhitespace(ptr noundef) #4
 
-declare void @_ZN6icu_757Package7addFileEPKcS2_(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef, ptr noundef) #1
+declare void @_ZN6icu_777Package7addFileEPKcS2_(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef, ptr noundef) #4
 
-declare void @_ZN6icu_757Package7addItemEPKc(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef) #1
+declare void @_ZN6icu_777Package7addItemEPKc(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef) #4
 
-declare i32 @fclose(ptr noundef) #1
+declare i32 @fclose(ptr noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_757Package13setAutoPrefixEv(ptr noundef nonnull align 8 dereferenceable(201237) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %doAutoPrefix = getelementptr inbounds %"class.icu_75::Package", ptr %this1, i32 0, i32 8
-  store i8 1, ptr %doAutoPrefix, align 2
+define linkonce_odr void @_ZN6icu_777Package13setAutoPrefixEv(ptr noundef nonnull align 8 dereferenceable(201237) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::Package", ptr %3, i32 0, i32 8
+  store i8 1, ptr %4, align 2, !tbaa !24
   ret void
 }
 
-declare void @_ZN6icu_757Package11readPackageEPKc(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef) #1
+declare void @_ZN6icu_777Package11readPackageEPKc(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef) #4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @writePackageDatFile(ptr noundef %outFilename, ptr noundef %outComment, ptr noundef %sourcePath, ptr noundef %addList, ptr noundef %pkg, i8 noundef signext %outType) #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i32, align 4
-  %outFilename.addr = alloca ptr, align 8
-  %outComment.addr = alloca ptr, align 8
-  %sourcePath.addr = alloca ptr, align 8
-  %addList.addr = alloca ptr, align 8
-  %pkg.addr = alloca ptr, align 8
-  %outType.addr = alloca i8, align 1
-  %ownedPkg = alloca %"class.icu_75::LocalPointer", align 8
-  %addListPkg = alloca %"class.icu_75::LocalPointer", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  store ptr %outFilename, ptr %outFilename.addr, align 8
-  store ptr %outComment, ptr %outComment.addr, align 8
-  store ptr %sourcePath, ptr %sourcePath.addr, align 8
-  store ptr %addList, ptr %addList.addr, align 8
-  store ptr %pkg, ptr %pkg.addr, align 8
-  store i8 %outType, ptr %outType.addr, align 1
-  call void @_ZN6icu_7512LocalPointerINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %ownedPkg, ptr noundef null)
-  invoke void @_ZN6icu_7512LocalPointerINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %addListPkg, ptr noundef null)
-          to label %invoke.cont unwind label %lpad
+define i32 @writePackageDatFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5) #0 personality ptr @__gxx_personality_v0 {
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca %"class.icu_77::LocalPointer", align 8
+  %15 = alloca %"class.icu_77::LocalPointer", align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !3
+  store ptr %2, ptr %10, align 8, !tbaa !3
+  store ptr %3, ptr %11, align 8, !tbaa !3
+  store ptr %4, ptr %12, align 8, !tbaa !9
+  store i8 %5, ptr %13, align 1, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  call void @_ZN6icu_7712LocalPointerINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  invoke void @_ZN6icu_7712LocalPointerINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef null)
+          to label %19 unwind label %33
 
-invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr %pkg.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end24
+19:                                               ; preds = %6
+  %20 = load ptr, ptr %12, align 8, !tbaa !9
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %63
 
-if.then:                                          ; preds = %invoke.cont
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 201240) #8
-          to label %invoke.cont2 unwind label %lpad1
+22:                                               ; preds = %19
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 201240) #10
+          to label %24 unwind label %37
 
-invoke.cont2:                                     ; preds = %if.then
-  invoke void @_ZN6icu_757PackageC1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %call)
-          to label %invoke.cont4 unwind label %lpad3
+24:                                               ; preds = %22
+  invoke void @_ZN6icu_777PackageC1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %23)
+          to label %25 unwind label %41
 
-invoke.cont4:                                     ; preds = %invoke.cont2
-  invoke void @_ZN6icu_7512LocalPointerINS_7PackageEE12adoptInsteadEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %ownedPkg, ptr noundef %call)
-          to label %invoke.cont5 unwind label %lpad1
+25:                                               ; preds = %24
+  invoke void @_ZN6icu_7712LocalPointerINS_7PackageEE12adoptInsteadEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %23)
+          to label %26 unwind label %37
 
-invoke.cont5:                                     ; preds = %invoke.cont4
-  %call7 = invoke noundef signext i8 @_ZNK6icu_7516LocalPointerBaseINS_7PackageEE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %ownedPkg)
-          to label %invoke.cont6 unwind label %lpad1
+26:                                               ; preds = %25
+  %27 = invoke noundef signext i8 @_ZNK6icu_7716LocalPointerBaseINS_7PackageEE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %28 unwind label %37
 
-invoke.cont6:                                     ; preds = %invoke.cont5
-  %tobool = icmp ne i8 %call7, 0
-  br i1 %tobool, label %if.then8, label %if.end
+28:                                               ; preds = %26
+  %29 = icmp ne i8 %27, 0
+  br i1 %29, label %30, label %45
 
-if.then8:                                         ; preds = %invoke.cont6
-  %1 = load ptr, ptr @stderr, align 8
-  %call10 = invoke i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef @.str.1)
-          to label %invoke.cont9 unwind label %lpad1
+30:                                               ; preds = %28
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef @.str.1) #9
+  store i32 7, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %69
 
-invoke.cont9:                                     ; preds = %if.then8
-  store i32 7, ptr %retval, align 4
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+33:                                               ; preds = %6
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  br label %ehcleanup27
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %16, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %17, align 4
+  br label %72
 
-lpad1:                                            ; preds = %if.end24, %invoke.cont20, %if.then19, %invoke.cont15, %invoke.cont13, %invoke.cont11, %if.end, %if.then8, %invoke.cont5, %invoke.cont4, %if.then
-  %5 = landingpad { ptr, i32 }
+37:                                               ; preds = %63, %59, %56, %52, %51, %47, %45, %26, %25, %22
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %16, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %17, align 4
+  br label %71
 
-lpad3:                                            ; preds = %invoke.cont2
-  %8 = landingpad { ptr, i32 }
+41:                                               ; preds = %24
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #10
-  br label %ehcleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %16, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %17, align 4
+  call void @_ZdlPvm(ptr noundef %23, i64 noundef 201240) #12
+  br label %71
 
-if.end:                                           ; preds = %invoke.cont6
-  %call12 = invoke noundef ptr @_ZNK6icu_7516LocalPointerBaseINS_7PackageEE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(8) %ownedPkg)
-          to label %invoke.cont11 unwind label %lpad1
+45:                                               ; preds = %28
+  %46 = invoke noundef ptr @_ZNK6icu_7716LocalPointerBaseINS_7PackageEE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %47 unwind label %37
 
-invoke.cont11:                                    ; preds = %if.end
-  store ptr %call12, ptr %pkg.addr, align 8
-  %11 = load ptr, ptr %sourcePath.addr, align 8
-  %12 = load ptr, ptr %addList.addr, align 8
-  %call14 = invoke ptr @readList(ptr noundef %11, ptr noundef %12, i8 noundef signext 1, ptr noundef null)
-          to label %invoke.cont13 unwind label %lpad1
+47:                                               ; preds = %45
+  store ptr %46, ptr %12, align 8, !tbaa !9
+  %48 = load ptr, ptr %10, align 8, !tbaa !3
+  %49 = load ptr, ptr %11, align 8, !tbaa !3
+  %50 = invoke ptr @readList(ptr noundef %48, ptr noundef %49, i8 noundef signext 1, ptr noundef null)
+          to label %51 unwind label %37
 
-invoke.cont13:                                    ; preds = %invoke.cont11
-  invoke void @_ZN6icu_7512LocalPointerINS_7PackageEE12adoptInsteadEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %addListPkg, ptr noundef %call14)
-          to label %invoke.cont15 unwind label %lpad1
+51:                                               ; preds = %47
+  invoke void @_ZN6icu_7712LocalPointerINS_7PackageEE12adoptInsteadEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %50)
+          to label %52 unwind label %37
 
-invoke.cont15:                                    ; preds = %invoke.cont13
-  %call17 = invoke noundef signext i8 @_ZNK6icu_7516LocalPointerBaseINS_7PackageEE7isValidEv(ptr noundef nonnull align 8 dereferenceable(8) %addListPkg)
-          to label %invoke.cont16 unwind label %lpad1
+52:                                               ; preds = %51
+  %53 = invoke noundef signext i8 @_ZNK6icu_7716LocalPointerBaseINS_7PackageEE7isValidEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %54 unwind label %37
 
-invoke.cont16:                                    ; preds = %invoke.cont15
-  %tobool18 = icmp ne i8 %call17, 0
-  br i1 %tobool18, label %if.then19, label %if.else
+54:                                               ; preds = %52
+  %55 = icmp ne i8 %53, 0
+  br i1 %55, label %56, label %61
 
-if.then19:                                        ; preds = %invoke.cont16
-  %13 = load ptr, ptr %pkg.addr, align 8
-  %call21 = invoke noundef nonnull align 8 dereferenceable(201237) ptr @_ZNK6icu_7516LocalPointerBaseINS_7PackageEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %addListPkg)
-          to label %invoke.cont20 unwind label %lpad1
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %12, align 8, !tbaa !9
+  %58 = invoke noundef nonnull align 8 dereferenceable(201237) ptr @_ZNK6icu_7716LocalPointerBaseINS_7PackageEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %59 unwind label %37
 
-invoke.cont20:                                    ; preds = %if.then19
-  invoke void @_ZN6icu_757Package8addItemsERKS0_(ptr noundef nonnull align 8 dereferenceable(201237) %13, ptr noundef nonnull align 8 dereferenceable(201237) %call21)
-          to label %invoke.cont22 unwind label %lpad1
+59:                                               ; preds = %56
+  invoke void @_ZN6icu_777Package8addItemsERKS0_(ptr noundef nonnull align 8 dereferenceable(201237) %57, ptr noundef nonnull align 8 dereferenceable(201237) %58)
+          to label %60 unwind label %37
 
-invoke.cont22:                                    ; preds = %invoke.cont20
-  br label %if.end23
+60:                                               ; preds = %59
+  br label %62
 
-if.else:                                          ; preds = %invoke.cont16
-  store i32 1, ptr %retval, align 4
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+61:                                               ; preds = %54
+  store i32 1, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %69
 
-if.end23:                                         ; preds = %invoke.cont22
-  br label %if.end24
+62:                                               ; preds = %60
+  br label %63
 
-if.end24:                                         ; preds = %if.end23, %invoke.cont
-  %14 = load ptr, ptr %pkg.addr, align 8
-  %15 = load ptr, ptr %outFilename.addr, align 8
-  %16 = load i8, ptr %outType.addr, align 1
-  %17 = load ptr, ptr %outComment.addr, align 8
-  invoke void @_ZN6icu_757Package12writePackageEPKccS2_(ptr noundef nonnull align 8 dereferenceable(201237) %14, ptr noundef %15, i8 noundef signext %16, ptr noundef %17)
-          to label %invoke.cont25 unwind label %lpad1
+63:                                               ; preds = %62, %19
+  %64 = load ptr, ptr %12, align 8, !tbaa !9
+  %65 = load ptr, ptr %8, align 8, !tbaa !3
+  %66 = load i8, ptr %13, align 1, !tbaa !8
+  %67 = load ptr, ptr %9, align 8, !tbaa !3
+  invoke void @_ZN6icu_777Package12writePackageEPKccS2_(ptr noundef nonnull align 8 dereferenceable(201237) %64, ptr noundef %65, i8 noundef signext %66, ptr noundef %67)
+          to label %68 unwind label %37
 
-invoke.cont25:                                    ; preds = %if.end24
-  store i32 0, ptr %retval, align 4
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
+68:                                               ; preds = %63
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %18, align 4
+  br label %69
 
-cleanup:                                          ; preds = %invoke.cont25, %if.else, %invoke.cont9
-  call void @_ZN6icu_7512LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %addListPkg) #12
-  call void @_ZN6icu_7512LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ownedPkg) #12
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
+69:                                               ; preds = %68, %61, %30
+  call void @_ZN6icu_7712LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @_ZN6icu_7712LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  %70 = load i32, ptr %7, align 4
+  ret i32 %70
 
-ehcleanup:                                        ; preds = %lpad3, %lpad1
-  call void @_ZN6icu_7512LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %addListPkg) #12
-  br label %ehcleanup27
+71:                                               ; preds = %41, %37
+  call void @_ZN6icu_7712LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #9
+  br label %72
 
-ehcleanup27:                                      ; preds = %ehcleanup, %lpad
-  call void @_ZN6icu_7512LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ownedPkg) #12
-  br label %eh.resume
+72:                                               ; preds = %71, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @_ZN6icu_7712LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  br label %73
 
-eh.resume:                                        ; preds = %ehcleanup27
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val28 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val28
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %16, align 8
+  %75 = load i32, ptr %17, align 4
+  %76 = insertvalue { ptr, i32 } poison, ptr %74, 0
+  %77 = insertvalue { ptr, i32 } %76, i32 %75, 1
+  resume { ptr, i32 } %77
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  call void @_ZN6icu_7516LocalPointerBaseINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef %0)
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  call void @_ZN6icu_7716LocalPointerBaseINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_7PackageEE12adoptInsteadEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_7PackageEE12adoptInsteadEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-delete.notnull:                                   ; preds = %entry
-  call void @_ZN6icu_757PackageD1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %0) #12
-  call void @_ZdlPv(ptr noundef %0) #10
-  br label %delete.end
+9:                                                ; preds = %2
+  call void @_ZN6icu_777PackageD1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %7) #9
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef 201240) #12
+  br label %10
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  %1 = load ptr, ptr %p.addr, align 8
-  %ptr2 = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  store ptr %1, ptr %ptr2, align 8
+10:                                               ; preds = %9, %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %5, i32 0, i32 0
+  store ptr %11, ptr %12, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef signext i8 @_ZNK6icu_7516LocalPointerBaseINS_7PackageEE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %cmp = icmp eq ptr %0, null
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+define linkonce_odr noundef signext i8 @_ZNK6icu_7716LocalPointerBaseINS_7PackageEE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %6 = icmp eq ptr %5, null
+  %7 = zext i1 %6 to i8
+  ret i8 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK6icu_7516LocalPointerBaseINS_7PackageEE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  ret ptr %0
+define linkonce_odr noundef ptr @_ZNK6icu_7716LocalPointerBaseINS_7PackageEE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef signext i8 @_ZNK6icu_7516LocalPointerBaseINS_7PackageEE7isValidEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %cmp = icmp ne ptr %0, null
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+define linkonce_odr noundef signext i8 @_ZNK6icu_7716LocalPointerBaseINS_7PackageEE7isValidEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %6 = icmp ne ptr %5, null
+  %7 = zext i1 %6 to i8
+  ret i8 %7
 }
 
-declare void @_ZN6icu_757Package8addItemsERKS0_(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef nonnull align 8 dereferenceable(201237)) #1
+declare void @_ZN6icu_777Package8addItemsERKS0_(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef nonnull align 8 dereferenceable(201237)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(201237) ptr @_ZNK6icu_7516LocalPointerBaseINS_7PackageEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  ret ptr %0
+define linkonce_odr noundef nonnull align 8 dereferenceable(201237) ptr @_ZNK6icu_7716LocalPointerBaseINS_7PackageEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  ret ptr %5
 }
 
-declare void @_ZN6icu_757Package12writePackageEPKccS2_(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef, i8 noundef signext, ptr noundef) #1
+declare void @_ZN6icu_777Package12writePackageEPKccS2_(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef, i8 noundef signext, ptr noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7512LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ptr, align 8
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
+define linkonce_odr void @_ZN6icu_7712LocalPointerINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
-delete.notnull:                                   ; preds = %entry
-  call void @_ZN6icu_757PackageD1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %0) #12
-  call void @_ZdlPv(ptr noundef %0) #10
-  br label %delete.end
+7:                                                ; preds = %1
+  call void @_ZN6icu_777PackageD1Ev(ptr noundef nonnull align 8 dereferenceable(201237) %5) #9
+  call void @_ZdlPvm(ptr noundef %5, i64 noundef 201240) #12
+  br label %8
 
-delete.end:                                       ; preds = %delete.notnull, %entry
-  call void @_ZN6icu_7516LocalPointerBaseINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
+8:                                                ; preds = %7, %1
+  call void @_ZN6icu_7716LocalPointerBaseINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %ptr = getelementptr inbounds %"class.icu_75::LocalPointerBase", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %p.addr, align 8
-  store ptr %0, ptr %ptr, align 8
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_7PackageEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::LocalPointerBase", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !9
+  store ptr %7, ptr %6, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7516LocalPointerBaseINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN6icu_7716LocalPointerBaseINS_7PackageEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
   ret void
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { builtin allocsize(0) }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { builtin nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { builtin allocsize(0) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { builtin nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTSN6icu_777PackageE", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!21, !4, i64 0}
+!21 = !{!"_ZTS3$_0", !4, i64 0, !19, i64 8}
+!22 = !{!21, !19, i64 8}
+!23 = distinct !{!23, !14}
+!24 = !{!25, !6, i64 1170}
+!25 = !{!"_ZTSN6icu_777PackageE", !6, i64 0, !6, i64 64, !4, i64 128, !6, i64 136, !19, i64 1160, !19, i64 1164, !6, i64 1168, !6, i64 1169, !6, i64 1170, !6, i64 1171, !19, i64 1172, !19, i64 1176, !26, i64 1184, !19, i64 1192, !19, i64 1196, !6, i64 1200, !6, i64 101200, !19, i64 201200, !4, i64 201208, !4, i64 201216, !19, i64 201224, !19, i64 201228, !19, i64 201232, !6, i64 201236}
+!26 = !{!"p1 _ZTSN6icu_774ItemE", !5, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTSN6icu_7712LocalPointerINS_7PackageEEE", !5, i64 0}
+!29 = !{!30, !10, i64 0}
+!30 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_7PackageEEE", !10, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSN6icu_7716LocalPointerBaseINS_7PackageEEE", !5, i64 0}

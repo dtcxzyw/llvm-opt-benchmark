@@ -1,242 +1,235 @@
 ; ModuleID = 'bench/icu/original/collation.ll'
 source_filename = "bench/icu/original/collation.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_759Collation25incTwoBytePrimaryByOffsetEjai(i32 noundef %basePrimary, i8 noundef signext %isCompressible, i32 noundef %offset) local_unnamed_addr #0 align 2 {
-entry:
-  %tobool.not = icmp eq i8 %isCompressible, 0
-  %shr2 = lshr i32 %basePrimary, 16
-  %and3 = and i32 %shr2, 255
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i32 @_ZN6icu_779Collation25incTwoBytePrimaryByOffsetEjai(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %.not = icmp eq i8 %1, 0
+  %4 = lshr i32 %0, 16
+  %5 = and i32 %4, 255
+  br i1 %.not, label %13, label %6
 
-if.then:                                          ; preds = %entry
-  %sub = add nsw i32 %and3, -4
-  %add = add nsw i32 %sub, %offset
-  %rem = srem i32 %add, 251
-  %add1 = shl nsw i32 %rem, 16
-  %shl = add nsw i32 %add1, 262144
-  %div = sdiv i32 %add, 251
-  br label %if.end
+6:                                                ; preds = %3
+  %7 = add nsw i32 %5, -4
+  %8 = add nsw i32 %7, %2
+  %9 = srem i32 %8, 251
+  %10 = shl nsw i32 %9, 16
+  %11 = add nsw i32 %10, 262144
+  %12 = sdiv i32 %8, 251
+  br label %20
 
-if.else:                                          ; preds = %entry
-  %sub4 = add nsw i32 %and3, -2
-  %add5 = add nsw i32 %sub4, %offset
-  %rem6 = srem i32 %add5, 254
-  %add7 = shl nsw i32 %rem6, 16
-  %shl8 = add nsw i32 %add7, 131072
-  %div9 = sdiv i32 %add5, 254
-  br label %if.end
+13:                                               ; preds = %3
+  %14 = add nsw i32 %5, -2
+  %15 = add nsw i32 %14, %2
+  %16 = srem i32 %15, 254
+  %17 = shl nsw i32 %16, 16
+  %18 = add nsw i32 %17, 131072
+  %19 = sdiv i32 %15, 254
+  br label %20
 
-if.end:                                           ; preds = %if.else, %if.then
-  %offset.addr.0 = phi i32 [ %div, %if.then ], [ %div9, %if.else ]
-  %primary.0 = phi i32 [ %shl, %if.then ], [ %shl8, %if.else ]
-  %and10 = and i32 %basePrimary, -16777216
-  %shl11 = shl i32 %offset.addr.0, 24
-  %add12 = add i32 %shl11, %and10
-  %or = or i32 %add12, %primary.0
-  ret i32 %or
+20:                                               ; preds = %13, %6
+  %.012 = phi i32 [ %12, %6 ], [ %19, %13 ]
+  %.0 = phi i32 [ %11, %6 ], [ %18, %13 ]
+  %21 = and i32 %0, -16777216
+  %22 = shl i32 %.012, 24
+  %23 = add i32 %22, %21
+  %24 = or i32 %23, %.0
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef %basePrimary, i8 noundef signext %isCompressible, i32 noundef %offset) local_unnamed_addr #0 align 2 {
-entry:
-  %shr = lshr i32 %basePrimary, 8
-  %and = and i32 %shr, 255
-  %sub = add nsw i32 %and, -2
-  %add = add nsw i32 %sub, %offset
-  %div = sdiv i32 %add, 254
-  %rem = srem i32 %add, 254
-  %tobool.not = icmp eq i8 %isCompressible, 0
-  %shr10 = lshr i32 %basePrimary, 16
-  %and11 = and i32 %shr10, 255
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i32 @_ZN6icu_779Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = lshr i32 %0, 8
+  %5 = and i32 %4, 255
+  %6 = add nsw i32 %5, -2
+  %7 = add nsw i32 %6, %2
+  %8 = sdiv i32 %7, 254
+  %9 = srem i32 %7, 254
+  %.not = icmp eq i8 %1, 0
+  %10 = lshr i32 %0, 16
+  %11 = and i32 %10, 255
+  br i1 %.not, label %19, label %12
 
-if.then:                                          ; preds = %entry
-  %sub4 = add nsw i32 %and11, -4
-  %add5 = add nsw i32 %sub4, %div
-  %rem6 = srem i32 %add5, 251
-  %add7 = shl nsw i32 %rem6, 16
-  %shl8 = add nsw i32 %add7, 262144
-  %div9 = sdiv i32 %add5, 251
-  br label %if.end
+12:                                               ; preds = %3
+  %13 = add nsw i32 %11, -4
+  %14 = add nsw i32 %13, %8
+  %15 = srem i32 %14, 251
+  %16 = shl nsw i32 %15, 16
+  %17 = add nsw i32 %16, 262144
+  %18 = sdiv i32 %14, 251
+  br label %26
 
-if.else:                                          ; preds = %entry
-  %sub12 = add nsw i32 %and11, -2
-  %add13 = add nsw i32 %sub12, %div
-  %rem14 = srem i32 %add13, 254
-  %add15 = shl nsw i32 %rem14, 16
-  %shl16 = add nsw i32 %add15, 131072
-  %div18 = sdiv i32 %add13, 254
-  br label %if.end
+19:                                               ; preds = %3
+  %20 = add nsw i32 %11, -2
+  %21 = add nsw i32 %20, %8
+  %22 = srem i32 %21, 254
+  %23 = shl nsw i32 %22, 16
+  %24 = add nsw i32 %23, 131072
+  %25 = sdiv i32 %21, 254
+  br label %26
 
-if.end:                                           ; preds = %if.else, %if.then
-  %offset.addr.0 = phi i32 [ %div9, %if.then ], [ %div18, %if.else ]
-  %shl8.pn = phi i32 [ %shl8, %if.then ], [ %shl16, %if.else ]
-  %add1 = shl nsw i32 %rem, 8
-  %shl = add nsw i32 %add1, 512
-  %primary.0 = or i32 %shl8.pn, %shl
-  %and19 = and i32 %basePrimary, -16777216
-  %shl20 = shl i32 %offset.addr.0, 24
-  %add21 = add i32 %shl20, %and19
-  %or22 = or i32 %primary.0, %add21
-  ret i32 %or22
+26:                                               ; preds = %19, %12
+  %.018 = phi i32 [ %18, %12 ], [ %25, %19 ]
+  %.pn = phi i32 [ %17, %12 ], [ %24, %19 ]
+  %27 = shl nsw i32 %9, 8
+  %28 = add nsw i32 %27, 512
+  %.0 = or i32 %.pn, %28
+  %29 = and i32 %0, -16777216
+  %30 = shl i32 %.018, 24
+  %31 = add i32 %30, %29
+  %32 = or i32 %.0, %31
+  ret i32 %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_759Collation26decTwoBytePrimaryByOneStepEjai(i32 noundef %basePrimary, i8 noundef signext %isCompressible, i32 noundef %step) local_unnamed_addr #0 align 2 {
-entry:
-  %shr = lshr i32 %basePrimary, 16
-  %and = and i32 %shr, 255
-  %sub = sub nsw i32 %and, %step
-  %tobool.not = icmp eq i8 %isCompressible, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+define noundef i32 @_ZN6icu_779Collation26decTwoBytePrimaryByOneStepEjai(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = lshr i32 %0, 16
+  %5 = and i32 %4, 255
+  %6 = sub nsw i32 %5, %2
+  %.not = icmp eq i8 %1, 0
+  br i1 %.not, label %12, label %7
 
-if.then:                                          ; preds = %entry
-  %cmp = icmp slt i32 %sub, 4
-  br i1 %cmp, label %if.then1, label %if.end8
+7:                                                ; preds = %3
+  %8 = icmp slt i32 %6, 4
+  br i1 %8, label %9, label %17
 
-if.then1:                                         ; preds = %if.then
-  %add = add nsw i32 %sub, 251
-  %sub2 = add i32 %basePrimary, -16777216
-  br label %if.end8
+9:                                                ; preds = %7
+  %10 = add nsw i32 %6, 251
+  %11 = add i32 %0, -16777216
+  br label %17
 
-if.else:                                          ; preds = %entry
-  %cmp3 = icmp slt i32 %sub, 2
-  br i1 %cmp3, label %if.then4, label %if.end8
+12:                                               ; preds = %3
+  %13 = icmp slt i32 %6, 2
+  br i1 %13, label %14, label %17
 
-if.then4:                                         ; preds = %if.else
-  %add5 = add nsw i32 %sub, 254
-  %sub6 = add i32 %basePrimary, -16777216
-  br label %if.end8
+14:                                               ; preds = %12
+  %15 = add nsw i32 %6, 254
+  %16 = add i32 %0, -16777216
+  br label %17
 
-if.end8:                                          ; preds = %if.else, %if.then4, %if.then, %if.then1
-  %basePrimary.addr.0 = phi i32 [ %sub2, %if.then1 ], [ %basePrimary, %if.then ], [ %sub6, %if.then4 ], [ %basePrimary, %if.else ]
-  %byte2.0 = phi i32 [ %add, %if.then1 ], [ %sub, %if.then ], [ %add5, %if.then4 ], [ %sub, %if.else ]
-  %and9 = and i32 %basePrimary.addr.0, -16777216
-  %shl = shl i32 %byte2.0, 16
-  %or = or i32 %shl, %and9
-  ret i32 %or
+17:                                               ; preds = %12, %14, %7, %9
+  %.011 = phi i32 [ %11, %9 ], [ %0, %7 ], [ %16, %14 ], [ %0, %12 ]
+  %.0 = phi i32 [ %10, %9 ], [ %6, %7 ], [ %15, %14 ], [ %6, %12 ]
+  %18 = and i32 %.011, -16777216
+  %19 = shl i32 %.0, 16
+  %20 = or i32 %19, %18
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_759Collation28decThreeBytePrimaryByOneStepEjai(i32 noundef %basePrimary, i8 noundef signext %isCompressible, i32 noundef %step) local_unnamed_addr #0 align 2 {
-entry:
-  %shr = lshr i32 %basePrimary, 8
-  %and = and i32 %shr, 255
-  %sub = sub nsw i32 %and, %step
-  %cmp = icmp sgt i32 %sub, 1
-  br i1 %cmp, label %if.then, label %if.end
+define noundef i32 @_ZN6icu_779Collation28decThreeBytePrimaryByOneStepEjai(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+  %4 = lshr i32 %0, 8
+  %5 = and i32 %4, 255
+  %6 = sub nsw i32 %5, %2
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %8, label %12
 
-if.then:                                          ; preds = %entry
-  %and1 = and i32 %basePrimary, -65536
-  %shl = shl i32 %sub, 8
-  %or = or i32 %shl, %and1
-  br label %return
+8:                                                ; preds = %3
+  %9 = and i32 %0, -65536
+  %10 = shl i32 %6, 8
+  %11 = or i32 %10, %9
+  br label %24
 
-if.end:                                           ; preds = %entry
-  %shr2 = lshr i32 %basePrimary, 16
-  %and3 = and i32 %shr2, 255
-  %sub4 = add nsw i32 %and3, -1
-  %tobool.not = icmp eq i8 %isCompressible, 0
-  %sub12 = add i32 %basePrimary, -16777216
-  %. = select i1 %tobool.not, i32 3, i32 5
-  %.16 = select i1 %tobool.not, i32 255, i32 254
-  %cmp10 = icmp samesign ult i32 %and3, %.
-  %spec.select12 = select i1 %cmp10, i32 %sub12, i32 %basePrimary
-  %spec.select13 = select i1 %cmp10, i32 %.16, i32 %sub4
-  %and15 = and i32 %spec.select12, -16777216
-  %shl16 = shl nuw nsw i32 %spec.select13, 16
-  %add = shl i32 %sub, 8
-  %shl18 = add i32 %add, 65024
-  %or17 = or i32 %and15, %shl18
-  %or19 = or i32 %or17, %shl16
-  br label %return
+12:                                               ; preds = %3
+  %13 = lshr i32 %0, 16
+  %14 = and i32 %13, 255
+  %15 = add nsw i32 %14, -1
+  %.not = icmp eq i8 %1, 0
+  %16 = add i32 %0, -16777216
+  %. = select i1 %.not, i32 3, i32 5
+  %.27 = select i1 %.not, i32 255, i32 254
+  %17 = icmp samesign ult i32 %14, %.
+  %spec.select22 = select i1 %17, i32 %16, i32 %0
+  %spec.select23 = select i1 %17, i32 %.27, i32 %15
+  %18 = and i32 %spec.select22, -16777216
+  %19 = shl nuw nsw i32 %spec.select23, 16
+  %20 = shl i32 %6, 8
+  %21 = add i32 %20, 65024
+  %22 = or i32 %18, %21
+  %23 = or i32 %22, %19
+  br label %24
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ %or, %if.then ], [ %or19, %if.end ]
-  ret i32 %retval.0
+24:                                               ; preds = %12, %8
+  %.016 = phi i32 [ %11, %8 ], [ %23, %12 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_759Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %c, i64 noundef %dataCE) local_unnamed_addr #0 align 2 {
-entry:
-  %shr = lshr i64 %dataCE, 32
-  %conv = trunc nuw i64 %shr to i32
-  %conv1 = trunc i64 %dataCE to i32
-  %shr2 = ashr i32 %conv1, 8
-  %sub = sub nsw i32 %c, %shr2
-  %and = and i32 %conv1, 127
-  %mul = mul nsw i32 %sub, %and
-  %and3 = and i32 %conv1, 128
-  %cmp.not = icmp eq i32 %and3, 0
-  %shr.i = lshr i32 %conv, 8
-  %and.i = and i32 %shr.i, 255
-  %sub.i = add nsw i32 %and.i, -2
-  %add.i = add nsw i32 %sub.i, %mul
-  %div.i = sdiv i32 %add.i, 254
-  %rem.i = srem i32 %add.i, 254
-  %shr10.i = lshr i32 %conv, 16
-  %and11.i = and i32 %shr10.i, 255
-  %sub12.i = add nsw i32 %div.i, %and11.i
-  br i1 %cmp.not, label %if.else.i, label %if.then.i
+define noundef i32 @_ZN6icu_779Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = lshr i64 %1, 32
+  %4 = trunc nuw i64 %3 to i32
+  %5 = trunc i64 %1 to i32
+  %6 = ashr i32 %5, 8
+  %7 = sub nsw i32 %0, %6
+  %8 = and i32 %5, 127
+  %9 = mul nsw i32 %7, %8
+  %10 = and i32 %5, 128
+  %.not = icmp eq i32 %10, 0
+  %11 = lshr i32 %4, 8
+  %12 = and i32 %11, 255
+  %13 = add nsw i32 %12, -2
+  %14 = add nsw i32 %13, %9
+  %15 = sdiv i32 %14, 254
+  %16 = srem i32 %14, 254
+  %17 = lshr i32 %4, 16
+  %18 = and i32 %17, 255
+  %19 = add nsw i32 %15, %18
+  br i1 %.not, label %26, label %20
 
-if.then.i:                                        ; preds = %entry
-  %add5.i = add nsw i32 %sub12.i, -4
-  %rem6.i = srem i32 %add5.i, 251
-  %add7.i = shl nsw i32 %rem6.i, 16
-  %shl8.i = add nsw i32 %add7.i, 262144
-  %div9.i = sdiv i32 %add5.i, 251
-  br label %_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai.exit
+20:                                               ; preds = %2
+  %21 = add nsw i32 %19, -4
+  %22 = srem i32 %21, 251
+  %23 = shl nsw i32 %22, 16
+  %24 = add nsw i32 %23, 262144
+  %25 = sdiv i32 %21, 251
+  br label %_ZN6icu_779Collation27incThreeBytePrimaryByOffsetEjai.exit
 
-if.else.i:                                        ; preds = %entry
-  %add13.i = add nsw i32 %sub12.i, -2
-  %rem14.i = srem i32 %add13.i, 254
-  %add15.i = shl nsw i32 %rem14.i, 16
-  %shl16.i = add nsw i32 %add15.i, 131072
-  %div18.i = sdiv i32 %add13.i, 254
-  br label %_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai.exit
+26:                                               ; preds = %2
+  %27 = add nsw i32 %19, -2
+  %28 = srem i32 %27, 254
+  %29 = shl nsw i32 %28, 16
+  %30 = add nsw i32 %29, 131072
+  %31 = sdiv i32 %27, 254
+  br label %_ZN6icu_779Collation27incThreeBytePrimaryByOffsetEjai.exit
 
-_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai.exit: ; preds = %if.then.i, %if.else.i
-  %offset.addr.0.i = phi i32 [ %div9.i, %if.then.i ], [ %div18.i, %if.else.i ]
-  %shl8.pn.i = phi i32 [ %shl8.i, %if.then.i ], [ %shl16.i, %if.else.i ]
-  %add1.i = shl nsw i32 %rem.i, 8
-  %shl.i = add nsw i32 %add1.i, 512
-  %primary.0.i = or i32 %shl8.pn.i, %shl.i
-  %and19.i = and i32 %conv, -16777216
-  %shl20.i = shl i32 %offset.addr.0.i, 24
-  %add21.i = add i32 %shl20.i, %and19.i
-  %or22.i = or i32 %primary.0.i, %add21.i
-  ret i32 %or22.i
+_ZN6icu_779Collation27incThreeBytePrimaryByOffsetEjai.exit: ; preds = %20, %26
+  %.018.i = phi i32 [ %25, %20 ], [ %31, %26 ]
+  %.pn.i = phi i32 [ %24, %20 ], [ %30, %26 ]
+  %32 = shl nsw i32 %16, 8
+  %33 = add nsw i32 %32, 512
+  %.0.i = or i32 %.pn.i, %33
+  %34 = and i32 %4, -16777216
+  %35 = shl i32 %.018.i, 24
+  %36 = add i32 %35, %34
+  %37 = or i32 %.0.i, %36
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -33554432, 0) i32 @_ZN6icu_759Collation30unassignedPrimaryFromCodePointEi(i32 noundef %c) local_unnamed_addr #0 align 2 {
-entry:
-  %inc = add nsw i32 %c, 1
-  %rem = srem i32 %inc, 18
-  %mul = mul nsw i32 %rem, 14
-  %add = add nsw i32 %mul, 2
-  %div = sdiv i32 %inc, 18
-  %rem1 = srem i32 %div, 254
-  %add2 = shl nsw i32 %rem1, 8
-  %shl = add nsw i32 %add2, 512
-  %div3 = sdiv i32 %inc, 4572
-  %rem4 = srem i32 %div3, 251
-  %add5 = shl nsw i32 %rem4, 16
-  %shl6 = add nsw i32 %add5, 262144
-  %or = or i32 %add, %shl
-  %or7 = or i32 %or, %shl6
-  %or8 = or i32 %or7, -33554432
-  ret i32 %or8
+define noundef range(i32 -33554432, 0) i32 @_ZN6icu_779Collation30unassignedPrimaryFromCodePointEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
+  %2 = add nsw i32 %0, 1
+  %3 = srem i32 %2, 18
+  %4 = mul nsw i32 %3, 14
+  %5 = add nsw i32 %4, 2
+  %6 = sdiv i32 %2, 18
+  %7 = srem i32 %6, 254
+  %8 = shl nsw i32 %7, 8
+  %9 = add nsw i32 %8, 512
+  %10 = sdiv i32 %2, 4572
+  %11 = srem i32 %10, 251
+  %12 = shl nsw i32 %11, 16
+  %13 = add nsw i32 %12, 262144
+  %14 = or i32 %5, %9
+  %15 = or i32 %14, %13
+  %16 = or i32 %15, -33554432
+  ret i32 %16
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}

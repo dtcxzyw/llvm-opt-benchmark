@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/icu/original/icuinfo.ll'
 source_filename = "bench/icu/original/icuinfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UOption = type { ptr, ptr, ptr, ptr, i8, i8, i8 }
 
@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [46 x i8] c"%s: Output information about the current ICU\0A\00", align 1
 @.str.8 = private unnamed_addr constant [501 x i8] c"Options:\0A -h     or  --help                 - Print this help message.\0A -m     or  --millisecond-time     - Print the current UTC time in milliseconds.\0A -d <dir>   or  --icudatadir <dir> - Set the ICU Data Directory\0A -v                                - Print version and configuration information about ICU\0A -K         or  --cleanup          - Call u_cleanup() before exiting (will attempt to unload plugins)\0A\0AIf no arguments are given, the tool will print ICU version and configuration information.\0A\00", align 1
 @.str.9 = private unnamed_addr constant [44 x i8] c"International Components for Unicode %s\0A%s\0A\00", align 1
-@.str.10 = private unnamed_addr constant [7 x i8] c"75.0.1\00", align 1
+@.str.10 = private unnamed_addr constant [5 x i8] c"77.1\00", align 1
 @.str.11 = private unnamed_addr constant [120 x i8] c" Copyright (C) 2016 and later: Unicode, Inc. and others. License & terms of use: http://www.unicode.org/copyright.html \00", align 1
 @.str.12 = private unnamed_addr constant [2 x i8] c"w\00", align 1
 @.str.13 = private unnamed_addr constant [33 x i8] c"ERR: can't write to XML file %s\0A\00", align 1
@@ -33,36 +33,34 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z10cmd_millisv() local_unnamed_addr #0 {
-entry:
-  %call = tail call double @uprv_getUTCtime_75()
-  %call1 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %call)
+  %1 = tail call double @uprv_getUTCtime_77()
+  %2 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %1)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-declare double @uprv_getUTCtime_75() local_unnamed_addr #2
+declare double @uprv_getUTCtime_77() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11cmd_versionaR10UErrorCode(i8 noundef signext %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #0 {
-entry:
+define dso_local void @_Z11cmd_versionaR10UErrorCode(i8 noundef signext %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #0 {
   %.b.i = load i1, ptr @_ZL10icuInitted, align 1
-  br i1 %.b.i, label %_ZL7do_initv.exit, label %if.then.i
+  br i1 %.b.i, label %_ZL7do_initv.exit, label %3
 
-if.then.i:                                        ; preds = %entry
-  tail call void @u_init_75(ptr noundef nonnull @_ZL10initStatus)
+3:                                                ; preds = %2
+  tail call void @u_init_77(ptr noundef nonnull @_ZL10initStatus)
   store i1 true, ptr @_ZL10icuInitted, align 1
   br label %_ZL7do_initv.exit
 
-_ZL7do_initv.exit:                                ; preds = %entry, %if.then.i
-  %1 = load ptr, ptr @stdout, align 8
-  tail call void @udbg_writeIcuInfo(ptr noundef %1)
-  %2 = load i32, ptr @_ZL10initStatus, align 4
-  %call7 = tail call ptr @u_errorName_75(i32 noundef %2)
-  %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %call7)
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 22, i64 1, ptr %3) #6
+_ZL7do_initv.exit:                                ; preds = %2, %3
+  %4 = load ptr, ptr @stdout, align 8, !tbaa !4
+  tail call void @udbg_writeIcuInfo(ptr noundef %4)
+  %5 = load i32, ptr @_ZL10initStatus, align 4, !tbaa !9
+  %6 = tail call ptr @u_errorName_77(i32 noundef %5)
+  %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %6)
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 22, i64 1, ptr %8) #6
   ret void
 }
 
@@ -71,185 +69,182 @@ declare void @udbg_writeIcuInfo(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #2
+declare ptr @u_errorName_77(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z11cmd_cleanupv() local_unnamed_addr #0 {
-entry:
-  tail call void @u_cleanup_75()
-  %0 = load ptr, ptr @stdout, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 24, i64 1, ptr %0)
+  tail call void @u_cleanup_77()
+  %1 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 24, i64 1, ptr %1)
   ret void
 }
 
-declare void @u_cleanup_75() local_unnamed_addr #2
+declare void @u_cleanup_77() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_Z15cmd_listpluginsv() local_unnamed_addr #3 {
-entry:
   ret void
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #4 {
-entry:
-  %call = tail call i32 @u_parseArgs(i32 noundef %argc, ptr noundef %argv, i32 noundef 8, ptr noundef nonnull @_ZL7options)
-  %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %if.then, label %if.end
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+  %3 = tail call i32 @u_parseArgs(i32 noundef %0, ptr noundef %1, i32 noundef 8, ptr noundef nonnull @_ZL7options)
+  %4 = icmp slt i32 %3, 0
+  br i1 %4, label %5, label %12
 
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr @stderr, align 8
-  %sub = sub nsw i32 0, %call
-  %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom
-  %1 = load ptr, ptr %arrayidx, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %1) #6
-  br label %if.end
+5:                                                ; preds = %2
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %7 = sub nsw i32 0, %3
+  %8 = zext nneg i32 %7 to i64
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %8
+  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.6, ptr noundef %10) #7
+  br label %12
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 34), align 2
-  %tobool = icmp ne i8 %2, 0
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 74), align 2
-  %tobool2 = icmp ne i8 %3, 0
-  %or.cond = select i1 %tobool, i1 true, i1 %tobool2
-  br i1 %or.cond, label %if.then3, label %if.end9
+12:                                               ; preds = %5, %2
+  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 34), align 2, !tbaa !13
+  %14 = icmp ne i8 %13, 0
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 74), align 2
+  %16 = icmp ne i8 %15, 0
+  %or.cond = select i1 %14, i1 true, i1 %16
+  br i1 %or.cond, label %17, label %25
 
-if.then3:                                         ; preds = %if.end
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = load ptr, ptr %argv, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.7, ptr noundef %5) #6
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 500, i64 1, ptr %6) #6
-  %8 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #6
-  %call.lobit = lshr i32 %call, 31
-  br label %return
+17:                                               ; preds = %12
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %19 = load ptr, ptr %1, align 8, !tbaa !11
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.7, ptr noundef %19) #7
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 500, i64 1, ptr %21) #6
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #7
+  %.lobit = lshr i32 %3, 31
+  br label %_ZL10do_cleanupv.exit
 
-if.end9:                                          ; preds = %if.end
-  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 114), align 2
-  %tobool10.not = icmp eq i8 %9, 0
-  br i1 %tobool10.not, label %if.end12, label %if.then11
+25:                                               ; preds = %12
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 114), align 2, !tbaa !13
+  %.not = icmp eq i8 %26, 0
+  br i1 %.not, label %29, label %27
 
-if.then11:                                        ; preds = %if.end9
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 88), align 8
-  tail call void @u_setDataDirectory_75(ptr noundef %10)
-  br label %if.end12
+27:                                               ; preds = %25
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 88), align 8, !tbaa !15
+  tail call void @u_setDataDirectory_77(ptr noundef %28)
+  br label %29
 
-if.end12:                                         ; preds = %if.then11, %if.end9
-  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 234), align 2
-  %tobool13.not = icmp eq i8 %11, 0
-  br i1 %tobool13.not, label %if.end15, label %if.then14
+29:                                               ; preds = %27, %25
+  %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 234), align 2, !tbaa !13
+  %.not19 = icmp eq i8 %30, 0
+  br i1 %.not19, label %34, label %31
 
-if.then14:                                        ; preds = %if.end12
-  %call.i = tail call double @uprv_getUTCtime_75()
-  %call1.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %call.i)
-  br label %if.end15
+31:                                               ; preds = %29
+  %32 = tail call double @uprv_getUTCtime_77()
+  %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %32)
+  br label %34
 
-if.end15:                                         ; preds = %if.then14, %if.end12
-  %didSomething.0 = phi i8 [ 1, %if.then14 ], [ 0, %if.end12 ]
-  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 194), align 2
-  %tobool16.not = icmp eq i8 %12, 0
-  %spec.select = select i1 %tobool16.not, i8 %didSomething.0, i8 1
-  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 154), align 2
-  %tobool19.not = icmp eq i8 %13, 0
-  br i1 %tobool19.not, label %if.end21, label %if.then20
+34:                                               ; preds = %31, %29
+  %.015 = phi i8 [ 1, %31 ], [ 0, %29 ]
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 194), align 2, !tbaa !13
+  %.not20 = icmp eq i8 %35, 0
+  %spec.select = select i1 %.not20, i8 %.015, i8 1
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 154), align 2, !tbaa !13
+  %.not21 = icmp eq i8 %36, 0
+  br i1 %.not21, label %45, label %37
 
-if.then20:                                        ; preds = %if.end15
+37:                                               ; preds = %34
   %.b.i.i = load i1, ptr @_ZL10icuInitted, align 1
-  br i1 %.b.i.i, label %_Z11cmd_versionaR10UErrorCode.exit, label %if.then.i.i
+  br i1 %.b.i.i, label %_Z11cmd_versionaR10UErrorCode.exit, label %38
 
-if.then.i.i:                                      ; preds = %if.then20
-  tail call void @u_init_75(ptr noundef nonnull @_ZL10initStatus)
+38:                                               ; preds = %37
+  tail call void @u_init_77(ptr noundef nonnull @_ZL10initStatus)
   store i1 true, ptr @_ZL10icuInitted, align 1
   br label %_Z11cmd_versionaR10UErrorCode.exit
 
-_Z11cmd_versionaR10UErrorCode.exit:               ; preds = %if.then20, %if.then.i.i
-  %14 = load ptr, ptr @stdout, align 8
-  tail call void @udbg_writeIcuInfo(ptr noundef %14)
-  %15 = load i32, ptr @_ZL10initStatus, align 4
-  %call7.i = tail call ptr @u_errorName_75(i32 noundef %15)
-  %call8.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %call7.i)
-  %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 22, i64 1, ptr %16) #6
-  br label %if.end21
+_Z11cmd_versionaR10UErrorCode.exit:               ; preds = %37, %38
+  %39 = load ptr, ptr @stdout, align 8, !tbaa !4
+  tail call void @udbg_writeIcuInfo(ptr noundef %39)
+  %40 = load i32, ptr @_ZL10initStatus, align 4, !tbaa !9
+  %41 = tail call ptr @u_errorName_77(i32 noundef %40)
+  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %41)
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %44 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 22, i64 1, ptr %43) #6
+  br label %45
 
-if.end21:                                         ; preds = %_Z11cmd_versionaR10UErrorCode.exit, %if.end15
-  %didSomething.2 = phi i8 [ 1, %_Z11cmd_versionaR10UErrorCode.exit ], [ %spec.select, %if.end15 ]
-  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 314), align 2
-  %tobool22.not = icmp eq i8 %18, 0
-  br i1 %tobool22.not, label %if.end31, label %if.then23
+45:                                               ; preds = %_Z11cmd_versionaR10UErrorCode.exit, %34
+  %.2 = phi i8 [ 1, %_Z11cmd_versionaR10UErrorCode.exit ], [ %spec.select, %34 ]
+  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 314), align 2, !tbaa !13
+  %.not22 = icmp eq i8 %46, 0
+  br i1 %.not22, label %53, label %47
 
-if.then23:                                        ; preds = %if.end21
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 288), align 16
-  %call24 = tail call noalias ptr @fopen(ptr noundef %19, ptr noundef nonnull @.str.12)
-  %cmp25 = icmp eq ptr %call24, null
-  br i1 %cmp25, label %if.then26, label %if.end31.thread
+47:                                               ; preds = %45
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 288), align 16, !tbaa !15
+  %49 = tail call noalias ptr @fopen(ptr noundef %48, ptr noundef nonnull @.str.12)
+  %.not23 = icmp eq ptr %49, null
+  br i1 %.not23, label %.thread, label %.thread33
 
-if.then26:                                        ; preds = %if.then23
-  %20 = load ptr, ptr @stderr, align 8
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 288), align 16
-  %call27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.13, ptr noundef %21) #6
-  br label %return
+.thread:                                          ; preds = %47
+  %50 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 288), align 16, !tbaa !15
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.13, ptr noundef %51) #7
+  br label %_ZL10do_cleanupv.exit
 
-if.end31:                                         ; preds = %if.end21
-  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 274), align 2
-  %tobool32.not = icmp eq i8 %22, 0
-  br i1 %tobool32.not, label %if.end34, label %if.end34.thread
+53:                                               ; preds = %45
+  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 274), align 2, !tbaa !13
+  %.not24 = icmp eq i8 %54, 0
+  br i1 %.not24, label %60, label %.thread30
 
-if.end31.thread:                                  ; preds = %if.then23
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 40, i64 1, ptr nonnull %call24)
-  tail call void @udbg_writeIcuInfo(ptr noundef nonnull %call24)
-  %call30 = tail call i32 @fclose(ptr noundef nonnull %call24)
-  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 274), align 2
-  %tobool32.not18 = icmp eq i8 %24, 0
-  br i1 %tobool32.not18, label %if.end37, label %if.end34.thread
+.thread33:                                        ; preds = %47
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 40, i64 1, ptr nonnull %49)
+  tail call void @udbg_writeIcuInfo(ptr noundef nonnull %49)
+  %56 = tail call i32 @fclose(ptr noundef nonnull %49)
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 274), align 2, !tbaa !13
+  %.not2435 = icmp eq i8 %57, 0
+  br i1 %.not2435, label %.thread37, label %.thread30
 
-if.end34.thread:                                  ; preds = %if.end31.thread, %if.end31
-  tail call void @u_cleanup_75()
-  %25 = load ptr, ptr @stdout, align 8
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 24, i64 1, ptr %25)
-  br label %if.end37
+.thread30:                                        ; preds = %.thread33, %53
+  tail call void @u_cleanup_77()
+  %58 = load ptr, ptr @stdout, align 8, !tbaa !4
+  %59 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 24, i64 1, ptr %58)
+  br label %.thread37
 
-if.end34:                                         ; preds = %if.end31
-  %tobool35.not = icmp eq i8 %didSomething.2, 0
-  br i1 %tobool35.not, label %if.then36, label %if.end37
+60:                                               ; preds = %53
+  %.not25 = icmp eq i8 %.2, 0
+  br i1 %.not25, label %61, label %.thread37
 
-if.then36:                                        ; preds = %if.end34
-  %.b.i.i10 = load i1, ptr @_ZL10icuInitted, align 1
-  br i1 %.b.i.i10, label %_Z11cmd_versionaR10UErrorCode.exit14, label %if.then.i.i11
+61:                                               ; preds = %60
+  %.b.i.i26 = load i1, ptr @_ZL10icuInitted, align 1
+  br i1 %.b.i.i26, label %_Z11cmd_versionaR10UErrorCode.exit27, label %62
 
-if.then.i.i11:                                    ; preds = %if.then36
-  tail call void @u_init_75(ptr noundef nonnull @_ZL10initStatus)
+62:                                               ; preds = %61
+  tail call void @u_init_77(ptr noundef nonnull @_ZL10initStatus)
   store i1 true, ptr @_ZL10icuInitted, align 1
-  br label %_Z11cmd_versionaR10UErrorCode.exit14
+  br label %_Z11cmd_versionaR10UErrorCode.exit27
 
-_Z11cmd_versionaR10UErrorCode.exit14:             ; preds = %if.then36, %if.then.i.i11
-  %27 = load ptr, ptr @stdout, align 8
-  tail call void @udbg_writeIcuInfo(ptr noundef %27)
-  %28 = load i32, ptr @_ZL10initStatus, align 4
-  %call7.i12 = tail call ptr @u_errorName_75(i32 noundef %28)
-  %call8.i13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %call7.i12)
-  %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 22, i64 1, ptr %29) #6
-  br label %if.end37
+_Z11cmd_versionaR10UErrorCode.exit27:             ; preds = %61, %62
+  %63 = load ptr, ptr @stdout, align 8, !tbaa !4
+  tail call void @udbg_writeIcuInfo(ptr noundef %63)
+  %64 = load i32, ptr @_ZL10initStatus, align 4, !tbaa !9
+  %65 = tail call ptr @u_errorName_77(i32 noundef %64)
+  %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %65)
+  %67 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %68 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 22, i64 1, ptr %67) #6
+  br label %.thread37
 
-if.end37:                                         ; preds = %if.end31.thread, %if.end34.thread, %_Z11cmd_versionaR10UErrorCode.exit14, %if.end34
+.thread37:                                        ; preds = %.thread33, %.thread30, %_Z11cmd_versionaR10UErrorCode.exit27, %60
   %.b.i = load i1, ptr @_ZL10icuInitted, align 1
-  br i1 %.b.i, label %if.then.i, label %return
+  br i1 %.b.i, label %69, label %_ZL10do_cleanupv.exit
 
-if.then.i:                                        ; preds = %if.end37
-  tail call void @u_cleanup_75()
+69:                                               ; preds = %.thread37
+  tail call void @u_cleanup_77()
   store i1 false, ptr @_ZL10icuInitted, align 1
-  br label %return
+  br label %_ZL10do_cleanupv.exit
 
-return:                                           ; preds = %if.then.i, %if.end37, %if.then26, %if.then3
-  %retval.0 = phi i32 [ %call.lobit, %if.then3 ], [ 1, %if.then26 ], [ 0, %if.end37 ], [ 0, %if.then.i ]
-  ret i32 %retval.0
+_ZL10do_cleanupv.exit:                            ; preds = %69, %.thread37, %.thread, %17
+  %.0 = phi i32 [ %.lobit, %17 ], [ 1, %.thread ], [ 0, %.thread37 ], [ 0, %69 ]
+  ret i32 %.0
 }
 
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @u_setDataDirectory_75(ptr noundef) local_unnamed_addr #2
+declare void @u_setDataDirectory_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
@@ -257,23 +252,35 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @u_init_75(ptr noundef) local_unnamed_addr #2
+declare void @u_init_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind }
 attributes #6 = { cold }
+attributes #7 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"_ZTS10UErrorCode", !7, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !6, i64 0}
+!13 = !{!14, !7, i64 34}
+!14 = !{!"_ZTS7UOption", !12, i64 0, !12, i64 8, !6, i64 16, !6, i64 24, !7, i64 32, !7, i64 33, !7, i64 34}
+!15 = !{!14, !12, i64 8}

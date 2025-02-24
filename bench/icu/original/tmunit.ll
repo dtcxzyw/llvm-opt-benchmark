@@ -1,12 +1,12 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::TimeUnit" = type { %"class.icu_75::MeasureUnit.base", i32 }
-%"class.icu_75::MeasureUnit.base" = type <{ %"class.icu_75::UObject", ptr, i16, i8 }>
-%"class.icu_75::UObject" = type { ptr }
+%"class.icu_77::TimeUnit" = type { %"class.icu_77::MeasureUnit.base", i32 }
+%"class.icu_77::MeasureUnit.base" = type <{ %"class.icu_77::UObject", ptr, i16, i8 }>
+%"class.icu_77::UObject" = type { ptr }
 
-@_ZZN6icu_758TimeUnit16getStaticClassIDEvE7classID = internal global i8 0, align 1
-@_ZTVN6icu_758TimeUnitE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_758TimeUnitE, ptr @_ZN6icu_758TimeUnitD1Ev, ptr @_ZN6icu_758TimeUnitD0Ev, ptr @_ZNK6icu_758TimeUnit17getDynamicClassIDEv, ptr @_ZNK6icu_758TimeUnit5cloneEv, ptr @_ZNK6icu_7511MeasureUniteqERKNS_7UObjectE] }, align 8
+@_ZZN6icu_778TimeUnit16getStaticClassIDEvE7classID = internal global i8 0, align 1
+@_ZTVN6icu_778TimeUnitE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_778TimeUnitE, ptr @_ZN6icu_778TimeUnitD1Ev, ptr @_ZN6icu_778TimeUnitD0Ev, ptr @_ZNK6icu_778TimeUnit17getDynamicClassIDEv, ptr @_ZNK6icu_778TimeUnit5cloneEv, ptr @_ZNK6icu_7711MeasureUniteqERKNS_7UObjectE] }, align 8
 @.str = private unnamed_addr constant [5 x i8] c"year\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"month\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"day\00", align 1
@@ -14,403 +14,408 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [5 x i8] c"hour\00", align 1
 @.str.5 = private unnamed_addr constant [7 x i8] c"minute\00", align 1
 @.str.6 = private unnamed_addr constant [7 x i8] c"second\00", align 1
+@_ZTIN6icu_778TimeUnitE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_778TimeUnitE, ptr @_ZTIN6icu_7711MeasureUnitE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN6icu_758TimeUnitE = constant [19 x i8] c"N6icu_758TimeUnitE\00", align 1
-@_ZTIN6icu_7511MeasureUnitE = external constant ptr
-@_ZTIN6icu_758TimeUnitE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_758TimeUnitE, ptr @_ZTIN6icu_7511MeasureUnitE }, align 8
+@_ZTSN6icu_778TimeUnitE = constant [19 x i8] c"N6icu_778TimeUnitE\00", align 1
+@_ZTIN6icu_7711MeasureUnitE = external constant ptr
 
-@_ZN6icu_758TimeUnitC1ENS0_15UTimeUnitFieldsE = unnamed_addr alias void (ptr, i32), ptr @_ZN6icu_758TimeUnitC2ENS0_15UTimeUnitFieldsE
-@_ZN6icu_758TimeUnitC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_758TimeUnitC2ERKS0_
-@_ZN6icu_758TimeUnitD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_758TimeUnitD2Ev
+@_ZN6icu_778TimeUnitC1ENS0_15UTimeUnitFieldsE = unnamed_addr alias void (ptr, i32), ptr @_ZN6icu_778TimeUnitC2ENS0_15UTimeUnitFieldsE
+@_ZN6icu_778TimeUnitC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_778TimeUnitC2ERKS0_
+@_ZN6icu_778TimeUnitD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_778TimeUnitD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN6icu_758TimeUnit16getStaticClassIDEv() #0 align 2 {
-entry:
-  ret ptr @_ZZN6icu_758TimeUnit16getStaticClassIDEvE7classID
+define noundef ptr @_ZN6icu_778TimeUnit16getStaticClassIDEv() #0 align 2 {
+  ret ptr @_ZZN6icu_778TimeUnit16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK6icu_758TimeUnit17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN6icu_758TimeUnit16getStaticClassIDEv()
-  ret ptr %call
+define noundef ptr @_ZNK6icu_778TimeUnit17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = call noundef ptr @_ZN6icu_778TimeUnit16getStaticClassIDEv()
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_758TimeUnit14createInstanceENS0_15UTimeUnitFieldsER10UErrorCode(i32 noundef %timeUnitField, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca ptr, align 8
-  %timeUnitField.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %saved-rvalue = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store i32 %timeUnitField, ptr %timeUnitField.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define noundef ptr @_ZN6icu_778TimeUnit14createInstanceENS0_15UTimeUnitFieldsER10UErrorCode(i32 noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  %10 = load ptr, ptr %5, align 8, !tbaa !10
+  %11 = load i32, ptr %10, align 4, !tbaa !11
+  %12 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %11)
+  %13 = icmp ne i8 %12, 0
+  br i1 %13, label %14, label %15
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %39
 
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %timeUnitField.addr, align 4
-  %cmp = icmp slt i32 %2, 0
-  br i1 %cmp, label %if.then2, label %lor.lhs.false
+15:                                               ; preds = %2
+  %16 = load i32, ptr %4, align 4, !tbaa !8
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %21, label %18
 
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load i32, ptr %timeUnitField.addr, align 4
-  %cmp1 = icmp sge i32 %3, 7
-  br i1 %cmp1, label %if.then2, label %if.end3
+18:                                               ; preds = %15
+  %19 = load i32, ptr %4, align 4, !tbaa !8
+  %20 = icmp sge i32 %19, 7
+  br i1 %20, label %21, label %23
 
-if.then2:                                         ; preds = %lor.lhs.false, %if.end
-  %4 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %4, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+21:                                               ; preds = %18, %15
+  %22 = load ptr, ptr %5, align 8, !tbaa !10
+  store i32 1, ptr %22, align 4, !tbaa !11
+  store ptr null, ptr %3, align 8
+  br label %39
 
-if.end3:                                          ; preds = %lor.lhs.false
-  %call4 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #5
-  %new.isnull = icmp eq ptr %call4, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+23:                                               ; preds = %18
+  %24 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #6
+  %25 = icmp eq ptr %24, null
+  store i1 false, ptr %7, align 1
+  br i1 %25, label %29, label %26
 
-new.notnull:                                      ; preds = %if.end3
-  store ptr %call4, ptr %saved-rvalue, align 8
-  store i1 true, ptr %cleanup.cond, align 1
-  %5 = load i32, ptr %timeUnitField.addr, align 4
-  invoke void @_ZN6icu_758TimeUnitC1ENS0_15UTimeUnitFieldsE(ptr noundef nonnull align 8 dereferenceable(24) %call4, i32 noundef %5)
-          to label %invoke.cont unwind label %lpad
+26:                                               ; preds = %23
+  store ptr %24, ptr %6, align 8
+  store i1 true, ptr %7, align 1
+  %27 = load i32, ptr %4, align 4, !tbaa !8
+  invoke void @_ZN6icu_778TimeUnitC1ENS0_15UTimeUnitFieldsE(ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef %27)
+          to label %28 unwind label %31
 
-invoke.cont:                                      ; preds = %new.notnull
-  br label %new.cont
+28:                                               ; preds = %26
+  br label %29
 
-new.cont:                                         ; preds = %invoke.cont, %if.end3
-  %6 = phi ptr [ %call4, %invoke.cont ], [ null, %if.end3 ]
-  store ptr %6, ptr %retval, align 8
-  br label %return
+29:                                               ; preds = %28, %23
+  %30 = phi ptr [ %24, %28 ], [ null, %23 ]
+  store ptr %30, ptr %3, align 8
+  br label %39
 
-lpad:                                             ; preds = %new.notnull
-  %7 = landingpad { ptr, i32 }
+31:                                               ; preds = %26
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %8, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %9, align 4
+  %35 = load i1, ptr %7, align 1
+  br i1 %35, label %36, label %38
 
-cleanup.action:                                   ; preds = %lpad
-  %10 = load ptr, ptr %saved-rvalue, align 8
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %10) #5
-  br label %cleanup.done
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %6, align 8
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %37) #6
+  br label %38
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %eh.resume
+38:                                               ; preds = %36, %31
+  br label %41
 
-return:                                           ; preds = %new.cont, %if.then2, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+39:                                               ; preds = %29, %21, %14
+  %40 = load ptr, ptr %3, align 8
+  ret ptr %40
 
-eh.resume:                                        ; preds = %cleanup.done
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %8, align 8
+  %43 = load i32, ptr %9, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %code) #0 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0) #2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !11
+  %3 = load i32, ptr %2, align 4, !tbaa !11
+  %4 = icmp sgt i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) #2
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) #2
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758TimeUnitC2ENS0_15UTimeUnitFieldsE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %timeUnitField) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %timeUnitField.addr = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %timeUnitField, ptr %timeUnitField.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1)
-  %0 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %1 = load i32, ptr %timeUnitField.addr, align 4
-  %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this1, i32 0, i32 1
-  store i32 %1, ptr %fTimeUnitField, align 4
-  %fTimeUnitField2 = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %fTimeUnitField2, align 4
-  switch i32 %2, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb3
-    i32 2, label %sw.bb5
-    i32 3, label %sw.bb7
-    i32 4, label %sw.bb9
-    i32 5, label %sw.bb11
-    i32 6, label %sw.bb13
+define void @_ZN6icu_778TimeUnitC2ENS0_15UTimeUnitFieldsE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN6icu_7711MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %7)
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6icu_778TimeUnitE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !13
+  %8 = load i32, ptr %4, align 4, !tbaa !8
+  %9 = getelementptr inbounds nuw %"class.icu_77::TimeUnit", ptr %7, i32 0, i32 1
+  store i32 %8, ptr %9, align 4, !tbaa !15
+  %10 = getelementptr inbounds nuw %"class.icu_77::TimeUnit", ptr %7, i32 0, i32 1
+  %11 = load i32, ptr %10, align 4, !tbaa !15
+  switch i32 %11, label %30 [
+    i32 0, label %12
+    i32 1, label %18
+    i32 2, label %20
+    i32 3, label %22
+    i32 4, label %24
+    i32 5, label %26
+    i32 6, label %28
   ]
 
-sw.bb:                                            ; preds = %entry
-  invoke void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef @.str)
-          to label %invoke.cont unwind label %lpad
+12:                                               ; preds = %2
+  invoke void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %7, ptr noundef @.str)
+          to label %13 unwind label %14
 
-invoke.cont:                                      ; preds = %sw.bb
-  br label %sw.epilog
+13:                                               ; preds = %12
+  br label %31
 
-lpad:                                             ; preds = %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb
-  %3 = landingpad { ptr, i32 }
+14:                                               ; preds = %28, %26, %24, %22, %20, %18, %12
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1) #5
-  br label %eh.resume
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %5, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %6, align 4
+  call void @_ZN6icu_7711MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %7) #6
+  br label %32
 
-sw.bb3:                                           ; preds = %entry
-  invoke void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef @.str.1)
-          to label %invoke.cont4 unwind label %lpad
+18:                                               ; preds = %2
+  invoke void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %7, ptr noundef @.str.1)
+          to label %19 unwind label %14
 
-invoke.cont4:                                     ; preds = %sw.bb3
-  br label %sw.epilog
+19:                                               ; preds = %18
+  br label %31
 
-sw.bb5:                                           ; preds = %entry
-  invoke void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef @.str.2)
-          to label %invoke.cont6 unwind label %lpad
+20:                                               ; preds = %2
+  invoke void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %7, ptr noundef @.str.2)
+          to label %21 unwind label %14
 
-invoke.cont6:                                     ; preds = %sw.bb5
-  br label %sw.epilog
+21:                                               ; preds = %20
+  br label %31
 
-sw.bb7:                                           ; preds = %entry
-  invoke void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef @.str.3)
-          to label %invoke.cont8 unwind label %lpad
+22:                                               ; preds = %2
+  invoke void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %7, ptr noundef @.str.3)
+          to label %23 unwind label %14
 
-invoke.cont8:                                     ; preds = %sw.bb7
-  br label %sw.epilog
+23:                                               ; preds = %22
+  br label %31
 
-sw.bb9:                                           ; preds = %entry
-  invoke void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef @.str.4)
-          to label %invoke.cont10 unwind label %lpad
+24:                                               ; preds = %2
+  invoke void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %7, ptr noundef @.str.4)
+          to label %25 unwind label %14
 
-invoke.cont10:                                    ; preds = %sw.bb9
-  br label %sw.epilog
+25:                                               ; preds = %24
+  br label %31
 
-sw.bb11:                                          ; preds = %entry
-  invoke void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef @.str.5)
-          to label %invoke.cont12 unwind label %lpad
+26:                                               ; preds = %2
+  invoke void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %7, ptr noundef @.str.5)
+          to label %27 unwind label %14
 
-invoke.cont12:                                    ; preds = %sw.bb11
-  br label %sw.epilog
+27:                                               ; preds = %26
+  br label %31
 
-sw.bb13:                                          ; preds = %entry
-  invoke void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef @.str.6)
-          to label %invoke.cont14 unwind label %lpad
+28:                                               ; preds = %2
+  invoke void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %7, ptr noundef @.str.6)
+          to label %29 unwind label %14
 
-invoke.cont14:                                    ; preds = %sw.bb13
-  br label %sw.epilog
+29:                                               ; preds = %28
+  br label %31
 
-sw.default:                                       ; preds = %entry
-  call void @abort() #6
+30:                                               ; preds = %2
+  call void @abort() #7
   unreachable
 
-sw.epilog:                                        ; preds = %invoke.cont14, %invoke.cont12, %invoke.cont10, %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont
+31:                                               ; preds = %29, %27, %25, %23, %21, %19, %13
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val15 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val15
+32:                                               ; preds = %14
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %6, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
 }
 
-declare void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #3
+declare void @_ZN6icu_7711MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #4
 
-declare void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef) #3
+declare void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef) #4
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #4
+declare void @abort() #5
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #2
+declare void @_ZN6icu_7711MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758TimeUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  call void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef nonnull align 8 dereferenceable(19) %0)
-  %1 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %other.addr, align 8
-  %fTimeUnitField2 = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %fTimeUnitField2, align 4
-  store i32 %3, ptr %fTimeUnitField, align 4
+define void @_ZN6icu_778TimeUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @_ZN6icu_7711MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %5, ptr noundef nonnull align 8 dereferenceable(19) %6)
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN6icu_778TimeUnitE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %"class.icu_77::TimeUnit", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %"class.icu_77::TimeUnit", ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 4, !tbaa !15
+  store i32 %10, ptr %7, align 4, !tbaa !15
   ret void
 }
 
-declare void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #3
+declare void @_ZN6icu_7711MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef nonnull align 8 dereferenceable(19)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_758TimeUnit5cloneEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %cleanup.cond = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #5
-  %new.isnull = icmp eq ptr %call, null
-  store i1 false, ptr %cleanup.cond, align 1
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+define noundef ptr @_ZNK6icu_778TimeUnit5cloneEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %6 = load ptr, ptr %2, align 8
+  %7 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #6
+  %8 = icmp eq ptr %7, null
+  store i1 false, ptr %3, align 1
+  br i1 %8, label %11, label %9
 
-new.notnull:                                      ; preds = %entry
-  store i1 true, ptr %cleanup.cond, align 1
-  invoke void @_ZN6icu_758TimeUnitC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull align 8 dereferenceable(24) %this1)
-          to label %invoke.cont unwind label %lpad
+9:                                                ; preds = %1
+  store i1 true, ptr %3, align 1
+  invoke void @_ZN6icu_778TimeUnitC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
+          to label %10 unwind label %13
 
-invoke.cont:                                      ; preds = %new.notnull
-  br label %new.cont
+10:                                               ; preds = %9
+  br label %11
 
-new.cont:                                         ; preds = %invoke.cont, %entry
-  %0 = phi ptr [ %call, %invoke.cont ], [ null, %entry ]
-  ret ptr %0
+11:                                               ; preds = %10, %1
+  %12 = phi ptr [ %7, %10 ], [ null, %1 ]
+  ret ptr %12
 
-lpad:                                             ; preds = %new.notnull
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %9
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  %cleanup.is_active = load i1, ptr %cleanup.cond, align 1
-  br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %4, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %5, align 4
+  %17 = load i1, ptr %3, align 1
+  br i1 %17, label %18, label %19
 
-cleanup.action:                                   ; preds = %lpad
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %call) #5
-  br label %cleanup.done
+18:                                               ; preds = %13
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %7) #6
+  br label %19
 
-cleanup.done:                                     ; preds = %cleanup.action, %lpad
-  br label %eh.resume
+19:                                               ; preds = %18, %13
+  br label %20
 
-eh.resume:                                        ; preds = %cleanup.done
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+20:                                               ; preds = %19
+  %21 = load ptr, ptr %4, align 8
+  %22 = load i32, ptr %5, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_758TimeUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) #1 align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  %cmp = icmp eq ptr %this1, %0
-  br i1 %cmp, label %if.then, label %if.end
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_778TimeUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8, !tbaa !3
+  %8 = icmp eq ptr %6, %7
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  store ptr %this1, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %2
+  store ptr %6, ptr %3, align 8
+  br label %17
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %other.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this1, ptr noundef nonnull align 8 dereferenceable(19) %1)
-  %2 = load ptr, ptr %other.addr, align 8
-  %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %fTimeUnitField, align 4
-  %fTimeUnitField2 = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this1, i32 0, i32 1
-  store i32 %3, ptr %fTimeUnitField2, align 4
-  store ptr %this1, ptr %retval, align 8
-  br label %return
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = call noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7711MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %6, ptr noundef nonnull align 8 dereferenceable(19) %11)
+  %13 = load ptr, ptr %5, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %"class.icu_77::TimeUnit", ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 4, !tbaa !15
+  %16 = getelementptr inbounds nuw %"class.icu_77::TimeUnit", ptr %6, i32 0, i32 1
+  store i32 %15, ptr %16, align 4, !tbaa !15
+  store ptr %6, ptr %3, align 8
+  br label %17
 
-return:                                           ; preds = %if.end, %if.then
-  %4 = load ptr, ptr %retval, align 8
-  ret ptr %4
+17:                                               ; preds = %10, %9
+  %18 = load ptr, ptr %3, align 8
+  ret ptr %18
 }
 
-declare noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef nonnull align 8 dereferenceable(19)) #3
+declare noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7711MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef nonnull align 8 dereferenceable(19)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK6icu_758TimeUnit16getTimeUnitFieldEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %fTimeUnitField, align 4
-  ret i32 %0
+define noundef i32 @_ZNK6icu_778TimeUnit16getTimeUnitFieldEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::TimeUnit", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_758TimeUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7511MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this1) #5
+define void @_ZN6icu_778TimeUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6icu_7711MeasureUnitD2Ev(ptr noundef nonnull align 8 dereferenceable(19) %3) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_758TimeUnitD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_758TimeUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #5
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef %this1) #5
+define void @_ZN6icu_778TimeUnitD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN6icu_778TimeUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef %3) #6
   ret void
 }
 
-declare noundef zeroext i1 @_ZNK6icu_7511MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK6icu_7711MeasureUniteqERKNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(19), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6icu_778TimeUnitE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"_ZTSN6icu_778TimeUnit15UTimeUnitFieldsE", !6, i64 0}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"vtable pointer", !7, i64 0}
+!15 = !{!16, !9, i64 20}
+!16 = !{!"_ZTSN6icu_778TimeUnitE", !17, i64 0, !9, i64 20}
+!17 = !{!"_ZTSN6icu_7711MeasureUnitE", !18, i64 0, !19, i64 8, !20, i64 16, !6, i64 18}
+!18 = !{!"_ZTSN6icu_777UObjectE"}
+!19 = !{!"p1 _ZTSN6icu_7715MeasureUnitImplE", !5, i64 0}
+!20 = !{!"short", !6, i64 0}

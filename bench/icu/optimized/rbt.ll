@@ -1,499 +1,519 @@
 ; ModuleID = 'bench/icu/original/rbt.ll'
 source_filename = "bench/icu/original/rbt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
+%"class.icu_77::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.icu_75::TransliteratorParser" = type <{ [8 x i8], %"class.icu_75::UVector", %"class.icu_75::UVector", ptr, ptr, i32, %struct.UParseError, [4 x i8], ptr, %"class.icu_75::UVector", %"class.icu_75::Hashtable", %"class.icu_75::UnicodeString", %"class.icu_75::UVector", i16, i16, [4 x i8], %"class.icu_75::UnicodeString", i16, [6 x i8] }>
+%"class.icu_77::TransliteratorParser" = type <{ [8 x i8], %"class.icu_77::UVector", %"class.icu_77::UVector", ptr, ptr, i32, %struct.UParseError, [4 x i8], ptr, %"class.icu_77::UVector", %"class.icu_77::Hashtable", %"class.icu_77::UnicodeString", %"class.icu_77::UVector", i16, i16, [4 x i8], %"class.icu_77::UnicodeString", i16, [6 x i8] }>
 %struct.UParseError = type { i32, i32, [16 x i16], [16 x i16] }
-%"class.icu_75::Hashtable" = type { ptr, %struct.UHashtable }
+%"class.icu_77::Hashtable" = type { ptr, %struct.UHashtable }
 %struct.UHashtable = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, float, float, i8, i8 }
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
+%"class.icu_77::UVector" = type { %"class.icu_77::UObject", i32, i32, ptr, ptr, ptr }
+%"class.icu_77::UObject" = type { ptr }
+%"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
+%"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
+%"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 
 $__clang_call_terminate = comdat any
 
-@_ZZN6icu_7523RuleBasedTransliterator16getStaticClassIDEvE7classID = internal global i8 0, align 1
-@_ZTVN6icu_7523RuleBasedTransliteratorE = unnamed_addr constant { [19 x ptr] } { [19 x ptr] [ptr null, ptr @_ZTIN6icu_7523RuleBasedTransliteratorE, ptr @_ZN6icu_7523RuleBasedTransliteratorD1Ev, ptr @_ZN6icu_7523RuleBasedTransliteratorD0Ev, ptr @_ZNK6icu_7523RuleBasedTransliterator17getDynamicClassIDEv, ptr @_ZNK6icu_7523RuleBasedTransliterator5cloneEv, ptr @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableEii, ptr @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableE, ptr @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableER14UTransPositionRKNS_13UnicodeStringER10UErrorCode, ptr @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableER14UTransPositioniR10UErrorCode, ptr @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableER14UTransPositionR10UErrorCode, ptr @_ZNK6icu_7514Transliterator21finishTransliterationERNS_11ReplaceableER14UTransPosition, ptr @_ZNK6icu_7523RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona, ptr @_ZNK6icu_7514Transliterator21filteredTransliterateERNS_11ReplaceableER14UTransPositiona, ptr @_ZNK6icu_7514Transliterator21filteredTransliterateERNS_11ReplaceableER14UTransPositionaa, ptr @_ZNK6icu_7514Transliterator5getIDEv, ptr @_ZNK6icu_7523RuleBasedTransliterator7toRulesERNS_13UnicodeStringEa, ptr @_ZNK6icu_7523RuleBasedTransliterator18handleGetSourceSetERNS_10UnicodeSetE, ptr @_ZNK6icu_7523RuleBasedTransliterator12getTargetSetERNS_10UnicodeSetE] }, align 8
-@_ZZNK6icu_7523RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositionaE23transliteratorDataMutex = internal global %"class.icu_75::UMutex" zeroinitializer, align 8
-@_ZN6icu_75L11gLockedTextE = internal unnamed_addr global ptr null, align 8
+@_ZZN6icu_7723RuleBasedTransliterator16getStaticClassIDEvE7classID = internal global i8 0, align 1
+@_ZTVN6icu_7723RuleBasedTransliteratorE = unnamed_addr constant { [19 x ptr] } { [19 x ptr] [ptr null, ptr @_ZTIN6icu_7723RuleBasedTransliteratorE, ptr @_ZN6icu_7723RuleBasedTransliteratorD1Ev, ptr @_ZN6icu_7723RuleBasedTransliteratorD0Ev, ptr @_ZNK6icu_7723RuleBasedTransliterator17getDynamicClassIDEv, ptr @_ZNK6icu_7723RuleBasedTransliterator5cloneEv, ptr @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableEii, ptr @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableE, ptr @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableER14UTransPositionRKNS_13UnicodeStringER10UErrorCode, ptr @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableER14UTransPositioniR10UErrorCode, ptr @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableER14UTransPositionR10UErrorCode, ptr @_ZNK6icu_7714Transliterator21finishTransliterationERNS_11ReplaceableER14UTransPosition, ptr @_ZNK6icu_7723RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona, ptr @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11ReplaceableER14UTransPositiona, ptr @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11ReplaceableER14UTransPositionaa, ptr @_ZNK6icu_7714Transliterator5getIDEv, ptr @_ZNK6icu_7723RuleBasedTransliterator7toRulesERNS_13UnicodeStringEa, ptr @_ZNK6icu_7723RuleBasedTransliterator18handleGetSourceSetERNS_10UnicodeSetE, ptr @_ZNK6icu_7723RuleBasedTransliterator12getTargetSetERNS_10UnicodeSetE] }, align 8
+@_ZZNK6icu_7723RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositionaE23transliteratorDataMutex = internal global %"class.icu_77::UMutex" zeroinitializer, align 8
+@_ZN6icu_77L11gLockedTextE = internal unnamed_addr global ptr null, align 8
+@_ZTIN6icu_7723RuleBasedTransliteratorE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7723RuleBasedTransliteratorE, ptr @_ZTIN6icu_7714TransliteratorE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN6icu_7523RuleBasedTransliteratorE = constant [35 x i8] c"N6icu_7523RuleBasedTransliteratorE\00", align 1
-@_ZTIN6icu_7514TransliteratorE = external constant ptr
-@_ZTIN6icu_7523RuleBasedTransliteratorE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7523RuleBasedTransliteratorE, ptr @_ZTIN6icu_7514TransliteratorE }, align 8
+@_ZTSN6icu_7723RuleBasedTransliteratorE = constant [35 x i8] c"N6icu_7723RuleBasedTransliteratorE\00", align 1
+@_ZTIN6icu_7714TransliteratorE = external constant ptr
 
-@_ZN6icu_7523RuleBasedTransliteratorC1ERKNS_13UnicodeStringES3_15UTransDirectionPNS_13UnicodeFilterER11UParseErrorR10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr, i32, ptr, ptr, ptr), ptr @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringES3_15UTransDirectionPNS_13UnicodeFilterER11UParseErrorR10UErrorCode
-@_ZN6icu_7523RuleBasedTransliteratorC1ERKNS_13UnicodeStringEPKNS_23TransliterationRuleDataEPNS_13UnicodeFilterE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPKNS_23TransliterationRuleDataEPNS_13UnicodeFilterE
-@_ZN6icu_7523RuleBasedTransliteratorC1ERKNS_13UnicodeStringEPNS_23TransliterationRuleDataEa = unnamed_addr alias void (ptr, ptr, ptr, i8), ptr @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPNS_23TransliterationRuleDataEa
-@_ZN6icu_7523RuleBasedTransliteratorC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7523RuleBasedTransliteratorC2ERKS0_
-@_ZN6icu_7523RuleBasedTransliteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7523RuleBasedTransliteratorD2Ev
+@_ZN6icu_7723RuleBasedTransliteratorC1ERKNS_13UnicodeStringES3_15UTransDirectionPNS_13UnicodeFilterER11UParseErrorR10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr, i32, ptr, ptr, ptr), ptr @_ZN6icu_7723RuleBasedTransliteratorC2ERKNS_13UnicodeStringES3_15UTransDirectionPNS_13UnicodeFilterER11UParseErrorR10UErrorCode
+@_ZN6icu_7723RuleBasedTransliteratorC1ERKNS_13UnicodeStringEPKNS_23TransliterationRuleDataEPNS_13UnicodeFilterE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN6icu_7723RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPKNS_23TransliterationRuleDataEPNS_13UnicodeFilterE
+@_ZN6icu_7723RuleBasedTransliteratorC1ERKNS_13UnicodeStringEPNS_23TransliterationRuleDataEa = unnamed_addr alias void (ptr, ptr, ptr, i8), ptr @_ZN6icu_7723RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPNS_23TransliterationRuleDataEa
+@_ZN6icu_7723RuleBasedTransliteratorC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7723RuleBasedTransliteratorC2ERKS0_
+@_ZN6icu_7723RuleBasedTransliteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7723RuleBasedTransliteratorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN6icu_7523RuleBasedTransliterator16getStaticClassIDEv() local_unnamed_addr #0 align 2 {
-entry:
-  ret ptr @_ZZN6icu_7523RuleBasedTransliterator16getStaticClassIDEvE7classID
+define noundef nonnull ptr @_ZN6icu_7723RuleBasedTransliterator16getStaticClassIDEv() local_unnamed_addr #0 align 2 {
+  ret ptr @_ZZN6icu_7723RuleBasedTransliterator16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7523RuleBasedTransliterator17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
-entry:
-  ret ptr @_ZZN6icu_7523RuleBasedTransliterator16getStaticClassIDEvE7classID
+define noundef nonnull ptr @_ZNK6icu_7723RuleBasedTransliterator17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+  ret ptr @_ZZN6icu_7723RuleBasedTransliterator16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7523RuleBasedTransliterator10_constructERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) initializes((88, 97)) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef %direction, ptr noundef nonnull align 4 dereferenceable(72) %parseError, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %parser = alloca %"class.icu_75::TransliteratorParser", align 8
-  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr null, ptr %fData, align 8
-  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store i8 1, ptr %isDataOwned, align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %cleanup.cont
+define void @_ZN6icu_7723RuleBasedTransliterator10_constructERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) initializes((88, 97)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(72) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %"class.icu_77::TransliteratorParser", align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr null, ptr %7, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 1, ptr %8, align 8, !tbaa !15
+  %9 = load i32, ptr %4, align 4, !tbaa !16
+  %10 = icmp slt i32 %9, 1
+  br i1 %10, label %11, label %36
 
-if.end:                                           ; preds = %entry
-  call void @_ZN6icu_7520TransliteratorParserC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498) %parser, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  invoke void @_ZN6icu_7520TransliteratorParser5parseERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498) %parser, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef %direction, ptr noundef nonnull align 4 dereferenceable(72) %parseError, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont unwind label %lpad
+11:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %6) #8
+  call void @_ZN6icu_7720TransliteratorParserC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  invoke void @_ZN6icu_7720TransliteratorParser5parseERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(72) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %12 unwind label %15
 
-invoke.cont:                                      ; preds = %if.end
-  %1 = load i32, ptr %status, align 4
-  %cmp.i5 = icmp slt i32 %1, 1
-  br i1 %cmp.i5, label %if.end6, label %cleanup
+12:                                               ; preds = %11
+  %13 = load i32, ptr %4, align 4, !tbaa !16
+  %14 = icmp slt i32 %13, 1
+  br i1 %14, label %17, label %35
 
-lpad:                                             ; preds = %invoke.cont21, %invoke.cont17, %if.end15, %if.end
-  %2 = landingpad { ptr, i32 }
+15:                                               ; preds = %34, %31, %28, %11
+  %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7520TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498) %parser) #7
-  resume { ptr, i32 } %2
+  call void @_ZN6icu_7720TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498) %6) #8
+  call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %6) #8
+  resume { ptr, i32 } %16
 
-if.end6:                                          ; preds = %invoke.cont
-  %count.i = getelementptr inbounds nuw i8, ptr %parser, i64 56
-  %3 = load i32, ptr %count.i, align 8
-  %cmp = icmp ne i32 %3, 0
-  %compoundFilter = getelementptr inbounds nuw i8, ptr %parser, i64 88
-  %4 = load ptr, ptr %compoundFilter, align 8
-  %cmp9 = icmp ne ptr %4, null
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp9
-  %count.i7 = getelementptr inbounds nuw i8, ptr %parser, i64 16
-  %5 = load i32, ptr %count.i7, align 8
-  %cmp13 = icmp eq i32 %5, 0
-  %or.cond8 = select i1 %or.cond, i1 true, i1 %cmp13
-  br i1 %or.cond8, label %if.then14, label %if.end15
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %19 = load i32, ptr %18, align 8, !tbaa !18
+  %20 = icmp ne i32 %19, 0
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  %or.cond = select i1 %20, i1 true, i1 %23
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp eq i32 %25, 0
+  %or.cond15 = select i1 %or.cond, i1 true, i1 %26
+  br i1 %or.cond15, label %27, label %28
 
-if.then14:                                        ; preds = %if.end6
-  store i32 65560, ptr %status, align 4
-  br label %cleanup
+27:                                               ; preds = %17
+  store i32 65560, ptr %4, align 4, !tbaa !16
+  br label %35
 
-if.end15:                                         ; preds = %if.end6
-  %dataVector = getelementptr inbounds nuw i8, ptr %parser, i64 8
-  %call18 = invoke noundef ptr @_ZN6icu_757UVector15orphanElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %dataVector, i32 noundef 0)
-          to label %invoke.cont17 unwind label %lpad
+28:                                               ; preds = %17
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = invoke noundef ptr @_ZN6icu_777UVector15orphanElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %29, i32 noundef 0)
+          to label %31 unwind label %15
 
-invoke.cont17:                                    ; preds = %if.end15
-  store ptr %call18, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds nuw i8, ptr %call18, i64 8
-  %call22 = invoke noundef i32 @_ZNK6icu_7522TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet)
-          to label %invoke.cont21 unwind label %lpad
+31:                                               ; preds = %28
+  store ptr %30, ptr %7, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %33 = invoke noundef i32 @_ZNK6icu_7722TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %32)
+          to label %34 unwind label %15
 
-invoke.cont21:                                    ; preds = %invoke.cont17
-  invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %call22)
-          to label %cleanup unwind label %lpad
+34:                                               ; preds = %31
+  invoke void @_ZN6icu_7714Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef %33)
+          to label %35 unwind label %15
 
-cleanup:                                          ; preds = %invoke.cont21, %invoke.cont, %if.then14
-  call void @_ZN6icu_7520TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498) %parser) #7
-  br label %cleanup.cont
+35:                                               ; preds = %34, %12, %27
+  call void @_ZN6icu_7720TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498) %6) #8
+  call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %6) #8
+  br label %36
 
-cleanup.cont:                                     ; preds = %entry, %cleanup
+36:                                               ; preds = %5, %35
   ret void
 }
 
-declare void @_ZN6icu_7520TransliteratorParserC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare void @_ZN6icu_7520TransliteratorParser5parseERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef nonnull align 4 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare void @_ZN6icu_7720TransliteratorParserC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+
+declare void @_ZN6icu_7720TransliteratorParser5parseERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef nonnull align 4 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef ptr @_ZN6icu_757UVector15orphanElementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN6icu_777UVector15orphanElementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #3
 
-declare void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84), i32 noundef) local_unnamed_addr #2
+declare void @_ZN6icu_7714Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84), i32 noundef) local_unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_7522TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056)) unnamed_addr #2
-
-; Function Attrs: nounwind
-declare void @_ZN6icu_7520TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498)) unnamed_addr #3
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringES3_15UTransDirectionPNS_13UnicodeFilterER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef %direction, ptr noundef %adoptedFilter, ptr noundef nonnull align 4 dereferenceable(72) %parseError, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %adoptedFilter)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
-  invoke void @_ZN6icu_7523RuleBasedTransliterator10_constructERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef %direction, ptr noundef nonnull align 4 dereferenceable(72) %parseError, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  ret void
-
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
-  resume { ptr, i32 } %0
-}
-
-declare void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #2
+declare noundef i32 @_ZNK6icu_7722TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #3
+declare void @_ZN6icu_7720TransliteratorParserD1Ev(ptr noundef nonnull align 8 dereferenceable(498)) unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPKNS_23TransliterationRuleDataEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %theData, ptr noundef %adoptedFilter) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %adoptedFilter)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %theData, ptr %fData, align 8
-  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store i8 0, ptr %isDataOwned, align 8
-  %ruleSet = getelementptr inbounds nuw i8, ptr %theData, i64 8
-  %call = invoke noundef i32 @_ZNK6icu_7522TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN6icu_7723RuleBasedTransliteratorC2ERKNS_13UnicodeStringES3_15UTransDirectionPNS_13UnicodeFilterER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(72) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN6icu_7714TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %4)
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6icu_7723RuleBasedTransliteratorE, i64 16), ptr %0, align 8, !tbaa !21
+  invoke void @_ZN6icu_7723RuleBasedTransliterator10_constructERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(72) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %8 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %call)
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %invoke.cont
+8:                                                ; preds = %7
   ret void
 
-lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
-  resume { ptr, i32 } %0
+  tail call void @_ZN6icu_7714TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) #8
+  resume { ptr, i32 } %10
 }
 
+declare void @_ZN6icu_7714TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #3
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_7714TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #4
+
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPNS_23TransliterationRuleDataEa(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %theData, i8 noundef signext %isDataAdopted) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef null)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store ptr %theData, ptr %fData, align 8
-  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store i8 %isDataAdopted, ptr %isDataOwned, align 8
-  %ruleSet = getelementptr inbounds nuw i8, ptr %theData, i64 8
-  %call = invoke noundef i32 @_ZNK6icu_7522TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet)
-          to label %invoke.cont unwind label %lpad
+define void @_ZN6icu_7723RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPKNS_23TransliterationRuleDataEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN6icu_7714TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %3)
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6icu_7723RuleBasedTransliteratorE, i64 16), ptr %0, align 8, !tbaa !21
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %2, ptr %5, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 0, ptr %6, align 8, !tbaa !15
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = invoke noundef i32 @_ZNK6icu_7722TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %7)
+          to label %9 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %this, i32 noundef %call)
-          to label %invoke.cont3 unwind label %lpad
+9:                                                ; preds = %4
+  invoke void @_ZN6icu_7714Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef %8)
+          to label %10 unwind label %11
 
-invoke.cont3:                                     ; preds = %invoke.cont
+10:                                               ; preds = %9
   ret void
 
-lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+11:                                               ; preds = %9, %4
+  %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
-  resume { ptr, i32 } %0
+  tail call void @_ZN6icu_7714TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) #8
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(97) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %other)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %fData2 = getelementptr inbounds nuw i8, ptr %other, i64 88
-  %0 = load ptr, ptr %fData2, align 8
-  store ptr %0, ptr %fData, align 8
-  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %isDataOwned3 = getelementptr inbounds nuw i8, ptr %other, i64 96
-  %1 = load i8, ptr %isDataOwned3, align 8
-  store i8 %1, ptr %isDataOwned, align 8
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define void @_ZN6icu_7723RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPNS_23TransliterationRuleDataEa(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, i8 noundef signext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN6icu_7714TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef null)
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6icu_7723RuleBasedTransliteratorE, i64 16), ptr %0, align 8, !tbaa !21
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %2, ptr %5, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 %3, ptr %6, align 8, !tbaa !15
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = invoke noundef i32 @_ZNK6icu_7722TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %7)
+          to label %9 unwind label %11
 
-if.then:                                          ; preds = %entry
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 1168) #7
-  %new.isnull = icmp eq ptr %call, null
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+9:                                                ; preds = %4
+  invoke void @_ZN6icu_7714Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef %8)
+          to label %10 unwind label %11
 
-new.notnull:                                      ; preds = %if.then
-  %2 = load ptr, ptr %fData2, align 8
-  invoke void @_ZN6icu_7523TransliterationRuleDataC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(1168) %call, ptr noundef nonnull align 8 dereferenceable(1168) %2)
-          to label %new.cont unwind label %lpad
+10:                                               ; preds = %9
+  ret void
 
-new.cont:                                         ; preds = %new.notnull, %if.then
-  store ptr %call, ptr %fData, align 8
-  br label %if.end
-
-lpad:                                             ; preds = %new.notnull
-  %3 = landingpad { ptr, i32 }
+11:                                               ; preds = %9, %4
+  %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #7
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
-  resume { ptr, i32 } %3
+  tail call void @_ZN6icu_7714TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) #8
+  resume { ptr, i32 } %12
+}
 
-if.end:                                           ; preds = %new.cont, %entry
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7723RuleBasedTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN6icu_7714TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(84) %1)
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6icu_7723RuleBasedTransliteratorE, i64 16), ptr %0, align 8, !tbaa !21
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %5, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %8 = load i8, ptr %7, align 8, !tbaa !15
+  store i8 %8, ptr %6, align 8, !tbaa !15
+  %.not = icmp eq i8 %8, 0
+  br i1 %.not, label %17, label %9
+
+9:                                                ; preds = %2
+  %10 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 1168) #8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %14, label %12
+
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  invoke void @_ZN6icu_7723TransliterationRuleDataC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(1168) %10, ptr noundef nonnull align 8 dereferenceable(1168) %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %12, %9
+  store ptr %10, ptr %3, align 8, !tbaa !3
+  br label %17
+
+15:                                               ; preds = %12
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #8
+  tail call void @_ZN6icu_7714TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) #8
+  resume { ptr, i32 } %16
+
+17:                                               ; preds = %14, %2
   ret void
 }
 
-declare void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #2
+declare void @_ZN6icu_7714TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #4
 
-declare void @_ZN6icu_7523TransliterationRuleDataC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(1168), ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #2
+declare void @_ZN6icu_7723TransliterationRuleDataC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(1168), ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7523RuleBasedTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
-  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %0 = load i8, ptr %isDataOwned, align 8
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define void @_ZN6icu_7723RuleBasedTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+  store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN6icu_7723RuleBasedTransliteratorE, i64 16), ptr %0, align 8, !tbaa !21
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %3 = load i8, ptr %2, align 8, !tbaa !15
+  %.not = icmp eq i8 %3, 0
+  br i1 %.not, label %9, label %4
 
-if.then:                                          ; preds = %entry
-  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %1 = load ptr, ptr %fData, align 8
-  %isnull = icmp eq ptr %1, null
-  br i1 %isnull, label %if.end, label %delete.notnull
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %6 = load ptr, ptr %5, align 8, !tbaa !3
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %9, label %8
 
-delete.notnull:                                   ; preds = %if.then
-  tail call void @_ZN6icu_7523TransliterationRuleDataD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %1) #7
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %1) #7
-  br label %if.end
+8:                                                ; preds = %4
+  tail call void @_ZN6icu_7723TransliterationRuleDataD1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %6) #8
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %6) #8
+  br label %9
 
-if.end:                                           ; preds = %if.then, %delete.notnull, %entry
-  tail call void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) #7
+9:                                                ; preds = %4, %8, %1
+  tail call void @_ZN6icu_7714TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) #8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7523TransliterationRuleDataD1Ev(ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #3
+declare void @_ZN6icu_7723TransliterationRuleDataD1Ev(ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7523RuleBasedTransliteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #4 align 2 {
-entry:
-  tail call void @_ZN6icu_7523RuleBasedTransliteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) #7
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
+define void @_ZN6icu_7723RuleBasedTransliteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #5 align 2 {
+  tail call void @_ZN6icu_7723RuleBasedTransliteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) #8
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7523RuleBasedTransliterator5cloneEv(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 104) #7
-  %new.isnull = icmp eq ptr %call, null
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+define noundef ptr @_ZNK6icu_7723RuleBasedTransliterator5cloneEv(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 104) #8
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %5, label %4
 
-new.notnull:                                      ; preds = %entry
-  invoke void @_ZN6icu_7523RuleBasedTransliteratorC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(97) %call, ptr noundef nonnull align 8 dereferenceable(97) %this)
-          to label %new.cont unwind label %lpad
+4:                                                ; preds = %1
+  invoke void @_ZN6icu_7723RuleBasedTransliteratorC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(97) %2, ptr noundef nonnull align 8 dereferenceable(97) %0)
+          to label %5 unwind label %6
 
-new.cont:                                         ; preds = %new.notnull, %entry
-  ret ptr %call
+5:                                                ; preds = %4, %1
+  ret ptr %2
 
-lpad:                                             ; preds = %new.notnull
-  %0 = landingpad { ptr, i32 }
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #7
-  resume { ptr, i32 } %0
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %2) #8
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7523RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(16) %index, i8 noundef signext %isIncremental) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %limit = getelementptr inbounds nuw i8, ptr %index, i64 12
-  %0 = load i32, ptr %limit, align 4
-  %start = getelementptr inbounds nuw i8, ptr %index, i64 8
-  %1 = load i32, ptr %start, align 4
-  %sub = sub nsw i32 %0, %1
-  %cmp = icmp ult i32 %sub, 268435456
-  %shl = shl nuw i32 %sub, 4
-  tail call void @umtx_lock_75(ptr noundef null)
-  %2 = load ptr, ptr @_ZN6icu_75L11gLockedTextE, align 8
-  %cmp2.not = icmp eq ptr %text, %2
-  invoke void @umtx_unlock_75(ptr noundef null)
-          to label %_ZN6icu_755MutexD2Ev.exit unwind label %terminate.lpad.i
+define void @_ZNK6icu_7723RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, i8 noundef signext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %6 = load i32, ptr %5, align 4, !tbaa !23
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = load i32, ptr %7, align 4, !tbaa !25
+  %9 = sub nsw i32 %6, %8
+  %10 = icmp ult i32 %9, 268435456
+  %11 = shl nuw i32 %9, 4
+  tail call void @umtx_lock_77(ptr noundef null)
+  %12 = load ptr, ptr @_ZN6icu_77L11gLockedTextE, align 8, !tbaa !26
+  %.not = icmp eq ptr %1, %12
+  invoke void @umtx_unlock_77(ptr noundef null)
+          to label %_ZN6icu_775MutexD2Ev.exit unwind label %13
 
-terminate.lpad.i:                                 ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %4
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #8
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #9
   unreachable
 
-_ZN6icu_755MutexD2Ev.exit:                        ; preds = %entry
-  br i1 %cmp2.not, label %if.end5, label %if.then3
+_ZN6icu_775MutexD2Ev.exit:                        ; preds = %4
+  br i1 %.not, label %_ZN6icu_775MutexD2Ev.exit24, label %16
 
-if.then3:                                         ; preds = %_ZN6icu_755MutexD2Ev.exit
-  tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7523RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositionaE23transliteratorDataMutex)
-  tail call void @umtx_lock_75(ptr noundef null)
-  store ptr %text, ptr @_ZN6icu_75L11gLockedTextE, align 8
-  invoke void @umtx_unlock_75(ptr noundef null)
-          to label %if.end5 unwind label %terminate.lpad.i10
+16:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit
+  tail call void @umtx_lock_77(ptr noundef nonnull @_ZZNK6icu_7723RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositionaE23transliteratorDataMutex)
+  tail call void @umtx_lock_77(ptr noundef null)
+  store ptr %1, ptr @_ZN6icu_77L11gLockedTextE, align 8, !tbaa !26
+  invoke void @umtx_unlock_77(ptr noundef null)
+          to label %_ZN6icu_775MutexD2Ev.exit24 unwind label %17
 
-terminate.lpad.i10:                               ; preds = %if.then3
-  %5 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #8
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #9
   unreachable
 
-if.end5:                                          ; preds = %if.then3, %_ZN6icu_755MutexD2Ev.exit
-  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %7 = load ptr, ptr %fData, align 8
-  %cmp6.not = icmp eq ptr %7, null
-  br i1 %cmp6.not, label %if.end14, label %while.cond.preheader
+_ZN6icu_775MutexD2Ev.exit24:                      ; preds = %16, %_ZN6icu_775MutexD2Ev.exit
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  %.not20 = icmp eq ptr %21, null
+  br i1 %.not20, label %.critedge, label %.preheader
 
-while.cond.preheader:                             ; preds = %if.end5
-  %8 = load i32, ptr %start, align 4
-  %9 = load i32, ptr %limit, align 4
-  %cmp1015.not = icmp slt i32 %8, %9
-  br i1 %cmp1015.not, label %land.rhs, label %if.end14
+.preheader:                                       ; preds = %_ZN6icu_775MutexD2Ev.exit24
+  %22 = load i32, ptr %7, align 4, !tbaa !25
+  %23 = load i32, ptr %5, align 4, !tbaa !23
+  %.not31 = icmp slt i32 %22, %23
+  br i1 %.not31, label %.lr.ph, label %.critedge
 
-while.cond:                                       ; preds = %land.rhs
-  %inc = add i32 %loopCount.016, 1
-  %10 = load i32, ptr %start, align 4
-  %11 = load i32, ptr %limit, align 4
-  %cmp10 = icmp sge i32 %10, %11
-  %cmp11.not14 = icmp ult i32 %shl, %inc
-  %cmp11.not = select i1 %cmp, i1 %cmp11.not14, i1 false
-  %or.cond = select i1 %cmp10, i1 true, i1 %cmp11.not
-  br i1 %or.cond, label %if.end14, label %land.rhs, !llvm.loop !4
+24:                                               ; preds = %.lr.ph
+  %25 = add i32 %.029, 1
+  %26 = load i32, ptr %7, align 4, !tbaa !25
+  %27 = load i32, ptr %5, align 4, !tbaa !23
+  %28 = icmp sge i32 %26, %27
+  %.not2128 = icmp ult i32 %11, %25
+  %.not21 = select i1 %10, i1 %.not2128, i1 false
+  %or.cond = select i1 %28, i1 true, i1 %.not21
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !28
 
-land.rhs:                                         ; preds = %while.cond.preheader, %while.cond
-  %loopCount.016 = phi i32 [ %inc, %while.cond ], [ 0, %while.cond.preheader ]
-  %12 = load ptr, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %call = tail call noundef signext i8 @_ZN6icu_7522TransliterationRuleSet13transliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(16) %index, i8 noundef signext %isIncremental)
-  %tobool13.not = icmp eq i8 %call, 0
-  br i1 %tobool13.not, label %if.end14, label %while.cond
+.lr.ph:                                           ; preds = %.preheader, %24
+  %.029 = phi i32 [ %25, %24 ], [ 0, %.preheader ]
+  %29 = load ptr, ptr %20, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = tail call noundef signext i8 @_ZN6icu_7722TransliterationRuleSet13transliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(1056) %30, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, i8 noundef signext %3)
+  %.not22 = icmp eq i8 %31, 0
+  br i1 %.not22, label %.critedge, label %24
 
-if.end14:                                         ; preds = %while.cond, %land.rhs, %while.cond.preheader, %if.end5
-  br i1 %cmp2.not, label %if.end18, label %if.then16
+.critedge:                                        ; preds = %24, %.lr.ph, %.preheader, %_ZN6icu_775MutexD2Ev.exit24
+  br i1 %.not, label %36, label %32
 
-if.then16:                                        ; preds = %if.end14
-  tail call void @umtx_lock_75(ptr noundef null)
-  store ptr null, ptr @_ZN6icu_75L11gLockedTextE, align 8
-  invoke void @umtx_unlock_75(ptr noundef null)
-          to label %_ZN6icu_755MutexD2Ev.exit13 unwind label %terminate.lpad.i12
+32:                                               ; preds = %.critedge
+  tail call void @umtx_lock_77(ptr noundef null)
+  store ptr null, ptr @_ZN6icu_77L11gLockedTextE, align 8, !tbaa !26
+  invoke void @umtx_unlock_77(ptr noundef null)
+          to label %_ZN6icu_775MutexD2Ev.exit25 unwind label %33
 
-terminate.lpad.i12:                               ; preds = %if.then16
-  %13 = landingpad { ptr, i32 }
+33:                                               ; preds = %32
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #8
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #9
   unreachable
 
-_ZN6icu_755MutexD2Ev.exit13:                      ; preds = %if.then16
-  tail call void @umtx_unlock_75(ptr noundef nonnull @_ZZNK6icu_7523RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositionaE23transliteratorDataMutex)
-  br label %if.end18
+_ZN6icu_775MutexD2Ev.exit25:                      ; preds = %32
+  tail call void @umtx_unlock_77(ptr noundef nonnull @_ZZNK6icu_7723RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositionaE23transliteratorDataMutex)
+  br label %36
 
-if.end18:                                         ; preds = %_ZN6icu_755MutexD2Ev.exit13, %if.end14
+36:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit25, %.critedge
   ret void
 }
 
-declare void @umtx_lock_75(ptr noundef) local_unnamed_addr #2
+declare void @umtx_lock_77(ptr noundef) local_unnamed_addr #3
 
-declare noundef signext i8 @_ZN6icu_7522TransliterationRuleSet13transliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i8 noundef signext) local_unnamed_addr #2
+declare noundef signext i8 @_ZN6icu_7722TransliterationRuleSet13transliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i8 noundef signext) local_unnamed_addr #3
 
-declare void @umtx_unlock_75(ptr noundef) local_unnamed_addr #2
+declare void @umtx_unlock_77(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7523RuleBasedTransliterator7toRulesERNS_13UnicodeStringEa(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %rulesSource, i8 noundef signext %escapeUnprintable) unnamed_addr #1 align 2 {
-entry:
-  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %0 = load ptr, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522TransliterationRuleSet7toRulesERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %rulesSource, i8 noundef signext %escapeUnprintable)
-  ret ptr %call
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7723RuleBasedTransliterator7toRulesERNS_13UnicodeStringEa(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef signext %2) unnamed_addr #1 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722TransliterationRuleSet7toRulesERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(1056) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i8 noundef signext %2)
+  ret ptr %7
 }
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522TransliterationRuleSet7toRulesERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext) unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722TransliterationRuleSet7toRulesERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7523RuleBasedTransliterator18handleGetSourceSetERNS_10UnicodeSetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(200) %result) unnamed_addr #1 align 2 {
-entry:
-  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %0 = load ptr, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7522TransliterationRuleSet18getSourceTargetSetERNS_10UnicodeSetEa(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet, ptr noundef nonnull align 8 dereferenceable(200) %result, i8 noundef signext 0)
+define void @_ZNK6icu_7723RuleBasedTransliterator18handleGetSourceSetERNS_10UnicodeSetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #1 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7722TransliterationRuleSet18getSourceTargetSetERNS_10UnicodeSetEa(ptr noundef nonnull align 8 dereferenceable(1056) %5, ptr noundef nonnull align 8 dereferenceable(200) %1, i8 noundef signext 0)
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7522TransliterationRuleSet18getSourceTargetSetERNS_10UnicodeSetEa(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 8 dereferenceable(200), i8 noundef signext) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7722TransliterationRuleSet18getSourceTargetSetERNS_10UnicodeSetEa(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 8 dereferenceable(200), i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7523RuleBasedTransliterator12getTargetSetERNS_10UnicodeSetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(200) %result) unnamed_addr #1 align 2 {
-entry:
-  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %0 = load ptr, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %call = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7522TransliterationRuleSet18getSourceTargetSetERNS_10UnicodeSetEa(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet, ptr noundef nonnull align 8 dereferenceable(200) %result, i8 noundef signext 1)
-  ret ptr %call
+define noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7723RuleBasedTransliterator12getTargetSetERNS_10UnicodeSetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #1 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %4 = load ptr, ptr %3, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7722TransliterationRuleSet18getSourceTargetSetERNS_10UnicodeSetEa(ptr noundef nonnull align 8 dereferenceable(1056) %5, ptr noundef nonnull align 8 dereferenceable(200) %1, i8 noundef signext 1)
+  ret ptr %6
 }
 
-declare noundef i32 @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableEii(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i32 noundef) unnamed_addr #2
+declare noundef i32 @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableEii(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i32 noundef) unnamed_addr #3
 
-declare void @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableE(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+declare void @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableE(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
-declare void @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableER14UTransPositionRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare void @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableER14UTransPositionRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableER14UTransPositioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare void @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableER14UTransPositioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZNK6icu_7514Transliterator13transliterateERNS_11ReplaceableER14UTransPositionR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare void @_ZNK6icu_7714Transliterator13transliterateERNS_11ReplaceableER14UTransPositionR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZNK6icu_7514Transliterator21finishTransliterationERNS_11ReplaceableER14UTransPosition(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #2
+declare void @_ZNK6icu_7714Transliterator21finishTransliterationERNS_11ReplaceableER14UTransPosition(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #3
 
-declare void @_ZNK6icu_7514Transliterator21filteredTransliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i8 noundef signext) unnamed_addr #2
+declare void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i8 noundef signext) unnamed_addr #3
 
-declare void @_ZNK6icu_7514Transliterator21filteredTransliterateERNS_11ReplaceableER14UTransPositionaa(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i8 noundef signext, i8 noundef signext) unnamed_addr #2
+declare void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11ReplaceableER14UTransPositionaa(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i8 noundef signext, i8 noundef signext) unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514Transliterator5getIDEv(ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7714Transliterator5getIDEv(ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #3
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
-  tail call void @_ZSt9terminatev() #8
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
+  tail call void @_ZSt9terminatev() #9
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !14, i64 88}
+!4 = !{!"_ZTSN6icu_7723RuleBasedTransliteratorE", !5, i64 0, !14, i64 88, !9, i64 96}
+!5 = !{!"_ZTSN6icu_7714TransliteratorE", !6, i64 0, !7, i64 8, !11, i64 72, !13, i64 80}
+!6 = !{!"_ZTSN6icu_777UObjectE"}
+!7 = !{!"_ZTSN6icu_7713UnicodeStringE", !8, i64 0, !9, i64 8}
+!8 = !{!"_ZTSN6icu_7711ReplaceableE", !6, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}
+!11 = !{!"p1 _ZTSN6icu_7713UnicodeFilterE", !12, i64 0}
+!12 = !{!"any pointer", !9, i64 0}
+!13 = !{!"int", !9, i64 0}
+!14 = !{!"p1 _ZTSN6icu_7723TransliterationRuleDataE", !12, i64 0}
+!15 = !{!4, !9, i64 96}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"_ZTS10UErrorCode", !9, i64 0}
+!18 = !{!19, !13, i64 8}
+!19 = !{!"_ZTSN6icu_777UVectorE", !6, i64 0, !13, i64 8, !13, i64 12, !20, i64 16, !12, i64 24, !12, i64 32}
+!20 = !{!"p1 _ZTS8UElement", !12, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"vtable pointer", !10, i64 0}
+!23 = !{!24, !13, i64 12}
+!24 = !{!"_ZTS14UTransPosition", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12}
+!25 = !{!24, !13, i64 8}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSN6icu_7711ReplaceableE", !12, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.mustprogress"}

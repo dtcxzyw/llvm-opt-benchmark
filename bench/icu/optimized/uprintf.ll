@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/icu/original/uprintf.ll'
 source_filename = "bench/icu/original/uprintf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.u_printf_stream_handler = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
@@ -12,378 +12,393 @@ target triple = "x86_64-unknown-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress uwtable
-define ptr @u_get_stdout_75() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i32, ptr @_ZL15gStdOutInitOnce acquire, align 4
-  %cmp.i = icmp eq i32 %0, 2
-  br i1 %cmp.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %if.end.i
+define ptr @u_get_stdout_77() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %1 = load atomic i32, ptr @_ZL15gStdOutInitOnce acquire, align 4
+  %2 = icmp eq i32 %1, 2
+  br i1 %2, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %3
 
-if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
-  %tobool.not.i = icmp eq i8 %call1.i, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %if.then2.i
+3:                                                ; preds = %0
+  %4 = tail call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
+  %.not.i = icmp eq i8 %4, 0
+  br i1 %.not.i, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %5
 
-if.then2.i:                                       ; preds = %if.end.i
-  %1 = load ptr, ptr @stdout, align 8
-  %call.i = tail call ptr @u_finit_75(ptr noundef %1, ptr noundef null, ptr noundef null)
-  store ptr %call.i, ptr @_ZL7gStdOut, align 8
-  tail call void @ucln_io_registerCleanup_75(i32 noundef 1, ptr noundef nonnull @_ZL15uprintf_cleanupv)
-  tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
-  br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit
+5:                                                ; preds = %3
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !3
+  %7 = tail call ptr @u_finit_77(ptr noundef %6, ptr noundef null, ptr noundef null)
+  store ptr %7, ptr @_ZL7gStdOut, align 8, !tbaa !8
+  tail call void @ucln_io_registerCleanup_77(i32 noundef 1, ptr noundef nonnull @_ZL15uprintf_cleanupv)
+  tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
+  br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit
 
-_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %entry, %if.end.i, %if.then2.i
-  %2 = load ptr, ptr @_ZL7gStdOut, align 8
-  ret ptr %2
+_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %0, %3, %5
+  %8 = load ptr, ptr @_ZL7gStdOut, align 8, !tbaa !8
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_fprintf_75(ptr noundef %f, ptr noundef %patternSpecification, ...) local_unnamed_addr #0 {
-entry:
-  %written.i.i = alloca i32, align 4
-  %buffer.i = alloca [128 x i16], align 16
-  %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %ap)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer.i)
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %patternSpecification) #6
-  %add.i = add i64 %call.i, 1
-  %cmp.i = icmp ugt i64 %add.i, 63
-  br i1 %cmp.i, label %if.then.i, label %if.end4.i
+define i32 @u_fprintf_77(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca [128 x i16], align 16
+  %5 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.va_start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #6
+  %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
+  %7 = add i64 %6, 1
+  %8 = icmp ugt i64 %7, 63
+  br i1 %8, label %9, label %13
 
-if.then.i:                                        ; preds = %entry
-  %mul.i = shl i64 %add.i, 1
-  %call1.i = call noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #7
-  %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %u_vfprintf_75.exit, label %if.end4.i
+9:                                                ; preds = %2
+  %10 = shl i64 %7, 1
+  %11 = call noalias ptr @uprv_malloc_77(i64 noundef %10) #8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %u_vfprintf_77.exit, label %13
 
-if.end4.i:                                        ; preds = %if.then.i, %entry
-  %pattern.0.i = phi ptr [ %call1.i, %if.then.i ], [ %buffer.i, %entry ]
-  %conv.i = trunc i64 %add.i to i32
-  call void @u_charsToUChars_75(ptr noundef nonnull %patternSpecification, ptr noundef nonnull %pattern.0.i, i32 noundef %conv.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i.i)
-  store i32 0, ptr %written.i.i, align 4
-  %fBundle.i.i = getelementptr inbounds nuw i8, ptr %f, i64 48
-  %call.i.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef nonnull %pattern.0.i, ptr noundef %f, ptr noundef null, ptr noundef nonnull %fBundle.i.i, ptr noundef nonnull %written.i.i, ptr noundef nonnull %ap)
-  %0 = load i32, ptr %written.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i.i)
-  %cmp7.not.i = icmp eq ptr %pattern.0.i, %buffer.i
-  br i1 %cmp7.not.i, label %u_vfprintf_75.exit, label %if.then8.i
+13:                                               ; preds = %9, %2
+  %.013.i = phi ptr [ %11, %9 ], [ %4, %2 ]
+  %14 = trunc i64 %7 to i32
+  call void @u_charsToUChars_77(ptr noundef nonnull %1, ptr noundef nonnull %.013.i, i32 noundef %14)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  store i32 0, ptr %3, align 4, !tbaa !10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = call i32 @u_printf_parse_77(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef nonnull %.013.i, ptr noundef %0, ptr noundef null, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef nonnull %5)
+  %17 = load i32, ptr %3, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  %.not.i = icmp eq ptr %.013.i, %4
+  br i1 %.not.i, label %u_vfprintf_77.exit, label %18
 
-if.then8.i:                                       ; preds = %if.end4.i
-  call void @uprv_free_75(ptr noundef nonnull %pattern.0.i)
-  br label %u_vfprintf_75.exit
+18:                                               ; preds = %13
+  call void @uprv_free_77(ptr noundef nonnull %.013.i)
+  br label %u_vfprintf_77.exit
 
-u_vfprintf_75.exit:                               ; preds = %if.then.i, %if.end4.i, %if.then8.i
-  %retval.0.i = phi i32 [ 0, %if.then.i ], [ %0, %if.then8.i ], [ %0, %if.end4.i ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
-  call void @llvm.va_end.p0(ptr nonnull %ap)
-  ret i32 %retval.0.i
+u_vfprintf_77.exit:                               ; preds = %9, %13, %18
+  %.0.i = phi i32 [ 0, %9 ], [ %17, %18 ], [ %17, %13 ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.va_end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
+  ret i32 %.0.i
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+; Function Attrs: mustprogress uwtable
+define i32 @u_vfprintf_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca [128 x i16], align 16
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
+  %7 = add i64 %6, 1
+  %8 = icmp ugt i64 %7, 63
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %3
+  %10 = shl i64 %7, 1
+  %11 = tail call noalias ptr @uprv_malloc_77(i64 noundef %10) #8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %19, label %13
+
+13:                                               ; preds = %3, %9
+  %.013 = phi ptr [ %11, %9 ], [ %5, %3 ]
+  %14 = trunc i64 %7 to i32
+  call void @u_charsToUChars_77(ptr noundef nonnull %1, ptr noundef nonnull %.013, i32 noundef %14)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  store i32 0, ptr %4, align 4, !tbaa !10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = call i32 @u_printf_parse_77(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef nonnull %.013, ptr noundef %0, ptr noundef null, ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef %2)
+  %17 = load i32, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  %.not = icmp eq ptr %.013, %5
+  br i1 %.not, label %19, label %18
+
+18:                                               ; preds = %13
+  call void @uprv_free_77(ptr noundef nonnull %.013)
+  br label %19
+
+19:                                               ; preds = %13, %18, %9
+  %.0 = phi i32 [ 0, %9 ], [ %17, %18 ], [ %17, %13 ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define i32 @u_printf_77(ptr noundef %0, ...) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i32, align 4
+  %3 = alloca [128 x i16], align 16
+  %4 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.va_start.p0(ptr nonnull %4)
+  %5 = load atomic i32, ptr @_ZL15gStdOutInitOnce acquire, align 4
+  %6 = icmp eq i32 %5, 2
+  br i1 %6, label %u_get_stdout_77.exit, label %7
+
+7:                                                ; preds = %1
+  %8 = call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
+  %.not.i.i = icmp eq i8 %8, 0
+  br i1 %.not.i.i, label %u_get_stdout_77.exit, label %9
+
+9:                                                ; preds = %7
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !3
+  %11 = call ptr @u_finit_77(ptr noundef %10, ptr noundef null, ptr noundef null)
+  store ptr %11, ptr @_ZL7gStdOut, align 8, !tbaa !8
+  call void @ucln_io_registerCleanup_77(i32 noundef 1, ptr noundef nonnull @_ZL15uprintf_cleanupv)
+  call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
+  br label %u_get_stdout_77.exit
+
+u_get_stdout_77.exit:                             ; preds = %1, %7, %9
+  %12 = load ptr, ptr @_ZL7gStdOut, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #6
+  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
+  %14 = add i64 %13, 1
+  %15 = icmp ugt i64 %14, 63
+  br i1 %15, label %16, label %20
+
+16:                                               ; preds = %u_get_stdout_77.exit
+  %17 = shl i64 %14, 1
+  %18 = call noalias ptr @uprv_malloc_77(i64 noundef %17) #8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %u_vfprintf_77.exit, label %20
+
+20:                                               ; preds = %16, %u_get_stdout_77.exit
+  %.013.i = phi ptr [ %18, %16 ], [ %3, %u_get_stdout_77.exit ]
+  %21 = trunc i64 %14 to i32
+  call void @u_charsToUChars_77(ptr noundef nonnull %0, ptr noundef nonnull %.013.i, i32 noundef %21)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  store i32 0, ptr %2, align 4, !tbaa !10
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %23 = call i32 @u_printf_parse_77(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef nonnull %.013.i, ptr noundef %12, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef nonnull %4)
+  %24 = load i32, ptr %2, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  %.not.i = icmp eq ptr %.013.i, %3
+  br i1 %.not.i, label %u_vfprintf_77.exit, label %25
+
+25:                                               ; preds = %20
+  call void @uprv_free_77(ptr noundef nonnull %.013.i)
+  br label %u_vfprintf_77.exit
+
+u_vfprintf_77.exit:                               ; preds = %16, %20, %25
+  %.0.i = phi i32 [ 0, %16 ], [ %24, %25 ], [ %24, %20 ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #6
+  call void @llvm.va_end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_vfprintf_75(ptr noundef %f, ptr noundef %patternSpecification, ptr noundef %ap) local_unnamed_addr #0 {
-entry:
-  %written.i = alloca i32, align 4
-  %buffer = alloca [128 x i16], align 16
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %patternSpecification) #6
-  %add = add i64 %call, 1
-  %cmp = icmp ugt i64 %add, 63
-  br i1 %cmp, label %if.then, label %if.end4
-
-if.then:                                          ; preds = %entry
-  %mul = shl i64 %add, 1
-  %call1 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul) #7
-  %cmp2 = icmp eq ptr %call1, null
-  br i1 %cmp2, label %return, label %if.end4
-
-if.end4:                                          ; preds = %entry, %if.then
-  %pattern.0 = phi ptr [ %call1, %if.then ], [ %buffer, %entry ]
-  %conv = trunc i64 %add to i32
-  call void @u_charsToUChars_75(ptr noundef nonnull %patternSpecification, ptr noundef nonnull %pattern.0, i32 noundef %conv)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i)
-  store i32 0, ptr %written.i, align 4
-  %fBundle.i = getelementptr inbounds nuw i8, ptr %f, i64 48
-  %call.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef nonnull %pattern.0, ptr noundef %f, ptr noundef null, ptr noundef nonnull %fBundle.i, ptr noundef nonnull %written.i, ptr noundef %ap)
-  %0 = load i32, ptr %written.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i)
-  %cmp7.not = icmp eq ptr %pattern.0, %buffer
-  br i1 %cmp7.not, label %return, label %if.then8
-
-if.then8:                                         ; preds = %if.end4
-  call void @uprv_free_75(ptr noundef nonnull %pattern.0)
-  br label %return
-
-return:                                           ; preds = %if.end4, %if.then8, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %0, %if.then8 ], [ %0, %if.end4 ]
-  ret i32 %retval.0
+define i32 @u_fprintf_u_77(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.va_start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  store i32 0, ptr %3, align 4, !tbaa !10
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = call i32 @u_printf_parse_77(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %7 = load i32, ptr %3, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.va_end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_printf_75(ptr noundef %patternSpecification, ...) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %written.i.i = alloca i32, align 4
-  %buffer.i = alloca [128 x i16], align 16
-  %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %ap)
-  %0 = load atomic i32, ptr @_ZL15gStdOutInitOnce acquire, align 4
-  %cmp.i.i = icmp eq i32 %0, 2
-  br i1 %cmp.i.i, label %u_get_stdout_75.exit, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %entry
-  %call1.i.i = call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
-  %tobool.not.i.i = icmp eq i8 %call1.i.i, 0
-  br i1 %tobool.not.i.i, label %u_get_stdout_75.exit, label %if.then2.i.i
-
-if.then2.i.i:                                     ; preds = %if.end.i.i
-  %1 = load ptr, ptr @stdout, align 8
-  %call.i.i = call ptr @u_finit_75(ptr noundef %1, ptr noundef null, ptr noundef null)
-  store ptr %call.i.i, ptr @_ZL7gStdOut, align 8
-  call void @ucln_io_registerCleanup_75(i32 noundef 1, ptr noundef nonnull @_ZL15uprintf_cleanupv)
-  call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
-  br label %u_get_stdout_75.exit
-
-u_get_stdout_75.exit:                             ; preds = %entry, %if.end.i.i, %if.then2.i.i
-  %2 = load ptr, ptr @_ZL7gStdOut, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer.i)
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %patternSpecification) #6
-  %add.i = add i64 %call.i, 1
-  %cmp.i = icmp ugt i64 %add.i, 63
-  br i1 %cmp.i, label %if.then.i, label %if.end4.i
-
-if.then.i:                                        ; preds = %u_get_stdout_75.exit
-  %mul.i = shl i64 %add.i, 1
-  %call1.i = call noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #7
-  %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %u_vfprintf_75.exit, label %if.end4.i
-
-if.end4.i:                                        ; preds = %if.then.i, %u_get_stdout_75.exit
-  %pattern.0.i = phi ptr [ %call1.i, %if.then.i ], [ %buffer.i, %u_get_stdout_75.exit ]
-  %conv.i = trunc i64 %add.i to i32
-  call void @u_charsToUChars_75(ptr noundef nonnull %patternSpecification, ptr noundef nonnull %pattern.0.i, i32 noundef %conv.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i.i)
-  store i32 0, ptr %written.i.i, align 4
-  %fBundle.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %call.i.i1 = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef nonnull %pattern.0.i, ptr noundef %2, ptr noundef null, ptr noundef nonnull %fBundle.i.i, ptr noundef nonnull %written.i.i, ptr noundef nonnull %ap)
-  %3 = load i32, ptr %written.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i.i)
-  %cmp7.not.i = icmp eq ptr %pattern.0.i, %buffer.i
-  br i1 %cmp7.not.i, label %u_vfprintf_75.exit, label %if.then8.i
-
-if.then8.i:                                       ; preds = %if.end4.i
-  call void @uprv_free_75(ptr noundef nonnull %pattern.0.i)
-  br label %u_vfprintf_75.exit
-
-u_vfprintf_75.exit:                               ; preds = %if.then.i, %if.end4.i, %if.then8.i
-  %retval.0.i = phi i32 [ 0, %if.then.i ], [ %3, %if.then8.i ], [ %3, %if.end4.i ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
-  call void @llvm.va_end.p0(ptr nonnull %ap)
-  ret i32 %retval.0.i
+define i32 @u_vfprintf_u_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  store i32 0, ptr %4, align 4, !tbaa !10
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = call i32 @u_printf_parse_77(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %2)
+  %7 = load i32, ptr %4, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_fprintf_u_75(ptr noundef %f, ptr noundef %patternSpecification, ...) local_unnamed_addr #0 {
-entry:
-  %written.i = alloca i32, align 4
-  %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %ap)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i)
-  store i32 0, ptr %written.i, align 4
-  %fBundle.i = getelementptr inbounds nuw i8, ptr %f, i64 48
-  %call.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %patternSpecification, ptr noundef %f, ptr noundef null, ptr noundef nonnull %fBundle.i, ptr noundef nonnull %written.i, ptr noundef nonnull %ap)
-  %0 = load i32, ptr %written.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i)
-  call void @llvm.va_end.p0(ptr nonnull %ap)
-  ret i32 %0
-}
+define i32 @u_printf_u_77(ptr noundef %0, ...) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+  %2 = alloca i32, align 4
+  %3 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.va_start.p0(ptr nonnull %3)
+  %4 = load atomic i32, ptr @_ZL15gStdOutInitOnce acquire, align 4
+  %5 = icmp eq i32 %4, 2
+  br i1 %5, label %u_get_stdout_77.exit, label %6
 
-; Function Attrs: mustprogress uwtable
-define i32 @u_vfprintf_u_75(ptr noundef %f, ptr noundef %patternSpecification, ptr noundef %ap) local_unnamed_addr #0 {
-entry:
-  %written = alloca i32, align 4
-  store i32 0, ptr %written, align 4
-  %fBundle = getelementptr inbounds nuw i8, ptr %f, i64 48
-  %call = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %patternSpecification, ptr noundef %f, ptr noundef null, ptr noundef nonnull %fBundle, ptr noundef nonnull %written, ptr noundef %ap)
-  %0 = load i32, ptr %written, align 4
-  ret i32 %0
-}
+6:                                                ; preds = %1
+  %7 = call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
+  %.not.i.i = icmp eq i8 %7, 0
+  br i1 %.not.i.i, label %u_get_stdout_77.exit, label %8
 
-; Function Attrs: mustprogress uwtable
-define i32 @u_printf_u_75(ptr noundef %patternSpecification, ...) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
-  %written.i = alloca i32, align 4
-  %ap = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start.p0(ptr nonnull %ap)
-  %0 = load atomic i32, ptr @_ZL15gStdOutInitOnce acquire, align 4
-  %cmp.i.i = icmp eq i32 %0, 2
-  br i1 %cmp.i.i, label %u_get_stdout_75.exit, label %if.end.i.i
+8:                                                ; preds = %6
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !3
+  %10 = call ptr @u_finit_77(ptr noundef %9, ptr noundef null, ptr noundef null)
+  store ptr %10, ptr @_ZL7gStdOut, align 8, !tbaa !8
+  call void @ucln_io_registerCleanup_77(i32 noundef 1, ptr noundef nonnull @_ZL15uprintf_cleanupv)
+  call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
+  br label %u_get_stdout_77.exit
 
-if.end.i.i:                                       ; preds = %entry
-  %call1.i.i = call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
-  %tobool.not.i.i = icmp eq i8 %call1.i.i, 0
-  br i1 %tobool.not.i.i, label %u_get_stdout_75.exit, label %if.then2.i.i
-
-if.then2.i.i:                                     ; preds = %if.end.i.i
-  %1 = load ptr, ptr @stdout, align 8
-  %call.i.i = call ptr @u_finit_75(ptr noundef %1, ptr noundef null, ptr noundef null)
-  store ptr %call.i.i, ptr @_ZL7gStdOut, align 8
-  call void @ucln_io_registerCleanup_75(i32 noundef 1, ptr noundef nonnull @_ZL15uprintf_cleanupv)
-  call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL15gStdOutInitOnce)
-  br label %u_get_stdout_75.exit
-
-u_get_stdout_75.exit:                             ; preds = %entry, %if.end.i.i, %if.then2.i.i
-  %2 = load ptr, ptr @_ZL7gStdOut, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %written.i)
-  store i32 0, ptr %written.i, align 4
-  %fBundle.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %call.i = call i32 @u_printf_parse_75(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %patternSpecification, ptr noundef %2, ptr noundef null, ptr noundef nonnull %fBundle.i, ptr noundef nonnull %written.i, ptr noundef nonnull %ap)
-  %3 = load i32, ptr %written.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %written.i)
-  call void @llvm.va_end.p0(ptr nonnull %ap)
-  ret i32 %3
+u_get_stdout_77.exit:                             ; preds = %1, %6, %8
+  %11 = load ptr, ptr @_ZL7gStdOut, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  store i32 0, ptr %2, align 4, !tbaa !10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %13 = call i32 @u_printf_parse_77(ptr noundef nonnull @_ZL16g_stream_handler, ptr noundef %0, ptr noundef %11, ptr noundef null, ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %14 = load i32, ptr %2, align 4, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.va_end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #4
 
-declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @u_charsToUChars_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #5
 
-declare i32 @u_printf_parse_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @u_printf_parse_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
+declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #5
 
-declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
+declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
-declare ptr @u_finit_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @u_finit_77(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @ucln_io_registerCleanup_75(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ucln_io_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL15uprintf_cleanupv() #0 {
-entry:
-  %0 = load ptr, ptr @_ZL7gStdOut, align 8
-  %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %if.then
+  %1 = load ptr, ptr @_ZL7gStdOut, align 8, !tbaa !8
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %3, label %2
 
-if.then:                                          ; preds = %entry
-  tail call void @u_fclose_75(ptr noundef nonnull %0)
-  store ptr null, ptr @_ZL7gStdOut, align 8
-  br label %if.end
+2:                                                ; preds = %0
+  tail call void @u_fclose_77(ptr noundef nonnull %1)
+  store ptr null, ptr @_ZL7gStdOut, align 8, !tbaa !8
+  br label %3
 
-if.end:                                           ; preds = %if.then, %entry
+3:                                                ; preds = %2, %0
   store atomic i32 0, ptr @_ZL15gStdOutInitOnce seq_cst, align 4
   ret i8 1
 }
 
-declare void @u_fclose_75(ptr noundef) local_unnamed_addr #3
+declare void @u_fclose_77(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL14u_printf_writePvPKDsi(ptr noundef %context, ptr noundef %str, i32 noundef %count) #0 {
-entry:
-  %call = tail call i32 @u_file_write_75(ptr noundef %str, i32 noundef %count, ptr noundef %context)
-  ret i32 %call
+define internal noundef i32 @_ZL14u_printf_writePvPKDsi(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = tail call i32 @u_file_write_77(ptr noundef %1, i32 noundef %2, ptr noundef %0)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24u_printf_pad_and_justifyPvPK18u_printf_spec_infoPKDsi(ptr noundef %context, ptr noundef %info, ptr noundef %result, i32 noundef %resultLen) #0 {
-entry:
-  %fWidth = getelementptr inbounds nuw i8, ptr %info, i64 4
-  %0 = load i32, ptr %fWidth, align 4
-  %cmp.not = icmp ne i32 %0, -1
-  %cmp2 = icmp slt i32 %resultLen, %0
-  %or.cond = and i1 %cmp.not, %cmp2
-  br i1 %or.cond, label %if.then, label %if.else20
+define internal noundef i32 @_ZL24u_printf_pad_and_justifyPvPK18u_printf_spec_infoPKDsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !12
+  %.not = icmp ne i32 %6, -1
+  %7 = icmp slt i32 %3, %6
+  %or.cond = and i1 %.not, %7
+  br i1 %or.cond, label %8, label %33
 
-if.then:                                          ; preds = %entry
-  %fLeft = getelementptr inbounds nuw i8, ptr %info, i64 16
-  %1 = load i8, ptr %fLeft, align 4
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %for.body11.lr.ph, label %if.then3
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = load i8, ptr %9, align 4, !tbaa !15
+  %.not33 = icmp eq i8 %10, 0
+  br i1 %.not33, label %.lr.ph38, label %12
 
-for.body11.lr.ph:                                 ; preds = %if.then
-  %fPadChar12 = getelementptr inbounds nuw i8, ptr %info, i64 12
-  br label %for.body11
+.lr.ph38:                                         ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br label %24
 
-if.then3:                                         ; preds = %if.then
-  %call = tail call i32 @u_file_write_75(ptr noundef %result, i32 noundef %resultLen, ptr noundef %context)
-  %2 = load i32, ptr %fWidth, align 4
-  %cmp525 = icmp sgt i32 %2, %resultLen
-  br i1 %cmp525, label %for.body.lr.ph, label %if.end22
+12:                                               ; preds = %8
+  %13 = tail call i32 @u_file_write_77(ptr noundef %2, i32 noundef %3, ptr noundef %0)
+  %14 = load i32, ptr %5, align 4, !tbaa !12
+  %15 = icmp sgt i32 %14, %3
+  br i1 %15, label %.lr.ph, label %.loopexit
 
-for.body.lr.ph:                                   ; preds = %if.then3
-  %fPadChar = getelementptr inbounds nuw i8, ptr %info, i64 12
-  br label %for.body
+.lr.ph:                                           ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br label %17
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.027 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %written.026 = phi i32 [ %call, %for.body.lr.ph ], [ %add, %for.body ]
-  %call6 = tail call i32 @u_file_write_75(ptr noundef nonnull %fPadChar, i32 noundef 1, ptr noundef %context)
-  %add = add nsw i32 %call6, %written.026
-  %inc = add nuw nsw i32 %i.027, 1
-  %3 = load i32, ptr %fWidth, align 4
-  %sub = sub nsw i32 %3, %resultLen
-  %cmp5 = icmp slt i32 %inc, %sub
-  br i1 %cmp5, label %for.body, label %if.end22, !llvm.loop !4
+17:                                               ; preds = %.lr.ph, %17
+  %.035 = phi i32 [ 0, %.lr.ph ], [ %20, %17 ]
+  %.02934 = phi i32 [ %13, %.lr.ph ], [ %19, %17 ]
+  %18 = tail call i32 @u_file_write_77(ptr noundef nonnull %16, i32 noundef 1, ptr noundef %0)
+  %19 = add nsw i32 %18, %.02934
+  %20 = add nuw nsw i32 %.035, 1
+  %21 = load i32, ptr %5, align 4, !tbaa !12
+  %22 = sub nsw i32 %21, %3
+  %23 = icmp slt i32 %20, %22
+  br i1 %23, label %17, label %.loopexit, !llvm.loop !16
 
-for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
-  %i.131 = phi i32 [ 0, %for.body11.lr.ph ], [ %inc16, %for.body11 ]
-  %written.130 = phi i32 [ 0, %for.body11.lr.ph ], [ %add14, %for.body11 ]
-  %call13 = tail call i32 @u_file_write_75(ptr noundef nonnull %fPadChar12, i32 noundef 1, ptr noundef %context)
-  %add14 = add nsw i32 %call13, %written.130
-  %inc16 = add nuw nsw i32 %i.131, 1
-  %4 = load i32, ptr %fWidth, align 4
-  %sub9 = sub nsw i32 %4, %resultLen
-  %cmp10 = icmp slt i32 %inc16, %sub9
-  br i1 %cmp10, label %for.body11, label %for.end17, !llvm.loop !6
+24:                                               ; preds = %.lr.ph38, %24
+  %.137 = phi i32 [ 0, %.lr.ph38 ], [ %27, %24 ]
+  %.13036 = phi i32 [ 0, %.lr.ph38 ], [ %26, %24 ]
+  %25 = tail call i32 @u_file_write_77(ptr noundef nonnull %11, i32 noundef 1, ptr noundef %0)
+  %26 = add nsw i32 %25, %.13036
+  %27 = add nuw nsw i32 %.137, 1
+  %28 = load i32, ptr %5, align 4, !tbaa !12
+  %29 = sub nsw i32 %28, %3
+  %30 = icmp slt i32 %27, %29
+  br i1 %30, label %24, label %._crit_edge, !llvm.loop !18
 
-for.end17:                                        ; preds = %for.body11
-  %call18 = tail call i32 @u_file_write_75(ptr noundef %result, i32 noundef %resultLen, ptr noundef %context)
-  %add19 = add nsw i32 %call18, %add14
-  br label %if.end22
+._crit_edge:                                      ; preds = %24
+  %31 = tail call i32 @u_file_write_77(ptr noundef %2, i32 noundef %3, ptr noundef %0)
+  %32 = add nsw i32 %31, %26
+  br label %.loopexit
 
-if.else20:                                        ; preds = %entry
-  %call21 = tail call i32 @u_file_write_75(ptr noundef %result, i32 noundef %resultLen, ptr noundef %context)
-  br label %if.end22
+33:                                               ; preds = %4
+  %34 = tail call i32 @u_file_write_77(ptr noundef %2, i32 noundef %3, ptr noundef %0)
+  br label %.loopexit
 
-if.end22:                                         ; preds = %for.body, %if.then3, %for.end17, %if.else20
-  %written.2 = phi i32 [ %add19, %for.end17 ], [ %call21, %if.else20 ], [ %call, %if.then3 ], [ %add, %for.body ]
-  ret i32 %written.2
+.loopexit:                                        ; preds = %17, %12, %._crit_edge, %33
+  %.2 = phi i32 [ %32, %._crit_edge ], [ %34, %33 ], [ %13, %12 ], [ %19, %17 ]
+  ret i32 %.2
 }
 
-declare i32 @u_file_write_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @u_file_write_77(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #4
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { allocsize(0) }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { allocsize(0) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS5UFILE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !6, i64 0}
+!12 = !{!13, !11, i64 4}
+!13 = !{!"_ZTS18u_printf_spec_info", !11, i64 0, !11, i64 4, !14, i64 8, !14, i64 10, !14, i64 12, !6, i64 14, !6, i64 15, !6, i64 16, !6, i64 17, !6, i64 18, !6, i64 19, !6, i64 20, !6, i64 21, !6, i64 22}
+!14 = !{!"char16_t", !6, i64 0}
+!15 = !{!13, !6, i64 16}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = distinct !{!18, !17}

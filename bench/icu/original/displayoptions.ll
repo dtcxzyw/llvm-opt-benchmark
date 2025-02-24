@@ -1,8 +1,8 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::DisplayOptions::Builder" = type { i32, i32, i32, i32, i32, i32, i32 }
-%"class.icu_75::DisplayOptions" = type { i32, i32, i32, i32, i32, i32, i32 }
+%"class.icu_77::DisplayOptions::Builder" = type { i32, i32, i32, i32, i32, i32, i32 }
+%"class.icu_77::DisplayOptions" = type { i32, i32, i32, i32, i32, i32, i32 }
 
 @_ZN12_GLOBAL__N_118grammaticalCaseIdsE = internal global [15 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14], align 16
 @_ZN12_GLOBAL__N_117pluralCategoryIdsE = internal global [7 x ptr] [ptr @.str, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20], align 16
@@ -36,400 +36,487 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [9 x i8] c"personal\00", align 1
 @.str.27 = private unnamed_addr constant [7 x i8] c"common\00", align 1
 
-@_ZN6icu_7514DisplayOptionsC1ERKNS0_7BuilderE = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7514DisplayOptionsC2ERKNS0_7BuilderE
-@_ZN6icu_7514DisplayOptions7BuilderC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7514DisplayOptions7BuilderC2Ev
-@_ZN6icu_7514DisplayOptions7BuilderC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7514DisplayOptions7BuilderC2ERKS0_
+@_ZN6icu_7714DisplayOptionsC1ERKNS0_7BuilderE = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7714DisplayOptionsC2ERKNS0_7BuilderE
+@_ZN6icu_7714DisplayOptions7BuilderC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7714DisplayOptions7BuilderC2Ev
+@_ZN6icu_7714DisplayOptions7BuilderC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7714DisplayOptions7BuilderC2ERKS0_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514DisplayOptions7builderEv(ptr noalias sret(%"class.icu_75::DisplayOptions::Builder") align 4 %agg.result) #0 align 2 {
-entry:
-  call void @_ZN6icu_7514DisplayOptions7BuilderC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %agg.result)
+define void @_ZN6icu_7714DisplayOptions7builderEv(ptr dead_on_unwind noalias writable sret(%"class.icu_77::DisplayOptions::Builder") align 4 %0) #0 align 2 {
+  call void @_ZN6icu_7714DisplayOptions7BuilderC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7514DisplayOptions13copyToBuilderEv(ptr noalias sret(%"class.icu_75::DisplayOptions::Builder") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(28) %this) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN6icu_7514DisplayOptions7BuilderC1ERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(28) %this1)
+define void @_ZNK6icu_7714DisplayOptions13copyToBuilderEv(ptr dead_on_unwind noalias writable sret(%"class.icu_77::DisplayOptions::Builder") align 4 %0, ptr noundef nonnull align 4 dereferenceable(28) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZN6icu_7714DisplayOptions7BuilderC1ERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514DisplayOptionsC2ERKNS0_7BuilderE(ptr noundef nonnull align 4 dereferenceable(28) %this, ptr noundef nonnull align 4 dereferenceable(28) %builder) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %builder.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %builder, ptr %builder.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %builder.addr, align 8
-  %grammaticalCase = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %grammaticalCase, align 4
-  %grammaticalCase2 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this1, i32 0, i32 0
-  store i32 %1, ptr %grammaticalCase2, align 4
-  %2 = load ptr, ptr %builder.addr, align 8
-  %nounClass = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %nounClass, align 4
-  %nounClass3 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this1, i32 0, i32 1
-  store i32 %3, ptr %nounClass3, align 4
-  %4 = load ptr, ptr %builder.addr, align 8
-  %pluralCategory = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %4, i32 0, i32 2
-  %5 = load i32, ptr %pluralCategory, align 4
-  %pluralCategory4 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this1, i32 0, i32 2
-  store i32 %5, ptr %pluralCategory4, align 4
-  %6 = load ptr, ptr %builder.addr, align 8
-  %capitalization = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %6, i32 0, i32 3
-  %7 = load i32, ptr %capitalization, align 4
-  %capitalization5 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this1, i32 0, i32 3
-  store i32 %7, ptr %capitalization5, align 4
-  %8 = load ptr, ptr %builder.addr, align 8
-  %nameStyle = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %8, i32 0, i32 4
-  %9 = load i32, ptr %nameStyle, align 4
-  %nameStyle6 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this1, i32 0, i32 4
-  store i32 %9, ptr %nameStyle6, align 4
-  %10 = load ptr, ptr %builder.addr, align 8
-  %displayLength = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %10, i32 0, i32 5
-  %11 = load i32, ptr %displayLength, align 4
-  %displayLength7 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this1, i32 0, i32 5
-  store i32 %11, ptr %displayLength7, align 4
-  %12 = load ptr, ptr %builder.addr, align 8
-  %substituteHandling = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %12, i32 0, i32 6
-  %13 = load i32, ptr %substituteHandling, align 4
-  %substituteHandling8 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this1, i32 0, i32 6
-  store i32 %13, ptr %substituteHandling8, align 4
+define void @_ZN6icu_7714DisplayOptionsC2ERKNS0_7BuilderE(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 4, !tbaa !10
+  %9 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %5, i32 0, i32 0
+  store i32 %8, ptr %9, align 4, !tbaa !19
+  %10 = load ptr, ptr %4, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4, !tbaa !21
+  %13 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %5, i32 0, i32 1
+  store i32 %12, ptr %13, align 4, !tbaa !22
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %14, i32 0, i32 2
+  %16 = load i32, ptr %15, align 4, !tbaa !23
+  %17 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %5, i32 0, i32 2
+  store i32 %16, ptr %17, align 4, !tbaa !24
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4, !tbaa !25
+  %21 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %5, i32 0, i32 3
+  store i32 %20, ptr %21, align 4, !tbaa !26
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %22, i32 0, i32 4
+  %24 = load i32, ptr %23, align 4, !tbaa !27
+  %25 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %5, i32 0, i32 4
+  store i32 %24, ptr %25, align 4, !tbaa !28
+  %26 = load ptr, ptr %4, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %26, i32 0, i32 5
+  %28 = load i32, ptr %27, align 4, !tbaa !29
+  %29 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %5, i32 0, i32 5
+  store i32 %28, ptr %29, align 4, !tbaa !30
+  %30 = load ptr, ptr %4, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4, !tbaa !31
+  %33 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %5, i32 0, i32 6
+  store i32 %32, ptr %33, align 4, !tbaa !32
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514DisplayOptions7BuilderC2Ev(ptr noundef nonnull align 4 dereferenceable(28) %this) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %grammaticalCase = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 0
-  store i32 0, ptr %grammaticalCase, align 4
-  %nounClass = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 1
-  store i32 0, ptr %nounClass, align 4
-  %pluralCategory = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 2
-  store i32 0, ptr %pluralCategory, align 4
-  %capitalization = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 3
-  store i32 0, ptr %capitalization, align 4
-  %nameStyle = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 4
-  store i32 0, ptr %nameStyle, align 4
-  %displayLength = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 5
-  store i32 0, ptr %displayLength, align 4
-  %substituteHandling = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 6
-  store i32 0, ptr %substituteHandling, align 4
+define void @_ZN6icu_7714DisplayOptions7BuilderC2Ev(ptr noundef nonnull align 4 dereferenceable(28) %0) unnamed_addr #1 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 4, !tbaa !10
+  %5 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %3, i32 0, i32 1
+  store i32 0, ptr %5, align 4, !tbaa !21
+  %6 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %3, i32 0, i32 2
+  store i32 0, ptr %6, align 4, !tbaa !23
+  %7 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %3, i32 0, i32 3
+  store i32 0, ptr %7, align 4, !tbaa !25
+  %8 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %3, i32 0, i32 4
+  store i32 0, ptr %8, align 4, !tbaa !27
+  %9 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %3, i32 0, i32 5
+  store i32 0, ptr %9, align 4, !tbaa !29
+  %10 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %3, i32 0, i32 6
+  store i32 0, ptr %10, align 4, !tbaa !31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514DisplayOptions7BuilderC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %this, ptr noundef nonnull align 4 dereferenceable(28) %displayOptions) unnamed_addr #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %displayOptions.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %displayOptions, ptr %displayOptions.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %displayOptions.addr, align 8
-  %grammaticalCase = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %grammaticalCase, align 4
-  %grammaticalCase2 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 0
-  store i32 %1, ptr %grammaticalCase2, align 4
-  %2 = load ptr, ptr %displayOptions.addr, align 8
-  %nounClass = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %nounClass, align 4
-  %nounClass3 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 1
-  store i32 %3, ptr %nounClass3, align 4
-  %4 = load ptr, ptr %displayOptions.addr, align 8
-  %pluralCategory = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %4, i32 0, i32 2
-  %5 = load i32, ptr %pluralCategory, align 4
-  %pluralCategory4 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 2
-  store i32 %5, ptr %pluralCategory4, align 4
-  %6 = load ptr, ptr %displayOptions.addr, align 8
-  %capitalization = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %6, i32 0, i32 3
-  %7 = load i32, ptr %capitalization, align 4
-  %capitalization5 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 3
-  store i32 %7, ptr %capitalization5, align 4
-  %8 = load ptr, ptr %displayOptions.addr, align 8
-  %nameStyle = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %8, i32 0, i32 4
-  %9 = load i32, ptr %nameStyle, align 4
-  %nameStyle6 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 4
-  store i32 %9, ptr %nameStyle6, align 4
-  %10 = load ptr, ptr %displayOptions.addr, align 8
-  %displayLength = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %10, i32 0, i32 5
-  %11 = load i32, ptr %displayLength, align 4
-  %displayLength7 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 5
-  store i32 %11, ptr %displayLength7, align 4
-  %12 = load ptr, ptr %displayOptions.addr, align 8
-  %substituteHandling = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %12, i32 0, i32 6
-  %13 = load i32, ptr %substituteHandling, align 4
-  %substituteHandling8 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this1, i32 0, i32 6
-  store i32 %13, ptr %substituteHandling8, align 4
+define void @_ZN6icu_7714DisplayOptions7BuilderC2ERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1) unnamed_addr #1 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 4, !tbaa !19
+  %9 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %5, i32 0, i32 0
+  store i32 %8, ptr %9, align 4, !tbaa !10
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 4, !tbaa !22
+  %13 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %5, i32 0, i32 1
+  store i32 %12, ptr %13, align 4, !tbaa !21
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %14, i32 0, i32 2
+  %16 = load i32, ptr %15, align 4, !tbaa !24
+  %17 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %5, i32 0, i32 2
+  store i32 %16, ptr %17, align 4, !tbaa !23
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 4, !tbaa !26
+  %21 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %5, i32 0, i32 3
+  store i32 %20, ptr %21, align 4, !tbaa !25
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %22, i32 0, i32 4
+  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %25 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %5, i32 0, i32 4
+  store i32 %24, ptr %25, align 4, !tbaa !27
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %26, i32 0, i32 5
+  %28 = load i32, ptr %27, align 4, !tbaa !30
+  %29 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %5, i32 0, i32 5
+  store i32 %28, ptr %29, align 4, !tbaa !29
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions", ptr %30, i32 0, i32 6
+  %32 = load i32, ptr %31, align 4, !tbaa !32
+  %33 = getelementptr inbounds nuw %"class.icu_77::DisplayOptions::Builder", ptr %5, i32 0, i32 6
+  store i32 %32, ptr %33, align 4, !tbaa !31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @udispopt_getGrammaticalCaseIdentifier_75(i32 noundef %grammaticalCase) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %grammaticalCase.addr = alloca i32, align 4
-  store i32 %grammaticalCase, ptr %grammaticalCase.addr, align 4
-  %0 = load i32, ptr %grammaticalCase.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define ptr @udispopt_getGrammaticalCaseIdentifier_77(i32 noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !33
+  %4 = load i32, ptr %3, align 4, !tbaa !33
+  %5 = icmp sge i32 %4, 0
+  br i1 %5, label %6, label %14
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %grammaticalCase.addr, align 4
-  %cmp1 = icmp slt i32 %1, 15
-  br i1 %cmp1, label %if.then, label %if.end
+6:                                                ; preds = %1
+  %7 = load i32, ptr %3, align 4, !tbaa !33
+  %8 = icmp slt i32 %7, 15
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %grammaticalCase.addr, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [15 x ptr], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !33
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  store ptr %13, ptr %2, align 8
+  br label %16
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = load ptr, ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, align 16
-  store ptr %4, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %6, %1
+  %15 = load ptr, ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, align 16, !tbaa !34
+  store ptr %15, ptr %2, align 8
+  br label %16
 
-return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+16:                                               ; preds = %14, %9
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @udispopt_fromGrammaticalCaseIdentifier_75(ptr noundef %identifier) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %identifier.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %identifier, ptr %identifier.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define i32 @udispopt_fromGrammaticalCaseIdentifier_77(ptr noundef %0) #1 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store i32 0, ptr %4, align 4, !tbaa !36
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 15
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %21, %1
+  %7 = load i32, ptr %4, align 4, !tbaa !36
+  %8 = icmp slt i32 %7, 15
+  br i1 %8, label %10, label %9
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %identifier.addr, align 8
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [15 x ptr], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 @strcmp(ptr noundef %1, ptr noundef %3) #3
-  %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %if.then, label %if.end
+9:                                                ; preds = %6
+  store i32 2, ptr %5, align 4
+  br label %24
 
-if.then:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %3, align 8, !tbaa !34
+  %12 = load i32, ptr %4, align 4, !tbaa !36
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds [15 x ptr], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %16 = call i32 @strcmp(ptr noundef %11, ptr noundef %15) #5
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %20
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+18:                                               ; preds = %10
+  %19 = load i32, ptr %4, align 4, !tbaa !36
+  store i32 %19, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %24
 
-for.inc:                                          ; preds = %if.end
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+20:                                               ; preds = %10
+  br label %21
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %20
+  %22 = load i32, ptr %4, align 4, !tbaa !36
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %4, align 4, !tbaa !36
+  br label %6, !llvm.loop !38
 
-return:                                           ; preds = %for.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+24:                                               ; preds = %18, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %25 = load i32, ptr %5, align 4
+  switch i32 %25, label %29 [
+    i32 2, label %26
+    i32 1, label %27
+  ]
+
+26:                                               ; preds = %24
+  store i32 0, ptr %2, align 4
+  br label %27
+
+27:                                               ; preds = %26, %24
+  %28 = load i32, ptr %2, align 4
+  ret i32 %28
+
+29:                                               ; preds = %24
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @udispopt_getPluralCategoryIdentifier_75(i32 noundef %pluralCategory) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %pluralCategory.addr = alloca i32, align 4
-  store i32 %pluralCategory, ptr %pluralCategory.addr, align 4
-  %0 = load i32, ptr %pluralCategory.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define ptr @udispopt_getPluralCategoryIdentifier_77(i32 noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !40
+  %4 = load i32, ptr %3, align 4, !tbaa !40
+  %5 = icmp sge i32 %4, 0
+  br i1 %5, label %6, label %14
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %pluralCategory.addr, align 4
-  %cmp1 = icmp slt i32 %1, 7
-  br i1 %cmp1, label %if.then, label %if.end
+6:                                                ; preds = %1
+  %7 = load i32, ptr %3, align 4, !tbaa !40
+  %8 = icmp slt i32 %7, 7
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %pluralCategory.addr, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !40
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  store ptr %13, ptr %2, align 8
+  br label %16
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = load ptr, ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, align 16
-  store ptr %4, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %6, %1
+  %15 = load ptr, ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, align 16, !tbaa !34
+  store ptr %15, ptr %2, align 8
+  br label %16
 
-return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+16:                                               ; preds = %14, %9
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @udispopt_fromPluralCategoryIdentifier_75(ptr noundef %identifier) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %identifier.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %identifier, ptr %identifier.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define i32 @udispopt_fromPluralCategoryIdentifier_77(ptr noundef %0) #1 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store i32 0, ptr %4, align 4, !tbaa !36
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 7
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %21, %1
+  %7 = load i32, ptr %4, align 4, !tbaa !36
+  %8 = icmp slt i32 %7, 7
+  br i1 %8, label %10, label %9
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %identifier.addr, align 8
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 @strcmp(ptr noundef %1, ptr noundef %3) #3
-  %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %if.then, label %if.end
+9:                                                ; preds = %6
+  store i32 2, ptr %5, align 4
+  br label %24
 
-if.then:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %3, align 8, !tbaa !34
+  %12 = load i32, ptr %4, align 4, !tbaa !36
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds [7 x ptr], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %16 = call i32 @strcmp(ptr noundef %11, ptr noundef %15) #5
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %20
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+18:                                               ; preds = %10
+  %19 = load i32, ptr %4, align 4, !tbaa !36
+  store i32 %19, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %24
 
-for.inc:                                          ; preds = %if.end
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !6
+20:                                               ; preds = %10
+  br label %21
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %20
+  %22 = load i32, ptr %4, align 4, !tbaa !36
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %4, align 4, !tbaa !36
+  br label %6, !llvm.loop !41
 
-return:                                           ; preds = %for.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+24:                                               ; preds = %18, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %25 = load i32, ptr %5, align 4
+  switch i32 %25, label %29 [
+    i32 2, label %26
+    i32 1, label %27
+  ]
+
+26:                                               ; preds = %24
+  store i32 0, ptr %2, align 4
+  br label %27
+
+27:                                               ; preds = %26, %24
+  %28 = load i32, ptr %2, align 4
+  ret i32 %28
+
+29:                                               ; preds = %24
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @udispopt_getNounClassIdentifier_75(i32 noundef %nounClass) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %nounClass.addr = alloca i32, align 4
-  store i32 %nounClass, ptr %nounClass.addr, align 4
-  %0 = load i32, ptr %nounClass.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define ptr @udispopt_getNounClassIdentifier_77(i32 noundef %0) #1 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !42
+  %4 = load i32, ptr %3, align 4, !tbaa !42
+  %5 = icmp sge i32 %4, 0
+  br i1 %5, label %6, label %14
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %nounClass.addr, align 4
-  %cmp1 = icmp slt i32 %1, 9
-  br i1 %cmp1, label %if.then, label %if.end
+6:                                                ; preds = %1
+  %7 = load i32, ptr %3, align 4, !tbaa !42
+  %8 = icmp slt i32 %7, 9
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %nounClass.addr, align 4
-  %idxprom = zext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [9 x ptr], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !42
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
+  store ptr %13, ptr %2, align 8
+  br label %16
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = load ptr, ptr @_ZN12_GLOBAL__N_112nounClassIdsE, align 16
-  store ptr %4, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %6, %1
+  %15 = load ptr, ptr @_ZN12_GLOBAL__N_112nounClassIdsE, align 16, !tbaa !34
+  store ptr %15, ptr %2, align 8
+  br label %16
 
-return:                                           ; preds = %if.end, %if.then
-  %5 = load ptr, ptr %retval, align 8
-  ret ptr %5
+16:                                               ; preds = %14, %9
+  %17 = load ptr, ptr %2, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @udispopt_fromNounClassIdentifier_75(ptr noundef %identifier) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %identifier.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %identifier, ptr %identifier.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define i32 @udispopt_fromNounClassIdentifier_77(ptr noundef %0) #1 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  store i32 0, ptr %4, align 4, !tbaa !36
+  br label %6
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 9
-  br i1 %cmp, label %for.body, label %for.end
+6:                                                ; preds = %21, %1
+  %7 = load i32, ptr %4, align 4, !tbaa !36
+  %8 = icmp slt i32 %7, 9
+  br i1 %8, label %10, label %9
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %identifier.addr, align 8
-  %2 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [9 x ptr], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 @strcmp(ptr noundef %1, ptr noundef %3) #3
-  %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %if.then, label %if.end
+9:                                                ; preds = %6
+  store i32 2, ptr %5, align 4
+  br label %24
 
-if.then:                                          ; preds = %for.body
-  %4 = load i32, ptr %i, align 4
-  store i32 %4, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %3, align 8, !tbaa !34
+  %12 = load i32, ptr %4, align 4, !tbaa !36
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds [9 x ptr], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 0, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %16 = call i32 @strcmp(ptr noundef %11, ptr noundef %15) #5
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %20
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+18:                                               ; preds = %10
+  %19 = load i32, ptr %4, align 4, !tbaa !36
+  store i32 %19, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %24
 
-for.inc:                                          ; preds = %if.end
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+20:                                               ; preds = %10
+  br label %21
 
-for.end:                                          ; preds = %for.cond
-  store i32 0, ptr %retval, align 4
-  br label %return
+21:                                               ; preds = %20
+  %22 = load i32, ptr %4, align 4, !tbaa !36
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %4, align 4, !tbaa !36
+  br label %6, !llvm.loop !43
 
-return:                                           ; preds = %for.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+24:                                               ; preds = %18, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %25 = load i32, ptr %5, align 4
+  switch i32 %25, label %29 [
+    i32 2, label %26
+    i32 1, label %27
+  ]
+
+26:                                               ; preds = %24
+  store i32 0, ptr %2, align 4
+  br label %27
+
+27:                                               ; preds = %26, %24
+  %28 = load i32, ptr %2, align 4
+  ret i32 %28
+
+29:                                               ; preds = %24
+  unreachable
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6icu_7714DisplayOptionsE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN6icu_7714DisplayOptions7BuilderE", !5, i64 0}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"_ZTSN6icu_7714DisplayOptions7BuilderE", !12, i64 0, !13, i64 4, !14, i64 8, !15, i64 12, !16, i64 16, !17, i64 20, !18, i64 24}
+!12 = !{!"_ZTS30UDisplayOptionsGrammaticalCase", !6, i64 0}
+!13 = !{!"_ZTS24UDisplayOptionsNounClass", !6, i64 0}
+!14 = !{!"_ZTS29UDisplayOptionsPluralCategory", !6, i64 0}
+!15 = !{!"_ZTS29UDisplayOptionsCapitalization", !6, i64 0}
+!16 = !{!"_ZTS24UDisplayOptionsNameStyle", !6, i64 0}
+!17 = !{!"_ZTS28UDisplayOptionsDisplayLength", !6, i64 0}
+!18 = !{!"_ZTS33UDisplayOptionsSubstituteHandling", !6, i64 0}
+!19 = !{!20, !12, i64 0}
+!20 = !{!"_ZTSN6icu_7714DisplayOptionsE", !12, i64 0, !13, i64 4, !14, i64 8, !15, i64 12, !16, i64 16, !17, i64 20, !18, i64 24}
+!21 = !{!11, !13, i64 4}
+!22 = !{!20, !13, i64 4}
+!23 = !{!11, !14, i64 8}
+!24 = !{!20, !14, i64 8}
+!25 = !{!11, !15, i64 12}
+!26 = !{!20, !15, i64 12}
+!27 = !{!11, !16, i64 16}
+!28 = !{!20, !16, i64 16}
+!29 = !{!11, !17, i64 20}
+!30 = !{!20, !17, i64 20}
+!31 = !{!11, !18, i64 24}
+!32 = !{!20, !18, i64 24}
+!33 = !{!12, !12, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 omnipotent char", !5, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"int", !6, i64 0}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.mustprogress"}
+!40 = !{!14, !14, i64 0}
+!41 = distinct !{!41, !39}
+!42 = !{!13, !13, i64 0}
+!43 = distinct !{!43, !39}

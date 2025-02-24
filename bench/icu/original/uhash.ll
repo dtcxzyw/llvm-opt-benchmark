@@ -1,2918 +1,3408 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UHashtable = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, float, float, i8, i8 }
 %struct.UHashElement = type { i32, %union.UElement, %union.UElement }
 %union.UElement = type { ptr }
+%"class.std::basic_string_view" = type { i64, ptr }
+
+$_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv = comdat any
+
+$_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv = comdat any
+
+$_ZNKSt17basic_string_viewIcSt11char_traitsIcEEixEm = comdat any
 
 @_ZL6PRIMES = internal constant [29 x i32] [i32 7, i32 13, i32 31, i32 61, i32 127, i32 251, i32 509, i32 1021, i32 2039, i32 4093, i32 8191, i32 16381, i32 32749, i32 65521, i32 131071, i32 262139, i32 524287, i32 1048573, i32 2097143, i32 4194301, i32 8388593, i32 16777213, i32 33554393, i32 67108859, i32 134217689, i32 268435399, i32 536870909, i32 1073741789, i32 2147483647], align 16
 @_ZL25RESIZE_POLICY_RATIO_TABLE = internal constant [6 x float] [float 0.000000e+00, float 5.000000e-01, float 0x3FB99999A0000000, float 5.000000e-01, float 0.000000e+00, float 1.000000e+00], align 16
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_open_75(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, ptr noundef %status) #0 {
-entry:
-  %keyHash.addr = alloca ptr, align 8
-  %keyComp.addr = alloca ptr, align 8
-  %valueComp.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  store ptr %keyHash, ptr %keyHash.addr, align 8
-  store ptr %keyComp, ptr %keyComp.addr, align 8
-  store ptr %valueComp, ptr %valueComp.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %keyHash.addr, align 8
-  %1 = load ptr, ptr %keyComp.addr, align 8
-  %2 = load ptr, ptr %valueComp.addr, align 8
-  %3 = load ptr, ptr %status.addr, align 8
-  %call = call noundef ptr @_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %3)
-  ret ptr %call
+define ptr @uhash_open_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %11 = load ptr, ptr %7, align 8, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !3
+  %13 = call noundef ptr @_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef 4, ptr noundef %12)
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %primeIndex, ptr noundef %status) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %keyHash.addr = alloca ptr, align 8
-  %keyComp.addr = alloca ptr, align 8
-  %valueComp.addr = alloca ptr, align 8
-  %primeIndex.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store ptr %keyHash, ptr %keyHash.addr, align 8
-  store ptr %keyComp, ptr %keyComp.addr, align 8
-  store ptr %valueComp, ptr %valueComp.addr, align 8
-  store i32 %primeIndex, ptr %primeIndex.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal noundef ptr @_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !3
+  store i32 %3, ptr %10, align 4, !tbaa !7
+  store ptr %4, ptr %11, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  %14 = load ptr, ptr %11, align 8, !tbaa !3
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %15)
+  %17 = icmp ne i8 %16, 0
+  br i1 %17, label %18, label %19
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+18:                                               ; preds = %5
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %43
 
-if.end:                                           ; preds = %entry
-  %call1 = call noalias ptr @uprv_malloc_75(i64 noundef 80) #7
-  store ptr %call1, ptr %result, align 8
-  %2 = load ptr, ptr %result, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then2, label %if.end3
+19:                                               ; preds = %5
+  %20 = call noalias ptr @uprv_malloc_77(i64 noundef 80) #10
+  store ptr %20, ptr %12, align 8, !tbaa !11
+  %21 = load ptr, ptr %12, align 8, !tbaa !11
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %25
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %3, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %11, align 8, !tbaa !3
+  store i32 7, ptr %24, align 4, !tbaa !9
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %43
 
-if.end3:                                          ; preds = %if.end
-  %4 = load ptr, ptr %result, align 8
-  %5 = load ptr, ptr %keyHash.addr, align 8
-  %6 = load ptr, ptr %keyComp.addr, align 8
-  %7 = load ptr, ptr %valueComp.addr, align 8
-  %8 = load i32, ptr %primeIndex.addr, align 4
-  %9 = load ptr, ptr %status.addr, align 8
-  %call4 = call noundef ptr @_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9)
-  %10 = load ptr, ptr %result, align 8
-  %allocated = getelementptr inbounds %struct.UHashtable, ptr %10, i32 0, i32 13
-  store i8 1, ptr %allocated, align 1
-  %11 = load ptr, ptr %status.addr, align 8
-  %12 = load i32, ptr %11, align 4
-  %call5 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %12)
-  %tobool6 = icmp ne i8 %call5, 0
-  br i1 %tobool6, label %if.then7, label %if.end8
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %12, align 8, !tbaa !11
+  %27 = load ptr, ptr %7, align 8, !tbaa !3
+  %28 = load ptr, ptr %8, align 8, !tbaa !3
+  %29 = load ptr, ptr %9, align 8, !tbaa !3
+  %30 = load i32, ptr %10, align 4, !tbaa !7
+  %31 = load ptr, ptr %11, align 8, !tbaa !3
+  %32 = call noundef ptr @_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef %30, ptr noundef %31)
+  %33 = load ptr, ptr %12, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw %struct.UHashtable, ptr %33, i32 0, i32 13
+  store i8 1, ptr %34, align 1, !tbaa !13
+  %35 = load ptr, ptr %11, align 8, !tbaa !3
+  %36 = load i32, ptr %35, align 4, !tbaa !9
+  %37 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %36)
+  %38 = icmp ne i8 %37, 0
+  br i1 %38, label %39, label %41
 
-if.then7:                                         ; preds = %if.end3
-  %13 = load ptr, ptr %result, align 8
-  call void @uprv_free_75(ptr noundef %13)
-  store ptr null, ptr %retval, align 8
-  br label %return
+39:                                               ; preds = %25
+  %40 = load ptr, ptr %12, align 8, !tbaa !11
+  call void @uprv_free_77(ptr noundef %40)
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %43
 
-if.end8:                                          ; preds = %if.end3
-  %14 = load ptr, ptr %result, align 8
-  store ptr %14, ptr %retval, align 8
-  br label %return
+41:                                               ; preds = %25
+  %42 = load ptr, ptr %12, align 8, !tbaa !11
+  store ptr %42, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %43
 
-return:                                           ; preds = %if.end8, %if.then7, %if.then2, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+43:                                               ; preds = %41, %39, %23, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  %44 = load ptr, ptr %6, align 8
+  ret ptr %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_openSize_75(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %size, ptr noundef %status) #0 {
-entry:
-  %keyHash.addr = alloca ptr, align 8
-  %keyComp.addr = alloca ptr, align 8
-  %valueComp.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %keyHash, ptr %keyHash.addr, align 8
-  store ptr %keyComp, ptr %keyComp.addr, align 8
-  store ptr %valueComp, ptr %valueComp.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %while.cond
+define ptr @uhash_openSize_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store ptr %2, ptr %8, align 8, !tbaa !3
+  store i32 %3, ptr %9, align 4, !tbaa !7
+  store ptr %4, ptr %10, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  store i32 0, ptr %11, align 4, !tbaa !7
+  br label %12
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 28
-  br i1 %cmp, label %land.rhs, label %land.end
+12:                                               ; preds = %24, %5
+  %13 = load i32, ptr %11, align 4, !tbaa !7
+  %14 = icmp slt i32 %13, 28
+  br i1 %14, label %15, label %22
 
-land.rhs:                                         ; preds = %while.cond
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
-  %3 = load i32, ptr %size.addr, align 4
-  %cmp1 = icmp slt i32 %2, %3
-  br label %land.end
+15:                                               ; preds = %12
+  %16 = load i32, ptr %11, align 4, !tbaa !7
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = load i32, ptr %9, align 4, !tbaa !7
+  %21 = icmp slt i32 %19, %20
+  br label %22
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %4 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
-  br i1 %4, label %while.body, label %while.end
+22:                                               ; preds = %15, %12
+  %23 = phi i1 [ false, %12 ], [ %21, %15 ]
+  br i1 %23, label %24, label %27
 
-while.body:                                       ; preds = %land.end
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %while.cond, !llvm.loop !4
+24:                                               ; preds = %22
+  %25 = load i32, ptr %11, align 4, !tbaa !7
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %11, align 4, !tbaa !7
+  br label %12, !llvm.loop !17
 
-while.end:                                        ; preds = %land.end
-  %6 = load ptr, ptr %keyHash.addr, align 8
-  %7 = load ptr, ptr %keyComp.addr, align 8
-  %8 = load ptr, ptr %valueComp.addr, align 8
-  %9 = load i32, ptr %i, align 4
-  %10 = load ptr, ptr %status.addr, align 8
-  %call = call noundef ptr @_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode(ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, ptr noundef %10)
-  ret ptr %call
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  %29 = load ptr, ptr %7, align 8, !tbaa !3
+  %30 = load ptr, ptr %8, align 8, !tbaa !3
+  %31 = load i32, ptr %11, align 4, !tbaa !7
+  %32 = load ptr, ptr %10, align 8, !tbaa !3
+  %33 = call noundef ptr @_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode(ptr noundef %28, ptr noundef %29, ptr noundef %30, i32 noundef %31, ptr noundef %32)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  ret ptr %33
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define ptr @uhash_init_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !11
+  store ptr %1, ptr %7, align 8, !tbaa !3
+  store ptr %2, ptr %8, align 8, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !3
+  store ptr %4, ptr %10, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !11
+  %12 = load ptr, ptr %7, align 8, !tbaa !3
+  %13 = load ptr, ptr %8, align 8, !tbaa !3
+  %14 = load ptr, ptr %9, align 8, !tbaa !3
+  %15 = load ptr, ptr %10, align 8, !tbaa !3
+  %16 = call noundef ptr @_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef 4, ptr noundef %15)
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_init_75(ptr noundef %fillinResult, ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, ptr noundef %status) #0 {
-entry:
-  %fillinResult.addr = alloca ptr, align 8
-  %keyHash.addr = alloca ptr, align 8
-  %keyComp.addr = alloca ptr, align 8
-  %valueComp.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  store ptr %fillinResult, ptr %fillinResult.addr, align 8
-  store ptr %keyHash, ptr %keyHash.addr, align 8
-  store ptr %keyComp, ptr %keyComp.addr, align 8
-  store ptr %valueComp, ptr %valueComp.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %fillinResult.addr, align 8
-  %1 = load ptr, ptr %keyHash.addr, align 8
-  %2 = load ptr, ptr %keyComp.addr, align 8
-  %3 = load ptr, ptr %valueComp.addr, align 8
-  %4 = load ptr, ptr %status.addr, align 8
-  %call = call noundef ptr @_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 4, ptr noundef %4)
-  ret ptr %call
+define internal noundef ptr @_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !11
+  store ptr %1, ptr %9, align 8, !tbaa !3
+  store ptr %2, ptr %10, align 8, !tbaa !3
+  store ptr %3, ptr %11, align 8, !tbaa !3
+  store i32 %4, ptr %12, align 4, !tbaa !7
+  store ptr %5, ptr %13, align 8, !tbaa !3
+  %14 = load ptr, ptr %13, align 8, !tbaa !3
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %16 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %15)
+  %17 = icmp ne i8 %16, 0
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %6
+  store ptr null, ptr %7, align 8
+  br label %46
+
+19:                                               ; preds = %6
+  %20 = load ptr, ptr %9, align 8, !tbaa !3
+  %21 = load ptr, ptr %8, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %struct.UHashtable, ptr %21, i32 0, i32 1
+  store ptr %20, ptr %22, align 8, !tbaa !19
+  %23 = load ptr, ptr %10, align 8, !tbaa !3
+  %24 = load ptr, ptr %8, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw %struct.UHashtable, ptr %24, i32 0, i32 2
+  store ptr %23, ptr %25, align 8, !tbaa !20
+  %26 = load ptr, ptr %11, align 8, !tbaa !3
+  %27 = load ptr, ptr %8, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.UHashtable, ptr %27, i32 0, i32 3
+  store ptr %26, ptr %28, align 8, !tbaa !21
+  %29 = load ptr, ptr %8, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.UHashtable, ptr %29, i32 0, i32 4
+  store ptr null, ptr %30, align 8, !tbaa !22
+  %31 = load ptr, ptr %8, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.UHashtable, ptr %31, i32 0, i32 5
+  store ptr null, ptr %32, align 8, !tbaa !23
+  %33 = load ptr, ptr %8, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw %struct.UHashtable, ptr %33, i32 0, i32 13
+  store i8 0, ptr %34, align 1, !tbaa !13
+  %35 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @_ZL30_uhash_internalSetResizePolicyP10UHashtable17UHashResizePolicy(ptr noundef %35, i32 noundef 0)
+  %36 = load ptr, ptr %8, align 8, !tbaa !11
+  %37 = load i32, ptr %12, align 4, !tbaa !7
+  %38 = load ptr, ptr %13, align 8, !tbaa !3
+  call void @_ZL15_uhash_allocateP10UHashtableiP10UErrorCode(ptr noundef %36, i32 noundef %37, ptr noundef %38)
+  %39 = load ptr, ptr %13, align 8, !tbaa !3
+  %40 = load i32, ptr %39, align 4, !tbaa !9
+  %41 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %40)
+  %42 = icmp ne i8 %41, 0
+  br i1 %42, label %43, label %44
+
+43:                                               ; preds = %19
+  store ptr null, ptr %7, align 8
+  br label %46
+
+44:                                               ; preds = %19
+  %45 = load ptr, ptr %8, align 8, !tbaa !11
+  store ptr %45, ptr %7, align 8
+  br label %46
+
+46:                                               ; preds = %44, %43, %18
+  %47 = load ptr, ptr %7, align 8
+  ret ptr %47
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode(ptr noundef %result, ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %primeIndex, ptr noundef %status) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %result.addr = alloca ptr, align 8
-  %keyHash.addr = alloca ptr, align 8
-  %keyComp.addr = alloca ptr, align 8
-  %valueComp.addr = alloca ptr, align 8
-  %primeIndex.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  store ptr %result, ptr %result.addr, align 8
-  store ptr %keyHash, ptr %keyHash.addr, align 8
-  store ptr %keyComp, ptr %keyComp.addr, align 8
-  store ptr %valueComp, ptr %valueComp.addr, align 8
-  store i32 %primeIndex, ptr %primeIndex.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define ptr @uhash_initSize_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !11
+  store ptr %1, ptr %8, align 8, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !3
+  store ptr %3, ptr %10, align 8, !tbaa !3
+  store i32 %4, ptr %11, align 4, !tbaa !7
+  store ptr %5, ptr %12, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
+  store i32 0, ptr %13, align 4, !tbaa !7
+  br label %14
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+14:                                               ; preds = %26, %6
+  %15 = load i32, ptr %13, align 4, !tbaa !7
+  %16 = icmp slt i32 %15, 28
+  br i1 %16, label %17, label %24
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %keyHash.addr, align 8
-  %3 = load ptr, ptr %result.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %3, i32 0, i32 1
-  store ptr %2, ptr %keyHasher, align 8
-  %4 = load ptr, ptr %keyComp.addr, align 8
-  %5 = load ptr, ptr %result.addr, align 8
-  %keyComparator = getelementptr inbounds %struct.UHashtable, ptr %5, i32 0, i32 2
-  store ptr %4, ptr %keyComparator, align 8
-  %6 = load ptr, ptr %valueComp.addr, align 8
-  %7 = load ptr, ptr %result.addr, align 8
-  %valueComparator = getelementptr inbounds %struct.UHashtable, ptr %7, i32 0, i32 3
-  store ptr %6, ptr %valueComparator, align 8
-  %8 = load ptr, ptr %result.addr, align 8
-  %keyDeleter = getelementptr inbounds %struct.UHashtable, ptr %8, i32 0, i32 4
-  store ptr null, ptr %keyDeleter, align 8
-  %9 = load ptr, ptr %result.addr, align 8
-  %valueDeleter = getelementptr inbounds %struct.UHashtable, ptr %9, i32 0, i32 5
-  store ptr null, ptr %valueDeleter, align 8
-  %10 = load ptr, ptr %result.addr, align 8
-  %allocated = getelementptr inbounds %struct.UHashtable, ptr %10, i32 0, i32 13
-  store i8 0, ptr %allocated, align 1
-  %11 = load ptr, ptr %result.addr, align 8
-  call void @_ZL30_uhash_internalSetResizePolicyP10UHashtable17UHashResizePolicy(ptr noundef %11, i32 noundef 0)
-  %12 = load ptr, ptr %result.addr, align 8
-  %13 = load i32, ptr %primeIndex.addr, align 4
-  %14 = load ptr, ptr %status.addr, align 8
-  call void @_ZL15_uhash_allocateP10UHashtableiP10UErrorCode(ptr noundef %12, i32 noundef %13, ptr noundef %14)
-  %15 = load ptr, ptr %status.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  %call1 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %16)
-  %tobool2 = icmp ne i8 %call1, 0
-  br i1 %tobool2, label %if.then3, label %if.end4
+17:                                               ; preds = %14
+  %18 = load i32, ptr %13, align 4, !tbaa !7
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %19
+  %21 = load i32, ptr %20, align 4, !tbaa !7
+  %22 = load i32, ptr %11, align 4, !tbaa !7
+  %23 = icmp slt i32 %21, %22
+  br label %24
 
-if.then3:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+24:                                               ; preds = %17, %14
+  %25 = phi i1 [ false, %14 ], [ %23, %17 ]
+  br i1 %25, label %26, label %29
 
-if.end4:                                          ; preds = %if.end
-  %17 = load ptr, ptr %result.addr, align 8
-  store ptr %17, ptr %retval, align 8
-  br label %return
+26:                                               ; preds = %24
+  %27 = load i32, ptr %13, align 4, !tbaa !7
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %13, align 4, !tbaa !7
+  br label %14, !llvm.loop !24
 
-return:                                           ; preds = %if.end4, %if.then3, %if.then
-  %18 = load ptr, ptr %retval, align 8
-  ret ptr %18
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %7, align 8, !tbaa !11
+  %31 = load ptr, ptr %8, align 8, !tbaa !3
+  %32 = load ptr, ptr %9, align 8, !tbaa !3
+  %33 = load ptr, ptr %10, align 8, !tbaa !3
+  %34 = load i32, ptr %13, align 4, !tbaa !7
+  %35 = load ptr, ptr %12, align 8, !tbaa !3
+  %36 = call noundef ptr @_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %35)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  ret ptr %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_initSize_75(ptr noundef %fillinResult, ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %size, ptr noundef %status) #0 {
-entry:
-  %fillinResult.addr = alloca ptr, align 8
-  %keyHash.addr = alloca ptr, align 8
-  %keyComp.addr = alloca ptr, align 8
-  %valueComp.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %fillinResult, ptr %fillinResult.addr, align 8
-  store ptr %keyHash, ptr %keyHash.addr, align 8
-  store ptr %keyComp, ptr %keyComp.addr, align 8
-  store ptr %valueComp, ptr %valueComp.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %while.cond
+define void @uhash_close_77(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %5 = load ptr, ptr %2, align 8, !tbaa !11
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %8
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %0, 28
-  br i1 %cmp, label %land.rhs, label %land.end
+7:                                                ; preds = %1
+  br label %80
 
-land.rhs:                                         ; preds = %while.cond
-  %1 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom
-  %2 = load i32, ptr %arrayidx, align 4
-  %3 = load i32, ptr %size.addr, align 4
-  %cmp1 = icmp slt i32 %2, %3
-  br label %land.end
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %struct.UHashtable, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %73
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %4 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
-  br i1 %4, label %while.body, label %while.end
+13:                                               ; preds = %8
+  %14 = load ptr, ptr %2, align 8, !tbaa !11
+  %15 = getelementptr inbounds nuw %struct.UHashtable, ptr %14, i32 0, i32 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %23, label %18
 
-while.body:                                       ; preds = %land.end
-  %5 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %5, 1
-  store i32 %inc, ptr %i, align 4
-  br label %while.cond, !llvm.loop !6
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %2, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %struct.UHashtable, ptr %19, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8, !tbaa !23
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %67
 
-while.end:                                        ; preds = %land.end
-  %6 = load ptr, ptr %fillinResult.addr, align 8
-  %7 = load ptr, ptr %keyHash.addr, align 8
-  %8 = load ptr, ptr %keyComp.addr, align 8
-  %9 = load ptr, ptr %valueComp.addr, align 8
-  %10 = load i32, ptr %i, align 4
-  %11 = load ptr, ptr %status.addr, align 8
-  %call = call noundef ptr @_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %11)
-  ret ptr %call
-}
+23:                                               ; preds = %18, %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  store i32 -1, ptr %3, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  br label %24
 
-; Function Attrs: mustprogress uwtable
-define void @uhash_close_75(ptr noundef %hash) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %pos = alloca i32, align 4
-  %e = alloca ptr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+24:                                               ; preds = %65, %23
+  %25 = load ptr, ptr %2, align 8, !tbaa !11
+  %26 = call ptr @uhash_nextElement_77(ptr noundef %25, ptr noundef %3)
+  store ptr %26, ptr %4, align 8, !tbaa !26
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %66
 
-if.then:                                          ; preds = %entry
-  br label %if.end27
+28:                                               ; preds = %24
+  br label %29
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %hash.addr, align 8
-  %elements = getelementptr inbounds %struct.UHashtable, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %elements, align 8
-  %cmp1 = icmp ne ptr %2, null
-  br i1 %cmp1, label %if.then2, label %if.end25
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %2, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw %struct.UHashtable, ptr %30, i32 0, i32 4
+  %32 = load ptr, ptr %31, align 8, !tbaa !22
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %46
 
-if.then2:                                         ; preds = %if.end
-  %3 = load ptr, ptr %hash.addr, align 8
-  %keyDeleter = getelementptr inbounds %struct.UHashtable, ptr %3, i32 0, i32 4
-  %4 = load ptr, ptr %keyDeleter, align 8
-  %cmp3 = icmp ne ptr %4, null
-  br i1 %cmp3, label %if.then5, label %lor.lhs.false
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %4, align 8, !tbaa !26
+  %36 = getelementptr inbounds nuw %struct.UHashElement, ptr %35, i32 0, i32 2
+  %37 = load ptr, ptr %36, align 8, !tbaa !27
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %46
 
-lor.lhs.false:                                    ; preds = %if.then2
-  %5 = load ptr, ptr %hash.addr, align 8
-  %valueDeleter = getelementptr inbounds %struct.UHashtable, ptr %5, i32 0, i32 5
-  %6 = load ptr, ptr %valueDeleter, align 8
-  %cmp4 = icmp ne ptr %6, null
-  br i1 %cmp4, label %if.then5, label %if.end22
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %2, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.UHashtable, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !22
+  %43 = load ptr, ptr %4, align 8, !tbaa !26
+  %44 = getelementptr inbounds nuw %struct.UHashElement, ptr %43, i32 0, i32 2
+  %45 = load ptr, ptr %44, align 8, !tbaa !27
+  call void %42(ptr noundef %45)
+  br label %46
 
-if.then5:                                         ; preds = %lor.lhs.false, %if.then2
-  store i32 -1, ptr %pos, align 4
-  br label %while.cond
+46:                                               ; preds = %39, %34, %29
+  %47 = load ptr, ptr %2, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.UHashtable, ptr %47, i32 0, i32 5
+  %49 = load ptr, ptr %48, align 8, !tbaa !23
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %63
 
-while.cond:                                       ; preds = %do.end, %if.then5
-  %7 = load ptr, ptr %hash.addr, align 8
-  %call = call ptr @uhash_nextElement_75(ptr noundef %7, ptr noundef %pos)
-  store ptr %call, ptr %e, align 8
-  %cmp6 = icmp ne ptr %call, null
-  br i1 %cmp6, label %while.body, label %while.end
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %4, align 8, !tbaa !26
+  %53 = getelementptr inbounds nuw %struct.UHashElement, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !27
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %63
 
-while.body:                                       ; preds = %while.cond
-  br label %do.body
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %2, align 8, !tbaa !11
+  %58 = getelementptr inbounds nuw %struct.UHashtable, ptr %57, i32 0, i32 5
+  %59 = load ptr, ptr %58, align 8, !tbaa !23
+  %60 = load ptr, ptr %4, align 8, !tbaa !26
+  %61 = getelementptr inbounds nuw %struct.UHashElement, ptr %60, i32 0, i32 1
+  %62 = load ptr, ptr %61, align 8, !tbaa !27
+  call void %59(ptr noundef %62)
+  br label %63
 
-do.body:                                          ; preds = %while.body
-  %8 = load ptr, ptr %hash.addr, align 8
-  %keyDeleter7 = getelementptr inbounds %struct.UHashtable, ptr %8, i32 0, i32 4
-  %9 = load ptr, ptr %keyDeleter7, align 8
-  %cmp8 = icmp ne ptr %9, null
-  br i1 %cmp8, label %land.lhs.true, label %if.end13
+63:                                               ; preds = %56, %51, %46
+  br label %64
 
-land.lhs.true:                                    ; preds = %do.body
-  %10 = load ptr, ptr %e, align 8
-  %key = getelementptr inbounds %struct.UHashElement, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %key, align 8
-  %cmp9 = icmp ne ptr %11, null
-  br i1 %cmp9, label %if.then10, label %if.end13
+64:                                               ; preds = %63
+  br label %65
 
-if.then10:                                        ; preds = %land.lhs.true
-  %12 = load ptr, ptr %hash.addr, align 8
-  %keyDeleter11 = getelementptr inbounds %struct.UHashtable, ptr %12, i32 0, i32 4
-  %13 = load ptr, ptr %keyDeleter11, align 8
-  %14 = load ptr, ptr %e, align 8
-  %key12 = getelementptr inbounds %struct.UHashElement, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %key12, align 8
-  call void %13(ptr noundef %15)
-  br label %if.end13
+65:                                               ; preds = %64
+  br label %24, !llvm.loop !28
 
-if.end13:                                         ; preds = %if.then10, %land.lhs.true, %do.body
-  %16 = load ptr, ptr %hash.addr, align 8
-  %valueDeleter14 = getelementptr inbounds %struct.UHashtable, ptr %16, i32 0, i32 5
-  %17 = load ptr, ptr %valueDeleter14, align 8
-  %cmp15 = icmp ne ptr %17, null
-  br i1 %cmp15, label %land.lhs.true16, label %if.end21
+66:                                               ; preds = %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
+  br label %67
 
-land.lhs.true16:                                  ; preds = %if.end13
-  %18 = load ptr, ptr %e, align 8
-  %value = getelementptr inbounds %struct.UHashElement, ptr %18, i32 0, i32 1
-  %19 = load ptr, ptr %value, align 8
-  %cmp17 = icmp ne ptr %19, null
-  br i1 %cmp17, label %if.then18, label %if.end21
+67:                                               ; preds = %66, %18
+  %68 = load ptr, ptr %2, align 8, !tbaa !11
+  %69 = getelementptr inbounds nuw %struct.UHashtable, ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8, !tbaa !25
+  call void @uprv_free_77(ptr noundef %70)
+  %71 = load ptr, ptr %2, align 8, !tbaa !11
+  %72 = getelementptr inbounds nuw %struct.UHashtable, ptr %71, i32 0, i32 0
+  store ptr null, ptr %72, align 8, !tbaa !25
+  br label %73
 
-if.then18:                                        ; preds = %land.lhs.true16
-  %20 = load ptr, ptr %hash.addr, align 8
-  %valueDeleter19 = getelementptr inbounds %struct.UHashtable, ptr %20, i32 0, i32 5
-  %21 = load ptr, ptr %valueDeleter19, align 8
-  %22 = load ptr, ptr %e, align 8
-  %value20 = getelementptr inbounds %struct.UHashElement, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %value20, align 8
-  call void %21(ptr noundef %23)
-  br label %if.end21
+73:                                               ; preds = %67, %8
+  %74 = load ptr, ptr %2, align 8, !tbaa !11
+  %75 = getelementptr inbounds nuw %struct.UHashtable, ptr %74, i32 0, i32 13
+  %76 = load i8, ptr %75, align 1, !tbaa !13
+  %77 = icmp ne i8 %76, 0
+  br i1 %77, label %78, label %80
 
-if.end21:                                         ; preds = %if.then18, %land.lhs.true16, %if.end13
-  br label %do.end
+78:                                               ; preds = %73
+  %79 = load ptr, ptr %2, align 8, !tbaa !11
+  call void @uprv_free_77(ptr noundef %79)
+  br label %80
 
-do.end:                                           ; preds = %if.end21
-  br label %while.cond, !llvm.loop !7
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end22
-
-if.end22:                                         ; preds = %while.end, %lor.lhs.false
-  %24 = load ptr, ptr %hash.addr, align 8
-  %elements23 = getelementptr inbounds %struct.UHashtable, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %elements23, align 8
-  call void @uprv_free_75(ptr noundef %25)
-  %26 = load ptr, ptr %hash.addr, align 8
-  %elements24 = getelementptr inbounds %struct.UHashtable, ptr %26, i32 0, i32 0
-  store ptr null, ptr %elements24, align 8
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.end22, %if.end
-  %27 = load ptr, ptr %hash.addr, align 8
-  %allocated = getelementptr inbounds %struct.UHashtable, ptr %27, i32 0, i32 13
-  %28 = load i8, ptr %allocated, align 1
-  %tobool = icmp ne i8 %28, 0
-  br i1 %tobool, label %if.then26, label %if.end27
-
-if.then26:                                        ; preds = %if.end25
-  %29 = load ptr, ptr %hash.addr, align 8
-  call void @uprv_free_75(ptr noundef %29)
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.then26, %if.end25, %if.then
+80:                                               ; preds = %7, %78, %73
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @uhash_nextElement_75(ptr noundef %hash, ptr noundef %pos) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  %pos.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %pos, ptr %pos.addr, align 8
-  %0 = load ptr, ptr %pos.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %add = add nsw i32 %1, 1
-  store i32 %add, ptr %i, align 4
-  br label %for.cond
+define ptr @uhash_nextElement_77(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %8 = load ptr, ptr %5, align 8, !tbaa !29
+  %9 = load i32, ptr %8, align 4, !tbaa !7
+  %10 = add nsw i32 %9, 1
+  store i32 %10, ptr %6, align 4, !tbaa !7
+  br label %11
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %i, align 4
-  %3 = load ptr, ptr %hash.addr, align 8
-  %length = getelementptr inbounds %struct.UHashtable, ptr %3, i32 0, i32 7
-  %4 = load i32, ptr %length, align 4
-  %cmp = icmp slt i32 %2, %4
-  br i1 %cmp, label %for.body, label %for.end
+11:                                               ; preds = %37, %2
+  %12 = load i32, ptr %6, align 4, !tbaa !7
+  %13 = load ptr, ptr %4, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.UHashtable, ptr %13, i32 0, i32 7
+  %15 = load i32, ptr %14, align 4, !tbaa !31
+  %16 = icmp slt i32 %12, %15
+  br i1 %16, label %17, label %40
 
-for.body:                                         ; preds = %for.cond
-  %5 = load ptr, ptr %hash.addr, align 8
-  %elements = getelementptr inbounds %struct.UHashtable, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %elements, align 8
-  %7 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds %struct.UHashElement, ptr %6, i64 %idxprom
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %arrayidx, i32 0, i32 0
-  %8 = load i32, ptr %hashcode, align 8
-  %cmp1 = icmp slt i32 %8, 0
-  br i1 %cmp1, label %if.end, label %if.then
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %4, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.UHashtable, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %21 = load i32, ptr %6, align 4, !tbaa !7
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds %struct.UHashElement, ptr %20, i64 %22
+  %24 = getelementptr inbounds nuw %struct.UHashElement, ptr %23, i32 0, i32 0
+  %25 = load i32, ptr %24, align 8, !tbaa !32
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %36, label %27
 
-if.then:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %10 = load ptr, ptr %pos.addr, align 8
-  store i32 %9, ptr %10, align 4
-  %11 = load ptr, ptr %hash.addr, align 8
-  %elements2 = getelementptr inbounds %struct.UHashtable, ptr %11, i32 0, i32 0
-  %12 = load ptr, ptr %elements2, align 8
-  %13 = load i32, ptr %i, align 4
-  %idxprom3 = sext i32 %13 to i64
-  %arrayidx4 = getelementptr inbounds %struct.UHashElement, ptr %12, i64 %idxprom3
-  store ptr %arrayidx4, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %17
+  %28 = load i32, ptr %6, align 4, !tbaa !7
+  %29 = load ptr, ptr %5, align 8, !tbaa !29
+  store i32 %28, ptr %29, align 4, !tbaa !7
+  %30 = load ptr, ptr %4, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw %struct.UHashtable, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !25
+  %33 = load i32, ptr %6, align 4, !tbaa !7
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds %struct.UHashElement, ptr %32, i64 %34
+  store ptr %35, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %41
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+36:                                               ; preds = %17
+  br label %37
 
-for.inc:                                          ; preds = %if.end
-  %14 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !8
+37:                                               ; preds = %36
+  %38 = load i32, ptr %6, align 4, !tbaa !7
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %6, align 4, !tbaa !7
+  br label %11, !llvm.loop !34
 
-for.end:                                          ; preds = %for.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
+40:                                               ; preds = %11
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %41
 
-return:                                           ; preds = %for.end, %if.then
-  %15 = load ptr, ptr %retval, align 8
-  ret ptr %15
+41:                                               ; preds = %40, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  %42 = load ptr, ptr %3, align 8
+  ret ptr %42
 }
 
-declare void @uprv_free_75(ptr noundef) #2
+declare void @uprv_free_77(ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @uhash_setKeyHasher_75(ptr noundef %hash, ptr noundef %fn) #1 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %keyHasher, align 8
-  store ptr %1, ptr %result, align 8
-  %2 = load ptr, ptr %fn.addr, align 8
-  %3 = load ptr, ptr %hash.addr, align 8
-  %keyHasher1 = getelementptr inbounds %struct.UHashtable, ptr %3, i32 0, i32 1
-  store ptr %2, ptr %keyHasher1, align 8
-  %4 = load ptr, ptr %result, align 8
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define ptr @uhash_setKeyComparator_75(ptr noundef %hash, ptr noundef %fn) #1 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  %keyComparator = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 2
-  %1 = load ptr, ptr %keyComparator, align 8
-  store ptr %1, ptr %result, align 8
-  %2 = load ptr, ptr %fn.addr, align 8
-  %3 = load ptr, ptr %hash.addr, align 8
-  %keyComparator1 = getelementptr inbounds %struct.UHashtable, ptr %3, i32 0, i32 2
-  store ptr %2, ptr %keyComparator1, align 8
-  %4 = load ptr, ptr %result, align 8
-  ret ptr %4
+define ptr @uhash_setKeyHasher_77(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw %struct.UHashtable, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  store ptr %8, ptr %5, align 8, !tbaa !3
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 1
+  store ptr %9, ptr %11, align 8, !tbaa !19
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @uhash_setValueComparator_75(ptr noundef %hash, ptr noundef %fn) #1 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  %valueComparator = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %valueComparator, align 8
-  store ptr %1, ptr %result, align 8
-  %2 = load ptr, ptr %fn.addr, align 8
-  %3 = load ptr, ptr %hash.addr, align 8
-  %valueComparator1 = getelementptr inbounds %struct.UHashtable, ptr %3, i32 0, i32 3
-  store ptr %2, ptr %valueComparator1, align 8
-  %4 = load ptr, ptr %result, align 8
-  ret ptr %4
+define ptr @uhash_setKeyComparator_77(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw %struct.UHashtable, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  store ptr %8, ptr %5, align 8, !tbaa !3
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 2
+  store ptr %9, ptr %11, align 8, !tbaa !20
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @uhash_setKeyDeleter_75(ptr noundef %hash, ptr noundef %fn) #1 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  %keyDeleter = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 4
-  %1 = load ptr, ptr %keyDeleter, align 8
-  store ptr %1, ptr %result, align 8
-  %2 = load ptr, ptr %fn.addr, align 8
-  %3 = load ptr, ptr %hash.addr, align 8
-  %keyDeleter1 = getelementptr inbounds %struct.UHashtable, ptr %3, i32 0, i32 4
-  store ptr %2, ptr %keyDeleter1, align 8
-  %4 = load ptr, ptr %result, align 8
-  ret ptr %4
+define ptr @uhash_setValueComparator_77(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw %struct.UHashtable, ptr %6, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  store ptr %8, ptr %5, align 8, !tbaa !3
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 3
+  store ptr %9, ptr %11, align 8, !tbaa !21
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @uhash_setValueDeleter_75(ptr noundef %hash, ptr noundef %fn) #1 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %fn.addr = alloca ptr, align 8
-  %result = alloca ptr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %fn, ptr %fn.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  %valueDeleter = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 5
-  %1 = load ptr, ptr %valueDeleter, align 8
-  store ptr %1, ptr %result, align 8
-  %2 = load ptr, ptr %fn.addr, align 8
-  %3 = load ptr, ptr %hash.addr, align 8
-  %valueDeleter1 = getelementptr inbounds %struct.UHashtable, ptr %3, i32 0, i32 5
-  store ptr %2, ptr %valueDeleter1, align 8
-  %4 = load ptr, ptr %result, align 8
-  ret ptr %4
+define ptr @uhash_setKeyDeleter_77(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw %struct.UHashtable, ptr %6, i32 0, i32 4
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
+  store ptr %8, ptr %5, align 8, !tbaa !3
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 4
+  store ptr %9, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define ptr @uhash_setValueDeleter_77(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %6 = load ptr, ptr %3, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw %struct.UHashtable, ptr %6, i32 0, i32 5
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  store ptr %8, ptr %5, align 8, !tbaa !3
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 5
+  store ptr %9, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uhash_setResizePolicy_75(ptr noundef %hash, i32 noundef %policy) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %policy.addr = alloca i32, align 4
-  %status = alloca i32, align 4
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %policy, ptr %policy.addr, align 4
-  store i32 0, ptr %status, align 4
-  %0 = load ptr, ptr %hash.addr, align 8
-  %1 = load i32, ptr %policy.addr, align 4
-  call void @_ZL30_uhash_internalSetResizePolicyP10UHashtable17UHashResizePolicy(ptr noundef %0, i32 noundef %1)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %length = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 7
-  %3 = load i32, ptr %length, align 4
-  %conv = sitofp i32 %3 to float
-  %4 = load ptr, ptr %hash.addr, align 8
-  %lowWaterRatio = getelementptr inbounds %struct.UHashtable, ptr %4, i32 0, i32 11
-  %5 = load float, ptr %lowWaterRatio, align 4
-  %mul = fmul float %conv, %5
-  %conv1 = fptosi float %mul to i32
-  %6 = load ptr, ptr %hash.addr, align 8
-  %lowWaterMark = getelementptr inbounds %struct.UHashtable, ptr %6, i32 0, i32 9
-  store i32 %conv1, ptr %lowWaterMark, align 4
-  %7 = load ptr, ptr %hash.addr, align 8
-  %length2 = getelementptr inbounds %struct.UHashtable, ptr %7, i32 0, i32 7
-  %8 = load i32, ptr %length2, align 4
-  %conv3 = sitofp i32 %8 to float
-  %9 = load ptr, ptr %hash.addr, align 8
-  %highWaterRatio = getelementptr inbounds %struct.UHashtable, ptr %9, i32 0, i32 10
-  %10 = load float, ptr %highWaterRatio, align 8
-  %mul4 = fmul float %conv3, %10
-  %conv5 = fptosi float %mul4 to i32
-  %11 = load ptr, ptr %hash.addr, align 8
-  %highWaterMark = getelementptr inbounds %struct.UHashtable, ptr %11, i32 0, i32 8
-  store i32 %conv5, ptr %highWaterMark, align 8
-  %12 = load ptr, ptr %hash.addr, align 8
-  call void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %12, ptr noundef %status)
+define void @uhash_setResizePolicy_77(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  store i32 0, ptr %5, align 4, !tbaa !9
+  %6 = load ptr, ptr %3, align 8, !tbaa !11
+  %7 = load i32, ptr %4, align 4, !tbaa !35
+  call void @_ZL30_uhash_internalSetResizePolicyP10UHashtable17UHashResizePolicy(ptr noundef %6, i32 noundef %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.UHashtable, ptr %8, i32 0, i32 7
+  %10 = load i32, ptr %9, align 4, !tbaa !31
+  %11 = sitofp i32 %10 to float
+  %12 = load ptr, ptr %3, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.UHashtable, ptr %12, i32 0, i32 11
+  %14 = load float, ptr %13, align 4, !tbaa !37
+  %15 = fmul float %11, %14
+  %16 = fptosi float %15 to i32
+  %17 = load ptr, ptr %3, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.UHashtable, ptr %17, i32 0, i32 9
+  store i32 %16, ptr %18, align 4, !tbaa !38
+  %19 = load ptr, ptr %3, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %struct.UHashtable, ptr %19, i32 0, i32 7
+  %21 = load i32, ptr %20, align 4, !tbaa !31
+  %22 = sitofp i32 %21 to float
+  %23 = load ptr, ptr %3, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %struct.UHashtable, ptr %23, i32 0, i32 10
+  %25 = load float, ptr %24, align 8, !tbaa !39
+  %26 = fmul float %22, %25
+  %27 = fptosi float %26 to i32
+  %28 = load ptr, ptr %3, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw %struct.UHashtable, ptr %28, i32 0, i32 8
+  store i32 %27, ptr %29, align 8, !tbaa !40
+  %30 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %30, ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL30_uhash_internalSetResizePolicyP10UHashtable17UHashResizePolicy(ptr noundef %hash, i32 noundef %policy) #1 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %policy.addr = alloca i32, align 4
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %policy, ptr %policy.addr, align 4
-  %0 = load i32, ptr %policy.addr, align 4
-  %mul = mul nsw i32 %0, 2
-  %idxprom = sext i32 %mul to i64
-  %arrayidx = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom
-  %1 = load float, ptr %arrayidx, align 4
-  %2 = load ptr, ptr %hash.addr, align 8
-  %lowWaterRatio = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 11
-  store float %1, ptr %lowWaterRatio, align 4
-  %3 = load i32, ptr %policy.addr, align 4
-  %mul1 = mul nsw i32 %3, 2
-  %add = add nsw i32 %mul1, 1
-  %idxprom2 = sext i32 %add to i64
-  %arrayidx3 = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom2
-  %4 = load float, ptr %arrayidx3, align 4
-  %5 = load ptr, ptr %hash.addr, align 8
-  %highWaterRatio = getelementptr inbounds %struct.UHashtable, ptr %5, i32 0, i32 10
-  store float %4, ptr %highWaterRatio, align 8
+define internal void @_ZL30_uhash_internalSetResizePolicyP10UHashtable17UHashResizePolicy(ptr noundef %0, i32 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !35
+  %5 = load i32, ptr %4, align 4, !tbaa !35
+  %6 = mul nsw i32 %5, 2
+  %7 = sext i32 %6 to i64
+  %8 = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %7
+  %9 = load float, ptr %8, align 4, !tbaa !41
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 11
+  store float %9, ptr %11, align 4, !tbaa !37
+  %12 = load i32, ptr %4, align 4, !tbaa !35
+  %13 = mul nsw i32 %12, 2
+  %14 = add nsw i32 %13, 1
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %15
+  %17 = load float, ptr %16, align 4, !tbaa !41
+  %18 = load ptr, ptr %3, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.UHashtable, ptr %18, i32 0, i32 10
+  store float %17, ptr %19, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %hash, ptr noundef %status) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %old = alloca ptr, align 8
-  %oldLength = alloca i32, align 4
-  %newPrimeIndex = alloca i32, align 4
-  %i = alloca i32, align 4
-  %e = alloca ptr, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  %elements = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %elements, align 8
-  store ptr %1, ptr %old, align 8
-  %2 = load ptr, ptr %hash.addr, align 8
-  %length = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 7
-  %3 = load i32, ptr %length, align 4
-  store i32 %3, ptr %oldLength, align 4
-  %4 = load ptr, ptr %hash.addr, align 8
-  %primeIndex = getelementptr inbounds %struct.UHashtable, ptr %4, i32 0, i32 12
-  %5 = load i8, ptr %primeIndex, align 8
-  %conv = sext i8 %5 to i32
-  store i32 %conv, ptr %newPrimeIndex, align 4
-  %6 = load ptr, ptr %hash.addr, align 8
-  %count = getelementptr inbounds %struct.UHashtable, ptr %6, i32 0, i32 6
-  %7 = load i32, ptr %count, align 8
-  %8 = load ptr, ptr %hash.addr, align 8
-  %highWaterMark = getelementptr inbounds %struct.UHashtable, ptr %8, i32 0, i32 8
-  %9 = load i32, ptr %highWaterMark, align 8
-  %cmp = icmp sgt i32 %7, %9
-  br i1 %cmp, label %if.then, label %if.else
+define internal void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %12 = load ptr, ptr %3, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.UHashtable, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  store ptr %14, ptr %5, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  %15 = load ptr, ptr %3, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.UHashtable, ptr %15, i32 0, i32 7
+  %17 = load i32, ptr %16, align 4, !tbaa !31
+  store i32 %17, ptr %6, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  %18 = load ptr, ptr %3, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.UHashtable, ptr %18, i32 0, i32 12
+  %20 = load i8, ptr %19, align 8, !tbaa !42
+  %21 = sext i8 %20 to i32
+  store i32 %21, ptr %7, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %22 = load ptr, ptr %3, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw %struct.UHashtable, ptr %22, i32 0, i32 6
+  %24 = load i32, ptr %23, align 8, !tbaa !43
+  %25 = load ptr, ptr %3, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.UHashtable, ptr %25, i32 0, i32 8
+  %27 = load i32, ptr %26, align 8, !tbaa !40
+  %28 = icmp sgt i32 %24, %27
+  br i1 %28, label %29, label %35
 
-if.then:                                          ; preds = %entry
-  %10 = load i32, ptr %newPrimeIndex, align 4
-  %inc = add nsw i32 %10, 1
-  store i32 %inc, ptr %newPrimeIndex, align 4
-  %cmp1 = icmp sge i32 %inc, 29
-  br i1 %cmp1, label %if.then2, label %if.end
+29:                                               ; preds = %2
+  %30 = load i32, ptr %7, align 4, !tbaa !7
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %7, align 4, !tbaa !7
+  %32 = icmp sge i32 %31, 29
+  br i1 %32, label %33, label %34
 
-if.then2:                                         ; preds = %if.then
-  br label %return
+33:                                               ; preds = %29
+  store i32 1, ptr %9, align 4
+  br label %128
 
-if.end:                                           ; preds = %if.then
-  br label %if.end11
+34:                                               ; preds = %29
+  br label %51
 
-if.else:                                          ; preds = %entry
-  %11 = load ptr, ptr %hash.addr, align 8
-  %count3 = getelementptr inbounds %struct.UHashtable, ptr %11, i32 0, i32 6
-  %12 = load i32, ptr %count3, align 8
-  %13 = load ptr, ptr %hash.addr, align 8
-  %lowWaterMark = getelementptr inbounds %struct.UHashtable, ptr %13, i32 0, i32 9
-  %14 = load i32, ptr %lowWaterMark, align 4
-  %cmp4 = icmp slt i32 %12, %14
-  br i1 %cmp4, label %if.then5, label %if.else9
+35:                                               ; preds = %2
+  %36 = load ptr, ptr %3, align 8, !tbaa !11
+  %37 = getelementptr inbounds nuw %struct.UHashtable, ptr %36, i32 0, i32 6
+  %38 = load i32, ptr %37, align 8, !tbaa !43
+  %39 = load ptr, ptr %3, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw %struct.UHashtable, ptr %39, i32 0, i32 9
+  %41 = load i32, ptr %40, align 4, !tbaa !38
+  %42 = icmp slt i32 %38, %41
+  br i1 %42, label %43, label %49
 
-if.then5:                                         ; preds = %if.else
-  %15 = load i32, ptr %newPrimeIndex, align 4
-  %dec = add nsw i32 %15, -1
-  store i32 %dec, ptr %newPrimeIndex, align 4
-  %cmp6 = icmp slt i32 %dec, 0
-  br i1 %cmp6, label %if.then7, label %if.end8
+43:                                               ; preds = %35
+  %44 = load i32, ptr %7, align 4, !tbaa !7
+  %45 = add nsw i32 %44, -1
+  store i32 %45, ptr %7, align 4, !tbaa !7
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %48
 
-if.then7:                                         ; preds = %if.then5
-  br label %return
+47:                                               ; preds = %43
+  store i32 1, ptr %9, align 4
+  br label %128
 
-if.end8:                                          ; preds = %if.then5
-  br label %if.end10
+48:                                               ; preds = %43
+  br label %50
 
-if.else9:                                         ; preds = %if.else
-  br label %return
+49:                                               ; preds = %35
+  store i32 1, ptr %9, align 4
+  br label %128
 
-if.end10:                                         ; preds = %if.end8
-  br label %if.end11
+50:                                               ; preds = %48
+  br label %51
 
-if.end11:                                         ; preds = %if.end10, %if.end
-  %16 = load ptr, ptr %hash.addr, align 8
-  %17 = load i32, ptr %newPrimeIndex, align 4
-  %18 = load ptr, ptr %status.addr, align 8
-  call void @_ZL15_uhash_allocateP10UHashtableiP10UErrorCode(ptr noundef %16, i32 noundef %17, ptr noundef %18)
-  %19 = load ptr, ptr %status.addr, align 8
-  %20 = load i32, ptr %19, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %20)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then12, label %if.end15
+51:                                               ; preds = %50, %34
+  %52 = load ptr, ptr %3, align 8, !tbaa !11
+  %53 = load i32, ptr %7, align 4, !tbaa !7
+  %54 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @_ZL15_uhash_allocateP10UHashtableiP10UErrorCode(ptr noundef %52, i32 noundef %53, ptr noundef %54)
+  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  %56 = load i32, ptr %55, align 4, !tbaa !9
+  %57 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %56)
+  %58 = icmp ne i8 %57, 0
+  br i1 %58, label %59, label %66
 
-if.then12:                                        ; preds = %if.end11
-  %21 = load ptr, ptr %old, align 8
-  %22 = load ptr, ptr %hash.addr, align 8
-  %elements13 = getelementptr inbounds %struct.UHashtable, ptr %22, i32 0, i32 0
-  store ptr %21, ptr %elements13, align 8
-  %23 = load i32, ptr %oldLength, align 4
-  %24 = load ptr, ptr %hash.addr, align 8
-  %length14 = getelementptr inbounds %struct.UHashtable, ptr %24, i32 0, i32 7
-  store i32 %23, ptr %length14, align 4
-  br label %return
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %5, align 8, !tbaa !26
+  %61 = load ptr, ptr %3, align 8, !tbaa !11
+  %62 = getelementptr inbounds nuw %struct.UHashtable, ptr %61, i32 0, i32 0
+  store ptr %60, ptr %62, align 8, !tbaa !25
+  %63 = load i32, ptr %6, align 4, !tbaa !7
+  %64 = load ptr, ptr %3, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %struct.UHashtable, ptr %64, i32 0, i32 7
+  store i32 %63, ptr %65, align 4, !tbaa !31
+  store i32 1, ptr %9, align 4
+  br label %128
 
-if.end15:                                         ; preds = %if.end11
-  %25 = load i32, ptr %oldLength, align 4
-  %sub = sub nsw i32 %25, 1
-  store i32 %sub, ptr %i, align 4
-  br label %for.cond
+66:                                               ; preds = %51
+  %67 = load i32, ptr %6, align 4, !tbaa !7
+  %68 = sub nsw i32 %67, 1
+  store i32 %68, ptr %8, align 4, !tbaa !7
+  br label %69
 
-for.cond:                                         ; preds = %for.inc, %if.end15
-  %26 = load i32, ptr %i, align 4
-  %cmp16 = icmp sge i32 %26, 0
-  br i1 %cmp16, label %for.body, label %for.end
+69:                                               ; preds = %123, %66
+  %70 = load i32, ptr %8, align 4, !tbaa !7
+  %71 = icmp sge i32 %70, 0
+  br i1 %71, label %72, label %126
 
-for.body:                                         ; preds = %for.cond
-  %27 = load ptr, ptr %old, align 8
-  %28 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %28 to i64
-  %arrayidx = getelementptr inbounds %struct.UHashElement, ptr %27, i64 %idxprom
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %arrayidx, i32 0, i32 0
-  %29 = load i32, ptr %hashcode, align 8
-  %cmp17 = icmp slt i32 %29, 0
-  br i1 %cmp17, label %if.end38, label %if.then18
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %5, align 8, !tbaa !26
+  %74 = load i32, ptr %8, align 4, !tbaa !7
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %struct.UHashElement, ptr %73, i64 %75
+  %77 = getelementptr inbounds nuw %struct.UHashElement, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 8, !tbaa !32
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %122, label %80
 
-if.then18:                                        ; preds = %for.body
-  %30 = load ptr, ptr %hash.addr, align 8
-  %31 = load ptr, ptr %old, align 8
-  %32 = load i32, ptr %i, align 4
-  %idxprom19 = sext i32 %32 to i64
-  %arrayidx20 = getelementptr inbounds %struct.UHashElement, ptr %31, i64 %idxprom19
-  %key = getelementptr inbounds %struct.UHashElement, ptr %arrayidx20, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %key, i64 8, i1 false)
-  %33 = load ptr, ptr %old, align 8
-  %34 = load i32, ptr %i, align 4
-  %idxprom21 = sext i32 %34 to i64
-  %arrayidx22 = getelementptr inbounds %struct.UHashElement, ptr %33, i64 %idxprom21
-  %hashcode23 = getelementptr inbounds %struct.UHashElement, ptr %arrayidx22, i32 0, i32 0
-  %35 = load i32, ptr %hashcode23, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %36 = load ptr, ptr %coerce.dive, align 8
-  %call24 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %30, ptr %36, i32 noundef %35)
-  store ptr %call24, ptr %e, align 8
-  %37 = load ptr, ptr %old, align 8
-  %38 = load i32, ptr %i, align 4
-  %idxprom25 = sext i32 %38 to i64
-  %arrayidx26 = getelementptr inbounds %struct.UHashElement, ptr %37, i64 %idxprom25
-  %key27 = getelementptr inbounds %struct.UHashElement, ptr %arrayidx26, i32 0, i32 2
-  %39 = load ptr, ptr %e, align 8
-  %key28 = getelementptr inbounds %struct.UHashElement, ptr %39, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %key28, ptr align 8 %key27, i64 8, i1 false)
-  %40 = load ptr, ptr %old, align 8
-  %41 = load i32, ptr %i, align 4
-  %idxprom29 = sext i32 %41 to i64
-  %arrayidx30 = getelementptr inbounds %struct.UHashElement, ptr %40, i64 %idxprom29
-  %value = getelementptr inbounds %struct.UHashElement, ptr %arrayidx30, i32 0, i32 1
-  %42 = load ptr, ptr %e, align 8
-  %value31 = getelementptr inbounds %struct.UHashElement, ptr %42, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value31, ptr align 8 %value, i64 8, i1 false)
-  %43 = load ptr, ptr %old, align 8
-  %44 = load i32, ptr %i, align 4
-  %idxprom32 = sext i32 %44 to i64
-  %arrayidx33 = getelementptr inbounds %struct.UHashElement, ptr %43, i64 %idxprom32
-  %hashcode34 = getelementptr inbounds %struct.UHashElement, ptr %arrayidx33, i32 0, i32 0
-  %45 = load i32, ptr %hashcode34, align 8
-  %46 = load ptr, ptr %e, align 8
-  %hashcode35 = getelementptr inbounds %struct.UHashElement, ptr %46, i32 0, i32 0
-  store i32 %45, ptr %hashcode35, align 8
-  %47 = load ptr, ptr %hash.addr, align 8
-  %count36 = getelementptr inbounds %struct.UHashtable, ptr %47, i32 0, i32 6
-  %48 = load i32, ptr %count36, align 8
-  %inc37 = add nsw i32 %48, 1
-  store i32 %inc37, ptr %count36, align 8
-  br label %if.end38
+80:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %81 = load ptr, ptr %3, align 8, !tbaa !11
+  %82 = load ptr, ptr %5, align 8, !tbaa !26
+  %83 = load i32, ptr %8, align 4, !tbaa !7
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds %struct.UHashElement, ptr %82, i64 %84
+  %86 = getelementptr inbounds nuw %struct.UHashElement, ptr %85, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %86, i64 8, i1 false), !tbaa.struct !44
+  %87 = load ptr, ptr %5, align 8, !tbaa !26
+  %88 = load i32, ptr %8, align 4, !tbaa !7
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds %struct.UHashElement, ptr %87, i64 %89
+  %91 = getelementptr inbounds nuw %struct.UHashElement, ptr %90, i32 0, i32 0
+  %92 = load i32, ptr %91, align 8, !tbaa !32
+  %93 = getelementptr inbounds nuw %union.UElement, ptr %11, i32 0, i32 0
+  %94 = load ptr, ptr %93, align 8
+  %95 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %81, ptr %94, i32 noundef %92)
+  store ptr %95, ptr %10, align 8, !tbaa !26
+  %96 = load ptr, ptr %5, align 8, !tbaa !26
+  %97 = load i32, ptr %8, align 4, !tbaa !7
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds %struct.UHashElement, ptr %96, i64 %98
+  %100 = getelementptr inbounds nuw %struct.UHashElement, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %10, align 8, !tbaa !26
+  %102 = getelementptr inbounds nuw %struct.UHashElement, ptr %101, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %102, ptr align 8 %100, i64 8, i1 false), !tbaa.struct !44
+  %103 = load ptr, ptr %5, align 8, !tbaa !26
+  %104 = load i32, ptr %8, align 4, !tbaa !7
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds %struct.UHashElement, ptr %103, i64 %105
+  %107 = getelementptr inbounds nuw %struct.UHashElement, ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %10, align 8, !tbaa !26
+  %109 = getelementptr inbounds nuw %struct.UHashElement, ptr %108, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %109, ptr align 8 %107, i64 8, i1 false), !tbaa.struct !44
+  %110 = load ptr, ptr %5, align 8, !tbaa !26
+  %111 = load i32, ptr %8, align 4, !tbaa !7
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds %struct.UHashElement, ptr %110, i64 %112
+  %114 = getelementptr inbounds nuw %struct.UHashElement, ptr %113, i32 0, i32 0
+  %115 = load i32, ptr %114, align 8, !tbaa !32
+  %116 = load ptr, ptr %10, align 8, !tbaa !26
+  %117 = getelementptr inbounds nuw %struct.UHashElement, ptr %116, i32 0, i32 0
+  store i32 %115, ptr %117, align 8, !tbaa !32
+  %118 = load ptr, ptr %3, align 8, !tbaa !11
+  %119 = getelementptr inbounds nuw %struct.UHashtable, ptr %118, i32 0, i32 6
+  %120 = load i32, ptr %119, align 8, !tbaa !43
+  %121 = add nsw i32 %120, 1
+  store i32 %121, ptr %119, align 8, !tbaa !43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  br label %122
 
-if.end38:                                         ; preds = %if.then18, %for.body
-  br label %for.inc
+122:                                              ; preds = %80, %72
+  br label %123
 
-for.inc:                                          ; preds = %if.end38
-  %49 = load i32, ptr %i, align 4
-  %dec39 = add nsw i32 %49, -1
-  store i32 %dec39, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+123:                                              ; preds = %122
+  %124 = load i32, ptr %8, align 4, !tbaa !7
+  %125 = add nsw i32 %124, -1
+  store i32 %125, ptr %8, align 4, !tbaa !7
+  br label %69, !llvm.loop !45
 
-for.end:                                          ; preds = %for.cond
-  %50 = load ptr, ptr %old, align 8
-  call void @uprv_free_75(ptr noundef %50)
-  br label %return
+126:                                              ; preds = %69
+  %127 = load ptr, ptr %5, align 8, !tbaa !26
+  call void @uprv_free_77(ptr noundef %127)
+  store i32 0, ptr %9, align 4
+  br label %128
 
-return:                                           ; preds = %for.end, %if.then12, %if.else9, %if.then7, %if.then2
+128:                                              ; preds = %126, %59, %49, %47, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  %129 = load i32, ptr %9, align 4
+  switch i32 %129, label %131 [
+    i32 0, label %130
+    i32 1, label %130
+  ]
+
+130:                                              ; preds = %128, %128
   ret void
+
+131:                                              ; preds = %128
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @uhash_count_75(ptr noundef %hash) #1 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  %count = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 6
-  %1 = load i32, ptr %count, align 8
-  ret i32 %1
+define i32 @uhash_count_77(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = getelementptr inbounds nuw %struct.UHashtable, ptr %3, i32 0, i32 6
+  %5 = load i32, ptr %4, align 8, !tbaa !43
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_get_75(ptr noundef %hash, ptr noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call = call noundef i32 %3(ptr %4)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call3 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %1, ptr %5, i32 noundef %call)
-  %value = getelementptr inbounds %struct.UHashElement, ptr %call3, i32 0, i32 1
-  %6 = load ptr, ptr %value, align 8
-  ret ptr %6
+define ptr @uhash_get_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %8, ptr %5, align 8, !tbaa !27
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %13 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noundef i32 %12(ptr %14)
+  %16 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %9, ptr %17, i32 noundef %15)
+  %19 = getelementptr inbounds nuw %struct.UHashElement, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %hash, ptr %key.coerce, i32 noundef %hashcode) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %key = alloca %union.UElement, align 8
-  %hash.addr = alloca ptr, align 8
-  %hashcode.addr = alloca i32, align 4
-  %firstDeleted = alloca i32, align 4
-  %theIndex = alloca i32, align 4
-  %startIndex = alloca i32, align 4
-  %jump = alloca i32, align 4
-  %tableHash = alloca i32, align 4
-  %elements = alloca ptr, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp3 = alloca %union.UElement, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key, i32 0, i32 0
-  store ptr %key.coerce, ptr %coerce.dive, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %hashcode, ptr %hashcode.addr, align 4
-  store i32 -1, ptr %firstDeleted, align 4
-  store i32 0, ptr %jump, align 4
-  %0 = load ptr, ptr %hash.addr, align 8
-  %elements1 = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %elements1, align 8
-  store ptr %1, ptr %elements, align 8
-  %2 = load i32, ptr %hashcode.addr, align 4
-  %and = and i32 %2, 2147483647
-  store i32 %and, ptr %hashcode.addr, align 4
-  %3 = load i32, ptr %hashcode.addr, align 4
-  %xor = xor i32 %3, 67108864
-  %4 = load ptr, ptr %hash.addr, align 8
-  %length = getelementptr inbounds %struct.UHashtable, ptr %4, i32 0, i32 7
-  %5 = load i32, ptr %length, align 4
-  %rem = srem i32 %xor, %5
-  store i32 %rem, ptr %theIndex, align 4
-  store i32 %rem, ptr %startIndex, align 4
-  br label %do.body
+define internal noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %0, ptr %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca %union.UElement, align 8
+  %15 = alloca %union.UElement, align 8
+  %16 = alloca i32, align 4
+  %17 = getelementptr inbounds nuw %union.UElement, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %17, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !11
+  store i32 %2, ptr %7, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  store i32 -1, ptr %8, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
+  store i32 0, ptr %11, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  %18 = load ptr, ptr %6, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.UHashtable, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  store ptr %20, ptr %13, align 8, !tbaa !26
+  %21 = load i32, ptr %7, align 4, !tbaa !7
+  %22 = and i32 %21, 2147483647
+  store i32 %22, ptr %7, align 4, !tbaa !7
+  %23 = load i32, ptr %7, align 4, !tbaa !7
+  %24 = xor i32 %23, 67108864
+  %25 = load ptr, ptr %6, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.UHashtable, ptr %25, i32 0, i32 7
+  %27 = load i32, ptr %26, align 4, !tbaa !31
+  %28 = srem i32 %24, %27
+  store i32 %28, ptr %9, align 4, !tbaa !7
+  store i32 %28, ptr %10, align 4, !tbaa !7
+  br label %29
 
-do.body:                                          ; preds = %do.cond, %entry
-  %6 = load ptr, ptr %elements, align 8
-  %7 = load i32, ptr %theIndex, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds %struct.UHashElement, ptr %6, i64 %idxprom
-  %hashcode2 = getelementptr inbounds %struct.UHashElement, ptr %arrayidx, i32 0, i32 0
-  %8 = load i32, ptr %hashcode2, align 8
-  store i32 %8, ptr %tableHash, align 4
-  %9 = load i32, ptr %tableHash, align 4
-  %10 = load i32, ptr %hashcode.addr, align 4
-  %cmp = icmp eq i32 %9, %10
-  br i1 %cmp, label %if.then, label %if.else
+29:                                               ; preds = %95, %3
+  %30 = load ptr, ptr %13, align 8, !tbaa !26
+  %31 = load i32, ptr %9, align 4, !tbaa !7
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds %struct.UHashElement, ptr %30, i64 %32
+  %34 = getelementptr inbounds nuw %struct.UHashElement, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 8, !tbaa !32
+  store i32 %35, ptr %12, align 4, !tbaa !7
+  %36 = load i32, ptr %12, align 4, !tbaa !7
+  %37 = load i32, ptr %7, align 4, !tbaa !7
+  %38 = icmp eq i32 %36, %37
+  br i1 %38, label %39, label %60
 
-if.then:                                          ; preds = %do.body
-  %11 = load ptr, ptr %hash.addr, align 8
-  %keyComparator = getelementptr inbounds %struct.UHashtable, ptr %11, i32 0, i32 2
-  %12 = load ptr, ptr %keyComparator, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %key, i64 8, i1 false)
-  %13 = load ptr, ptr %elements, align 8
-  %14 = load i32, ptr %theIndex, align 4
-  %idxprom4 = sext i32 %14 to i64
-  %arrayidx5 = getelementptr inbounds %struct.UHashElement, ptr %13, i64 %idxprom4
-  %key6 = getelementptr inbounds %struct.UHashElement, ptr %arrayidx5, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %key6, i64 8, i1 false)
-  %coerce.dive7 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %15 = load ptr, ptr %coerce.dive7, align 8
-  %coerce.dive8 = getelementptr inbounds %union.UElement, ptr %agg.tmp3, i32 0, i32 0
-  %16 = load ptr, ptr %coerce.dive8, align 8
-  %call = call noundef signext i8 %12(ptr %15, ptr %16)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then9, label %if.end
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %6, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.UHashtable, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %43 = load ptr, ptr %13, align 8, !tbaa !26
+  %44 = load i32, ptr %9, align 4, !tbaa !7
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds %struct.UHashElement, ptr %43, i64 %45
+  %47 = getelementptr inbounds nuw %struct.UHashElement, ptr %46, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %47, i64 8, i1 false), !tbaa.struct !44
+  %48 = getelementptr inbounds nuw %union.UElement, ptr %14, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %union.UElement, ptr %15, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = call noundef signext i8 %42(ptr %49, ptr %51)
+  %53 = icmp ne i8 %52, 0
+  br i1 %53, label %54, label %59
 
-if.then9:                                         ; preds = %if.then
-  %17 = load ptr, ptr %elements, align 8
-  %18 = load i32, ptr %theIndex, align 4
-  %idxprom10 = sext i32 %18 to i64
-  %arrayidx11 = getelementptr inbounds %struct.UHashElement, ptr %17, i64 %idxprom10
-  store ptr %arrayidx11, ptr %retval, align 8
-  br label %return
+54:                                               ; preds = %39
+  %55 = load ptr, ptr %13, align 8, !tbaa !26
+  %56 = load i32, ptr %9, align 4, !tbaa !7
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds %struct.UHashElement, ptr %55, i64 %57
+  store ptr %58, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %114
 
-if.end:                                           ; preds = %if.then
-  br label %if.end23
+59:                                               ; preds = %39
+  br label %76
 
-if.else:                                          ; preds = %do.body
-  %19 = load i32, ptr %tableHash, align 4
-  %cmp12 = icmp slt i32 %19, 0
-  br i1 %cmp12, label %if.else14, label %if.then13
+60:                                               ; preds = %29
+  %61 = load i32, ptr %12, align 4, !tbaa !7
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %64, label %63
 
-if.then13:                                        ; preds = %if.else
-  br label %if.end22
+63:                                               ; preds = %60
+  br label %75
 
-if.else14:                                        ; preds = %if.else
-  %20 = load i32, ptr %tableHash, align 4
-  %cmp15 = icmp eq i32 %20, -2147483647
-  br i1 %cmp15, label %if.then16, label %if.else17
+64:                                               ; preds = %60
+  %65 = load i32, ptr %12, align 4, !tbaa !7
+  %66 = icmp eq i32 %65, -2147483647
+  br i1 %66, label %67, label %68
 
-if.then16:                                        ; preds = %if.else14
-  br label %do.end
+67:                                               ; preds = %64
+  br label %99
 
-if.else17:                                        ; preds = %if.else14
-  %21 = load i32, ptr %firstDeleted, align 4
-  %cmp18 = icmp slt i32 %21, 0
-  br i1 %cmp18, label %if.then19, label %if.end20
+68:                                               ; preds = %64
+  %69 = load i32, ptr %8, align 4, !tbaa !7
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %71, label %73
 
-if.then19:                                        ; preds = %if.else17
-  %22 = load i32, ptr %theIndex, align 4
-  store i32 %22, ptr %firstDeleted, align 4
-  br label %if.end20
+71:                                               ; preds = %68
+  %72 = load i32, ptr %9, align 4, !tbaa !7
+  store i32 %72, ptr %8, align 4, !tbaa !7
+  br label %73
 
-if.end20:                                         ; preds = %if.then19, %if.else17
-  br label %if.end21
+73:                                               ; preds = %71, %68
+  br label %74
 
-if.end21:                                         ; preds = %if.end20
-  br label %if.end22
+74:                                               ; preds = %73
+  br label %75
 
-if.end22:                                         ; preds = %if.end21, %if.then13
-  br label %if.end23
+75:                                               ; preds = %74, %63
+  br label %76
 
-if.end23:                                         ; preds = %if.end22, %if.end
-  %23 = load i32, ptr %jump, align 4
-  %cmp24 = icmp eq i32 %23, 0
-  br i1 %cmp24, label %if.then25, label %if.end28
+76:                                               ; preds = %75, %59
+  %77 = load i32, ptr %11, align 4, !tbaa !7
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %87
 
-if.then25:                                        ; preds = %if.end23
-  %24 = load i32, ptr %hashcode.addr, align 4
-  %25 = load ptr, ptr %hash.addr, align 8
-  %length26 = getelementptr inbounds %struct.UHashtable, ptr %25, i32 0, i32 7
-  %26 = load i32, ptr %length26, align 4
-  %sub = sub nsw i32 %26, 1
-  %rem27 = srem i32 %24, %sub
-  %add = add nsw i32 %rem27, 1
-  store i32 %add, ptr %jump, align 4
-  br label %if.end28
+79:                                               ; preds = %76
+  %80 = load i32, ptr %7, align 4, !tbaa !7
+  %81 = load ptr, ptr %6, align 8, !tbaa !11
+  %82 = getelementptr inbounds nuw %struct.UHashtable, ptr %81, i32 0, i32 7
+  %83 = load i32, ptr %82, align 4, !tbaa !31
+  %84 = sub nsw i32 %83, 1
+  %85 = srem i32 %80, %84
+  %86 = add nsw i32 %85, 1
+  store i32 %86, ptr %11, align 4, !tbaa !7
+  br label %87
 
-if.end28:                                         ; preds = %if.then25, %if.end23
-  %27 = load i32, ptr %theIndex, align 4
-  %28 = load i32, ptr %jump, align 4
-  %add29 = add nsw i32 %27, %28
-  %29 = load ptr, ptr %hash.addr, align 8
-  %length30 = getelementptr inbounds %struct.UHashtable, ptr %29, i32 0, i32 7
-  %30 = load i32, ptr %length30, align 4
-  %rem31 = srem i32 %add29, %30
-  store i32 %rem31, ptr %theIndex, align 4
-  br label %do.cond
+87:                                               ; preds = %79, %76
+  %88 = load i32, ptr %9, align 4, !tbaa !7
+  %89 = load i32, ptr %11, align 4, !tbaa !7
+  %90 = add nsw i32 %88, %89
+  %91 = load ptr, ptr %6, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %struct.UHashtable, ptr %91, i32 0, i32 7
+  %93 = load i32, ptr %92, align 4, !tbaa !31
+  %94 = srem i32 %90, %93
+  store i32 %94, ptr %9, align 4, !tbaa !7
+  br label %95
 
-do.cond:                                          ; preds = %if.end28
-  %31 = load i32, ptr %theIndex, align 4
-  %32 = load i32, ptr %startIndex, align 4
-  %cmp32 = icmp ne i32 %31, %32
-  br i1 %cmp32, label %do.body, label %do.end, !llvm.loop !10
+95:                                               ; preds = %87
+  %96 = load i32, ptr %9, align 4, !tbaa !7
+  %97 = load i32, ptr %10, align 4, !tbaa !7
+  %98 = icmp ne i32 %96, %97
+  br i1 %98, label %29, label %99, !llvm.loop !46
 
-do.end:                                           ; preds = %do.cond, %if.then16
-  %33 = load i32, ptr %firstDeleted, align 4
-  %cmp33 = icmp sge i32 %33, 0
-  br i1 %cmp33, label %if.then34, label %if.else35
+99:                                               ; preds = %95, %67
+  %100 = load i32, ptr %8, align 4, !tbaa !7
+  %101 = icmp sge i32 %100, 0
+  br i1 %101, label %102, label %104
 
-if.then34:                                        ; preds = %do.end
-  %34 = load i32, ptr %firstDeleted, align 4
-  store i32 %34, ptr %theIndex, align 4
-  br label %if.end39
+102:                                              ; preds = %99
+  %103 = load i32, ptr %8, align 4, !tbaa !7
+  store i32 %103, ptr %9, align 4, !tbaa !7
+  br label %109
 
-if.else35:                                        ; preds = %do.end
-  %35 = load i32, ptr %tableHash, align 4
-  %cmp36 = icmp ne i32 %35, -2147483647
-  br i1 %cmp36, label %if.then37, label %if.end38
+104:                                              ; preds = %99
+  %105 = load i32, ptr %12, align 4, !tbaa !7
+  %106 = icmp ne i32 %105, -2147483647
+  br i1 %106, label %107, label %108
 
-if.then37:                                        ; preds = %if.else35
-  call void @abort() #8
+107:                                              ; preds = %104
+  call void @abort() #11
   unreachable
 
-if.end38:                                         ; preds = %if.else35
-  br label %if.end39
+108:                                              ; preds = %104
+  br label %109
 
-if.end39:                                         ; preds = %if.end38, %if.then34
-  %36 = load ptr, ptr %elements, align 8
-  %37 = load i32, ptr %theIndex, align 4
-  %idxprom40 = sext i32 %37 to i64
-  %arrayidx41 = getelementptr inbounds %struct.UHashElement, ptr %36, i64 %idxprom40
-  store ptr %arrayidx41, ptr %retval, align 8
-  br label %return
+109:                                              ; preds = %108, %102
+  %110 = load ptr, ptr %13, align 8, !tbaa !26
+  %111 = load i32, ptr %9, align 4, !tbaa !7
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds %struct.UHashElement, ptr %110, i64 %112
+  store ptr %113, ptr %4, align 8
+  store i32 1, ptr %16, align 4
+  br label %114
 
-return:                                           ; preds = %if.end39, %if.then9
-  %38 = load ptr, ptr %retval, align 8
-  ret ptr %38
+114:                                              ; preds = %109, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  %115 = load ptr, ptr %4, align 8
+  ret ptr %115
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_iget_75(ptr noundef %hash, i32 noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %keyholder = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  %0 = load i32, ptr %key.addr, align 4
-  store i32 %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call = call noundef i32 %3(ptr %4)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call3 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %1, ptr %5, i32 noundef %call)
-  %value = getelementptr inbounds %struct.UHashElement, ptr %call3, i32 0, i32 1
-  %6 = load ptr, ptr %value, align 8
-  ret ptr %6
+define ptr @uhash_iget_77(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %8 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %8, ptr %5, align 8, !tbaa !27
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %13 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noundef i32 %12(ptr %14)
+  %16 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %9, ptr %17, i32 noundef %15)
+  %19 = getelementptr inbounds nuw %struct.UHashElement, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_geti_75(ptr noundef %hash, ptr noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call = call noundef i32 %3(ptr %4)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call3 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %1, ptr %5, i32 noundef %call)
-  %value = getelementptr inbounds %struct.UHashElement, ptr %call3, i32 0, i32 1
-  %6 = load i32, ptr %value, align 8
-  ret i32 %6
+define i32 @uhash_geti_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %8, ptr %5, align 8, !tbaa !27
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %13 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noundef i32 %12(ptr %14)
+  %16 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %9, ptr %17, i32 noundef %15)
+  %19 = getelementptr inbounds nuw %struct.UHashElement, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_igeti_75(ptr noundef %hash, i32 noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %keyholder = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  %0 = load i32, ptr %key.addr, align 4
-  store i32 %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call = call noundef i32 %3(ptr %4)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call3 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %1, ptr %5, i32 noundef %call)
-  %value = getelementptr inbounds %struct.UHashElement, ptr %call3, i32 0, i32 1
-  %6 = load i32, ptr %value, align 8
-  ret i32 %6
+define i32 @uhash_igeti_77(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %8 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %8, ptr %5, align 8, !tbaa !27
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.UHashtable, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %13 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noundef i32 %12(ptr %14)
+  %16 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %9, ptr %17, i32 noundef %15)
+  %19 = getelementptr inbounds nuw %struct.UHashElement, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_getiAndFound_75(ptr noundef %hash, ptr noundef %key, ptr noundef %found) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %found.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %e = alloca ptr, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %found, ptr %found.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call = call noundef i32 %3(ptr %4)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call3 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %1, ptr %5, i32 noundef %call)
-  store ptr %call3, ptr %e, align 8
-  %6 = load ptr, ptr %e, align 8
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %hashcode, align 8
-  %cmp = icmp slt i32 %7, 0
-  %lnot = xor i1 %cmp, true
-  %conv = zext i1 %lnot to i8
-  %8 = load ptr, ptr %found.addr, align 8
-  store i8 %conv, ptr %8, align 1
-  %9 = load ptr, ptr %e, align 8
-  %value = getelementptr inbounds %struct.UHashElement, ptr %9, i32 0, i32 1
-  %10 = load i32, ptr %value, align 8
-  ret i32 %10
+define i32 @uhash_getiAndFound_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.UElement, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca %union.UElement, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %11, ptr %7, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %12 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !44
+  %13 = load ptr, ptr %4, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.UHashtable, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !44
+  %16 = getelementptr inbounds nuw %union.UElement, ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef i32 %15(ptr %17)
+  %19 = getelementptr inbounds nuw %union.UElement, ptr %9, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %12, ptr %20, i32 noundef %18)
+  store ptr %21, ptr %8, align 8, !tbaa !26
+  %22 = load ptr, ptr %8, align 8, !tbaa !26
+  %23 = getelementptr inbounds nuw %struct.UHashElement, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !32
+  %25 = icmp slt i32 %24, 0
+  %26 = xor i1 %25, true
+  %27 = zext i1 %26 to i8
+  %28 = load ptr, ptr %6, align 8, !tbaa !47
+  store i8 %27, ptr %28, align 1, !tbaa !27
+  %29 = load ptr, ptr %8, align 8, !tbaa !26
+  %30 = getelementptr inbounds nuw %struct.UHashElement, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  ret i32 %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_igetiAndFound_75(ptr noundef %hash, i32 noundef %key, ptr noundef %found) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %found.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %e = alloca ptr, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  store ptr %found, ptr %found.addr, align 8
-  %0 = load i32, ptr %key.addr, align 4
-  store i32 %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call = call noundef i32 %3(ptr %4)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call3 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %1, ptr %5, i32 noundef %call)
-  store ptr %call3, ptr %e, align 8
-  %6 = load ptr, ptr %e, align 8
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %hashcode, align 8
-  %cmp = icmp slt i32 %7, 0
-  %lnot = xor i1 %cmp, true
-  %conv = zext i1 %lnot to i8
-  %8 = load ptr, ptr %found.addr, align 8
-  store i8 %conv, ptr %8, align 1
-  %9 = load ptr, ptr %e, align 8
-  %value = getelementptr inbounds %struct.UHashElement, ptr %9, i32 0, i32 1
-  %10 = load i32, ptr %value, align 8
-  ret i32 %10
+define i32 @uhash_igetiAndFound_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.UElement, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca %union.UElement, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  store ptr %2, ptr %6, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %11 = load i32, ptr %5, align 4, !tbaa !7
+  store i32 %11, ptr %7, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %12 = load ptr, ptr %4, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !44
+  %13 = load ptr, ptr %4, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.UHashtable, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !44
+  %16 = getelementptr inbounds nuw %union.UElement, ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef i32 %15(ptr %17)
+  %19 = getelementptr inbounds nuw %union.UElement, ptr %9, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %12, ptr %20, i32 noundef %18)
+  store ptr %21, ptr %8, align 8, !tbaa !26
+  %22 = load ptr, ptr %8, align 8, !tbaa !26
+  %23 = getelementptr inbounds nuw %struct.UHashElement, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !32
+  %25 = icmp slt i32 %24, 0
+  %26 = xor i1 %25, true
+  %27 = zext i1 %26 to i8
+  %28 = load ptr, ptr %6, align 8, !tbaa !47
+  store i8 %27, ptr %28, align 1, !tbaa !27
+  %29 = load ptr, ptr %8, align 8, !tbaa !26
+  %30 = getelementptr inbounds nuw %struct.UHashElement, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  ret i32 %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_put_75(ptr noundef %hash, ptr noundef %key, ptr noundef %value, ptr noundef %status) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %value.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %valueholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %value.addr, align 8
-  store ptr %1, ptr %valueholder, align 8
-  %2 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %valueholder, i64 8, i1 false)
-  %3 = load ptr, ptr %status.addr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %2, ptr %4, ptr %5, i8 noundef signext 3, ptr noundef %3)
-  %coerce.dive3 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive3, align 8
-  %6 = load ptr, ptr %ref.tmp, align 8
-  ret ptr %6
+define ptr @uhash_put_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca %union.UElement, align 8
+  %11 = alloca %union.UElement, align 8
+  %12 = alloca %union.UElement, align 8
+  %13 = alloca %union.UElement, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %14, ptr %9, align 8, !tbaa !27
+  %15 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %15, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %16 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %10, i64 8, i1 false), !tbaa.struct !44
+  %17 = load ptr, ptr %8, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %union.UElement, ptr %12, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %union.UElement, ptr %13, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %16, ptr %19, ptr %21, i8 noundef signext 3, ptr noundef %17)
+  %23 = getelementptr inbounds nuw %union.UElement, ptr %11, i32 0, i32 0
+  store ptr %22, ptr %23, align 8
+  %24 = load ptr, ptr %11, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  ret ptr %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %hash, ptr %key.coerce, ptr %value.coerce, i8 noundef signext %hint, ptr noundef %status) #0 {
-entry:
-  %retval = alloca %union.UElement, align 8
-  %key = alloca %union.UElement, align 8
-  %value = alloca %union.UElement, align 8
-  %hash.addr = alloca ptr, align 8
-  %hint.addr = alloca i8, align 1
-  %status.addr = alloca ptr, align 8
-  %hashcode = alloca i32, align 4
-  %e = alloca ptr, align 8
-  %emptytok = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp19 = alloca %union.UElement, align 8
-  %agg.tmp22 = alloca %union.UElement, align 8
-  %agg.tmp36 = alloca %union.UElement, align 8
-  %agg.tmp37 = alloca %union.UElement, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key, i32 0, i32 0
-  store ptr %key.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %value, i32 0, i32 0
-  store ptr %value.coerce, ptr %coerce.dive1, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i8 %hint, ptr %hint.addr, align 1
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %0, ptr %1, ptr %2, i8 noundef signext %3, ptr noundef %4) #0 {
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  %8 = alloca %union.UElement, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca %union.UElement, align 8
+  %15 = alloca %union.UElement, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %union.UElement, align 8
+  %18 = alloca %union.UElement, align 8
+  %19 = alloca %union.UElement, align 8
+  %20 = alloca %union.UElement, align 8
+  %21 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  store ptr %1, ptr %21, align 8
+  %22 = getelementptr inbounds nuw %union.UElement, ptr %8, i32 0, i32 0
+  store ptr %2, ptr %22, align 8
+  store ptr %0, ptr %9, align 8, !tbaa !11
+  store i8 %3, ptr %10, align 1, !tbaa !27
+  store ptr %4, ptr %11, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  %23 = load ptr, ptr %11, align 8, !tbaa !3
+  %24 = load i32, ptr %23, align 4, !tbaa !9
+  %25 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %24)
+  %26 = icmp ne i8 %25, 0
+  br i1 %26, label %27, label %28
 
-if.then:                                          ; preds = %entry
-  br label %err
+27:                                               ; preds = %5
+  br label %114
 
-if.end:                                           ; preds = %entry
-  %2 = load i8, ptr %hint.addr, align 1
-  %conv = sext i8 %2 to i32
-  %and = and i32 %conv, 2
-  %tobool2 = icmp ne i32 %and, 0
-  br i1 %tobool2, label %cond.true, label %cond.false
+28:                                               ; preds = %5
+  %29 = load i8, ptr %10, align 1, !tbaa !27
+  %30 = sext i8 %29 to i32
+  %31 = and i32 %30, 2
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %36
 
-cond.true:                                        ; preds = %if.end
-  %3 = load ptr, ptr %value, align 8
-  %cmp = icmp eq ptr %3, null
-  br i1 %cmp, label %if.then7, label %if.end11
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %8, align 8, !tbaa !27
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %44, label %50
 
-cond.false:                                       ; preds = %if.end
-  %4 = load i32, ptr %value, align 8
-  %cmp3 = icmp eq i32 %4, 0
-  br i1 %cmp3, label %land.lhs.true, label %if.end11
+36:                                               ; preds = %28
+  %37 = load i32, ptr %8, align 8, !tbaa !27
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %50
 
-land.lhs.true:                                    ; preds = %cond.false
-  %5 = load i8, ptr %hint.addr, align 1
-  %conv4 = sext i8 %5 to i32
-  %and5 = and i32 %conv4, 4
-  %cmp6 = icmp eq i32 %and5, 0
-  br i1 %cmp6, label %if.then7, label %if.end11
+39:                                               ; preds = %36
+  %40 = load i8, ptr %10, align 1, !tbaa !27
+  %41 = sext i8 %40 to i32
+  %42 = and i32 %41, 4
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %50
 
-if.then7:                                         ; preds = %land.lhs.true, %cond.true
-  %6 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %key, i64 8, i1 false)
-  %coerce.dive8 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %7 = load ptr, ptr %coerce.dive8, align 8
-  %call9 = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %6, ptr %7)
-  %coerce.dive10 = getelementptr inbounds %union.UElement, ptr %retval, i32 0, i32 0
-  store ptr %call9, ptr %coerce.dive10, align 8
-  br label %return
+44:                                               ; preds = %39, %33
+  %45 = load ptr, ptr %9, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !44
+  %46 = getelementptr inbounds nuw %union.UElement, ptr %15, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %45, ptr %47)
+  %49 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  store ptr %48, ptr %49, align 8
+  store i32 1, ptr %16, align 4
+  br label %144
 
-if.end11:                                         ; preds = %land.lhs.true, %cond.false, %cond.true
-  %8 = load ptr, ptr %hash.addr, align 8
-  %count = getelementptr inbounds %struct.UHashtable, ptr %8, i32 0, i32 6
-  %9 = load i32, ptr %count, align 8
-  %10 = load ptr, ptr %hash.addr, align 8
-  %highWaterMark = getelementptr inbounds %struct.UHashtable, ptr %10, i32 0, i32 8
-  %11 = load i32, ptr %highWaterMark, align 8
-  %cmp12 = icmp sgt i32 %9, %11
-  br i1 %cmp12, label %if.then13, label %if.end18
+50:                                               ; preds = %39, %36, %33
+  %51 = load ptr, ptr %9, align 8, !tbaa !11
+  %52 = getelementptr inbounds nuw %struct.UHashtable, ptr %51, i32 0, i32 6
+  %53 = load i32, ptr %52, align 8, !tbaa !43
+  %54 = load ptr, ptr %9, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %struct.UHashtable, ptr %54, i32 0, i32 8
+  %56 = load i32, ptr %55, align 8, !tbaa !40
+  %57 = icmp sgt i32 %53, %56
+  br i1 %57, label %58, label %67
 
-if.then13:                                        ; preds = %if.end11
-  %12 = load ptr, ptr %hash.addr, align 8
-  %13 = load ptr, ptr %status.addr, align 8
-  call void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %12, ptr noundef %13)
-  %14 = load ptr, ptr %status.addr, align 8
-  %15 = load i32, ptr %14, align 4
-  %call14 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %15)
-  %tobool15 = icmp ne i8 %call14, 0
-  br i1 %tobool15, label %if.then16, label %if.end17
+58:                                               ; preds = %50
+  %59 = load ptr, ptr %9, align 8, !tbaa !11
+  %60 = load ptr, ptr %11, align 8, !tbaa !3
+  call void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %59, ptr noundef %60)
+  %61 = load ptr, ptr %11, align 8, !tbaa !3
+  %62 = load i32, ptr %61, align 4, !tbaa !9
+  %63 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %62)
+  %64 = icmp ne i8 %63, 0
+  br i1 %64, label %65, label %66
 
-if.then16:                                        ; preds = %if.then13
-  br label %err
+65:                                               ; preds = %58
+  br label %114
 
-if.end17:                                         ; preds = %if.then13
-  br label %if.end18
+66:                                               ; preds = %58
+  br label %67
 
-if.end18:                                         ; preds = %if.end17, %if.end11
-  %16 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp19, ptr align 8 %key, i64 8, i1 false)
-  %coerce.dive20 = getelementptr inbounds %union.UElement, ptr %agg.tmp19, i32 0, i32 0
-  %18 = load ptr, ptr %coerce.dive20, align 8
-  %call21 = call noundef i32 %17(ptr %18)
-  store i32 %call21, ptr %hashcode, align 4
-  %19 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp22, ptr align 8 %key, i64 8, i1 false)
-  %20 = load i32, ptr %hashcode, align 4
-  %coerce.dive23 = getelementptr inbounds %union.UElement, ptr %agg.tmp22, i32 0, i32 0
-  %21 = load ptr, ptr %coerce.dive23, align 8
-  %call24 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %19, ptr %21, i32 noundef %20)
-  store ptr %call24, ptr %e, align 8
-  %22 = load ptr, ptr %e, align 8
-  %hashcode25 = getelementptr inbounds %struct.UHashElement, ptr %22, i32 0, i32 0
-  %23 = load i32, ptr %hashcode25, align 8
-  %cmp26 = icmp slt i32 %23, 0
-  br i1 %cmp26, label %if.then27, label %if.end34
+67:                                               ; preds = %66, %50
+  %68 = load ptr, ptr %9, align 8, !tbaa !11
+  %69 = getelementptr inbounds nuw %struct.UHashtable, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !44
+  %71 = getelementptr inbounds nuw %union.UElement, ptr %17, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  %73 = call noundef i32 %70(ptr %72)
+  store i32 %73, ptr %12, align 4, !tbaa !7
+  %74 = load ptr, ptr %9, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !44
+  %75 = load i32, ptr %12, align 4, !tbaa !7
+  %76 = getelementptr inbounds nuw %union.UElement, ptr %18, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %74, ptr %77, i32 noundef %75)
+  store ptr %78, ptr %13, align 8, !tbaa !26
+  %79 = load ptr, ptr %13, align 8, !tbaa !26
+  %80 = getelementptr inbounds nuw %struct.UHashElement, ptr %79, i32 0, i32 0
+  %81 = load i32, ptr %80, align 8, !tbaa !32
+  %82 = icmp slt i32 %81, 0
+  br i1 %82, label %83, label %102
 
-if.then27:                                        ; preds = %if.end18
-  %24 = load ptr, ptr %hash.addr, align 8
-  %count28 = getelementptr inbounds %struct.UHashtable, ptr %24, i32 0, i32 6
-  %25 = load i32, ptr %count28, align 8
-  %inc = add nsw i32 %25, 1
-  store i32 %inc, ptr %count28, align 8
-  %26 = load ptr, ptr %hash.addr, align 8
-  %count29 = getelementptr inbounds %struct.UHashtable, ptr %26, i32 0, i32 6
-  %27 = load i32, ptr %count29, align 8
-  %28 = load ptr, ptr %hash.addr, align 8
-  %length = getelementptr inbounds %struct.UHashtable, ptr %28, i32 0, i32 7
-  %29 = load i32, ptr %length, align 4
-  %cmp30 = icmp eq i32 %27, %29
-  br i1 %cmp30, label %if.then31, label %if.end33
+83:                                               ; preds = %67
+  %84 = load ptr, ptr %9, align 8, !tbaa !11
+  %85 = getelementptr inbounds nuw %struct.UHashtable, ptr %84, i32 0, i32 6
+  %86 = load i32, ptr %85, align 8, !tbaa !43
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %85, align 8, !tbaa !43
+  %88 = load ptr, ptr %9, align 8, !tbaa !11
+  %89 = getelementptr inbounds nuw %struct.UHashtable, ptr %88, i32 0, i32 6
+  %90 = load i32, ptr %89, align 8, !tbaa !43
+  %91 = load ptr, ptr %9, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw %struct.UHashtable, ptr %91, i32 0, i32 7
+  %93 = load i32, ptr %92, align 4, !tbaa !31
+  %94 = icmp eq i32 %90, %93
+  br i1 %94, label %95, label %101
 
-if.then31:                                        ; preds = %if.then27
-  %30 = load ptr, ptr %hash.addr, align 8
-  %count32 = getelementptr inbounds %struct.UHashtable, ptr %30, i32 0, i32 6
-  %31 = load i32, ptr %count32, align 8
-  %dec = add nsw i32 %31, -1
-  store i32 %dec, ptr %count32, align 8
-  %32 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %32, align 4
-  br label %err
+95:                                               ; preds = %83
+  %96 = load ptr, ptr %9, align 8, !tbaa !11
+  %97 = getelementptr inbounds nuw %struct.UHashtable, ptr %96, i32 0, i32 6
+  %98 = load i32, ptr %97, align 8, !tbaa !43
+  %99 = add nsw i32 %98, -1
+  store i32 %99, ptr %97, align 8, !tbaa !43
+  %100 = load ptr, ptr %11, align 8, !tbaa !3
+  store i32 7, ptr %100, align 4, !tbaa !9
+  br label %114
 
-if.end33:                                         ; preds = %if.then27
-  br label %if.end34
+101:                                              ; preds = %83
+  br label %102
 
-if.end34:                                         ; preds = %if.end33, %if.end18
-  %33 = load ptr, ptr %hash.addr, align 8
-  %34 = load ptr, ptr %e, align 8
-  %35 = load i32, ptr %hashcode, align 4
-  %and35 = and i32 %35, 2147483647
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp36, ptr align 8 %key, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp37, ptr align 8 %value, i64 8, i1 false)
-  %36 = load i8, ptr %hint.addr, align 1
-  %coerce.dive38 = getelementptr inbounds %union.UElement, ptr %agg.tmp36, i32 0, i32 0
-  %37 = load ptr, ptr %coerce.dive38, align 8
-  %coerce.dive39 = getelementptr inbounds %union.UElement, ptr %agg.tmp37, i32 0, i32 0
-  %38 = load ptr, ptr %coerce.dive39, align 8
-  %call40 = call ptr @_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a(ptr noundef %33, ptr noundef %34, i32 noundef %and35, ptr %37, ptr %38, i8 noundef signext %36)
-  %coerce.dive41 = getelementptr inbounds %union.UElement, ptr %retval, i32 0, i32 0
-  store ptr %call40, ptr %coerce.dive41, align 8
-  br label %return
+102:                                              ; preds = %101, %67
+  %103 = load ptr, ptr %9, align 8, !tbaa !11
+  %104 = load ptr, ptr %13, align 8, !tbaa !26
+  %105 = load i32, ptr %12, align 4, !tbaa !7
+  %106 = and i32 %105, 2147483647
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !44
+  %107 = load i8, ptr %10, align 1, !tbaa !27
+  %108 = getelementptr inbounds nuw %union.UElement, ptr %19, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw %union.UElement, ptr %20, i32 0, i32 0
+  %111 = load ptr, ptr %110, align 8
+  %112 = call ptr @_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a(ptr noundef %103, ptr noundef %104, i32 noundef %106, ptr %109, ptr %111, i8 noundef signext %107)
+  %113 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  store ptr %112, ptr %113, align 8
+  store i32 1, ptr %16, align 4
+  br label %144
 
-err:                                              ; preds = %if.then31, %if.then16, %if.then
-  br label %do.body
+114:                                              ; preds = %95, %65, %27
+  br label %115
 
-do.body:                                          ; preds = %err
-  %39 = load ptr, ptr %hash.addr, align 8
-  %keyDeleter = getelementptr inbounds %struct.UHashtable, ptr %39, i32 0, i32 4
-  %40 = load ptr, ptr %keyDeleter, align 8
-  %cmp42 = icmp ne ptr %40, null
-  br i1 %cmp42, label %land.lhs.true43, label %if.end47
+115:                                              ; preds = %114
+  %116 = load ptr, ptr %9, align 8, !tbaa !11
+  %117 = getelementptr inbounds nuw %struct.UHashtable, ptr %116, i32 0, i32 4
+  %118 = load ptr, ptr %117, align 8, !tbaa !22
+  %119 = icmp ne ptr %118, null
+  br i1 %119, label %120, label %128
 
-land.lhs.true43:                                  ; preds = %do.body
-  %41 = load ptr, ptr %key, align 8
-  %cmp44 = icmp ne ptr %41, null
-  br i1 %cmp44, label %if.then45, label %if.end47
+120:                                              ; preds = %115
+  %121 = load ptr, ptr %7, align 8, !tbaa !27
+  %122 = icmp ne ptr %121, null
+  br i1 %122, label %123, label %128
 
-if.then45:                                        ; preds = %land.lhs.true43
-  %42 = load ptr, ptr %hash.addr, align 8
-  %keyDeleter46 = getelementptr inbounds %struct.UHashtable, ptr %42, i32 0, i32 4
-  %43 = load ptr, ptr %keyDeleter46, align 8
-  %44 = load ptr, ptr %key, align 8
-  call void %43(ptr noundef %44)
-  br label %if.end47
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %9, align 8, !tbaa !11
+  %125 = getelementptr inbounds nuw %struct.UHashtable, ptr %124, i32 0, i32 4
+  %126 = load ptr, ptr %125, align 8, !tbaa !22
+  %127 = load ptr, ptr %7, align 8, !tbaa !27
+  call void %126(ptr noundef %127)
+  br label %128
 
-if.end47:                                         ; preds = %if.then45, %land.lhs.true43, %do.body
-  %45 = load ptr, ptr %hash.addr, align 8
-  %valueDeleter = getelementptr inbounds %struct.UHashtable, ptr %45, i32 0, i32 5
-  %46 = load ptr, ptr %valueDeleter, align 8
-  %cmp48 = icmp ne ptr %46, null
-  br i1 %cmp48, label %land.lhs.true49, label %if.end53
+128:                                              ; preds = %123, %120, %115
+  %129 = load ptr, ptr %9, align 8, !tbaa !11
+  %130 = getelementptr inbounds nuw %struct.UHashtable, ptr %129, i32 0, i32 5
+  %131 = load ptr, ptr %130, align 8, !tbaa !23
+  %132 = icmp ne ptr %131, null
+  br i1 %132, label %133, label %141
 
-land.lhs.true49:                                  ; preds = %if.end47
-  %47 = load ptr, ptr %value, align 8
-  %cmp50 = icmp ne ptr %47, null
-  br i1 %cmp50, label %if.then51, label %if.end53
+133:                                              ; preds = %128
+  %134 = load ptr, ptr %8, align 8, !tbaa !27
+  %135 = icmp ne ptr %134, null
+  br i1 %135, label %136, label %141
 
-if.then51:                                        ; preds = %land.lhs.true49
-  %48 = load ptr, ptr %hash.addr, align 8
-  %valueDeleter52 = getelementptr inbounds %struct.UHashtable, ptr %48, i32 0, i32 5
-  %49 = load ptr, ptr %valueDeleter52, align 8
-  %50 = load ptr, ptr %value, align 8
-  call void %49(ptr noundef %50)
-  br label %if.end53
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %9, align 8, !tbaa !11
+  %138 = getelementptr inbounds nuw %struct.UHashtable, ptr %137, i32 0, i32 5
+  %139 = load ptr, ptr %138, align 8, !tbaa !23
+  %140 = load ptr, ptr %8, align 8, !tbaa !27
+  call void %139(ptr noundef %140)
+  br label %141
 
-if.end53:                                         ; preds = %if.then51, %land.lhs.true49, %if.end47
-  br label %do.end
+141:                                              ; preds = %136, %133, %128
+  br label %142
 
-do.end:                                           ; preds = %if.end53
-  store ptr null, ptr %emptytok, align 8
-  store i32 0, ptr %emptytok, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %emptytok, i64 8, i1 false)
-  br label %return
+142:                                              ; preds = %141
+  br label %143
 
-return:                                           ; preds = %do.end, %if.end34, %if.then7
-  %coerce.dive54 = getelementptr inbounds %union.UElement, ptr %retval, i32 0, i32 0
-  %51 = load ptr, ptr %coerce.dive54, align 8
-  ret ptr %51
+143:                                              ; preds = %142
+  store ptr null, ptr %14, align 8, !tbaa !27
+  store i32 0, ptr %14, align 8, !tbaa !27
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %14, i64 8, i1 false), !tbaa.struct !44
+  store i32 1, ptr %16, align 4
+  br label %144
+
+144:                                              ; preds = %143, %102, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  %145 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
+  ret ptr %146
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_iput_75(ptr noundef %hash, i32 noundef %key, ptr noundef %value, ptr noundef %status) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %value.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %valueholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  store ptr %value, ptr %value.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load i32, ptr %key.addr, align 4
-  store i32 %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %value.addr, align 8
-  store ptr %1, ptr %valueholder, align 8
-  %2 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %valueholder, i64 8, i1 false)
-  %3 = load ptr, ptr %status.addr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %2, ptr %4, ptr %5, i8 noundef signext 2, ptr noundef %3)
-  %coerce.dive3 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive3, align 8
-  %6 = load ptr, ptr %ref.tmp, align 8
-  ret ptr %6
+define ptr @uhash_iput_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca %union.UElement, align 8
+  %11 = alloca %union.UElement, align 8
+  %12 = alloca %union.UElement, align 8
+  %13 = alloca %union.UElement, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store i32 %1, ptr %6, align 4, !tbaa !7
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %14 = load i32, ptr %6, align 4, !tbaa !7
+  store i32 %14, ptr %9, align 8, !tbaa !27
+  %15 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %15, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %16 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %10, i64 8, i1 false), !tbaa.struct !44
+  %17 = load ptr, ptr %8, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %union.UElement, ptr %12, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %union.UElement, ptr %13, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %16, ptr %19, ptr %21, i8 noundef signext 2, ptr noundef %17)
+  %23 = getelementptr inbounds nuw %union.UElement, ptr %11, i32 0, i32 0
+  store ptr %22, ptr %23, align 8
+  %24 = load ptr, ptr %11, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  ret ptr %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_puti_75(ptr noundef %hash, ptr noundef %key, i32 noundef %value, ptr noundef %status) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %value.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %valueholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %value, ptr %value.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load i32, ptr %value.addr, align 4
-  store i32 %1, ptr %valueholder, align 8
-  %2 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %valueholder, i64 8, i1 false)
-  %3 = load ptr, ptr %status.addr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %2, ptr %4, ptr %5, i8 noundef signext 1, ptr noundef %3)
-  %coerce.dive3 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive3, align 8
-  %6 = load i32, ptr %ref.tmp, align 8
-  ret i32 %6
+define i32 @uhash_puti_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca %union.UElement, align 8
+  %11 = alloca %union.UElement, align 8
+  %12 = alloca %union.UElement, align 8
+  %13 = alloca %union.UElement, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !7
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %14, ptr %9, align 8, !tbaa !27
+  %15 = load i32, ptr %7, align 4, !tbaa !7
+  store i32 %15, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %16 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %10, i64 8, i1 false), !tbaa.struct !44
+  %17 = load ptr, ptr %8, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %union.UElement, ptr %12, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %union.UElement, ptr %13, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %16, ptr %19, ptr %21, i8 noundef signext 1, ptr noundef %17)
+  %23 = getelementptr inbounds nuw %union.UElement, ptr %11, i32 0, i32 0
+  store ptr %22, ptr %23, align 8
+  %24 = load i32, ptr %11, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_iputi_75(ptr noundef %hash, i32 noundef %key, i32 noundef %value, ptr noundef %status) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %valueholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load i32, ptr %key.addr, align 4
-  store i32 %0, ptr %keyholder, align 8
-  %1 = load i32, ptr %value.addr, align 4
-  store i32 %1, ptr %valueholder, align 8
-  %2 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %valueholder, i64 8, i1 false)
-  %3 = load ptr, ptr %status.addr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %2, ptr %4, ptr %5, i8 noundef signext 0, ptr noundef %3)
-  %coerce.dive3 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive3, align 8
-  %6 = load i32, ptr %ref.tmp, align 8
-  ret i32 %6
+define i32 @uhash_iputi_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca %union.UElement, align 8
+  %11 = alloca %union.UElement, align 8
+  %12 = alloca %union.UElement, align 8
+  %13 = alloca %union.UElement, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store i32 %1, ptr %6, align 4, !tbaa !7
+  store i32 %2, ptr %7, align 4, !tbaa !7
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %14 = load i32, ptr %6, align 4, !tbaa !7
+  store i32 %14, ptr %9, align 8, !tbaa !27
+  %15 = load i32, ptr %7, align 4, !tbaa !7
+  store i32 %15, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %16 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %10, i64 8, i1 false), !tbaa.struct !44
+  %17 = load ptr, ptr %8, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %union.UElement, ptr %12, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %union.UElement, ptr %13, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %16, ptr %19, ptr %21, i8 noundef signext 0, ptr noundef %17)
+  %23 = getelementptr inbounds nuw %union.UElement, ptr %11, i32 0, i32 0
+  store ptr %22, ptr %23, align 8
+  %24 = load i32, ptr %11, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_putiAllowZero_75(ptr noundef %hash, ptr noundef %key, i32 noundef %value, ptr noundef %status) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %value.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %valueholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  store i32 %value, ptr %value.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load i32, ptr %value.addr, align 4
-  store i32 %1, ptr %valueholder, align 8
-  %2 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %valueholder, i64 8, i1 false)
-  %3 = load ptr, ptr %status.addr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %2, ptr %4, ptr %5, i8 noundef signext 5, ptr noundef %3)
-  %coerce.dive3 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive3, align 8
-  %6 = load i32, ptr %ref.tmp, align 8
-  ret i32 %6
+define i32 @uhash_putiAllowZero_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca %union.UElement, align 8
+  %11 = alloca %union.UElement, align 8
+  %12 = alloca %union.UElement, align 8
+  %13 = alloca %union.UElement, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !7
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %14, ptr %9, align 8, !tbaa !27
+  %15 = load i32, ptr %7, align 4, !tbaa !7
+  store i32 %15, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %16 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %10, i64 8, i1 false), !tbaa.struct !44
+  %17 = load ptr, ptr %8, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %union.UElement, ptr %12, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %union.UElement, ptr %13, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %16, ptr %19, ptr %21, i8 noundef signext 5, ptr noundef %17)
+  %23 = getelementptr inbounds nuw %union.UElement, ptr %11, i32 0, i32 0
+  store ptr %22, ptr %23, align 8
+  %24 = load i32, ptr %11, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_iputiAllowZero_75(ptr noundef %hash, i32 noundef %key, i32 noundef %value, ptr noundef %status) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %valueholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load i32, ptr %key.addr, align 4
-  store i32 %0, ptr %keyholder, align 8
-  %1 = load i32, ptr %value.addr, align 4
-  store i32 %1, ptr %valueholder, align 8
-  %2 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %valueholder, i64 8, i1 false)
-  %3 = load ptr, ptr %status.addr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %2, ptr %4, ptr %5, i8 noundef signext 4, ptr noundef %3)
-  %coerce.dive3 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive3, align 8
-  %6 = load i32, ptr %ref.tmp, align 8
-  ret i32 %6
+define i32 @uhash_iputiAllowZero_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca %union.UElement, align 8
+  %11 = alloca %union.UElement, align 8
+  %12 = alloca %union.UElement, align 8
+  %13 = alloca %union.UElement, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store i32 %1, ptr %6, align 4, !tbaa !7
+  store i32 %2, ptr %7, align 4, !tbaa !7
+  store ptr %3, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %14 = load i32, ptr %6, align 4, !tbaa !7
+  store i32 %14, ptr %9, align 8, !tbaa !27
+  %15 = load i32, ptr %7, align 4, !tbaa !7
+  store i32 %15, ptr %10, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %16 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %10, i64 8, i1 false), !tbaa.struct !44
+  %17 = load ptr, ptr %8, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %union.UElement, ptr %12, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %union.UElement, ptr %13, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %16, ptr %19, ptr %21, i8 noundef signext 4, ptr noundef %17)
+  %23 = getelementptr inbounds nuw %union.UElement, ptr %11, i32 0, i32 0
+  store ptr %22, ptr %23, align 8
+  %24 = load i32, ptr %11, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_remove_75(ptr noundef %hash, ptr noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive, align 8
-  %call = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %1, ptr %2)
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive1, align 8
-  %3 = load ptr, ptr %ref.tmp, align 8
-  ret ptr %3
-}
-
-; Function Attrs: mustprogress uwtable
-define internal ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %hash, ptr %key.coerce) #0 {
-entry:
-  %retval = alloca %union.UElement, align 8
-  %key = alloca %union.UElement, align 8
-  %hash.addr = alloca ptr, align 8
-  %e = alloca ptr, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %status = alloca i32, align 4
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key, i32 0, i32 0
-  store ptr %key.coerce, ptr %coerce.dive, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %key, i64 8, i1 false)
-  %1 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %key, i64 8, i1 false)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %3 = load ptr, ptr %coerce.dive2, align 8
-  %call = call noundef i32 %2(ptr %3)
-  %coerce.dive3 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive3, align 8
-  %call4 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %0, ptr %4, i32 noundef %call)
-  store ptr %call4, ptr %e, align 8
-  store ptr null, ptr %retval, align 8
-  store i32 0, ptr %retval, align 8
-  %5 = load ptr, ptr %e, align 8
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %hashcode, align 8
-  %cmp = icmp slt i32 %6, 0
-  br i1 %cmp, label %if.end9, label %if.then
-
-if.then:                                          ; preds = %entry
-  %7 = load ptr, ptr %hash.addr, align 8
-  %8 = load ptr, ptr %e, align 8
-  %call5 = call ptr @_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement(ptr noundef %7, ptr noundef %8)
-  %coerce.dive6 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call5, ptr %coerce.dive6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %ref.tmp, i64 8, i1 false)
-  %9 = load ptr, ptr %hash.addr, align 8
-  %count = getelementptr inbounds %struct.UHashtable, ptr %9, i32 0, i32 6
-  %10 = load i32, ptr %count, align 8
-  %11 = load ptr, ptr %hash.addr, align 8
-  %lowWaterMark = getelementptr inbounds %struct.UHashtable, ptr %11, i32 0, i32 9
-  %12 = load i32, ptr %lowWaterMark, align 4
-  %cmp7 = icmp slt i32 %10, %12
-  br i1 %cmp7, label %if.then8, label %if.end
-
-if.then8:                                         ; preds = %if.then
-  store i32 0, ptr %status, align 4
-  %13 = load ptr, ptr %hash.addr, align 8
-  call void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %13, ptr noundef %status)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then8, %if.then
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.end, %entry
-  %coerce.dive10 = getelementptr inbounds %union.UElement, ptr %retval, i32 0, i32 0
-  %14 = load ptr, ptr %coerce.dive10, align 8
+define ptr @uhash_remove_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %8, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %10 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %9, ptr %11)
+  %13 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr %6, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
   ret ptr %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_iremove_75(ptr noundef %hash, i32 noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %keyholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  %0 = load i32, ptr %key.addr, align 4
-  store i32 %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive, align 8
-  %call = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %1, ptr %2)
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive1, align 8
-  %3 = load ptr, ptr %ref.tmp, align 8
-  ret ptr %3
+define internal ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %0, ptr %1) #0 {
+  %3 = alloca %union.UElement, align 8
+  %4 = alloca %union.UElement, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.UElement, align 8
+  %8 = alloca %union.UElement, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca i32, align 4
+  %11 = getelementptr inbounds nuw %union.UElement, ptr %4, i32 0, i32 0
+  store ptr %1, ptr %11, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %12 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !44
+  %13 = load ptr, ptr %5, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.UHashtable, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !44
+  %16 = getelementptr inbounds nuw %union.UElement, ptr %8, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef i32 %15(ptr %17)
+  %19 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %12, ptr %20, i32 noundef %18)
+  store ptr %21, ptr %6, align 8, !tbaa !26
+  store ptr null, ptr %3, align 8, !tbaa !27
+  store i32 0, ptr %3, align 8, !tbaa !27
+  %22 = load ptr, ptr %6, align 8, !tbaa !26
+  %23 = getelementptr inbounds nuw %struct.UHashElement, ptr %22, i32 0, i32 0
+  %24 = load i32, ptr %23, align 8, !tbaa !32
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %41, label %26
+
+26:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %27 = load ptr, ptr %5, align 8, !tbaa !11
+  %28 = load ptr, ptr %6, align 8, !tbaa !26
+  %29 = call ptr @_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement(ptr noundef %27, ptr noundef %28)
+  %30 = getelementptr inbounds nuw %union.UElement, ptr %9, i32 0, i32 0
+  store ptr %29, ptr %30, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  %31 = load ptr, ptr %5, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.UHashtable, ptr %31, i32 0, i32 6
+  %33 = load i32, ptr %32, align 8, !tbaa !43
+  %34 = load ptr, ptr %5, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.UHashtable, ptr %34, i32 0, i32 9
+  %36 = load i32, ptr %35, align 4, !tbaa !38
+  %37 = icmp slt i32 %33, %36
+  br i1 %37, label %38, label %40
+
+38:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  store i32 0, ptr %10, align 4, !tbaa !9
+  %39 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %39, ptr noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  br label %40
+
+40:                                               ; preds = %38, %26
+  br label %41
+
+41:                                               ; preds = %40, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %42 = getelementptr inbounds nuw %union.UElement, ptr %3, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  ret ptr %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_removei_75(ptr noundef %hash, ptr noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive, align 8
-  %call = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %1, ptr %2)
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive1, align 8
-  %3 = load i32, ptr %ref.tmp, align 8
-  ret i32 %3
+define ptr @uhash_iremove_77(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %8 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %8, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %10 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %9, ptr %11)
+  %13 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr %6, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_iremovei_75(ptr noundef %hash, i32 noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %keyholder = alloca %union.UElement, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  %0 = load i32, ptr %key.addr, align 4
-  store i32 %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive, align 8
-  %call = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %1, ptr %2)
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive1, align 8
-  %3 = load i32, ptr %ref.tmp, align 8
-  ret i32 %3
+define i32 @uhash_removei_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %8, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %10 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %9, ptr %11)
+  %13 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  %14 = load i32, ptr %6, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret i32 %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uhash_removeAll_75(ptr noundef %hash) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %pos = alloca i32, align 4
-  %e = alloca ptr, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 -1, ptr %pos, align 4
-  %0 = load ptr, ptr %hash.addr, align 8
-  %count = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 6
-  %1 = load i32, ptr %count, align 8
-  %cmp = icmp ne i32 %1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define i32 @uhash_iremovei_77(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %8 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %8, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %10 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = call ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %9, ptr %11)
+  %13 = getelementptr inbounds nuw %union.UElement, ptr %6, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  %14 = load i32, ptr %6, align 8, !tbaa !27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret i32 %14
+}
 
-if.then:                                          ; preds = %entry
-  br label %while.cond
+; Function Attrs: mustprogress uwtable
+define void @uhash_removeAll_77(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  store i32 -1, ptr %3, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %5 = load ptr, ptr %2, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.UHashtable, ptr %5, i32 0, i32 6
+  %7 = load i32, ptr %6, align 8, !tbaa !43
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %19
 
-while.cond:                                       ; preds = %while.body, %if.then
-  %2 = load ptr, ptr %hash.addr, align 8
-  %call = call ptr @uhash_nextElement_75(ptr noundef %2, ptr noundef %pos)
-  store ptr %call, ptr %e, align 8
-  %cmp1 = icmp ne ptr %call, null
-  br i1 %cmp1, label %while.body, label %while.end
+9:                                                ; preds = %1
+  br label %10
 
-while.body:                                       ; preds = %while.cond
-  %3 = load ptr, ptr %hash.addr, align 8
-  %4 = load ptr, ptr %e, align 8
-  %call2 = call ptr @uhash_removeElement_75(ptr noundef %3, ptr noundef %4)
-  br label %while.cond, !llvm.loop !11
+10:                                               ; preds = %14, %9
+  %11 = load ptr, ptr %2, align 8, !tbaa !11
+  %12 = call ptr @uhash_nextElement_77(ptr noundef %11, ptr noundef %3)
+  store ptr %12, ptr %4, align 8, !tbaa !26
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %18
 
-while.end:                                        ; preds = %while.cond
-  br label %if.end
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %2, align 8, !tbaa !11
+  %16 = load ptr, ptr %4, align 8, !tbaa !26
+  %17 = call ptr @uhash_removeElement_77(ptr noundef %15, ptr noundef %16)
+  br label %10, !llvm.loop !49
 
-if.end:                                           ; preds = %while.end, %entry
+18:                                               ; preds = %10
+  br label %19
+
+19:                                               ; preds = %18, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_removeElement_75(ptr noundef %hash, ptr noundef %e) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %hash.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  %nce = alloca ptr, align 8
-  %ref.tmp = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  %0 = load ptr, ptr %e.addr, align 8
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %hashcode, align 8
-  %cmp = icmp slt i32 %1, 0
-  br i1 %cmp, label %if.end, label %if.then
+define ptr @uhash_removeElement_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.UElement, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = getelementptr inbounds nuw %struct.UHashElement, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !32
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %19, label %12
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %e.addr, align 8
-  store ptr %2, ptr %nce, align 8
-  %3 = load ptr, ptr %hash.addr, align 8
-  %4 = load ptr, ptr %nce, align 8
-  %call = call ptr @_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement(ptr noundef %3, ptr noundef %4)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %ref.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %5 = load ptr, ptr %ref.tmp, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %13 = load ptr, ptr %5, align 8, !tbaa !26
+  store ptr %13, ptr %6, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %14 = load ptr, ptr %4, align 8, !tbaa !11
+  %15 = load ptr, ptr %6, align 8, !tbaa !26
+  %16 = call ptr @_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement(ptr noundef %14, ptr noundef %15)
+  %17 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  store ptr %16, ptr %17, align 8
+  %18 = load ptr, ptr %7, align 8, !tbaa !27
+  store ptr %18, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  br label %20
 
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %20
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+20:                                               ; preds = %19, %12
+  %21 = load ptr, ptr %3, align 8
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @uhash_containsKey_75(ptr noundef %hash, ptr noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %e = alloca ptr, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call = call noundef i32 %3(ptr %4)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call3 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %1, ptr %5, i32 noundef %call)
-  store ptr %call3, ptr %e, align 8
-  %6 = load ptr, ptr %e, align 8
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %hashcode, align 8
-  %cmp = icmp slt i32 %7, 0
-  %lnot = xor i1 %cmp, true
-  %conv = zext i1 %lnot to i8
-  ret i8 %conv
+define signext i8 @uhash_containsKey_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.UElement, align 8
+  %8 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %9, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %11 = load ptr, ptr %3, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.UHashtable, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %14 = getelementptr inbounds nuw %union.UElement, ptr %8, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i32 %13(ptr %15)
+  %17 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %10, ptr %18, i32 noundef %16)
+  store ptr %19, ptr %6, align 8, !tbaa !26
+  %20 = load ptr, ptr %6, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw %struct.UHashElement, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8, !tbaa !32
+  %23 = icmp slt i32 %22, 0
+  %24 = xor i1 %23, true
+  %25 = zext i1 %24 to i8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret i8 %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @uhash_icontainsKey_75(ptr noundef %hash, i32 noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca i32, align 4
-  %keyholder = alloca %union.UElement, align 8
-  %e = alloca ptr, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %key, ptr %key.addr, align 4
-  %0 = load i32, ptr %key.addr, align 4
-  store i32 %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call = call noundef i32 %3(ptr %4)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call3 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %1, ptr %5, i32 noundef %call)
-  store ptr %call3, ptr %e, align 8
-  %6 = load ptr, ptr %e, align 8
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %hashcode, align 8
-  %cmp = icmp slt i32 %7, 0
-  %lnot = xor i1 %cmp, true
-  %conv = zext i1 %lnot to i8
-  ret i8 %conv
+define signext i8 @uhash_icontainsKey_77(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.UElement, align 8
+  %8 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  %9 = load i32, ptr %4, align 4, !tbaa !7
+  store i32 %9, ptr %5, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %11 = load ptr, ptr %3, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.UHashtable, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %14 = getelementptr inbounds nuw %union.UElement, ptr %8, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i32 %13(ptr %15)
+  %17 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %10, ptr %18, i32 noundef %16)
+  store ptr %19, ptr %6, align 8, !tbaa !26
+  %20 = load ptr, ptr %6, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw %struct.UHashElement, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8, !tbaa !32
+  %23 = icmp slt i32 %22, 0
+  %24 = xor i1 %23, true
+  %25 = zext i1 %24 to i8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret i8 %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_find_75(ptr noundef %hash, ptr noundef %key) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %key.addr = alloca ptr, align 8
-  %keyholder = alloca %union.UElement, align 8
-  %e = alloca ptr, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %key, ptr %key.addr, align 8
-  %0 = load ptr, ptr %key.addr, align 8
-  store ptr %0, ptr %keyholder, align 8
-  %1 = load ptr, ptr %hash.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %keyholder, i64 8, i1 false)
-  %2 = load ptr, ptr %hash.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %keyholder, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %call = call noundef i32 %3(ptr %4)
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call3 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %1, ptr %5, i32 noundef %call)
-  store ptr %call3, ptr %e, align 8
-  %6 = load ptr, ptr %e, align 8
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %hashcode, align 8
-  %cmp = icmp slt i32 %7, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+define ptr @uhash_find_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %union.UElement, align 8
+  %8 = alloca %union.UElement, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  store ptr %9, ptr %5, align 8, !tbaa !27
+  %10 = load ptr, ptr %3, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %11 = load ptr, ptr %3, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.UHashtable, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !44
+  %14 = getelementptr inbounds nuw %union.UElement, ptr %8, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i32 %13(ptr %15)
+  %17 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %10, ptr %18, i32 noundef %16)
+  store ptr %19, ptr %6, align 8, !tbaa !26
+  %20 = load ptr, ptr %6, align 8, !tbaa !26
+  %21 = getelementptr inbounds nuw %struct.UHashElement, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8, !tbaa !32
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %25
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+24:                                               ; preds = %2
+  br label %27
 
-cond.false:                                       ; preds = %entry
-  %8 = load ptr, ptr %e, align 8
-  br label %cond.end
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %6, align 8, !tbaa !26
+  br label %27
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %8, %cond.false ]
-  ret ptr %cond
+27:                                               ; preds = %25, %24
+  %28 = phi ptr [ null, %24 ], [ %26, %25 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal ptr @_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement(ptr noundef %hash, ptr noundef %e) #0 {
-entry:
-  %retval = alloca %union.UElement, align 8
-  %hash.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  %empty = alloca %union.UElement, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp1 = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  %0 = load ptr, ptr %hash.addr, align 8
-  %count = getelementptr inbounds %struct.UHashtable, ptr %0, i32 0, i32 6
-  %1 = load i32, ptr %count, align 8
-  %dec = add nsw i32 %1, -1
-  store i32 %dec, ptr %count, align 8
-  store ptr null, ptr %empty, align 8
-  store i32 0, ptr %empty, align 8
-  %2 = load ptr, ptr %hash.addr, align 8
-  %3 = load ptr, ptr %e.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %empty, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp1, ptr align 8 %empty, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %union.UElement, ptr %agg.tmp1, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive2, align 8
-  %call = call ptr @_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a(ptr noundef %2, ptr noundef %3, i32 noundef -2147483648, ptr %4, ptr %5, i8 noundef signext 0)
-  %coerce.dive3 = getelementptr inbounds %union.UElement, ptr %retval, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive3, align 8
-  %coerce.dive4 = getelementptr inbounds %union.UElement, ptr %retval, i32 0, i32 0
-  %6 = load ptr, ptr %coerce.dive4, align 8
-  ret ptr %6
+define internal ptr @_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca %union.UElement, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %union.UElement, align 8
+  %7 = alloca %union.UElement, align 8
+  %8 = alloca %union.UElement, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %9 = load ptr, ptr %4, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %struct.UHashtable, ptr %9, i32 0, i32 6
+  %11 = load i32, ptr %10, align 8, !tbaa !43
+  %12 = add nsw i32 %11, -1
+  store i32 %12, ptr %10, align 8, !tbaa !43
+  store ptr null, ptr %6, align 8, !tbaa !27
+  store i32 0, ptr %6, align 8, !tbaa !27
+  %13 = load ptr, ptr %4, align 8, !tbaa !11
+  %14 = load ptr, ptr %5, align 8, !tbaa !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !44
+  %15 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %union.UElement, ptr %8, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = call ptr @_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a(ptr noundef %13, ptr noundef %14, i32 noundef -2147483648, ptr %16, ptr %18, i8 noundef signext 0)
+  %20 = getelementptr inbounds nuw %union.UElement, ptr %3, i32 0, i32 0
+  store ptr %19, ptr %20, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %21 = getelementptr inbounds nuw %union.UElement, ptr %3, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_hashUChars_75(ptr %key.coerce) #0 {
-entry:
-  %key = alloca %union.UElement, align 8
-  %s = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key, i32 0, i32 0
-  store ptr %key.coerce, ptr %coerce.dive, align 8
-  %0 = load ptr, ptr %key, align 8
-  store ptr %0, ptr %s, align 8
-  %1 = load ptr, ptr %s, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %cond.true, label %cond.false
+define i32 @uhash_hashUChars_77(ptr %0) #0 {
+  %2 = alloca %union.UElement, align 8
+  %3 = alloca ptr, align 8
+  %4 = getelementptr inbounds nuw %union.UElement, ptr %2, i32 0, i32 0
+  store ptr %0, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  %5 = load ptr, ptr %2, align 8, !tbaa !27
+  store ptr %5, ptr %3, align 8, !tbaa !50
+  %6 = load ptr, ptr %3, align 8, !tbaa !50
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+8:                                                ; preds = %1
+  br label %14
 
-cond.false:                                       ; preds = %entry
-  %2 = load ptr, ptr %s, align 8
-  %3 = load ptr, ptr %s, align 8
-  %call = call i32 @u_strlen_75(ptr noundef %3)
-  %call1 = call i32 @ustr_hashUCharsN_75(ptr noundef %2, i32 noundef %call)
-  br label %cond.end
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !50
+  %11 = load ptr, ptr %3, align 8, !tbaa !50
+  %12 = call i32 @u_strlen_77(ptr noundef %11)
+  %13 = call i32 @ustr_hashUCharsN_77(ptr noundef %10, i32 noundef %12)
+  br label %14
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %call1, %cond.false ]
-  ret i32 %cond
+14:                                               ; preds = %9, %8
+  %15 = phi i32 [ 0, %8 ], [ %13, %9 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  ret i32 %15
 }
 
-declare i32 @ustr_hashUCharsN_75(ptr noundef, i32 noundef) #2
+declare i32 @ustr_hashUCharsN_77(ptr noundef, i32 noundef) #3
 
-declare i32 @u_strlen_75(ptr noundef) #2
+declare i32 @u_strlen_77(ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_hashChars_75(ptr %key.coerce) #0 {
-entry:
-  %key = alloca %union.UElement, align 8
-  %s = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key, i32 0, i32 0
-  store ptr %key.coerce, ptr %coerce.dive, align 8
-  %0 = load ptr, ptr %key, align 8
-  store ptr %0, ptr %s, align 8
-  %1 = load ptr, ptr %s, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %cond.true, label %cond.false
+define i32 @uhash_hashChars_77(ptr %0) #0 {
+  %2 = alloca %union.UElement, align 8
+  %3 = alloca ptr, align 8
+  %4 = getelementptr inbounds nuw %union.UElement, ptr %2, i32 0, i32 0
+  store ptr %0, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  %5 = load ptr, ptr %2, align 8, !tbaa !27
+  store ptr %5, ptr %3, align 8, !tbaa !47
+  %6 = load ptr, ptr %3, align 8, !tbaa !47
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+8:                                                ; preds = %1
+  br label %15
 
-cond.false:                                       ; preds = %entry
-  %2 = load ptr, ptr %s, align 8
-  %3 = load ptr, ptr %s, align 8
-  %call = call i64 @strlen(ptr noundef %3) #9
-  %conv = trunc i64 %call to i32
-  %call1 = call i32 @ustr_hashCharsN_75(ptr noundef %2, i32 noundef %conv)
-  br label %cond.end
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !47
+  %11 = load ptr, ptr %3, align 8, !tbaa !47
+  %12 = call i64 @strlen(ptr noundef %11) #12
+  %13 = trunc i64 %12 to i32
+  %14 = call i32 @ustr_hashCharsN_77(ptr noundef %10, i32 noundef %13)
+  br label %15
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %call1, %cond.false ]
-  ret i32 %cond
+15:                                               ; preds = %9, %8
+  %16 = phi i32 [ 0, %8 ], [ %14, %9 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  ret i32 %16
 }
 
-declare i32 @ustr_hashCharsN_75(ptr noundef, i32 noundef) #2
+declare i32 @ustr_hashCharsN_77(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #5
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_hashIChars_75(ptr %key.coerce) #0 {
-entry:
-  %key = alloca %union.UElement, align 8
-  %s = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key, i32 0, i32 0
-  store ptr %key.coerce, ptr %coerce.dive, align 8
-  %0 = load ptr, ptr %key, align 8
-  store ptr %0, ptr %s, align 8
-  %1 = load ptr, ptr %s, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %cond.true, label %cond.false
+define i32 @uhash_hashIChars_77(ptr %0) #0 {
+  %2 = alloca %union.UElement, align 8
+  %3 = alloca ptr, align 8
+  %4 = getelementptr inbounds nuw %union.UElement, ptr %2, i32 0, i32 0
+  store ptr %0, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  %5 = load ptr, ptr %2, align 8, !tbaa !27
+  store ptr %5, ptr %3, align 8, !tbaa !47
+  %6 = load ptr, ptr %3, align 8, !tbaa !47
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+8:                                                ; preds = %1
+  br label %15
 
-cond.false:                                       ; preds = %entry
-  %2 = load ptr, ptr %s, align 8
-  %3 = load ptr, ptr %s, align 8
-  %call = call i64 @strlen(ptr noundef %3) #9
-  %conv = trunc i64 %call to i32
-  %call1 = call i32 @ustr_hashICharsN_75(ptr noundef %2, i32 noundef %conv)
-  br label %cond.end
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !47
+  %11 = load ptr, ptr %3, align 8, !tbaa !47
+  %12 = call i64 @strlen(ptr noundef %11) #12
+  %13 = trunc i64 %12 to i32
+  %14 = call i32 @ustr_hashICharsN_77(ptr noundef %10, i32 noundef %13)
+  br label %15
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ 0, %cond.true ], [ %call1, %cond.false ]
-  ret i32 %cond
+15:                                               ; preds = %9, %8
+  %16 = phi i32 [ 0, %8 ], [ %14, %9 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  ret i32 %16
 }
 
-declare i32 @ustr_hashICharsN_75(ptr noundef, i32 noundef) #2
+declare i32 @ustr_hashICharsN_77(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @uhash_equals_75(ptr noundef %hash1, ptr noundef %hash2) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %hash1.addr = alloca ptr, align 8
-  %hash2.addr = alloca ptr, align 8
-  %count1 = alloca i32, align 4
-  %count2 = alloca i32, align 4
-  %pos = alloca i32, align 4
-  %i = alloca i32, align 4
-  %elem1 = alloca ptr, align 8
-  %key1 = alloca %union.UElement, align 8
-  %val1 = alloca %union.UElement, align 8
-  %elem2 = alloca ptr, align 8
-  %agg.tmp = alloca %union.UElement, align 8
-  %agg.tmp20 = alloca %union.UElement, align 8
-  %val2 = alloca %union.UElement, align 8
-  %agg.tmp26 = alloca %union.UElement, align 8
-  %agg.tmp27 = alloca %union.UElement, align 8
-  store ptr %hash1, ptr %hash1.addr, align 8
-  store ptr %hash2, ptr %hash2.addr, align 8
-  %0 = load ptr, ptr %hash1.addr, align 8
-  %1 = load ptr, ptr %hash2.addr, align 8
-  %cmp = icmp eq ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+define i32 @uhash_hashIStringView_77(ptr %0) #0 {
+  %2 = alloca %union.UElement, align 8
+  %3 = alloca ptr, align 8
+  %4 = getelementptr inbounds nuw %union.UElement, ptr %2, i32 0, i32 0
+  store ptr %0, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
+  %5 = load ptr, ptr %2, align 8, !tbaa !27
+  store ptr %5, ptr %3, align 8, !tbaa !52
+  %6 = load ptr, ptr %3, align 8, !tbaa !52
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
-  store i8 1, ptr %retval, align 1
-  br label %return
+8:                                                ; preds = %1
+  br label %16
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %hash1.addr, align 8
-  %cmp1 = icmp eq ptr %2, null
-  br i1 %cmp1, label %if.then12, label %lor.lhs.false
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8, !tbaa !52
+  %11 = call noundef ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #9
+  %12 = load ptr, ptr %3, align 8, !tbaa !52
+  %13 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #9
+  %14 = trunc i64 %13 to i32
+  %15 = call i32 @ustr_hashICharsN_77(ptr noundef %11, i32 noundef %14)
+  br label %16
 
-lor.lhs.false:                                    ; preds = %if.end
-  %3 = load ptr, ptr %hash2.addr, align 8
-  %cmp2 = icmp eq ptr %3, null
-  br i1 %cmp2, label %if.then12, label %lor.lhs.false3
-
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %hash1.addr, align 8
-  %keyComparator = getelementptr inbounds %struct.UHashtable, ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %keyComparator, align 8
-  %6 = load ptr, ptr %hash2.addr, align 8
-  %keyComparator4 = getelementptr inbounds %struct.UHashtable, ptr %6, i32 0, i32 2
-  %7 = load ptr, ptr %keyComparator4, align 8
-  %cmp5 = icmp ne ptr %5, %7
-  br i1 %cmp5, label %if.then12, label %lor.lhs.false6
-
-lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %8 = load ptr, ptr %hash1.addr, align 8
-  %valueComparator = getelementptr inbounds %struct.UHashtable, ptr %8, i32 0, i32 3
-  %9 = load ptr, ptr %valueComparator, align 8
-  %10 = load ptr, ptr %hash2.addr, align 8
-  %valueComparator7 = getelementptr inbounds %struct.UHashtable, ptr %10, i32 0, i32 3
-  %11 = load ptr, ptr %valueComparator7, align 8
-  %cmp8 = icmp ne ptr %9, %11
-  br i1 %cmp8, label %if.then12, label %lor.lhs.false9
-
-lor.lhs.false9:                                   ; preds = %lor.lhs.false6
-  %12 = load ptr, ptr %hash1.addr, align 8
-  %valueComparator10 = getelementptr inbounds %struct.UHashtable, ptr %12, i32 0, i32 3
-  %13 = load ptr, ptr %valueComparator10, align 8
-  %cmp11 = icmp eq ptr %13, null
-  br i1 %cmp11, label %if.then12, label %if.end13
-
-if.then12:                                        ; preds = %lor.lhs.false9, %lor.lhs.false6, %lor.lhs.false3, %lor.lhs.false, %if.end
-  store i8 0, ptr %retval, align 1
-  br label %return
-
-if.end13:                                         ; preds = %lor.lhs.false9
-  %14 = load ptr, ptr %hash1.addr, align 8
-  %call = call i32 @uhash_count_75(ptr noundef %14)
-  store i32 %call, ptr %count1, align 4
-  %15 = load ptr, ptr %hash2.addr, align 8
-  %call14 = call i32 @uhash_count_75(ptr noundef %15)
-  store i32 %call14, ptr %count2, align 4
-  %16 = load i32, ptr %count1, align 4
-  %17 = load i32, ptr %count2, align 4
-  %cmp15 = icmp ne i32 %16, %17
-  br i1 %cmp15, label %if.then16, label %if.end17
-
-if.then16:                                        ; preds = %if.end13
-  store i8 0, ptr %retval, align 1
-  br label %return
-
-if.end17:                                         ; preds = %if.end13
-  store i32 -1, ptr %pos, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end17
-  %18 = load i32, ptr %i, align 4
-  %19 = load i32, ptr %count1, align 4
-  %cmp18 = icmp slt i32 %18, %19
-  br i1 %cmp18, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %20 = load ptr, ptr %hash1.addr, align 8
-  %call19 = call ptr @uhash_nextElement_75(ptr noundef %20, ptr noundef %pos)
-  store ptr %call19, ptr %elem1, align 8
-  %21 = load ptr, ptr %elem1, align 8
-  %key = getelementptr inbounds %struct.UHashElement, ptr %21, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %key1, ptr align 8 %key, i64 8, i1 false)
-  %22 = load ptr, ptr %elem1, align 8
-  %value = getelementptr inbounds %struct.UHashElement, ptr %22, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %val1, ptr align 8 %value, i64 8, i1 false)
-  %23 = load ptr, ptr %hash2.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %key1, i64 8, i1 false)
-  %24 = load ptr, ptr %hash2.addr, align 8
-  %keyHasher = getelementptr inbounds %struct.UHashtable, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %keyHasher, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp20, ptr align 8 %key1, i64 8, i1 false)
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %agg.tmp20, i32 0, i32 0
-  %26 = load ptr, ptr %coerce.dive, align 8
-  %call21 = call noundef i32 %25(ptr %26)
-  %coerce.dive22 = getelementptr inbounds %union.UElement, ptr %agg.tmp, i32 0, i32 0
-  %27 = load ptr, ptr %coerce.dive22, align 8
-  %call23 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %23, ptr %27, i32 noundef %call21)
-  store ptr %call23, ptr %elem2, align 8
-  %28 = load ptr, ptr %elem2, align 8
-  %value24 = getelementptr inbounds %struct.UHashElement, ptr %28, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %val2, ptr align 8 %value24, i64 8, i1 false)
-  %29 = load ptr, ptr %hash1.addr, align 8
-  %valueComparator25 = getelementptr inbounds %struct.UHashtable, ptr %29, i32 0, i32 3
-  %30 = load ptr, ptr %valueComparator25, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp26, ptr align 8 %val1, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp27, ptr align 8 %val2, i64 8, i1 false)
-  %coerce.dive28 = getelementptr inbounds %union.UElement, ptr %agg.tmp26, i32 0, i32 0
-  %31 = load ptr, ptr %coerce.dive28, align 8
-  %coerce.dive29 = getelementptr inbounds %union.UElement, ptr %agg.tmp27, i32 0, i32 0
-  %32 = load ptr, ptr %coerce.dive29, align 8
-  %call30 = call noundef signext i8 %30(ptr %31, ptr %32)
-  %conv = sext i8 %call30 to i32
-  %cmp31 = icmp eq i32 %conv, 0
-  br i1 %cmp31, label %if.then32, label %if.end33
-
-if.then32:                                        ; preds = %for.body
-  store i8 0, ptr %retval, align 1
-  br label %return
-
-if.end33:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end33
-  %33 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %33, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !12
-
-for.end:                                          ; preds = %for.cond
-  store i8 1, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then32, %if.then16, %if.then12, %if.then
-  %34 = load i8, ptr %retval, align 1
-  ret i8 %34
+16:                                               ; preds = %9, %8
+  %17 = phi i32 [ 0, %8 ], [ %15, %9 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  ret i32 %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define signext i8 @uhash_compareUChars_75(ptr %key1.coerce, ptr %key2.coerce) #1 {
-entry:
-  %retval = alloca i8, align 1
-  %key1 = alloca %union.UElement, align 8
-  %key2 = alloca %union.UElement, align 8
-  %p1 = alloca ptr, align 8
-  %p2 = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key1, i32 0, i32 0
-  store ptr %key1.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %key2, i32 0, i32 0
-  store ptr %key2.coerce, ptr %coerce.dive1, align 8
-  %0 = load ptr, ptr %key1, align 8
-  store ptr %0, ptr %p1, align 8
-  %1 = load ptr, ptr %key2, align 8
-  store ptr %1, ptr %p2, align 8
-  %2 = load ptr, ptr %p1, align 8
-  %3 = load ptr, ptr %p2, align 8
-  %cmp = icmp eq ptr %2, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i8 1, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %p1, align 8
-  %cmp2 = icmp eq ptr %4, null
-  br i1 %cmp2, label %if.then4, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %5 = load ptr, ptr %p2, align 8
-  %cmp3 = icmp eq ptr %5, null
-  br i1 %cmp3, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %lor.lhs.false, %if.end
-  store i8 0, ptr %retval, align 1
-  br label %return
-
-if.end5:                                          ; preds = %lor.lhs.false
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end5
-  %6 = load ptr, ptr %p1, align 8
-  %7 = load i16, ptr %6, align 2
-  %conv = zext i16 %7 to i32
-  %cmp6 = icmp ne i32 %conv, 0
-  br i1 %cmp6, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %8 = load ptr, ptr %p1, align 8
-  %9 = load i16, ptr %8, align 2
-  %conv7 = zext i16 %9 to i32
-  %10 = load ptr, ptr %p2, align 8
-  %11 = load i16, ptr %10, align 2
-  %conv8 = zext i16 %11 to i32
-  %cmp9 = icmp eq i32 %conv7, %conv8
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %12 = phi i1 [ false, %while.cond ], [ %cmp9, %land.rhs ]
-  br i1 %12, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %13 = load ptr, ptr %p1, align 8
-  %incdec.ptr = getelementptr inbounds i16, ptr %13, i32 1
-  store ptr %incdec.ptr, ptr %p1, align 8
-  %14 = load ptr, ptr %p2, align 8
-  %incdec.ptr10 = getelementptr inbounds i16, ptr %14, i32 1
-  store ptr %incdec.ptr10, ptr %p2, align 8
-  br label %while.cond, !llvm.loop !13
-
-while.end:                                        ; preds = %land.end
-  %15 = load ptr, ptr %p1, align 8
-  %16 = load i16, ptr %15, align 2
-  %conv11 = zext i16 %16 to i32
-  %17 = load ptr, ptr %p2, align 8
-  %18 = load i16, ptr %17, align 2
-  %conv12 = zext i16 %18 to i32
-  %cmp13 = icmp eq i32 %conv11, %conv12
-  %conv14 = zext i1 %cmp13 to i8
-  store i8 %conv14, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then4, %if.then
-  %19 = load i8, ptr %retval, align 1
-  ret i8 %19
+define linkonce_odr noundef ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define signext i8 @uhash_compareChars_75(ptr %key1.coerce, ptr %key2.coerce) #1 {
-entry:
-  %retval = alloca i8, align 1
-  %key1 = alloca %union.UElement, align 8
-  %key2 = alloca %union.UElement, align 8
-  %p1 = alloca ptr, align 8
-  %p2 = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key1, i32 0, i32 0
-  store ptr %key1.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %key2, i32 0, i32 0
-  store ptr %key2.coerce, ptr %coerce.dive1, align 8
-  %0 = load ptr, ptr %key1, align 8
-  store ptr %0, ptr %p1, align 8
-  %1 = load ptr, ptr %key2, align 8
-  store ptr %1, ptr %p2, align 8
-  %2 = load ptr, ptr %p1, align 8
-  %3 = load ptr, ptr %p2, align 8
-  %cmp = icmp eq ptr %2, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i8 1, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %p1, align 8
-  %cmp2 = icmp eq ptr %4, null
-  br i1 %cmp2, label %if.then4, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %5 = load ptr, ptr %p2, align 8
-  %cmp3 = icmp eq ptr %5, null
-  br i1 %cmp3, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %lor.lhs.false, %if.end
-  store i8 0, ptr %retval, align 1
-  br label %return
-
-if.end5:                                          ; preds = %lor.lhs.false
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end5
-  %6 = load ptr, ptr %p1, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv = sext i8 %7 to i32
-  %cmp6 = icmp ne i32 %conv, 0
-  br i1 %cmp6, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %8 = load ptr, ptr %p1, align 8
-  %9 = load i8, ptr %8, align 1
-  %conv7 = sext i8 %9 to i32
-  %10 = load ptr, ptr %p2, align 8
-  %11 = load i8, ptr %10, align 1
-  %conv8 = sext i8 %11 to i32
-  %cmp9 = icmp eq i32 %conv7, %conv8
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %12 = phi i1 [ false, %while.cond ], [ %cmp9, %land.rhs ]
-  br i1 %12, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %13 = load ptr, ptr %p1, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %13, i32 1
-  store ptr %incdec.ptr, ptr %p1, align 8
-  %14 = load ptr, ptr %p2, align 8
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %14, i32 1
-  store ptr %incdec.ptr10, ptr %p2, align 8
-  br label %while.cond, !llvm.loop !14
-
-while.end:                                        ; preds = %land.end
-  %15 = load ptr, ptr %p1, align 8
-  %16 = load i8, ptr %15, align 1
-  %conv11 = sext i8 %16 to i32
-  %17 = load ptr, ptr %p2, align 8
-  %18 = load i8, ptr %17, align 1
-  %conv12 = sext i8 %18 to i32
-  %cmp13 = icmp eq i32 %conv11, %conv12
-  %conv14 = zext i1 %cmp13 to i8
-  store i8 %conv14, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then4, %if.then
-  %19 = load i8, ptr %retval, align 1
-  ret i8 %19
+define linkonce_odr noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !57
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @uhash_compareIChars_75(ptr %key1.coerce, ptr %key2.coerce) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %key1 = alloca %union.UElement, align 8
-  %key2 = alloca %union.UElement, align 8
-  %p1 = alloca ptr, align 8
-  %p2 = alloca ptr, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key1, i32 0, i32 0
-  store ptr %key1.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %key2, i32 0, i32 0
-  store ptr %key2.coerce, ptr %coerce.dive1, align 8
-  %0 = load ptr, ptr %key1, align 8
-  store ptr %0, ptr %p1, align 8
-  %1 = load ptr, ptr %key2, align 8
-  store ptr %1, ptr %p2, align 8
-  %2 = load ptr, ptr %p1, align 8
-  %3 = load ptr, ptr %p2, align 8
-  %cmp = icmp eq ptr %2, %3
-  br i1 %cmp, label %if.then, label %if.end
+define signext i8 @uhash_equals_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca %union.UElement, align 8
+  %13 = alloca %union.UElement, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %union.UElement, align 8
+  %16 = alloca %union.UElement, align 8
+  %17 = alloca %union.UElement, align 8
+  %18 = alloca %union.UElement, align 8
+  %19 = alloca %union.UElement, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  %20 = load ptr, ptr %4, align 8, !tbaa !11
+  %21 = load ptr, ptr %5, align 8, !tbaa !11
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %23, label %24
 
-if.then:                                          ; preds = %entry
-  store i8 1, ptr %retval, align 1
-  br label %return
+23:                                               ; preds = %2
+  store i8 1, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %104
 
-if.end:                                           ; preds = %entry
-  %4 = load ptr, ptr %p1, align 8
-  %cmp2 = icmp eq ptr %4, null
-  br i1 %cmp2, label %if.then4, label %lor.lhs.false
+24:                                               ; preds = %2
+  %25 = load ptr, ptr %4, align 8, !tbaa !11
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %51, label %27
 
-lor.lhs.false:                                    ; preds = %if.end
-  %5 = load ptr, ptr %p2, align 8
-  %cmp3 = icmp eq ptr %5, null
-  br i1 %cmp3, label %if.then4, label %if.end5
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %5, align 8, !tbaa !11
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %51, label %30
 
-if.then4:                                         ; preds = %lor.lhs.false, %if.end
-  store i8 0, ptr %retval, align 1
-  br label %return
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %4, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.UHashtable, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  %34 = load ptr, ptr %5, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.UHashtable, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !20
+  %37 = icmp ne ptr %33, %36
+  br i1 %37, label %51, label %38
 
-if.end5:                                          ; preds = %lor.lhs.false
-  br label %while.cond
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %4, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw %struct.UHashtable, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8, !tbaa !21
+  %42 = load ptr, ptr %5, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %struct.UHashtable, ptr %42, i32 0, i32 3
+  %44 = load ptr, ptr %43, align 8, !tbaa !21
+  %45 = icmp ne ptr %41, %44
+  br i1 %45, label %51, label %46
 
-while.cond:                                       ; preds = %while.body, %if.end5
-  %6 = load ptr, ptr %p1, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv = sext i8 %7 to i32
-  %cmp6 = icmp ne i32 %conv, 0
-  br i1 %cmp6, label %land.rhs, label %land.end
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %4, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.UHashtable, ptr %47, i32 0, i32 3
+  %49 = load ptr, ptr %48, align 8, !tbaa !21
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %52
 
-land.rhs:                                         ; preds = %while.cond
-  %8 = load ptr, ptr %p1, align 8
-  %9 = load i8, ptr %8, align 1
-  %call = call signext i8 @uprv_asciitolower_75(i8 noundef signext %9)
-  %conv7 = sext i8 %call to i32
-  %10 = load ptr, ptr %p2, align 8
-  %11 = load i8, ptr %10, align 1
-  %call8 = call signext i8 @uprv_asciitolower_75(i8 noundef signext %11)
-  %conv9 = sext i8 %call8 to i32
-  %cmp10 = icmp eq i32 %conv7, %conv9
-  br label %land.end
+51:                                               ; preds = %46, %38, %30, %27, %24
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %104
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %12 = phi i1 [ false, %while.cond ], [ %cmp10, %land.rhs ]
-  br i1 %12, label %while.body, label %while.end
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %4, align 8, !tbaa !11
+  %54 = call i32 @uhash_count_77(ptr noundef %53)
+  store i32 %54, ptr %6, align 4, !tbaa !7
+  %55 = load ptr, ptr %5, align 8, !tbaa !11
+  %56 = call i32 @uhash_count_77(ptr noundef %55)
+  store i32 %56, ptr %7, align 4, !tbaa !7
+  %57 = load i32, ptr %6, align 4, !tbaa !7
+  %58 = load i32, ptr %7, align 4, !tbaa !7
+  %59 = icmp ne i32 %57, %58
+  br i1 %59, label %60, label %61
 
-while.body:                                       ; preds = %land.end
-  %13 = load ptr, ptr %p1, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %13, i32 1
-  store ptr %incdec.ptr, ptr %p1, align 8
-  %14 = load ptr, ptr %p2, align 8
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %14, i32 1
-  store ptr %incdec.ptr11, ptr %p2, align 8
-  br label %while.cond, !llvm.loop !15
+60:                                               ; preds = %52
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %104
 
-while.end:                                        ; preds = %land.end
-  %15 = load ptr, ptr %p1, align 8
-  %16 = load i8, ptr %15, align 1
-  %conv12 = sext i8 %16 to i32
-  %17 = load ptr, ptr %p2, align 8
-  %18 = load i8, ptr %17, align 1
-  %conv13 = sext i8 %18 to i32
-  %cmp14 = icmp eq i32 %conv12, %conv13
-  %conv15 = zext i1 %cmp14 to i8
-  store i8 %conv15, ptr %retval, align 1
-  br label %return
+61:                                               ; preds = %52
+  store i32 -1, ptr %8, align 4, !tbaa !7
+  store i32 0, ptr %9, align 4, !tbaa !7
+  br label %62
 
-return:                                           ; preds = %while.end, %if.then4, %if.then
-  %19 = load i8, ptr %retval, align 1
-  ret i8 %19
+62:                                               ; preds = %100, %61
+  %63 = load i32, ptr %9, align 4, !tbaa !7
+  %64 = load i32, ptr %6, align 4, !tbaa !7
+  %65 = icmp slt i32 %63, %64
+  br i1 %65, label %66, label %103
+
+66:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  %67 = load ptr, ptr %4, align 8, !tbaa !11
+  %68 = call ptr @uhash_nextElement_77(ptr noundef %67, ptr noundef %8)
+  store ptr %68, ptr %11, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  %69 = load ptr, ptr %11, align 8, !tbaa !26
+  %70 = getelementptr inbounds nuw %struct.UHashElement, ptr %69, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %70, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  %71 = load ptr, ptr %11, align 8, !tbaa !26
+  %72 = getelementptr inbounds nuw %struct.UHashElement, ptr %71, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %72, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  %73 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %12, i64 8, i1 false), !tbaa.struct !44
+  %74 = load ptr, ptr %5, align 8, !tbaa !11
+  %75 = getelementptr inbounds nuw %struct.UHashtable, ptr %74, i32 0, i32 1
+  %76 = load ptr, ptr %75, align 8, !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %12, i64 8, i1 false), !tbaa.struct !44
+  %77 = getelementptr inbounds nuw %union.UElement, ptr %16, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = call noundef i32 %76(ptr %78)
+  %80 = getelementptr inbounds nuw %union.UElement, ptr %15, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  %82 = call noundef ptr @_ZL11_uhash_findPK10UHashtable8UElementi(ptr noundef %73, ptr %81, i32 noundef %79)
+  store ptr %82, ptr %14, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  %83 = load ptr, ptr %14, align 8, !tbaa !26
+  %84 = getelementptr inbounds nuw %struct.UHashElement, ptr %83, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %84, i64 8, i1 false), !tbaa.struct !44
+  %85 = load ptr, ptr %4, align 8, !tbaa !11
+  %86 = getelementptr inbounds nuw %struct.UHashtable, ptr %85, i32 0, i32 3
+  %87 = load ptr, ptr %86, align 8, !tbaa !21
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %13, i64 8, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %17, i64 8, i1 false), !tbaa.struct !44
+  %88 = getelementptr inbounds nuw %union.UElement, ptr %18, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw %union.UElement, ptr %19, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = call noundef signext i8 %87(ptr %89, ptr %91)
+  %93 = sext i8 %92 to i32
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %96
+
+95:                                               ; preds = %66
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %97
+
+96:                                               ; preds = %66
+  store i32 0, ptr %10, align 4
+  br label %97
+
+97:                                               ; preds = %96, %95
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  %98 = load i32, ptr %10, align 4
+  switch i32 %98, label %104 [
+    i32 0, label %99
+  ]
+
+99:                                               ; preds = %97
+  br label %100
+
+100:                                              ; preds = %99
+  %101 = load i32, ptr %9, align 4, !tbaa !7
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %9, align 4, !tbaa !7
+  br label %62, !llvm.loop !58
+
+103:                                              ; preds = %62
+  store i8 1, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %104
+
+104:                                              ; preds = %103, %97, %60, %51, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  %105 = load i8, ptr %3, align 1
+  ret i8 %105
 }
 
-declare signext i8 @uprv_asciitolower_75(i8 noundef signext) #2
-
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @uhash_hashLong_75(ptr %key.coerce) #1 {
-entry:
-  %key = alloca %union.UElement, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key, i32 0, i32 0
-  store ptr %key.coerce, ptr %coerce.dive, align 8
-  %0 = load i32, ptr %key, align 8
-  ret i32 %0
+define signext i8 @uhash_compareUChars_77(ptr %0, ptr %1) #2 {
+  %3 = alloca i8, align 1
+  %4 = alloca %union.UElement, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = getelementptr inbounds nuw %union.UElement, ptr %4, i32 0, i32 0
+  store ptr %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %union.UElement, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %11 = load ptr, ptr %4, align 8, !tbaa !27
+  store ptr %11, ptr %6, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
+  store ptr %12, ptr %7, align 8, !tbaa !50
+  %13 = load ptr, ptr %6, align 8, !tbaa !50
+  %14 = load ptr, ptr %7, align 8, !tbaa !50
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %2
+  store i8 1, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %54
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %6, align 8, !tbaa !50
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %23, label %20
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %7, align 8, !tbaa !50
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %20, %17
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %54
+
+24:                                               ; preds = %20
+  br label %25
+
+25:                                               ; preds = %40, %24
+  %26 = load ptr, ptr %6, align 8, !tbaa !50
+  %27 = load i16, ptr %26, align 2, !tbaa !59
+  %28 = zext i16 %27 to i32
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %38
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %6, align 8, !tbaa !50
+  %32 = load i16, ptr %31, align 2, !tbaa !59
+  %33 = zext i16 %32 to i32
+  %34 = load ptr, ptr %7, align 8, !tbaa !50
+  %35 = load i16, ptr %34, align 2, !tbaa !59
+  %36 = zext i16 %35 to i32
+  %37 = icmp eq i32 %33, %36
+  br label %38
+
+38:                                               ; preds = %30, %25
+  %39 = phi i1 [ false, %25 ], [ %37, %30 ]
+  br i1 %39, label %40, label %45
+
+40:                                               ; preds = %38
+  %41 = load ptr, ptr %6, align 8, !tbaa !50
+  %42 = getelementptr inbounds nuw i16, ptr %41, i32 1
+  store ptr %42, ptr %6, align 8, !tbaa !50
+  %43 = load ptr, ptr %7, align 8, !tbaa !50
+  %44 = getelementptr inbounds nuw i16, ptr %43, i32 1
+  store ptr %44, ptr %7, align 8, !tbaa !50
+  br label %25, !llvm.loop !61
+
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %6, align 8, !tbaa !50
+  %47 = load i16, ptr %46, align 2, !tbaa !59
+  %48 = zext i16 %47 to i32
+  %49 = load ptr, ptr %7, align 8, !tbaa !50
+  %50 = load i16, ptr %49, align 2, !tbaa !59
+  %51 = zext i16 %50 to i32
+  %52 = icmp eq i32 %48, %51
+  %53 = zext i1 %52 to i8
+  store i8 %53, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %54
+
+54:                                               ; preds = %45, %23, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %55 = load i8, ptr %3, align 1
+  ret i8 %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define signext i8 @uhash_compareLong_75(ptr %key1.coerce, ptr %key2.coerce) #1 {
-entry:
-  %key1 = alloca %union.UElement, align 8
-  %key2 = alloca %union.UElement, align 8
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key1, i32 0, i32 0
-  store ptr %key1.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %key2, i32 0, i32 0
-  store ptr %key2.coerce, ptr %coerce.dive1, align 8
-  %0 = load i32, ptr %key1, align 8
-  %1 = load i32, ptr %key2, align 8
-  %cmp = icmp eq i32 %0, %1
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+define signext i8 @uhash_compareChars_77(ptr %0, ptr %1) #2 {
+  %3 = alloca i8, align 1
+  %4 = alloca %union.UElement, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = getelementptr inbounds nuw %union.UElement, ptr %4, i32 0, i32 0
+  store ptr %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %union.UElement, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %11 = load ptr, ptr %4, align 8, !tbaa !27
+  store ptr %11, ptr %6, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
+  store ptr %12, ptr %7, align 8, !tbaa !47
+  %13 = load ptr, ptr %6, align 8, !tbaa !47
+  %14 = load ptr, ptr %7, align 8, !tbaa !47
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %2
+  store i8 1, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %54
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %6, align 8, !tbaa !47
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %23, label %20
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %7, align 8, !tbaa !47
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %20, %17
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %54
+
+24:                                               ; preds = %20
+  br label %25
+
+25:                                               ; preds = %40, %24
+  %26 = load ptr, ptr %6, align 8, !tbaa !47
+  %27 = load i8, ptr %26, align 1, !tbaa !27
+  %28 = sext i8 %27 to i32
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %38
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %6, align 8, !tbaa !47
+  %32 = load i8, ptr %31, align 1, !tbaa !27
+  %33 = sext i8 %32 to i32
+  %34 = load ptr, ptr %7, align 8, !tbaa !47
+  %35 = load i8, ptr %34, align 1, !tbaa !27
+  %36 = sext i8 %35 to i32
+  %37 = icmp eq i32 %33, %36
+  br label %38
+
+38:                                               ; preds = %30, %25
+  %39 = phi i1 [ false, %25 ], [ %37, %30 ]
+  br i1 %39, label %40, label %45
+
+40:                                               ; preds = %38
+  %41 = load ptr, ptr %6, align 8, !tbaa !47
+  %42 = getelementptr inbounds nuw i8, ptr %41, i32 1
+  store ptr %42, ptr %6, align 8, !tbaa !47
+  %43 = load ptr, ptr %7, align 8, !tbaa !47
+  %44 = getelementptr inbounds nuw i8, ptr %43, i32 1
+  store ptr %44, ptr %7, align 8, !tbaa !47
+  br label %25, !llvm.loop !62
+
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %6, align 8, !tbaa !47
+  %47 = load i8, ptr %46, align 1, !tbaa !27
+  %48 = sext i8 %47 to i32
+  %49 = load ptr, ptr %7, align 8, !tbaa !47
+  %50 = load i8, ptr %49, align 1, !tbaa !27
+  %51 = sext i8 %50 to i32
+  %52 = icmp eq i32 %48, %51
+  %53 = zext i1 %52 to i8
+  store i8 %53, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %54
+
+54:                                               ; preds = %45, %23, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %55 = load i8, ptr %3, align 1
+  ret i8 %55
+}
+
+; Function Attrs: mustprogress uwtable
+define signext i8 @uhash_compareIChars_77(ptr %0, ptr %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca %union.UElement, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = getelementptr inbounds nuw %union.UElement, ptr %4, i32 0, i32 0
+  store ptr %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %union.UElement, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %11 = load ptr, ptr %4, align 8, !tbaa !27
+  store ptr %11, ptr %6, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %12 = load ptr, ptr %5, align 8, !tbaa !27
+  store ptr %12, ptr %7, align 8, !tbaa !47
+  %13 = load ptr, ptr %6, align 8, !tbaa !47
+  %14 = load ptr, ptr %7, align 8, !tbaa !47
+  %15 = icmp eq ptr %13, %14
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %2
+  store i8 1, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %56
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %6, align 8, !tbaa !47
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %23, label %20
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %7, align 8, !tbaa !47
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %20, %17
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %56
+
+24:                                               ; preds = %20
+  br label %25
+
+25:                                               ; preds = %42, %24
+  %26 = load ptr, ptr %6, align 8, !tbaa !47
+  %27 = load i8, ptr %26, align 1, !tbaa !27
+  %28 = sext i8 %27 to i32
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %40
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %6, align 8, !tbaa !47
+  %32 = load i8, ptr %31, align 1, !tbaa !27
+  %33 = call signext i8 @uprv_asciitolower_77(i8 noundef signext %32)
+  %34 = sext i8 %33 to i32
+  %35 = load ptr, ptr %7, align 8, !tbaa !47
+  %36 = load i8, ptr %35, align 1, !tbaa !27
+  %37 = call signext i8 @uprv_asciitolower_77(i8 noundef signext %36)
+  %38 = sext i8 %37 to i32
+  %39 = icmp eq i32 %34, %38
+  br label %40
+
+40:                                               ; preds = %30, %25
+  %41 = phi i1 [ false, %25 ], [ %39, %30 ]
+  br i1 %41, label %42, label %47
+
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %6, align 8, !tbaa !47
+  %44 = getelementptr inbounds nuw i8, ptr %43, i32 1
+  store ptr %44, ptr %6, align 8, !tbaa !47
+  %45 = load ptr, ptr %7, align 8, !tbaa !47
+  %46 = getelementptr inbounds nuw i8, ptr %45, i32 1
+  store ptr %46, ptr %7, align 8, !tbaa !47
+  br label %25, !llvm.loop !63
+
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %6, align 8, !tbaa !47
+  %49 = load i8, ptr %48, align 1, !tbaa !27
+  %50 = sext i8 %49 to i32
+  %51 = load ptr, ptr %7, align 8, !tbaa !47
+  %52 = load i8, ptr %51, align 1, !tbaa !27
+  %53 = sext i8 %52 to i32
+  %54 = icmp eq i32 %50, %53
+  %55 = zext i1 %54 to i8
+  store i8 %55, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %56
+
+56:                                               ; preds = %47, %23, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %57 = load i8, ptr %3, align 1
+  ret i8 %57
+}
+
+declare signext i8 @uprv_asciitolower_77(i8 noundef signext) #3
+
+; Function Attrs: mustprogress uwtable
+define signext i8 @uhash_compareIStringView_77(ptr %0, ptr %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca %union.UElement, align 8
+  %5 = alloca %union.UElement, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = getelementptr inbounds nuw %union.UElement, ptr %4, i32 0, i32 0
+  store ptr %0, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %union.UElement, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
+  %14 = load ptr, ptr %4, align 8, !tbaa !27
+  store ptr %14, ptr %6, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %15 = load ptr, ptr %5, align 8, !tbaa !27
+  store ptr %15, ptr %7, align 8, !tbaa !52
+  %16 = load ptr, ptr %6, align 8, !tbaa !52
+  %17 = load ptr, ptr %7, align 8, !tbaa !52
+  %18 = icmp eq ptr %16, %17
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %2
+  store i8 1, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %66
+
+20:                                               ; preds = %2
+  %21 = load ptr, ptr %6, align 8, !tbaa !52
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %26, label %23
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %7, align 8, !tbaa !52
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %23, %20
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %66
+
+27:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %28 = load ptr, ptr %6, align 8, !tbaa !52
+  store ptr %28, ptr %9, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %29 = load ptr, ptr %7, align 8, !tbaa !52
+  store ptr %29, ptr %10, align 8, !tbaa !52
+  %30 = load ptr, ptr %9, align 8, !tbaa !52
+  %31 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #9
+  %32 = load ptr, ptr %10, align 8, !tbaa !52
+  %33 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #9
+  %34 = icmp ne i64 %31, %33
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %27
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %65
+
+36:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  store i64 0, ptr %11, align 8, !tbaa !64
+  br label %37
+
+37:                                               ; preds = %59, %36
+  %38 = load i64, ptr %11, align 8, !tbaa !64
+  %39 = load ptr, ptr %9, align 8, !tbaa !52
+  %40 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #9
+  %41 = icmp ult i64 %38, %40
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %37
+  store i32 2, ptr %8, align 4
+  br label %62
+
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %9, align 8, !tbaa !52
+  %45 = load i64, ptr %11, align 8, !tbaa !64
+  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef %45) #9
+  %47 = load i8, ptr %46, align 1, !tbaa !27
+  %48 = call signext i8 @uprv_asciitolower_77(i8 noundef signext %47)
+  %49 = sext i8 %48 to i32
+  %50 = load ptr, ptr %10, align 8, !tbaa !52
+  %51 = load i64, ptr %11, align 8, !tbaa !64
+  %52 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %51) #9
+  %53 = load i8, ptr %52, align 1, !tbaa !27
+  %54 = call signext i8 @uprv_asciitolower_77(i8 noundef signext %53)
+  %55 = sext i8 %54 to i32
+  %56 = icmp ne i32 %49, %55
+  br i1 %56, label %57, label %58
+
+57:                                               ; preds = %43
+  store i8 0, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %62
+
+58:                                               ; preds = %43
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load i64, ptr %11, align 8, !tbaa !64
+  %61 = add i64 %60, 1
+  store i64 %61, ptr %11, align 8, !tbaa !64
+  br label %37, !llvm.loop !65
+
+62:                                               ; preds = %57, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  %63 = load i32, ptr %8, align 4
+  switch i32 %63, label %65 [
+    i32 2, label %64
+  ]
+
+64:                                               ; preds = %62
+  store i8 1, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %65
+
+65:                                               ; preds = %64, %62, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  br label %66
+
+66:                                               ; preds = %65, %26, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %67 = load i8, ptr %3, align 1
+  ret i8 %67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %code) #1 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !52
+  store i64 %1, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %3, align 8
+  br label %6
+
+6:                                                ; preds = %2
+  br label %7
+
+7:                                                ; preds = %6
+  br label %8
+
+8:                                                ; preds = %7
+  %9 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8, !tbaa !54
+  %11 = load i64, ptr %4, align 8, !tbaa !64
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define i32 @uhash_hashLong_77(ptr %0) #2 {
+  %2 = alloca %union.UElement, align 8
+  %3 = getelementptr inbounds nuw %union.UElement, ptr %2, i32 0, i32 0
+  store ptr %0, ptr %3, align 8
+  %4 = load i32, ptr %2, align 8, !tbaa !27
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define signext i8 @uhash_compareLong_77(ptr %0, ptr %1) #2 {
+  %3 = alloca %union.UElement, align 8
+  %4 = alloca %union.UElement, align 8
+  %5 = getelementptr inbounds nuw %union.UElement, ptr %3, i32 0, i32 0
+  store ptr %0, ptr %5, align 8
+  %6 = getelementptr inbounds nuw %union.UElement, ptr %4, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  %7 = load i32, ptr %3, align 8, !tbaa !27
+  %8 = load i32, ptr %4, align 8, !tbaa !27
+  %9 = icmp eq i32 %7, %8
+  %10 = zext i1 %9 to i8
+  ret i8 %10
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0) #6 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !9
+  %3 = load i32, ptr %2, align 4, !tbaa !9
+  %4 = icmp sgt i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) #5
+declare noalias ptr @uprv_malloc_77(i64 noundef) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL15_uhash_allocateP10UHashtableiP10UErrorCode(ptr noundef %hash, i32 noundef %primeIndex, ptr noundef %status) #0 {
-entry:
-  %hash.addr = alloca ptr, align 8
-  %primeIndex.addr = alloca i32, align 4
-  %status.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %limit = alloca ptr, align 8
-  %emptytok = alloca %union.UElement, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store i32 %primeIndex, ptr %primeIndex.addr, align 4
-  store ptr %status, ptr %status.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal void @_ZL15_uhash_allocateP10UHashtableiP10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = load i32, ptr %11, align 4, !tbaa !9
+  %13 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %12)
+  %14 = icmp ne i8 %13, 0
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  br label %return
+15:                                               ; preds = %3
+  store i32 1, ptr %10, align 4
+  br label %86
 
-if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %primeIndex.addr, align 4
-  %conv = trunc i32 %2 to i8
-  %3 = load ptr, ptr %hash.addr, align 8
-  %primeIndex1 = getelementptr inbounds %struct.UHashtable, ptr %3, i32 0, i32 12
-  store i8 %conv, ptr %primeIndex1, align 8
-  %4 = load i32, ptr %primeIndex.addr, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  %6 = load ptr, ptr %hash.addr, align 8
-  %length = getelementptr inbounds %struct.UHashtable, ptr %6, i32 0, i32 7
-  store i32 %5, ptr %length, align 4
-  %7 = load ptr, ptr %hash.addr, align 8
-  %length2 = getelementptr inbounds %struct.UHashtable, ptr %7, i32 0, i32 7
-  %8 = load i32, ptr %length2, align 4
-  %conv3 = sext i32 %8 to i64
-  %mul = mul i64 24, %conv3
-  %call4 = call noalias ptr @uprv_malloc_75(i64 noundef %mul) #7
-  %9 = load ptr, ptr %hash.addr, align 8
-  %elements = getelementptr inbounds %struct.UHashtable, ptr %9, i32 0, i32 0
-  store ptr %call4, ptr %elements, align 8
-  store ptr %call4, ptr %p, align 8
-  %10 = load ptr, ptr %hash.addr, align 8
-  %elements5 = getelementptr inbounds %struct.UHashtable, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %elements5, align 8
-  %cmp = icmp eq ptr %11, null
-  br i1 %cmp, label %if.then6, label %if.end7
+16:                                               ; preds = %3
+  %17 = load i32, ptr %5, align 4, !tbaa !7
+  %18 = trunc i32 %17 to i8
+  %19 = load ptr, ptr %4, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %struct.UHashtable, ptr %19, i32 0, i32 12
+  store i8 %18, ptr %20, align 8, !tbaa !42
+  %21 = load i32, ptr %5, align 4, !tbaa !7
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %22
+  %24 = load i32, ptr %23, align 4, !tbaa !7
+  %25 = load ptr, ptr %4, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.UHashtable, ptr %25, i32 0, i32 7
+  store i32 %24, ptr %26, align 4, !tbaa !31
+  %27 = load ptr, ptr %4, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.UHashtable, ptr %27, i32 0, i32 7
+  %29 = load i32, ptr %28, align 4, !tbaa !31
+  %30 = sext i32 %29 to i64
+  %31 = mul i64 24, %30
+  %32 = call noalias ptr @uprv_malloc_77(i64 noundef %31) #10
+  %33 = load ptr, ptr %4, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw %struct.UHashtable, ptr %33, i32 0, i32 0
+  store ptr %32, ptr %34, align 8, !tbaa !25
+  store ptr %32, ptr %7, align 8, !tbaa !26
+  %35 = load ptr, ptr %4, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw %struct.UHashtable, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !25
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %41
 
-if.then6:                                         ; preds = %if.end
-  %12 = load ptr, ptr %status.addr, align 8
-  store i32 7, ptr %12, align 4
-  br label %return
+39:                                               ; preds = %16
+  %40 = load ptr, ptr %6, align 8, !tbaa !3
+  store i32 7, ptr %40, align 4, !tbaa !9
+  store i32 1, ptr %10, align 4
+  br label %86
 
-if.end7:                                          ; preds = %if.end
-  store ptr null, ptr %emptytok, align 8
-  store i32 0, ptr %emptytok, align 8
-  %13 = load ptr, ptr %p, align 8
-  %14 = load ptr, ptr %hash.addr, align 8
-  %length8 = getelementptr inbounds %struct.UHashtable, ptr %14, i32 0, i32 7
-  %15 = load i32, ptr %length8, align 4
-  %idx.ext = sext i32 %15 to i64
-  %add.ptr = getelementptr inbounds %struct.UHashElement, ptr %13, i64 %idx.ext
-  store ptr %add.ptr, ptr %limit, align 8
-  br label %while.cond
+41:                                               ; preds = %16
+  store ptr null, ptr %9, align 8, !tbaa !27
+  store i32 0, ptr %9, align 8, !tbaa !27
+  %42 = load ptr, ptr %7, align 8, !tbaa !26
+  %43 = load ptr, ptr %4, align 8, !tbaa !11
+  %44 = getelementptr inbounds nuw %struct.UHashtable, ptr %43, i32 0, i32 7
+  %45 = load i32, ptr %44, align 4, !tbaa !31
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %struct.UHashElement, ptr %42, i64 %46
+  store ptr %47, ptr %8, align 8, !tbaa !26
+  br label %48
 
-while.cond:                                       ; preds = %while.body, %if.end7
-  %16 = load ptr, ptr %p, align 8
-  %17 = load ptr, ptr %limit, align 8
-  %cmp9 = icmp ult ptr %16, %17
-  br i1 %cmp9, label %while.body, label %while.end
+48:                                               ; preds = %52, %41
+  %49 = load ptr, ptr %7, align 8, !tbaa !26
+  %50 = load ptr, ptr %8, align 8, !tbaa !26
+  %51 = icmp ult ptr %49, %50
+  br i1 %51, label %52, label %61
 
-while.body:                                       ; preds = %while.cond
-  %18 = load ptr, ptr %p, align 8
-  %key = getelementptr inbounds %struct.UHashElement, ptr %18, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %key, ptr align 8 %emptytok, i64 8, i1 false)
-  %19 = load ptr, ptr %p, align 8
-  %value = getelementptr inbounds %struct.UHashElement, ptr %19, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value, ptr align 8 %emptytok, i64 8, i1 false)
-  %20 = load ptr, ptr %p, align 8
-  %hashcode = getelementptr inbounds %struct.UHashElement, ptr %20, i32 0, i32 0
-  store i32 -2147483647, ptr %hashcode, align 8
-  %21 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds %struct.UHashElement, ptr %21, i32 1
-  store ptr %incdec.ptr, ptr %p, align 8
-  br label %while.cond, !llvm.loop !16
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %7, align 8, !tbaa !26
+  %54 = getelementptr inbounds nuw %struct.UHashElement, ptr %53, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %54, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  %55 = load ptr, ptr %7, align 8, !tbaa !26
+  %56 = getelementptr inbounds nuw %struct.UHashElement, ptr %55, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  %57 = load ptr, ptr %7, align 8, !tbaa !26
+  %58 = getelementptr inbounds nuw %struct.UHashElement, ptr %57, i32 0, i32 0
+  store i32 -2147483647, ptr %58, align 8, !tbaa !32
+  %59 = load ptr, ptr %7, align 8, !tbaa !26
+  %60 = getelementptr inbounds nuw %struct.UHashElement, ptr %59, i32 1
+  store ptr %60, ptr %7, align 8, !tbaa !26
+  br label %48, !llvm.loop !66
 
-while.end:                                        ; preds = %while.cond
-  %22 = load ptr, ptr %hash.addr, align 8
-  %count = getelementptr inbounds %struct.UHashtable, ptr %22, i32 0, i32 6
-  store i32 0, ptr %count, align 8
-  %23 = load ptr, ptr %hash.addr, align 8
-  %length10 = getelementptr inbounds %struct.UHashtable, ptr %23, i32 0, i32 7
-  %24 = load i32, ptr %length10, align 4
-  %conv11 = sitofp i32 %24 to float
-  %25 = load ptr, ptr %hash.addr, align 8
-  %lowWaterRatio = getelementptr inbounds %struct.UHashtable, ptr %25, i32 0, i32 11
-  %26 = load float, ptr %lowWaterRatio, align 4
-  %mul12 = fmul float %conv11, %26
-  %conv13 = fptosi float %mul12 to i32
-  %27 = load ptr, ptr %hash.addr, align 8
-  %lowWaterMark = getelementptr inbounds %struct.UHashtable, ptr %27, i32 0, i32 9
-  store i32 %conv13, ptr %lowWaterMark, align 4
-  %28 = load ptr, ptr %hash.addr, align 8
-  %length14 = getelementptr inbounds %struct.UHashtable, ptr %28, i32 0, i32 7
-  %29 = load i32, ptr %length14, align 4
-  %conv15 = sitofp i32 %29 to float
-  %30 = load ptr, ptr %hash.addr, align 8
-  %highWaterRatio = getelementptr inbounds %struct.UHashtable, ptr %30, i32 0, i32 10
-  %31 = load float, ptr %highWaterRatio, align 8
-  %mul16 = fmul float %conv15, %31
-  %conv17 = fptosi float %mul16 to i32
-  %32 = load ptr, ptr %hash.addr, align 8
-  %highWaterMark = getelementptr inbounds %struct.UHashtable, ptr %32, i32 0, i32 8
-  store i32 %conv17, ptr %highWaterMark, align 8
-  br label %return
+61:                                               ; preds = %48
+  %62 = load ptr, ptr %4, align 8, !tbaa !11
+  %63 = getelementptr inbounds nuw %struct.UHashtable, ptr %62, i32 0, i32 6
+  store i32 0, ptr %63, align 8, !tbaa !43
+  %64 = load ptr, ptr %4, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %struct.UHashtable, ptr %64, i32 0, i32 7
+  %66 = load i32, ptr %65, align 4, !tbaa !31
+  %67 = sitofp i32 %66 to float
+  %68 = load ptr, ptr %4, align 8, !tbaa !11
+  %69 = getelementptr inbounds nuw %struct.UHashtable, ptr %68, i32 0, i32 11
+  %70 = load float, ptr %69, align 4, !tbaa !37
+  %71 = fmul float %67, %70
+  %72 = fptosi float %71 to i32
+  %73 = load ptr, ptr %4, align 8, !tbaa !11
+  %74 = getelementptr inbounds nuw %struct.UHashtable, ptr %73, i32 0, i32 9
+  store i32 %72, ptr %74, align 4, !tbaa !38
+  %75 = load ptr, ptr %4, align 8, !tbaa !11
+  %76 = getelementptr inbounds nuw %struct.UHashtable, ptr %75, i32 0, i32 7
+  %77 = load i32, ptr %76, align 4, !tbaa !31
+  %78 = sitofp i32 %77 to float
+  %79 = load ptr, ptr %4, align 8, !tbaa !11
+  %80 = getelementptr inbounds nuw %struct.UHashtable, ptr %79, i32 0, i32 10
+  %81 = load float, ptr %80, align 8, !tbaa !39
+  %82 = fmul float %78, %81
+  %83 = fptosi float %82 to i32
+  %84 = load ptr, ptr %4, align 8, !tbaa !11
+  %85 = getelementptr inbounds nuw %struct.UHashtable, ptr %84, i32 0, i32 8
+  store i32 %83, ptr %85, align 8, !tbaa !40
+  store i32 0, ptr %10, align 4
+  br label %86
 
-return:                                           ; preds = %while.end, %if.then6, %if.then
+86:                                               ; preds = %61, %39, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  %87 = load i32, ptr %10, align 4
+  switch i32 %87, label %89 [
+    i32 0, label %88
+    i32 1, label %88
+  ]
+
+88:                                               ; preds = %86, %86
   ret void
+
+89:                                               ; preds = %86
+  unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #6
+declare void @abort() #8
 
 ; Function Attrs: mustprogress uwtable
-define internal ptr @_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a(ptr noundef %hash, ptr noundef %e, i32 noundef %hashcode, ptr %key.coerce, ptr %value.coerce, i8 noundef signext %hint) #0 {
-entry:
-  %retval = alloca %union.UElement, align 8
-  %key = alloca %union.UElement, align 8
-  %value = alloca %union.UElement, align 8
-  %hash.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  %hashcode.addr = alloca i32, align 4
-  %hint.addr = alloca i8, align 1
-  %coerce.dive = getelementptr inbounds %union.UElement, ptr %key, i32 0, i32 0
-  store ptr %key.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %union.UElement, ptr %value, i32 0, i32 0
-  store ptr %value.coerce, ptr %coerce.dive1, align 8
-  store ptr %hash, ptr %hash.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  store i32 %hashcode, ptr %hashcode.addr, align 4
-  store i8 %hint, ptr %hint.addr, align 1
-  %0 = load ptr, ptr %e.addr, align 8
-  %value2 = getelementptr inbounds %struct.UHashElement, ptr %0, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %value2, i64 8, i1 false)
-  %1 = load ptr, ptr %hash.addr, align 8
-  %keyDeleter = getelementptr inbounds %struct.UHashtable, ptr %1, i32 0, i32 4
-  %2 = load ptr, ptr %keyDeleter, align 8
-  %cmp = icmp ne ptr %2, null
-  br i1 %cmp, label %land.lhs.true, label %if.end
+define internal ptr @_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr %3, ptr %4, i8 noundef signext %5) #0 {
+  %7 = alloca %union.UElement, align 8
+  %8 = alloca %union.UElement, align 8
+  %9 = alloca %union.UElement, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = getelementptr inbounds nuw %union.UElement, ptr %8, i32 0, i32 0
+  store ptr %3, ptr %14, align 8
+  %15 = getelementptr inbounds nuw %union.UElement, ptr %9, i32 0, i32 0
+  store ptr %4, ptr %15, align 8
+  store ptr %0, ptr %10, align 8, !tbaa !11
+  store ptr %1, ptr %11, align 8, !tbaa !26
+  store i32 %2, ptr %12, align 4, !tbaa !7
+  store i8 %5, ptr %13, align 1, !tbaa !27
+  %16 = load ptr, ptr %11, align 8, !tbaa !26
+  %17 = getelementptr inbounds nuw %struct.UHashElement, ptr %16, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %17, i64 8, i1 false), !tbaa.struct !44
+  %18 = load ptr, ptr %10, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.UHashtable, ptr %18, i32 0, i32 4
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %40
 
-land.lhs.true:                                    ; preds = %entry
-  %3 = load ptr, ptr %e.addr, align 8
-  %key3 = getelementptr inbounds %struct.UHashElement, ptr %3, i32 0, i32 2
-  %4 = load ptr, ptr %key3, align 8
-  %cmp4 = icmp ne ptr %4, null
-  br i1 %cmp4, label %land.lhs.true5, label %if.end
+22:                                               ; preds = %6
+  %23 = load ptr, ptr %11, align 8, !tbaa !26
+  %24 = getelementptr inbounds nuw %struct.UHashElement, ptr %23, i32 0, i32 2
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %40
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %5 = load ptr, ptr %e.addr, align 8
-  %key6 = getelementptr inbounds %struct.UHashElement, ptr %5, i32 0, i32 2
-  %6 = load ptr, ptr %key6, align 8
-  %7 = load ptr, ptr %key, align 8
-  %cmp7 = icmp ne ptr %6, %7
-  br i1 %cmp7, label %if.then, label %if.end
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %11, align 8, !tbaa !26
+  %29 = getelementptr inbounds nuw %struct.UHashElement, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
+  %31 = load ptr, ptr %8, align 8, !tbaa !27
+  %32 = icmp ne ptr %30, %31
+  br i1 %32, label %33, label %40
 
-if.then:                                          ; preds = %land.lhs.true5
-  %8 = load ptr, ptr %hash.addr, align 8
-  %keyDeleter8 = getelementptr inbounds %struct.UHashtable, ptr %8, i32 0, i32 4
-  %9 = load ptr, ptr %keyDeleter8, align 8
-  %10 = load ptr, ptr %e.addr, align 8
-  %key9 = getelementptr inbounds %struct.UHashElement, ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %key9, align 8
-  call void %9(ptr noundef %11)
-  br label %if.end
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %10, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.UHashtable, ptr %34, i32 0, i32 4
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
+  %37 = load ptr, ptr %11, align 8, !tbaa !26
+  %38 = getelementptr inbounds nuw %struct.UHashElement, ptr %37, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8, !tbaa !27
+  call void %36(ptr noundef %39)
+  br label %40
 
-if.end:                                           ; preds = %if.then, %land.lhs.true5, %land.lhs.true, %entry
-  %12 = load ptr, ptr %hash.addr, align 8
-  %valueDeleter = getelementptr inbounds %struct.UHashtable, ptr %12, i32 0, i32 5
-  %13 = load ptr, ptr %valueDeleter, align 8
-  %cmp10 = icmp ne ptr %13, null
-  br i1 %cmp10, label %if.then11, label %if.end18
+40:                                               ; preds = %33, %27, %22, %6
+  %41 = load ptr, ptr %10, align 8, !tbaa !11
+  %42 = getelementptr inbounds nuw %struct.UHashtable, ptr %41, i32 0, i32 5
+  %43 = load ptr, ptr %42, align 8, !tbaa !23
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %58
 
-if.then11:                                        ; preds = %if.end
-  %14 = load ptr, ptr %retval, align 8
-  %cmp12 = icmp ne ptr %14, null
-  br i1 %cmp12, label %land.lhs.true13, label %if.end17
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %7, align 8, !tbaa !27
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %57
 
-land.lhs.true13:                                  ; preds = %if.then11
-  %15 = load ptr, ptr %retval, align 8
-  %16 = load ptr, ptr %value, align 8
-  %cmp14 = icmp ne ptr %15, %16
-  br i1 %cmp14, label %if.then15, label %if.end17
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %7, align 8, !tbaa !27
+  %50 = load ptr, ptr %9, align 8, !tbaa !27
+  %51 = icmp ne ptr %49, %50
+  br i1 %51, label %52, label %57
 
-if.then15:                                        ; preds = %land.lhs.true13
-  %17 = load ptr, ptr %hash.addr, align 8
-  %valueDeleter16 = getelementptr inbounds %struct.UHashtable, ptr %17, i32 0, i32 5
-  %18 = load ptr, ptr %valueDeleter16, align 8
-  %19 = load ptr, ptr %retval, align 8
-  call void %18(ptr noundef %19)
-  br label %if.end17
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %10, align 8, !tbaa !11
+  %54 = getelementptr inbounds nuw %struct.UHashtable, ptr %53, i32 0, i32 5
+  %55 = load ptr, ptr %54, align 8, !tbaa !23
+  %56 = load ptr, ptr %7, align 8, !tbaa !27
+  call void %55(ptr noundef %56)
+  br label %57
 
-if.end17:                                         ; preds = %if.then15, %land.lhs.true13, %if.then11
-  store ptr null, ptr %retval, align 8
-  br label %if.end18
+57:                                               ; preds = %52, %48, %45
+  store ptr null, ptr %7, align 8, !tbaa !27
+  br label %58
 
-if.end18:                                         ; preds = %if.end17, %if.end
-  %20 = load i8, ptr %hint.addr, align 1
-  %conv = sext i8 %20 to i32
-  %and = and i32 %conv, 1
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %if.then19, label %if.else
+58:                                               ; preds = %57, %40
+  %59 = load i8, ptr %13, align 1, !tbaa !27
+  %60 = sext i8 %59 to i32
+  %61 = and i32 %60, 1
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %67
 
-if.then19:                                        ; preds = %if.end18
-  %21 = load ptr, ptr %key, align 8
-  %22 = load ptr, ptr %e.addr, align 8
-  %key20 = getelementptr inbounds %struct.UHashElement, ptr %22, i32 0, i32 2
-  store ptr %21, ptr %key20, align 8
-  br label %if.end22
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %8, align 8, !tbaa !27
+  %65 = load ptr, ptr %11, align 8, !tbaa !26
+  %66 = getelementptr inbounds nuw %struct.UHashElement, ptr %65, i32 0, i32 2
+  store ptr %64, ptr %66, align 8, !tbaa !27
+  br label %70
 
-if.else:                                          ; preds = %if.end18
-  %23 = load ptr, ptr %e.addr, align 8
-  %key21 = getelementptr inbounds %struct.UHashElement, ptr %23, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %key21, ptr align 8 %key, i64 8, i1 false)
-  br label %if.end22
+67:                                               ; preds = %58
+  %68 = load ptr, ptr %11, align 8, !tbaa !26
+  %69 = getelementptr inbounds nuw %struct.UHashElement, ptr %68, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 %8, i64 8, i1 false), !tbaa.struct !44
+  br label %70
 
-if.end22:                                         ; preds = %if.else, %if.then19
-  %24 = load i8, ptr %hint.addr, align 1
-  %conv23 = sext i8 %24 to i32
-  %and24 = and i32 %conv23, 2
-  %tobool25 = icmp ne i32 %and24, 0
-  br i1 %tobool25, label %if.then26, label %if.else28
+70:                                               ; preds = %67, %63
+  %71 = load i8, ptr %13, align 1, !tbaa !27
+  %72 = sext i8 %71 to i32
+  %73 = and i32 %72, 2
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %79
 
-if.then26:                                        ; preds = %if.end22
-  %25 = load ptr, ptr %value, align 8
-  %26 = load ptr, ptr %e.addr, align 8
-  %value27 = getelementptr inbounds %struct.UHashElement, ptr %26, i32 0, i32 1
-  store ptr %25, ptr %value27, align 8
-  br label %if.end30
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %9, align 8, !tbaa !27
+  %77 = load ptr, ptr %11, align 8, !tbaa !26
+  %78 = getelementptr inbounds nuw %struct.UHashElement, ptr %77, i32 0, i32 1
+  store ptr %76, ptr %78, align 8, !tbaa !27
+  br label %82
 
-if.else28:                                        ; preds = %if.end22
-  %27 = load ptr, ptr %e.addr, align 8
-  %value29 = getelementptr inbounds %struct.UHashElement, ptr %27, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %value29, ptr align 8 %value, i64 8, i1 false)
-  br label %if.end30
+79:                                               ; preds = %70
+  %80 = load ptr, ptr %11, align 8, !tbaa !26
+  %81 = getelementptr inbounds nuw %struct.UHashElement, ptr %80, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %81, ptr align 8 %9, i64 8, i1 false), !tbaa.struct !44
+  br label %82
 
-if.end30:                                         ; preds = %if.else28, %if.then26
-  %28 = load i32, ptr %hashcode.addr, align 4
-  %29 = load ptr, ptr %e.addr, align 8
-  %hashcode31 = getelementptr inbounds %struct.UHashElement, ptr %29, i32 0, i32 0
-  store i32 %28, ptr %hashcode31, align 8
-  %coerce.dive32 = getelementptr inbounds %union.UElement, ptr %retval, i32 0, i32 0
-  %30 = load ptr, ptr %coerce.dive32, align 8
-  ret ptr %30
+82:                                               ; preds = %79, %75
+  %83 = load i32, ptr %12, align 4, !tbaa !7
+  %84 = load ptr, ptr %11, align 8, !tbaa !26
+  %85 = getelementptr inbounds nuw %struct.UHashElement, ptr %84, i32 0, i32 0
+  store i32 %83, ptr %85, align 8, !tbaa !32
+  %86 = getelementptr inbounds nuw %union.UElement, ptr %7, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8
+  ret ptr %87
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(0) }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { allocsize(0) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"_ZTS10UErrorCode", !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS10UHashtable", !4, i64 0}
+!13 = !{!14, !5, i64 73}
+!14 = !{!"_ZTS10UHashtable", !15, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !4, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !16, i64 64, !16, i64 68, !5, i64 72, !5, i64 73}
+!15 = !{!"p1 _ZTS12UHashElement", !4, i64 0}
+!16 = !{!"float", !5, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{!14, !4, i64 8}
+!20 = !{!14, !4, i64 16}
+!21 = !{!14, !4, i64 24}
+!22 = !{!14, !4, i64 32}
+!23 = !{!14, !4, i64 40}
+!24 = distinct !{!24, !18}
+!25 = !{!14, !15, i64 0}
+!26 = !{!15, !15, i64 0}
+!27 = !{!5, !5, i64 0}
+!28 = distinct !{!28, !18}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 int", !4, i64 0}
+!31 = !{!14, !8, i64 52}
+!32 = !{!33, !8, i64 0}
+!33 = !{!"_ZTS12UHashElement", !8, i64 0, !5, i64 8, !5, i64 16}
+!34 = distinct !{!34, !18}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"_ZTS17UHashResizePolicy", !5, i64 0}
+!37 = !{!14, !16, i64 68}
+!38 = !{!14, !8, i64 60}
+!39 = !{!14, !16, i64 64}
+!40 = !{!14, !8, i64 56}
+!41 = !{!16, !16, i64 0}
+!42 = !{!14, !5, i64 72}
+!43 = !{!14, !8, i64 48}
+!44 = !{i64 0, i64 8, !27}
+!45 = distinct !{!45, !18}
+!46 = distinct !{!46, !18}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 omnipotent char", !4, i64 0}
+!49 = distinct !{!49, !18}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 char16_t", !4, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !4, i64 0}
+!54 = !{!55, !48, i64 8}
+!55 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !56, i64 0, !48, i64 8}
+!56 = !{!"long", !5, i64 0}
+!57 = !{!55, !56, i64 0}
+!58 = distinct !{!58, !18}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"char16_t", !5, i64 0}
+!61 = distinct !{!61, !18}
+!62 = distinct !{!62, !18}
+!63 = distinct !{!63, !18}
+!64 = !{!56, !56, i64 0}
+!65 = distinct !{!65, !18}
+!66 = distinct !{!66, !18}

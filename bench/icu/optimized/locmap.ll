@@ -1,187 +1,187 @@
 ; ModuleID = 'bench/icu/original/locmap.ll'
 source_filename = "bench/icu/original/locmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.ILcidPosixMap = type { i32, ptr }
-%struct.ILcidPosixElement = type { i32, ptr }
+%"struct.(anonymous namespace)::ILcidPosixMap" = type { i32, ptr }
+%"struct.(anonymous namespace)::ILcidPosixElement" = type { i32, ptr }
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ei10UErrorCode = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE6resizeEii = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EED5Ev = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv = comdat any
 
 $__clang_call_terminate = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEC5EOS1_ = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEC5EOS1_ = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE17resetToStackArrayEv = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_ = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEaSEOS1_ = comdat any
 
-$_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv = comdat any
+$_ZNK6icu_7715MaybeStackArrayIcLi40EE11getCapacityEv = comdat any
 
-$_ZNK6icu_7515MaybeStackArrayIcLi40EE8getAliasEv = comdat any
+$_ZNK6icu_7715MaybeStackArrayIcLi40EE8getAliasEv = comdat any
 
-$_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv = comdat any
+$_ZNK6icu_7715MaybeStackArrayIcLi40EE13getArrayLimitEv = comdat any
 
-$_ZNK6icu_7515MaybeStackArrayIcLi40EEixEl = comdat any
+$_ZNK6icu_7715MaybeStackArrayIcLi40EEixEl = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EEixEl = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EEixEl = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE12aliasInsteadEPci = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE12aliasInsteadEPci = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneEiRi = comdat any
 
-$_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
+$_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
 
-@_ZL11gPosixIDmap = internal unnamed_addr constant [141 x %struct.ILcidPosixMap] [%struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_af }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_am }, %struct.ILcidPosixMap { i32 18, ptr @_ZL9locmap_ar }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_arn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_as }, %struct.ILcidPosixMap { i32 6, ptr @_ZL9locmap_az }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ba }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_be }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_bg }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_bin }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_bn }, %struct.ILcidPosixMap { i32 4, ptr @_ZL9locmap_bo }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_br }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ca }, %struct.ILcidPosixMap { i32 4, ptr @_ZL10locmap_chr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_ckb }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_co }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_cs }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_cy }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_da }, %struct.ILcidPosixMap { i32 8, ptr @_ZL9locmap_de }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_dv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_el }, %struct.ILcidPosixMap { i32 26, ptr @_ZL9locmap_en }, %struct.ILcidPosixMap { i32 1, ptr @_ZL18locmap_en_US_POSIX }, %struct.ILcidPosixMap { i32 25, ptr @_ZL9locmap_es }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_et }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_eu }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_fa }, %struct.ILcidPosixMap { i32 2, ptr @_ZL12locmap_fa_AF }, %struct.ILcidPosixMap { i32 4, ptr @_ZL9locmap_ff }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_fi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_fil }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_fo }, %struct.ILcidPosixMap { i32 18, ptr @_ZL9locmap_fr }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_fuv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_fy }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ga }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gd }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_gsw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_gu }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ha }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_haw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_he }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_hi }, %struct.ILcidPosixMap { i32 20, ptr @_ZL9locmap_hr }, %struct.ILcidPosixMap { i32 4, ptr @_ZL10locmap_hsb }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_hu }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_hy }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_ibb }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_id }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ig }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ii }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_is }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_it }, %struct.ILcidPosixMap { i32 5, ptr @_ZL9locmap_iu }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_iw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ja }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ka }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kk }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_km }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kn }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ko }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_kok }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_kr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ks }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ky }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lb }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_la }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lo }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lt }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_lv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mk }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ml }, %struct.ILcidPosixMap { i32 7, ptr @_ZL9locmap_mn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_mni }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_moh }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ms }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_mt }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_my }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ne }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_nl }, %struct.ILcidPosixMap { i32 7, ptr @_ZL9locmap_no }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_nso }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_oc }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_om }, %struct.ILcidPosixMap { i32 2, ptr @_ZL12locmap_or_IN }, %struct.ILcidPosixMap { i32 4, ptr @_ZL9locmap_pa }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_pap }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_pl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ps }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_pt }, %struct.ILcidPosixMap { i32 7, ptr @_ZL9locmap_qu }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_quc }, %struct.ILcidPosixMap { i32 3, ptr @_ZL10locmap_qut }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_rm }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ro }, %struct.ILcidPosixMap { i32 1, ptr @_ZL11locmap_root }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ru }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_rw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sa }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_sah }, %struct.ILcidPosixMap { i32 6, ptr @_ZL9locmap_sd }, %struct.ILcidPosixMap { i32 14, ptr @_ZL9locmap_se }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_si }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sk }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sl }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_so }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sq }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_st }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_sv }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_sw }, %struct.ILcidPosixMap { i32 2, ptr @_ZL10locmap_syr }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ta }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_te }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_tg }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_th }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ti }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_tk }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_tn }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_tr }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_ts }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_tt }, %struct.ILcidPosixMap { i32 6, ptr @_ZL10locmap_tzm }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ug }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_uk }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ur }, %struct.ILcidPosixMap { i32 6, ptr @_ZL9locmap_uz }, %struct.ILcidPosixMap { i32 3, ptr @_ZL9locmap_ve }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_vi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_wo }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_xh }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_yi }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_yo }, %struct.ILcidPosixMap { i32 22, ptr @_ZL9locmap_zh }, %struct.ILcidPosixMap { i32 2, ptr @_ZL9locmap_zu }], align 16
-@_ZL9locmap_af = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 54, ptr @.str }, %struct.ILcidPosixElement { i32 1078, ptr @.str.1 }], align 16
-@_ZL9locmap_am = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 94, ptr @.str.2 }, %struct.ILcidPosixElement { i32 1118, ptr @.str.3 }], align 16
-@_ZL9locmap_ar = internal constant [18 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 1, ptr @.str.4 }, %struct.ILcidPosixElement { i32 14337, ptr @.str.5 }, %struct.ILcidPosixElement { i32 15361, ptr @.str.6 }, %struct.ILcidPosixElement { i32 5121, ptr @.str.7 }, %struct.ILcidPosixElement { i32 3073, ptr @.str.8 }, %struct.ILcidPosixElement { i32 2049, ptr @.str.9 }, %struct.ILcidPosixElement { i32 11265, ptr @.str.10 }, %struct.ILcidPosixElement { i32 13313, ptr @.str.11 }, %struct.ILcidPosixElement { i32 12289, ptr @.str.12 }, %struct.ILcidPosixElement { i32 4097, ptr @.str.13 }, %struct.ILcidPosixElement { i32 6145, ptr @.str.14 }, %struct.ILcidPosixElement { i32 6145, ptr @.str.15 }, %struct.ILcidPosixElement { i32 8193, ptr @.str.16 }, %struct.ILcidPosixElement { i32 16385, ptr @.str.17 }, %struct.ILcidPosixElement { i32 1025, ptr @.str.18 }, %struct.ILcidPosixElement { i32 10241, ptr @.str.19 }, %struct.ILcidPosixElement { i32 7169, ptr @.str.20 }, %struct.ILcidPosixElement { i32 9217, ptr @.str.21 }], align 16
-@_ZL10locmap_arn = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 122, ptr @.str.22 }, %struct.ILcidPosixElement { i32 1146, ptr @.str.23 }], align 16
-@_ZL9locmap_as = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 77, ptr @.str.24 }, %struct.ILcidPosixElement { i32 1101, ptr @.str.25 }], align 16
-@_ZL9locmap_az = internal constant [6 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 44, ptr @.str.26 }, %struct.ILcidPosixElement { i32 2092, ptr @.str.27 }, %struct.ILcidPosixElement { i32 29740, ptr @.str.28 }, %struct.ILcidPosixElement { i32 1068, ptr @.str.29 }, %struct.ILcidPosixElement { i32 30764, ptr @.str.30 }, %struct.ILcidPosixElement { i32 1068, ptr @.str.31 }], align 16
-@_ZL9locmap_ba = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 109, ptr @.str.32 }, %struct.ILcidPosixElement { i32 1133, ptr @.str.33 }], align 16
-@_ZL9locmap_be = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 35, ptr @.str.34 }, %struct.ILcidPosixElement { i32 1059, ptr @.str.35 }], align 16
-@_ZL9locmap_bg = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 2, ptr @.str.36 }, %struct.ILcidPosixElement { i32 1026, ptr @.str.37 }], align 16
-@_ZL10locmap_bin = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 102, ptr @.str.38 }, %struct.ILcidPosixElement { i32 1126, ptr @.str.39 }], align 16
-@_ZL9locmap_bn = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 69, ptr @.str.40 }, %struct.ILcidPosixElement { i32 2117, ptr @.str.41 }, %struct.ILcidPosixElement { i32 1093, ptr @.str.42 }], align 16
-@_ZL9locmap_bo = internal constant [4 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 81, ptr @.str.43 }, %struct.ILcidPosixElement { i32 2129, ptr @.str.44 }, %struct.ILcidPosixElement { i32 1105, ptr @.str.45 }, %struct.ILcidPosixElement { i32 3153, ptr @.str.46 }], align 16
-@_ZL9locmap_br = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 126, ptr @.str.47 }, %struct.ILcidPosixElement { i32 1150, ptr @.str.48 }], align 16
-@_ZL9locmap_ca = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 3, ptr @.str.49 }, %struct.ILcidPosixElement { i32 1027, ptr @.str.50 }, %struct.ILcidPosixElement { i32 2051, ptr @.str.51 }], align 16
-@_ZL10locmap_chr = internal constant [4 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 92, ptr @.str.52 }, %struct.ILcidPosixElement { i32 31836, ptr @.str.53 }, %struct.ILcidPosixElement { i32 1116, ptr @.str.54 }, %struct.ILcidPosixElement { i32 1116, ptr @.str.55 }], align 16
-@_ZL10locmap_ckb = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 146, ptr @.str.56 }, %struct.ILcidPosixElement { i32 31890, ptr @.str.57 }, %struct.ILcidPosixElement { i32 1170, ptr @.str.58 }], align 16
-@_ZL9locmap_co = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 131, ptr @.str.59 }, %struct.ILcidPosixElement { i32 1155, ptr @.str.60 }], align 16
-@_ZL9locmap_cs = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 5, ptr @.str.61 }, %struct.ILcidPosixElement { i32 1029, ptr @.str.62 }], align 16
-@_ZL9locmap_cy = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 82, ptr @.str.63 }, %struct.ILcidPosixElement { i32 1106, ptr @.str.64 }], align 16
-@_ZL9locmap_da = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 6, ptr @.str.65 }, %struct.ILcidPosixElement { i32 1030, ptr @.str.66 }], align 16
-@_ZL9locmap_de = internal constant [8 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 7, ptr @.str.67 }, %struct.ILcidPosixElement { i32 3079, ptr @.str.68 }, %struct.ILcidPosixElement { i32 2055, ptr @.str.69 }, %struct.ILcidPosixElement { i32 1031, ptr @.str.70 }, %struct.ILcidPosixElement { i32 5127, ptr @.str.71 }, %struct.ILcidPosixElement { i32 4103, ptr @.str.72 }, %struct.ILcidPosixElement { i32 66567, ptr @.str.73 }, %struct.ILcidPosixElement { i32 66567, ptr @.str.74 }], align 16
-@_ZL9locmap_dv = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 101, ptr @.str.75 }, %struct.ILcidPosixElement { i32 1125, ptr @.str.76 }], align 16
-@_ZL9locmap_el = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 8, ptr @.str.77 }, %struct.ILcidPosixElement { i32 1032, ptr @.str.78 }], align 16
-@_ZL9locmap_en = internal constant [26 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 9, ptr @.str.79 }, %struct.ILcidPosixElement { i32 3081, ptr @.str.80 }, %struct.ILcidPosixElement { i32 10249, ptr @.str.81 }, %struct.ILcidPosixElement { i32 4105, ptr @.str.82 }, %struct.ILcidPosixElement { i32 2057, ptr @.str.83 }, %struct.ILcidPosixElement { i32 15369, ptr @.str.84 }, %struct.ILcidPosixElement { i32 14345, ptr @.str.85 }, %struct.ILcidPosixElement { i32 6153, ptr @.str.86 }, %struct.ILcidPosixElement { i32 16393, ptr @.str.87 }, %struct.ILcidPosixElement { i32 8201, ptr @.str.88 }, %struct.ILcidPosixElement { i32 17417, ptr @.str.89 }, %struct.ILcidPosixElement { i32 5129, ptr @.str.90 }, %struct.ILcidPosixElement { i32 13321, ptr @.str.91 }, %struct.ILcidPosixElement { i32 18441, ptr @.str.92 }, %struct.ILcidPosixElement { i32 11273, ptr @.str.93 }, %struct.ILcidPosixElement { i32 1033, ptr @.str.94 }, %struct.ILcidPosixElement { i32 127, ptr @.str.95 }, %struct.ILcidPosixElement { i32 9225, ptr @.str.96 }, %struct.ILcidPosixElement { i32 7177, ptr @.str.97 }, %struct.ILcidPosixElement { i32 12297, ptr @.str.98 }, %struct.ILcidPosixElement { i32 9225, ptr @.str.99 }, %struct.ILcidPosixElement { i32 1033, ptr @.str.100 }, %struct.ILcidPosixElement { i32 1033, ptr @.str.101 }, %struct.ILcidPosixElement { i32 1033, ptr @.str.102 }, %struct.ILcidPosixElement { i32 1033, ptr @.str.103 }, %struct.ILcidPosixElement { i32 1033, ptr @.str.104 }], align 16
-@_ZL18locmap_en_US_POSIX = internal constant [1 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 127, ptr @.str.95 }], align 16
-@_ZL9locmap_es = internal constant [25 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 10, ptr @.str.105 }, %struct.ILcidPosixElement { i32 11274, ptr @.str.106 }, %struct.ILcidPosixElement { i32 16394, ptr @.str.107 }, %struct.ILcidPosixElement { i32 13322, ptr @.str.108 }, %struct.ILcidPosixElement { i32 9226, ptr @.str.109 }, %struct.ILcidPosixElement { i32 5130, ptr @.str.110 }, %struct.ILcidPosixElement { i32 23562, ptr @.str.111 }, %struct.ILcidPosixElement { i32 7178, ptr @.str.112 }, %struct.ILcidPosixElement { i32 12298, ptr @.str.113 }, %struct.ILcidPosixElement { i32 3082, ptr @.str.114 }, %struct.ILcidPosixElement { i32 4106, ptr @.str.115 }, %struct.ILcidPosixElement { i32 18442, ptr @.str.116 }, %struct.ILcidPosixElement { i32 2058, ptr @.str.117 }, %struct.ILcidPosixElement { i32 19466, ptr @.str.118 }, %struct.ILcidPosixElement { i32 6154, ptr @.str.119 }, %struct.ILcidPosixElement { i32 10250, ptr @.str.120 }, %struct.ILcidPosixElement { i32 20490, ptr @.str.121 }, %struct.ILcidPosixElement { i32 15370, ptr @.str.122 }, %struct.ILcidPosixElement { i32 17418, ptr @.str.123 }, %struct.ILcidPosixElement { i32 21514, ptr @.str.124 }, %struct.ILcidPosixElement { i32 14346, ptr @.str.125 }, %struct.ILcidPosixElement { i32 8202, ptr @.str.126 }, %struct.ILcidPosixElement { i32 22538, ptr @.str.127 }, %struct.ILcidPosixElement { i32 1034, ptr @.str.128 }, %struct.ILcidPosixElement { i32 1034, ptr @.str.129 }], align 16
-@_ZL9locmap_et = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 37, ptr @.str.130 }, %struct.ILcidPosixElement { i32 1061, ptr @.str.131 }], align 16
-@_ZL9locmap_eu = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 45, ptr @.str.132 }, %struct.ILcidPosixElement { i32 1069, ptr @.str.133 }], align 16
-@_ZL9locmap_fa = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 41, ptr @.str.134 }, %struct.ILcidPosixElement { i32 1065, ptr @.str.135 }, %struct.ILcidPosixElement { i32 1164, ptr @.str.136 }], align 16
-@_ZL12locmap_fa_AF = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 140, ptr @.str.136 }, %struct.ILcidPosixElement { i32 1164, ptr @.str.136 }], align 16
-@_ZL9locmap_ff = internal constant [4 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 103, ptr @.str.137 }, %struct.ILcidPosixElement { i32 31847, ptr @.str.138 }, %struct.ILcidPosixElement { i32 2151, ptr @.str.139 }, %struct.ILcidPosixElement { i32 1127, ptr @.str.140 }], align 16
-@_ZL9locmap_fi = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 11, ptr @.str.141 }, %struct.ILcidPosixElement { i32 1035, ptr @.str.142 }], align 16
-@_ZL10locmap_fil = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 100, ptr @.str.143 }, %struct.ILcidPosixElement { i32 1124, ptr @.str.144 }], align 16
-@_ZL9locmap_fo = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 56, ptr @.str.145 }, %struct.ILcidPosixElement { i32 1080, ptr @.str.146 }], align 16
-@_ZL9locmap_fr = internal constant [18 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 12, ptr @.str.147 }, %struct.ILcidPosixElement { i32 2060, ptr @.str.148 }, %struct.ILcidPosixElement { i32 3084, ptr @.str.149 }, %struct.ILcidPosixElement { i32 9228, ptr @.str.150 }, %struct.ILcidPosixElement { i32 9228, ptr @.str.151 }, %struct.ILcidPosixElement { i32 4108, ptr @.str.152 }, %struct.ILcidPosixElement { i32 12300, ptr @.str.153 }, %struct.ILcidPosixElement { i32 11276, ptr @.str.154 }, %struct.ILcidPosixElement { i32 1036, ptr @.str.155 }, %struct.ILcidPosixElement { i32 15372, ptr @.str.156 }, %struct.ILcidPosixElement { i32 5132, ptr @.str.157 }, %struct.ILcidPosixElement { i32 14348, ptr @.str.158 }, %struct.ILcidPosixElement { i32 6156, ptr @.str.159 }, %struct.ILcidPosixElement { i32 13324, ptr @.str.160 }, %struct.ILcidPosixElement { i32 8204, ptr @.str.161 }, %struct.ILcidPosixElement { i32 10252, ptr @.str.162 }, %struct.ILcidPosixElement { i32 58380, ptr @.str.163 }, %struct.ILcidPosixElement { i32 7180, ptr @.str.164 }], align 16
-@_ZL10locmap_fuv = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 103, ptr @.str.165 }, %struct.ILcidPosixElement { i32 1127, ptr @.str.166 }], align 16
-@_ZL9locmap_fy = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 98, ptr @.str.167 }, %struct.ILcidPosixElement { i32 1122, ptr @.str.168 }], align 16
-@_ZL9locmap_ga = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 60, ptr @.str.169 }, %struct.ILcidPosixElement { i32 2108, ptr @.str.170 }, %struct.ILcidPosixElement { i32 1084, ptr @.str.171 }], align 16
-@_ZL9locmap_gd = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 145, ptr @.str.172 }, %struct.ILcidPosixElement { i32 1169, ptr @.str.171 }], align 16
-@_ZL9locmap_gl = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 86, ptr @.str.173 }, %struct.ILcidPosixElement { i32 1110, ptr @.str.174 }], align 16
-@_ZL9locmap_gn = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 116, ptr @.str.175 }, %struct.ILcidPosixElement { i32 1140, ptr @.str.176 }], align 16
-@_ZL10locmap_gsw = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 132, ptr @.str.177 }, %struct.ILcidPosixElement { i32 1156, ptr @.str.178 }], align 16
-@_ZL9locmap_gu = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 71, ptr @.str.179 }, %struct.ILcidPosixElement { i32 1095, ptr @.str.180 }], align 16
-@_ZL9locmap_ha = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 104, ptr @.str.181 }, %struct.ILcidPosixElement { i32 31848, ptr @.str.182 }, %struct.ILcidPosixElement { i32 1128, ptr @.str.183 }], align 16
-@_ZL10locmap_haw = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 117, ptr @.str.184 }, %struct.ILcidPosixElement { i32 1141, ptr @.str.185 }], align 16
-@_ZL9locmap_he = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 13, ptr @.str.186 }, %struct.ILcidPosixElement { i32 1037, ptr @.str.187 }], align 16
-@_ZL9locmap_hi = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 57, ptr @.str.188 }, %struct.ILcidPosixElement { i32 1081, ptr @.str.189 }], align 16
-@_ZL9locmap_hr = internal constant [20 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 26, ptr @.str.190 }, %struct.ILcidPosixElement { i32 5146, ptr @.str.191 }, %struct.ILcidPosixElement { i32 26650, ptr @.str.192 }, %struct.ILcidPosixElement { i32 5146, ptr @.str.193 }, %struct.ILcidPosixElement { i32 30746, ptr @.str.194 }, %struct.ILcidPosixElement { i32 8218, ptr @.str.195 }, %struct.ILcidPosixElement { i32 25626, ptr @.str.196 }, %struct.ILcidPosixElement { i32 4122, ptr @.str.197 }, %struct.ILcidPosixElement { i32 1050, ptr @.str.198 }, %struct.ILcidPosixElement { i32 11290, ptr @.str.199 }, %struct.ILcidPosixElement { i32 9242, ptr @.str.200 }, %struct.ILcidPosixElement { i32 6170, ptr @.str.201 }, %struct.ILcidPosixElement { i32 2074, ptr @.str.202 }, %struct.ILcidPosixElement { i32 28698, ptr @.str.203 }, %struct.ILcidPosixElement { i32 7194, ptr @.str.204 }, %struct.ILcidPosixElement { i32 3098, ptr @.str.205 }, %struct.ILcidPosixElement { i32 12314, ptr @.str.206 }, %struct.ILcidPosixElement { i32 10266, ptr @.str.207 }, %struct.ILcidPosixElement { i32 27674, ptr @.str.208 }, %struct.ILcidPosixElement { i32 31770, ptr @.str.209 }], align 16
-@_ZL10locmap_hsb = internal constant [4 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 46, ptr @.str.210 }, %struct.ILcidPosixElement { i32 1070, ptr @.str.211 }, %struct.ILcidPosixElement { i32 2094, ptr @.str.212 }, %struct.ILcidPosixElement { i32 31790, ptr @.str.213 }], align 16
-@_ZL9locmap_hu = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 14, ptr @.str.214 }, %struct.ILcidPosixElement { i32 1038, ptr @.str.215 }], align 16
-@_ZL9locmap_hy = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 43, ptr @.str.216 }, %struct.ILcidPosixElement { i32 1067, ptr @.str.217 }], align 16
-@_ZL10locmap_ibb = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 105, ptr @.str.218 }, %struct.ILcidPosixElement { i32 1129, ptr @.str.219 }], align 16
-@_ZL9locmap_id = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 33, ptr @.str.220 }, %struct.ILcidPosixElement { i32 1057, ptr @.str.221 }], align 16
-@_ZL9locmap_ig = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 112, ptr @.str.222 }, %struct.ILcidPosixElement { i32 1136, ptr @.str.223 }], align 16
-@_ZL9locmap_ii = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 120, ptr @.str.224 }, %struct.ILcidPosixElement { i32 1144, ptr @.str.225 }], align 16
-@_ZL9locmap_is = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 15, ptr @.str.226 }, %struct.ILcidPosixElement { i32 1039, ptr @.str.227 }], align 16
-@_ZL9locmap_it = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 16, ptr @.str.228 }, %struct.ILcidPosixElement { i32 2064, ptr @.str.229 }, %struct.ILcidPosixElement { i32 1040, ptr @.str.230 }], align 16
-@_ZL9locmap_iu = internal constant [5 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 93, ptr @.str.231 }, %struct.ILcidPosixElement { i32 1117, ptr @.str.232 }, %struct.ILcidPosixElement { i32 30813, ptr @.str.233 }, %struct.ILcidPosixElement { i32 2141, ptr @.str.234 }, %struct.ILcidPosixElement { i32 31837, ptr @.str.235 }], align 16
-@_ZL9locmap_iw = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 13, ptr @.str.236 }, %struct.ILcidPosixElement { i32 1037, ptr @.str.237 }], align 16
-@_ZL9locmap_ja = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 17, ptr @.str.238 }, %struct.ILcidPosixElement { i32 1041, ptr @.str.239 }], align 16
-@_ZL9locmap_ka = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 55, ptr @.str.240 }, %struct.ILcidPosixElement { i32 1079, ptr @.str.241 }], align 16
-@_ZL9locmap_kk = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 63, ptr @.str.242 }, %struct.ILcidPosixElement { i32 1087, ptr @.str.243 }], align 16
-@_ZL9locmap_kl = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 111, ptr @.str.244 }, %struct.ILcidPosixElement { i32 1135, ptr @.str.245 }], align 16
-@_ZL9locmap_km = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 83, ptr @.str.246 }, %struct.ILcidPosixElement { i32 1107, ptr @.str.247 }], align 16
-@_ZL9locmap_kn = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 75, ptr @.str.248 }, %struct.ILcidPosixElement { i32 1099, ptr @.str.249 }], align 16
-@_ZL9locmap_ko = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 18, ptr @.str.250 }, %struct.ILcidPosixElement { i32 2066, ptr @.str.251 }, %struct.ILcidPosixElement { i32 1042, ptr @.str.252 }], align 16
-@_ZL10locmap_kok = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 87, ptr @.str.253 }, %struct.ILcidPosixElement { i32 1111, ptr @.str.254 }], align 16
-@_ZL9locmap_kr = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 113, ptr @.str.255 }, %struct.ILcidPosixElement { i32 1137, ptr @.str.256 }], align 16
-@_ZL9locmap_ks = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 96, ptr @.str.257 }, %struct.ILcidPosixElement { i32 1120, ptr @.str.258 }, %struct.ILcidPosixElement { i32 2144, ptr @.str.259 }], align 16
-@_ZL9locmap_ky = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 64, ptr @.str.260 }, %struct.ILcidPosixElement { i32 1088, ptr @.str.261 }], align 16
-@_ZL9locmap_lb = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 110, ptr @.str.262 }, %struct.ILcidPosixElement { i32 1134, ptr @.str.263 }], align 16
-@_ZL9locmap_la = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 118, ptr @.str.264 }, %struct.ILcidPosixElement { i32 1142, ptr @.str.265 }, %struct.ILcidPosixElement { i32 1142, ptr @.str.266 }], align 16
-@_ZL9locmap_lo = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 84, ptr @.str.267 }, %struct.ILcidPosixElement { i32 1108, ptr @.str.268 }], align 16
-@_ZL9locmap_lt = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 39, ptr @.str.269 }, %struct.ILcidPosixElement { i32 1063, ptr @.str.270 }], align 16
-@_ZL9locmap_lv = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 38, ptr @.str.271 }, %struct.ILcidPosixElement { i32 1062, ptr @.str.272 }], align 16
-@_ZL9locmap_mi = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 129, ptr @.str.273 }, %struct.ILcidPosixElement { i32 1153, ptr @.str.274 }], align 16
-@_ZL9locmap_mk = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 47, ptr @.str.275 }, %struct.ILcidPosixElement { i32 1071, ptr @.str.276 }], align 16
-@_ZL9locmap_ml = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 76, ptr @.str.277 }, %struct.ILcidPosixElement { i32 1100, ptr @.str.278 }], align 16
-@_ZL9locmap_mn = internal constant [7 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 80, ptr @.str.279 }, %struct.ILcidPosixElement { i32 1104, ptr @.str.280 }, %struct.ILcidPosixElement { i32 31824, ptr @.str.281 }, %struct.ILcidPosixElement { i32 2128, ptr @.str.282 }, %struct.ILcidPosixElement { i32 2128, ptr @.str.283 }, %struct.ILcidPosixElement { i32 30800, ptr @.str.284 }, %struct.ILcidPosixElement { i32 3152, ptr @.str.285 }], align 16
-@_ZL10locmap_mni = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 88, ptr @.str.286 }, %struct.ILcidPosixElement { i32 1112, ptr @.str.287 }], align 16
-@_ZL10locmap_moh = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 124, ptr @.str.288 }, %struct.ILcidPosixElement { i32 1148, ptr @.str.289 }], align 16
-@_ZL9locmap_mr = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 78, ptr @.str.290 }, %struct.ILcidPosixElement { i32 1102, ptr @.str.291 }], align 16
-@_ZL9locmap_ms = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 62, ptr @.str.292 }, %struct.ILcidPosixElement { i32 2110, ptr @.str.293 }, %struct.ILcidPosixElement { i32 1086, ptr @.str.294 }], align 16
-@_ZL9locmap_mt = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 58, ptr @.str.295 }, %struct.ILcidPosixElement { i32 1082, ptr @.str.296 }], align 16
-@_ZL9locmap_my = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 85, ptr @.str.297 }, %struct.ILcidPosixElement { i32 1109, ptr @.str.298 }], align 16
-@_ZL9locmap_ne = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 97, ptr @.str.299 }, %struct.ILcidPosixElement { i32 2145, ptr @.str.300 }, %struct.ILcidPosixElement { i32 1121, ptr @.str.301 }], align 16
-@_ZL9locmap_nl = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 19, ptr @.str.302 }, %struct.ILcidPosixElement { i32 2067, ptr @.str.303 }, %struct.ILcidPosixElement { i32 1043, ptr @.str.304 }], align 16
-@_ZL9locmap_no = internal constant [7 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 20, ptr @.str.305 }, %struct.ILcidPosixElement { i32 31764, ptr @.str.306 }, %struct.ILcidPosixElement { i32 1044, ptr @.str.307 }, %struct.ILcidPosixElement { i32 1044, ptr @.str.308 }, %struct.ILcidPosixElement { i32 2068, ptr @.str.309 }, %struct.ILcidPosixElement { i32 30740, ptr @.str.310 }, %struct.ILcidPosixElement { i32 2068, ptr @.str.311 }], align 16
-@_ZL10locmap_nso = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 108, ptr @.str.312 }, %struct.ILcidPosixElement { i32 1132, ptr @.str.313 }], align 16
-@_ZL9locmap_oc = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 130, ptr @.str.314 }, %struct.ILcidPosixElement { i32 1154, ptr @.str.315 }], align 16
-@_ZL9locmap_om = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 114, ptr @.str.316 }, %struct.ILcidPosixElement { i32 1138, ptr @.str.317 }, %struct.ILcidPosixElement { i32 1138, ptr @.str.318 }], align 16
-@_ZL12locmap_or_IN = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 72, ptr @.str.319 }, %struct.ILcidPosixElement { i32 1096, ptr @.str.320 }], align 16
-@_ZL9locmap_pa = internal constant [4 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 70, ptr @.str.321 }, %struct.ILcidPosixElement { i32 1094, ptr @.str.322 }, %struct.ILcidPosixElement { i32 2118, ptr @.str.323 }, %struct.ILcidPosixElement { i32 2118, ptr @.str.324 }], align 16
-@_ZL10locmap_pap = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 121, ptr @.str.325 }, %struct.ILcidPosixElement { i32 1145, ptr @.str.326 }, %struct.ILcidPosixElement { i32 1145, ptr @.str.327 }], align 16
-@_ZL9locmap_pl = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 21, ptr @.str.328 }, %struct.ILcidPosixElement { i32 1045, ptr @.str.329 }], align 16
-@_ZL9locmap_ps = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 99, ptr @.str.330 }, %struct.ILcidPosixElement { i32 1123, ptr @.str.331 }], align 16
-@_ZL9locmap_pt = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 22, ptr @.str.332 }, %struct.ILcidPosixElement { i32 1046, ptr @.str.333 }, %struct.ILcidPosixElement { i32 2070, ptr @.str.334 }], align 16
-@_ZL9locmap_qu = internal constant [7 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 107, ptr @.str.335 }, %struct.ILcidPosixElement { i32 1131, ptr @.str.336 }, %struct.ILcidPosixElement { i32 2155, ptr @.str.337 }, %struct.ILcidPosixElement { i32 3179, ptr @.str.338 }, %struct.ILcidPosixElement { i32 1131, ptr @.str.339 }, %struct.ILcidPosixElement { i32 2155, ptr @.str.340 }, %struct.ILcidPosixElement { i32 3179, ptr @.str.341 }], align 16
-@_ZL10locmap_quc = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 147, ptr @.str.342 }, %struct.ILcidPosixElement { i32 1171, ptr @.str.343 }, %struct.ILcidPosixElement { i32 1158, ptr @.str.344 }], align 16
-@_ZL10locmap_qut = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 134, ptr @.str.345 }, %struct.ILcidPosixElement { i32 1158, ptr @.str.346 }, %struct.ILcidPosixElement { i32 1158, ptr @.str.344 }], align 16
-@_ZL9locmap_rm = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 23, ptr @.str.347 }, %struct.ILcidPosixElement { i32 1047, ptr @.str.348 }], align 16
-@_ZL9locmap_ro = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 24, ptr @.str.349 }, %struct.ILcidPosixElement { i32 1048, ptr @.str.350 }, %struct.ILcidPosixElement { i32 2072, ptr @.str.351 }], align 16
-@_ZL11locmap_root = internal constant [1 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 0, ptr @.str.352 }], align 16
-@_ZL9locmap_ru = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 25, ptr @.str.353 }, %struct.ILcidPosixElement { i32 1049, ptr @.str.354 }, %struct.ILcidPosixElement { i32 2073, ptr @.str.355 }], align 16
-@_ZL9locmap_rw = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 135, ptr @.str.356 }, %struct.ILcidPosixElement { i32 1159, ptr @.str.357 }], align 16
-@_ZL9locmap_sa = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 79, ptr @.str.358 }, %struct.ILcidPosixElement { i32 1103, ptr @.str.359 }], align 16
-@_ZL10locmap_sah = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 133, ptr @.str.360 }, %struct.ILcidPosixElement { i32 1157, ptr @.str.361 }], align 16
-@_ZL9locmap_sd = internal constant [6 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 89, ptr @.str.362 }, %struct.ILcidPosixElement { i32 1113, ptr @.str.363 }, %struct.ILcidPosixElement { i32 1113, ptr @.str.364 }, %struct.ILcidPosixElement { i32 2137, ptr @.str.365 }, %struct.ILcidPosixElement { i32 2137, ptr @.str.366 }, %struct.ILcidPosixElement { i32 31833, ptr @.str.367 }], align 16
-@_ZL9locmap_se = internal constant [14 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 59, ptr @.str.368 }, %struct.ILcidPosixElement { i32 3131, ptr @.str.369 }, %struct.ILcidPosixElement { i32 1083, ptr @.str.370 }, %struct.ILcidPosixElement { i32 2107, ptr @.str.371 }, %struct.ILcidPosixElement { i32 30779, ptr @.str.372 }, %struct.ILcidPosixElement { i32 6203, ptr @.str.373 }, %struct.ILcidPosixElement { i32 7227, ptr @.str.374 }, %struct.ILcidPosixElement { i32 31803, ptr @.str.375 }, %struct.ILcidPosixElement { i32 28731, ptr @.str.376 }, %struct.ILcidPosixElement { i32 29755, ptr @.str.377 }, %struct.ILcidPosixElement { i32 4155, ptr @.str.378 }, %struct.ILcidPosixElement { i32 5179, ptr @.str.379 }, %struct.ILcidPosixElement { i32 9275, ptr @.str.380 }, %struct.ILcidPosixElement { i32 8251, ptr @.str.381 }], align 16
-@_ZL9locmap_si = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 91, ptr @.str.382 }, %struct.ILcidPosixElement { i32 1115, ptr @.str.383 }], align 16
-@_ZL9locmap_sk = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 27, ptr @.str.384 }, %struct.ILcidPosixElement { i32 1051, ptr @.str.385 }], align 16
-@_ZL9locmap_sl = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 36, ptr @.str.386 }, %struct.ILcidPosixElement { i32 1060, ptr @.str.387 }], align 16
-@_ZL9locmap_so = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 119, ptr @.str.388 }, %struct.ILcidPosixElement { i32 1143, ptr @.str.389 }], align 16
-@_ZL9locmap_sq = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 28, ptr @.str.390 }, %struct.ILcidPosixElement { i32 1052, ptr @.str.391 }], align 16
-@_ZL9locmap_st = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 48, ptr @.str.392 }, %struct.ILcidPosixElement { i32 1072, ptr @.str.393 }], align 16
-@_ZL9locmap_sv = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 29, ptr @.str.394 }, %struct.ILcidPosixElement { i32 2077, ptr @.str.395 }, %struct.ILcidPosixElement { i32 1053, ptr @.str.396 }], align 16
-@_ZL9locmap_sw = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 65, ptr @.str.397 }, %struct.ILcidPosixElement { i32 1089, ptr @.str.398 }], align 16
-@_ZL10locmap_syr = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 90, ptr @.str.399 }, %struct.ILcidPosixElement { i32 1114, ptr @.str.400 }], align 16
-@_ZL9locmap_ta = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 73, ptr @.str.401 }, %struct.ILcidPosixElement { i32 1097, ptr @.str.402 }, %struct.ILcidPosixElement { i32 2121, ptr @.str.403 }], align 16
-@_ZL9locmap_te = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 74, ptr @.str.404 }, %struct.ILcidPosixElement { i32 1098, ptr @.str.405 }], align 16
-@_ZL9locmap_tg = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 40, ptr @.str.406 }, %struct.ILcidPosixElement { i32 31784, ptr @.str.407 }, %struct.ILcidPosixElement { i32 1064, ptr @.str.408 }], align 16
-@_ZL9locmap_th = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 30, ptr @.str.409 }, %struct.ILcidPosixElement { i32 1054, ptr @.str.410 }], align 16
-@_ZL9locmap_ti = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 115, ptr @.str.411 }, %struct.ILcidPosixElement { i32 2163, ptr @.str.412 }, %struct.ILcidPosixElement { i32 1139, ptr @.str.413 }], align 16
-@_ZL9locmap_tk = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 66, ptr @.str.414 }, %struct.ILcidPosixElement { i32 1090, ptr @.str.415 }], align 16
-@_ZL9locmap_tn = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 50, ptr @.str.416 }, %struct.ILcidPosixElement { i32 2098, ptr @.str.417 }, %struct.ILcidPosixElement { i32 1074, ptr @.str.418 }], align 16
-@_ZL9locmap_tr = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 31, ptr @.str.419 }, %struct.ILcidPosixElement { i32 1055, ptr @.str.420 }], align 16
-@_ZL9locmap_ts = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 49, ptr @.str.421 }, %struct.ILcidPosixElement { i32 1073, ptr @.str.422 }], align 16
-@_ZL9locmap_tt = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 68, ptr @.str.423 }, %struct.ILcidPosixElement { i32 1092, ptr @.str.424 }], align 16
-@_ZL10locmap_tzm = internal constant [6 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 95, ptr @.str.425 }, %struct.ILcidPosixElement { i32 31839, ptr @.str.426 }, %struct.ILcidPosixElement { i32 2143, ptr @.str.427 }, %struct.ILcidPosixElement { i32 4191, ptr @.str.428 }, %struct.ILcidPosixElement { i32 1119, ptr @.str.429 }, %struct.ILcidPosixElement { i32 1119, ptr @.str.430 }], align 16
-@_ZL9locmap_ug = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 128, ptr @.str.431 }, %struct.ILcidPosixElement { i32 1152, ptr @.str.432 }, %struct.ILcidPosixElement { i32 1152, ptr @.str.433 }], align 16
-@_ZL9locmap_uk = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 34, ptr @.str.434 }, %struct.ILcidPosixElement { i32 1058, ptr @.str.435 }], align 16
-@_ZL9locmap_ur = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 32, ptr @.str.436 }, %struct.ILcidPosixElement { i32 2080, ptr @.str.437 }, %struct.ILcidPosixElement { i32 1056, ptr @.str.438 }], align 16
-@_ZL9locmap_uz = internal constant [6 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 67, ptr @.str.439 }, %struct.ILcidPosixElement { i32 2115, ptr @.str.440 }, %struct.ILcidPosixElement { i32 30787, ptr @.str.441 }, %struct.ILcidPosixElement { i32 2115, ptr @.str.442 }, %struct.ILcidPosixElement { i32 1091, ptr @.str.443 }, %struct.ILcidPosixElement { i32 31811, ptr @.str.444 }], align 16
-@_ZL9locmap_ve = internal constant [3 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 51, ptr @.str.445 }, %struct.ILcidPosixElement { i32 1075, ptr @.str.446 }, %struct.ILcidPosixElement { i32 1075, ptr @.str.447 }], align 16
-@_ZL9locmap_vi = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 42, ptr @.str.448 }, %struct.ILcidPosixElement { i32 1066, ptr @.str.449 }], align 16
-@_ZL9locmap_wo = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 136, ptr @.str.450 }, %struct.ILcidPosixElement { i32 1160, ptr @.str.451 }], align 16
-@_ZL9locmap_xh = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 52, ptr @.str.452 }, %struct.ILcidPosixElement { i32 1076, ptr @.str.453 }], align 16
-@_ZL9locmap_yi = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 61, ptr @.str.454 }, %struct.ILcidPosixElement { i32 1085, ptr @.str.455 }], align 16
-@_ZL9locmap_yo = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 106, ptr @.str.456 }, %struct.ILcidPosixElement { i32 1130, ptr @.str.457 }], align 16
-@_ZL9locmap_zh = internal constant [22 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 4, ptr @.str.458 }, %struct.ILcidPosixElement { i32 30724, ptr @.str.459 }, %struct.ILcidPosixElement { i32 2052, ptr @.str.460 }, %struct.ILcidPosixElement { i32 2052, ptr @.str.461 }, %struct.ILcidPosixElement { i32 3076, ptr @.str.462 }, %struct.ILcidPosixElement { i32 3076, ptr @.str.463 }, %struct.ILcidPosixElement { i32 5124, ptr @.str.464 }, %struct.ILcidPosixElement { i32 5124, ptr @.str.465 }, %struct.ILcidPosixElement { i32 4100, ptr @.str.466 }, %struct.ILcidPosixElement { i32 4100, ptr @.str.467 }, %struct.ILcidPosixElement { i32 1028, ptr @.str.468 }, %struct.ILcidPosixElement { i32 31748, ptr @.str.469 }, %struct.ILcidPosixElement { i32 1028, ptr @.str.470 }, %struct.ILcidPosixElement { i32 197636, ptr @.str.468 }, %struct.ILcidPosixElement { i32 197636, ptr @.str.470 }, %struct.ILcidPosixElement { i32 131076, ptr @.str.471 }, %struct.ILcidPosixElement { i32 132100, ptr @.str.472 }, %struct.ILcidPosixElement { i32 132100, ptr @.str.473 }, %struct.ILcidPosixElement { i32 132100, ptr @.str.474 }, %struct.ILcidPosixElement { i32 133124, ptr @.str.475 }, %struct.ILcidPosixElement { i32 133124, ptr @.str.476 }, %struct.ILcidPosixElement { i32 133124, ptr @.str.477 }], align 16
-@_ZL9locmap_zu = internal constant [2 x %struct.ILcidPosixElement] [%struct.ILcidPosixElement { i32 53, ptr @.str.478 }, %struct.ILcidPosixElement { i32 1077, ptr @.str.479 }], align 16
+@_ZN12_GLOBAL__N_111gPosixIDmapE = internal unnamed_addr constant [141 x %"struct.(anonymous namespace)::ILcidPosixMap"] [%"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_afE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_amE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 18, ptr @_ZN12_GLOBAL__N_19locmap_arE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_arnE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_asE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 6, ptr @_ZN12_GLOBAL__N_19locmap_azE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_baE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_beE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_bgE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_binE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_bnE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 4, ptr @_ZN12_GLOBAL__N_19locmap_boE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_brE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_caE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 4, ptr @_ZN12_GLOBAL__N_110locmap_chrE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_110locmap_ckbE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_coE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_csE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_cyE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_daE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 8, ptr @_ZN12_GLOBAL__N_19locmap_deE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_dvE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_elE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 26, ptr @_ZN12_GLOBAL__N_19locmap_enE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 1, ptr @_ZN12_GLOBAL__N_118locmap_en_US_POSIXE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 25, ptr @_ZN12_GLOBAL__N_19locmap_esE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_etE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_euE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_faE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_112locmap_fa_AFE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 4, ptr @_ZN12_GLOBAL__N_19locmap_ffE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_fiE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_filE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_foE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 18, ptr @_ZN12_GLOBAL__N_19locmap_frE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_fuvE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_fyE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_gaE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_gdE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_glE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_gnE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_gswE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_guE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_haE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_hawE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_heE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_hiE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 20, ptr @_ZN12_GLOBAL__N_19locmap_hrE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 4, ptr @_ZN12_GLOBAL__N_110locmap_hsbE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_huE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_hyE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_ibbE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_idE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_igE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_iiE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_isE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_itE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 5, ptr @_ZN12_GLOBAL__N_19locmap_iuE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_iwE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_jaE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_kaE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_kkE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_klE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_kmE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_knE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_koE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_kokE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_krE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_ksE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_kyE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_lbE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_laE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_loE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_ltE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_lvE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_miE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_mkE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_mlE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 7, ptr @_ZN12_GLOBAL__N_19locmap_mnE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_mniE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_mohE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_mrE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_msE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_mtE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_myE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_neE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_nlE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 7, ptr @_ZN12_GLOBAL__N_19locmap_noE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_nsoE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_ocE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_omE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_112locmap_or_INE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 4, ptr @_ZN12_GLOBAL__N_19locmap_paE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_110locmap_papE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_plE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_psE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_ptE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 7, ptr @_ZN12_GLOBAL__N_19locmap_quE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_110locmap_qucE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_110locmap_qutE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_rmE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_roE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 1, ptr @_ZN12_GLOBAL__N_111locmap_rootE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_ruE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_rwE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_saE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_sahE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 6, ptr @_ZN12_GLOBAL__N_19locmap_sdE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 14, ptr @_ZN12_GLOBAL__N_19locmap_seE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_siE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_skE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_slE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_soE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_sqE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_stE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_svE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_swE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_110locmap_syrE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_taE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_teE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_tgE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_thE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_tiE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_tkE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_tnE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_trE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_tsE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_ttE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 6, ptr @_ZN12_GLOBAL__N_110locmap_tzmE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_ugE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_ukE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_urE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 6, ptr @_ZN12_GLOBAL__N_19locmap_uzE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 3, ptr @_ZN12_GLOBAL__N_19locmap_veE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_viE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_woE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_xhE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_yiE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_yoE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 22, ptr @_ZN12_GLOBAL__N_19locmap_zhE }, %"struct.(anonymous namespace)::ILcidPosixMap" { i32 2, ptr @_ZN12_GLOBAL__N_19locmap_zuE }], align 16
+@_ZN12_GLOBAL__N_111locmap_rootE = internal constant [1 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 0, ptr @.str.479 }], align 16
+@_ZN12_GLOBAL__N_19locmap_afE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 54, ptr @.str }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1078, ptr @.str.1 }], align 16
+@_ZN12_GLOBAL__N_19locmap_amE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 94, ptr @.str.2 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1118, ptr @.str.3 }], align 16
+@_ZN12_GLOBAL__N_19locmap_arE = internal constant [18 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 1, ptr @.str.4 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 14337, ptr @.str.5 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 15361, ptr @.str.6 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5121, ptr @.str.7 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3073, ptr @.str.8 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2049, ptr @.str.9 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 11265, ptr @.str.10 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 13313, ptr @.str.11 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 12289, ptr @.str.12 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4097, ptr @.str.13 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 6145, ptr @.str.14 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 6145, ptr @.str.15 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 8193, ptr @.str.16 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 16385, ptr @.str.17 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1025, ptr @.str.18 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 10241, ptr @.str.19 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 7169, ptr @.str.20 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 9217, ptr @.str.21 }], align 16
+@_ZN12_GLOBAL__N_110locmap_arnE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 122, ptr @.str.22 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1146, ptr @.str.23 }], align 16
+@_ZN12_GLOBAL__N_19locmap_asE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 77, ptr @.str.24 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1101, ptr @.str.25 }], align 16
+@_ZN12_GLOBAL__N_19locmap_azE = internal constant [6 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 44, ptr @.str.26 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2092, ptr @.str.27 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 29740, ptr @.str.28 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1068, ptr @.str.29 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 30764, ptr @.str.30 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1068, ptr @.str.31 }], align 16
+@_ZN12_GLOBAL__N_19locmap_baE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 109, ptr @.str.32 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1133, ptr @.str.33 }], align 16
+@_ZN12_GLOBAL__N_19locmap_beE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 35, ptr @.str.34 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1059, ptr @.str.35 }], align 16
+@_ZN12_GLOBAL__N_19locmap_bgE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 2, ptr @.str.36 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1026, ptr @.str.37 }], align 16
+@_ZN12_GLOBAL__N_110locmap_binE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 102, ptr @.str.38 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1126, ptr @.str.39 }], align 16
+@_ZN12_GLOBAL__N_19locmap_bnE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 69, ptr @.str.40 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2117, ptr @.str.41 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1093, ptr @.str.42 }], align 16
+@_ZN12_GLOBAL__N_19locmap_boE = internal constant [4 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 81, ptr @.str.43 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2129, ptr @.str.44 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1105, ptr @.str.45 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3153, ptr @.str.46 }], align 16
+@_ZN12_GLOBAL__N_19locmap_brE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 126, ptr @.str.47 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1150, ptr @.str.48 }], align 16
+@_ZN12_GLOBAL__N_19locmap_caE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 3, ptr @.str.49 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1027, ptr @.str.50 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2051, ptr @.str.51 }], align 16
+@_ZN12_GLOBAL__N_110locmap_chrE = internal constant [4 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 92, ptr @.str.52 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31836, ptr @.str.53 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1116, ptr @.str.54 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1116, ptr @.str.55 }], align 16
+@_ZN12_GLOBAL__N_110locmap_ckbE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 146, ptr @.str.56 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31890, ptr @.str.57 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1170, ptr @.str.58 }], align 16
+@_ZN12_GLOBAL__N_19locmap_coE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 131, ptr @.str.59 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1155, ptr @.str.60 }], align 16
+@_ZN12_GLOBAL__N_19locmap_csE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 5, ptr @.str.61 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1029, ptr @.str.62 }], align 16
+@_ZN12_GLOBAL__N_19locmap_cyE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 82, ptr @.str.63 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1106, ptr @.str.64 }], align 16
+@_ZN12_GLOBAL__N_19locmap_daE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 6, ptr @.str.65 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1030, ptr @.str.66 }], align 16
+@_ZN12_GLOBAL__N_19locmap_deE = internal constant [8 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 7, ptr @.str.67 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3079, ptr @.str.68 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2055, ptr @.str.69 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1031, ptr @.str.70 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5127, ptr @.str.71 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4103, ptr @.str.72 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 66567, ptr @.str.73 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 66567, ptr @.str.74 }], align 16
+@_ZN12_GLOBAL__N_19locmap_dvE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 101, ptr @.str.75 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1125, ptr @.str.76 }], align 16
+@_ZN12_GLOBAL__N_19locmap_elE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 8, ptr @.str.77 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1032, ptr @.str.78 }], align 16
+@_ZN12_GLOBAL__N_19locmap_enE = internal constant [26 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 9, ptr @.str.79 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3081, ptr @.str.80 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 10249, ptr @.str.81 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4105, ptr @.str.82 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2057, ptr @.str.83 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 15369, ptr @.str.84 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 14345, ptr @.str.85 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 6153, ptr @.str.86 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 16393, ptr @.str.87 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 8201, ptr @.str.88 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 17417, ptr @.str.89 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5129, ptr @.str.90 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 13321, ptr @.str.91 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 18441, ptr @.str.92 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 11273, ptr @.str.93 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1033, ptr @.str.94 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 127, ptr @.str.95 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 9225, ptr @.str.96 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 7177, ptr @.str.97 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 12297, ptr @.str.98 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 9225, ptr @.str.99 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1033, ptr @.str.100 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1033, ptr @.str.101 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1033, ptr @.str.102 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1033, ptr @.str.103 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1033, ptr @.str.104 }], align 16
+@_ZN12_GLOBAL__N_118locmap_en_US_POSIXE = internal constant [1 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 127, ptr @.str.95 }], align 16
+@_ZN12_GLOBAL__N_19locmap_esE = internal constant [25 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 10, ptr @.str.105 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 11274, ptr @.str.106 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 16394, ptr @.str.107 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 13322, ptr @.str.108 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 9226, ptr @.str.109 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5130, ptr @.str.110 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 23562, ptr @.str.111 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 7178, ptr @.str.112 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 12298, ptr @.str.113 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3082, ptr @.str.114 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4106, ptr @.str.115 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 18442, ptr @.str.116 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2058, ptr @.str.117 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 19466, ptr @.str.118 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 6154, ptr @.str.119 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 10250, ptr @.str.120 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 20490, ptr @.str.121 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 15370, ptr @.str.122 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 17418, ptr @.str.123 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 21514, ptr @.str.124 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 14346, ptr @.str.125 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 8202, ptr @.str.126 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 22538, ptr @.str.127 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1034, ptr @.str.128 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1034, ptr @.str.129 }], align 16
+@_ZN12_GLOBAL__N_19locmap_etE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 37, ptr @.str.130 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1061, ptr @.str.131 }], align 16
+@_ZN12_GLOBAL__N_19locmap_euE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 45, ptr @.str.132 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1069, ptr @.str.133 }], align 16
+@_ZN12_GLOBAL__N_19locmap_faE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 41, ptr @.str.134 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1065, ptr @.str.135 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1164, ptr @.str.136 }], align 16
+@_ZN12_GLOBAL__N_112locmap_fa_AFE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 140, ptr @.str.136 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1164, ptr @.str.136 }], align 16
+@_ZN12_GLOBAL__N_19locmap_ffE = internal constant [4 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 103, ptr @.str.137 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31847, ptr @.str.138 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2151, ptr @.str.139 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1127, ptr @.str.140 }], align 16
+@_ZN12_GLOBAL__N_19locmap_fiE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 11, ptr @.str.141 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1035, ptr @.str.142 }], align 16
+@_ZN12_GLOBAL__N_110locmap_filE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 100, ptr @.str.143 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1124, ptr @.str.144 }], align 16
+@_ZN12_GLOBAL__N_19locmap_foE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 56, ptr @.str.145 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1080, ptr @.str.146 }], align 16
+@_ZN12_GLOBAL__N_19locmap_frE = internal constant [18 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 12, ptr @.str.147 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2060, ptr @.str.148 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3084, ptr @.str.149 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 9228, ptr @.str.150 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 9228, ptr @.str.151 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4108, ptr @.str.152 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 12300, ptr @.str.153 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 11276, ptr @.str.154 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1036, ptr @.str.155 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 15372, ptr @.str.156 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5132, ptr @.str.157 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 14348, ptr @.str.158 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 6156, ptr @.str.159 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 13324, ptr @.str.160 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 8204, ptr @.str.161 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 10252, ptr @.str.162 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 58380, ptr @.str.163 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 7180, ptr @.str.164 }], align 16
+@_ZN12_GLOBAL__N_110locmap_fuvE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 103, ptr @.str.165 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1127, ptr @.str.166 }], align 16
+@_ZN12_GLOBAL__N_19locmap_fyE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 98, ptr @.str.167 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1122, ptr @.str.168 }], align 16
+@_ZN12_GLOBAL__N_19locmap_gaE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 60, ptr @.str.169 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2108, ptr @.str.170 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1084, ptr @.str.171 }], align 16
+@_ZN12_GLOBAL__N_19locmap_gdE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 145, ptr @.str.172 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1169, ptr @.str.171 }], align 16
+@_ZN12_GLOBAL__N_19locmap_glE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 86, ptr @.str.173 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1110, ptr @.str.174 }], align 16
+@_ZN12_GLOBAL__N_19locmap_gnE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 116, ptr @.str.175 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1140, ptr @.str.176 }], align 16
+@_ZN12_GLOBAL__N_110locmap_gswE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 132, ptr @.str.177 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1156, ptr @.str.178 }], align 16
+@_ZN12_GLOBAL__N_19locmap_guE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 71, ptr @.str.179 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1095, ptr @.str.180 }], align 16
+@_ZN12_GLOBAL__N_19locmap_haE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 104, ptr @.str.181 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31848, ptr @.str.182 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1128, ptr @.str.183 }], align 16
+@_ZN12_GLOBAL__N_110locmap_hawE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 117, ptr @.str.184 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1141, ptr @.str.185 }], align 16
+@_ZN12_GLOBAL__N_19locmap_heE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 13, ptr @.str.186 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1037, ptr @.str.187 }], align 16
+@_ZN12_GLOBAL__N_19locmap_hiE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 57, ptr @.str.188 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1081, ptr @.str.189 }], align 16
+@_ZN12_GLOBAL__N_19locmap_hrE = internal constant [20 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 26, ptr @.str.190 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5146, ptr @.str.191 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 26650, ptr @.str.192 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5146, ptr @.str.193 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 30746, ptr @.str.194 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 8218, ptr @.str.195 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 25626, ptr @.str.196 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4122, ptr @.str.197 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1050, ptr @.str.198 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 11290, ptr @.str.199 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 9242, ptr @.str.200 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 6170, ptr @.str.201 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2074, ptr @.str.202 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 28698, ptr @.str.203 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 7194, ptr @.str.204 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3098, ptr @.str.205 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 12314, ptr @.str.206 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 10266, ptr @.str.207 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 27674, ptr @.str.208 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31770, ptr @.str.209 }], align 16
+@_ZN12_GLOBAL__N_110locmap_hsbE = internal constant [4 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 46, ptr @.str.210 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1070, ptr @.str.211 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2094, ptr @.str.212 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31790, ptr @.str.213 }], align 16
+@_ZN12_GLOBAL__N_19locmap_huE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 14, ptr @.str.214 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1038, ptr @.str.215 }], align 16
+@_ZN12_GLOBAL__N_19locmap_hyE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 43, ptr @.str.216 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1067, ptr @.str.217 }], align 16
+@_ZN12_GLOBAL__N_110locmap_ibbE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 105, ptr @.str.218 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1129, ptr @.str.219 }], align 16
+@_ZN12_GLOBAL__N_19locmap_idE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 33, ptr @.str.220 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1057, ptr @.str.221 }], align 16
+@_ZN12_GLOBAL__N_19locmap_igE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 112, ptr @.str.222 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1136, ptr @.str.223 }], align 16
+@_ZN12_GLOBAL__N_19locmap_iiE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 120, ptr @.str.224 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1144, ptr @.str.225 }], align 16
+@_ZN12_GLOBAL__N_19locmap_isE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 15, ptr @.str.226 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1039, ptr @.str.227 }], align 16
+@_ZN12_GLOBAL__N_19locmap_itE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 16, ptr @.str.228 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2064, ptr @.str.229 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1040, ptr @.str.230 }], align 16
+@_ZN12_GLOBAL__N_19locmap_iuE = internal constant [5 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 93, ptr @.str.231 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1117, ptr @.str.232 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 30813, ptr @.str.233 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2141, ptr @.str.234 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31837, ptr @.str.235 }], align 16
+@_ZN12_GLOBAL__N_19locmap_iwE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 13, ptr @.str.236 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1037, ptr @.str.237 }], align 16
+@_ZN12_GLOBAL__N_19locmap_jaE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 17, ptr @.str.238 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1041, ptr @.str.239 }], align 16
+@_ZN12_GLOBAL__N_19locmap_kaE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 55, ptr @.str.240 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1079, ptr @.str.241 }], align 16
+@_ZN12_GLOBAL__N_19locmap_kkE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 63, ptr @.str.242 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1087, ptr @.str.243 }], align 16
+@_ZN12_GLOBAL__N_19locmap_klE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 111, ptr @.str.244 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1135, ptr @.str.245 }], align 16
+@_ZN12_GLOBAL__N_19locmap_kmE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 83, ptr @.str.246 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1107, ptr @.str.247 }], align 16
+@_ZN12_GLOBAL__N_19locmap_knE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 75, ptr @.str.248 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1099, ptr @.str.249 }], align 16
+@_ZN12_GLOBAL__N_19locmap_koE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 18, ptr @.str.250 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2066, ptr @.str.251 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1042, ptr @.str.252 }], align 16
+@_ZN12_GLOBAL__N_110locmap_kokE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 87, ptr @.str.253 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1111, ptr @.str.254 }], align 16
+@_ZN12_GLOBAL__N_19locmap_krE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 113, ptr @.str.255 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1137, ptr @.str.256 }], align 16
+@_ZN12_GLOBAL__N_19locmap_ksE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 96, ptr @.str.257 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1120, ptr @.str.258 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2144, ptr @.str.259 }], align 16
+@_ZN12_GLOBAL__N_19locmap_kyE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 64, ptr @.str.260 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1088, ptr @.str.261 }], align 16
+@_ZN12_GLOBAL__N_19locmap_lbE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 110, ptr @.str.262 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1134, ptr @.str.263 }], align 16
+@_ZN12_GLOBAL__N_19locmap_laE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 118, ptr @.str.264 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1142, ptr @.str.265 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1142, ptr @.str.266 }], align 16
+@_ZN12_GLOBAL__N_19locmap_loE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 84, ptr @.str.267 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1108, ptr @.str.268 }], align 16
+@_ZN12_GLOBAL__N_19locmap_ltE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 39, ptr @.str.269 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1063, ptr @.str.270 }], align 16
+@_ZN12_GLOBAL__N_19locmap_lvE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 38, ptr @.str.271 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1062, ptr @.str.272 }], align 16
+@_ZN12_GLOBAL__N_19locmap_miE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 129, ptr @.str.273 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1153, ptr @.str.274 }], align 16
+@_ZN12_GLOBAL__N_19locmap_mkE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 47, ptr @.str.275 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1071, ptr @.str.276 }], align 16
+@_ZN12_GLOBAL__N_19locmap_mlE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 76, ptr @.str.277 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1100, ptr @.str.278 }], align 16
+@_ZN12_GLOBAL__N_19locmap_mnE = internal constant [7 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 80, ptr @.str.279 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1104, ptr @.str.280 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31824, ptr @.str.281 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2128, ptr @.str.282 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2128, ptr @.str.283 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 30800, ptr @.str.284 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3152, ptr @.str.285 }], align 16
+@_ZN12_GLOBAL__N_110locmap_mniE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 88, ptr @.str.286 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1112, ptr @.str.287 }], align 16
+@_ZN12_GLOBAL__N_110locmap_mohE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 124, ptr @.str.288 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1148, ptr @.str.289 }], align 16
+@_ZN12_GLOBAL__N_19locmap_mrE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 78, ptr @.str.290 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1102, ptr @.str.291 }], align 16
+@_ZN12_GLOBAL__N_19locmap_msE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 62, ptr @.str.292 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2110, ptr @.str.293 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1086, ptr @.str.294 }], align 16
+@_ZN12_GLOBAL__N_19locmap_mtE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 58, ptr @.str.295 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1082, ptr @.str.296 }], align 16
+@_ZN12_GLOBAL__N_19locmap_myE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 85, ptr @.str.297 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1109, ptr @.str.298 }], align 16
+@_ZN12_GLOBAL__N_19locmap_neE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 97, ptr @.str.299 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2145, ptr @.str.300 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1121, ptr @.str.301 }], align 16
+@_ZN12_GLOBAL__N_19locmap_nlE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 19, ptr @.str.302 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2067, ptr @.str.303 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1043, ptr @.str.304 }], align 16
+@_ZN12_GLOBAL__N_19locmap_noE = internal constant [7 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 20, ptr @.str.305 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31764, ptr @.str.306 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1044, ptr @.str.307 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1044, ptr @.str.308 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2068, ptr @.str.309 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 30740, ptr @.str.310 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2068, ptr @.str.311 }], align 16
+@_ZN12_GLOBAL__N_110locmap_nsoE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 108, ptr @.str.312 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1132, ptr @.str.313 }], align 16
+@_ZN12_GLOBAL__N_19locmap_ocE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 130, ptr @.str.314 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1154, ptr @.str.315 }], align 16
+@_ZN12_GLOBAL__N_19locmap_omE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 114, ptr @.str.316 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1138, ptr @.str.317 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1138, ptr @.str.318 }], align 16
+@_ZN12_GLOBAL__N_112locmap_or_INE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 72, ptr @.str.319 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1096, ptr @.str.320 }], align 16
+@_ZN12_GLOBAL__N_19locmap_paE = internal constant [4 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 70, ptr @.str.321 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1094, ptr @.str.322 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2118, ptr @.str.323 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2118, ptr @.str.324 }], align 16
+@_ZN12_GLOBAL__N_110locmap_papE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 121, ptr @.str.325 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1145, ptr @.str.326 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1145, ptr @.str.327 }], align 16
+@_ZN12_GLOBAL__N_19locmap_plE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 21, ptr @.str.328 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1045, ptr @.str.329 }], align 16
+@_ZN12_GLOBAL__N_19locmap_psE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 99, ptr @.str.330 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1123, ptr @.str.331 }], align 16
+@_ZN12_GLOBAL__N_19locmap_ptE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 22, ptr @.str.332 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1046, ptr @.str.333 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2070, ptr @.str.334 }], align 16
+@_ZN12_GLOBAL__N_19locmap_quE = internal constant [7 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 107, ptr @.str.335 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1131, ptr @.str.336 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2155, ptr @.str.337 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3179, ptr @.str.338 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1131, ptr @.str.339 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2155, ptr @.str.340 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3179, ptr @.str.341 }], align 16
+@_ZN12_GLOBAL__N_110locmap_qucE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 147, ptr @.str.342 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1171, ptr @.str.343 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1158, ptr @.str.344 }], align 16
+@_ZN12_GLOBAL__N_110locmap_qutE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 134, ptr @.str.345 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1158, ptr @.str.346 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1158, ptr @.str.344 }], align 16
+@_ZN12_GLOBAL__N_19locmap_rmE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 23, ptr @.str.347 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1047, ptr @.str.348 }], align 16
+@_ZN12_GLOBAL__N_19locmap_roE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 24, ptr @.str.349 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1048, ptr @.str.350 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2072, ptr @.str.351 }], align 16
+@_ZN12_GLOBAL__N_19locmap_ruE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 25, ptr @.str.352 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1049, ptr @.str.353 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2073, ptr @.str.354 }], align 16
+@_ZN12_GLOBAL__N_19locmap_rwE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 135, ptr @.str.355 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1159, ptr @.str.356 }], align 16
+@_ZN12_GLOBAL__N_19locmap_saE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 79, ptr @.str.357 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1103, ptr @.str.358 }], align 16
+@_ZN12_GLOBAL__N_110locmap_sahE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 133, ptr @.str.359 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1157, ptr @.str.360 }], align 16
+@_ZN12_GLOBAL__N_19locmap_sdE = internal constant [6 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 89, ptr @.str.361 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1113, ptr @.str.362 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1113, ptr @.str.363 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2137, ptr @.str.364 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2137, ptr @.str.365 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31833, ptr @.str.366 }], align 16
+@_ZN12_GLOBAL__N_19locmap_seE = internal constant [14 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 59, ptr @.str.367 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3131, ptr @.str.368 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1083, ptr @.str.369 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2107, ptr @.str.370 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 30779, ptr @.str.371 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 6203, ptr @.str.372 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 7227, ptr @.str.373 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31803, ptr @.str.374 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 28731, ptr @.str.375 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 29755, ptr @.str.376 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4155, ptr @.str.377 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5179, ptr @.str.378 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 9275, ptr @.str.379 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 8251, ptr @.str.380 }], align 16
+@_ZN12_GLOBAL__N_19locmap_siE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 91, ptr @.str.381 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1115, ptr @.str.382 }], align 16
+@_ZN12_GLOBAL__N_19locmap_skE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 27, ptr @.str.383 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1051, ptr @.str.384 }], align 16
+@_ZN12_GLOBAL__N_19locmap_slE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 36, ptr @.str.385 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1060, ptr @.str.386 }], align 16
+@_ZN12_GLOBAL__N_19locmap_soE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 119, ptr @.str.387 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1143, ptr @.str.388 }], align 16
+@_ZN12_GLOBAL__N_19locmap_sqE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 28, ptr @.str.389 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1052, ptr @.str.390 }], align 16
+@_ZN12_GLOBAL__N_19locmap_stE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 48, ptr @.str.391 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1072, ptr @.str.392 }], align 16
+@_ZN12_GLOBAL__N_19locmap_svE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 29, ptr @.str.393 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2077, ptr @.str.394 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1053, ptr @.str.395 }], align 16
+@_ZN12_GLOBAL__N_19locmap_swE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 65, ptr @.str.396 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1089, ptr @.str.397 }], align 16
+@_ZN12_GLOBAL__N_110locmap_syrE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 90, ptr @.str.398 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1114, ptr @.str.399 }], align 16
+@_ZN12_GLOBAL__N_19locmap_taE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 73, ptr @.str.400 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1097, ptr @.str.401 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2121, ptr @.str.402 }], align 16
+@_ZN12_GLOBAL__N_19locmap_teE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 74, ptr @.str.403 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1098, ptr @.str.404 }], align 16
+@_ZN12_GLOBAL__N_19locmap_tgE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 40, ptr @.str.405 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31784, ptr @.str.406 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1064, ptr @.str.407 }], align 16
+@_ZN12_GLOBAL__N_19locmap_thE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 30, ptr @.str.408 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1054, ptr @.str.409 }], align 16
+@_ZN12_GLOBAL__N_19locmap_tiE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 115, ptr @.str.410 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2163, ptr @.str.411 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1139, ptr @.str.412 }], align 16
+@_ZN12_GLOBAL__N_19locmap_tkE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 66, ptr @.str.413 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1090, ptr @.str.414 }], align 16
+@_ZN12_GLOBAL__N_19locmap_tnE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 50, ptr @.str.415 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2098, ptr @.str.416 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1074, ptr @.str.417 }], align 16
+@_ZN12_GLOBAL__N_19locmap_trE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 31, ptr @.str.418 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1055, ptr @.str.419 }], align 16
+@_ZN12_GLOBAL__N_19locmap_tsE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 49, ptr @.str.420 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1073, ptr @.str.421 }], align 16
+@_ZN12_GLOBAL__N_19locmap_ttE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 68, ptr @.str.422 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1092, ptr @.str.423 }], align 16
+@_ZN12_GLOBAL__N_110locmap_tzmE = internal constant [6 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 95, ptr @.str.424 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31839, ptr @.str.425 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2143, ptr @.str.426 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4191, ptr @.str.427 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1119, ptr @.str.428 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1119, ptr @.str.429 }], align 16
+@_ZN12_GLOBAL__N_19locmap_ugE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 128, ptr @.str.430 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1152, ptr @.str.431 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1152, ptr @.str.432 }], align 16
+@_ZN12_GLOBAL__N_19locmap_ukE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 34, ptr @.str.433 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1058, ptr @.str.434 }], align 16
+@_ZN12_GLOBAL__N_19locmap_urE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 32, ptr @.str.435 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2080, ptr @.str.436 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1056, ptr @.str.437 }], align 16
+@_ZN12_GLOBAL__N_19locmap_uzE = internal constant [6 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 67, ptr @.str.438 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2115, ptr @.str.439 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 30787, ptr @.str.440 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2115, ptr @.str.441 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1091, ptr @.str.442 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31811, ptr @.str.443 }], align 16
+@_ZN12_GLOBAL__N_19locmap_veE = internal constant [3 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 51, ptr @.str.444 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1075, ptr @.str.445 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1075, ptr @.str.446 }], align 16
+@_ZN12_GLOBAL__N_19locmap_viE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 42, ptr @.str.447 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1066, ptr @.str.448 }], align 16
+@_ZN12_GLOBAL__N_19locmap_woE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 136, ptr @.str.449 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1160, ptr @.str.450 }], align 16
+@_ZN12_GLOBAL__N_19locmap_xhE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 52, ptr @.str.451 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1076, ptr @.str.452 }], align 16
+@_ZN12_GLOBAL__N_19locmap_yiE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 61, ptr @.str.453 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1085, ptr @.str.454 }], align 16
+@_ZN12_GLOBAL__N_19locmap_yoE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 106, ptr @.str.455 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1130, ptr @.str.456 }], align 16
+@_ZN12_GLOBAL__N_19locmap_zhE = internal constant [22 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 4, ptr @.str.457 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 30724, ptr @.str.458 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2052, ptr @.str.459 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 2052, ptr @.str.460 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3076, ptr @.str.461 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 3076, ptr @.str.462 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5124, ptr @.str.463 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 5124, ptr @.str.464 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4100, ptr @.str.465 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 4100, ptr @.str.466 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1028, ptr @.str.467 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 31748, ptr @.str.468 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1028, ptr @.str.469 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 197636, ptr @.str.467 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 197636, ptr @.str.469 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 131076, ptr @.str.470 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 132100, ptr @.str.471 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 132100, ptr @.str.472 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 132100, ptr @.str.473 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 133124, ptr @.str.474 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 133124, ptr @.str.475 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 133124, ptr @.str.476 }], align 16
+@_ZN12_GLOBAL__N_19locmap_zuE = internal constant [2 x %"struct.(anonymous namespace)::ILcidPosixElement"] [%"struct.(anonymous namespace)::ILcidPosixElement" { i32 53, ptr @.str.477 }, %"struct.(anonymous namespace)::ILcidPosixElement" { i32 1077, ptr @.str.478 }], align 16
 @.str = private unnamed_addr constant [3 x i8] c"af\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"af_ZA\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c"am\00", align 1
@@ -534,985 +534,984 @@ $_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode = comdat any
 @.str.349 = private unnamed_addr constant [3 x i8] c"ro\00", align 1
 @.str.350 = private unnamed_addr constant [6 x i8] c"ro_RO\00", align 1
 @.str.351 = private unnamed_addr constant [6 x i8] c"ro_MD\00", align 1
-@.str.352 = private unnamed_addr constant [5 x i8] c"root\00", align 1
-@.str.353 = private unnamed_addr constant [3 x i8] c"ru\00", align 1
-@.str.354 = private unnamed_addr constant [6 x i8] c"ru_RU\00", align 1
-@.str.355 = private unnamed_addr constant [6 x i8] c"ru_MD\00", align 1
-@.str.356 = private unnamed_addr constant [3 x i8] c"rw\00", align 1
-@.str.357 = private unnamed_addr constant [6 x i8] c"rw_RW\00", align 1
-@.str.358 = private unnamed_addr constant [3 x i8] c"sa\00", align 1
-@.str.359 = private unnamed_addr constant [6 x i8] c"sa_IN\00", align 1
-@.str.360 = private unnamed_addr constant [4 x i8] c"sah\00", align 1
-@.str.361 = private unnamed_addr constant [7 x i8] c"sah_RU\00", align 1
-@.str.362 = private unnamed_addr constant [3 x i8] c"sd\00", align 1
-@.str.363 = private unnamed_addr constant [11 x i8] c"sd_Deva_IN\00", align 1
-@.str.364 = private unnamed_addr constant [6 x i8] c"sd_IN\00", align 1
-@.str.365 = private unnamed_addr constant [11 x i8] c"sd_Arab_PK\00", align 1
-@.str.366 = private unnamed_addr constant [6 x i8] c"sd_PK\00", align 1
-@.str.367 = private unnamed_addr constant [8 x i8] c"sd_Arab\00", align 1
-@.str.368 = private unnamed_addr constant [3 x i8] c"se\00", align 1
-@.str.369 = private unnamed_addr constant [6 x i8] c"se_FI\00", align 1
-@.str.370 = private unnamed_addr constant [6 x i8] c"se_NO\00", align 1
-@.str.371 = private unnamed_addr constant [6 x i8] c"se_SE\00", align 1
-@.str.372 = private unnamed_addr constant [4 x i8] c"sma\00", align 1
-@.str.373 = private unnamed_addr constant [7 x i8] c"sma_NO\00", align 1
-@.str.374 = private unnamed_addr constant [7 x i8] c"sma_SE\00", align 1
-@.str.375 = private unnamed_addr constant [4 x i8] c"smj\00", align 1
-@.str.376 = private unnamed_addr constant [4 x i8] c"smn\00", align 1
-@.str.377 = private unnamed_addr constant [4 x i8] c"sms\00", align 1
-@.str.378 = private unnamed_addr constant [7 x i8] c"smj_NO\00", align 1
-@.str.379 = private unnamed_addr constant [7 x i8] c"smj_SE\00", align 1
-@.str.380 = private unnamed_addr constant [7 x i8] c"smn_FI\00", align 1
-@.str.381 = private unnamed_addr constant [7 x i8] c"sms_FI\00", align 1
-@.str.382 = private unnamed_addr constant [3 x i8] c"si\00", align 1
-@.str.383 = private unnamed_addr constant [6 x i8] c"si_LK\00", align 1
-@.str.384 = private unnamed_addr constant [3 x i8] c"sk\00", align 1
-@.str.385 = private unnamed_addr constant [6 x i8] c"sk_SK\00", align 1
-@.str.386 = private unnamed_addr constant [3 x i8] c"sl\00", align 1
-@.str.387 = private unnamed_addr constant [6 x i8] c"sl_SI\00", align 1
-@.str.388 = private unnamed_addr constant [3 x i8] c"so\00", align 1
-@.str.389 = private unnamed_addr constant [6 x i8] c"so_SO\00", align 1
-@.str.390 = private unnamed_addr constant [3 x i8] c"sq\00", align 1
-@.str.391 = private unnamed_addr constant [6 x i8] c"sq_AL\00", align 1
-@.str.392 = private unnamed_addr constant [3 x i8] c"st\00", align 1
-@.str.393 = private unnamed_addr constant [6 x i8] c"st_ZA\00", align 1
-@.str.394 = private unnamed_addr constant [3 x i8] c"sv\00", align 1
-@.str.395 = private unnamed_addr constant [6 x i8] c"sv_FI\00", align 1
-@.str.396 = private unnamed_addr constant [6 x i8] c"sv_SE\00", align 1
-@.str.397 = private unnamed_addr constant [3 x i8] c"sw\00", align 1
-@.str.398 = private unnamed_addr constant [6 x i8] c"sw_KE\00", align 1
-@.str.399 = private unnamed_addr constant [4 x i8] c"syr\00", align 1
-@.str.400 = private unnamed_addr constant [7 x i8] c"syr_SY\00", align 1
-@.str.401 = private unnamed_addr constant [3 x i8] c"ta\00", align 1
-@.str.402 = private unnamed_addr constant [6 x i8] c"ta_IN\00", align 1
-@.str.403 = private unnamed_addr constant [6 x i8] c"ta_LK\00", align 1
-@.str.404 = private unnamed_addr constant [3 x i8] c"te\00", align 1
-@.str.405 = private unnamed_addr constant [6 x i8] c"te_IN\00", align 1
-@.str.406 = private unnamed_addr constant [3 x i8] c"tg\00", align 1
-@.str.407 = private unnamed_addr constant [8 x i8] c"tg_Cyrl\00", align 1
-@.str.408 = private unnamed_addr constant [11 x i8] c"tg_Cyrl_TJ\00", align 1
-@.str.409 = private unnamed_addr constant [3 x i8] c"th\00", align 1
-@.str.410 = private unnamed_addr constant [6 x i8] c"th_TH\00", align 1
-@.str.411 = private unnamed_addr constant [3 x i8] c"ti\00", align 1
-@.str.412 = private unnamed_addr constant [6 x i8] c"ti_ER\00", align 1
-@.str.413 = private unnamed_addr constant [6 x i8] c"ti_ET\00", align 1
-@.str.414 = private unnamed_addr constant [3 x i8] c"tk\00", align 1
-@.str.415 = private unnamed_addr constant [6 x i8] c"tk_TM\00", align 1
-@.str.416 = private unnamed_addr constant [3 x i8] c"tn\00", align 1
-@.str.417 = private unnamed_addr constant [6 x i8] c"tn_BW\00", align 1
-@.str.418 = private unnamed_addr constant [6 x i8] c"tn_ZA\00", align 1
-@.str.419 = private unnamed_addr constant [3 x i8] c"tr\00", align 1
-@.str.420 = private unnamed_addr constant [6 x i8] c"tr_TR\00", align 1
-@.str.421 = private unnamed_addr constant [3 x i8] c"ts\00", align 1
-@.str.422 = private unnamed_addr constant [6 x i8] c"ts_ZA\00", align 1
-@.str.423 = private unnamed_addr constant [3 x i8] c"tt\00", align 1
-@.str.424 = private unnamed_addr constant [6 x i8] c"tt_RU\00", align 1
-@.str.425 = private unnamed_addr constant [4 x i8] c"tzm\00", align 1
-@.str.426 = private unnamed_addr constant [9 x i8] c"tzm_Latn\00", align 1
-@.str.427 = private unnamed_addr constant [12 x i8] c"tzm_Latn_DZ\00", align 1
-@.str.428 = private unnamed_addr constant [12 x i8] c"tzm_Tfng_MA\00", align 1
-@.str.429 = private unnamed_addr constant [12 x i8] c"tzm_Arab_MA\00", align 1
-@.str.430 = private unnamed_addr constant [4 x i8] c"tmz\00", align 1
-@.str.431 = private unnamed_addr constant [3 x i8] c"ug\00", align 1
-@.str.432 = private unnamed_addr constant [6 x i8] c"ug_CN\00", align 1
-@.str.433 = private unnamed_addr constant [11 x i8] c"ug_Arab_CN\00", align 1
-@.str.434 = private unnamed_addr constant [3 x i8] c"uk\00", align 1
-@.str.435 = private unnamed_addr constant [6 x i8] c"uk_UA\00", align 1
-@.str.436 = private unnamed_addr constant [3 x i8] c"ur\00", align 1
-@.str.437 = private unnamed_addr constant [6 x i8] c"ur_IN\00", align 1
-@.str.438 = private unnamed_addr constant [6 x i8] c"ur_PK\00", align 1
-@.str.439 = private unnamed_addr constant [3 x i8] c"uz\00", align 1
-@.str.440 = private unnamed_addr constant [11 x i8] c"uz_Cyrl_UZ\00", align 1
-@.str.441 = private unnamed_addr constant [8 x i8] c"uz_Cyrl\00", align 1
-@.str.442 = private unnamed_addr constant [6 x i8] c"uz_UZ\00", align 1
-@.str.443 = private unnamed_addr constant [11 x i8] c"uz_Latn_UZ\00", align 1
-@.str.444 = private unnamed_addr constant [8 x i8] c"uz_Latn\00", align 1
-@.str.445 = private unnamed_addr constant [3 x i8] c"ve\00", align 1
-@.str.446 = private unnamed_addr constant [6 x i8] c"ve_ZA\00", align 1
-@.str.447 = private unnamed_addr constant [7 x i8] c"ven_ZA\00", align 1
-@.str.448 = private unnamed_addr constant [3 x i8] c"vi\00", align 1
-@.str.449 = private unnamed_addr constant [6 x i8] c"vi_VN\00", align 1
-@.str.450 = private unnamed_addr constant [3 x i8] c"wo\00", align 1
-@.str.451 = private unnamed_addr constant [6 x i8] c"wo_SN\00", align 1
-@.str.452 = private unnamed_addr constant [3 x i8] c"xh\00", align 1
-@.str.453 = private unnamed_addr constant [6 x i8] c"xh_ZA\00", align 1
-@.str.454 = private unnamed_addr constant [3 x i8] c"yi\00", align 1
-@.str.455 = private unnamed_addr constant [7 x i8] c"yi_001\00", align 1
-@.str.456 = private unnamed_addr constant [3 x i8] c"yo\00", align 1
-@.str.457 = private unnamed_addr constant [6 x i8] c"yo_NG\00", align 1
-@.str.458 = private unnamed_addr constant [8 x i8] c"zh_Hans\00", align 1
-@.str.459 = private unnamed_addr constant [3 x i8] c"zh\00", align 1
-@.str.460 = private unnamed_addr constant [6 x i8] c"zh_CN\00", align 1
-@.str.461 = private unnamed_addr constant [11 x i8] c"zh_Hans_CN\00", align 1
-@.str.462 = private unnamed_addr constant [11 x i8] c"zh_Hant_HK\00", align 1
-@.str.463 = private unnamed_addr constant [6 x i8] c"zh_HK\00", align 1
-@.str.464 = private unnamed_addr constant [11 x i8] c"zh_Hant_MO\00", align 1
-@.str.465 = private unnamed_addr constant [6 x i8] c"zh_MO\00", align 1
-@.str.466 = private unnamed_addr constant [11 x i8] c"zh_Hans_SG\00", align 1
-@.str.467 = private unnamed_addr constant [6 x i8] c"zh_SG\00", align 1
-@.str.468 = private unnamed_addr constant [11 x i8] c"zh_Hant_TW\00", align 1
-@.str.469 = private unnamed_addr constant [8 x i8] c"zh_Hant\00", align 1
-@.str.470 = private unnamed_addr constant [6 x i8] c"zh_TW\00", align 1
-@.str.471 = private unnamed_addr constant [20 x i8] c"zh@collation=stroke\00", align 1
-@.str.472 = private unnamed_addr constant [25 x i8] c"zh_Hant@collation=stroke\00", align 1
-@.str.473 = private unnamed_addr constant [28 x i8] c"zh_Hant_TW@collation=stroke\00", align 1
-@.str.474 = private unnamed_addr constant [23 x i8] c"zh_TW@collation=stroke\00", align 1
-@.str.475 = private unnamed_addr constant [25 x i8] c"zh_Hans@collation=stroke\00", align 1
-@.str.476 = private unnamed_addr constant [28 x i8] c"zh_Hans_CN@collation=stroke\00", align 1
-@.str.477 = private unnamed_addr constant [23 x i8] c"zh_CN@collation=stroke\00", align 1
-@.str.478 = private unnamed_addr constant [3 x i8] c"zu\00", align 1
-@.str.479 = private unnamed_addr constant [6 x i8] c"zu_ZA\00", align 1
+@.str.352 = private unnamed_addr constant [3 x i8] c"ru\00", align 1
+@.str.353 = private unnamed_addr constant [6 x i8] c"ru_RU\00", align 1
+@.str.354 = private unnamed_addr constant [6 x i8] c"ru_MD\00", align 1
+@.str.355 = private unnamed_addr constant [3 x i8] c"rw\00", align 1
+@.str.356 = private unnamed_addr constant [6 x i8] c"rw_RW\00", align 1
+@.str.357 = private unnamed_addr constant [3 x i8] c"sa\00", align 1
+@.str.358 = private unnamed_addr constant [6 x i8] c"sa_IN\00", align 1
+@.str.359 = private unnamed_addr constant [4 x i8] c"sah\00", align 1
+@.str.360 = private unnamed_addr constant [7 x i8] c"sah_RU\00", align 1
+@.str.361 = private unnamed_addr constant [3 x i8] c"sd\00", align 1
+@.str.362 = private unnamed_addr constant [11 x i8] c"sd_Deva_IN\00", align 1
+@.str.363 = private unnamed_addr constant [6 x i8] c"sd_IN\00", align 1
+@.str.364 = private unnamed_addr constant [11 x i8] c"sd_Arab_PK\00", align 1
+@.str.365 = private unnamed_addr constant [6 x i8] c"sd_PK\00", align 1
+@.str.366 = private unnamed_addr constant [8 x i8] c"sd_Arab\00", align 1
+@.str.367 = private unnamed_addr constant [3 x i8] c"se\00", align 1
+@.str.368 = private unnamed_addr constant [6 x i8] c"se_FI\00", align 1
+@.str.369 = private unnamed_addr constant [6 x i8] c"se_NO\00", align 1
+@.str.370 = private unnamed_addr constant [6 x i8] c"se_SE\00", align 1
+@.str.371 = private unnamed_addr constant [4 x i8] c"sma\00", align 1
+@.str.372 = private unnamed_addr constant [7 x i8] c"sma_NO\00", align 1
+@.str.373 = private unnamed_addr constant [7 x i8] c"sma_SE\00", align 1
+@.str.374 = private unnamed_addr constant [4 x i8] c"smj\00", align 1
+@.str.375 = private unnamed_addr constant [4 x i8] c"smn\00", align 1
+@.str.376 = private unnamed_addr constant [4 x i8] c"sms\00", align 1
+@.str.377 = private unnamed_addr constant [7 x i8] c"smj_NO\00", align 1
+@.str.378 = private unnamed_addr constant [7 x i8] c"smj_SE\00", align 1
+@.str.379 = private unnamed_addr constant [7 x i8] c"smn_FI\00", align 1
+@.str.380 = private unnamed_addr constant [7 x i8] c"sms_FI\00", align 1
+@.str.381 = private unnamed_addr constant [3 x i8] c"si\00", align 1
+@.str.382 = private unnamed_addr constant [6 x i8] c"si_LK\00", align 1
+@.str.383 = private unnamed_addr constant [3 x i8] c"sk\00", align 1
+@.str.384 = private unnamed_addr constant [6 x i8] c"sk_SK\00", align 1
+@.str.385 = private unnamed_addr constant [3 x i8] c"sl\00", align 1
+@.str.386 = private unnamed_addr constant [6 x i8] c"sl_SI\00", align 1
+@.str.387 = private unnamed_addr constant [3 x i8] c"so\00", align 1
+@.str.388 = private unnamed_addr constant [6 x i8] c"so_SO\00", align 1
+@.str.389 = private unnamed_addr constant [3 x i8] c"sq\00", align 1
+@.str.390 = private unnamed_addr constant [6 x i8] c"sq_AL\00", align 1
+@.str.391 = private unnamed_addr constant [3 x i8] c"st\00", align 1
+@.str.392 = private unnamed_addr constant [6 x i8] c"st_ZA\00", align 1
+@.str.393 = private unnamed_addr constant [3 x i8] c"sv\00", align 1
+@.str.394 = private unnamed_addr constant [6 x i8] c"sv_FI\00", align 1
+@.str.395 = private unnamed_addr constant [6 x i8] c"sv_SE\00", align 1
+@.str.396 = private unnamed_addr constant [3 x i8] c"sw\00", align 1
+@.str.397 = private unnamed_addr constant [6 x i8] c"sw_KE\00", align 1
+@.str.398 = private unnamed_addr constant [4 x i8] c"syr\00", align 1
+@.str.399 = private unnamed_addr constant [7 x i8] c"syr_SY\00", align 1
+@.str.400 = private unnamed_addr constant [3 x i8] c"ta\00", align 1
+@.str.401 = private unnamed_addr constant [6 x i8] c"ta_IN\00", align 1
+@.str.402 = private unnamed_addr constant [6 x i8] c"ta_LK\00", align 1
+@.str.403 = private unnamed_addr constant [3 x i8] c"te\00", align 1
+@.str.404 = private unnamed_addr constant [6 x i8] c"te_IN\00", align 1
+@.str.405 = private unnamed_addr constant [3 x i8] c"tg\00", align 1
+@.str.406 = private unnamed_addr constant [8 x i8] c"tg_Cyrl\00", align 1
+@.str.407 = private unnamed_addr constant [11 x i8] c"tg_Cyrl_TJ\00", align 1
+@.str.408 = private unnamed_addr constant [3 x i8] c"th\00", align 1
+@.str.409 = private unnamed_addr constant [6 x i8] c"th_TH\00", align 1
+@.str.410 = private unnamed_addr constant [3 x i8] c"ti\00", align 1
+@.str.411 = private unnamed_addr constant [6 x i8] c"ti_ER\00", align 1
+@.str.412 = private unnamed_addr constant [6 x i8] c"ti_ET\00", align 1
+@.str.413 = private unnamed_addr constant [3 x i8] c"tk\00", align 1
+@.str.414 = private unnamed_addr constant [6 x i8] c"tk_TM\00", align 1
+@.str.415 = private unnamed_addr constant [3 x i8] c"tn\00", align 1
+@.str.416 = private unnamed_addr constant [6 x i8] c"tn_BW\00", align 1
+@.str.417 = private unnamed_addr constant [6 x i8] c"tn_ZA\00", align 1
+@.str.418 = private unnamed_addr constant [3 x i8] c"tr\00", align 1
+@.str.419 = private unnamed_addr constant [6 x i8] c"tr_TR\00", align 1
+@.str.420 = private unnamed_addr constant [3 x i8] c"ts\00", align 1
+@.str.421 = private unnamed_addr constant [6 x i8] c"ts_ZA\00", align 1
+@.str.422 = private unnamed_addr constant [3 x i8] c"tt\00", align 1
+@.str.423 = private unnamed_addr constant [6 x i8] c"tt_RU\00", align 1
+@.str.424 = private unnamed_addr constant [4 x i8] c"tzm\00", align 1
+@.str.425 = private unnamed_addr constant [9 x i8] c"tzm_Latn\00", align 1
+@.str.426 = private unnamed_addr constant [12 x i8] c"tzm_Latn_DZ\00", align 1
+@.str.427 = private unnamed_addr constant [12 x i8] c"tzm_Tfng_MA\00", align 1
+@.str.428 = private unnamed_addr constant [12 x i8] c"tzm_Arab_MA\00", align 1
+@.str.429 = private unnamed_addr constant [4 x i8] c"tmz\00", align 1
+@.str.430 = private unnamed_addr constant [3 x i8] c"ug\00", align 1
+@.str.431 = private unnamed_addr constant [6 x i8] c"ug_CN\00", align 1
+@.str.432 = private unnamed_addr constant [11 x i8] c"ug_Arab_CN\00", align 1
+@.str.433 = private unnamed_addr constant [3 x i8] c"uk\00", align 1
+@.str.434 = private unnamed_addr constant [6 x i8] c"uk_UA\00", align 1
+@.str.435 = private unnamed_addr constant [3 x i8] c"ur\00", align 1
+@.str.436 = private unnamed_addr constant [6 x i8] c"ur_IN\00", align 1
+@.str.437 = private unnamed_addr constant [6 x i8] c"ur_PK\00", align 1
+@.str.438 = private unnamed_addr constant [3 x i8] c"uz\00", align 1
+@.str.439 = private unnamed_addr constant [11 x i8] c"uz_Cyrl_UZ\00", align 1
+@.str.440 = private unnamed_addr constant [8 x i8] c"uz_Cyrl\00", align 1
+@.str.441 = private unnamed_addr constant [6 x i8] c"uz_UZ\00", align 1
+@.str.442 = private unnamed_addr constant [11 x i8] c"uz_Latn_UZ\00", align 1
+@.str.443 = private unnamed_addr constant [8 x i8] c"uz_Latn\00", align 1
+@.str.444 = private unnamed_addr constant [3 x i8] c"ve\00", align 1
+@.str.445 = private unnamed_addr constant [6 x i8] c"ve_ZA\00", align 1
+@.str.446 = private unnamed_addr constant [7 x i8] c"ven_ZA\00", align 1
+@.str.447 = private unnamed_addr constant [3 x i8] c"vi\00", align 1
+@.str.448 = private unnamed_addr constant [6 x i8] c"vi_VN\00", align 1
+@.str.449 = private unnamed_addr constant [3 x i8] c"wo\00", align 1
+@.str.450 = private unnamed_addr constant [6 x i8] c"wo_SN\00", align 1
+@.str.451 = private unnamed_addr constant [3 x i8] c"xh\00", align 1
+@.str.452 = private unnamed_addr constant [6 x i8] c"xh_ZA\00", align 1
+@.str.453 = private unnamed_addr constant [3 x i8] c"yi\00", align 1
+@.str.454 = private unnamed_addr constant [7 x i8] c"yi_001\00", align 1
+@.str.455 = private unnamed_addr constant [3 x i8] c"yo\00", align 1
+@.str.456 = private unnamed_addr constant [6 x i8] c"yo_NG\00", align 1
+@.str.457 = private unnamed_addr constant [8 x i8] c"zh_Hans\00", align 1
+@.str.458 = private unnamed_addr constant [3 x i8] c"zh\00", align 1
+@.str.459 = private unnamed_addr constant [6 x i8] c"zh_CN\00", align 1
+@.str.460 = private unnamed_addr constant [11 x i8] c"zh_Hans_CN\00", align 1
+@.str.461 = private unnamed_addr constant [11 x i8] c"zh_Hant_HK\00", align 1
+@.str.462 = private unnamed_addr constant [6 x i8] c"zh_HK\00", align 1
+@.str.463 = private unnamed_addr constant [11 x i8] c"zh_Hant_MO\00", align 1
+@.str.464 = private unnamed_addr constant [6 x i8] c"zh_MO\00", align 1
+@.str.465 = private unnamed_addr constant [11 x i8] c"zh_Hans_SG\00", align 1
+@.str.466 = private unnamed_addr constant [6 x i8] c"zh_SG\00", align 1
+@.str.467 = private unnamed_addr constant [11 x i8] c"zh_Hant_TW\00", align 1
+@.str.468 = private unnamed_addr constant [8 x i8] c"zh_Hant\00", align 1
+@.str.469 = private unnamed_addr constant [6 x i8] c"zh_TW\00", align 1
+@.str.470 = private unnamed_addr constant [20 x i8] c"zh@collation=stroke\00", align 1
+@.str.471 = private unnamed_addr constant [25 x i8] c"zh_Hant@collation=stroke\00", align 1
+@.str.472 = private unnamed_addr constant [28 x i8] c"zh_Hant_TW@collation=stroke\00", align 1
+@.str.473 = private unnamed_addr constant [23 x i8] c"zh_TW@collation=stroke\00", align 1
+@.str.474 = private unnamed_addr constant [25 x i8] c"zh_Hans@collation=stroke\00", align 1
+@.str.475 = private unnamed_addr constant [28 x i8] c"zh_Hans_CN@collation=stroke\00", align 1
+@.str.476 = private unnamed_addr constant [23 x i8] c"zh_CN@collation=stroke\00", align 1
+@.str.477 = private unnamed_addr constant [3 x i8] c"zu\00", align 1
+@.str.478 = private unnamed_addr constant [6 x i8] c"zu_ZA\00", align 1
+@.str.479 = private unnamed_addr constant [5 x i8] c"root\00", align 1
 
-@_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev
-@_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode
-@_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev
-@_ZN6icu_7515MaybeStackArrayIcLi40EEC1EOS1_ = weak_odr unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_
+@_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ev
+@_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode
+@_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev
+@_ZN6icu_7715MaybeStackArrayIcLi40EEC1EOS1_ = weak_odr unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2EOS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
-entry:
-  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
-  store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i8 0, ptr %needToRelease, align 4
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) unnamed_addr #0 comdat($_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev) align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store ptr %2, ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 40, ptr %3, align 8, !tbaa !10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 0, ptr %4, align 4, !tbaa !11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
-  store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i8 0, ptr %needToRelease.i, align 4
-  %cmp.i = icmp slt i32 %status, 1
-  %cmp = icmp sgt i32 %newCapacity, 40
-  %or.cond = and i1 %cmp, %cmp.i
-  br i1 %or.cond, label %if.then.i, label %if.end8
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 comdat($_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store ptr %4, ptr %0, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 40, ptr %5, align 8, !tbaa !10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 0, ptr %6, align 4, !tbaa !11
+  %7 = icmp slt i32 %2, 1
+  %8 = icmp sgt i32 %1, 40
+  %or.cond = and i1 %8, %7
+  br i1 %or.cond, label %11, label %_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit
 
-lpad:                                             ; preds = %if.then.i.i, %if.then.i
-  %0 = landingpad { ptr, i32 }
+9:                                                ; preds = %16, %11
+  %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) #12
-  resume { ptr, i32 } %0
+  tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #14
+  resume { ptr, i32 } %10
 
-if.then.i:                                        ; preds = %entry
-  %conv.i3 = zext nneg i32 %newCapacity to i64
-  %call.i4 = invoke noalias ptr @uprv_malloc_75(i64 noundef %conv.i3) #13
-          to label %call.i.noexc unwind label %lpad
+11:                                               ; preds = %3
+  %12 = zext nneg i32 %1 to i64
+  %13 = invoke noalias ptr @uprv_malloc_77(i64 noundef %12) #15
+          to label %.noexc unwind label %9
 
-call.i.noexc:                                     ; preds = %if.then.i
-  %cmp2.not.i = icmp eq ptr %call.i4, null
-  br i1 %cmp2.not.i, label %if.end8, label %if.then3.i
+.noexc:                                           ; preds = %11
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit, label %14
 
-if.then3.i:                                       ; preds = %call.i.noexc
-  %1 = load i8, ptr %needToRelease.i, align 4
-  %tobool.not.i.i = icmp eq i8 %1, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit.i, label %if.then.i.i
+14:                                               ; preds = %.noexc
+  %15 = load i8, ptr %6, align 4, !tbaa !11
+  %.not.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i, label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit.i, label %16
 
-if.then.i.i:                                      ; preds = %if.then3.i
-  %2 = load ptr, ptr %this, align 8
-  invoke void @uprv_free_75(ptr noundef %2)
-          to label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit.i unwind label %lpad
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %0, align 8, !tbaa !3
+  invoke void @uprv_free_77(ptr noundef %17)
+          to label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit.i unwind label %9
 
-_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit.i: ; preds = %if.then.i.i, %if.then3.i
-  store ptr %call.i4, ptr %this, align 8
-  store i32 %newCapacity, ptr %capacity.i, align 8
-  store i8 1, ptr %needToRelease.i, align 4
-  br label %if.end8
+_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit.i: ; preds = %16, %14
+  store ptr %13, ptr %0, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 8, !tbaa !10
+  store i8 1, ptr %6, align 4, !tbaa !11
+  br label %_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit
 
-if.end8:                                          ; preds = %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit.i, %call.i.noexc, %entry
+_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii.exit: ; preds = %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit.i, %.noexc, %3
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE6resizeEii(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %length) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %cmp = icmp sgt i32 %newCapacity, 0
-  br i1 %cmp, label %if.then, label %return
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii(ptr noundef nonnull align 8 dereferenceable(53) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 comdat align 2 {
+  %4 = icmp sgt i32 %1, 0
+  br i1 %4, label %5, label %21
 
-if.then:                                          ; preds = %entry
-  %conv = zext nneg i32 %newCapacity to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #13
-  %cmp2.not = icmp eq ptr %call, null
-  br i1 %cmp2.not, label %return, label %if.then3
+5:                                                ; preds = %3
+  %6 = zext nneg i32 %1 to i64
+  %7 = tail call noalias ptr @uprv_malloc_77(i64 noundef %6) #15
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %21, label %8
 
-if.then3:                                         ; preds = %if.then
-  %cmp4 = icmp sgt i32 %length, 0
-  br i1 %cmp4, label %if.then5, label %if.end14
+8:                                                ; preds = %5
+  %9 = icmp sgt i32 %2, 0
+  br i1 %9, label %10, label %15
 
-if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
-  %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
-  %1 = load ptr, ptr %this, align 8
-  %conv12 = sext i32 %length.addr.1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %1, i64 %conv12, i1 false)
-  br label %if.end14
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i32, ptr %11, align 8, !tbaa !10
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %12)
+  %.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %1)
+  %13 = load ptr, ptr %0, align 8, !tbaa !3
+  %14 = sext i32 %.1 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr align 1 %13, i64 %14, i1 false)
+  br label %15
 
-if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %2 = load i8, ptr %needToRelease.i, align 4
-  %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
+15:                                               ; preds = %10, %8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %17 = load i8, ptr %16, align 4, !tbaa !11
+  %.not.i = icmp eq i8 %17, 0
+  br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %18
 
-if.then.i:                                        ; preds = %if.end14
-  %3 = load ptr, ptr %this, align 8
-  tail call void @uprv_free_75(ptr noundef %3)
-  br label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %0, align 8, !tbaa !3
+  tail call void @uprv_free_77(ptr noundef %19)
+  br label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
 
-_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
-  store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 %newCapacity, ptr %capacity16, align 8
-  store i8 1, ptr %needToRelease.i, align 4
-  br label %return
+_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %15, %18
+  store ptr %7, ptr %0, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %1, ptr %20, align 8, !tbaa !10
+  store i8 1, ptr %16, align 4, !tbaa !11
+  br label %21
 
-return:                                           ; preds = %entry, %if.then, %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit
-  %retval.0 = phi ptr [ %call, %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %if.then ], [ null, %entry ]
-  ret ptr %retval.0
+21:                                               ; preds = %3, %5, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
+  %.0 = phi ptr [ %7, %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit ], [ null, %5 ], [ null, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %0 = load i8, ptr %needToRelease.i, align 4
-  %tobool.not.i = icmp eq i8 %0, 0
-  br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) unnamed_addr #0 comdat($_ZN6icu_7715MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = load i8, ptr %2, align 4, !tbaa !11
+  %.not.i = icmp eq i8 %3, 0
+  br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %4
 
-if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr %this, align 8
-  invoke void @uprv_free_75(ptr noundef %1)
-          to label %invoke.cont unwind label %terminate.lpad
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %0, align 8, !tbaa !3
+  invoke void @uprv_free_77(ptr noundef %5)
+          to label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit unwind label %6
 
-invoke.cont:                                      ; preds = %entry, %if.then.i
+_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %1, %4
   ret void
 
-terminate.lpad:                                   ; preds = %if.then.i
-  %2 = landingpad { ptr, i32 }
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #14
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %0 = load i8, ptr %needToRelease, align 4
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %0) local_unnamed_addr #1 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = load i8, ptr %2, align 4, !tbaa !11
+  %.not = icmp eq i8 %3, 0
+  br i1 %.not, label %6, label %4
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %this, align 8
-  tail call void @uprv_free_75(ptr noundef %1)
-  br label %if.end
+4:                                                ; preds = %1
+  %5 = load ptr, ptr %0, align 8, !tbaa !3
+  tail call void @uprv_free_77(ptr noundef %5)
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
+6:                                                ; preds = %4, %1
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #14
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #3
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5EOS1_) align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %src, align 8
-  store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %capacity3 = getelementptr inbounds nuw i8, ptr %src, i64 8
-  %1 = load i32, ptr %capacity3, align 8
-  store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %needToRelease4 = getelementptr inbounds nuw i8, ptr %src, i64 12
-  %2 = load i8, ptr %needToRelease4, align 4
-  store i8 %2, ptr %needToRelease, align 4
-  %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
-  %cmp = icmp eq ptr %3, %stackArray
-  br i1 %cmp, label %if.then, label %if.else
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(53) %1) unnamed_addr #0 comdat($_ZN6icu_7715MaybeStackArrayIcLi40EEC5EOS1_) align 2 personality ptr @__gxx_personality_v0 {
+  %3 = load ptr, ptr %1, align 8, !tbaa !3
+  store ptr %3, ptr %0, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load i32, ptr %5, align 8, !tbaa !10
+  store i32 %6, ptr %4, align 8, !tbaa !10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %9 = load i8, ptr %8, align 4, !tbaa !11
+  store i8 %9, ptr %7, align 4, !tbaa !11
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 13
+  %11 = icmp eq ptr %3, %10
+  br i1 %11, label %12, label %15
 
-if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds nuw i8, ptr %this, i64 13
-  store ptr %stackArray6, ptr %this, align 8
-  %4 = load i32, ptr %capacity3, align 8
-  %conv = sext i32 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray6, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
-  br label %if.end
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store ptr %13, ptr %0, align 8, !tbaa !3
+  %14 = sext i32 %6 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %10, i64 %14, i1 false)
+  br label %16
 
-if.else:                                          ; preds = %entry
-  store ptr %stackArray, ptr %src, align 8
-  store i32 40, ptr %capacity3, align 8
-  store i8 0, ptr %needToRelease4, align 4
-  br label %if.end
+15:                                               ; preds = %2
+  store ptr %10, ptr %1, align 8, !tbaa !3
+  store i32 40, ptr %5, align 8, !tbaa !10
+  store i8 0, ptr %8, align 4, !tbaa !11
+  br label %16
 
-if.end:                                           ; preds = %if.else, %if.then
+16:                                               ; preds = %15, %12
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
-  store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i8 0, ptr %needToRelease, align 4
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store ptr %2, ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 40, ptr %3, align 8, !tbaa !10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 0, ptr %4, align 4, !tbaa !11
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %0 = load i8, ptr %needToRelease.i, align 4
-  %tobool.not.i = icmp eq i8 %0, 0
-  br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(53) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %4 = load i8, ptr %3, align 4, !tbaa !11
+  %.not.i = icmp eq i8 %4, 0
+  br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %5
 
-if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr %this, align 8
-  invoke void @uprv_free_75(ptr noundef %1)
-          to label %invoke.cont unwind label %terminate.lpad
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %0, align 8, !tbaa !3
+  invoke void @uprv_free_77(ptr noundef %6)
+          to label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit unwind label %20
 
-invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
-  %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds nuw i8, ptr %src, i64 12
-  %3 = load i8, ptr %needToRelease, align 4
-  store i8 %3, ptr %needToRelease.i, align 4
-  %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
-  %cmp = icmp eq ptr %4, %stackArray
-  br i1 %cmp, label %if.then, label %if.else
+_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %2, %5
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %8, ptr %9, align 8, !tbaa !10
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %11 = load i8, ptr %10, align 4, !tbaa !11
+  store i8 %11, ptr %3, align 4, !tbaa !11
+  %12 = load ptr, ptr %1, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 13
+  %14 = icmp eq ptr %12, %13
+  br i1 %14, label %15, label %18
 
-if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds nuw i8, ptr %this, i64 13
-  store ptr %stackArray4, ptr %this, align 8
-  %5 = load i32, ptr %capacity, align 8
-  %conv = sext i32 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %stackArray4, ptr nonnull align 1 %stackArray, i64 %conv, i1 false)
-  br label %if.end
+15:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store ptr %16, ptr %0, align 8, !tbaa !3
+  %17 = sext i32 %8 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %13, i64 %17, i1 false)
+  br label %19
 
-if.else:                                          ; preds = %invoke.cont
-  store ptr %4, ptr %this, align 8
-  store ptr %stackArray, ptr %src, align 8
-  store i32 40, ptr %capacity, align 8
-  store i8 0, ptr %needToRelease, align 4
-  br label %if.end
+18:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
+  store ptr %12, ptr %0, align 8, !tbaa !3
+  store ptr %13, ptr %1, align 8, !tbaa !3
+  store i32 40, ptr %7, align 8, !tbaa !10
+  store i8 0, ptr %10, align 4, !tbaa !11
+  br label %19
 
-if.end:                                           ; preds = %if.else, %if.then
-  ret ptr %this
+19:                                               ; preds = %18, %15
+  ret ptr %0
 
-terminate.lpad:                                   ; preds = %if.then.i
-  %6 = landingpad { ptr, i32 }
+20:                                               ; preds = %5
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #14
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i32, ptr %capacity, align 8
-  ret i32 %0
+define weak_odr noundef i32 @_ZNK6icu_7715MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8, !tbaa !10
+  ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  ret ptr %0
+define weak_odr noundef ptr @_ZNK6icu_7715MaybeStackArrayIcLi40EE8getAliasEv(ptr noundef nonnull align 8 dereferenceable(53) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load i32, ptr %capacity, align 8
-  %idx.ext = sext i32 %1 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  ret ptr %add.ptr
+define weak_odr noundef ptr @_ZNK6icu_7715MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %0) local_unnamed_addr #0 comdat align 2 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8, !tbaa !10
+  %5 = sext i32 %4 to i64
+  %6 = getelementptr inbounds i8, ptr %2, i64 %5
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %this, i64 noundef %i) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %i
-  ret ptr %arrayidx
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6icu_7715MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !3
+  %4 = getelementptr inbounds i8, ptr %3, i64 %1
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %this, i64 noundef %i) local_unnamed_addr #0 comdat align 2 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %i
-  ret ptr %arrayidx
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEixEl(ptr noundef nonnull align 8 dereferenceable(53) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !3
+  %4 = getelementptr inbounds i8, ptr %3, i64 %1
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12aliasInsteadEPci(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef %otherArray, i32 noundef %otherCapacity) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %cmp = icmp ne ptr %otherArray, null
-  %cmp2 = icmp sgt i32 %otherCapacity, 0
-  %or.cond = and i1 %cmp, %cmp2
-  br i1 %or.cond, label %if.then, label %if.end
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE12aliasInsteadEPci(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 comdat align 2 {
+  %4 = icmp ne ptr %1, null
+  %5 = icmp sgt i32 %2, 0
+  %or.cond = and i1 %4, %5
+  br i1 %or.cond, label %6, label %12
 
-if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %0 = load i8, ptr %needToRelease.i, align 4
-  %tobool.not.i = icmp eq i8 %0, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %8 = load i8, ptr %7, align 4, !tbaa !11
+  %.not.i = icmp eq i8 %8, 0
+  br i1 %.not.i, label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %9
 
-if.then.i:                                        ; preds = %if.then
-  %1 = load ptr, ptr %this, align 8
-  tail call void @uprv_free_75(ptr noundef %1)
-  br label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit
+9:                                                ; preds = %6
+  %10 = load ptr, ptr %0, align 8, !tbaa !3
+  tail call void @uprv_free_77(ptr noundef %10)
+  br label %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit
 
-_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
-  store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 %otherCapacity, ptr %capacity, align 8
-  store i8 0, ptr %needToRelease.i, align 4
-  br label %if.end
+_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %6, %9
+  store ptr %1, ptr %0, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %2, ptr %11, align 8, !tbaa !10
+  store i8 0, ptr %7, align 4, !tbaa !11
+  br label %12
 
-if.end:                                           ; preds = %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, %entry
+12:                                               ; preds = %_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit, %3
   ret void
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %0 = load i8, ptr %needToRelease, align 4
-  %tobool.not = icmp eq i8 %0, 0
-  br i1 %tobool.not, label %if.else, label %if.then
+; Function Attrs: inlinehint mustprogress uwtable
+define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 comdat align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = load i8, ptr %4, align 4, !tbaa !11
+  %.not = icmp eq i8 %5, 0
+  br i1 %.not, label %8, label %6
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %this, align 8
-  br label %if.end14
+6:                                                ; preds = %3
+  %7 = load ptr, ptr %0, align 8, !tbaa !3
+  br label %18
 
-if.else:                                          ; preds = %entry
-  %cmp = icmp slt i32 %length, 1
-  br i1 %cmp, label %return, label %if.else3
+8:                                                ; preds = %3
+  %9 = icmp slt i32 %1, 1
+  br i1 %9, label %21, label %10
 
-if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load i32, ptr %capacity, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
-  %conv = sext i32 %spec.select to i64
-  %call = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #13
-  %cmp7 = icmp eq ptr %call, null
-  br i1 %cmp7, label %return, label %do.body
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i32, ptr %11, align 8, !tbaa !10
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %12)
+  %13 = sext i32 %spec.select to i64
+  %14 = tail call noalias ptr @uprv_malloc_77(i64 noundef %13) #15
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %21, label %16
 
-do.body:                                          ; preds = %if.else3
-  %3 = load ptr, ptr %this, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %3, i64 %conv, i1 false)
-  br label %if.end14
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %0, align 8, !tbaa !3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %17, i64 %13, i1 false)
+  br label %18
 
-if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
-  %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.0, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
-  store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 40, ptr %capacity.i, align 8
-  store i8 0, ptr %needToRelease, align 4
-  br label %return
+18:                                               ; preds = %16, %6
+  %.011 = phi i32 [ %1, %6 ], [ %spec.select, %16 ]
+  %.0 = phi ptr [ %7, %6 ], [ %14, %16 ]
+  store i32 %.011, ptr %2, align 4, !tbaa !12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store ptr %19, ptr %0, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 40, ptr %20, align 8, !tbaa !10
+  store i8 0, ptr %4, align 4, !tbaa !11
+  br label %21
 
-return:                                           ; preds = %if.else3, %if.else, %if.end14
-  %retval.0 = phi ptr [ %p.0, %if.end14 ], [ null, %if.else ], [ null, %if.else3 ]
-  ret ptr %retval.0
+21:                                               ; preds = %10, %8, %18
+  %.010 = phi ptr [ %.0, %18 ], [ null, %8 ], [ null, %10 ]
+  ret ptr %.010
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %do.end
+define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(53) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 comdat align 2 {
+  %4 = load i32, ptr %2, align 4, !tbaa !13
+  %5 = icmp slt i32 %4, 1
+  br i1 %5, label %6, label %22
 
-if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
-  %1 = load i32, ptr %capacity, align 8
-  %cmp.i3 = icmp sgt i32 %1, 0
-  br i1 %cmp.i3, label %if.then.i, label %if.then3
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !10
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %10, label %18
 
-if.then.i:                                        ; preds = %if.end
-  %conv.i4 = zext nneg i32 %1 to i64
-  %call.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv.i4) #13
-  %cmp2.not.i = icmp eq ptr %call.i, null
-  br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
+10:                                               ; preds = %6
+  %11 = zext nneg i32 %8 to i64
+  %12 = tail call noalias ptr @uprv_malloc_77(i64 noundef %11) #15
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %18, label %13
 
-if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %2 = load i8, ptr %needToRelease.i.i, align 4
-  %tobool.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %15 = load i8, ptr %14, align 4, !tbaa !11
+  %.not.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i, label %19, label %16
 
-if.then.i.i:                                      ; preds = %if.then3.i
-  %3 = load ptr, ptr %this, align 8
-  tail call void @uprv_free_75(ptr noundef %3)
-  br label %do.body
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %0, align 8, !tbaa !3
+  tail call void @uprv_free_77(ptr noundef %17)
+  br label %19
 
-if.then3:                                         ; preds = %if.then.i, %if.end
-  store i32 7, ptr %status, align 4
-  br label %do.end
+18:                                               ; preds = %10, %6
+  store i32 7, ptr %2, align 4, !tbaa !13
+  br label %22
 
-do.body:                                          ; preds = %if.then.i.i, %if.then3.i
-  store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 %1, ptr %capacity16.i, align 8
-  store i8 1, ptr %needToRelease.i.i, align 4
-  %4 = load ptr, ptr %src, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %4, i64 %conv.i4, i1 false)
-  br label %do.end
+19:                                               ; preds = %16, %13
+  store ptr %12, ptr %0, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %8, ptr %20, align 8, !tbaa !10
+  store i8 1, ptr %14, align 4, !tbaa !11
+  %21 = load ptr, ptr %1, align 8, !tbaa !3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %21, i64 %11, i1 false)
+  br label %22
 
-do.end:                                           ; preds = %entry, %do.body, %if.then3
+22:                                               ; preds = %3, %19, %18
   ret void
 }
 
-declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @uprv_convertToPosix_75(i32 noundef %hostid, ptr noundef writeonly captures(none) %posixID, i32 noundef %posixIDCapacity, ptr noundef captures(none) %status) local_unnamed_addr #7 {
-entry:
-  %conv = and i32 %hostid, 1023
-  br label %for.body
+define i32 @uprv_convertToPosix_77(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
+  %5 = and i32 %0, 1023
+  br label %7
 
-for.cond:                                         ; preds = %for.body
+6:                                                ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 141
-  br i1 %exitcond.not, label %return.sink.split, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %.sink.split, label %7, !llvm.loop !15
 
-for.body:                                         ; preds = %entry, %for.cond
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds nuw [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %indvars.iv
-  %regionMaps = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %0 = load ptr, ptr %regionMaps, align 8
-  %1 = load i32, ptr %0, align 8
-  %cmp2 = icmp eq i32 %conv, %1
-  br i1 %cmp2, label %if.then3, label %for.cond
+7:                                                ; preds = %4, %6
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
+  %8 = getelementptr inbounds nuw [141 x %"struct.(anonymous namespace)::ILcidPosixMap"], ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
+  %11 = load i32, ptr %10, align 8, !tbaa !20
+  %12 = icmp eq i32 %5, %11
+  br i1 %12, label %13, label %6
 
-if.then3:                                         ; preds = %for.body
-  %2 = load i32, ptr %arrayidx, align 8
-  %cmp7.not.i = icmp eq i32 %2, 0
-  br i1 %cmp7.not.i, label %for.end, label %for.body.lr.ph.i
+13:                                               ; preds = %7
+  %14 = load i32, ptr %8, align 8, !tbaa !22
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %if.then3
-  %wide.trip.count.i = zext i32 %2 to i64
-  br label %for.body.i
+.lr.ph.i:                                         ; preds = %13
+  %wide.trip.count.i = zext i32 %14 to i64
+  br label %16
 
-for.cond.i:                                       ; preds = %for.body.i
+15:                                               ; preds = %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.loopexit, label %16, !llvm.loop !23
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %0, i64 %indvars.iv.i
-  %3 = load i32, ptr %arrayidx.i, align 8
-  %cmp2.i = icmp eq i32 %3, %hostid
-  br i1 %cmp2.i, label %for.end, label %for.cond.i
+16:                                               ; preds = %15, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
+  %17 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixElement", ptr %10, i64 %indvars.iv.i
+  %18 = load i32, ptr %17, align 8, !tbaa !20
+  %19 = icmp eq i32 %18, %0
+  br i1 %19, label %.loopexit, label %15
 
-for.end:                                          ; preds = %for.body.i, %for.cond.i, %if.then3
-  %arrayidx.pn.i = phi ptr [ %0, %if.then3 ], [ %0, %for.cond.i ], [ %arrayidx.i, %for.body.i ]
-  %retval.0.in.i = getelementptr inbounds nuw i8, ptr %arrayidx.pn.i, i64 8
-  %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %tobool6.not = icmp eq ptr %retval.0.i, null
-  br i1 %tobool6.not, label %return.sink.split, label %if.then15
+.loopexit:                                        ; preds = %16, %15, %13
+  %.pn.i = phi ptr [ %10, %13 ], [ %10, %15 ], [ %17, %16 ]
+  %.09.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
+  %.09.i = load ptr, ptr %.09.in.i, align 8, !tbaa !24
+  %.not = icmp eq ptr %.09.i, null
+  br i1 %.not, label %.sink.split, label %20
 
-if.then15:                                        ; preds = %for.end
-  %call16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #15
-  %conv17 = trunc i64 %call16 to i32
-  %cond = tail call i32 @llvm.smin.i32(i32 %posixIDCapacity, i32 %conv17)
-  %conv19 = sext i32 %cond to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %posixID, ptr nonnull align 1 %retval.0.i, i64 %conv19, i1 false)
-  %cmp20 = icmp sgt i32 %posixIDCapacity, %conv17
-  br i1 %cmp20, label %if.then21, label %if.else
+20:                                               ; preds = %.loopexit
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.09.i) #17
+  %22 = trunc i64 %21 to i32
+  %23 = tail call i32 @llvm.smin.i32(i32 %2, i32 %22)
+  %24 = sext i32 %23 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %.09.i, i64 %24, i1 false)
+  %25 = icmp sgt i32 %2, %22
+  br i1 %25, label %26, label %31
 
-if.then21:                                        ; preds = %if.then15
-  %sext = shl i64 %call16, 32
-  %idxprom22 = ashr exact i64 %sext, 32
-  %arrayidx23 = getelementptr inbounds i8, ptr %posixID, i64 %idxprom22
-  store i8 0, ptr %arrayidx23, align 1
-  %4 = load i32, ptr %status, align 4
-  %cmp24 = icmp eq i32 %4, -124
-  br i1 %cmp24, label %return.sink.split, label %return
+26:                                               ; preds = %20
+  %sext = shl i64 %21, 32
+  %27 = ashr exact i64 %sext, 32
+  %28 = getelementptr inbounds i8, ptr %1, i64 %27
+  store i8 0, ptr %28, align 1, !tbaa !25
+  %29 = load i32, ptr %3, align 4, !tbaa !13
+  %30 = icmp eq i32 %29, -124
+  br i1 %30, label %.sink.split, label %33
 
-if.else:                                          ; preds = %if.then15
-  %cmp27 = icmp eq i32 %posixIDCapacity, %conv17
-  %. = select i1 %cmp27, i32 -124, i32 15
-  br label %return.sink.split
+31:                                               ; preds = %20
+  %32 = icmp eq i32 %2, %22
+  %. = select i1 %32, i32 -124, i32 15
+  br label %.sink.split
 
-return.sink.split:                                ; preds = %for.cond, %for.end, %if.else, %if.then21
-  %.sink = phi i32 [ 0, %if.then21 ], [ %., %if.else ], [ 1, %for.end ], [ 1, %for.cond ]
-  %retval.0.ph = phi i32 [ %conv17, %if.then21 ], [ %conv17, %if.else ], [ -1, %for.end ], [ -1, %for.cond ]
-  store i32 %.sink, ptr %status, align 4
-  br label %return
+.sink.split:                                      ; preds = %6, %.loopexit, %31, %26
+  %.sink = phi i32 [ 0, %26 ], [ %., %31 ], [ 1, %.loopexit ], [ 1, %6 ]
+  %.0.ph = phi i32 [ %22, %26 ], [ %22, %31 ], [ 0, %.loopexit ], [ 0, %6 ]
+  store i32 %.sink, ptr %3, align 4, !tbaa !13
+  br label %33
 
-return:                                           ; preds = %return.sink.split, %if.then21
-  %retval.0 = phi i32 [ %conv17, %if.then21 ], [ %retval.0.ph, %return.sink.split ]
-  ret i32 %retval.0
+33:                                               ; preds = %.sink.split, %26
+  %.0 = phi i32 [ %22, %26 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @uprv_convertToLCIDPlatform_75(ptr noundef readnone captures(none) %localeID, ptr noundef readonly captures(none) %status) local_unnamed_addr #9 {
-entry:
+define noundef i32 @uprv_convertToLCIDPlatform_77(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @uprv_convertToLCID_75(ptr noundef readonly %langID, ptr noundef readonly %posixID, ptr noundef writeonly captures(none) %status) local_unnamed_addr #10 {
-entry:
-  %tobool = icmp ne ptr %langID, null
-  %tobool1 = icmp ne ptr %posixID, null
-  %or.cond = and i1 %tobool, %tobool1
-  br i1 %or.cond, label %lor.lhs.false2, label %return
+define i32 @uprv_convertToLCID_77(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #12 {
+  %4 = load i32, ptr %2, align 4, !tbaa !13
+  %5 = icmp sgt i32 %4, 0
+  %6 = icmp eq ptr %0, null
+  %or.cond = or i1 %6, %5
+  %7 = icmp eq ptr %1, null
+  %or.cond3 = or i1 %7, %or.cond
+  br i1 %or.cond3, label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit, label %8
 
-lor.lhs.false2:                                   ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %langID) #15
-  %cmp = icmp ult i64 %call, 2
-  br i1 %cmp, label %return, label %lor.lhs.false3
+8:                                                ; preds = %3
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
+  %10 = icmp ult i64 %9, 2
+  br i1 %10, label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit, label %11
 
-lor.lhs.false3:                                   ; preds = %lor.lhs.false2
-  %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %posixID) #15
-  %cmp5 = icmp ult i64 %call4, 2
-  br i1 %cmp5, label %return, label %while.body
+11:                                               ; preds = %8
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %13 = icmp ult i64 %12, 2
+  br i1 %13, label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit, label %.preheader
 
-while.body:                                       ; preds = %lor.lhs.false3, %if.end21
-  %oldmid.091 = phi i32 [ %shr, %if.end21 ], [ 0, %lor.lhs.false3 ]
-  %low.090 = phi i32 [ %low.1, %if.end21 ], [ 0, %lor.lhs.false3 ]
-  %high.089 = phi i32 [ %high.1, %if.end21 ], [ 141, %lor.lhs.false3 ]
-  %add = add nuw i32 %low.090, %high.089
-  %shr = lshr i32 %add, 1
-  %cmp7 = icmp eq i32 %shr, %oldmid.091
-  br i1 %cmp7, label %while.end, label %if.end9
+.preheader:                                       ; preds = %11, %66
+  %.03794 = phi i32 [ %15, %66 ], [ 0, %11 ]
+  %.03893 = phi i32 [ %.139, %66 ], [ 0, %11 ]
+  %.04092 = phi i32 [ %.141, %66 ], [ 141, %11 ]
+  %14 = add nuw i32 %.03893, %.04092
+  %15 = lshr i32 %14, 1
+  %16 = icmp eq i32 %15, %.03794
+  br i1 %16, label %68, label %17
 
-if.end9:                                          ; preds = %while.body
-  %idxprom = zext nneg i32 %shr to i64
-  %arrayidx = getelementptr inbounds nuw [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %idxprom
-  %regionMaps = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %0 = load ptr, ptr %regionMaps, align 8
-  %posixID10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load ptr, ptr %posixID10, align 8
-  %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %langID, ptr noundef nonnull dereferenceable(1) %1) #15
-  %cmp12 = icmp slt i32 %call11, 0
-  br i1 %cmp12, label %if.end21, label %if.else
+17:                                               ; preds = %.preheader
+  %18 = zext nneg i32 %15 to i64
+  %19 = getelementptr inbounds nuw [141 x %"struct.(anonymous namespace)::ILcidPosixMap"], ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %23) #17
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %66, label %26
 
-if.else:                                          ; preds = %if.end9
-  %cmp14.not = icmp eq i32 %call11, 0
-  br i1 %cmp14.not, label %if.else16, label %if.end21
+26:                                               ; preds = %17
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %27, label %66
 
-if.else16:                                        ; preds = %if.else
-  %conv.i = trunc i64 %call4 to i32
-  %2 = load i32, ptr %arrayidx, align 8
-  %cmp25.not.i = icmp eq i32 %2, 0
-  br i1 %cmp25.not.i, label %for.end.i, label %for.body.lr.ph.i
+27:                                               ; preds = %26
+  %28 = trunc i64 %12 to i32
+  %29 = load i32, ptr %19, align 8, !tbaa !22
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %if.else16
-  %3 = load i8, ptr %posixID, align 1
-  %.fr.i = freeze i8 %3
-  %cmp3.not6.i.i = icmp eq i8 %.fr.i, 0
-  br i1 %cmp3.not6.i.i, label %for.end.i, label %for.body.preheader.i
+.lr.ph.i:                                         ; preds = %27
+  %30 = load i8, ptr %1, align 1, !tbaa !25
+  %.fr.i = freeze i8 %30
+  %.not9.i.i = icmp eq i8 %.fr.i, 0
+  br i1 %.not9.i.i, label %._crit_edge.i, label %.lr.ph.split.preheader.i
 
-for.body.preheader.i:                             ; preds = %for.body.lr.ph.i
-  %wide.trip.count.i = zext i32 %2 to i64
-  br label %for.body.i
+.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i
+  %wide.trip.count.i = zext i32 %29 to i64
+  br label %.lr.ph.split.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %bestIdx.027.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdx.1.i, %for.inc.i ]
-  %bestIdxDiff.026.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdxDiff.1.i, %for.inc.i ]
-  %posixID1.i = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %0, i64 %indvars.iv.i, i32 1
-  %4 = load ptr, ptr %posixID1.i, align 8
-  %5 = load i8, ptr %4, align 1
-  %cmp5.i.not.i = icmp eq i8 %.fr.i, %5
-  br i1 %cmp5.i.not.i, label %while.body.i.i, label %_ZL5idCmpPKcS0_.exit.i
+.lr.ph.split.i:                                   ; preds = %51, %.lr.ph.split.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %51 ]
+  %.03352.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.235.ph.i, %51 ]
+  %.03651.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %.238.ph.i, %51 ]
+  %31 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixElement", ptr %21, i64 %indvars.iv.i, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
+  %33 = load i8, ptr %32, align 1, !tbaa !25
+  %.not57.i = icmp eq i8 %.fr.i, %33
+  br i1 %.not57.i, label %.lr.ph.i.i, label %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i
 
-while.body.i.i:                                   ; preds = %for.body.i, %while.body.i.i
-  %diffIdx.010.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %for.body.i ]
-  %id2.addr.09.i.i = phi ptr [ %incdec.ptr4.i.i, %while.body.i.i ], [ %4, %for.body.i ]
-  %id1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %posixID, %for.body.i ]
-  %inc.i.i = add nuw nsw i32 %diffIdx.010.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %id1.addr.08.i.i, i64 1
-  %incdec.ptr4.i.i = getelementptr inbounds nuw i8, ptr %id2.addr.09.i.i, i64 1
-  %6 = load i8, ptr %incdec.ptr.i.i, align 1
-  %7 = load i8, ptr %incdec.ptr4.i.i, align 1
-  %cmp.i.i = icmp ne i8 %6, %7
-  %cmp3.not.i.i = icmp eq i8 %6, 0
-  %or.cond.i.i = or i1 %cmp3.not.i.i, %cmp.i.i
-  br i1 %or.cond.i.i, label %_ZL5idCmpPKcS0_.exit.i, label %while.body.i.i, !llvm.loop !7
+.lr.ph.i.i:                                       ; preds = %.lr.ph.split.i, %.lr.ph.i.i
+  %.013.i.i = phi i32 [ %34, %.lr.ph.i.i ], [ 0, %.lr.ph.split.i ]
+  %.0612.i.i = phi ptr [ %36, %.lr.ph.i.i ], [ %32, %.lr.ph.split.i ]
+  %.0711.i.i = phi ptr [ %35, %.lr.ph.i.i ], [ %1, %.lr.ph.split.i ]
+  %34 = add nuw nsw i32 %.013.i.i, 1
+  %35 = getelementptr inbounds nuw i8, ptr %.0711.i.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.0612.i.i, i64 1
+  %37 = load i8, ptr %35, align 1, !tbaa !25
+  %38 = load i8, ptr %36, align 1, !tbaa !25
+  %39 = icmp ne i8 %37, %38
+  %.not.i.i = icmp eq i8 %37, 0
+  %or.cond.i.i = or i1 %.not.i.i, %39
+  br i1 %or.cond.i.i, label %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i, label %.lr.ph.i.i, !llvm.loop !26
 
-_ZL5idCmpPKcS0_.exit.i:                           ; preds = %while.body.i.i, %for.body.i
-  %diffIdx.0.lcssa.i.i = phi i32 [ 0, %for.body.i ], [ %inc.i.i, %while.body.i.i ]
-  %cmp3.i = icmp sgt i32 %diffIdx.0.lcssa.i.i, %bestIdxDiff.026.i
-  br i1 %cmp3.i, label %land.lhs.true.i, label %for.inc.i
+_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i:            ; preds = %.lr.ph.i.i, %.lr.ph.split.i
+  %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph.split.i ], [ %34, %.lr.ph.i.i ]
+  %40 = icmp sgt i32 %.0.lcssa.i.i, %.03651.i
+  br i1 %40, label %41, label %51
 
-land.lhs.true.i:                                  ; preds = %_ZL5idCmpPKcS0_.exit.i
-  %idxprom8.i = zext nneg i32 %diffIdx.0.lcssa.i.i to i64
-  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom8.i
-  %8 = load i8, ptr %arrayidx9.i, align 1
-  %cmp11.i = icmp eq i8 %8, 0
-  br i1 %cmp11.i, label %if.then.i, label %for.inc.i
+41:                                               ; preds = %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i
+  %42 = zext nneg i32 %.0.lcssa.i.i to i64
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 %42
+  %44 = load i8, ptr %43, align 1, !tbaa !25
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %46, label %51
 
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %cmp12.i = icmp eq i32 %diffIdx.0.lcssa.i.i, %conv.i
-  %9 = trunc nuw i64 %indvars.iv.i to i32
-  br i1 %cmp12.i, label %return.loopexit.i, label %for.inc.i
+46:                                               ; preds = %41
+  %47 = icmp eq i32 %.0.lcssa.i.i, %28
+  %48 = trunc nuw i64 %indvars.iv.i to i32
+  br i1 %47, label %.split.i, label %51
 
-for.inc.i:                                        ; preds = %if.then.i, %land.lhs.true.i, %_ZL5idCmpPKcS0_.exit.i
-  %bestIdxDiff.1.i = phi i32 [ %bestIdxDiff.026.i, %land.lhs.true.i ], [ %bestIdxDiff.026.i, %_ZL5idCmpPKcS0_.exit.i ], [ %diffIdx.0.lcssa.i.i, %if.then.i ]
-  %bestIdx.1.i = phi i32 [ %bestIdx.027.i, %land.lhs.true.i ], [ %bestIdx.027.i, %_ZL5idCmpPKcS0_.exit.i ], [ %9, %if.then.i ]
+.split.i:                                         ; preds = %46
+  %49 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixElement", ptr %21, i64 %indvars.iv.i
+  %50 = load i32, ptr %49, align 8, !tbaa !20
+  br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit
+
+51:                                               ; preds = %46, %41, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i
+  %.238.ph.i = phi i32 [ %.0.lcssa.i.i, %46 ], [ %.03651.i, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i ], [ %.03651.i, %41 ]
+  %.235.ph.i = phi i32 [ %48, %46 ], [ %.03352.i, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i ], [ %.03352.i, %41 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit32.i, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit58.i, label %.lr.ph.split.i, !llvm.loop !27
 
-for.end.loopexit32.i:                             ; preds = %for.inc.i
-  %10 = zext nneg i32 %bestIdxDiff.1.i to i64
-  %11 = sext i32 %bestIdx.1.i to i64
-  br label %for.end.i
+._crit_edge.loopexit58.i:                         ; preds = %51
+  %52 = zext nneg i32 %.238.ph.i to i64
+  %53 = sext i32 %.235.ph.i to i64
+  br label %._crit_edge.i
 
-for.end.i:                                        ; preds = %for.end.loopexit32.i, %for.body.lr.ph.i, %if.else16
-  %bestIdxDiff.0.lcssa.i = phi i64 [ 0, %if.else16 ], [ %10, %for.end.loopexit32.i ], [ 0, %for.body.lr.ph.i ]
-  %bestIdx.0.lcssa.i = phi i64 [ 0, %if.else16 ], [ %11, %for.end.loopexit32.i ], [ 0, %for.body.lr.ph.i ]
-  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %posixID, i64 %bestIdxDiff.0.lcssa.i
-  %12 = load i8, ptr %arrayidx19.i, align 1
-  switch i8 %12, label %if.end40.i [
-    i8 95, label %land.lhs.true26.i
-    i8 64, label %land.lhs.true26.i
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit58.i, %.lr.ph.i, %27
+  %.036.lcssa.i = phi i64 [ 0, %27 ], [ %52, %._crit_edge.loopexit58.i ], [ 0, %.lr.ph.i ]
+  %.033.lcssa.i = phi i64 [ 0, %27 ], [ %53, %._crit_edge.loopexit58.i ], [ 0, %.lr.ph.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %.036.lcssa.i
+  %55 = load i8, ptr %54, align 1, !tbaa !25
+  switch i8 %55, label %65 [
+    i8 95, label %56
+    i8 64, label %56
   ]
 
-land.lhs.true26.i:                                ; preds = %for.end.i, %for.end.i
-  %posixID30.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %0, i64 %bestIdx.0.lcssa.i, i32 1
-  %13 = load ptr, ptr %posixID30.i, align 8
-  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %13, i64 %bestIdxDiff.0.lcssa.i
-  %14 = load i8, ptr %arrayidx32.i, align 1
-  %cmp34.i = icmp eq i8 %14, 0
-  br i1 %cmp34.i, label %if.then35.i, label %if.end40.i
+56:                                               ; preds = %._crit_edge.i, %._crit_edge.i
+  %57 = getelementptr inbounds %"struct.(anonymous namespace)::ILcidPosixElement", ptr %21, i64 %.033.lcssa.i, i32 1
+  %58 = load ptr, ptr %57, align 8, !tbaa !24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.036.lcssa.i
+  %60 = load i8, ptr %59, align 1, !tbaa !25
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %62, label %65
 
-if.then35.i:                                      ; preds = %land.lhs.true26.i
-  store i32 -128, ptr %status, align 4
-  %arrayidx38.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %0, i64 %bestIdx.0.lcssa.i
-  br label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit
+62:                                               ; preds = %56
+  store i32 -128, ptr %2, align 4, !tbaa !13
+  %63 = getelementptr inbounds %"struct.(anonymous namespace)::ILcidPosixElement", ptr %21, i64 %.033.lcssa.i
+  %64 = load i32, ptr %63, align 8, !tbaa !20
+  br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit
 
-if.end40.i:                                       ; preds = %land.lhs.true26.i, %for.end.i
-  store i32 1, ptr %status, align 4
-  br label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit
+65:                                               ; preds = %56, %._crit_edge.i
+  store i32 1, ptr %2, align 4, !tbaa !13
+  br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit
 
-return.loopexit.i:                                ; preds = %if.then.i
-  %arrayidx6.le.i = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %0, i64 %indvars.iv.i
-  br label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit
+66:                                               ; preds = %26, %17
+  %.141 = phi i32 [ %15, %17 ], [ %.04092, %26 ]
+  %.139 = phi i32 [ %.03893, %17 ], [ %15, %26 ]
+  %67 = icmp samesign ugt i32 %.141, %.139
+  br i1 %67, label %.preheader, label %68, !llvm.loop !28
 
-_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit: ; preds = %if.then35.i, %if.end40.i, %return.loopexit.i
-  %retval.0.in.i = phi ptr [ %arrayidx38.i, %if.then35.i ], [ %0, %if.end40.i ], [ %arrayidx6.le.i, %return.loopexit.i ]
-  %retval.0.i = load i32, ptr %retval.0.in.i, align 8
-  br label %return
+68:                                               ; preds = %.preheader, %66
+  %69 = trunc i64 %12 to i32
+  br label %70
 
-if.end21:                                         ; preds = %if.else, %if.end9
-  %high.1 = phi i32 [ %shr, %if.end9 ], [ %high.089, %if.else ]
-  %low.1 = phi i32 [ %low.090, %if.end9 ], [ %shr, %if.else ]
-  %cmp6 = icmp samesign ugt i32 %high.1, %low.1
-  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !9
+70:                                               ; preds = %68, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread
+  %indvars.iv = phi i64 [ 0, %68 ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread ]
+  %.03495 = phi i32 [ -1, %68 ], [ %.1, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread ]
+  %71 = getelementptr inbounds nuw [141 x %"struct.(anonymous namespace)::ILcidPosixMap"], ptr @_ZN12_GLOBAL__N_111gPosixIDmapE, i64 0, i64 %indvars.iv
+  %72 = load i32, ptr %71, align 16, !tbaa !22
+  %.not.i49 = icmp eq i32 %72, 0
+  br i1 %.not.i49, label %._crit_edge.i67, label %.lr.ph.i50
 
-while.end:                                        ; preds = %while.body, %if.end21
-  %conv.i21 = trunc i64 %call4 to i32
-  br label %for.body
+.lr.ph.i50:                                       ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !17
+  %75 = load i8, ptr %1, align 1, !tbaa !25
+  %.fr.i51 = freeze i8 %75
+  %.not9.i.i52 = icmp eq i8 %.fr.i51, 0
+  br i1 %.not9.i.i52, label %._crit_edge.i67, label %.lr.ph.split.preheader.i53
 
-for.body:                                         ; preds = %while.end, %for.inc
-  %indvars.iv = phi i64 [ 0, %while.end ], [ %indvars.iv.next, %for.inc ]
-  %fallbackValue.092 = phi i32 [ -1, %while.end ], [ %fallbackValue.1, %for.inc ]
-  %arrayidx24 = getelementptr inbounds nuw [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %indvars.iv
-  %15 = load i32, ptr %arrayidx24, align 16
-  %cmp25.not.i22 = icmp eq i32 %15, 0
-  br i1 %cmp25.not.i22, label %for.end.i44, label %for.body.lr.ph.i23
+.lr.ph.split.preheader.i53:                       ; preds = %.lr.ph.i50
+  %wide.trip.count.i54 = zext i32 %72 to i64
+  br label %.lr.ph.split.i55
 
-for.body.lr.ph.i23:                               ; preds = %for.body
-  %regionMaps.i24 = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 8
-  %16 = load ptr, ptr %regionMaps.i24, align 8
-  %17 = load i8, ptr %posixID, align 1
-  %.fr.i25 = freeze i8 %17
-  %cmp3.not6.i.i26 = icmp eq i8 %.fr.i25, 0
-  br i1 %cmp3.not6.i.i26, label %for.end.i44, label %for.body.preheader.i27
+.lr.ph.split.i55:                                 ; preds = %96, %.lr.ph.split.preheader.i53
+  %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.split.preheader.i53 ], [ %indvars.iv.next.i64, %96 ]
+  %.03352.i57 = phi i32 [ 0, %.lr.ph.split.preheader.i53 ], [ %.235.ph.i63, %96 ]
+  %.03651.i58 = phi i32 [ 0, %.lr.ph.split.preheader.i53 ], [ %.238.ph.i62, %96 ]
+  %76 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixElement", ptr %74, i64 %indvars.iv.i56, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
+  %78 = load i8, ptr %77, align 1, !tbaa !25
+  %.not57.i59 = icmp eq i8 %.fr.i51, %78
+  br i1 %.not57.i59, label %.lr.ph.i.i71, label %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60
 
-for.body.preheader.i27:                           ; preds = %for.body.lr.ph.i23
-  %wide.trip.count.i28 = zext i32 %15 to i64
-  br label %for.body.i29
+.lr.ph.i.i71:                                     ; preds = %.lr.ph.split.i55, %.lr.ph.i.i71
+  %.013.i.i72 = phi i32 [ %79, %.lr.ph.i.i71 ], [ 0, %.lr.ph.split.i55 ]
+  %.0612.i.i73 = phi ptr [ %81, %.lr.ph.i.i71 ], [ %77, %.lr.ph.split.i55 ]
+  %.0711.i.i74 = phi ptr [ %80, %.lr.ph.i.i71 ], [ %1, %.lr.ph.split.i55 ]
+  %79 = add nuw nsw i32 %.013.i.i72, 1
+  %80 = getelementptr inbounds nuw i8, ptr %.0711.i.i74, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.0612.i.i73, i64 1
+  %82 = load i8, ptr %80, align 1, !tbaa !25
+  %83 = load i8, ptr %81, align 1, !tbaa !25
+  %84 = icmp ne i8 %82, %83
+  %.not.i.i75 = icmp eq i8 %82, 0
+  %or.cond.i.i76 = or i1 %.not.i.i75, %84
+  br i1 %or.cond.i.i76, label %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60, label %.lr.ph.i.i71, !llvm.loop !26
 
-for.body.i29:                                     ; preds = %for.inc.i38, %for.body.preheader.i27
-  %indvars.iv.i30 = phi i64 [ 0, %for.body.preheader.i27 ], [ %indvars.iv.next.i41, %for.inc.i38 ]
-  %bestIdx.027.i31 = phi i32 [ 0, %for.body.preheader.i27 ], [ %bestIdx.1.i40, %for.inc.i38 ]
-  %bestIdxDiff.026.i32 = phi i32 [ 0, %for.body.preheader.i27 ], [ %bestIdxDiff.1.i39, %for.inc.i38 ]
-  %posixID1.i33 = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %16, i64 %indvars.iv.i30, i32 1
-  %18 = load ptr, ptr %posixID1.i33, align 8
-  %19 = load i8, ptr %18, align 1
-  %cmp5.i.not.i34 = icmp eq i8 %.fr.i25, %19
-  br i1 %cmp5.i.not.i34, label %while.body.i.i67, label %_ZL5idCmpPKcS0_.exit.i35
+_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60:          ; preds = %.lr.ph.i.i71, %.lr.ph.split.i55
+  %.0.lcssa.i.i61 = phi i32 [ 0, %.lr.ph.split.i55 ], [ %79, %.lr.ph.i.i71 ]
+  %85 = icmp sgt i32 %.0.lcssa.i.i61, %.03651.i58
+  br i1 %85, label %86, label %96
 
-while.body.i.i67:                                 ; preds = %for.body.i29, %while.body.i.i67
-  %diffIdx.010.i.i68 = phi i32 [ %inc.i.i71, %while.body.i.i67 ], [ 0, %for.body.i29 ]
-  %id2.addr.09.i.i69 = phi ptr [ %incdec.ptr4.i.i73, %while.body.i.i67 ], [ %18, %for.body.i29 ]
-  %id1.addr.08.i.i70 = phi ptr [ %incdec.ptr.i.i72, %while.body.i.i67 ], [ %posixID, %for.body.i29 ]
-  %inc.i.i71 = add nuw nsw i32 %diffIdx.010.i.i68, 1
-  %incdec.ptr.i.i72 = getelementptr inbounds nuw i8, ptr %id1.addr.08.i.i70, i64 1
-  %incdec.ptr4.i.i73 = getelementptr inbounds nuw i8, ptr %id2.addr.09.i.i69, i64 1
-  %20 = load i8, ptr %incdec.ptr.i.i72, align 1
-  %21 = load i8, ptr %incdec.ptr4.i.i73, align 1
-  %cmp.i.i74 = icmp ne i8 %20, %21
-  %cmp3.not.i.i75 = icmp eq i8 %20, 0
-  %or.cond.i.i76 = or i1 %cmp3.not.i.i75, %cmp.i.i74
-  br i1 %or.cond.i.i76, label %_ZL5idCmpPKcS0_.exit.i35, label %while.body.i.i67, !llvm.loop !7
+86:                                               ; preds = %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60
+  %87 = zext nneg i32 %.0.lcssa.i.i61 to i64
+  %88 = getelementptr inbounds nuw i8, ptr %77, i64 %87
+  %89 = load i8, ptr %88, align 1, !tbaa !25
+  %90 = icmp eq i8 %89, 0
+  br i1 %90, label %91, label %96
 
-_ZL5idCmpPKcS0_.exit.i35:                         ; preds = %while.body.i.i67, %for.body.i29
-  %diffIdx.0.lcssa.i.i36 = phi i32 [ 0, %for.body.i29 ], [ %inc.i.i71, %while.body.i.i67 ]
-  %cmp3.i37 = icmp sgt i32 %diffIdx.0.lcssa.i.i36, %bestIdxDiff.026.i32
-  br i1 %cmp3.i37, label %land.lhs.true.i59, label %for.inc.i38
+91:                                               ; preds = %86
+  %92 = icmp eq i32 %.0.lcssa.i.i61, %69
+  %93 = trunc nuw i64 %indvars.iv.i56 to i32
+  br i1 %92, label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread82, label %96
 
-land.lhs.true.i59:                                ; preds = %_ZL5idCmpPKcS0_.exit.i35
-  %idxprom8.i60 = zext nneg i32 %diffIdx.0.lcssa.i.i36 to i64
-  %arrayidx9.i61 = getelementptr inbounds nuw i8, ptr %18, i64 %idxprom8.i60
-  %22 = load i8, ptr %arrayidx9.i61, align 1
-  %cmp11.i62 = icmp eq i8 %22, 0
-  br i1 %cmp11.i62, label %if.then.i63, label %for.inc.i38
+_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread82: ; preds = %91
+  %94 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ILcidPosixElement", ptr %74, i64 %indvars.iv.i56
+  %95 = load i32, ptr %94, align 8, !tbaa !20
+  br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit
 
-if.then.i63:                                      ; preds = %land.lhs.true.i59
-  %cmp12.i64 = icmp eq i32 %diffIdx.0.lcssa.i.i36, %conv.i21
-  %23 = trunc nuw i64 %indvars.iv.i30 to i32
-  br i1 %cmp12.i64, label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit77.thread81, label %for.inc.i38
+96:                                               ; preds = %91, %86, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60
+  %.238.ph.i62 = phi i32 [ %.0.lcssa.i.i61, %91 ], [ %.03651.i58, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60 ], [ %.03651.i58, %86 ]
+  %.235.ph.i63 = phi i32 [ %93, %91 ], [ %.03352.i57, %_ZN12_GLOBAL__N_15idCmpEPKcS1_.exit.i60 ], [ %.03352.i57, %86 ]
+  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i56, 1
+  %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i54
+  br i1 %exitcond.not.i65, label %._crit_edge.loopexit58.i66, label %.lr.ph.split.i55, !llvm.loop !27
 
-for.inc.i38:                                      ; preds = %if.then.i63, %land.lhs.true.i59, %_ZL5idCmpPKcS0_.exit.i35
-  %bestIdxDiff.1.i39 = phi i32 [ %bestIdxDiff.026.i32, %land.lhs.true.i59 ], [ %bestIdxDiff.026.i32, %_ZL5idCmpPKcS0_.exit.i35 ], [ %diffIdx.0.lcssa.i.i36, %if.then.i63 ]
-  %bestIdx.1.i40 = phi i32 [ %bestIdx.027.i31, %land.lhs.true.i59 ], [ %bestIdx.027.i31, %_ZL5idCmpPKcS0_.exit.i35 ], [ %23, %if.then.i63 ]
-  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i30, 1
-  %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i28
-  br i1 %exitcond.not.i42, label %for.end.loopexit32.i43, label %for.body.i29, !llvm.loop !8
+._crit_edge.loopexit58.i66:                       ; preds = %96
+  %97 = zext nneg i32 %.238.ph.i62 to i64
+  %98 = sext i32 %.235.ph.i63 to i64
+  br label %._crit_edge.i67
 
-for.end.loopexit32.i43:                           ; preds = %for.inc.i38
-  %24 = zext nneg i32 %bestIdxDiff.1.i39 to i64
-  %25 = sext i32 %bestIdx.1.i40 to i64
-  br label %for.end.i44
-
-for.end.i44:                                      ; preds = %for.end.loopexit32.i43, %for.body.lr.ph.i23, %for.body
-  %bestIdxDiff.0.lcssa.i45 = phi i64 [ 0, %for.body ], [ %24, %for.end.loopexit32.i43 ], [ 0, %for.body.lr.ph.i23 ]
-  %bestIdx.0.lcssa.i46 = phi i64 [ 0, %for.body ], [ %25, %for.end.loopexit32.i43 ], [ 0, %for.body.lr.ph.i23 ]
-  %arrayidx19.i47 = getelementptr inbounds nuw i8, ptr %posixID, i64 %bestIdxDiff.0.lcssa.i45
-  %26 = load i8, ptr %arrayidx19.i47, align 1
-  switch i8 %26, label %for.inc [
-    i8 95, label %land.lhs.true26.i48
-    i8 64, label %land.lhs.true26.i48
+._crit_edge.i67:                                  ; preds = %._crit_edge.loopexit58.i66, %.lr.ph.i50, %70
+  %.036.lcssa.i68 = phi i64 [ 0, %70 ], [ %97, %._crit_edge.loopexit58.i66 ], [ 0, %.lr.ph.i50 ]
+  %.033.lcssa.i69 = phi i64 [ 0, %70 ], [ %98, %._crit_edge.loopexit58.i66 ], [ 0, %.lr.ph.i50 ]
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 %.036.lcssa.i68
+  %100 = load i8, ptr %99, align 1, !tbaa !25
+  switch i8 %100, label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread [
+    i8 95, label %101
+    i8 64, label %101
   ]
 
-land.lhs.true26.i48:                              ; preds = %for.end.i44, %for.end.i44
-  %regionMaps27.i49 = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 8
-  %27 = load ptr, ptr %regionMaps27.i49, align 8
-  %posixID30.i50 = getelementptr inbounds %struct.ILcidPosixElement, ptr %27, i64 %bestIdx.0.lcssa.i46, i32 1
-  %28 = load ptr, ptr %posixID30.i50, align 8
-  %arrayidx32.i51 = getelementptr inbounds nuw i8, ptr %28, i64 %bestIdxDiff.0.lcssa.i45
-  %29 = load i8, ptr %arrayidx32.i51, align 1
-  %cmp34.i52 = icmp eq i8 %29, 0
-  br i1 %cmp34.i52, label %if.then30, label %for.inc
+101:                                              ; preds = %._crit_edge.i67, %._crit_edge.i67
+  %102 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %103 = load ptr, ptr %102, align 8, !tbaa !17
+  %104 = getelementptr inbounds %"struct.(anonymous namespace)::ILcidPosixElement", ptr %103, i64 %.033.lcssa.i69, i32 1
+  %105 = load ptr, ptr %104, align 8, !tbaa !24
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.036.lcssa.i68
+  %107 = load i8, ptr %106, align 1, !tbaa !25
+  %108 = icmp eq i8 %107, 0
+  br i1 %108, label %109, label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread
 
-_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit77.thread81: ; preds = %if.then.i63
-  %arrayidx6.le.i66 = getelementptr inbounds nuw %struct.ILcidPosixElement, ptr %16, i64 %indvars.iv.i30
-  %retval.0.i5684 = load i32, ptr %arrayidx6.le.i66, align 8
-  br label %return
+109:                                              ; preds = %101
+  %110 = getelementptr inbounds %"struct.(anonymous namespace)::ILcidPosixElement", ptr %103, i64 %.033.lcssa.i69
+  %111 = load i32, ptr %110, align 8, !tbaa !20
+  br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread
 
-if.then30:                                        ; preds = %land.lhs.true26.i48
-  %arrayidx38.i58 = getelementptr inbounds %struct.ILcidPosixElement, ptr %27, i64 %bestIdx.0.lcssa.i46
-  %retval.0.i56 = load i32, ptr %arrayidx38.i58, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %land.lhs.true26.i48, %for.end.i44, %if.then30
-  %fallbackValue.1 = phi i32 [ %retval.0.i56, %if.then30 ], [ %fallbackValue.092, %for.end.i44 ], [ %fallbackValue.092, %land.lhs.true26.i48 ]
+_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread: ; preds = %._crit_edge.i67, %101, %109
+  %.1 = phi i32 [ %111, %109 ], [ %.03495, %101 ], [ %.03495, %._crit_edge.i67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 141
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %112, label %70, !llvm.loop !29
 
-for.end:                                          ; preds = %for.inc
-  %cmp33.not = icmp eq i32 %fallbackValue.1, -1
-  br i1 %cmp33.not, label %if.end35, label %if.then34
+112:                                              ; preds = %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread
+  %.not47 = icmp eq i32 %.1, -1
+  br i1 %.not47, label %114, label %113
 
-if.then34:                                        ; preds = %for.end
-  store i32 -128, ptr %status, align 4
-  br label %return
+113:                                              ; preds = %112
+  store i32 -128, ptr %2, align 4, !tbaa !13
+  br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit
 
-if.end35:                                         ; preds = %for.end
-  store i32 1, ptr %status, align 4
-  br label %return
+114:                                              ; preds = %112
+  store i32 1, ptr %2, align 4, !tbaa !13
+  br label %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit
 
-return:                                           ; preds = %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit77.thread81, %entry, %lor.lhs.false2, %lor.lhs.false3, %if.end35, %if.then34, %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit
-  %retval.0 = phi i32 [ %fallbackValue.1, %if.then34 ], [ 0, %if.end35 ], [ %retval.0.i, %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false2 ], [ 0, %entry ], [ %retval.0.i5684, %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit77.thread81 ]
-  ret i32 %retval.0
+_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit: ; preds = %113, %114, %.split.i, %62, %65, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread82, %3, %8, %11
+  %.035 = phi i32 [ 0, %11 ], [ 0, %8 ], [ 0, %3 ], [ %.1, %113 ], [ 0, %114 ], [ %50, %.split.i ], [ %64, %62 ], [ 0, %65 ], [ %95, %_ZN12_GLOBAL__N_19getHostIDEPKNS_13ILcidPosixMapEPKcR10UErrorCode.exit77.thread82 ]
+  ret i32 %.035
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #13
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { allocsize(0) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { allocsize(0) }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN6icu_7715MaybeStackArrayIcLi40EEE", !5, i64 0, !9, i64 8, !7, i64 12, !7, i64 13}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!4, !9, i64 8}
+!11 = !{!4, !7, i64 12}
+!12 = !{!9, !9, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"_ZTS10UErrorCode", !7, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !19, i64 8}
+!18 = !{!"_ZTSN12_GLOBAL__N_113ILcidPosixMapE", !9, i64 0, !19, i64 8}
+!19 = !{!"p1 _ZTSN12_GLOBAL__N_117ILcidPosixElementE", !6, i64 0}
+!20 = !{!21, !9, i64 0}
+!21 = !{!"_ZTSN12_GLOBAL__N_117ILcidPosixElementE", !9, i64 0, !5, i64 8}
+!22 = !{!18, !9, i64 0}
+!23 = distinct !{!23, !16}
+!24 = !{!21, !5, i64 8}
+!25 = !{!7, !7, i64 0}
+!26 = distinct !{!26, !16}
+!27 = distinct !{!27, !16}
+!28 = distinct !{!28, !16}
+!29 = distinct !{!29, !16}

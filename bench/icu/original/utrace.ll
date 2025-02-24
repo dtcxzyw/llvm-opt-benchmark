@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -46,1459 +46,1555 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [9 x i8] c"res-open\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @utrace_entry_75(i32 noundef %fnNumber) #0 {
-entry:
-  %fnNumber.addr = alloca i32, align 4
-  store i32 %fnNumber, ptr %fnNumber.addr, align 4
-  %0 = load ptr, ptr @_ZL15pTraceEntryFunc, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define void @utrace_entry_77(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %3 = load ptr, ptr @_ZL15pTraceEntryFunc, align 8, !tbaa !7
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %9
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @_ZL15pTraceEntryFunc, align 8
-  %2 = load ptr, ptr @_ZL13gTraceContext, align 8
-  %3 = load i32, ptr %fnNumber.addr, align 4
-  call void %1(ptr noundef %2, i32 noundef %3)
-  br label %if.end
+5:                                                ; preds = %1
+  %6 = load ptr, ptr @_ZL15pTraceEntryFunc, align 8, !tbaa !7
+  %7 = load ptr, ptr @_ZL13gTraceContext, align 8, !tbaa !7
+  %8 = load i32, ptr %2, align 4, !tbaa !3
+  call void %6(ptr noundef %7, i32 noundef %8)
+  br label %9
 
-if.end:                                           ; preds = %if.then, %entry
+9:                                                ; preds = %5, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrace_exit_75(i32 noundef %fnNumber, i32 noundef %returnType, ...) #0 {
-entry:
-  %fnNumber.addr = alloca i32, align 4
-  %returnType.addr = alloca i32, align 4
-  %args = alloca [1 x %struct.__va_list_tag], align 16
-  %fmt = alloca ptr, align 8
-  store i32 %fnNumber, ptr %fnNumber.addr, align 4
-  store i32 %returnType, ptr %returnType.addr, align 4
-  %0 = load ptr, ptr @_ZL14pTraceExitFunc, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define void @utrace_exit_77(i32 noundef %0, i32 noundef %1, ...) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca [1 x %struct.__va_list_tag], align 16
+  %6 = alloca ptr, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !3
+  %7 = load ptr, ptr @_ZL14pTraceExitFunc, align 8, !tbaa !7
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %25
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %returnType.addr, align 4
-  switch i32 %1, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 16, label %sw.bb2
-    i32 17, label %sw.bb3
-    i32 18, label %sw.bb4
+9:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %10 = load i32, ptr %4, align 4, !tbaa !3
+  switch i32 %10, label %16 [
+    i32 0, label %11
+    i32 1, label %12
+    i32 16, label %13
+    i32 17, label %14
+    i32 18, label %15
   ]
 
-sw.bb:                                            ; preds = %if.then
-  store ptr @_ZL8gExitFmt, ptr %fmt, align 8
-  br label %sw.epilog
+11:                                               ; preds = %9
+  store ptr @_ZL8gExitFmt, ptr %6, align 8, !tbaa !9
+  br label %17
 
-sw.bb1:                                           ; preds = %if.then
-  store ptr @_ZL13gExitFmtValue, ptr %fmt, align 8
-  br label %sw.epilog
+12:                                               ; preds = %9
+  store ptr @_ZL13gExitFmtValue, ptr %6, align 8, !tbaa !9
+  br label %17
 
-sw.bb2:                                           ; preds = %if.then
-  store ptr @_ZL14gExitFmtStatus, ptr %fmt, align 8
-  br label %sw.epilog
+13:                                               ; preds = %9
+  store ptr @_ZL14gExitFmtStatus, ptr %6, align 8, !tbaa !9
+  br label %17
 
-sw.bb3:                                           ; preds = %if.then
-  store ptr @_ZL19gExitFmtValueStatus, ptr %fmt, align 8
-  br label %sw.epilog
+14:                                               ; preds = %9
+  store ptr @_ZL19gExitFmtValueStatus, ptr %6, align 8, !tbaa !9
+  br label %17
 
-sw.bb4:                                           ; preds = %if.then
-  store ptr @_ZL17gExitFmtPtrStatus, ptr %fmt, align 8
-  br label %sw.epilog
+15:                                               ; preds = %9
+  store ptr @_ZL17gExitFmtPtrStatus, ptr %6, align 8, !tbaa !9
+  br label %17
 
-sw.default:                                       ; preds = %if.then
-  call void @abort() #4
+16:                                               ; preds = %9
+  call void @abort() #6
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
-  %2 = load ptr, ptr @_ZL14pTraceExitFunc, align 8
-  %3 = load ptr, ptr @_ZL13gTraceContext, align 8
-  %4 = load i32, ptr %fnNumber.addr, align 4
-  %5 = load ptr, ptr %fmt, align 8
-  %arraydecay5 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void %2(ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %arraydecay5)
-  %arraydecay6 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay6)
-  br label %if.end
+17:                                               ; preds = %15, %14, %13, %12, %11
+  %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %18)
+  %19 = load ptr, ptr @_ZL14pTraceExitFunc, align 8, !tbaa !7
+  %20 = load ptr, ptr @_ZL13gTraceContext, align 8, !tbaa !7
+  %21 = load i32, ptr %3, align 4, !tbaa !3
+  %22 = load ptr, ptr %6, align 8, !tbaa !9
+  %23 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void %19(ptr noundef %20, i32 noundef %21, ptr noundef %22, ptr noundef %23)
+  %24 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %5, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #5
+  br label %25
 
-if.end:                                           ; preds = %sw.epilog, %entry
+25:                                               ; preds = %17, %2
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() #1
+declare void @abort() #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
+declare void @llvm.va_start.p0(ptr) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
+declare void @llvm.va_end.p0(ptr) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @utrace_data_75(i32 noundef %fnNumber, i32 noundef %level, ptr noundef %fmt, ...) #0 {
-entry:
-  %fnNumber.addr = alloca i32, align 4
-  %level.addr = alloca i32, align 4
-  %fmt.addr = alloca ptr, align 8
-  %args = alloca [1 x %struct.__va_list_tag], align 16
-  store i32 %fnNumber, ptr %fnNumber.addr, align 4
-  store i32 %level, ptr %level.addr, align 4
-  store ptr %fmt, ptr %fmt.addr, align 8
-  %0 = load ptr, ptr @_ZL14pTraceDataFunc, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define void @utrace_data_77(i32 noundef %0, i32 noundef %1, ptr noundef %2, ...) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca [1 x %struct.__va_list_tag], align 16
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  %8 = load ptr, ptr @_ZL14pTraceDataFunc, align 8, !tbaa !7
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %19
 
-if.then:                                          ; preds = %entry
-  %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
-  %1 = load ptr, ptr @_ZL14pTraceDataFunc, align 8
-  %2 = load ptr, ptr @_ZL13gTraceContext, align 8
-  %3 = load i32, ptr %fnNumber.addr, align 4
-  %4 = load i32, ptr %level.addr, align 4
-  %5 = load ptr, ptr %fmt.addr, align 8
-  %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void %1(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %arraydecay1)
-  %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
-  br label %if.end
+10:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #5
+  %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %11)
+  %12 = load ptr, ptr @_ZL14pTraceDataFunc, align 8, !tbaa !7
+  %13 = load ptr, ptr @_ZL13gTraceContext, align 8, !tbaa !7
+  %14 = load i32, ptr %4, align 4, !tbaa !3
+  %15 = load i32, ptr %5, align 4, !tbaa !3
+  %16 = load ptr, ptr %6, align 8, !tbaa !9
+  %17 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  call void %12(ptr noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17)
+  %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %7, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %18)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #5
+  br label %19
 
-if.end:                                           ; preds = %if.then, %entry
+19:                                               ; preds = %10, %3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utrace_vformat_75(ptr noundef %outBuf, i32 noundef %capacity, i32 noundef %indent, ptr noundef %fmt, ptr noundef %args) #0 {
-entry:
-  %outBuf.addr = alloca ptr, align 8
-  %capacity.addr = alloca i32, align 4
-  %indent.addr = alloca i32, align 4
-  %fmt.addr = alloca ptr, align 8
-  %args.addr = alloca ptr, align 8
-  %outIx = alloca i32, align 4
-  %fmtIx = alloca i32, align 4
-  %fmtC = alloca i8, align 1
-  %c = alloca i8, align 1
-  %intArg = alloca i32, align 4
-  %longArg = alloca i64, align 8
-  %ptrArg = alloca ptr, align 8
-  %vectorType = alloca i8, align 1
-  %vectorLen = alloca i32, align 4
-  %i8Ptr = alloca ptr, align 8
-  %i16Ptr = alloca ptr, align 8
-  %i32Ptr = alloca ptr, align 8
-  %i64Ptr = alloca ptr, align 8
-  %ptrPtr = alloca ptr, align 8
-  %charsToOutput = alloca i32, align 4
-  %i = alloca i32, align 4
-  store ptr %outBuf, ptr %outBuf.addr, align 8
-  store i32 %capacity, ptr %capacity.addr, align 4
-  store i32 %indent, ptr %indent.addr, align 4
-  store ptr %fmt, ptr %fmt.addr, align 8
-  store ptr %args, ptr %args.addr, align 8
-  store i32 0, ptr %outIx, align 4
-  store i32 0, ptr %fmtIx, align 4
-  store i64 0, ptr %longArg, align 8
-  br label %for.cond
+define i32 @utrace_vformat_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
+  %15 = alloca i32, align 4
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca i8, align 1
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !9
+  store ptr %4, ptr %10, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 0, ptr %11, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  store i32 0, ptr %12, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  store i64 0, ptr %16, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  br label %27
 
-for.cond:                                         ; preds = %sw.epilog182, %if.end, %entry
-  %0 = load ptr, ptr %fmt.addr, align 8
-  %1 = load i32, ptr %fmtIx, align 4
-  %inc = add nsw i32 %1, 1
-  store i32 %inc, ptr %fmtIx, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 1
-  store i8 %2, ptr %fmtC, align 1
-  %3 = load i8, ptr %fmtC, align 1
-  %conv = sext i8 %3 to i32
-  %cmp = icmp ne i32 %conv, 37
-  br i1 %cmp, label %if.then, label %if.end4
+27:                                               ; preds = %427, %46, %5
+  %28 = load ptr, ptr %9, align 8, !tbaa !9
+  %29 = load i32, ptr %12, align 4, !tbaa !3
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %12, align 4, !tbaa !3
+  %31 = sext i32 %29 to i64
+  %32 = getelementptr inbounds i8, ptr %28, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !15
+  store i8 %33, ptr %13, align 1, !tbaa !15
+  %34 = load i8, ptr %13, align 1, !tbaa !15
+  %35 = sext i8 %34 to i32
+  %36 = icmp ne i32 %35, 37
+  br i1 %36, label %37, label %47
 
-if.then:                                          ; preds = %for.cond
-  %4 = load i8, ptr %fmtC, align 1
-  %5 = load ptr, ptr %outBuf.addr, align 8
-  %6 = load i32, ptr %capacity.addr, align 4
-  %7 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext %4, ptr noundef %5, ptr noundef %outIx, i32 noundef %6, i32 noundef %7)
-  %8 = load i8, ptr %fmtC, align 1
-  %conv1 = sext i8 %8 to i32
-  %cmp2 = icmp eq i32 %conv1, 0
-  br i1 %cmp2, label %if.then3, label %if.end
+37:                                               ; preds = %27
+  %38 = load i8, ptr %13, align 1, !tbaa !15
+  %39 = load ptr, ptr %6, align 8, !tbaa !9
+  %40 = load i32, ptr %7, align 4, !tbaa !3
+  %41 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext %38, ptr noundef %39, ptr noundef %11, i32 noundef %40, i32 noundef %41)
+  %42 = load i8, ptr %13, align 1, !tbaa !15
+  %43 = sext i8 %42 to i32
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %46
 
-if.then3:                                         ; preds = %if.then
-  br label %for.end183
+45:                                               ; preds = %37
+  br label %428
 
-if.end:                                           ; preds = %if.then
-  br label %for.cond, !llvm.loop !4
+46:                                               ; preds = %37
+  br label %27, !llvm.loop !16
 
-if.end4:                                          ; preds = %for.cond
-  %9 = load ptr, ptr %fmt.addr, align 8
-  %10 = load i32, ptr %fmtIx, align 4
-  %inc5 = add nsw i32 %10, 1
-  store i32 %inc5, ptr %fmtIx, align 4
-  %idxprom6 = sext i32 %10 to i64
-  %arrayidx7 = getelementptr inbounds i8, ptr %9, i64 %idxprom6
-  %11 = load i8, ptr %arrayidx7, align 1
-  store i8 %11, ptr %fmtC, align 1
-  %12 = load i8, ptr %fmtC, align 1
-  %conv8 = sext i8 %12 to i32
-  switch i32 %conv8, label %sw.default [
-    i32 99, label %sw.bb
-    i32 115, label %sw.bb10
-    i32 83, label %sw.bb22
-    i32 98, label %sw.bb45
-    i32 104, label %sw.bb58
-    i32 100, label %sw.bb71
-    i32 108, label %sw.bb84
-    i32 112, label %sw.bb96
-    i32 0, label %sw.bb108
-    i32 118, label %sw.bb109
+47:                                               ; preds = %27
+  %48 = load ptr, ptr %9, align 8, !tbaa !9
+  %49 = load i32, ptr %12, align 4, !tbaa !3
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %12, align 4, !tbaa !3
+  %51 = sext i32 %49 to i64
+  %52 = getelementptr inbounds i8, ptr %48, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !15
+  store i8 %53, ptr %13, align 1, !tbaa !15
+  %54 = load i8, ptr %13, align 1, !tbaa !15
+  %55 = sext i8 %54 to i32
+  switch i32 %55, label %422 [
+    i32 99, label %56
+    i32 115, label %78
+    i32 83, label %99
+    i32 98, label %137
+    i32 104, label %158
+    i32 100, label %179
+    i32 108, label %200
+    i32 112, label %220
+    i32 0, label %240
+    i32 118, label %246
   ]
 
-sw.bb:                                            ; preds = %if.end4
-  %13 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p = getelementptr inbounds %struct.__va_list_tag, ptr %13, i32 0, i32 0
-  %gp_offset = load i32, ptr %gp_offset_p, align 8
-  %fits_in_gp = icmp ule i32 %gp_offset, 40
-  br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
+56:                                               ; preds = %47
+  %57 = load ptr, ptr %10, align 8, !tbaa !11
+  %58 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %57, i32 0, i32 0
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp ule i32 %59, 40
+  br i1 %60, label %61, label %66
 
-vaarg.in_reg:                                     ; preds = %sw.bb
-  %14 = getelementptr inbounds %struct.__va_list_tag, ptr %13, i32 0, i32 3
-  %reg_save_area = load ptr, ptr %14, align 8
-  %15 = getelementptr i8, ptr %reg_save_area, i32 %gp_offset
-  %16 = add i32 %gp_offset, 8
-  store i32 %16, ptr %gp_offset_p, align 8
-  br label %vaarg.end
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %57, i32 0, i32 3
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr i8, ptr %63, i32 %59
+  %65 = add i32 %59, 8
+  store i32 %65, ptr %58, align 8
+  br label %70
 
-vaarg.in_mem:                                     ; preds = %sw.bb
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %13, i32 0, i32 2
-  %overflow_arg_area = load ptr, ptr %overflow_arg_area_p, align 8
-  %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area, i32 8
-  store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
-  br label %vaarg.end
+66:                                               ; preds = %56
+  %67 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %57, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr i8, ptr %68, i32 8
+  store ptr %69, ptr %67, align 8
+  br label %70
 
-vaarg.end:                                        ; preds = %vaarg.in_mem, %vaarg.in_reg
-  %vaarg.addr = phi ptr [ %15, %vaarg.in_reg ], [ %overflow_arg_area, %vaarg.in_mem ]
-  %17 = load i32, ptr %vaarg.addr, align 4
-  %conv9 = trunc i32 %17 to i8
-  store i8 %conv9, ptr %c, align 1
-  %18 = load i8, ptr %c, align 1
-  %19 = load ptr, ptr %outBuf.addr, align 8
-  %20 = load i32, ptr %capacity.addr, align 4
-  %21 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext %18, ptr noundef %19, ptr noundef %outIx, i32 noundef %20, i32 noundef %21)
-  br label %sw.epilog182
+70:                                               ; preds = %66, %61
+  %71 = phi ptr [ %64, %61 ], [ %68, %66 ]
+  %72 = load i32, ptr %71, align 4, !tbaa !3
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %14, align 1, !tbaa !15
+  %74 = load i8, ptr %14, align 1, !tbaa !15
+  %75 = load ptr, ptr %6, align 8, !tbaa !9
+  %76 = load i32, ptr %7, align 4, !tbaa !3
+  %77 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext %74, ptr noundef %75, ptr noundef %11, i32 noundef %76, i32 noundef %77)
+  br label %427
 
-sw.bb10:                                          ; preds = %if.end4
-  %22 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p11 = getelementptr inbounds %struct.__va_list_tag, ptr %22, i32 0, i32 0
-  %gp_offset12 = load i32, ptr %gp_offset_p11, align 8
-  %fits_in_gp13 = icmp ule i32 %gp_offset12, 40
-  br i1 %fits_in_gp13, label %vaarg.in_reg14, label %vaarg.in_mem16
+78:                                               ; preds = %47
+  %79 = load ptr, ptr %10, align 8, !tbaa !11
+  %80 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %79, i32 0, i32 0
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp ule i32 %81, 40
+  br i1 %82, label %83, label %88
 
-vaarg.in_reg14:                                   ; preds = %sw.bb10
-  %23 = getelementptr inbounds %struct.__va_list_tag, ptr %22, i32 0, i32 3
-  %reg_save_area15 = load ptr, ptr %23, align 8
-  %24 = getelementptr i8, ptr %reg_save_area15, i32 %gp_offset12
-  %25 = add i32 %gp_offset12, 8
-  store i32 %25, ptr %gp_offset_p11, align 8
-  br label %vaarg.end20
+83:                                               ; preds = %78
+  %84 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %79, i32 0, i32 3
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr i8, ptr %85, i32 %81
+  %87 = add i32 %81, 8
+  store i32 %87, ptr %80, align 8
+  br label %92
 
-vaarg.in_mem16:                                   ; preds = %sw.bb10
-  %overflow_arg_area_p17 = getelementptr inbounds %struct.__va_list_tag, ptr %22, i32 0, i32 2
-  %overflow_arg_area18 = load ptr, ptr %overflow_arg_area_p17, align 8
-  %overflow_arg_area.next19 = getelementptr i8, ptr %overflow_arg_area18, i32 8
-  store ptr %overflow_arg_area.next19, ptr %overflow_arg_area_p17, align 8
-  br label %vaarg.end20
+88:                                               ; preds = %78
+  %89 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %79, i32 0, i32 2
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr i8, ptr %90, i32 8
+  store ptr %91, ptr %89, align 8
+  br label %92
 
-vaarg.end20:                                      ; preds = %vaarg.in_mem16, %vaarg.in_reg14
-  %vaarg.addr21 = phi ptr [ %24, %vaarg.in_reg14 ], [ %overflow_arg_area18, %vaarg.in_mem16 ]
-  %26 = load ptr, ptr %vaarg.addr21, align 8
-  store ptr %26, ptr %ptrArg, align 8
-  %27 = load ptr, ptr %ptrArg, align 8
-  %28 = load ptr, ptr %outBuf.addr, align 8
-  %29 = load i32, ptr %capacity.addr, align 4
-  %30 = load i32, ptr %indent.addr, align 4
-  call void @_ZL12outputStringPKcPcPiii(ptr noundef %27, ptr noundef %28, ptr noundef %outIx, i32 noundef %29, i32 noundef %30)
-  br label %sw.epilog182
+92:                                               ; preds = %88, %83
+  %93 = phi ptr [ %86, %83 ], [ %90, %88 ]
+  %94 = load ptr, ptr %93, align 8, !tbaa !9
+  store ptr %94, ptr %17, align 8, !tbaa !9
+  %95 = load ptr, ptr %17, align 8, !tbaa !9
+  %96 = load ptr, ptr %6, align 8, !tbaa !9
+  %97 = load i32, ptr %7, align 4, !tbaa !3
+  %98 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL12outputStringPKcPcPiii(ptr noundef %95, ptr noundef %96, ptr noundef %11, i32 noundef %97, i32 noundef %98)
+  br label %427
 
-sw.bb22:                                          ; preds = %if.end4
-  %31 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p23 = getelementptr inbounds %struct.__va_list_tag, ptr %31, i32 0, i32 0
-  %gp_offset24 = load i32, ptr %gp_offset_p23, align 8
-  %fits_in_gp25 = icmp ule i32 %gp_offset24, 40
-  br i1 %fits_in_gp25, label %vaarg.in_reg26, label %vaarg.in_mem28
+99:                                               ; preds = %47
+  %100 = load ptr, ptr %10, align 8, !tbaa !11
+  %101 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %100, i32 0, i32 0
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp ule i32 %102, 40
+  br i1 %103, label %104, label %109
 
-vaarg.in_reg26:                                   ; preds = %sw.bb22
-  %32 = getelementptr inbounds %struct.__va_list_tag, ptr %31, i32 0, i32 3
-  %reg_save_area27 = load ptr, ptr %32, align 8
-  %33 = getelementptr i8, ptr %reg_save_area27, i32 %gp_offset24
-  %34 = add i32 %gp_offset24, 8
-  store i32 %34, ptr %gp_offset_p23, align 8
-  br label %vaarg.end32
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %100, i32 0, i32 3
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr i8, ptr %106, i32 %102
+  %108 = add i32 %102, 8
+  store i32 %108, ptr %101, align 8
+  br label %113
 
-vaarg.in_mem28:                                   ; preds = %sw.bb22
-  %overflow_arg_area_p29 = getelementptr inbounds %struct.__va_list_tag, ptr %31, i32 0, i32 2
-  %overflow_arg_area30 = load ptr, ptr %overflow_arg_area_p29, align 8
-  %overflow_arg_area.next31 = getelementptr i8, ptr %overflow_arg_area30, i32 8
-  store ptr %overflow_arg_area.next31, ptr %overflow_arg_area_p29, align 8
-  br label %vaarg.end32
+109:                                              ; preds = %99
+  %110 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %100, i32 0, i32 2
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr i8, ptr %111, i32 8
+  store ptr %112, ptr %110, align 8
+  br label %113
 
-vaarg.end32:                                      ; preds = %vaarg.in_mem28, %vaarg.in_reg26
-  %vaarg.addr33 = phi ptr [ %33, %vaarg.in_reg26 ], [ %overflow_arg_area30, %vaarg.in_mem28 ]
-  %35 = load ptr, ptr %vaarg.addr33, align 8
-  store ptr %35, ptr %ptrArg, align 8
-  %36 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p34 = getelementptr inbounds %struct.__va_list_tag, ptr %36, i32 0, i32 0
-  %gp_offset35 = load i32, ptr %gp_offset_p34, align 8
-  %fits_in_gp36 = icmp ule i32 %gp_offset35, 40
-  br i1 %fits_in_gp36, label %vaarg.in_reg37, label %vaarg.in_mem39
+113:                                              ; preds = %109, %104
+  %114 = phi ptr [ %107, %104 ], [ %111, %109 ]
+  %115 = load ptr, ptr %114, align 8, !tbaa !9
+  store ptr %115, ptr %17, align 8, !tbaa !9
+  %116 = load ptr, ptr %10, align 8, !tbaa !11
+  %117 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %116, i32 0, i32 0
+  %118 = load i32, ptr %117, align 8
+  %119 = icmp ule i32 %118, 40
+  br i1 %119, label %120, label %125
 
-vaarg.in_reg37:                                   ; preds = %vaarg.end32
-  %37 = getelementptr inbounds %struct.__va_list_tag, ptr %36, i32 0, i32 3
-  %reg_save_area38 = load ptr, ptr %37, align 8
-  %38 = getelementptr i8, ptr %reg_save_area38, i32 %gp_offset35
-  %39 = add i32 %gp_offset35, 8
-  store i32 %39, ptr %gp_offset_p34, align 8
-  br label %vaarg.end43
+120:                                              ; preds = %113
+  %121 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %116, i32 0, i32 3
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr i8, ptr %122, i32 %118
+  %124 = add i32 %118, 8
+  store i32 %124, ptr %117, align 8
+  br label %129
 
-vaarg.in_mem39:                                   ; preds = %vaarg.end32
-  %overflow_arg_area_p40 = getelementptr inbounds %struct.__va_list_tag, ptr %36, i32 0, i32 2
-  %overflow_arg_area41 = load ptr, ptr %overflow_arg_area_p40, align 8
-  %overflow_arg_area.next42 = getelementptr i8, ptr %overflow_arg_area41, i32 8
-  store ptr %overflow_arg_area.next42, ptr %overflow_arg_area_p40, align 8
-  br label %vaarg.end43
-
-vaarg.end43:                                      ; preds = %vaarg.in_mem39, %vaarg.in_reg37
-  %vaarg.addr44 = phi ptr [ %38, %vaarg.in_reg37 ], [ %overflow_arg_area41, %vaarg.in_mem39 ]
-  %40 = load i32, ptr %vaarg.addr44, align 4
-  store i32 %40, ptr %intArg, align 4
-  %41 = load ptr, ptr %ptrArg, align 8
-  %42 = load i32, ptr %intArg, align 4
-  %43 = load ptr, ptr %outBuf.addr, align 8
-  %44 = load i32, ptr %capacity.addr, align 4
-  %45 = load i32, ptr %indent.addr, align 4
-  call void @_ZL13outputUStringPKDsiPcPiii(ptr noundef %41, i32 noundef %42, ptr noundef %43, ptr noundef %outIx, i32 noundef %44, i32 noundef %45)
-  br label %sw.epilog182
-
-sw.bb45:                                          ; preds = %if.end4
-  %46 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p46 = getelementptr inbounds %struct.__va_list_tag, ptr %46, i32 0, i32 0
-  %gp_offset47 = load i32, ptr %gp_offset_p46, align 8
-  %fits_in_gp48 = icmp ule i32 %gp_offset47, 40
-  br i1 %fits_in_gp48, label %vaarg.in_reg49, label %vaarg.in_mem51
-
-vaarg.in_reg49:                                   ; preds = %sw.bb45
-  %47 = getelementptr inbounds %struct.__va_list_tag, ptr %46, i32 0, i32 3
-  %reg_save_area50 = load ptr, ptr %47, align 8
-  %48 = getelementptr i8, ptr %reg_save_area50, i32 %gp_offset47
-  %49 = add i32 %gp_offset47, 8
-  store i32 %49, ptr %gp_offset_p46, align 8
-  br label %vaarg.end55
-
-vaarg.in_mem51:                                   ; preds = %sw.bb45
-  %overflow_arg_area_p52 = getelementptr inbounds %struct.__va_list_tag, ptr %46, i32 0, i32 2
-  %overflow_arg_area53 = load ptr, ptr %overflow_arg_area_p52, align 8
-  %overflow_arg_area.next54 = getelementptr i8, ptr %overflow_arg_area53, i32 8
-  store ptr %overflow_arg_area.next54, ptr %overflow_arg_area_p52, align 8
-  br label %vaarg.end55
-
-vaarg.end55:                                      ; preds = %vaarg.in_mem51, %vaarg.in_reg49
-  %vaarg.addr56 = phi ptr [ %48, %vaarg.in_reg49 ], [ %overflow_arg_area53, %vaarg.in_mem51 ]
-  %50 = load i32, ptr %vaarg.addr56, align 4
-  store i32 %50, ptr %intArg, align 4
-  %51 = load i32, ptr %intArg, align 4
-  %conv57 = sext i32 %51 to i64
-  %52 = load ptr, ptr %outBuf.addr, align 8
-  %53 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputHexBytesliPcPii(i64 noundef %conv57, i32 noundef 2, ptr noundef %52, ptr noundef %outIx, i32 noundef %53)
-  br label %sw.epilog182
-
-sw.bb58:                                          ; preds = %if.end4
-  %54 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p59 = getelementptr inbounds %struct.__va_list_tag, ptr %54, i32 0, i32 0
-  %gp_offset60 = load i32, ptr %gp_offset_p59, align 8
-  %fits_in_gp61 = icmp ule i32 %gp_offset60, 40
-  br i1 %fits_in_gp61, label %vaarg.in_reg62, label %vaarg.in_mem64
-
-vaarg.in_reg62:                                   ; preds = %sw.bb58
-  %55 = getelementptr inbounds %struct.__va_list_tag, ptr %54, i32 0, i32 3
-  %reg_save_area63 = load ptr, ptr %55, align 8
-  %56 = getelementptr i8, ptr %reg_save_area63, i32 %gp_offset60
-  %57 = add i32 %gp_offset60, 8
-  store i32 %57, ptr %gp_offset_p59, align 8
-  br label %vaarg.end68
-
-vaarg.in_mem64:                                   ; preds = %sw.bb58
-  %overflow_arg_area_p65 = getelementptr inbounds %struct.__va_list_tag, ptr %54, i32 0, i32 2
-  %overflow_arg_area66 = load ptr, ptr %overflow_arg_area_p65, align 8
-  %overflow_arg_area.next67 = getelementptr i8, ptr %overflow_arg_area66, i32 8
-  store ptr %overflow_arg_area.next67, ptr %overflow_arg_area_p65, align 8
-  br label %vaarg.end68
-
-vaarg.end68:                                      ; preds = %vaarg.in_mem64, %vaarg.in_reg62
-  %vaarg.addr69 = phi ptr [ %56, %vaarg.in_reg62 ], [ %overflow_arg_area66, %vaarg.in_mem64 ]
-  %58 = load i32, ptr %vaarg.addr69, align 4
-  store i32 %58, ptr %intArg, align 4
-  %59 = load i32, ptr %intArg, align 4
-  %conv70 = sext i32 %59 to i64
-  %60 = load ptr, ptr %outBuf.addr, align 8
-  %61 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputHexBytesliPcPii(i64 noundef %conv70, i32 noundef 4, ptr noundef %60, ptr noundef %outIx, i32 noundef %61)
-  br label %sw.epilog182
-
-sw.bb71:                                          ; preds = %if.end4
-  %62 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p72 = getelementptr inbounds %struct.__va_list_tag, ptr %62, i32 0, i32 0
-  %gp_offset73 = load i32, ptr %gp_offset_p72, align 8
-  %fits_in_gp74 = icmp ule i32 %gp_offset73, 40
-  br i1 %fits_in_gp74, label %vaarg.in_reg75, label %vaarg.in_mem77
-
-vaarg.in_reg75:                                   ; preds = %sw.bb71
-  %63 = getelementptr inbounds %struct.__va_list_tag, ptr %62, i32 0, i32 3
-  %reg_save_area76 = load ptr, ptr %63, align 8
-  %64 = getelementptr i8, ptr %reg_save_area76, i32 %gp_offset73
-  %65 = add i32 %gp_offset73, 8
-  store i32 %65, ptr %gp_offset_p72, align 8
-  br label %vaarg.end81
-
-vaarg.in_mem77:                                   ; preds = %sw.bb71
-  %overflow_arg_area_p78 = getelementptr inbounds %struct.__va_list_tag, ptr %62, i32 0, i32 2
-  %overflow_arg_area79 = load ptr, ptr %overflow_arg_area_p78, align 8
-  %overflow_arg_area.next80 = getelementptr i8, ptr %overflow_arg_area79, i32 8
-  store ptr %overflow_arg_area.next80, ptr %overflow_arg_area_p78, align 8
-  br label %vaarg.end81
-
-vaarg.end81:                                      ; preds = %vaarg.in_mem77, %vaarg.in_reg75
-  %vaarg.addr82 = phi ptr [ %64, %vaarg.in_reg75 ], [ %overflow_arg_area79, %vaarg.in_mem77 ]
-  %66 = load i32, ptr %vaarg.addr82, align 4
-  store i32 %66, ptr %intArg, align 4
-  %67 = load i32, ptr %intArg, align 4
-  %conv83 = sext i32 %67 to i64
-  %68 = load ptr, ptr %outBuf.addr, align 8
-  %69 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputHexBytesliPcPii(i64 noundef %conv83, i32 noundef 8, ptr noundef %68, ptr noundef %outIx, i32 noundef %69)
-  br label %sw.epilog182
-
-sw.bb84:                                          ; preds = %if.end4
-  %70 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p85 = getelementptr inbounds %struct.__va_list_tag, ptr %70, i32 0, i32 0
-  %gp_offset86 = load i32, ptr %gp_offset_p85, align 8
-  %fits_in_gp87 = icmp ule i32 %gp_offset86, 40
-  br i1 %fits_in_gp87, label %vaarg.in_reg88, label %vaarg.in_mem90
-
-vaarg.in_reg88:                                   ; preds = %sw.bb84
-  %71 = getelementptr inbounds %struct.__va_list_tag, ptr %70, i32 0, i32 3
-  %reg_save_area89 = load ptr, ptr %71, align 8
-  %72 = getelementptr i8, ptr %reg_save_area89, i32 %gp_offset86
-  %73 = add i32 %gp_offset86, 8
-  store i32 %73, ptr %gp_offset_p85, align 8
-  br label %vaarg.end94
-
-vaarg.in_mem90:                                   ; preds = %sw.bb84
-  %overflow_arg_area_p91 = getelementptr inbounds %struct.__va_list_tag, ptr %70, i32 0, i32 2
-  %overflow_arg_area92 = load ptr, ptr %overflow_arg_area_p91, align 8
-  %overflow_arg_area.next93 = getelementptr i8, ptr %overflow_arg_area92, i32 8
-  store ptr %overflow_arg_area.next93, ptr %overflow_arg_area_p91, align 8
-  br label %vaarg.end94
-
-vaarg.end94:                                      ; preds = %vaarg.in_mem90, %vaarg.in_reg88
-  %vaarg.addr95 = phi ptr [ %72, %vaarg.in_reg88 ], [ %overflow_arg_area92, %vaarg.in_mem90 ]
-  %74 = load i64, ptr %vaarg.addr95, align 8
-  store i64 %74, ptr %longArg, align 8
-  %75 = load i64, ptr %longArg, align 8
-  %76 = load ptr, ptr %outBuf.addr, align 8
-  %77 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputHexBytesliPcPii(i64 noundef %75, i32 noundef 16, ptr noundef %76, ptr noundef %outIx, i32 noundef %77)
-  br label %sw.epilog182
-
-sw.bb96:                                          ; preds = %if.end4
-  %78 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p97 = getelementptr inbounds %struct.__va_list_tag, ptr %78, i32 0, i32 0
-  %gp_offset98 = load i32, ptr %gp_offset_p97, align 8
-  %fits_in_gp99 = icmp ule i32 %gp_offset98, 40
-  br i1 %fits_in_gp99, label %vaarg.in_reg100, label %vaarg.in_mem102
-
-vaarg.in_reg100:                                  ; preds = %sw.bb96
-  %79 = getelementptr inbounds %struct.__va_list_tag, ptr %78, i32 0, i32 3
-  %reg_save_area101 = load ptr, ptr %79, align 8
-  %80 = getelementptr i8, ptr %reg_save_area101, i32 %gp_offset98
-  %81 = add i32 %gp_offset98, 8
-  store i32 %81, ptr %gp_offset_p97, align 8
-  br label %vaarg.end106
-
-vaarg.in_mem102:                                  ; preds = %sw.bb96
-  %overflow_arg_area_p103 = getelementptr inbounds %struct.__va_list_tag, ptr %78, i32 0, i32 2
-  %overflow_arg_area104 = load ptr, ptr %overflow_arg_area_p103, align 8
-  %overflow_arg_area.next105 = getelementptr i8, ptr %overflow_arg_area104, i32 8
-  store ptr %overflow_arg_area.next105, ptr %overflow_arg_area_p103, align 8
-  br label %vaarg.end106
-
-vaarg.end106:                                     ; preds = %vaarg.in_mem102, %vaarg.in_reg100
-  %vaarg.addr107 = phi ptr [ %80, %vaarg.in_reg100 ], [ %overflow_arg_area104, %vaarg.in_mem102 ]
-  %82 = load ptr, ptr %vaarg.addr107, align 8
-  store ptr %82, ptr %ptrArg, align 8
-  %83 = load ptr, ptr %ptrArg, align 8
-  %84 = load ptr, ptr %outBuf.addr, align 8
-  %85 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputPtrBytesPvPcPii(ptr noundef %83, ptr noundef %84, ptr noundef %outIx, i32 noundef %85)
-  br label %sw.epilog182
-
-sw.bb108:                                         ; preds = %if.end4
-  %86 = load ptr, ptr %outBuf.addr, align 8
-  %87 = load i32, ptr %capacity.addr, align 4
-  %88 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext 37, ptr noundef %86, ptr noundef %outIx, i32 noundef %87, i32 noundef %88)
-  %89 = load i32, ptr %fmtIx, align 4
-  %dec = add nsw i32 %89, -1
-  store i32 %dec, ptr %fmtIx, align 4
-  br label %sw.epilog182
-
-sw.bb109:                                         ; preds = %if.end4
-  store i32 0, ptr %charsToOutput, align 4
-  %90 = load ptr, ptr %fmt.addr, align 8
-  %91 = load i32, ptr %fmtIx, align 4
-  %idxprom110 = sext i32 %91 to i64
-  %arrayidx111 = getelementptr inbounds i8, ptr %90, i64 %idxprom110
-  %92 = load i8, ptr %arrayidx111, align 1
-  store i8 %92, ptr %vectorType, align 1
-  %93 = load i8, ptr %vectorType, align 1
-  %conv112 = sext i8 %93 to i32
-  %cmp113 = icmp ne i32 %conv112, 0
-  br i1 %cmp113, label %if.then114, label %if.end116
-
-if.then114:                                       ; preds = %sw.bb109
-  %94 = load i32, ptr %fmtIx, align 4
-  %inc115 = add nsw i32 %94, 1
-  store i32 %inc115, ptr %fmtIx, align 4
-  br label %if.end116
-
-if.end116:                                        ; preds = %if.then114, %sw.bb109
-  %95 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p117 = getelementptr inbounds %struct.__va_list_tag, ptr %95, i32 0, i32 0
-  %gp_offset118 = load i32, ptr %gp_offset_p117, align 8
-  %fits_in_gp119 = icmp ule i32 %gp_offset118, 40
-  br i1 %fits_in_gp119, label %vaarg.in_reg120, label %vaarg.in_mem122
-
-vaarg.in_reg120:                                  ; preds = %if.end116
-  %96 = getelementptr inbounds %struct.__va_list_tag, ptr %95, i32 0, i32 3
-  %reg_save_area121 = load ptr, ptr %96, align 8
-  %97 = getelementptr i8, ptr %reg_save_area121, i32 %gp_offset118
-  %98 = add i32 %gp_offset118, 8
-  store i32 %98, ptr %gp_offset_p117, align 8
-  br label %vaarg.end126
-
-vaarg.in_mem122:                                  ; preds = %if.end116
-  %overflow_arg_area_p123 = getelementptr inbounds %struct.__va_list_tag, ptr %95, i32 0, i32 2
-  %overflow_arg_area124 = load ptr, ptr %overflow_arg_area_p123, align 8
-  %overflow_arg_area.next125 = getelementptr i8, ptr %overflow_arg_area124, i32 8
-  store ptr %overflow_arg_area.next125, ptr %overflow_arg_area_p123, align 8
-  br label %vaarg.end126
-
-vaarg.end126:                                     ; preds = %vaarg.in_mem122, %vaarg.in_reg120
-  %vaarg.addr127 = phi ptr [ %97, %vaarg.in_reg120 ], [ %overflow_arg_area124, %vaarg.in_mem122 ]
-  %99 = load ptr, ptr %vaarg.addr127, align 8
-  store ptr %99, ptr %i8Ptr, align 8
-  %100 = load ptr, ptr %i8Ptr, align 8
-  store ptr %100, ptr %i16Ptr, align 8
-  %101 = load ptr, ptr %i8Ptr, align 8
-  store ptr %101, ptr %i32Ptr, align 8
-  %102 = load ptr, ptr %i8Ptr, align 8
-  store ptr %102, ptr %i64Ptr, align 8
-  %103 = load ptr, ptr %i8Ptr, align 8
-  store ptr %103, ptr %ptrPtr, align 8
-  %104 = load ptr, ptr %args.addr, align 8
-  %gp_offset_p128 = getelementptr inbounds %struct.__va_list_tag, ptr %104, i32 0, i32 0
-  %gp_offset129 = load i32, ptr %gp_offset_p128, align 8
-  %fits_in_gp130 = icmp ule i32 %gp_offset129, 40
-  br i1 %fits_in_gp130, label %vaarg.in_reg131, label %vaarg.in_mem133
-
-vaarg.in_reg131:                                  ; preds = %vaarg.end126
-  %105 = getelementptr inbounds %struct.__va_list_tag, ptr %104, i32 0, i32 3
-  %reg_save_area132 = load ptr, ptr %105, align 8
-  %106 = getelementptr i8, ptr %reg_save_area132, i32 %gp_offset129
-  %107 = add i32 %gp_offset129, 8
-  store i32 %107, ptr %gp_offset_p128, align 8
-  br label %vaarg.end137
-
-vaarg.in_mem133:                                  ; preds = %vaarg.end126
-  %overflow_arg_area_p134 = getelementptr inbounds %struct.__va_list_tag, ptr %104, i32 0, i32 2
-  %overflow_arg_area135 = load ptr, ptr %overflow_arg_area_p134, align 8
-  %overflow_arg_area.next136 = getelementptr i8, ptr %overflow_arg_area135, i32 8
-  store ptr %overflow_arg_area.next136, ptr %overflow_arg_area_p134, align 8
-  br label %vaarg.end137
-
-vaarg.end137:                                     ; preds = %vaarg.in_mem133, %vaarg.in_reg131
-  %vaarg.addr138 = phi ptr [ %106, %vaarg.in_reg131 ], [ %overflow_arg_area135, %vaarg.in_mem133 ]
-  %108 = load i32, ptr %vaarg.addr138, align 4
-  store i32 %108, ptr %vectorLen, align 4
-  %109 = load ptr, ptr %ptrPtr, align 8
-  %cmp139 = icmp eq ptr %109, null
-  br i1 %cmp139, label %if.then140, label %if.else
-
-if.then140:                                       ; preds = %vaarg.end137
-  %110 = load ptr, ptr %outBuf.addr, align 8
-  %111 = load i32, ptr %capacity.addr, align 4
-  %112 = load i32, ptr %indent.addr, align 4
-  call void @_ZL12outputStringPKcPcPiii(ptr noundef @.str, ptr noundef %110, ptr noundef %outIx, i32 noundef %111, i32 noundef %112)
-  br label %if.end180
-
-if.else:                                          ; preds = %vaarg.end137
-  store i32 0, ptr %i, align 4
-  br label %for.cond141
-
-for.cond141:                                      ; preds = %for.inc, %if.else
-  %113 = load i32, ptr %i, align 4
-  %114 = load i32, ptr %vectorLen, align 4
-  %cmp142 = icmp slt i32 %113, %114
-  br i1 %cmp142, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %for.cond141
-  %115 = load i32, ptr %vectorLen, align 4
-  %cmp143 = icmp eq i32 %115, -1
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %for.cond141
-  %116 = phi i1 [ true, %for.cond141 ], [ %cmp143, %lor.rhs ]
-  br i1 %116, label %for.body, label %for.end
-
-for.body:                                         ; preds = %lor.end
-  %117 = load i8, ptr %vectorType, align 1
-  %conv144 = sext i8 %117 to i32
-  switch i32 %conv144, label %sw.epilog [
-    i32 98, label %sw.bb145
-    i32 104, label %sw.bb147
-    i32 100, label %sw.bb150
-    i32 108, label %sw.bb153
-    i32 112, label %sw.bb155
-    i32 99, label %sw.bb159
-    i32 115, label %sw.bb162
-    i32 83, label %sw.bb167
-  ]
-
-sw.bb145:                                         ; preds = %for.body
-  store i32 2, ptr %charsToOutput, align 4
-  %118 = load ptr, ptr %i8Ptr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %118, i32 1
-  store ptr %incdec.ptr, ptr %i8Ptr, align 8
-  %119 = load i8, ptr %118, align 1
-  %conv146 = sext i8 %119 to i64
-  store i64 %conv146, ptr %longArg, align 8
-  br label %sw.epilog
-
-sw.bb147:                                         ; preds = %for.body
-  store i32 4, ptr %charsToOutput, align 4
-  %120 = load ptr, ptr %i16Ptr, align 8
-  %incdec.ptr148 = getelementptr inbounds i16, ptr %120, i32 1
-  store ptr %incdec.ptr148, ptr %i16Ptr, align 8
-  %121 = load i16, ptr %120, align 2
-  %conv149 = sext i16 %121 to i64
-  store i64 %conv149, ptr %longArg, align 8
-  br label %sw.epilog
-
-sw.bb150:                                         ; preds = %for.body
-  store i32 8, ptr %charsToOutput, align 4
-  %122 = load ptr, ptr %i32Ptr, align 8
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %122, i32 1
-  store ptr %incdec.ptr151, ptr %i32Ptr, align 8
-  %123 = load i32, ptr %122, align 4
-  %conv152 = sext i32 %123 to i64
-  store i64 %conv152, ptr %longArg, align 8
-  br label %sw.epilog
-
-sw.bb153:                                         ; preds = %for.body
-  store i32 16, ptr %charsToOutput, align 4
-  %124 = load ptr, ptr %i64Ptr, align 8
-  %incdec.ptr154 = getelementptr inbounds i64, ptr %124, i32 1
-  store ptr %incdec.ptr154, ptr %i64Ptr, align 8
-  %125 = load i64, ptr %124, align 8
-  store i64 %125, ptr %longArg, align 8
-  br label %sw.epilog
-
-sw.bb155:                                         ; preds = %for.body
-  store i32 0, ptr %charsToOutput, align 4
-  %126 = load ptr, ptr %ptrPtr, align 8
+125:                                              ; preds = %113
+  %126 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %116, i32 0, i32 2
   %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %outBuf.addr, align 8
-  %129 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputPtrBytesPvPcPii(ptr noundef %127, ptr noundef %128, ptr noundef %outIx, i32 noundef %129)
-  %130 = load ptr, ptr %ptrPtr, align 8
-  %131 = load ptr, ptr %130, align 8
-  %cmp156 = icmp eq ptr %131, null
-  %cond = select i1 %cmp156, i32 0, i32 1
-  %conv157 = sext i32 %cond to i64
-  store i64 %conv157, ptr %longArg, align 8
-  %132 = load ptr, ptr %ptrPtr, align 8
-  %incdec.ptr158 = getelementptr inbounds ptr, ptr %132, i32 1
-  store ptr %incdec.ptr158, ptr %ptrPtr, align 8
-  br label %sw.epilog
+  %128 = getelementptr i8, ptr %127, i32 8
+  store ptr %128, ptr %126, align 8
+  br label %129
 
-sw.bb159:                                         ; preds = %for.body
-  store i32 0, ptr %charsToOutput, align 4
-  %133 = load ptr, ptr %i8Ptr, align 8
-  %134 = load i8, ptr %133, align 1
-  %135 = load ptr, ptr %outBuf.addr, align 8
-  %136 = load i32, ptr %capacity.addr, align 4
-  %137 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext %134, ptr noundef %135, ptr noundef %outIx, i32 noundef %136, i32 noundef %137)
-  %138 = load ptr, ptr %i8Ptr, align 8
-  %139 = load i8, ptr %138, align 1
-  %conv160 = sext i8 %139 to i64
-  store i64 %conv160, ptr %longArg, align 8
-  %140 = load ptr, ptr %i8Ptr, align 8
-  %incdec.ptr161 = getelementptr inbounds i8, ptr %140, i32 1
-  store ptr %incdec.ptr161, ptr %i8Ptr, align 8
-  br label %sw.epilog
+129:                                              ; preds = %125, %120
+  %130 = phi ptr [ %123, %120 ], [ %127, %125 ]
+  %131 = load i32, ptr %130, align 4, !tbaa !3
+  store i32 %131, ptr %15, align 4, !tbaa !3
+  %132 = load ptr, ptr %17, align 8, !tbaa !9
+  %133 = load i32, ptr %15, align 4, !tbaa !3
+  %134 = load ptr, ptr %6, align 8, !tbaa !9
+  %135 = load i32, ptr %7, align 4, !tbaa !3
+  %136 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL13outputUStringPKDsiPcPiii(ptr noundef %132, i32 noundef %133, ptr noundef %134, ptr noundef %11, i32 noundef %135, i32 noundef %136)
+  br label %427
 
-sw.bb162:                                         ; preds = %for.body
-  store i32 0, ptr %charsToOutput, align 4
-  %141 = load ptr, ptr %ptrPtr, align 8
-  %142 = load ptr, ptr %141, align 8
-  %143 = load ptr, ptr %outBuf.addr, align 8
-  %144 = load i32, ptr %capacity.addr, align 4
-  %145 = load i32, ptr %indent.addr, align 4
-  call void @_ZL12outputStringPKcPcPiii(ptr noundef %142, ptr noundef %143, ptr noundef %outIx, i32 noundef %144, i32 noundef %145)
-  %146 = load ptr, ptr %outBuf.addr, align 8
-  %147 = load i32, ptr %capacity.addr, align 4
-  %148 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext 10, ptr noundef %146, ptr noundef %outIx, i32 noundef %147, i32 noundef %148)
-  %149 = load ptr, ptr %ptrPtr, align 8
-  %150 = load ptr, ptr %149, align 8
-  %cmp163 = icmp eq ptr %150, null
-  %cond164 = select i1 %cmp163, i32 0, i32 1
-  %conv165 = sext i32 %cond164 to i64
-  store i64 %conv165, ptr %longArg, align 8
-  %151 = load ptr, ptr %ptrPtr, align 8
-  %incdec.ptr166 = getelementptr inbounds ptr, ptr %151, i32 1
-  store ptr %incdec.ptr166, ptr %ptrPtr, align 8
-  br label %sw.epilog
+137:                                              ; preds = %47
+  %138 = load ptr, ptr %10, align 8, !tbaa !11
+  %139 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %138, i32 0, i32 0
+  %140 = load i32, ptr %139, align 8
+  %141 = icmp ule i32 %140, 40
+  br i1 %141, label %142, label %147
 
-sw.bb167:                                         ; preds = %for.body
-  store i32 0, ptr %charsToOutput, align 4
-  %152 = load ptr, ptr %ptrPtr, align 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = load ptr, ptr %outBuf.addr, align 8
-  %155 = load i32, ptr %capacity.addr, align 4
-  %156 = load i32, ptr %indent.addr, align 4
-  call void @_ZL13outputUStringPKDsiPcPiii(ptr noundef %153, i32 noundef -1, ptr noundef %154, ptr noundef %outIx, i32 noundef %155, i32 noundef %156)
-  %157 = load ptr, ptr %outBuf.addr, align 8
-  %158 = load i32, ptr %capacity.addr, align 4
-  %159 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext 10, ptr noundef %157, ptr noundef %outIx, i32 noundef %158, i32 noundef %159)
-  %160 = load ptr, ptr %ptrPtr, align 8
-  %161 = load ptr, ptr %160, align 8
-  %cmp168 = icmp eq ptr %161, null
-  %cond169 = select i1 %cmp168, i32 0, i32 1
-  %conv170 = sext i32 %cond169 to i64
-  store i64 %conv170, ptr %longArg, align 8
-  %162 = load ptr, ptr %ptrPtr, align 8
-  %incdec.ptr171 = getelementptr inbounds ptr, ptr %162, i32 1
-  store ptr %incdec.ptr171, ptr %ptrPtr, align 8
-  br label %sw.epilog
+142:                                              ; preds = %137
+  %143 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %138, i32 0, i32 3
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr i8, ptr %144, i32 %140
+  %146 = add i32 %140, 8
+  store i32 %146, ptr %139, align 8
+  br label %151
 
-sw.epilog:                                        ; preds = %sw.bb167, %sw.bb162, %sw.bb159, %sw.bb155, %sw.bb153, %sw.bb150, %sw.bb147, %sw.bb145, %for.body
-  %163 = load i32, ptr %charsToOutput, align 4
-  %cmp172 = icmp sgt i32 %163, 0
-  br i1 %cmp172, label %if.then173, label %if.end174
+147:                                              ; preds = %137
+  %148 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %138, i32 0, i32 2
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr i8, ptr %149, i32 8
+  store ptr %150, ptr %148, align 8
+  br label %151
 
-if.then173:                                       ; preds = %sw.epilog
-  %164 = load i64, ptr %longArg, align 8
-  %165 = load i32, ptr %charsToOutput, align 4
-  %166 = load ptr, ptr %outBuf.addr, align 8
-  %167 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputHexBytesliPcPii(i64 noundef %164, i32 noundef %165, ptr noundef %166, ptr noundef %outIx, i32 noundef %167)
-  %168 = load ptr, ptr %outBuf.addr, align 8
-  %169 = load i32, ptr %capacity.addr, align 4
-  %170 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext 32, ptr noundef %168, ptr noundef %outIx, i32 noundef %169, i32 noundef %170)
-  br label %if.end174
+151:                                              ; preds = %147, %142
+  %152 = phi ptr [ %145, %142 ], [ %149, %147 ]
+  %153 = load i32, ptr %152, align 4, !tbaa !3
+  store i32 %153, ptr %15, align 4, !tbaa !3
+  %154 = load i32, ptr %15, align 4, !tbaa !3
+  %155 = sext i32 %154 to i64
+  %156 = load ptr, ptr %6, align 8, !tbaa !9
+  %157 = load i32, ptr %7, align 4, !tbaa !3
+  call void @_ZL14outputHexBytesliPcPii(i64 noundef %155, i32 noundef 2, ptr noundef %156, ptr noundef %11, i32 noundef %157)
+  br label %427
 
-if.end174:                                        ; preds = %if.then173, %sw.epilog
-  %171 = load i32, ptr %vectorLen, align 4
-  %cmp175 = icmp eq i32 %171, -1
-  br i1 %cmp175, label %land.lhs.true, label %if.end178
+158:                                              ; preds = %47
+  %159 = load ptr, ptr %10, align 8, !tbaa !11
+  %160 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %159, i32 0, i32 0
+  %161 = load i32, ptr %160, align 8
+  %162 = icmp ule i32 %161, 40
+  br i1 %162, label %163, label %168
 
-land.lhs.true:                                    ; preds = %if.end174
-  %172 = load i64, ptr %longArg, align 8
-  %cmp176 = icmp eq i64 %172, 0
-  br i1 %cmp176, label %if.then177, label %if.end178
+163:                                              ; preds = %158
+  %164 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %159, i32 0, i32 3
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr i8, ptr %165, i32 %161
+  %167 = add i32 %161, 8
+  store i32 %167, ptr %160, align 8
+  br label %172
 
-if.then177:                                       ; preds = %land.lhs.true
-  br label %for.end
+168:                                              ; preds = %158
+  %169 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %159, i32 0, i32 2
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr i8, ptr %170, i32 8
+  store ptr %171, ptr %169, align 8
+  br label %172
 
-if.end178:                                        ; preds = %land.lhs.true, %if.end174
-  br label %for.inc
+172:                                              ; preds = %168, %163
+  %173 = phi ptr [ %166, %163 ], [ %170, %168 ]
+  %174 = load i32, ptr %173, align 4, !tbaa !3
+  store i32 %174, ptr %15, align 4, !tbaa !3
+  %175 = load i32, ptr %15, align 4, !tbaa !3
+  %176 = sext i32 %175 to i64
+  %177 = load ptr, ptr %6, align 8, !tbaa !9
+  %178 = load i32, ptr %7, align 4, !tbaa !3
+  call void @_ZL14outputHexBytesliPcPii(i64 noundef %176, i32 noundef 4, ptr noundef %177, ptr noundef %11, i32 noundef %178)
+  br label %427
 
-for.inc:                                          ; preds = %if.end178
-  %173 = load i32, ptr %i, align 4
-  %inc179 = add nsw i32 %173, 1
-  store i32 %inc179, ptr %i, align 4
-  br label %for.cond141, !llvm.loop !6
+179:                                              ; preds = %47
+  %180 = load ptr, ptr %10, align 8, !tbaa !11
+  %181 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %180, i32 0, i32 0
+  %182 = load i32, ptr %181, align 8
+  %183 = icmp ule i32 %182, 40
+  br i1 %183, label %184, label %189
 
-for.end:                                          ; preds = %if.then177, %lor.end
-  br label %if.end180
+184:                                              ; preds = %179
+  %185 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %180, i32 0, i32 3
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr i8, ptr %186, i32 %182
+  %188 = add i32 %182, 8
+  store i32 %188, ptr %181, align 8
+  br label %193
 
-if.end180:                                        ; preds = %for.end, %if.then140
-  %174 = load ptr, ptr %outBuf.addr, align 8
-  %175 = load i32, ptr %capacity.addr, align 4
-  %176 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext 91, ptr noundef %174, ptr noundef %outIx, i32 noundef %175, i32 noundef %176)
-  %177 = load i32, ptr %vectorLen, align 4
-  %conv181 = sext i32 %177 to i64
-  %178 = load ptr, ptr %outBuf.addr, align 8
-  %179 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputHexBytesliPcPii(i64 noundef %conv181, i32 noundef 8, ptr noundef %178, ptr noundef %outIx, i32 noundef %179)
-  %180 = load ptr, ptr %outBuf.addr, align 8
-  %181 = load i32, ptr %capacity.addr, align 4
-  %182 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext 93, ptr noundef %180, ptr noundef %outIx, i32 noundef %181, i32 noundef %182)
-  br label %sw.epilog182
+189:                                              ; preds = %179
+  %190 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %180, i32 0, i32 2
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr i8, ptr %191, i32 8
+  store ptr %192, ptr %190, align 8
+  br label %193
 
-sw.default:                                       ; preds = %if.end4
-  %183 = load i8, ptr %fmtC, align 1
-  %184 = load ptr, ptr %outBuf.addr, align 8
-  %185 = load i32, ptr %capacity.addr, align 4
-  %186 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext %183, ptr noundef %184, ptr noundef %outIx, i32 noundef %185, i32 noundef %186)
-  br label %sw.epilog182
+193:                                              ; preds = %189, %184
+  %194 = phi ptr [ %187, %184 ], [ %191, %189 ]
+  %195 = load i32, ptr %194, align 4, !tbaa !3
+  store i32 %195, ptr %15, align 4, !tbaa !3
+  %196 = load i32, ptr %15, align 4, !tbaa !3
+  %197 = sext i32 %196 to i64
+  %198 = load ptr, ptr %6, align 8, !tbaa !9
+  %199 = load i32, ptr %7, align 4, !tbaa !3
+  call void @_ZL14outputHexBytesliPcPii(i64 noundef %197, i32 noundef 8, ptr noundef %198, ptr noundef %11, i32 noundef %199)
+  br label %427
 
-sw.epilog182:                                     ; preds = %sw.default, %if.end180, %sw.bb108, %vaarg.end106, %vaarg.end94, %vaarg.end81, %vaarg.end68, %vaarg.end55, %vaarg.end43, %vaarg.end20, %vaarg.end
-  br label %for.cond, !llvm.loop !4
+200:                                              ; preds = %47
+  %201 = load ptr, ptr %10, align 8, !tbaa !11
+  %202 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %201, i32 0, i32 0
+  %203 = load i32, ptr %202, align 8
+  %204 = icmp ule i32 %203, 40
+  br i1 %204, label %205, label %210
 
-for.end183:                                       ; preds = %if.then3
-  %187 = load ptr, ptr %outBuf.addr, align 8
-  %188 = load i32, ptr %capacity.addr, align 4
-  %189 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext 0, ptr noundef %187, ptr noundef %outIx, i32 noundef %188, i32 noundef %189)
-  %190 = load i32, ptr %outIx, align 4
-  %add = add nsw i32 %190, 1
-  ret i32 %add
+205:                                              ; preds = %200
+  %206 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %201, i32 0, i32 3
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr i8, ptr %207, i32 %203
+  %209 = add i32 %203, 8
+  store i32 %209, ptr %202, align 8
+  br label %214
+
+210:                                              ; preds = %200
+  %211 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %201, i32 0, i32 2
+  %212 = load ptr, ptr %211, align 8
+  %213 = getelementptr i8, ptr %212, i32 8
+  store ptr %213, ptr %211, align 8
+  br label %214
+
+214:                                              ; preds = %210, %205
+  %215 = phi ptr [ %208, %205 ], [ %212, %210 ]
+  %216 = load i64, ptr %215, align 8, !tbaa !13
+  store i64 %216, ptr %16, align 8, !tbaa !13
+  %217 = load i64, ptr %16, align 8, !tbaa !13
+  %218 = load ptr, ptr %6, align 8, !tbaa !9
+  %219 = load i32, ptr %7, align 4, !tbaa !3
+  call void @_ZL14outputHexBytesliPcPii(i64 noundef %217, i32 noundef 16, ptr noundef %218, ptr noundef %11, i32 noundef %219)
+  br label %427
+
+220:                                              ; preds = %47
+  %221 = load ptr, ptr %10, align 8, !tbaa !11
+  %222 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %221, i32 0, i32 0
+  %223 = load i32, ptr %222, align 8
+  %224 = icmp ule i32 %223, 40
+  br i1 %224, label %225, label %230
+
+225:                                              ; preds = %220
+  %226 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %221, i32 0, i32 3
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr i8, ptr %227, i32 %223
+  %229 = add i32 %223, 8
+  store i32 %229, ptr %222, align 8
+  br label %234
+
+230:                                              ; preds = %220
+  %231 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %221, i32 0, i32 2
+  %232 = load ptr, ptr %231, align 8
+  %233 = getelementptr i8, ptr %232, i32 8
+  store ptr %233, ptr %231, align 8
+  br label %234
+
+234:                                              ; preds = %230, %225
+  %235 = phi ptr [ %228, %225 ], [ %232, %230 ]
+  %236 = load ptr, ptr %235, align 8, !tbaa !9
+  store ptr %236, ptr %17, align 8, !tbaa !9
+  %237 = load ptr, ptr %17, align 8, !tbaa !9
+  %238 = load ptr, ptr %6, align 8, !tbaa !9
+  %239 = load i32, ptr %7, align 4, !tbaa !3
+  call void @_ZL14outputPtrBytesPvPcPii(ptr noundef %237, ptr noundef %238, ptr noundef %11, i32 noundef %239)
+  br label %427
+
+240:                                              ; preds = %47
+  %241 = load ptr, ptr %6, align 8, !tbaa !9
+  %242 = load i32, ptr %7, align 4, !tbaa !3
+  %243 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext 37, ptr noundef %241, ptr noundef %11, i32 noundef %242, i32 noundef %243)
+  %244 = load i32, ptr %12, align 4, !tbaa !3
+  %245 = add nsw i32 %244, -1
+  store i32 %245, ptr %12, align 4, !tbaa !3
+  br label %427
+
+246:                                              ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #5
+  store i32 0, ptr %25, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #5
+  %247 = load ptr, ptr %9, align 8, !tbaa !9
+  %248 = load i32, ptr %12, align 4, !tbaa !3
+  %249 = sext i32 %248 to i64
+  %250 = getelementptr inbounds i8, ptr %247, i64 %249
+  %251 = load i8, ptr %250, align 1, !tbaa !15
+  store i8 %251, ptr %18, align 1, !tbaa !15
+  %252 = load i8, ptr %18, align 1, !tbaa !15
+  %253 = sext i8 %252 to i32
+  %254 = icmp ne i32 %253, 0
+  br i1 %254, label %255, label %258
+
+255:                                              ; preds = %246
+  %256 = load i32, ptr %12, align 4, !tbaa !3
+  %257 = add nsw i32 %256, 1
+  store i32 %257, ptr %12, align 4, !tbaa !3
+  br label %258
+
+258:                                              ; preds = %255, %246
+  %259 = load ptr, ptr %10, align 8, !tbaa !11
+  %260 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %259, i32 0, i32 0
+  %261 = load i32, ptr %260, align 8
+  %262 = icmp ule i32 %261, 40
+  br i1 %262, label %263, label %268
+
+263:                                              ; preds = %258
+  %264 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %259, i32 0, i32 3
+  %265 = load ptr, ptr %264, align 8
+  %266 = getelementptr i8, ptr %265, i32 %261
+  %267 = add i32 %261, 8
+  store i32 %267, ptr %260, align 8
+  br label %272
+
+268:                                              ; preds = %258
+  %269 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %259, i32 0, i32 2
+  %270 = load ptr, ptr %269, align 8
+  %271 = getelementptr i8, ptr %270, i32 8
+  store ptr %271, ptr %269, align 8
+  br label %272
+
+272:                                              ; preds = %268, %263
+  %273 = phi ptr [ %266, %263 ], [ %270, %268 ]
+  %274 = load ptr, ptr %273, align 8, !tbaa !7
+  store ptr %274, ptr %20, align 8, !tbaa !9
+  %275 = load ptr, ptr %20, align 8, !tbaa !9
+  store ptr %275, ptr %21, align 8, !tbaa !18
+  %276 = load ptr, ptr %20, align 8, !tbaa !9
+  store ptr %276, ptr %22, align 8, !tbaa !20
+  %277 = load ptr, ptr %20, align 8, !tbaa !9
+  store ptr %277, ptr %23, align 8, !tbaa !22
+  %278 = load ptr, ptr %20, align 8, !tbaa !9
+  store ptr %278, ptr %24, align 8, !tbaa !24
+  %279 = load ptr, ptr %10, align 8, !tbaa !11
+  %280 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %279, i32 0, i32 0
+  %281 = load i32, ptr %280, align 8
+  %282 = icmp ule i32 %281, 40
+  br i1 %282, label %283, label %288
+
+283:                                              ; preds = %272
+  %284 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %279, i32 0, i32 3
+  %285 = load ptr, ptr %284, align 8
+  %286 = getelementptr i8, ptr %285, i32 %281
+  %287 = add i32 %281, 8
+  store i32 %287, ptr %280, align 8
+  br label %292
+
+288:                                              ; preds = %272
+  %289 = getelementptr inbounds nuw %struct.__va_list_tag, ptr %279, i32 0, i32 2
+  %290 = load ptr, ptr %289, align 8
+  %291 = getelementptr i8, ptr %290, i32 8
+  store ptr %291, ptr %289, align 8
+  br label %292
+
+292:                                              ; preds = %288, %283
+  %293 = phi ptr [ %286, %283 ], [ %290, %288 ]
+  %294 = load i32, ptr %293, align 4, !tbaa !3
+  store i32 %294, ptr %19, align 4, !tbaa !3
+  %295 = load ptr, ptr %24, align 8, !tbaa !24
+  %296 = icmp eq ptr %295, null
+  br i1 %296, label %297, label %301
+
+297:                                              ; preds = %292
+  %298 = load ptr, ptr %6, align 8, !tbaa !9
+  %299 = load i32, ptr %7, align 4, !tbaa !3
+  %300 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL12outputStringPKcPcPiii(ptr noundef @.str, ptr noundef %298, ptr noundef %11, i32 noundef %299, i32 noundef %300)
+  br label %411
+
+301:                                              ; preds = %292
+  store i32 0, ptr %26, align 4, !tbaa !3
+  br label %302
+
+302:                                              ; preds = %407, %301
+  %303 = load i32, ptr %26, align 4, !tbaa !3
+  %304 = load i32, ptr %19, align 4, !tbaa !3
+  %305 = icmp slt i32 %303, %304
+  br i1 %305, label %309, label %306
+
+306:                                              ; preds = %302
+  %307 = load i32, ptr %19, align 4, !tbaa !3
+  %308 = icmp eq i32 %307, -1
+  br label %309
+
+309:                                              ; preds = %306, %302
+  %310 = phi i1 [ true, %302 ], [ %308, %306 ]
+  br i1 %310, label %311, label %410
+
+311:                                              ; preds = %309
+  %312 = load i8, ptr %18, align 1, !tbaa !15
+  %313 = sext i8 %312 to i32
+  switch i32 %313, label %388 [
+    i32 98, label %314
+    i32 104, label %319
+    i32 100, label %324
+    i32 108, label %329
+    i32 112, label %333
+    i32 99, label %345
+    i32 115, label %356
+    i32 83, label %372
+  ]
+
+314:                                              ; preds = %311
+  store i32 2, ptr %25, align 4, !tbaa !3
+  %315 = load ptr, ptr %20, align 8, !tbaa !9
+  %316 = getelementptr inbounds nuw i8, ptr %315, i32 1
+  store ptr %316, ptr %20, align 8, !tbaa !9
+  %317 = load i8, ptr %315, align 1, !tbaa !15
+  %318 = sext i8 %317 to i64
+  store i64 %318, ptr %16, align 8, !tbaa !13
+  br label %388
+
+319:                                              ; preds = %311
+  store i32 4, ptr %25, align 4, !tbaa !3
+  %320 = load ptr, ptr %21, align 8, !tbaa !18
+  %321 = getelementptr inbounds nuw i16, ptr %320, i32 1
+  store ptr %321, ptr %21, align 8, !tbaa !18
+  %322 = load i16, ptr %320, align 2, !tbaa !26
+  %323 = sext i16 %322 to i64
+  store i64 %323, ptr %16, align 8, !tbaa !13
+  br label %388
+
+324:                                              ; preds = %311
+  store i32 8, ptr %25, align 4, !tbaa !3
+  %325 = load ptr, ptr %22, align 8, !tbaa !20
+  %326 = getelementptr inbounds nuw i32, ptr %325, i32 1
+  store ptr %326, ptr %22, align 8, !tbaa !20
+  %327 = load i32, ptr %325, align 4, !tbaa !3
+  %328 = sext i32 %327 to i64
+  store i64 %328, ptr %16, align 8, !tbaa !13
+  br label %388
+
+329:                                              ; preds = %311
+  store i32 16, ptr %25, align 4, !tbaa !3
+  %330 = load ptr, ptr %23, align 8, !tbaa !22
+  %331 = getelementptr inbounds nuw i64, ptr %330, i32 1
+  store ptr %331, ptr %23, align 8, !tbaa !22
+  %332 = load i64, ptr %330, align 8, !tbaa !13
+  store i64 %332, ptr %16, align 8, !tbaa !13
+  br label %388
+
+333:                                              ; preds = %311
+  store i32 0, ptr %25, align 4, !tbaa !3
+  %334 = load ptr, ptr %24, align 8, !tbaa !24
+  %335 = load ptr, ptr %334, align 8, !tbaa !7
+  %336 = load ptr, ptr %6, align 8, !tbaa !9
+  %337 = load i32, ptr %7, align 4, !tbaa !3
+  call void @_ZL14outputPtrBytesPvPcPii(ptr noundef %335, ptr noundef %336, ptr noundef %11, i32 noundef %337)
+  %338 = load ptr, ptr %24, align 8, !tbaa !24
+  %339 = load ptr, ptr %338, align 8, !tbaa !7
+  %340 = icmp eq ptr %339, null
+  %341 = select i1 %340, i32 0, i32 1
+  %342 = sext i32 %341 to i64
+  store i64 %342, ptr %16, align 8, !tbaa !13
+  %343 = load ptr, ptr %24, align 8, !tbaa !24
+  %344 = getelementptr inbounds nuw ptr, ptr %343, i32 1
+  store ptr %344, ptr %24, align 8, !tbaa !24
+  br label %388
+
+345:                                              ; preds = %311
+  store i32 0, ptr %25, align 4, !tbaa !3
+  %346 = load ptr, ptr %20, align 8, !tbaa !9
+  %347 = load i8, ptr %346, align 1, !tbaa !15
+  %348 = load ptr, ptr %6, align 8, !tbaa !9
+  %349 = load i32, ptr %7, align 4, !tbaa !3
+  %350 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext %347, ptr noundef %348, ptr noundef %11, i32 noundef %349, i32 noundef %350)
+  %351 = load ptr, ptr %20, align 8, !tbaa !9
+  %352 = load i8, ptr %351, align 1, !tbaa !15
+  %353 = sext i8 %352 to i64
+  store i64 %353, ptr %16, align 8, !tbaa !13
+  %354 = load ptr, ptr %20, align 8, !tbaa !9
+  %355 = getelementptr inbounds nuw i8, ptr %354, i32 1
+  store ptr %355, ptr %20, align 8, !tbaa !9
+  br label %388
+
+356:                                              ; preds = %311
+  store i32 0, ptr %25, align 4, !tbaa !3
+  %357 = load ptr, ptr %24, align 8, !tbaa !24
+  %358 = load ptr, ptr %357, align 8, !tbaa !7
+  %359 = load ptr, ptr %6, align 8, !tbaa !9
+  %360 = load i32, ptr %7, align 4, !tbaa !3
+  %361 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL12outputStringPKcPcPiii(ptr noundef %358, ptr noundef %359, ptr noundef %11, i32 noundef %360, i32 noundef %361)
+  %362 = load ptr, ptr %6, align 8, !tbaa !9
+  %363 = load i32, ptr %7, align 4, !tbaa !3
+  %364 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext 10, ptr noundef %362, ptr noundef %11, i32 noundef %363, i32 noundef %364)
+  %365 = load ptr, ptr %24, align 8, !tbaa !24
+  %366 = load ptr, ptr %365, align 8, !tbaa !7
+  %367 = icmp eq ptr %366, null
+  %368 = select i1 %367, i32 0, i32 1
+  %369 = sext i32 %368 to i64
+  store i64 %369, ptr %16, align 8, !tbaa !13
+  %370 = load ptr, ptr %24, align 8, !tbaa !24
+  %371 = getelementptr inbounds nuw ptr, ptr %370, i32 1
+  store ptr %371, ptr %24, align 8, !tbaa !24
+  br label %388
+
+372:                                              ; preds = %311
+  store i32 0, ptr %25, align 4, !tbaa !3
+  %373 = load ptr, ptr %24, align 8, !tbaa !24
+  %374 = load ptr, ptr %373, align 8, !tbaa !7
+  %375 = load ptr, ptr %6, align 8, !tbaa !9
+  %376 = load i32, ptr %7, align 4, !tbaa !3
+  %377 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL13outputUStringPKDsiPcPiii(ptr noundef %374, i32 noundef -1, ptr noundef %375, ptr noundef %11, i32 noundef %376, i32 noundef %377)
+  %378 = load ptr, ptr %6, align 8, !tbaa !9
+  %379 = load i32, ptr %7, align 4, !tbaa !3
+  %380 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext 10, ptr noundef %378, ptr noundef %11, i32 noundef %379, i32 noundef %380)
+  %381 = load ptr, ptr %24, align 8, !tbaa !24
+  %382 = load ptr, ptr %381, align 8, !tbaa !7
+  %383 = icmp eq ptr %382, null
+  %384 = select i1 %383, i32 0, i32 1
+  %385 = sext i32 %384 to i64
+  store i64 %385, ptr %16, align 8, !tbaa !13
+  %386 = load ptr, ptr %24, align 8, !tbaa !24
+  %387 = getelementptr inbounds nuw ptr, ptr %386, i32 1
+  store ptr %387, ptr %24, align 8, !tbaa !24
+  br label %388
+
+388:                                              ; preds = %311, %372, %356, %345, %333, %329, %324, %319, %314
+  %389 = load i32, ptr %25, align 4, !tbaa !3
+  %390 = icmp sgt i32 %389, 0
+  br i1 %390, label %391, label %399
+
+391:                                              ; preds = %388
+  %392 = load i64, ptr %16, align 8, !tbaa !13
+  %393 = load i32, ptr %25, align 4, !tbaa !3
+  %394 = load ptr, ptr %6, align 8, !tbaa !9
+  %395 = load i32, ptr %7, align 4, !tbaa !3
+  call void @_ZL14outputHexBytesliPcPii(i64 noundef %392, i32 noundef %393, ptr noundef %394, ptr noundef %11, i32 noundef %395)
+  %396 = load ptr, ptr %6, align 8, !tbaa !9
+  %397 = load i32, ptr %7, align 4, !tbaa !3
+  %398 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext 32, ptr noundef %396, ptr noundef %11, i32 noundef %397, i32 noundef %398)
+  br label %399
+
+399:                                              ; preds = %391, %388
+  %400 = load i32, ptr %19, align 4, !tbaa !3
+  %401 = icmp eq i32 %400, -1
+  br i1 %401, label %402, label %406
+
+402:                                              ; preds = %399
+  %403 = load i64, ptr %16, align 8, !tbaa !13
+  %404 = icmp eq i64 %403, 0
+  br i1 %404, label %405, label %406
+
+405:                                              ; preds = %402
+  br label %410
+
+406:                                              ; preds = %402, %399
+  br label %407
+
+407:                                              ; preds = %406
+  %408 = load i32, ptr %26, align 4, !tbaa !3
+  %409 = add nsw i32 %408, 1
+  store i32 %409, ptr %26, align 4, !tbaa !3
+  br label %302, !llvm.loop !28
+
+410:                                              ; preds = %405, %309
+  br label %411
+
+411:                                              ; preds = %410, %297
+  %412 = load ptr, ptr %6, align 8, !tbaa !9
+  %413 = load i32, ptr %7, align 4, !tbaa !3
+  %414 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext 91, ptr noundef %412, ptr noundef %11, i32 noundef %413, i32 noundef %414)
+  %415 = load i32, ptr %19, align 4, !tbaa !3
+  %416 = sext i32 %415 to i64
+  %417 = load ptr, ptr %6, align 8, !tbaa !9
+  %418 = load i32, ptr %7, align 4, !tbaa !3
+  call void @_ZL14outputHexBytesliPcPii(i64 noundef %416, i32 noundef 8, ptr noundef %417, ptr noundef %11, i32 noundef %418)
+  %419 = load ptr, ptr %6, align 8, !tbaa !9
+  %420 = load i32, ptr %7, align 4, !tbaa !3
+  %421 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext 93, ptr noundef %419, ptr noundef %11, i32 noundef %420, i32 noundef %421)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #5
+  br label %427
+
+422:                                              ; preds = %47
+  %423 = load i8, ptr %13, align 1, !tbaa !15
+  %424 = load ptr, ptr %6, align 8, !tbaa !9
+  %425 = load i32, ptr %7, align 4, !tbaa !3
+  %426 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext %423, ptr noundef %424, ptr noundef %11, i32 noundef %425, i32 noundef %426)
+  br label %427
+
+427:                                              ; preds = %422, %411, %240, %234, %214, %193, %172, %151, %129, %92, %70
+  br label %27, !llvm.loop !16
+
+428:                                              ; preds = %45
+  %429 = load ptr, ptr %6, align 8, !tbaa !9
+  %430 = load i32, ptr %7, align 4, !tbaa !3
+  %431 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext 0, ptr noundef %429, ptr noundef %11, i32 noundef %430, i32 noundef %431)
+  %432 = load i32, ptr %11, align 4, !tbaa !3
+  %433 = add nsw i32 %432, 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  ret i32 %433
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL10outputCharcPcPiii(i8 noundef signext %c, ptr noundef %outBuf, ptr noundef %outIx, i32 noundef %capacity, i32 noundef %indent) #3 {
-entry:
-  %c.addr = alloca i8, align 1
-  %outBuf.addr = alloca ptr, align 8
-  %outIx.addr = alloca ptr, align 8
-  %capacity.addr = alloca i32, align 4
-  %indent.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  store i8 %c, ptr %c.addr, align 1
-  store ptr %outBuf, ptr %outBuf.addr, align 8
-  store ptr %outIx, ptr %outIx.addr, align 8
-  store i32 %capacity, ptr %capacity.addr, align 4
-  store i32 %indent, ptr %indent.addr, align 4
-  %0 = load ptr, ptr %outIx.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %cmp = icmp eq i32 %1, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal void @_ZL10outputCharcPcPiii(i8 noundef signext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #4 {
+  %6 = alloca i8, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store i8 %0, ptr %6, align 1, !tbaa !15
+  store ptr %1, ptr %7, align 8, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !20
+  store i32 %3, ptr %9, align 4, !tbaa !3
+  store i32 %4, ptr %10, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %12 = load ptr, ptr %8, align 8, !tbaa !20
+  %13 = load i32, ptr %12, align 4, !tbaa !3
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %47, label %15
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i8, ptr %c.addr, align 1
-  %conv = sext i8 %2 to i32
-  %cmp1 = icmp ne i32 %conv, 10
-  br i1 %cmp1, label %land.lhs.true, label %lor.lhs.false9
+15:                                               ; preds = %5
+  %16 = load i8, ptr %6, align 1, !tbaa !15
+  %17 = sext i8 %16 to i32
+  %18 = icmp ne i32 %17, 10
+  br i1 %18, label %19, label %38
 
-land.lhs.true:                                    ; preds = %lor.lhs.false
-  %3 = load i8, ptr %c.addr, align 1
-  %conv2 = sext i8 %3 to i32
-  %cmp3 = icmp ne i32 %conv2, 0
-  br i1 %cmp3, label %land.lhs.true4, label %lor.lhs.false9
+19:                                               ; preds = %15
+  %20 = load i8, ptr %6, align 1, !tbaa !15
+  %21 = sext i8 %20 to i32
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %38
 
-land.lhs.true4:                                   ; preds = %land.lhs.true
-  %4 = load ptr, ptr %outIx.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %6 = load i32, ptr %capacity.addr, align 4
-  %cmp5 = icmp slt i32 %5, %6
-  br i1 %cmp5, label %land.lhs.true6, label %lor.lhs.false9
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %8, align 8, !tbaa !20
+  %25 = load i32, ptr %24, align 4, !tbaa !3
+  %26 = load i32, ptr %9, align 4, !tbaa !3
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %28, label %38
 
-land.lhs.true6:                                   ; preds = %land.lhs.true4
-  %7 = load ptr, ptr %outBuf.addr, align 8
-  %8 = load ptr, ptr %outIx.addr, align 8
-  %9 = load i32, ptr %8, align 4
-  %sub = sub nsw i32 %9, 1
-  %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds i8, ptr %7, i64 %idxprom
-  %10 = load i8, ptr %arrayidx, align 1
-  %conv7 = sext i8 %10 to i32
-  %cmp8 = icmp eq i32 %conv7, 10
-  br i1 %cmp8, label %if.then, label %lor.lhs.false9
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %7, align 8, !tbaa !9
+  %30 = load ptr, ptr %8, align 8, !tbaa !20
+  %31 = load i32, ptr %30, align 4, !tbaa !3
+  %32 = sub nsw i32 %31, 1
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i8, ptr %29, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !15
+  %36 = sext i8 %35 to i32
+  %37 = icmp eq i32 %36, 10
+  br i1 %37, label %47, label %38
 
-lor.lhs.false9:                                   ; preds = %land.lhs.true6, %land.lhs.true4, %land.lhs.true, %lor.lhs.false
-  %11 = load i8, ptr %c.addr, align 1
-  %conv10 = sext i8 %11 to i32
-  %cmp11 = icmp eq i32 %conv10, 10
-  br i1 %cmp11, label %land.lhs.true12, label %if.end20
+38:                                               ; preds = %28, %23, %19, %15
+  %39 = load i8, ptr %6, align 1, !tbaa !15
+  %40 = sext i8 %39 to i32
+  %41 = icmp eq i32 %40, 10
+  br i1 %41, label %42, label %71
 
-land.lhs.true12:                                  ; preds = %lor.lhs.false9
-  %12 = load ptr, ptr %outIx.addr, align 8
-  %13 = load i32, ptr %12, align 4
-  %14 = load i32, ptr %capacity.addr, align 4
-  %cmp13 = icmp sge i32 %13, %14
-  br i1 %cmp13, label %if.then, label %if.end20
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %8, align 8, !tbaa !20
+  %44 = load i32, ptr %43, align 4, !tbaa !3
+  %45 = load i32, ptr %9, align 4, !tbaa !3
+  %46 = icmp sge i32 %44, %45
+  br i1 %46, label %47, label %71
 
-if.then:                                          ; preds = %land.lhs.true12, %land.lhs.true6, %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+47:                                               ; preds = %42, %28, %5
+  store i32 0, ptr %11, align 4, !tbaa !3
+  br label %48
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %15 = load i32, ptr %i, align 4
-  %16 = load i32, ptr %indent.addr, align 4
-  %cmp14 = icmp slt i32 %15, %16
-  br i1 %cmp14, label %for.body, label %for.end
+48:                                               ; preds = %67, %47
+  %49 = load i32, ptr %11, align 4, !tbaa !3
+  %50 = load i32, ptr %10, align 4, !tbaa !3
+  %51 = icmp slt i32 %49, %50
+  br i1 %51, label %52, label %70
 
-for.body:                                         ; preds = %for.cond
-  %17 = load ptr, ptr %outIx.addr, align 8
-  %18 = load i32, ptr %17, align 4
-  %19 = load i32, ptr %capacity.addr, align 4
-  %cmp15 = icmp slt i32 %18, %19
-  br i1 %cmp15, label %if.then16, label %if.end
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %8, align 8, !tbaa !20
+  %54 = load i32, ptr %53, align 4, !tbaa !3
+  %55 = load i32, ptr %9, align 4, !tbaa !3
+  %56 = icmp slt i32 %54, %55
+  br i1 %56, label %57, label %63
 
-if.then16:                                        ; preds = %for.body
-  %20 = load ptr, ptr %outBuf.addr, align 8
-  %21 = load ptr, ptr %outIx.addr, align 8
-  %22 = load i32, ptr %21, align 4
-  %idxprom17 = sext i32 %22 to i64
-  %arrayidx18 = getelementptr inbounds i8, ptr %20, i64 %idxprom17
-  store i8 32, ptr %arrayidx18, align 1
-  br label %if.end
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %7, align 8, !tbaa !9
+  %59 = load ptr, ptr %8, align 8, !tbaa !20
+  %60 = load i32, ptr %59, align 4, !tbaa !3
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i8, ptr %58, i64 %61
+  store i8 32, ptr %62, align 1, !tbaa !15
+  br label %63
 
-if.end:                                           ; preds = %if.then16, %for.body
-  %23 = load ptr, ptr %outIx.addr, align 8
-  %24 = load i32, ptr %23, align 4
-  %inc = add nsw i32 %24, 1
-  store i32 %inc, ptr %23, align 4
-  br label %for.inc
+63:                                               ; preds = %57, %52
+  %64 = load ptr, ptr %8, align 8, !tbaa !20
+  %65 = load i32, ptr %64, align 4, !tbaa !3
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %64, align 4, !tbaa !3
+  br label %67
 
-for.inc:                                          ; preds = %if.end
-  %25 = load i32, ptr %i, align 4
-  %inc19 = add nsw i32 %25, 1
-  store i32 %inc19, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+67:                                               ; preds = %63
+  %68 = load i32, ptr %11, align 4, !tbaa !3
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %11, align 4, !tbaa !3
+  br label %48, !llvm.loop !29
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end20
+70:                                               ; preds = %48
+  br label %71
 
-if.end20:                                         ; preds = %for.end, %land.lhs.true12, %lor.lhs.false9
-  %26 = load ptr, ptr %outIx.addr, align 8
-  %27 = load i32, ptr %26, align 4
-  %28 = load i32, ptr %capacity.addr, align 4
-  %cmp21 = icmp slt i32 %27, %28
-  br i1 %cmp21, label %if.then22, label %if.end25
+71:                                               ; preds = %70, %42, %38
+  %72 = load ptr, ptr %8, align 8, !tbaa !20
+  %73 = load i32, ptr %72, align 4, !tbaa !3
+  %74 = load i32, ptr %9, align 4, !tbaa !3
+  %75 = icmp slt i32 %73, %74
+  br i1 %75, label %76, label %83
 
-if.then22:                                        ; preds = %if.end20
-  %29 = load i8, ptr %c.addr, align 1
-  %30 = load ptr, ptr %outBuf.addr, align 8
-  %31 = load ptr, ptr %outIx.addr, align 8
-  %32 = load i32, ptr %31, align 4
-  %idxprom23 = sext i32 %32 to i64
-  %arrayidx24 = getelementptr inbounds i8, ptr %30, i64 %idxprom23
-  store i8 %29, ptr %arrayidx24, align 1
-  br label %if.end25
+76:                                               ; preds = %71
+  %77 = load i8, ptr %6, align 1, !tbaa !15
+  %78 = load ptr, ptr %7, align 8, !tbaa !9
+  %79 = load ptr, ptr %8, align 8, !tbaa !20
+  %80 = load i32, ptr %79, align 4, !tbaa !3
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds i8, ptr %78, i64 %81
+  store i8 %77, ptr %82, align 1, !tbaa !15
+  br label %83
 
-if.end25:                                         ; preds = %if.then22, %if.end20
-  %33 = load i8, ptr %c.addr, align 1
-  %conv26 = sext i8 %33 to i32
-  %cmp27 = icmp ne i32 %conv26, 0
-  br i1 %cmp27, label %if.then28, label %if.end30
+83:                                               ; preds = %76, %71
+  %84 = load i8, ptr %6, align 1, !tbaa !15
+  %85 = sext i8 %84 to i32
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %91
 
-if.then28:                                        ; preds = %if.end25
-  %34 = load ptr, ptr %outIx.addr, align 8
-  %35 = load i32, ptr %34, align 4
-  %inc29 = add nsw i32 %35, 1
-  store i32 %inc29, ptr %34, align 4
-  br label %if.end30
+87:                                               ; preds = %83
+  %88 = load ptr, ptr %8, align 8, !tbaa !20
+  %89 = load i32, ptr %88, align 4, !tbaa !3
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %88, align 4, !tbaa !3
+  br label %91
 
-if.end30:                                         ; preds = %if.then28, %if.end25
+91:                                               ; preds = %87, %83
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL12outputStringPKcPcPiii(ptr noundef %s, ptr noundef %outBuf, ptr noundef %outIx, i32 noundef %capacity, i32 noundef %indent) #3 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %outBuf.addr = alloca ptr, align 8
-  %outIx.addr = alloca ptr, align 8
-  %capacity.addr = alloca i32, align 4
-  %indent.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %c = alloca i8, align 1
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %outBuf, ptr %outBuf.addr, align 8
-  store ptr %outIx, ptr %outIx.addr, align 8
-  store i32 %capacity, ptr %capacity.addr, align 4
-  store i32 %indent, ptr %indent.addr, align 4
-  store i32 0, ptr %i, align 4
-  %0 = load ptr, ptr %s.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZL12outputStringPKcPcPiii(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #4 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8, !tbaa !9
+  store ptr %1, ptr %7, align 8, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !20
+  store i32 %3, ptr %9, align 4, !tbaa !3
+  store i32 %4, ptr %10, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  store i32 0, ptr %11, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #5
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.then:                                          ; preds = %entry
-  store ptr @.str.2, ptr %s.addr, align 8
-  br label %if.end
+15:                                               ; preds = %5
+  store ptr @.str.2, ptr %6, align 8, !tbaa !9
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
-  br label %do.body
+16:                                               ; preds = %15, %5
+  br label %17
 
-do.body:                                          ; preds = %do.cond, %if.end
-  %1 = load ptr, ptr %s.addr, align 8
-  %2 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %2, 1
-  store i32 %inc, ptr %i, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %idxprom
-  %3 = load i8, ptr %arrayidx, align 1
-  store i8 %3, ptr %c, align 1
-  %4 = load i8, ptr %c, align 1
-  %5 = load ptr, ptr %outBuf.addr, align 8
-  %6 = load ptr, ptr %outIx.addr, align 8
-  %7 = load i32, ptr %capacity.addr, align 4
-  %8 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8)
-  br label %do.cond
+17:                                               ; preds = %29, %16
+  %18 = load ptr, ptr %6, align 8, !tbaa !9
+  %19 = load i32, ptr %11, align 4, !tbaa !3
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %11, align 4, !tbaa !3
+  %21 = sext i32 %19 to i64
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !15
+  store i8 %23, ptr %12, align 1, !tbaa !15
+  %24 = load i8, ptr %12, align 1, !tbaa !15
+  %25 = load ptr, ptr %7, align 8, !tbaa !9
+  %26 = load ptr, ptr %8, align 8, !tbaa !20
+  %27 = load i32, ptr %9, align 4, !tbaa !3
+  %28 = load i32, ptr %10, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext %24, ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
+  br label %29
 
-do.cond:                                          ; preds = %do.body
-  %9 = load i8, ptr %c, align 1
-  %conv = sext i8 %9 to i32
-  %cmp1 = icmp ne i32 %conv, 0
-  br i1 %cmp1, label %do.body, label %do.end, !llvm.loop !8
+29:                                               ; preds = %17
+  %30 = load i8, ptr %12, align 1, !tbaa !15
+  %31 = sext i8 %30 to i32
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %17, label %33, !llvm.loop !30
 
-do.end:                                           ; preds = %do.cond
+33:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13outputUStringPKDsiPcPiii(ptr noundef %s, i32 noundef %len, ptr noundef %outBuf, ptr noundef %outIx, i32 noundef %capacity, i32 noundef %indent) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  %len.addr = alloca i32, align 4
-  %outBuf.addr = alloca ptr, align 8
-  %outIx.addr = alloca ptr, align 8
-  %capacity.addr = alloca i32, align 4
-  %indent.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %c = alloca i16, align 2
-  store ptr %s, ptr %s.addr, align 8
-  store i32 %len, ptr %len.addr, align 4
-  store ptr %outBuf, ptr %outBuf.addr, align 8
-  store ptr %outIx, ptr %outIx.addr, align 8
-  store i32 %capacity, ptr %capacity.addr, align 4
-  store i32 %indent, ptr %indent.addr, align 4
-  store i32 0, ptr %i, align 4
-  %0 = load ptr, ptr %s.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @_ZL13outputUStringPKDsiPcPiii(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i16, align 2
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !31
+  store i32 %1, ptr %8, align 4, !tbaa !3
+  store ptr %2, ptr %9, align 8, !tbaa !9
+  store ptr %3, ptr %10, align 8, !tbaa !20
+  store i32 %4, ptr %11, align 4, !tbaa !3
+  store i32 %5, ptr %12, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  store i32 0, ptr %13, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
+  %16 = load ptr, ptr %7, align 8, !tbaa !31
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %23
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %outBuf.addr, align 8
-  %2 = load ptr, ptr %outIx.addr, align 8
-  %3 = load i32, ptr %capacity.addr, align 4
-  %4 = load i32, ptr %indent.addr, align 4
-  call void @_ZL12outputStringPKcPcPiii(ptr noundef null, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
-  br label %for.end
+18:                                               ; preds = %6
+  %19 = load ptr, ptr %9, align 8, !tbaa !9
+  %20 = load ptr, ptr %10, align 8, !tbaa !20
+  %21 = load i32, ptr %11, align 4, !tbaa !3
+  %22 = load i32, ptr %12, align 4, !tbaa !3
+  call void @_ZL12outputStringPKcPcPiii(ptr noundef null, ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22)
+  store i32 1, ptr %15, align 4
+  br label %60
 
-if.end:                                           ; preds = %entry
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+23:                                               ; preds = %6
+  store i32 0, ptr %13, align 4, !tbaa !3
+  br label %24
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %5 = load i32, ptr %i, align 4
-  %6 = load i32, ptr %len.addr, align 4
-  %cmp1 = icmp slt i32 %5, %6
-  br i1 %cmp1, label %lor.end, label %lor.rhs
+24:                                               ; preds = %56, %23
+  %25 = load i32, ptr %13, align 4, !tbaa !3
+  %26 = load i32, ptr %8, align 4, !tbaa !3
+  %27 = icmp slt i32 %25, %26
+  br i1 %27, label %31, label %28
 
-lor.rhs:                                          ; preds = %for.cond
-  %7 = load i32, ptr %len.addr, align 4
-  %cmp2 = icmp eq i32 %7, -1
-  br label %lor.end
+28:                                               ; preds = %24
+  %29 = load i32, ptr %8, align 4, !tbaa !3
+  %30 = icmp eq i32 %29, -1
+  br label %31
 
-lor.end:                                          ; preds = %lor.rhs, %for.cond
-  %8 = phi i1 [ true, %for.cond ], [ %cmp2, %lor.rhs ]
-  br i1 %8, label %for.body, label %for.end
+31:                                               ; preds = %28, %24
+  %32 = phi i1 [ true, %24 ], [ %30, %28 ]
+  br i1 %32, label %33, label %59
 
-for.body:                                         ; preds = %lor.end
-  %9 = load ptr, ptr %s.addr, align 8
-  %10 = load i32, ptr %i, align 4
-  %idxprom = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
-  %11 = load i16, ptr %arrayidx, align 2
-  store i16 %11, ptr %c, align 2
-  %12 = load i16, ptr %c, align 2
-  %conv = zext i16 %12 to i64
-  %13 = load ptr, ptr %outBuf.addr, align 8
-  %14 = load ptr, ptr %outIx.addr, align 8
-  %15 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputHexBytesliPcPii(i64 noundef %conv, i32 noundef 4, ptr noundef %13, ptr noundef %14, i32 noundef %15)
-  %16 = load ptr, ptr %outBuf.addr, align 8
-  %17 = load ptr, ptr %outIx.addr, align 8
-  %18 = load i32, ptr %capacity.addr, align 4
-  %19 = load i32, ptr %indent.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext 32, ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19)
-  %20 = load i32, ptr %len.addr, align 4
-  %cmp3 = icmp eq i32 %20, -1
-  br i1 %cmp3, label %land.lhs.true, label %if.end7
+33:                                               ; preds = %31
+  %34 = load ptr, ptr %7, align 8, !tbaa !31
+  %35 = load i32, ptr %13, align 4, !tbaa !3
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds i16, ptr %34, i64 %36
+  %38 = load i16, ptr %37, align 2, !tbaa !33
+  store i16 %38, ptr %14, align 2, !tbaa !33
+  %39 = load i16, ptr %14, align 2, !tbaa !33
+  %40 = zext i16 %39 to i64
+  %41 = load ptr, ptr %9, align 8, !tbaa !9
+  %42 = load ptr, ptr %10, align 8, !tbaa !20
+  %43 = load i32, ptr %11, align 4, !tbaa !3
+  call void @_ZL14outputHexBytesliPcPii(i64 noundef %40, i32 noundef 4, ptr noundef %41, ptr noundef %42, i32 noundef %43)
+  %44 = load ptr, ptr %9, align 8, !tbaa !9
+  %45 = load ptr, ptr %10, align 8, !tbaa !20
+  %46 = load i32, ptr %11, align 4, !tbaa !3
+  %47 = load i32, ptr %12, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext 32, ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47)
+  %48 = load i32, ptr %8, align 4, !tbaa !3
+  %49 = icmp eq i32 %48, -1
+  br i1 %49, label %50, label %55
 
-land.lhs.true:                                    ; preds = %for.body
-  %21 = load i16, ptr %c, align 2
-  %conv4 = zext i16 %21 to i32
-  %cmp5 = icmp eq i32 %conv4, 0
-  br i1 %cmp5, label %if.then6, label %if.end7
+50:                                               ; preds = %33
+  %51 = load i16, ptr %14, align 2, !tbaa !33
+  %52 = zext i16 %51 to i32
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %55
 
-if.then6:                                         ; preds = %land.lhs.true
-  br label %for.end
+54:                                               ; preds = %50
+  br label %59
 
-if.end7:                                          ; preds = %land.lhs.true, %for.body
-  br label %for.inc
+55:                                               ; preds = %50, %33
+  br label %56
 
-for.inc:                                          ; preds = %if.end7
-  %22 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %22, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !9
+56:                                               ; preds = %55
+  %57 = load i32, ptr %13, align 4, !tbaa !3
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %13, align 4, !tbaa !3
+  br label %24, !llvm.loop !35
 
-for.end:                                          ; preds = %if.then6, %lor.end, %if.then
+59:                                               ; preds = %54, %31
+  store i32 0, ptr %15, align 4
+  br label %60
+
+60:                                               ; preds = %59, %18
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  %61 = load i32, ptr %15, align 4
+  switch i32 %61, label %63 [
+    i32 0, label %62
+    i32 1, label %62
+  ]
+
+62:                                               ; preds = %60, %60
+  ret void
+
+63:                                               ; preds = %60
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZL14outputHexBytesliPcPii(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #4 {
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  store i64 %0, ptr %6, align 8, !tbaa !13
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store ptr %2, ptr %8, align 8, !tbaa !9
+  store ptr %3, ptr %9, align 8, !tbaa !20
+  store i32 %4, ptr %10, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %13 = load i32, ptr %7, align 4, !tbaa !3
+  %14 = sub nsw i32 %13, 1
+  %15 = mul nsw i32 %14, 4
+  store i32 %15, ptr %11, align 4, !tbaa !3
+  br label %16
+
+16:                                               ; preds = %31, %5
+  %17 = load i32, ptr %11, align 4, !tbaa !3
+  %18 = icmp sge i32 %17, 0
+  br i1 %18, label %19, label %34
+
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #5
+  %20 = load i64, ptr %6, align 8, !tbaa !13
+  %21 = load i32, ptr %11, align 4, !tbaa !3
+  %22 = zext i32 %21 to i64
+  %23 = ashr i64 %20, %22
+  %24 = and i64 %23, 15
+  %25 = getelementptr inbounds [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !15
+  store i8 %26, ptr %12, align 1, !tbaa !15
+  %27 = load i8, ptr %12, align 1, !tbaa !15
+  %28 = load ptr, ptr %8, align 8, !tbaa !9
+  %29 = load ptr, ptr %9, align 8, !tbaa !20
+  %30 = load i32, ptr %10, align 4, !tbaa !3
+  call void @_ZL10outputCharcPcPiii(i8 noundef signext %27, ptr noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #5
+  br label %31
+
+31:                                               ; preds = %19
+  %32 = load i32, ptr %11, align 4, !tbaa !3
+  %33 = sub nsw i32 %32, 4
+  store i32 %33, ptr %11, align 4, !tbaa !3
+  br label %16, !llvm.loop !36
+
+34:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL14outputHexBytesliPcPii(i64 noundef %val, i32 noundef %charsToOutput, ptr noundef %outBuf, ptr noundef %outIx, i32 noundef %capacity) #3 {
-entry:
-  %val.addr = alloca i64, align 8
-  %charsToOutput.addr = alloca i32, align 4
-  %outBuf.addr = alloca ptr, align 8
-  %outIx.addr = alloca ptr, align 8
-  %capacity.addr = alloca i32, align 4
-  %shiftCount = alloca i32, align 4
-  %c = alloca i8, align 1
-  store i64 %val, ptr %val.addr, align 8
-  store i32 %charsToOutput, ptr %charsToOutput.addr, align 4
-  store ptr %outBuf, ptr %outBuf.addr, align 8
-  store ptr %outIx, ptr %outIx.addr, align 8
-  store i32 %capacity, ptr %capacity.addr, align 4
-  %0 = load i32, ptr %charsToOutput.addr, align 4
-  %sub = sub nsw i32 %0, 1
-  %mul = mul nsw i32 %sub, 4
-  store i32 %mul, ptr %shiftCount, align 4
-  br label %for.cond
+define internal void @_ZL14outputPtrBytesPvPcPii(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #4 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !20
+  store i32 %3, ptr %8, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  store i32 1, ptr %10, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  store ptr %5, ptr %11, align 8, !tbaa !9
+  store i32 -1, ptr %10, align 4, !tbaa !3
+  %12 = load ptr, ptr %11, align 8, !tbaa !9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 7
+  store ptr %13, ptr %11, align 8, !tbaa !9
+  store i32 0, ptr %9, align 4, !tbaa !3
+  br label %14
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %shiftCount, align 4
-  %cmp = icmp sge i32 %1, 0
-  br i1 %cmp, label %for.body, label %for.end
+14:                                               ; preds = %29, %4
+  %15 = load i32, ptr %9, align 4, !tbaa !3
+  %16 = zext i32 %15 to i64
+  %17 = icmp ult i64 %16, 8
+  br i1 %17, label %18, label %32
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i64, ptr %val.addr, align 8
-  %3 = load i32, ptr %shiftCount, align 4
-  %sh_prom = zext i32 %3 to i64
-  %shr = ashr i64 %2, %sh_prom
-  %and = and i64 %shr, 15
-  %arrayidx = getelementptr inbounds [17 x i8], ptr @_ZZL14outputHexBytesliPcPiiE9gHexChars, i64 0, i64 %and
-  %4 = load i8, ptr %arrayidx, align 1
-  store i8 %4, ptr %c, align 1
-  %5 = load i8, ptr %c, align 1
-  %6 = load ptr, ptr %outBuf.addr, align 8
-  %7 = load ptr, ptr %outIx.addr, align 8
-  %8 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL10outputCharcPcPiii(i8 noundef signext %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef 0)
-  br label %for.inc
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %11, align 8, !tbaa !9
+  %20 = load i8, ptr %19, align 1, !tbaa !15
+  %21 = sext i8 %20 to i64
+  %22 = load ptr, ptr %6, align 8, !tbaa !9
+  %23 = load ptr, ptr %7, align 8, !tbaa !20
+  %24 = load i32, ptr %8, align 4, !tbaa !3
+  call void @_ZL14outputHexBytesliPcPii(i64 noundef %21, i32 noundef 2, ptr noundef %22, ptr noundef %23, i32 noundef %24)
+  %25 = load i32, ptr %10, align 4, !tbaa !3
+  %26 = load ptr, ptr %11, align 8, !tbaa !9
+  %27 = sext i32 %25 to i64
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
+  store ptr %28, ptr %11, align 8, !tbaa !9
+  br label %29
 
-for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %shiftCount, align 4
-  %sub1 = sub nsw i32 %9, 4
-  store i32 %sub1, ptr %shiftCount, align 4
-  br label %for.cond, !llvm.loop !10
+29:                                               ; preds = %18
+  %30 = load i32, ptr %9, align 4, !tbaa !3
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %9, align 4, !tbaa !3
+  br label %14, !llvm.loop !37
 
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL14outputPtrBytesPvPcPii(ptr noundef %val, ptr noundef %outBuf, ptr noundef %outIx, i32 noundef %capacity) #3 {
-entry:
-  %val.addr = alloca ptr, align 8
-  %outBuf.addr = alloca ptr, align 8
-  %outIx.addr = alloca ptr, align 8
-  %capacity.addr = alloca i32, align 4
-  %i = alloca i32, align 4
-  %incVal = alloca i32, align 4
-  %p = alloca ptr, align 8
-  store ptr %val, ptr %val.addr, align 8
-  store ptr %outBuf, ptr %outBuf.addr, align 8
-  store ptr %outIx, ptr %outIx.addr, align 8
-  store i32 %capacity, ptr %capacity.addr, align 4
-  store i32 1, ptr %incVal, align 4
-  store ptr %val.addr, ptr %p, align 8
-  store i32 -1, ptr %incVal, align 4
-  %0 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 7
-  store ptr %add.ptr, ptr %p, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %conv = zext i32 %1 to i64
-  %cmp = icmp ult i64 %conv, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %p, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv1 = sext i8 %3 to i64
-  %4 = load ptr, ptr %outBuf.addr, align 8
-  %5 = load ptr, ptr %outIx.addr, align 8
-  %6 = load i32, ptr %capacity.addr, align 4
-  call void @_ZL14outputHexBytesliPcPii(i64 noundef %conv1, i32 noundef 2, ptr noundef %4, ptr noundef %5, i32 noundef %6)
-  %7 = load i32, ptr %incVal, align 4
-  %8 = load ptr, ptr %p, align 8
-  %idx.ext = sext i32 %7 to i64
-  %add.ptr2 = getelementptr inbounds i8, ptr %8, i64 %idx.ext
-  store ptr %add.ptr2, ptr %p, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %inc = add i32 %9, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %for.cond
+32:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @utrace_format_75(ptr noundef %outBuf, i32 noundef %capacity, i32 noundef %indent, ptr noundef %fmt, ...) #0 {
-entry:
-  %outBuf.addr = alloca ptr, align 8
-  %capacity.addr = alloca i32, align 4
-  %indent.addr = alloca i32, align 4
-  %fmt.addr = alloca ptr, align 8
-  %retVal = alloca i32, align 4
-  %args = alloca [1 x %struct.__va_list_tag], align 16
-  store ptr %outBuf, ptr %outBuf.addr, align 8
-  store i32 %capacity, ptr %capacity.addr, align 4
-  store i32 %indent, ptr %indent.addr, align 4
-  store ptr %fmt, ptr %fmt.addr, align 8
-  %arraydecay = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_start(ptr %arraydecay)
-  %0 = load ptr, ptr %outBuf.addr, align 8
-  %1 = load i32, ptr %capacity.addr, align 4
-  %2 = load i32, ptr %indent.addr, align 4
-  %3 = load ptr, ptr %fmt.addr, align 8
-  %arraydecay1 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  %call = call i32 @utrace_vformat_75(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %arraydecay1)
-  store i32 %call, ptr %retVal, align 4
-  %arraydecay2 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %args, i64 0, i64 0
-  call void @llvm.va_end(ptr %arraydecay2)
-  %4 = load i32, ptr %retVal, align 4
-  ret i32 %4
+define i32 @utrace_format_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ...) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca [1 x %struct.__va_list_tag], align 16
+  store ptr %0, ptr %5, align 8, !tbaa !9
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #5
+  %11 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
+  call void @llvm.va_start.p0(ptr %11)
+  %12 = load ptr, ptr %5, align 8, !tbaa !9
+  %13 = load i32, ptr %6, align 4, !tbaa !3
+  %14 = load i32, ptr %7, align 4, !tbaa !3
+  %15 = load ptr, ptr %8, align 8, !tbaa !9
+  %16 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
+  %17 = call i32 @utrace_vformat_77(ptr noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16)
+  store i32 %17, ptr %9, align 4, !tbaa !3
+  %18 = getelementptr inbounds [1 x %struct.__va_list_tag], ptr %10, i64 0, i64 0
+  call void @llvm.va_end.p0(ptr %18)
+  %19 = load i32, ptr %9, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  ret i32 %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @utrace_setFunctions_75(ptr noundef %context, ptr noundef %e, ptr noundef %x, ptr noundef %d) #3 {
-entry:
-  %context.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  %x.addr = alloca ptr, align 8
-  %d.addr = alloca ptr, align 8
-  store ptr %context, ptr %context.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  store ptr %d, ptr %d.addr, align 8
-  %0 = load ptr, ptr %e.addr, align 8
-  store ptr %0, ptr @_ZL15pTraceEntryFunc, align 8
-  %1 = load ptr, ptr %x.addr, align 8
-  store ptr %1, ptr @_ZL14pTraceExitFunc, align 8
-  %2 = load ptr, ptr %d.addr, align 8
-  store ptr %2, ptr @_ZL14pTraceDataFunc, align 8
-  %3 = load ptr, ptr %context.addr, align 8
-  store ptr %3, ptr @_ZL13gTraceContext, align 8
+define void @utrace_setFunctions_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store ptr %2, ptr %7, align 8, !tbaa !7
+  store ptr %3, ptr %8, align 8, !tbaa !7
+  %9 = load ptr, ptr %6, align 8, !tbaa !7
+  store ptr %9, ptr @_ZL15pTraceEntryFunc, align 8, !tbaa !7
+  %10 = load ptr, ptr %7, align 8, !tbaa !7
+  store ptr %10, ptr @_ZL14pTraceExitFunc, align 8, !tbaa !7
+  %11 = load ptr, ptr %8, align 8, !tbaa !7
+  store ptr %11, ptr @_ZL14pTraceDataFunc, align 8, !tbaa !7
+  %12 = load ptr, ptr %5, align 8, !tbaa !7
+  store ptr %12, ptr @_ZL13gTraceContext, align 8, !tbaa !7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @utrace_getFunctions_75(ptr noundef %context, ptr noundef %e, ptr noundef %x, ptr noundef %d) #3 {
-entry:
-  %context.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  %x.addr = alloca ptr, align 8
-  %d.addr = alloca ptr, align 8
-  store ptr %context, ptr %context.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  store ptr %x, ptr %x.addr, align 8
-  store ptr %d, ptr %d.addr, align 8
-  %0 = load ptr, ptr @_ZL15pTraceEntryFunc, align 8
-  %1 = load ptr, ptr %e.addr, align 8
-  store ptr %0, ptr %1, align 8
-  %2 = load ptr, ptr @_ZL14pTraceExitFunc, align 8
-  %3 = load ptr, ptr %x.addr, align 8
-  store ptr %2, ptr %3, align 8
-  %4 = load ptr, ptr @_ZL14pTraceDataFunc, align 8
-  %5 = load ptr, ptr %d.addr, align 8
-  store ptr %4, ptr %5, align 8
-  %6 = load ptr, ptr @_ZL13gTraceContext, align 8
-  %7 = load ptr, ptr %context.addr, align 8
-  store ptr %6, ptr %7, align 8
+define void @utrace_getFunctions_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !24
+  store ptr %1, ptr %6, align 8, !tbaa !24
+  store ptr %2, ptr %7, align 8, !tbaa !24
+  store ptr %3, ptr %8, align 8, !tbaa !24
+  %9 = load ptr, ptr @_ZL15pTraceEntryFunc, align 8, !tbaa !7
+  %10 = load ptr, ptr %6, align 8, !tbaa !24
+  store ptr %9, ptr %10, align 8, !tbaa !7
+  %11 = load ptr, ptr @_ZL14pTraceExitFunc, align 8, !tbaa !7
+  %12 = load ptr, ptr %7, align 8, !tbaa !24
+  store ptr %11, ptr %12, align 8, !tbaa !7
+  %13 = load ptr, ptr @_ZL14pTraceDataFunc, align 8, !tbaa !7
+  %14 = load ptr, ptr %8, align 8, !tbaa !24
+  store ptr %13, ptr %14, align 8, !tbaa !7
+  %15 = load ptr, ptr @_ZL13gTraceContext, align 8, !tbaa !7
+  %16 = load ptr, ptr %5, align 8, !tbaa !24
+  store ptr %15, ptr %16, align 8, !tbaa !7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @utrace_setLevel_75(i32 noundef %level) #3 {
-entry:
-  %level.addr = alloca i32, align 4
-  store i32 %level, ptr %level.addr, align 4
-  %0 = load i32, ptr %level.addr, align 4
-  %cmp = icmp slt i32 %0, -1
-  br i1 %cmp, label %if.then, label %if.end
+define void @utrace_setLevel_77(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %3 = load i32, ptr %2, align 4, !tbaa !3
+  %4 = icmp slt i32 %3, -1
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  store i32 -1, ptr %level.addr, align 4
-  br label %if.end
+5:                                                ; preds = %1
+  store i32 -1, ptr %2, align 4, !tbaa !3
+  br label %6
 
-if.end:                                           ; preds = %if.then, %entry
-  %1 = load i32, ptr %level.addr, align 4
-  %cmp1 = icmp sgt i32 %1, 9
-  br i1 %cmp1, label %if.then2, label %if.end3
+6:                                                ; preds = %5, %1
+  %7 = load i32, ptr %2, align 4, !tbaa !3
+  %8 = icmp sgt i32 %7, 9
+  br i1 %8, label %9, label %10
 
-if.then2:                                         ; preds = %if.end
-  store i32 9, ptr %level.addr, align 4
-  br label %if.end3
+9:                                                ; preds = %6
+  store i32 9, ptr %2, align 4, !tbaa !3
+  br label %10
 
-if.end3:                                          ; preds = %if.then2, %if.end
-  %2 = load i32, ptr %level.addr, align 4
-  store i32 %2, ptr @_ZL12utrace_level, align 4
+10:                                               ; preds = %9, %6
+  %11 = load i32, ptr %2, align 4, !tbaa !3
+  store i32 %11, ptr @_ZL12utrace_level, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @utrace_getLevel_75() #3 {
-entry:
-  %0 = load i32, ptr @_ZL12utrace_level, align 4
-  ret i32 %0
+define i32 @utrace_getLevel_77() #4 {
+  %1 = load i32, ptr @_ZL12utrace_level, align 4, !tbaa !3
+  ret i32 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define signext i8 @utrace_cleanup_75() #3 {
-entry:
-  store ptr null, ptr @_ZL15pTraceEntryFunc, align 8
-  store ptr null, ptr @_ZL14pTraceExitFunc, align 8
-  store ptr null, ptr @_ZL14pTraceDataFunc, align 8
-  store i32 -1, ptr @_ZL12utrace_level, align 4
-  store ptr null, ptr @_ZL13gTraceContext, align 8
+define signext i8 @utrace_cleanup_77() #4 {
+  store ptr null, ptr @_ZL15pTraceEntryFunc, align 8, !tbaa !7
+  store ptr null, ptr @_ZL14pTraceExitFunc, align 8, !tbaa !7
+  store ptr null, ptr @_ZL14pTraceDataFunc, align 8, !tbaa !7
+  store i32 -1, ptr @_ZL12utrace_level, align 4, !tbaa !3
+  store ptr null, ptr @_ZL13gTraceContext, align 8, !tbaa !7
   ret i8 1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @utrace_functionName_75(i32 noundef %fnNumber) #3 {
-entry:
-  %retval = alloca ptr, align 8
-  %fnNumber.addr = alloca i32, align 4
-  store i32 %fnNumber, ptr %fnNumber.addr, align 4
-  %0 = load i32, ptr %fnNumber.addr, align 4
-  %cmp = icmp sle i32 0, %0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define ptr @utrace_functionName_77(i32 noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  %4 = load i32, ptr %3, align 4, !tbaa !3
+  %5 = icmp sle i32 0, %4
+  br i1 %5, label %6, label %14
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %fnNumber.addr, align 4
-  %cmp1 = icmp slt i32 %1, 2
-  br i1 %cmp1, label %if.then, label %if.else
+6:                                                ; preds = %1
+  %7 = load i32, ptr %3, align 4, !tbaa !3
+  %8 = icmp slt i32 %7, 2
+  br i1 %8, label %9, label %14
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %fnNumber.addr, align 4
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @_ZL8trFnName, i64 0, i64 %idxprom
-  %3 = load ptr, ptr %arrayidx, align 8
-  store ptr %3, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %6
+  %10 = load i32, ptr %3, align 4, !tbaa !3
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds [3 x ptr], ptr @_ZL8trFnName, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !9
+  store ptr %13, ptr %2, align 8
+  br label %51
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %4 = load i32, ptr %fnNumber.addr, align 4
-  %cmp2 = icmp sle i32 4096, %4
-  br i1 %cmp2, label %land.lhs.true3, label %if.else8
+14:                                               ; preds = %6, %1
+  %15 = load i32, ptr %3, align 4, !tbaa !3
+  %16 = icmp sle i32 4096, %15
+  br i1 %16, label %17, label %26
 
-land.lhs.true3:                                   ; preds = %if.else
-  %5 = load i32, ptr %fnNumber.addr, align 4
-  %cmp4 = icmp slt i32 %5, 4104
-  br i1 %cmp4, label %if.then5, label %if.else8
+17:                                               ; preds = %14
+  %18 = load i32, ptr %3, align 4, !tbaa !3
+  %19 = icmp slt i32 %18, 4104
+  br i1 %19, label %20, label %26
 
-if.then5:                                         ; preds = %land.lhs.true3
-  %6 = load i32, ptr %fnNumber.addr, align 4
-  %sub = sub nsw i32 %6, 4096
-  %idxprom6 = sext i32 %sub to i64
-  %arrayidx7 = getelementptr inbounds [9 x ptr], ptr @_ZL11trConvNames, i64 0, i64 %idxprom6
-  %7 = load ptr, ptr %arrayidx7, align 8
-  store ptr %7, ptr %retval, align 8
-  br label %return
+20:                                               ; preds = %17
+  %21 = load i32, ptr %3, align 4, !tbaa !3
+  %22 = sub nsw i32 %21, 4096
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [9 x ptr], ptr @_ZL11trConvNames, i64 0, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !9
+  store ptr %25, ptr %2, align 8
+  br label %51
 
-if.else8:                                         ; preds = %land.lhs.true3, %if.else
-  %8 = load i32, ptr %fnNumber.addr, align 4
-  %cmp9 = icmp sle i32 8192, %8
-  br i1 %cmp9, label %land.lhs.true10, label %if.else16
+26:                                               ; preds = %17, %14
+  %27 = load i32, ptr %3, align 4, !tbaa !3
+  %28 = icmp sle i32 8192, %27
+  br i1 %28, label %29, label %38
 
-land.lhs.true10:                                  ; preds = %if.else8
-  %9 = load i32, ptr %fnNumber.addr, align 4
-  %cmp11 = icmp slt i32 %9, 8201
-  br i1 %cmp11, label %if.then12, label %if.else16
+29:                                               ; preds = %26
+  %30 = load i32, ptr %3, align 4, !tbaa !3
+  %31 = icmp slt i32 %30, 8201
+  br i1 %31, label %32, label %38
 
-if.then12:                                        ; preds = %land.lhs.true10
-  %10 = load i32, ptr %fnNumber.addr, align 4
-  %sub13 = sub nsw i32 %10, 8192
-  %idxprom14 = sext i32 %sub13 to i64
-  %arrayidx15 = getelementptr inbounds [10 x ptr], ptr @_ZL11trCollNames, i64 0, i64 %idxprom14
-  %11 = load ptr, ptr %arrayidx15, align 8
-  store ptr %11, ptr %retval, align 8
-  br label %return
+32:                                               ; preds = %29
+  %33 = load i32, ptr %3, align 4, !tbaa !3
+  %34 = sub nsw i32 %33, 8192
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds [10 x ptr], ptr @_ZL11trCollNames, i64 0, i64 %35
+  %37 = load ptr, ptr %36, align 8, !tbaa !9
+  store ptr %37, ptr %2, align 8
+  br label %51
 
-if.else16:                                        ; preds = %land.lhs.true10, %if.else8
-  %12 = load i32, ptr %fnNumber.addr, align 4
-  %cmp17 = icmp sle i32 12288, %12
-  br i1 %cmp17, label %land.lhs.true18, label %if.else24
+38:                                               ; preds = %29, %26
+  %39 = load i32, ptr %3, align 4, !tbaa !3
+  %40 = icmp sle i32 12288, %39
+  br i1 %40, label %41, label %50
 
-land.lhs.true18:                                  ; preds = %if.else16
-  %13 = load i32, ptr %fnNumber.addr, align 4
-  %cmp19 = icmp slt i32 %13, 12292
-  br i1 %cmp19, label %if.then20, label %if.else24
+41:                                               ; preds = %38
+  %42 = load i32, ptr %3, align 4, !tbaa !3
+  %43 = icmp slt i32 %42, 12292
+  br i1 %43, label %44, label %50
 
-if.then20:                                        ; preds = %land.lhs.true18
-  %14 = load i32, ptr %fnNumber.addr, align 4
-  %sub21 = sub nsw i32 %14, 12288
-  %idxprom22 = sext i32 %sub21 to i64
-  %arrayidx23 = getelementptr inbounds [5 x ptr], ptr @_ZL14trResDataNames, i64 0, i64 %idxprom22
-  %15 = load ptr, ptr %arrayidx23, align 8
-  store ptr %15, ptr %retval, align 8
-  br label %return
+44:                                               ; preds = %41
+  %45 = load i32, ptr %3, align 4, !tbaa !3
+  %46 = sub nsw i32 %45, 12288
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [5 x ptr], ptr @_ZL14trResDataNames, i64 0, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !9
+  store ptr %49, ptr %2, align 8
+  br label %51
 
-if.else24:                                        ; preds = %land.lhs.true18, %if.else16
-  store ptr @.str.1, ptr %retval, align 8
-  br label %return
+50:                                               ; preds = %41, %38
+  store ptr @.str.1, ptr %2, align 8
+  br label %51
 
-return:                                           ; preds = %if.else24, %if.then20, %if.then12, %if.then5, %if.then
-  %16 = load ptr, ptr %retval, align 8
-  ret ptr %16
+51:                                               ; preds = %50, %44, %32, %20, %9
+  %52 = load ptr, ptr %2, align 8
+  ret ptr %52
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"any pointer", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !8, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS13__va_list_tag", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!5, !5, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 short", !8, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 int", !8, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 long", !8, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"any p2 pointer", !8, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"short", !5, i64 0}
+!28 = distinct !{!28, !17}
+!29 = distinct !{!29, !17}
+!30 = distinct !{!30, !17}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 char16_t", !8, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"char16_t", !5, i64 0}
+!35 = distinct !{!35, !17}
+!36 = distinct !{!36, !17}
+!37 = distinct !{!37, !17}

@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UConverterAlias = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.UEnumeration = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -9,27 +9,31 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TempAliasTable = type { ptr, ptr, ptr, ptr }
 %struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
 %struct.UDataSwapper = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.icu_75::UInitOnce" = type { %"struct.std::atomic", i32 }
+%"struct.icu_77::UInitOnce" = type { %"struct.std::atomic", i32 }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i32 }
 
-$_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_ = comdat any
+$_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_ = comdat any
 
-$_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE = comdat any
+$_ZN6icu_7716umtx_loadAcquireERSt6atomicIiE = comdat any
+
+$_ZNKSt13__atomic_baseIiE4loadESt12memory_order = comdat any
 
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
 
 $__clang_call_terminate = comdat any
 
-$_ZN6icu_759UInitOnce5resetEv = comdat any
+$_ZN6icu_779UInitOnce5resetEv = comdat any
 
 $_ZNSt13__atomic_baseIiEaSEi = comdat any
+
+$_ZNSt13__atomic_baseIiE5storeEiSt12memory_order = comdat any
 
 @_ZL10asciiTypes = internal constant [128 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00\00abcdefghijklmnopqrstuvwxyz\00\00\00\00\00\00abcdefghijklmnopqrstuvwxyz\00\00\00\00\00", align 16
 @_ZL11ebcdicTypes = internal constant [128 x i8] c"\00\81\82\83\84\85\86\87\88\89\00\00\00\00\00\00\00\91\92\93\94\95\96\97\98\99\00\00\00\00\00\00\00\00\A2\A3\A4\A5\A6\A7\A8\A9\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\81\82\83\84\85\86\87\88\89\00\00\00\00\00\00\00\91\92\93\94\95\96\97\98\99\00\00\00\00\00\00\00\00\A2\A3\A4\A5\A6\A7\A8\A9\00\00\00\00\00\00\01\02\02\02\02\02\02\02\02\02\00\00\00\00\00\00", align 16
 @_ZL10gMainTable = internal global %struct.UConverterAlias zeroinitializer, align 8
-@_ZL12gEnumAliases = internal constant %struct.UEnumeration { ptr null, ptr null, ptr @_ZL25ucnv_io_closeUEnumerationP12UEnumeration, ptr @_ZL28ucnv_io_countStandardAliasesP12UEnumerationP10UErrorCode, ptr @uenum_unextDefault_75, ptr @_ZL27ucnv_io_nextStandardAliasesP12UEnumerationPiP10UErrorCode, ptr @_ZL28ucnv_io_resetStandardAliasesP12UEnumerationP10UErrorCode }, align 8
-@_ZL18gEnumAllConverters = internal constant %struct.UEnumeration { ptr null, ptr null, ptr @_ZL25ucnv_io_closeUEnumerationP12UEnumeration, ptr @_ZL26ucnv_io_countAllConvertersP12UEnumerationP10UErrorCode, ptr @uenum_unextDefault_75, ptr @_ZL25ucnv_io_nextAllConvertersP12UEnumerationPiP10UErrorCode, ptr @_ZL26ucnv_io_resetAllConvertersP12UEnumerationP10UErrorCode }, align 8
+@_ZL12gEnumAliases = internal constant %struct.UEnumeration { ptr null, ptr null, ptr @_ZL25ucnv_io_closeUEnumerationP12UEnumeration, ptr @_ZL28ucnv_io_countStandardAliasesP12UEnumerationP10UErrorCode, ptr @uenum_unextDefault_77, ptr @_ZL27ucnv_io_nextStandardAliasesP12UEnumerationPiP10UErrorCode, ptr @_ZL28ucnv_io_resetStandardAliasesP12UEnumerationP10UErrorCode }, align 8
+@_ZL18gEnumAllConverters = internal constant %struct.UEnumeration { ptr null, ptr null, ptr @_ZL25ucnv_io_closeUEnumerationP12UEnumeration, ptr @_ZL26ucnv_io_countAllConvertersP12UEnumerationP10UErrorCode, ptr @uenum_unextDefault_77, ptr @_ZL25ucnv_io_nextAllConvertersP12UEnumerationPiP10UErrorCode, ptr @_ZL26ucnv_io_resetAllConvertersP12UEnumerationP10UErrorCode }, align 8
 @.str = private unnamed_addr constant [97 x i8] c"ucnv_swapAliases(): data format %02x.%02x.%02x.%02x (format version %02x) is not an alias table\0A\00", align 1
 @.str.1 = private unnamed_addr constant [72 x i8] c"ucnv_swapAliases(): too few bytes (%d after header) for an alias table\0A\00", align 1
 @.str.2 = private unnamed_addr constant [93 x i8] c"ucnv_swapAliases(): table of contents contains unsupported number of sections (%u sections)\0A\00", align 1
@@ -43,3357 +47,3690 @@ $_ZNSt13__atomic_baseIiEaSEi = comdat any
 @_ZL19defaultTableOptions = internal constant %struct.UConverterAliasOptions zeroinitializer, align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %dst, ptr noundef %name) #0 {
-entry:
-  %dst.addr = alloca ptr, align 8
-  %name.addr = alloca ptr, align 8
-  %dstItr = alloca ptr, align 8
-  %type = alloca i8, align 1
-  %nextType = alloca i8, align 1
-  %c1 = alloca i8, align 1
-  %afterDigit = alloca i8, align 1
-  store ptr %dst, ptr %dst.addr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  store ptr %0, ptr %dstItr, align 8
-  store i8 0, ptr %afterDigit, align 1
-  br label %while.cond
+define ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %10, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #12
+  store i8 0, ptr %9, align 1, !tbaa !8
+  br label %11
 
-while.cond:                                       ; preds = %sw.epilog, %if.then17, %sw.bb, %entry
-  %1 = load ptr, ptr %name.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %1, i32 1
-  store ptr %incdec.ptr, ptr %name.addr, align 8
-  %2 = load i8, ptr %1, align 1
-  store i8 %2, ptr %c1, align 1
-  %conv = sext i8 %2 to i32
-  %cmp = icmp ne i32 %conv, 0
-  br i1 %cmp, label %while.body, label %while.end
+11:                                               ; preds = %62, %56, %31, %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i32 1
+  store ptr %13, ptr %4, align 8, !tbaa !3
+  %14 = load i8, ptr %12, align 1, !tbaa !8
+  store i8 %14, ptr %8, align 1, !tbaa !8
+  %15 = sext i8 %14 to i32
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %66
 
-while.body:                                       ; preds = %while.cond
-  %3 = load i8, ptr %c1, align 1
-  %conv1 = sext i8 %3 to i32
-  %cmp2 = icmp sge i32 %conv1, 0
-  br i1 %cmp2, label %cond.true, label %cond.false
+17:                                               ; preds = %11
+  %18 = load i8, ptr %8, align 1, !tbaa !8
+  %19 = sext i8 %18 to i32
+  %20 = icmp sge i32 %19, 0
+  br i1 %20, label %21, label %26
 
-cond.true:                                        ; preds = %while.body
-  %4 = load i8, ptr %c1, align 1
-  %idxprom = zext i8 %4 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %idxprom
-  %5 = load i8, ptr %arrayidx, align 1
-  br label %cond.end
+21:                                               ; preds = %17
+  %22 = load i8, ptr %8, align 1, !tbaa !8
+  %23 = zext i8 %22 to i64
+  %24 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !8
+  br label %27
 
-cond.false:                                       ; preds = %while.body
-  br label %cond.end
+26:                                               ; preds = %17
+  br label %27
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i8 [ %5, %cond.true ], [ 0, %cond.false ]
-  store i8 %cond, ptr %type, align 1
-  %6 = load i8, ptr %type, align 1
-  %conv3 = zext i8 %6 to i32
-  switch i32 %conv3, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb4
-    i32 2, label %sw.bb19
+27:                                               ; preds = %26, %21
+  %28 = phi i8 [ %25, %21 ], [ 0, %26 ]
+  store i8 %28, ptr %6, align 1, !tbaa !8
+  %29 = load i8, ptr %6, align 1, !tbaa !8
+  %30 = zext i8 %29 to i32
+  switch i32 %30, label %60 [
+    i32 0, label %31
+    i32 1, label %32
+    i32 2, label %59
   ]
 
-sw.bb:                                            ; preds = %cond.end
-  store i8 0, ptr %afterDigit, align 1
-  br label %while.cond, !llvm.loop !4
+31:                                               ; preds = %27
+  store i8 0, ptr %9, align 1, !tbaa !8
+  br label %11, !llvm.loop !9
 
-sw.bb4:                                           ; preds = %cond.end
-  %7 = load i8, ptr %afterDigit, align 1
-  %tobool = icmp ne i8 %7, 0
-  br i1 %tobool, label %if.end18, label %if.then
+32:                                               ; preds = %27
+  %33 = load i8, ptr %9, align 1, !tbaa !8
+  %34 = icmp ne i8 %33, 0
+  br i1 %34, label %58, label %35
 
-if.then:                                          ; preds = %sw.bb4
-  %8 = load ptr, ptr %name.addr, align 8
-  %9 = load i8, ptr %8, align 1
-  %conv5 = sext i8 %9 to i32
-  %cmp6 = icmp sge i32 %conv5, 0
-  br i1 %cmp6, label %cond.true7, label %cond.false10
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = load i8, ptr %36, align 1, !tbaa !8
+  %38 = sext i8 %37 to i32
+  %39 = icmp sge i32 %38, 0
+  br i1 %39, label %40, label %46
 
-cond.true7:                                       ; preds = %if.then
-  %10 = load ptr, ptr %name.addr, align 8
-  %11 = load i8, ptr %10, align 1
-  %idxprom8 = zext i8 %11 to i64
-  %arrayidx9 = getelementptr inbounds [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %idxprom8
-  %12 = load i8, ptr %arrayidx9, align 1
-  br label %cond.end11
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %4, align 8, !tbaa !3
+  %42 = load i8, ptr %41, align 1, !tbaa !8
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !8
+  br label %47
 
-cond.false10:                                     ; preds = %if.then
-  br label %cond.end11
+46:                                               ; preds = %35
+  br label %47
 
-cond.end11:                                       ; preds = %cond.false10, %cond.true7
-  %cond12 = phi i8 [ %12, %cond.true7 ], [ 0, %cond.false10 ]
-  store i8 %cond12, ptr %nextType, align 1
-  %13 = load i8, ptr %nextType, align 1
-  %conv13 = zext i8 %13 to i32
-  %cmp14 = icmp eq i32 %conv13, 1
-  br i1 %cmp14, label %if.then17, label %lor.lhs.false
+47:                                               ; preds = %46, %40
+  %48 = phi i8 [ %45, %40 ], [ 0, %46 ]
+  store i8 %48, ptr %7, align 1, !tbaa !8
+  %49 = load i8, ptr %7, align 1, !tbaa !8
+  %50 = zext i8 %49 to i32
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %56, label %52
 
-lor.lhs.false:                                    ; preds = %cond.end11
-  %14 = load i8, ptr %nextType, align 1
-  %conv15 = zext i8 %14 to i32
-  %cmp16 = icmp eq i32 %conv15, 2
-  br i1 %cmp16, label %if.then17, label %if.end
+52:                                               ; preds = %47
+  %53 = load i8, ptr %7, align 1, !tbaa !8
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 2
+  br i1 %55, label %56, label %57
 
-if.then17:                                        ; preds = %lor.lhs.false, %cond.end11
-  br label %while.cond, !llvm.loop !4
+56:                                               ; preds = %52, %47
+  br label %11, !llvm.loop !9
 
-if.end:                                           ; preds = %lor.lhs.false
-  br label %if.end18
+57:                                               ; preds = %52
+  br label %58
 
-if.end18:                                         ; preds = %if.end, %sw.bb4
-  br label %sw.epilog
+58:                                               ; preds = %57, %32
+  br label %62
 
-sw.bb19:                                          ; preds = %cond.end
-  store i8 1, ptr %afterDigit, align 1
-  br label %sw.epilog
+59:                                               ; preds = %27
+  store i8 1, ptr %9, align 1, !tbaa !8
+  br label %62
 
-sw.default:                                       ; preds = %cond.end
-  %15 = load i8, ptr %type, align 1
-  store i8 %15, ptr %c1, align 1
-  store i8 0, ptr %afterDigit, align 1
-  br label %sw.epilog
+60:                                               ; preds = %27
+  %61 = load i8, ptr %6, align 1, !tbaa !8
+  store i8 %61, ptr %8, align 1, !tbaa !8
+  store i8 0, ptr %9, align 1, !tbaa !8
+  br label %62
 
-sw.epilog:                                        ; preds = %sw.default, %sw.bb19, %if.end18
-  %16 = load i8, ptr %c1, align 1
-  %17 = load ptr, ptr %dstItr, align 8
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %17, i32 1
-  store ptr %incdec.ptr20, ptr %dstItr, align 8
-  store i8 %16, ptr %17, align 1
-  br label %while.cond, !llvm.loop !4
+62:                                               ; preds = %60, %59, %58
+  %63 = load i8, ptr %8, align 1, !tbaa !8
+  %64 = load ptr, ptr %5, align 8, !tbaa !3
+  %65 = getelementptr inbounds nuw i8, ptr %64, i32 1
+  store ptr %65, ptr %5, align 8, !tbaa !3
+  store i8 %63, ptr %64, align 1, !tbaa !8
+  br label %11, !llvm.loop !9
 
-while.end:                                        ; preds = %while.cond
-  %18 = load ptr, ptr %dstItr, align 8
-  store i8 0, ptr %18, align 1
-  %19 = load ptr, ptr %dst.addr, align 8
-  ret ptr %19
+66:                                               ; preds = %11
+  %67 = load ptr, ptr %5, align 8, !tbaa !3
+  store i8 0, ptr %67, align 1, !tbaa !8
+  %68 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret ptr %68
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define ptr @ucnv_io_stripEBCDICForCompare_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  store ptr %10, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #12
+  store i8 0, ptr %9, align 1, !tbaa !8
+  br label %11
+
+11:                                               ; preds = %66, %60, %33, %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw i8, ptr %12, i32 1
+  store ptr %13, ptr %4, align 8, !tbaa !3
+  %14 = load i8, ptr %12, align 1, !tbaa !8
+  store i8 %14, ptr %8, align 1, !tbaa !8
+  %15 = sext i8 %14 to i32
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %17, label %70
+
+17:                                               ; preds = %11
+  %18 = load i8, ptr %8, align 1, !tbaa !8
+  %19 = sext i8 %18 to i32
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %28
+
+21:                                               ; preds = %17
+  %22 = load i8, ptr %8, align 1, !tbaa !8
+  %23 = sext i8 %22 to i32
+  %24 = and i32 %23, 127
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds [128 x i8], ptr @_ZL11ebcdicTypes, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !8
+  br label %29
+
+28:                                               ; preds = %17
+  br label %29
+
+29:                                               ; preds = %28, %21
+  %30 = phi i8 [ %27, %21 ], [ 0, %28 ]
+  store i8 %30, ptr %6, align 1, !tbaa !8
+  %31 = load i8, ptr %6, align 1, !tbaa !8
+  %32 = zext i8 %31 to i32
+  switch i32 %32, label %64 [
+    i32 0, label %33
+    i32 1, label %34
+    i32 2, label %63
+  ]
+
+33:                                               ; preds = %29
+  store i8 0, ptr %9, align 1, !tbaa !8
+  br label %11, !llvm.loop !11
+
+34:                                               ; preds = %29
+  %35 = load i8, ptr %9, align 1, !tbaa !8
+  %36 = icmp ne i8 %35, 0
+  br i1 %36, label %62, label %37
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %4, align 8, !tbaa !3
+  %39 = load i8, ptr %38, align 1, !tbaa !8
+  %40 = sext i8 %39 to i32
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %50
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %4, align 8, !tbaa !3
+  %44 = load i8, ptr %43, align 1, !tbaa !8
+  %45 = sext i8 %44 to i32
+  %46 = and i32 %45, 127
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds [128 x i8], ptr @_ZL11ebcdicTypes, i64 0, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !8
+  br label %51
+
+50:                                               ; preds = %37
+  br label %51
+
+51:                                               ; preds = %50, %42
+  %52 = phi i8 [ %49, %42 ], [ 0, %50 ]
+  store i8 %52, ptr %7, align 1, !tbaa !8
+  %53 = load i8, ptr %7, align 1, !tbaa !8
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 1
+  br i1 %55, label %60, label %56
+
+56:                                               ; preds = %51
+  %57 = load i8, ptr %7, align 1, !tbaa !8
+  %58 = zext i8 %57 to i32
+  %59 = icmp eq i32 %58, 2
+  br i1 %59, label %60, label %61
+
+60:                                               ; preds = %56, %51
+  br label %11, !llvm.loop !11
+
+61:                                               ; preds = %56
+  br label %62
+
+62:                                               ; preds = %61, %34
+  br label %66
+
+63:                                               ; preds = %29
+  store i8 1, ptr %9, align 1, !tbaa !8
+  br label %66
+
+64:                                               ; preds = %29
+  %65 = load i8, ptr %6, align 1, !tbaa !8
+  store i8 %65, ptr %8, align 1, !tbaa !8
+  store i8 0, ptr %9, align 1, !tbaa !8
+  br label %66
+
+66:                                               ; preds = %64, %63, %62
+  %67 = load i8, ptr %8, align 1, !tbaa !8
+  %68 = load ptr, ptr %5, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw i8, ptr %68, i32 1
+  store ptr %69, ptr %5, align 8, !tbaa !3
+  store i8 %67, ptr %68, align 1, !tbaa !8
+  br label %11, !llvm.loop !11
+
+70:                                               ; preds = %11
+  %71 = load ptr, ptr %5, align 8, !tbaa !3
+  store i8 0, ptr %71, align 1, !tbaa !8
+  %72 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  ret ptr %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @ucnv_io_stripEBCDICForCompare_75(ptr noundef %dst, ptr noundef %name) #0 {
-entry:
-  %dst.addr = alloca ptr, align 8
-  %name.addr = alloca ptr, align 8
-  %dstItr = alloca ptr, align 8
-  %type = alloca i8, align 1
-  %nextType = alloca i8, align 1
-  %c1 = alloca i8, align 1
-  %afterDigit = alloca i8, align 1
-  store ptr %dst, ptr %dst.addr, align 8
-  store ptr %name, ptr %name.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  store ptr %0, ptr %dstItr, align 8
-  store i8 0, ptr %afterDigit, align 1
-  br label %while.cond
+define i32 @ucnv_compareNames_77(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca i8, align 1
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #12
+  store i8 0, ptr %11, align 1, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #12
+  store i8 0, ptr %12, align 1, !tbaa !8
+  br label %14
 
-while.cond:                                       ; preds = %sw.epilog, %if.then20, %sw.bb, %entry
-  %1 = load ptr, ptr %name.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %1, i32 1
-  store ptr %incdec.ptr, ptr %name.addr, align 8
-  %2 = load i8, ptr %1, align 1
-  store i8 %2, ptr %c1, align 1
-  %conv = sext i8 %2 to i32
-  %cmp = icmp ne i32 %conv, 0
-  br i1 %cmp, label %while.body, label %while.end
+14:                                               ; preds = %138, %2
+  br label %15
 
-while.body:                                       ; preds = %while.cond
-  %3 = load i8, ptr %c1, align 1
-  %conv1 = sext i8 %3 to i32
-  %cmp2 = icmp slt i32 %conv1, 0
-  br i1 %cmp2, label %cond.true, label %cond.false
+15:                                               ; preds = %60, %35, %14
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw i8, ptr %16, i32 1
+  store ptr %17, ptr %4, align 8, !tbaa !3
+  %18 = load i8, ptr %16, align 1, !tbaa !8
+  store i8 %18, ptr %9, align 1, !tbaa !8
+  %19 = sext i8 %18 to i32
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %67
 
-cond.true:                                        ; preds = %while.body
-  %4 = load i8, ptr %c1, align 1
-  %conv3 = sext i8 %4 to i32
-  %and = and i32 %conv3, 127
-  %idxprom = sext i32 %and to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr @_ZL11ebcdicTypes, i64 0, i64 %idxprom
-  %5 = load i8, ptr %arrayidx, align 1
-  br label %cond.end
+21:                                               ; preds = %15
+  %22 = load i8, ptr %9, align 1, !tbaa !8
+  %23 = sext i8 %22 to i32
+  %24 = icmp sge i32 %23, 0
+  br i1 %24, label %25, label %30
 
-cond.false:                                       ; preds = %while.body
-  br label %cond.end
+25:                                               ; preds = %21
+  %26 = load i8, ptr %9, align 1, !tbaa !8
+  %27 = zext i8 %26 to i64
+  %28 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !8
+  br label %31
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i8 [ %5, %cond.true ], [ 0, %cond.false ]
-  store i8 %cond, ptr %type, align 1
-  %6 = load i8, ptr %type, align 1
-  %conv4 = zext i8 %6 to i32
-  switch i32 %conv4, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb5
-    i32 2, label %sw.bb22
+30:                                               ; preds = %21
+  br label %31
+
+31:                                               ; preds = %30, %25
+  %32 = phi i8 [ %29, %25 ], [ 0, %30 ]
+  store i8 %32, ptr %7, align 1, !tbaa !8
+  %33 = load i8, ptr %7, align 1, !tbaa !8
+  %34 = zext i8 %33 to i32
+  switch i32 %34, label %64 [
+    i32 0, label %35
+    i32 1, label %36
+    i32 2, label %63
   ]
 
-sw.bb:                                            ; preds = %cond.end
-  store i8 0, ptr %afterDigit, align 1
-  br label %while.cond, !llvm.loop !6
+35:                                               ; preds = %31
+  store i8 0, ptr %11, align 1, !tbaa !8
+  br label %15, !llvm.loop !12
 
-sw.bb5:                                           ; preds = %cond.end
-  %7 = load i8, ptr %afterDigit, align 1
-  %tobool = icmp ne i8 %7, 0
-  br i1 %tobool, label %if.end21, label %if.then
+36:                                               ; preds = %31
+  %37 = load i8, ptr %11, align 1, !tbaa !8
+  %38 = icmp ne i8 %37, 0
+  br i1 %38, label %62, label %39
 
-if.then:                                          ; preds = %sw.bb5
-  %8 = load ptr, ptr %name.addr, align 8
-  %9 = load i8, ptr %8, align 1
-  %conv6 = sext i8 %9 to i32
-  %cmp7 = icmp slt i32 %conv6, 0
-  br i1 %cmp7, label %cond.true8, label %cond.false13
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = load i8, ptr %40, align 1, !tbaa !8
+  %42 = sext i8 %41 to i32
+  %43 = icmp sge i32 %42, 0
+  br i1 %43, label %44, label %50
 
-cond.true8:                                       ; preds = %if.then
-  %10 = load ptr, ptr %name.addr, align 8
-  %11 = load i8, ptr %10, align 1
-  %conv9 = sext i8 %11 to i32
-  %and10 = and i32 %conv9, 127
-  %idxprom11 = sext i32 %and10 to i64
-  %arrayidx12 = getelementptr inbounds [128 x i8], ptr @_ZL11ebcdicTypes, i64 0, i64 %idxprom11
-  %12 = load i8, ptr %arrayidx12, align 1
-  br label %cond.end14
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %4, align 8, !tbaa !3
+  %46 = load i8, ptr %45, align 1, !tbaa !8
+  %47 = zext i8 %46 to i64
+  %48 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !8
+  br label %51
 
-cond.false13:                                     ; preds = %if.then
-  br label %cond.end14
+50:                                               ; preds = %39
+  br label %51
 
-cond.end14:                                       ; preds = %cond.false13, %cond.true8
-  %cond15 = phi i8 [ %12, %cond.true8 ], [ 0, %cond.false13 ]
-  store i8 %cond15, ptr %nextType, align 1
-  %13 = load i8, ptr %nextType, align 1
-  %conv16 = zext i8 %13 to i32
-  %cmp17 = icmp eq i32 %conv16, 1
-  br i1 %cmp17, label %if.then20, label %lor.lhs.false
+51:                                               ; preds = %50, %44
+  %52 = phi i8 [ %49, %44 ], [ 0, %50 ]
+  store i8 %52, ptr %8, align 1, !tbaa !8
+  %53 = load i8, ptr %8, align 1, !tbaa !8
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 1
+  br i1 %55, label %60, label %56
 
-lor.lhs.false:                                    ; preds = %cond.end14
-  %14 = load i8, ptr %nextType, align 1
-  %conv18 = zext i8 %14 to i32
-  %cmp19 = icmp eq i32 %conv18, 2
-  br i1 %cmp19, label %if.then20, label %if.end
+56:                                               ; preds = %51
+  %57 = load i8, ptr %8, align 1, !tbaa !8
+  %58 = zext i8 %57 to i32
+  %59 = icmp eq i32 %58, 2
+  br i1 %59, label %60, label %61
 
-if.then20:                                        ; preds = %lor.lhs.false, %cond.end14
-  br label %while.cond, !llvm.loop !6
+60:                                               ; preds = %56, %51
+  br label %15, !llvm.loop !12
 
-if.end:                                           ; preds = %lor.lhs.false
-  br label %if.end21
+61:                                               ; preds = %56
+  br label %62
 
-if.end21:                                         ; preds = %if.end, %sw.bb5
-  br label %sw.epilog
+62:                                               ; preds = %61, %36
+  br label %66
 
-sw.bb22:                                          ; preds = %cond.end
-  store i8 1, ptr %afterDigit, align 1
-  br label %sw.epilog
+63:                                               ; preds = %31
+  store i8 1, ptr %11, align 1, !tbaa !8
+  br label %66
 
-sw.default:                                       ; preds = %cond.end
-  %15 = load i8, ptr %type, align 1
-  store i8 %15, ptr %c1, align 1
-  store i8 0, ptr %afterDigit, align 1
-  br label %sw.epilog
+64:                                               ; preds = %31
+  %65 = load i8, ptr %7, align 1, !tbaa !8
+  store i8 %65, ptr %9, align 1, !tbaa !8
+  store i8 0, ptr %11, align 1, !tbaa !8
+  br label %66
 
-sw.epilog:                                        ; preds = %sw.default, %sw.bb22, %if.end21
-  %16 = load i8, ptr %c1, align 1
-  %17 = load ptr, ptr %dstItr, align 8
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %17, i32 1
-  store ptr %incdec.ptr23, ptr %dstItr, align 8
-  store i8 %16, ptr %17, align 1
-  br label %while.cond, !llvm.loop !6
+66:                                               ; preds = %64, %63, %62
+  br label %67
 
-while.end:                                        ; preds = %while.cond
-  %18 = load ptr, ptr %dstItr, align 8
-  store i8 0, ptr %18, align 1
-  %19 = load ptr, ptr %dst.addr, align 8
-  ret ptr %19
-}
+67:                                               ; preds = %66, %15
+  br label %68
 
-; Function Attrs: mustprogress nounwind uwtable
-define i32 @ucnv_compareNames_75(ptr noundef %name1, ptr noundef %name2) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %name1.addr = alloca ptr, align 8
-  %name2.addr = alloca ptr, align 8
-  %rc = alloca i32, align 4
-  %type = alloca i8, align 1
-  %nextType = alloca i8, align 1
-  %c1 = alloca i8, align 1
-  %c2 = alloca i8, align 1
-  %afterDigit1 = alloca i8, align 1
-  %afterDigit2 = alloca i8, align 1
-  store ptr %name1, ptr %name1.addr, align 8
-  store ptr %name2, ptr %name2.addr, align 8
-  store i8 0, ptr %afterDigit1, align 1
-  store i8 0, ptr %afterDigit2, align 1
-  br label %for.cond
+68:                                               ; preds = %113, %88, %67
+  %69 = load ptr, ptr %5, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw i8, ptr %69, i32 1
+  store ptr %70, ptr %5, align 8, !tbaa !3
+  %71 = load i8, ptr %69, align 1, !tbaa !8
+  store i8 %71, ptr %10, align 1, !tbaa !8
+  %72 = sext i8 %71 to i32
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %120
 
-for.cond:                                         ; preds = %if.end67, %entry
-  br label %while.cond
+74:                                               ; preds = %68
+  %75 = load i8, ptr %10, align 1, !tbaa !8
+  %76 = sext i8 %75 to i32
+  %77 = icmp sge i32 %76, 0
+  br i1 %77, label %78, label %83
 
-while.cond:                                       ; preds = %if.then17, %sw.bb, %for.cond
-  %0 = load ptr, ptr %name1.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %0, i32 1
-  store ptr %incdec.ptr, ptr %name1.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  store i8 %1, ptr %c1, align 1
-  %conv = sext i8 %1 to i32
-  %cmp = icmp ne i32 %conv, 0
-  br i1 %cmp, label %while.body, label %while.end
+78:                                               ; preds = %74
+  %79 = load i8, ptr %10, align 1, !tbaa !8
+  %80 = zext i8 %79 to i64
+  %81 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !8
+  br label %84
 
-while.body:                                       ; preds = %while.cond
-  %2 = load i8, ptr %c1, align 1
-  %conv1 = sext i8 %2 to i32
-  %cmp2 = icmp sge i32 %conv1, 0
-  br i1 %cmp2, label %cond.true, label %cond.false
+83:                                               ; preds = %74
+  br label %84
 
-cond.true:                                        ; preds = %while.body
-  %3 = load i8, ptr %c1, align 1
-  %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %idxprom
-  %4 = load i8, ptr %arrayidx, align 1
-  br label %cond.end
-
-cond.false:                                       ; preds = %while.body
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i8 [ %4, %cond.true ], [ 0, %cond.false ]
-  store i8 %cond, ptr %type, align 1
-  %5 = load i8, ptr %type, align 1
-  %conv3 = zext i8 %5 to i32
-  switch i32 %conv3, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb4
-    i32 2, label %sw.bb19
+84:                                               ; preds = %83, %78
+  %85 = phi i8 [ %82, %78 ], [ 0, %83 ]
+  store i8 %85, ptr %7, align 1, !tbaa !8
+  %86 = load i8, ptr %7, align 1, !tbaa !8
+  %87 = zext i8 %86 to i32
+  switch i32 %87, label %117 [
+    i32 0, label %88
+    i32 1, label %89
+    i32 2, label %116
   ]
 
-sw.bb:                                            ; preds = %cond.end
-  store i8 0, ptr %afterDigit1, align 1
-  br label %while.cond, !llvm.loop !7
+88:                                               ; preds = %84
+  store i8 0, ptr %12, align 1, !tbaa !8
+  br label %68, !llvm.loop !13
 
-sw.bb4:                                           ; preds = %cond.end
-  %6 = load i8, ptr %afterDigit1, align 1
-  %tobool = icmp ne i8 %6, 0
-  br i1 %tobool, label %if.end18, label %if.then
+89:                                               ; preds = %84
+  %90 = load i8, ptr %12, align 1, !tbaa !8
+  %91 = icmp ne i8 %90, 0
+  br i1 %91, label %115, label %92
 
-if.then:                                          ; preds = %sw.bb4
-  %7 = load ptr, ptr %name1.addr, align 8
-  %8 = load i8, ptr %7, align 1
-  %conv5 = sext i8 %8 to i32
-  %cmp6 = icmp sge i32 %conv5, 0
-  br i1 %cmp6, label %cond.true7, label %cond.false10
+92:                                               ; preds = %89
+  %93 = load ptr, ptr %5, align 8, !tbaa !3
+  %94 = load i8, ptr %93, align 1, !tbaa !8
+  %95 = sext i8 %94 to i32
+  %96 = icmp sge i32 %95, 0
+  br i1 %96, label %97, label %103
 
-cond.true7:                                       ; preds = %if.then
-  %9 = load ptr, ptr %name1.addr, align 8
-  %10 = load i8, ptr %9, align 1
-  %idxprom8 = zext i8 %10 to i64
-  %arrayidx9 = getelementptr inbounds [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %idxprom8
-  %11 = load i8, ptr %arrayidx9, align 1
-  br label %cond.end11
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %5, align 8, !tbaa !3
+  %99 = load i8, ptr %98, align 1, !tbaa !8
+  %100 = zext i8 %99 to i64
+  %101 = getelementptr inbounds nuw [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %100
+  %102 = load i8, ptr %101, align 1, !tbaa !8
+  br label %104
 
-cond.false10:                                     ; preds = %if.then
-  br label %cond.end11
+103:                                              ; preds = %92
+  br label %104
 
-cond.end11:                                       ; preds = %cond.false10, %cond.true7
-  %cond12 = phi i8 [ %11, %cond.true7 ], [ 0, %cond.false10 ]
-  store i8 %cond12, ptr %nextType, align 1
-  %12 = load i8, ptr %nextType, align 1
-  %conv13 = zext i8 %12 to i32
-  %cmp14 = icmp eq i32 %conv13, 1
-  br i1 %cmp14, label %if.then17, label %lor.lhs.false
+104:                                              ; preds = %103, %97
+  %105 = phi i8 [ %102, %97 ], [ 0, %103 ]
+  store i8 %105, ptr %8, align 1, !tbaa !8
+  %106 = load i8, ptr %8, align 1, !tbaa !8
+  %107 = zext i8 %106 to i32
+  %108 = icmp eq i32 %107, 1
+  br i1 %108, label %113, label %109
 
-lor.lhs.false:                                    ; preds = %cond.end11
-  %13 = load i8, ptr %nextType, align 1
-  %conv15 = zext i8 %13 to i32
-  %cmp16 = icmp eq i32 %conv15, 2
-  br i1 %cmp16, label %if.then17, label %if.end
+109:                                              ; preds = %104
+  %110 = load i8, ptr %8, align 1, !tbaa !8
+  %111 = zext i8 %110 to i32
+  %112 = icmp eq i32 %111, 2
+  br i1 %112, label %113, label %114
 
-if.then17:                                        ; preds = %lor.lhs.false, %cond.end11
-  br label %while.cond, !llvm.loop !7
+113:                                              ; preds = %109, %104
+  br label %68, !llvm.loop !13
 
-if.end:                                           ; preds = %lor.lhs.false
-  br label %if.end18
+114:                                              ; preds = %109
+  br label %115
 
-if.end18:                                         ; preds = %if.end, %sw.bb4
-  br label %sw.epilog
+115:                                              ; preds = %114, %89
+  br label %119
 
-sw.bb19:                                          ; preds = %cond.end
-  store i8 1, ptr %afterDigit1, align 1
-  br label %sw.epilog
+116:                                              ; preds = %84
+  store i8 1, ptr %12, align 1, !tbaa !8
+  br label %119
 
-sw.default:                                       ; preds = %cond.end
-  %14 = load i8, ptr %type, align 1
-  store i8 %14, ptr %c1, align 1
-  store i8 0, ptr %afterDigit1, align 1
-  br label %sw.epilog
+117:                                              ; preds = %84
+  %118 = load i8, ptr %7, align 1, !tbaa !8
+  store i8 %118, ptr %10, align 1, !tbaa !8
+  store i8 0, ptr %12, align 1, !tbaa !8
+  br label %119
 
-sw.epilog:                                        ; preds = %sw.default, %sw.bb19, %if.end18
-  br label %while.end
+119:                                              ; preds = %117, %116, %115
+  br label %120
 
-while.end:                                        ; preds = %sw.epilog, %while.cond
-  br label %while.cond20
+120:                                              ; preds = %119, %68
+  %121 = load i8, ptr %9, align 1, !tbaa !8
+  %122 = sext i8 %121 to i32
+  %123 = load i8, ptr %10, align 1, !tbaa !8
+  %124 = sext i8 %123 to i32
+  %125 = or i32 %122, %124
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %128
 
-while.cond20:                                     ; preds = %if.then51, %sw.bb34, %while.end
-  %15 = load ptr, ptr %name2.addr, align 8
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %15, i32 1
-  store ptr %incdec.ptr21, ptr %name2.addr, align 8
-  %16 = load i8, ptr %15, align 1
-  store i8 %16, ptr %c2, align 1
-  %conv22 = sext i8 %16 to i32
-  %cmp23 = icmp ne i32 %conv22, 0
-  br i1 %cmp23, label %while.body24, label %while.end57
+127:                                              ; preds = %120
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %139
 
-while.body24:                                     ; preds = %while.cond20
-  %17 = load i8, ptr %c2, align 1
-  %conv25 = sext i8 %17 to i32
-  %cmp26 = icmp sge i32 %conv25, 0
-  br i1 %cmp26, label %cond.true27, label %cond.false30
+128:                                              ; preds = %120
+  %129 = load i8, ptr %9, align 1, !tbaa !8
+  %130 = zext i8 %129 to i32
+  %131 = load i8, ptr %10, align 1, !tbaa !8
+  %132 = zext i8 %131 to i32
+  %133 = sub nsw i32 %130, %132
+  store i32 %133, ptr %6, align 4, !tbaa !14
+  %134 = load i32, ptr %6, align 4, !tbaa !14
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %136, label %138
 
-cond.true27:                                      ; preds = %while.body24
-  %18 = load i8, ptr %c2, align 1
-  %idxprom28 = zext i8 %18 to i64
-  %arrayidx29 = getelementptr inbounds [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %idxprom28
-  %19 = load i8, ptr %arrayidx29, align 1
-  br label %cond.end31
+136:                                              ; preds = %128
+  %137 = load i32, ptr %6, align 4, !tbaa !14
+  store i32 %137, ptr %3, align 4
+  store i32 1, ptr %13, align 4
+  br label %139
 
-cond.false30:                                     ; preds = %while.body24
-  br label %cond.end31
+138:                                              ; preds = %128
+  br label %14, !llvm.loop !16
 
-cond.end31:                                       ; preds = %cond.false30, %cond.true27
-  %cond32 = phi i8 [ %19, %cond.true27 ], [ 0, %cond.false30 ]
-  store i8 %cond32, ptr %type, align 1
-  %20 = load i8, ptr %type, align 1
-  %conv33 = zext i8 %20 to i32
-  switch i32 %conv33, label %sw.default55 [
-    i32 0, label %sw.bb34
-    i32 1, label %sw.bb35
-    i32 2, label %sw.bb54
+139:                                              ; preds = %136, %127
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  %140 = load i32, ptr %3, align 4
+  ret i32 %140
+}
+
+; Function Attrs: mustprogress uwtable
+define ptr @ucnv_io_getConverterName_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %12, ptr %8, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  store i32 0, ptr %9, align 4, !tbaa !14
+  store i32 0, ptr %9, align 4, !tbaa !14
+  br label %13
+
+13:                                               ; preds = %69, %3
+  %14 = load i32, ptr %9, align 4, !tbaa !14
+  %15 = icmp slt i32 %14, 2
+  br i1 %15, label %16, label %72
+
+16:                                               ; preds = %13
+  %17 = load i32, ptr %9, align 4, !tbaa !14
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %19, label %36
+
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %8, align 8, !tbaa !3
+  %21 = getelementptr inbounds i8, ptr %20, i64 0
+  %22 = load i8, ptr %21, align 1, !tbaa !8
+  %23 = sext i8 %22 to i32
+  %24 = icmp eq i32 %23, 120
+  br i1 %24, label %25, label %34
+
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %8, align 8, !tbaa !3
+  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  %28 = load i8, ptr %27, align 1, !tbaa !8
+  %29 = sext i8 %28 to i32
+  %30 = icmp eq i32 %29, 45
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %8, align 8, !tbaa !3
+  %33 = getelementptr inbounds i8, ptr %32, i64 2
+  store ptr %33, ptr %8, align 8, !tbaa !3
+  br label %35
+
+34:                                               ; preds = %25, %19
+  br label %72
+
+35:                                               ; preds = %31
+  br label %36
+
+36:                                               ; preds = %35, %16
+  %37 = load ptr, ptr %7, align 8, !tbaa !17
+  %38 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %37)
+  %39 = icmp ne i8 %38, 0
+  br i1 %39, label %40, label %67
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %8, align 8, !tbaa !3
+  %42 = load ptr, ptr %7, align 8, !tbaa !17
+  %43 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %41, ptr noundef %42)
+  %44 = icmp ne i8 %43, 0
+  br i1 %44, label %45, label %67
+
+45:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #12
+  %46 = load ptr, ptr %8, align 8, !tbaa !3
+  %47 = load ptr, ptr %6, align 8, !tbaa !3
+  %48 = load ptr, ptr %7, align 8, !tbaa !17
+  %49 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %46, ptr noundef %47, ptr noundef %48)
+  store i32 %49, ptr %10, align 4, !tbaa !14
+  %50 = load i32, ptr %10, align 4, !tbaa !14
+  %51 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %52 = icmp ult i32 %50, %51
+  br i1 %52, label %53, label %63
+
+53:                                               ; preds = %45
+  %54 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %55 = load ptr, ptr @_ZL10gMainTable, align 8, !tbaa !22
+  %56 = load i32, ptr %10, align 4, !tbaa !14
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw i16, ptr %55, i64 %57
+  %59 = load i16, ptr %58, align 2, !tbaa !23
+  %60 = zext i16 %59 to i32
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i16, ptr %54, i64 %61
+  store ptr %62, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %64
+
+63:                                               ; preds = %45
+  store i32 0, ptr %11, align 4
+  br label %64
+
+64:                                               ; preds = %63, %53
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #12
+  %65 = load i32, ptr %11, align 4
+  switch i32 %65, label %73 [
+    i32 0, label %66
   ]
 
-sw.bb34:                                          ; preds = %cond.end31
-  store i8 0, ptr %afterDigit2, align 1
-  br label %while.cond20, !llvm.loop !8
+66:                                               ; preds = %64
+  br label %68
 
-sw.bb35:                                          ; preds = %cond.end31
-  %21 = load i8, ptr %afterDigit2, align 1
-  %tobool36 = icmp ne i8 %21, 0
-  br i1 %tobool36, label %if.end53, label %if.then37
+67:                                               ; preds = %40, %36
+  br label %72
 
-if.then37:                                        ; preds = %sw.bb35
-  %22 = load ptr, ptr %name2.addr, align 8
-  %23 = load i8, ptr %22, align 1
-  %conv38 = sext i8 %23 to i32
-  %cmp39 = icmp sge i32 %conv38, 0
-  br i1 %cmp39, label %cond.true40, label %cond.false43
+68:                                               ; preds = %66
+  br label %69
 
-cond.true40:                                      ; preds = %if.then37
-  %24 = load ptr, ptr %name2.addr, align 8
-  %25 = load i8, ptr %24, align 1
-  %idxprom41 = zext i8 %25 to i64
-  %arrayidx42 = getelementptr inbounds [128 x i8], ptr @_ZL10asciiTypes, i64 0, i64 %idxprom41
-  %26 = load i8, ptr %arrayidx42, align 1
-  br label %cond.end44
+69:                                               ; preds = %68
+  %70 = load i32, ptr %9, align 4, !tbaa !14
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %9, align 4, !tbaa !14
+  br label %13, !llvm.loop !25
 
-cond.false43:                                     ; preds = %if.then37
-  br label %cond.end44
+72:                                               ; preds = %67, %34, %13
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %73
 
-cond.end44:                                       ; preds = %cond.false43, %cond.true40
-  %cond45 = phi i8 [ %26, %cond.true40 ], [ 0, %cond.false43 ]
-  store i8 %cond45, ptr %nextType, align 1
-  %27 = load i8, ptr %nextType, align 1
-  %conv46 = zext i8 %27 to i32
-  %cmp47 = icmp eq i32 %conv46, 1
-  br i1 %cmp47, label %if.then51, label %lor.lhs.false48
-
-lor.lhs.false48:                                  ; preds = %cond.end44
-  %28 = load i8, ptr %nextType, align 1
-  %conv49 = zext i8 %28 to i32
-  %cmp50 = icmp eq i32 %conv49, 2
-  br i1 %cmp50, label %if.then51, label %if.end52
-
-if.then51:                                        ; preds = %lor.lhs.false48, %cond.end44
-  br label %while.cond20, !llvm.loop !8
-
-if.end52:                                         ; preds = %lor.lhs.false48
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.end52, %sw.bb35
-  br label %sw.epilog56
-
-sw.bb54:                                          ; preds = %cond.end31
-  store i8 1, ptr %afterDigit2, align 1
-  br label %sw.epilog56
-
-sw.default55:                                     ; preds = %cond.end31
-  %29 = load i8, ptr %type, align 1
-  store i8 %29, ptr %c2, align 1
-  store i8 0, ptr %afterDigit2, align 1
-  br label %sw.epilog56
-
-sw.epilog56:                                      ; preds = %sw.default55, %sw.bb54, %if.end53
-  br label %while.end57
-
-while.end57:                                      ; preds = %sw.epilog56, %while.cond20
-  %30 = load i8, ptr %c1, align 1
-  %conv58 = sext i8 %30 to i32
-  %31 = load i8, ptr %c2, align 1
-  %conv59 = sext i8 %31 to i32
-  %or = or i32 %conv58, %conv59
-  %cmp60 = icmp eq i32 %or, 0
-  br i1 %cmp60, label %if.then61, label %if.end62
-
-if.then61:                                        ; preds = %while.end57
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end62:                                         ; preds = %while.end57
-  %32 = load i8, ptr %c1, align 1
-  %conv63 = zext i8 %32 to i32
-  %33 = load i8, ptr %c2, align 1
-  %conv64 = zext i8 %33 to i32
-  %sub = sub nsw i32 %conv63, %conv64
-  store i32 %sub, ptr %rc, align 4
-  %34 = load i32, ptr %rc, align 4
-  %cmp65 = icmp ne i32 %34, 0
-  br i1 %cmp65, label %if.then66, label %if.end67
-
-if.then66:                                        ; preds = %if.end62
-  %35 = load i32, ptr %rc, align 4
-  store i32 %35, ptr %retval, align 4
-  br label %return
-
-if.end67:                                         ; preds = %if.end62
-  br label %for.cond, !llvm.loop !9
-
-return:                                           ; preds = %if.then66, %if.then61
-  %36 = load i32, ptr %retval, align 4
-  ret i32 %36
+73:                                               ; preds = %72, %64
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %74 = load ptr, ptr %4, align 8
+  ret ptr %74
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_io_getConverterName_75(ptr noundef %alias, ptr noundef %containsOption, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %alias.addr = alloca ptr, align 8
-  %containsOption.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %aliasTmp = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %convNum = alloca i32, align 4
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %containsOption, ptr %containsOption.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %alias.addr, align 8
-  store ptr %0, ptr %aliasTmp, align 8
-  store i32 0, ptr %i, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define internal noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  call void @_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_(ptr noundef nonnull align 4 dereferenceable(8) @_ZL18gAliasDataInitOnce, ptr noundef @_ZL13initAliasDataR10UErrorCode, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %4 = load ptr, ptr %2, align 8, !tbaa !17
+  %5 = load i32, ptr %4, align 4, !tbaa !26
+  %6 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %5)
+  ret i8 %6
+}
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %1, 2
-  br i1 %cmp, label %for.body, label %for.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %0, ptr noundef %1) #3 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %10
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %i, align 4
-  %cmp1 = icmp eq i32 %2, 1
-  br i1 %cmp1, label %if.then, label %if.end7
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %5, align 8, !tbaa !17
+  store i32 1, ptr %9, align 4, !tbaa !26
+  store i8 0, ptr %3, align 1
+  br label %16
 
-if.then:                                          ; preds = %for.body
-  %3 = load ptr, ptr %aliasTmp, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 0
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %4 to i32
-  %cmp2 = icmp eq i32 %conv, 120
-  br i1 %cmp2, label %land.lhs.true, label %if.else
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = load i8, ptr %11, align 1, !tbaa !8
+  %13 = sext i8 %12 to i32
+  %14 = icmp ne i32 %13, 0
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %3, align 1
+  br label %16
 
-land.lhs.true:                                    ; preds = %if.then
-  %5 = load ptr, ptr %aliasTmp, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %5, i64 1
-  %6 = load i8, ptr %arrayidx3, align 1
-  %conv4 = sext i8 %6 to i32
-  %cmp5 = icmp eq i32 %conv4, 45
-  br i1 %cmp5, label %if.then6, label %if.else
+16:                                               ; preds = %10, %8
+  %17 = load i8, ptr %3, align 1
+  ret i8 %17
+}
 
-if.then6:                                         ; preds = %land.lhs.true
-  %7 = load ptr, ptr %aliasTmp, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %7, i64 2
-  store ptr %add.ptr, ptr %aliasTmp, align 8
-  br label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca [60 x i8], align 16
+  %15 = alloca i32, align 4
+  %16 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #12
+  %17 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw %struct.UConverterAliasOptions, ptr %17, i32 0, i32 0
+  %19 = load i16, ptr %18, align 2, !tbaa !29
+  %20 = zext i16 %19 to i32
+  %21 = icmp eq i32 %20, 0
+  %22 = zext i1 %21 to i32
+  store i32 %22, ptr %13, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 60, ptr %14) #12
+  %23 = load i32, ptr %13, align 4, !tbaa !14
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %36, label %25
 
-if.else:                                          ; preds = %land.lhs.true, %if.then
-  br label %for.end
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = call i64 @strlen(ptr noundef %26) #13
+  %28 = icmp uge i64 %27, 60
+  br i1 %28, label %29, label %31
 
-if.end:                                           ; preds = %if.then6
-  br label %if.end7
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %7, align 8, !tbaa !17
+  store i32 15, ptr %30, align 4, !tbaa !26
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %15, align 4
+  br label %135
 
-if.end7:                                          ; preds = %if.end, %for.body
-  %8 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %8)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %land.lhs.true8, label %if.else19
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds [60 x i8], ptr %14, i64 0, i64 0
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = call ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef %32, ptr noundef %33)
+  %35 = getelementptr inbounds [60 x i8], ptr %14, i64 0, i64 0
+  store ptr %35, ptr %5, align 8, !tbaa !3
+  br label %36
 
-land.lhs.true8:                                   ; preds = %if.end7
-  %9 = load ptr, ptr %aliasTmp, align 8
-  %10 = load ptr, ptr %pErrorCode.addr, align 8
-  %call9 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %9, ptr noundef %10)
-  %tobool10 = icmp ne i8 %call9, 0
-  br i1 %tobool10, label %if.then11, label %if.else19
+36:                                               ; preds = %31, %3
+  store i32 0, ptr %9, align 4, !tbaa !14
+  %37 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12), align 4, !tbaa !31
+  store i32 %37, ptr %10, align 4, !tbaa !14
+  %38 = load i32, ptr %10, align 4, !tbaa !14
+  store i32 %38, ptr %8, align 4, !tbaa !14
+  store i32 -1, ptr %11, align 4, !tbaa !14
+  br label %39
 
-if.then11:                                        ; preds = %land.lhs.true8
-  %11 = load ptr, ptr %aliasTmp, align 8
-  %12 = load ptr, ptr %containsOption.addr, align 8
-  %13 = load ptr, ptr %pErrorCode.addr, align 8
-  %call12 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  store i32 %call12, ptr %convNum, align 4
-  %14 = load i32, ptr %convNum, align 4
-  %15 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %16 = load i32, ptr %15, align 8
-  %cmp13 = icmp ult i32 %14, %16
-  br i1 %cmp13, label %if.then14, label %if.end18
+39:                                               ; preds = %133, %36
+  %40 = load i32, ptr %9, align 4, !tbaa !14
+  %41 = load i32, ptr %10, align 4, !tbaa !14
+  %42 = add i32 %40, %41
+  %43 = udiv i32 %42, 2
+  store i32 %43, ptr %8, align 4, !tbaa !14
+  %44 = load i32, ptr %11, align 4, !tbaa !14
+  %45 = load i32, ptr %8, align 4, !tbaa !14
+  %46 = icmp eq i32 %44, %45
+  br i1 %46, label %47, label %48
 
-if.then14:                                        ; preds = %if.then11
-  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr @_ZL10gMainTable, align 8
-  %20 = load i32, ptr %convNum, align 4
-  %idxprom = zext i32 %20 to i64
-  %arrayidx15 = getelementptr inbounds i16, ptr %19, i64 %idxprom
-  %21 = load i16, ptr %arrayidx15, align 2
-  %conv16 = zext i16 %21 to i32
-  %idx.ext = sext i32 %conv16 to i64
-  %add.ptr17 = getelementptr inbounds i16, ptr %18, i64 %idx.ext
-  store ptr %add.ptr17, ptr %retval, align 8
-  br label %return
+47:                                               ; preds = %39
+  br label %134
 
-if.end18:                                         ; preds = %if.then11
-  br label %if.end20
+48:                                               ; preds = %39
+  %49 = load i32, ptr %8, align 4, !tbaa !14
+  store i32 %49, ptr %11, align 4, !tbaa !14
+  %50 = load i32, ptr %13, align 4, !tbaa !14
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %64
 
-if.else19:                                        ; preds = %land.lhs.true8, %if.end7
-  br label %for.end
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %5, align 8, !tbaa !3
+  %54 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %55 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2), align 8, !tbaa !32
+  %56 = load i32, ptr %8, align 4, !tbaa !14
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw i16, ptr %55, i64 %57
+  %59 = load i16, ptr %58, align 2, !tbaa !23
+  %60 = zext i16 %59 to i32
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds i16, ptr %54, i64 %61
+  %63 = call i32 @ucnv_compareNames_77(ptr noundef %53, ptr noundef %62)
+  store i32 %63, ptr %12, align 4, !tbaa !14
+  br label %76
 
-if.end20:                                         ; preds = %if.end18
-  br label %for.inc
+64:                                               ; preds = %48
+  %65 = load ptr, ptr %5, align 8, !tbaa !3
+  %66 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 8), align 8, !tbaa !33
+  %67 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2), align 8, !tbaa !32
+  %68 = load i32, ptr %8, align 4, !tbaa !14
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw i16, ptr %67, i64 %69
+  %71 = load i16, ptr %70, align 2, !tbaa !23
+  %72 = zext i16 %71 to i32
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i16, ptr %66, i64 %73
+  %75 = call i32 @strcmp(ptr noundef %65, ptr noundef %74) #13
+  store i32 %75, ptr %12, align 4, !tbaa !14
+  br label %76
 
-for.inc:                                          ; preds = %if.end20
-  %22 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %22, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !10
+76:                                               ; preds = %64, %52
+  %77 = load i32, ptr %12, align 4, !tbaa !14
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %79, label %81
 
-for.end:                                          ; preds = %if.else19, %if.else, %for.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
+79:                                               ; preds = %76
+  %80 = load i32, ptr %8, align 4, !tbaa !14
+  store i32 %80, ptr %10, align 4, !tbaa !14
+  br label %133
 
-return:                                           ; preds = %for.end, %if.then14
-  %23 = load ptr, ptr %retval, align 8
-  ret ptr %23
+81:                                               ; preds = %76
+  %82 = load i32, ptr %12, align 4, !tbaa !14
+  %83 = icmp sgt i32 %82, 0
+  br i1 %83, label %84, label %86
+
+84:                                               ; preds = %81
+  %85 = load i32, ptr %8, align 4, !tbaa !14
+  store i32 %85, ptr %9, align 4, !tbaa !14
+  br label %132
+
+86:                                               ; preds = %81
+  %87 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3), align 8, !tbaa !34
+  %88 = load i32, ptr %8, align 4, !tbaa !14
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw i16, ptr %87, i64 %89
+  %91 = load i16, ptr %90, align 2, !tbaa !23
+  %92 = zext i16 %91 to i32
+  %93 = and i32 %92, 32768
+  %94 = icmp ne i32 %93, 0
+  br i1 %94, label %95, label %97
+
+95:                                               ; preds = %86
+  %96 = load ptr, ptr %7, align 8, !tbaa !17
+  store i32 -122, ptr %96, align 4, !tbaa !26
+  br label %97
+
+97:                                               ; preds = %95, %86
+  %98 = load ptr, ptr %6, align 8, !tbaa !3
+  %99 = icmp ne ptr %98, null
+  br i1 %99, label %100, label %124
+
+100:                                              ; preds = %97
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #12
+  %101 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8, !tbaa !28
+  %102 = getelementptr inbounds nuw %struct.UConverterAliasOptions, ptr %101, i32 0, i32 1
+  %103 = load i16, ptr %102, align 2, !tbaa !35
+  %104 = trunc i16 %103 to i8
+  store i8 %104, ptr %16, align 1, !tbaa !8
+  %105 = load i8, ptr %16, align 1, !tbaa !8
+  %106 = icmp ne i8 %105, 0
+  br i1 %106, label %107, label %116
+
+107:                                              ; preds = %100
+  %108 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3), align 8, !tbaa !34
+  %109 = load i32, ptr %8, align 4, !tbaa !14
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw i16, ptr %108, i64 %110
+  %112 = load i16, ptr %111, align 2, !tbaa !23
+  %113 = zext i16 %112 to i32
+  %114 = and i32 %113, 16384
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %120, label %116
+
+116:                                              ; preds = %107, %100
+  %117 = load i8, ptr %16, align 1, !tbaa !8
+  %118 = icmp ne i8 %117, 0
+  %119 = xor i1 %118, true
+  br label %120
+
+120:                                              ; preds = %116, %107
+  %121 = phi i1 [ true, %107 ], [ %119, %116 ]
+  %122 = zext i1 %121 to i8
+  %123 = load ptr, ptr %6, align 8, !tbaa !3
+  store i8 %122, ptr %123, align 1, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #12
+  br label %124
+
+124:                                              ; preds = %120, %97
+  %125 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3), align 8, !tbaa !34
+  %126 = load i32, ptr %8, align 4, !tbaa !14
+  %127 = zext i32 %126 to i64
+  %128 = getelementptr inbounds nuw i16, ptr %125, i64 %127
+  %129 = load i16, ptr %128, align 2, !tbaa !23
+  %130 = zext i16 %129 to i32
+  %131 = and i32 %130, 4095
+  store i32 %131, ptr %4, align 4
+  store i32 1, ptr %15, align 4
+  br label %135
+
+132:                                              ; preds = %84
+  br label %133
+
+133:                                              ; preds = %132, %79
+  br label %39, !llvm.loop !36
+
+134:                                              ; preds = %47
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %15, align 4
+  br label %135
+
+135:                                              ; preds = %134, %124, %29
+  call void @llvm.lifetime.end.p0(i64 60, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  %136 = load i32, ptr %4, align 4
+  ret i32 %136
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %pErrorCode) #1 {
-entry:
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_(ptr noundef nonnull align 4 dereferenceable(8) @_ZL18gAliasDataInitOnce, ptr noundef @_ZL13initAliasDataR10UErrorCode, ptr noundef nonnull align 4 dereferenceable(4) %0)
-  %1 = load ptr, ptr %pErrorCode.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %2)
-  ret i8 %call
-}
+define ptr @ucnv_openStandardNames_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  store ptr null, ptr %8, align 8, !tbaa !37
+  %12 = load ptr, ptr %7, align 8, !tbaa !17
+  %13 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %12)
+  %14 = icmp ne i8 %13, 0
+  br i1 %14, label %15, label %61
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %alias, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %alias.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %alias.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = load ptr, ptr %7, align 8, !tbaa !17
+  %18 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %16, ptr noundef %17)
+  %19 = icmp ne i8 %18, 0
+  br i1 %19, label %20, label %61
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 1, ptr %1, align 4
-  store i8 0, ptr %retval, align 1
-  br label %return
+20:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = load ptr, ptr %7, align 8, !tbaa !17
+  %24 = call noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef %21, ptr noundef %22, ptr noundef %23)
+  store i32 %24, ptr %9, align 4, !tbaa !14
+  %25 = load i32, ptr %9, align 4, !tbaa !14
+  %26 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14), align 4, !tbaa !39
+  %27 = icmp ult i32 %25, %26
+  br i1 %27, label %28, label %57
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %alias.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = sext i8 %3 to i32
-  %cmp1 = icmp ne i32 %conv, 0
-  %conv2 = zext i1 %cmp1 to i8
-  store i8 %conv2, ptr %retval, align 1
-  br label %return
+28:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %29 = call noalias ptr @uprv_malloc_77(i64 noundef 56) #14
+  store ptr %29, ptr %8, align 8, !tbaa !37
+  %30 = load ptr, ptr %8, align 8, !tbaa !37
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %34
 
-return:                                           ; preds = %if.end, %if.then
-  %4 = load i8, ptr %retval, align 1
-  ret i8 %4
-}
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %7, align 8, !tbaa !17
+  store i32 7, ptr %33, align 4, !tbaa !26
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %54
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %alias, ptr noundef %containsOption, ptr noundef %pErrorCode) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %alias.addr = alloca ptr, align 8
-  %containsOption.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %mid = alloca i32, align 4
-  %start = alloca i32, align 4
-  %limit = alloca i32, align 4
-  %lastMid = alloca i32, align 4
-  %result = alloca i32, align 4
-  %isUnnormalized = alloca i32, align 4
-  %strippedName = alloca [60 x i8], align 16
-  %containsCnvOptionInfo = alloca i8, align 1
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %containsOption, ptr %containsOption.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
-  %1 = load ptr, ptr %0, align 8
-  %stringNormalizationType = getelementptr inbounds %struct.UConverterAliasOptions, ptr %1, i32 0, i32 0
-  %2 = load i16, ptr %stringNormalizationType, align 2
-  %conv = zext i16 %2 to i32
-  %cmp = icmp eq i32 %conv, 0
-  %conv1 = zext i1 %cmp to i32
-  store i32 %conv1, ptr %isUnnormalized, align 4
-  %3 = load i32, ptr %isUnnormalized, align 4
-  %tobool = icmp ne i32 %3, 0
-  br i1 %tobool, label %if.end6, label %if.then
+34:                                               ; preds = %28
+  br label %35
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %alias.addr, align 8
-  %call = call i64 @strlen(ptr noundef %4) #8
-  %cmp2 = icmp uge i64 %call, 60
-  br i1 %cmp2, label %if.then3, label %if.end
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %8, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 8 @_ZL12gEnumAliases, i64 56, i1 false)
+  br label %37
 
-if.then3:                                         ; preds = %if.then
-  %5 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 15, ptr %5, align 4
-  store i32 -1, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %35
+  br label %38
 
-if.end:                                           ; preds = %if.then
-  %arraydecay = getelementptr inbounds [60 x i8], ptr %strippedName, i64 0, i64 0
-  %6 = load ptr, ptr %alias.addr, align 8
-  %call4 = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %arraydecay, ptr noundef %6)
-  %arraydecay5 = getelementptr inbounds [60 x i8], ptr %strippedName, i64 0, i64 0
-  store ptr %arraydecay5, ptr %alias.addr, align 8
-  br label %if.end6
+38:                                               ; preds = %37
+  %39 = call noalias ptr @uprv_malloc_77(i64 noundef 8) #14
+  store ptr %39, ptr %10, align 8, !tbaa !40
+  %40 = load ptr, ptr %10, align 8, !tbaa !40
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %45
 
-if.end6:                                          ; preds = %if.end, %entry
-  store i32 0, ptr %start, align 4
-  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12
-  %8 = load i32, ptr %7, align 4
-  store i32 %8, ptr %limit, align 4
-  %9 = load i32, ptr %limit, align 4
-  store i32 %9, ptr %mid, align 4
-  store i32 -1, ptr %lastMid, align 4
-  br label %for.cond
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %7, align 8, !tbaa !17
+  store i32 7, ptr %43, align 4, !tbaa !26
+  %44 = load ptr, ptr %8, align 8, !tbaa !37
+  call void @uprv_free_77(ptr noundef %44)
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %54
 
-for.cond:                                         ; preds = %if.end51, %if.end6
-  %10 = load i32, ptr %start, align 4
-  %11 = load i32, ptr %limit, align 4
-  %add = add i32 %10, %11
-  %div = udiv i32 %add, 2
-  store i32 %div, ptr %mid, align 4
-  %12 = load i32, ptr %lastMid, align 4
-  %13 = load i32, ptr %mid, align 4
-  %cmp7 = icmp eq i32 %12, %13
-  br i1 %cmp7, label %if.then8, label %if.end9
+45:                                               ; preds = %38
+  %46 = load i32, ptr %9, align 4, !tbaa !14
+  %47 = load ptr, ptr %10, align 8, !tbaa !40
+  %48 = getelementptr inbounds nuw %struct.UAliasContext, ptr %47, i32 0, i32 0
+  store i32 %46, ptr %48, align 4, !tbaa !42
+  %49 = load ptr, ptr %10, align 8, !tbaa !40
+  %50 = getelementptr inbounds nuw %struct.UAliasContext, ptr %49, i32 0, i32 1
+  store i32 0, ptr %50, align 4, !tbaa !44
+  %51 = load ptr, ptr %10, align 8, !tbaa !40
+  %52 = load ptr, ptr %8, align 8, !tbaa !37
+  %53 = getelementptr inbounds nuw %struct.UEnumeration, ptr %52, i32 0, i32 1
+  store ptr %51, ptr %53, align 8, !tbaa !45
+  store i32 0, ptr %11, align 4
+  br label %54
 
-if.then8:                                         ; preds = %for.cond
-  br label %for.end
+54:                                               ; preds = %45, %42, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  %55 = load i32, ptr %11, align 4
+  switch i32 %55, label %58 [
+    i32 0, label %56
+  ]
 
-if.end9:                                          ; preds = %for.cond
-  %14 = load i32, ptr %mid, align 4
-  store i32 %14, ptr %lastMid, align 4
-  %15 = load i32, ptr %isUnnormalized, align 4
-  %tobool10 = icmp ne i32 %15, 0
-  br i1 %tobool10, label %if.then11, label %if.else
+56:                                               ; preds = %54
+  br label %57
 
-if.then11:                                        ; preds = %if.end9
-  %16 = load ptr, ptr %alias.addr, align 8
-  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %mid, align 4
-  %idxprom = zext i32 %21 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %20, i64 %idxprom
-  %22 = load i16, ptr %arrayidx, align 2
-  %conv12 = zext i16 %22 to i32
-  %idx.ext = sext i32 %conv12 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %18, i64 %idx.ext
-  %call13 = call i32 @ucnv_compareNames_75(ptr noundef %16, ptr noundef %add.ptr)
-  store i32 %call13, ptr %result, align 4
-  br label %if.end20
+57:                                               ; preds = %56, %20
+  store i32 0, ptr %11, align 4
+  br label %58
 
-if.else:                                          ; preds = %if.end9
-  %23 = load ptr, ptr %alias.addr, align 8
-  %24 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr %mid, align 4
-  %idxprom14 = zext i32 %28 to i64
-  %arrayidx15 = getelementptr inbounds i16, ptr %27, i64 %idxprom14
-  %29 = load i16, ptr %arrayidx15, align 2
-  %conv16 = zext i16 %29 to i32
-  %idx.ext17 = sext i32 %conv16 to i64
-  %add.ptr18 = getelementptr inbounds i16, ptr %25, i64 %idx.ext17
-  %call19 = call i32 @strcmp(ptr noundef %23, ptr noundef %add.ptr18) #8
-  store i32 %call19, ptr %result, align 4
-  br label %if.end20
+58:                                               ; preds = %57, %54
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  %59 = load i32, ptr %11, align 4
+  switch i32 %59, label %63 [
+    i32 0, label %60
+  ]
 
-if.end20:                                         ; preds = %if.else, %if.then11
-  %30 = load i32, ptr %result, align 4
-  %cmp21 = icmp slt i32 %30, 0
-  br i1 %cmp21, label %if.then22, label %if.else23
+60:                                               ; preds = %58
+  br label %61
 
-if.then22:                                        ; preds = %if.end20
-  %31 = load i32, ptr %mid, align 4
-  store i32 %31, ptr %limit, align 4
-  br label %if.end51
+61:                                               ; preds = %60, %15, %3
+  %62 = load ptr, ptr %8, align 8, !tbaa !37
+  store ptr %62, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %63
 
-if.else23:                                        ; preds = %if.end20
-  %32 = load i32, ptr %result, align 4
-  %cmp24 = icmp sgt i32 %32, 0
-  br i1 %cmp24, label %if.then25, label %if.else26
-
-if.then25:                                        ; preds = %if.else23
-  %33 = load i32, ptr %mid, align 4
-  store i32 %33, ptr %start, align 4
-  br label %if.end50
-
-if.else26:                                        ; preds = %if.else23
-  %34 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i32, ptr %mid, align 4
-  %idxprom27 = zext i32 %36 to i64
-  %arrayidx28 = getelementptr inbounds i16, ptr %35, i64 %idxprom27
-  %37 = load i16, ptr %arrayidx28, align 2
-  %conv29 = zext i16 %37 to i32
-  %and = and i32 %conv29, 32768
-  %tobool30 = icmp ne i32 %and, 0
-  br i1 %tobool30, label %if.then31, label %if.end32
-
-if.then31:                                        ; preds = %if.else26
-  %38 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 -122, ptr %38, align 4
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.then31, %if.else26
-  %39 = load ptr, ptr %containsOption.addr, align 8
-  %tobool33 = icmp ne ptr %39, null
-  br i1 %tobool33, label %if.then34, label %if.end45
-
-if.then34:                                        ; preds = %if.end32
-  %40 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
-  %41 = load ptr, ptr %40, align 8
-  %containsCnvOptionInfo35 = getelementptr inbounds %struct.UConverterAliasOptions, ptr %41, i32 0, i32 1
-  %42 = load i16, ptr %containsCnvOptionInfo35, align 2
-  %conv36 = trunc i16 %42 to i8
-  store i8 %conv36, ptr %containsCnvOptionInfo, align 1
-  %43 = load i8, ptr %containsCnvOptionInfo, align 1
-  %tobool37 = icmp ne i8 %43, 0
-  br i1 %tobool37, label %land.lhs.true, label %lor.rhs
-
-land.lhs.true:                                    ; preds = %if.then34
-  %44 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %mid, align 4
-  %idxprom38 = zext i32 %46 to i64
-  %arrayidx39 = getelementptr inbounds i16, ptr %45, i64 %idxprom38
-  %47 = load i16, ptr %arrayidx39, align 2
-  %conv40 = zext i16 %47 to i32
-  %and41 = and i32 %conv40, 16384
-  %cmp42 = icmp ne i32 %and41, 0
-  br i1 %cmp42, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %land.lhs.true, %if.then34
-  %48 = load i8, ptr %containsCnvOptionInfo, align 1
-  %tobool43 = icmp ne i8 %48, 0
-  %lnot = xor i1 %tobool43, true
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %land.lhs.true
-  %49 = phi i1 [ true, %land.lhs.true ], [ %lnot, %lor.rhs ]
-  %conv44 = zext i1 %49 to i8
-  %50 = load ptr, ptr %containsOption.addr, align 8
-  store i8 %conv44, ptr %50, align 1
-  br label %if.end45
-
-if.end45:                                         ; preds = %lor.end, %if.end32
-  %51 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %mid, align 4
-  %idxprom46 = zext i32 %53 to i64
-  %arrayidx47 = getelementptr inbounds i16, ptr %52, i64 %idxprom46
-  %54 = load i16, ptr %arrayidx47, align 2
-  %conv48 = zext i16 %54 to i32
-  %and49 = and i32 %conv48, 4095
-  store i32 %and49, ptr %retval, align 4
-  br label %return
-
-if.end50:                                         ; preds = %if.then25
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.end50, %if.then22
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %if.then8
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %for.end, %if.end45, %if.then3
-  %55 = load i32, ptr %retval, align 4
-  ret i32 %55
+63:                                               ; preds = %61, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %64 = load ptr, ptr %4, align 8
+  ret ptr %64
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_openStandardNames_75(ptr noundef %convName, ptr noundef %standard, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %convName.addr = alloca ptr, align 8
-  %standard.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %myEnum = alloca ptr, align 8
-  %listOffset = alloca i32, align 4
-  %myContext = alloca ptr, align 8
-  store ptr %convName, ptr %convName.addr, align 8
-  store ptr %standard, ptr %standard.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  store ptr null, ptr %myEnum, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end14
+define internal noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  store i32 0, ptr %11, align 4, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #12
+  %17 = load ptr, ptr %6, align 8, !tbaa !3
+  %18 = call noundef i32 @_ZL12getTagNumberPKc(ptr noundef %17)
+  store i32 %18, ptr %12, align 4, !tbaa !14
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %19, ptr noundef null, ptr noundef %11)
+  store i32 %20, ptr %10, align 4, !tbaa !14
+  %21 = load i32, ptr %11, align 4, !tbaa !26
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %26
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %convName.addr, align 8
-  %2 = load ptr, ptr %pErrorCode.addr, align 8
-  %call1 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %1, ptr noundef %2)
-  %tobool2 = icmp ne i8 %call1, 0
-  br i1 %tobool2, label %if.then, label %if.end14
+23:                                               ; preds = %3
+  %24 = load i32, ptr %11, align 4, !tbaa !26
+  %25 = load ptr, ptr %7, align 8, !tbaa !17
+  store i32 %24, ptr %25, align 4, !tbaa !26
+  br label %26
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr %convName.addr, align 8
-  %4 = load ptr, ptr %standard.addr, align 8
-  %5 = load ptr, ptr %pErrorCode.addr, align 8
-  %call3 = call noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  store i32 %call3, ptr %listOffset, align 4
-  %6 = load i32, ptr %listOffset, align 4
-  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14
-  %8 = load i32, ptr %7, align 4
-  %cmp = icmp ult i32 %6, %8
-  br i1 %cmp, label %if.then4, label %if.end13
+26:                                               ; preds = %23, %3
+  %27 = load i32, ptr %12, align 4, !tbaa !14
+  %28 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %29 = sub i32 %28, 1
+  %30 = icmp ult i32 %27, %29
+  br i1 %30, label %31, label %121
 
-if.then4:                                         ; preds = %if.then
-  %call5 = call noalias ptr @uprv_malloc_75(i64 noundef 56) #9
-  store ptr %call5, ptr %myEnum, align 8
-  %9 = load ptr, ptr %myEnum, align 8
-  %cmp6 = icmp eq ptr %9, null
-  br i1 %cmp6, label %if.then7, label %if.end
+31:                                               ; preds = %26
+  %32 = load i32, ptr %10, align 4, !tbaa !14
+  %33 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %34 = icmp ult i32 %32, %33
+  br i1 %34, label %35, label %121
 
-if.then7:                                         ; preds = %if.then4
-  %10 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %10, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
+35:                                               ; preds = %31
+  %36 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8, !tbaa !48
+  %37 = load i32, ptr %12, align 4, !tbaa !14
+  %38 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %39 = mul i32 %37, %38
+  %40 = load i32, ptr %10, align 4, !tbaa !14
+  %41 = add i32 %39, %40
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i16, ptr %36, i64 %42
+  %44 = load i16, ptr %43, align 2, !tbaa !23
+  %45 = zext i16 %44 to i32
+  store i32 %45, ptr %9, align 4, !tbaa !14
+  %46 = load i32, ptr %9, align 4, !tbaa !14
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %58
 
-if.end:                                           ; preds = %if.then4
-  br label %do.body
+48:                                               ; preds = %35
+  %49 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %50 = load i32, ptr %9, align 4, !tbaa !14
+  %51 = add i32 %50, 1
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw i16, ptr %49, i64 %52
+  %54 = load i16, ptr %53, align 2, !tbaa !23
+  %55 = icmp ne i16 %54, 0
+  br i1 %55, label %56, label %58
 
-do.body:                                          ; preds = %if.end
-  %11 = load ptr, ptr %myEnum, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 @_ZL12gEnumAliases, i64 56, i1 false)
-  br label %do.end
+56:                                               ; preds = %48
+  %57 = load i32, ptr %9, align 4, !tbaa !14
+  store i32 %57, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %122
 
-do.end:                                           ; preds = %do.body
-  %call8 = call noalias ptr @uprv_malloc_75(i64 noundef 8) #9
-  store ptr %call8, ptr %myContext, align 8
-  %12 = load ptr, ptr %myContext, align 8
-  %cmp9 = icmp eq ptr %12, null
-  br i1 %cmp9, label %if.then10, label %if.end11
+58:                                               ; preds = %48, %35
+  %59 = load i32, ptr %11, align 4, !tbaa !26
+  %60 = icmp eq i32 %59, -122
+  br i1 %60, label %61, label %120
 
-if.then10:                                        ; preds = %do.end
-  %13 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %13, align 4
-  %14 = load ptr, ptr %myEnum, align 8
-  call void @uprv_free_75(ptr noundef %14)
-  store ptr null, ptr %retval, align 8
-  br label %return
+61:                                               ; preds = %58
+  store i32 0, ptr %8, align 4, !tbaa !14
+  br label %62
 
-if.end11:                                         ; preds = %do.end
-  %15 = load i32, ptr %listOffset, align 4
-  %16 = load ptr, ptr %myContext, align 8
-  %listOffset12 = getelementptr inbounds %struct.UAliasContext, ptr %16, i32 0, i32 0
-  store i32 %15, ptr %listOffset12, align 4
-  %17 = load ptr, ptr %myContext, align 8
-  %listIdx = getelementptr inbounds %struct.UAliasContext, ptr %17, i32 0, i32 1
-  store i32 0, ptr %listIdx, align 4
-  %18 = load ptr, ptr %myContext, align 8
-  %19 = load ptr, ptr %myEnum, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %19, i32 0, i32 1
-  store ptr %18, ptr %context, align 8
-  br label %if.end13
+62:                                               ; preds = %116, %61
+  %63 = load i32, ptr %8, align 4, !tbaa !14
+  %64 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13), align 8, !tbaa !50
+  %65 = icmp ult i32 %63, %64
+  br i1 %65, label %66, label %119
 
-if.end13:                                         ; preds = %if.end11, %if.then
-  br label %if.end14
+66:                                               ; preds = %62
+  %67 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8, !tbaa !48
+  %68 = load i32, ptr %8, align 4, !tbaa !14
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw i16, ptr %67, i64 %69
+  %71 = load i16, ptr %70, align 2, !tbaa !23
+  %72 = zext i16 %71 to i32
+  store i32 %72, ptr %9, align 4, !tbaa !14
+  %73 = load i32, ptr %9, align 4, !tbaa !14
+  %74 = icmp ne i32 %73, 0
+  br i1 %74, label %75, label %115
 
-if.end14:                                         ; preds = %if.end13, %land.lhs.true, %entry
-  %20 = load ptr, ptr %myEnum, align 8
-  store ptr %20, ptr %retval, align 8
-  br label %return
+75:                                               ; preds = %66
+  %76 = load ptr, ptr %5, align 8, !tbaa !3
+  %77 = load i32, ptr %9, align 4, !tbaa !14
+  %78 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %76, i32 noundef %77)
+  %79 = icmp ne i8 %78, 0
+  br i1 %79, label %80, label %115
 
-return:                                           ; preds = %if.end14, %if.then10, %if.then7
-  %21 = load ptr, ptr %retval, align 8
-  ret ptr %21
-}
+80:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
+  %81 = load i32, ptr %8, align 4, !tbaa !14
+  %82 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %83 = udiv i32 %81, %82
+  store i32 %83, ptr %14, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #12
+  %84 = load i32, ptr %8, align 4, !tbaa !14
+  %85 = load i32, ptr %14, align 4, !tbaa !14
+  %86 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %87 = mul i32 %85, %86
+  %88 = sub i32 %84, %87
+  store i32 %88, ptr %15, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #12
+  %89 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8, !tbaa !48
+  %90 = load i32, ptr %12, align 4, !tbaa !14
+  %91 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %92 = mul i32 %90, %91
+  %93 = load i32, ptr %15, align 4, !tbaa !14
+  %94 = add i32 %92, %93
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds nuw i16, ptr %89, i64 %95
+  %97 = load i16, ptr %96, align 2, !tbaa !23
+  %98 = zext i16 %97 to i32
+  store i32 %98, ptr %16, align 4, !tbaa !14
+  %99 = load i32, ptr %16, align 4, !tbaa !14
+  %100 = icmp ne i32 %99, 0
+  br i1 %100, label %101, label %111
 
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef %alias, ptr noundef %standard, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %alias.addr = alloca ptr, align 8
-  %standard.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %idx = alloca i32, align 4
-  %listOffset = alloca i32, align 4
-  %convNum = alloca i32, align 4
-  %myErr = alloca i32, align 4
-  %tagNum = alloca i32, align 4
-  %currTagNum = alloca i32, align 4
-  %currConvNum = alloca i32, align 4
-  %tempListOffset = alloca i32, align 4
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %standard, ptr %standard.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  store i32 0, ptr %myErr, align 4
-  %0 = load ptr, ptr %standard.addr, align 8
-  %call = call noundef i32 @_ZL12getTagNumberPKc(ptr noundef %0)
-  store i32 %call, ptr %tagNum, align 4
-  %1 = load ptr, ptr %alias.addr, align 8
-  %call1 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %1, ptr noundef null, ptr noundef %myErr)
-  store i32 %call1, ptr %convNum, align 4
-  %2 = load i32, ptr %myErr, align 4
-  %cmp = icmp ne i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+101:                                              ; preds = %80
+  %102 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %103 = load i32, ptr %16, align 4, !tbaa !14
+  %104 = add i32 %103, 1
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds nuw i16, ptr %102, i64 %105
+  %107 = load i16, ptr %106, align 2, !tbaa !23
+  %108 = icmp ne i16 %107, 0
+  br i1 %108, label %109, label %111
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %myErr, align 4
-  %4 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 %3, ptr %4, align 4
-  br label %if.end
+109:                                              ; preds = %101
+  %110 = load i32, ptr %16, align 4, !tbaa !14
+  store i32 %110, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %112
 
-if.end:                                           ; preds = %if.then, %entry
-  %5 = load i32, ptr %tagNum, align 4
-  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  %7 = load i32, ptr %6, align 4
-  %sub = sub i32 %7, 1
-  %cmp2 = icmp ult i32 %5, %sub
-  br i1 %cmp2, label %land.lhs.true, label %if.end40
+111:                                              ; preds = %101, %80
+  store i32 0, ptr %13, align 4
+  br label %112
 
-land.lhs.true:                                    ; preds = %if.end
-  %8 = load i32, ptr %convNum, align 4
-  %9 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %10 = load i32, ptr %9, align 8
-  %cmp3 = icmp ult i32 %8, %10
-  br i1 %cmp3, label %if.then4, label %if.end40
+112:                                              ; preds = %111, %109
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  %113 = load i32, ptr %13, align 4
+  switch i32 %113, label %122 [
+    i32 0, label %114
+  ]
 
-if.then4:                                         ; preds = %land.lhs.true
-  %11 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i32, ptr %tagNum, align 4
-  %14 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %15 = load i32, ptr %14, align 8
-  %mul = mul i32 %13, %15
-  %16 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %16
-  %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %12, i64 %idxprom
-  %17 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %17 to i32
-  store i32 %conv, ptr %listOffset, align 4
-  %18 = load i32, ptr %listOffset, align 4
-  %tobool = icmp ne i32 %18, 0
-  br i1 %tobool, label %land.lhs.true5, label %if.end11
+114:                                              ; preds = %112
+  br label %115
 
-land.lhs.true5:                                   ; preds = %if.then4
-  %19 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %listOffset, align 4
-  %add6 = add i32 %21, 1
-  %idxprom7 = zext i32 %add6 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %20, i64 %idxprom7
-  %22 = load i16, ptr %arrayidx8, align 2
-  %tobool9 = icmp ne i16 %22, 0
-  br i1 %tobool9, label %if.then10, label %if.end11
+115:                                              ; preds = %114, %75, %66
+  br label %116
 
-if.then10:                                        ; preds = %land.lhs.true5
-  %23 = load i32, ptr %listOffset, align 4
-  store i32 %23, ptr %retval, align 4
-  br label %return
+116:                                              ; preds = %115
+  %117 = load i32, ptr %8, align 4, !tbaa !14
+  %118 = add i32 %117, 1
+  store i32 %118, ptr %8, align 4, !tbaa !14
+  br label %62, !llvm.loop !51
 
-if.end11:                                         ; preds = %land.lhs.true5, %if.then4
-  %24 = load i32, ptr %myErr, align 4
-  %cmp12 = icmp eq i32 %24, -122
-  br i1 %cmp12, label %if.then13, label %if.end39
+119:                                              ; preds = %62
+  br label %120
 
-if.then13:                                        ; preds = %if.end11
-  store i32 0, ptr %idx, align 4
-  br label %for.cond
+120:                                              ; preds = %119, %58
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %122
 
-for.cond:                                         ; preds = %for.inc, %if.then13
-  %25 = load i32, ptr %idx, align 4
-  %26 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13
-  %27 = load i32, ptr %26, align 8
-  %cmp14 = icmp ult i32 %25, %27
-  br i1 %cmp14, label %for.body, label %for.end
+121:                                              ; preds = %31, %26
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %122
 
-for.body:                                         ; preds = %for.cond
-  %28 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %idx, align 4
-  %idxprom15 = zext i32 %30 to i64
-  %arrayidx16 = getelementptr inbounds i16, ptr %29, i64 %idxprom15
-  %31 = load i16, ptr %arrayidx16, align 2
-  %conv17 = zext i16 %31 to i32
-  store i32 %conv17, ptr %listOffset, align 4
-  %32 = load i32, ptr %listOffset, align 4
-  %tobool18 = icmp ne i32 %32, 0
-  br i1 %tobool18, label %land.lhs.true19, label %if.end38
-
-land.lhs.true19:                                  ; preds = %for.body
-  %33 = load ptr, ptr %alias.addr, align 8
-  %34 = load i32, ptr %listOffset, align 4
-  %call20 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %33, i32 noundef %34)
-  %tobool21 = icmp ne i8 %call20, 0
-  br i1 %tobool21, label %if.then22, label %if.end38
-
-if.then22:                                        ; preds = %land.lhs.true19
-  %35 = load i32, ptr %idx, align 4
-  %36 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %37 = load i32, ptr %36, align 8
-  %div = udiv i32 %35, %37
-  store i32 %div, ptr %currTagNum, align 4
-  %38 = load i32, ptr %idx, align 4
-  %39 = load i32, ptr %currTagNum, align 4
-  %40 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %41 = load i32, ptr %40, align 8
-  %mul23 = mul i32 %39, %41
-  %sub24 = sub i32 %38, %mul23
-  store i32 %sub24, ptr %currConvNum, align 4
-  %42 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %tagNum, align 4
-  %45 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %46 = load i32, ptr %45, align 8
-  %mul25 = mul i32 %44, %46
-  %47 = load i32, ptr %currConvNum, align 4
-  %add26 = add i32 %mul25, %47
-  %idxprom27 = zext i32 %add26 to i64
-  %arrayidx28 = getelementptr inbounds i16, ptr %43, i64 %idxprom27
-  %48 = load i16, ptr %arrayidx28, align 2
-  %conv29 = zext i16 %48 to i32
-  store i32 %conv29, ptr %tempListOffset, align 4
-  %49 = load i32, ptr %tempListOffset, align 4
-  %tobool30 = icmp ne i32 %49, 0
-  br i1 %tobool30, label %land.lhs.true31, label %if.end37
-
-land.lhs.true31:                                  ; preds = %if.then22
-  %50 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i32, ptr %tempListOffset, align 4
-  %add32 = add i32 %52, 1
-  %idxprom33 = zext i32 %add32 to i64
-  %arrayidx34 = getelementptr inbounds i16, ptr %51, i64 %idxprom33
-  %53 = load i16, ptr %arrayidx34, align 2
-  %tobool35 = icmp ne i16 %53, 0
-  br i1 %tobool35, label %if.then36, label %if.end37
-
-if.then36:                                        ; preds = %land.lhs.true31
-  %54 = load i32, ptr %tempListOffset, align 4
-  store i32 %54, ptr %retval, align 4
-  br label %return
-
-if.end37:                                         ; preds = %land.lhs.true31, %if.then22
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.end37, %land.lhs.true19, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end38
-  %55 = load i32, ptr %idx, align 4
-  %inc = add i32 %55, 1
-  store i32 %inc, ptr %idx, align 4
-  br label %for.cond, !llvm.loop !12
-
-for.end:                                          ; preds = %for.cond
-  br label %if.end39
-
-if.end39:                                         ; preds = %for.end, %if.end11
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end40:                                         ; preds = %land.lhs.true, %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end40, %if.end39, %if.then36, %if.then10
-  %56 = load i32, ptr %retval, align 4
-  ret i32 %56
+122:                                              ; preds = %121, %120, %112, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  %123 = load i32, ptr %4, align 4
+  ret i32 %123
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_75(i64 noundef) #2
+declare noalias ptr @uprv_malloc_77(i64 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @uprv_free_75(ptr noundef) #4
+declare void @uprv_free_77(ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_getStandard_75(i16 noundef zeroext %n, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %n.addr = alloca i16, align 2
-  %pErrorCode.addr = alloca ptr, align 8
-  store i16 %n, ptr %n.addr, align 2
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end3
+define ptr @ucnv_getStandard_77(i16 noundef zeroext %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i16, align 2
+  %5 = alloca ptr, align 8
+  store i16 %0, ptr %4, align 2, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
+  %7 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %6)
+  %8 = icmp ne i8 %7, 0
+  br i1 %8, label %9, label %27
 
-if.then:                                          ; preds = %entry
-  %1 = load i16, ptr %n.addr, align 2
-  %conv = zext i16 %1 to i32
-  %2 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  %3 = load i32, ptr %2, align 4
-  %sub = sub i32 %3, 1
-  %cmp = icmp ult i32 %conv, %sub
-  br i1 %cmp, label %if.then1, label %if.end
+9:                                                ; preds = %2
+  %10 = load i16, ptr %4, align 2, !tbaa !23
+  %11 = zext i16 %10 to i32
+  %12 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %13 = sub i32 %12, 1
+  %14 = icmp ult i32 %11, %13
+  br i1 %14, label %15, label %25
 
-if.then1:                                         ; preds = %if.then
-  %4 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i16, ptr %n.addr, align 2
-  %idxprom = zext i16 %8 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
-  %9 = load i16, ptr %arrayidx, align 2
-  %conv2 = zext i16 %9 to i32
-  %idx.ext = sext i32 %conv2 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %5, i64 %idx.ext
-  store ptr %add.ptr, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %9
+  %16 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %17 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1), align 8, !tbaa !52
+  %18 = load i16, ptr %4, align 2, !tbaa !23
+  %19 = zext i16 %18 to i64
+  %20 = getelementptr inbounds nuw i16, ptr %17, i64 %19
+  %21 = load i16, ptr %20, align 2, !tbaa !23
+  %22 = zext i16 %21 to i32
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i16, ptr %16, i64 %23
+  store ptr %24, ptr %3, align 8
+  br label %28
 
-if.end:                                           ; preds = %if.then
-  %10 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %10, align 4
-  br label %if.end3
+25:                                               ; preds = %9
+  %26 = load ptr, ptr %5, align 8, !tbaa !17
+  store i32 8, ptr %26, align 4, !tbaa !26
+  br label %27
 
-if.end3:                                          ; preds = %if.end, %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %25, %2
+  store ptr null, ptr %3, align 8
+  br label %28
 
-return:                                           ; preds = %if.end3, %if.then1
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
+28:                                               ; preds = %27, %15
+  %29 = load ptr, ptr %3, align 8
+  ret ptr %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_getStandardName_75(ptr noundef %alias, ptr noundef %standard, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %alias.addr = alloca ptr, align 8
-  %standard.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %listOffset = alloca i32, align 4
-  %currList = alloca ptr, align 8
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %standard, ptr %standard.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end14
+define ptr @ucnv_getStandardName_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  %11 = load ptr, ptr %7, align 8, !tbaa !17
+  %12 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %11)
+  %13 = icmp ne i8 %12, 0
+  br i1 %13, label %14, label %56
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %alias.addr, align 8
-  %2 = load ptr, ptr %pErrorCode.addr, align 8
-  %call1 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %1, ptr noundef %2)
-  %tobool2 = icmp ne i8 %call1, 0
-  br i1 %tobool2, label %if.then, label %if.end14
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = load ptr, ptr %7, align 8, !tbaa !17
+  %17 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %15, ptr noundef %16)
+  %18 = icmp ne i8 %17, 0
+  br i1 %18, label %19, label %56
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr %alias.addr, align 8
-  %4 = load ptr, ptr %standard.addr, align 8
-  %5 = load ptr, ptr %pErrorCode.addr, align 8
-  %call3 = call noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  store i32 %call3, ptr %listOffset, align 4
-  %6 = load i32, ptr %listOffset, align 4
-  %cmp = icmp ult i32 0, %6
-  br i1 %cmp, label %land.lhs.true4, label %if.end13
+19:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  %20 = load ptr, ptr %5, align 8, !tbaa !3
+  %21 = load ptr, ptr %6, align 8, !tbaa !3
+  %22 = load ptr, ptr %7, align 8, !tbaa !17
+  %23 = call noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef %20, ptr noundef %21, ptr noundef %22)
+  store i32 %23, ptr %8, align 4, !tbaa !14
+  %24 = load i32, ptr %8, align 4, !tbaa !14
+  %25 = icmp ult i32 0, %24
+  br i1 %25, label %26, label %52
 
-land.lhs.true4:                                   ; preds = %if.then
-  %7 = load i32, ptr %listOffset, align 4
-  %8 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14
-  %9 = load i32, ptr %8, align 4
-  %cmp5 = icmp ult i32 %7, %9
-  br i1 %cmp5, label %if.then6, label %if.end13
+26:                                               ; preds = %19
+  %27 = load i32, ptr %8, align 4, !tbaa !14
+  %28 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14), align 4, !tbaa !39
+  %29 = icmp ult i32 %27, %28
+  br i1 %29, label %30, label %52
 
-if.then6:                                         ; preds = %land.lhs.true4
-  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %11 = load ptr, ptr %10, align 8
-  %12 = load i32, ptr %listOffset, align 4
-  %idx.ext = zext i32 %12 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %11, i64 %idx.ext
-  %add.ptr7 = getelementptr inbounds i16, ptr %add.ptr, i64 1
-  store ptr %add.ptr7, ptr %currList, align 8
-  %13 = load ptr, ptr %currList, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %13, i64 0
-  %14 = load i16, ptr %arrayidx, align 2
-  %tobool8 = icmp ne i16 %14, 0
-  br i1 %tobool8, label %if.then9, label %if.end
+30:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %31 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %32 = load i32, ptr %8, align 4, !tbaa !14
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw i16, ptr %31, i64 %33
+  %35 = getelementptr inbounds i16, ptr %34, i64 1
+  store ptr %35, ptr %9, align 8, !tbaa !53
+  %36 = load ptr, ptr %9, align 8, !tbaa !53
+  %37 = getelementptr inbounds i16, ptr %36, i64 0
+  %38 = load i16, ptr %37, align 2, !tbaa !23
+  %39 = icmp ne i16 %38, 0
+  br i1 %39, label %40, label %48
 
-if.then9:                                         ; preds = %if.then6
-  %15 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %currList, align 8
-  %arrayidx10 = getelementptr inbounds i16, ptr %17, i64 0
-  %18 = load i16, ptr %arrayidx10, align 2
-  %conv = zext i16 %18 to i32
-  %idx.ext11 = sext i32 %conv to i64
-  %add.ptr12 = getelementptr inbounds i16, ptr %16, i64 %idx.ext11
-  store ptr %add.ptr12, ptr %retval, align 8
-  br label %return
+40:                                               ; preds = %30
+  %41 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %42 = load ptr, ptr %9, align 8, !tbaa !53
+  %43 = getelementptr inbounds i16, ptr %42, i64 0
+  %44 = load i16, ptr %43, align 2, !tbaa !23
+  %45 = zext i16 %44 to i32
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i16, ptr %41, i64 %46
+  store ptr %47, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %49
 
-if.end:                                           ; preds = %if.then6
-  br label %if.end13
+48:                                               ; preds = %30
+  store i32 0, ptr %10, align 4
+  br label %49
 
-if.end13:                                         ; preds = %if.end, %land.lhs.true4, %if.then
-  br label %if.end14
+49:                                               ; preds = %48, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  %50 = load i32, ptr %10, align 4
+  switch i32 %50, label %53 [
+    i32 0, label %51
+  ]
 
-if.end14:                                         ; preds = %if.end13, %land.lhs.true, %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+51:                                               ; preds = %49
+  br label %52
 
-return:                                           ; preds = %if.end14, %if.then9
-  %19 = load ptr, ptr %retval, align 8
-  ret ptr %19
+52:                                               ; preds = %51, %26, %19
+  store i32 0, ptr %10, align 4
+  br label %53
+
+53:                                               ; preds = %52, %49
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  %54 = load i32, ptr %10, align 4
+  switch i32 %54, label %59 [
+    i32 0, label %55
+    i32 1, label %57
+  ]
+
+55:                                               ; preds = %53
+  br label %56
+
+56:                                               ; preds = %55, %14, %3
+  store ptr null, ptr %4, align 8
+  br label %57
+
+57:                                               ; preds = %56, %53
+  %58 = load ptr, ptr %4, align 8
+  ret ptr %58
+
+59:                                               ; preds = %53
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i16 @ucnv_countAliases_75(ptr noundef %alias, ptr noundef %pErrorCode) #1 {
-entry:
-  %alias.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %alias.addr, align 8
-  %1 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef zeroext i16 @_ZL20ucnv_io_countAliasesPKcP10UErrorCode(ptr noundef %0, ptr noundef %1)
-  ret i16 %call
+define zeroext i16 @ucnv_countAliases_77(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !17
+  %7 = call noundef zeroext i16 @_ZL20ucnv_io_countAliasesPKcP10UErrorCode(ptr noundef %5, ptr noundef %6)
+  ret i16 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i16 @_ZL20ucnv_io_countAliasesPKcP10UErrorCode(ptr noundef %alias, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca i16, align 2
-  %alias.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %convNum = alloca i32, align 4
-  %listOffset = alloca i32, align 4
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end10
+define internal noundef zeroext i16 @_ZL20ucnv_io_countAliasesPKcP10UErrorCode(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca i16, align 2
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  %9 = load ptr, ptr %5, align 8, !tbaa !17
+  %10 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %9)
+  %11 = icmp ne i8 %10, 0
+  br i1 %11, label %12, label %52
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %alias.addr, align 8
-  %2 = load ptr, ptr %pErrorCode.addr, align 8
-  %call1 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %1, ptr noundef %2)
-  %tobool2 = icmp ne i8 %call1, 0
-  br i1 %tobool2, label %if.then, label %if.end10
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = load ptr, ptr %5, align 8, !tbaa !17
+  %15 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %13, ptr noundef %14)
+  %16 = icmp ne i8 %15, 0
+  br i1 %16, label %17, label %52
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr %alias.addr, align 8
-  %4 = load ptr, ptr %pErrorCode.addr, align 8
-  %call3 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %3, ptr noundef null, ptr noundef %4)
-  store i32 %call3, ptr %convNum, align 4
-  %5 = load i32, ptr %convNum, align 4
-  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %7 = load i32, ptr %6, align 8
-  %cmp = icmp ult i32 %5, %7
-  br i1 %cmp, label %if.then4, label %if.end9
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = load ptr, ptr %5, align 8, !tbaa !17
+  %20 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %18, ptr noundef null, ptr noundef %19)
+  store i32 %20, ptr %6, align 4, !tbaa !14
+  %21 = load i32, ptr %6, align 4, !tbaa !14
+  %22 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %23 = icmp ult i32 %21, %22
+  br i1 %23, label %24, label %48
 
-if.then4:                                         ; preds = %if.then
-  %8 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  %11 = load i32, ptr %10, align 4
-  %sub = sub i32 %11, 1
-  %12 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %13 = load i32, ptr %12, align 8
-  %mul = mul i32 %sub, %13
-  %14 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %14
-  %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
-  %15 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %15 to i32
-  store i32 %conv, ptr %listOffset, align 4
-  %16 = load i32, ptr %listOffset, align 4
-  %tobool5 = icmp ne i32 %16, 0
-  br i1 %tobool5, label %if.then6, label %if.end
+24:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %25 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8, !tbaa !48
+  %26 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %27 = sub i32 %26, 1
+  %28 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %29 = mul i32 %27, %28
+  %30 = load i32, ptr %6, align 4, !tbaa !14
+  %31 = add i32 %29, %30
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i16, ptr %25, i64 %32
+  %34 = load i16, ptr %33, align 2, !tbaa !23
+  %35 = zext i16 %34 to i32
+  store i32 %35, ptr %7, align 4, !tbaa !14
+  %36 = load i32, ptr %7, align 4, !tbaa !14
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %44
 
-if.then6:                                         ; preds = %if.then4
-  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %listOffset, align 4
-  %idxprom7 = sext i32 %19 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %18, i64 %idxprom7
-  %20 = load i16, ptr %arrayidx8, align 2
-  store i16 %20, ptr %retval, align 2
-  br label %return
+38:                                               ; preds = %24
+  %39 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %40 = load i32, ptr %7, align 4, !tbaa !14
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i16, ptr %39, i64 %41
+  %43 = load i16, ptr %42, align 2, !tbaa !23
+  store i16 %43, ptr %3, align 2
+  store i32 1, ptr %8, align 4
+  br label %45
 
-if.end:                                           ; preds = %if.then4
-  br label %if.end9
+44:                                               ; preds = %24
+  store i32 0, ptr %8, align 4
+  br label %45
 
-if.end9:                                          ; preds = %if.end, %if.then
-  br label %if.end10
+45:                                               ; preds = %44, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  %46 = load i32, ptr %8, align 4
+  switch i32 %46, label %49 [
+    i32 0, label %47
+  ]
 
-if.end10:                                         ; preds = %if.end9, %land.lhs.true, %entry
-  store i16 0, ptr %retval, align 2
-  br label %return
+47:                                               ; preds = %45
+  br label %48
 
-return:                                           ; preds = %if.end10, %if.then6
-  %21 = load i16, ptr %retval, align 2
-  ret i16 %21
+48:                                               ; preds = %47, %17
+  store i32 0, ptr %8, align 4
+  br label %49
+
+49:                                               ; preds = %48, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  %50 = load i32, ptr %8, align 4
+  switch i32 %50, label %55 [
+    i32 0, label %51
+    i32 1, label %53
+  ]
+
+51:                                               ; preds = %49
+  br label %52
+
+52:                                               ; preds = %51, %12, %2
+  store i16 0, ptr %3, align 2
+  br label %53
+
+53:                                               ; preds = %52, %49
+  %54 = load i16, ptr %3, align 2
+  ret i16 %54
+
+55:                                               ; preds = %49
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_getAlias_75(ptr noundef %alias, i16 noundef zeroext %n, ptr noundef %pErrorCode) #1 {
-entry:
-  %alias.addr = alloca ptr, align 8
-  %n.addr = alloca i16, align 2
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %alias, ptr %alias.addr, align 8
-  store i16 %n, ptr %n.addr, align 2
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %alias.addr, align 8
-  %1 = load i16, ptr %n.addr, align 2
-  %2 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef ptr @_ZL16ucnv_io_getAliasPKctP10UErrorCode(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2)
-  ret ptr %call
+define ptr @ucnv_getAlias_77(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i16, align 2
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i16 %1, ptr %5, align 2, !tbaa !23
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load i16, ptr %5, align 2, !tbaa !23
+  %9 = load ptr, ptr %6, align 8, !tbaa !17
+  %10 = call noundef ptr @_ZL16ucnv_io_getAliasPKctP10UErrorCode(ptr noundef %7, i16 noundef zeroext %8, ptr noundef %9)
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL16ucnv_io_getAliasPKctP10UErrorCode(ptr noundef %alias, i16 noundef zeroext %n, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %alias.addr = alloca ptr, align 8
-  %n.addr = alloca i16, align 2
-  %pErrorCode.addr = alloca ptr, align 8
-  %convNum = alloca i32, align 4
-  %listOffset = alloca i32, align 4
-  %listCount = alloca i32, align 4
-  %currList = alloca ptr, align 8
-  store ptr %alias, ptr %alias.addr, align 8
-  store i16 %n, ptr %n.addr, align 2
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end21
+define internal noundef ptr @_ZL16ucnv_io_getAliasPKctP10UErrorCode(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i16, align 2
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i16 %1, ptr %6, align 2, !tbaa !23
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  %13 = load ptr, ptr %7, align 8, !tbaa !17
+  %14 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %13)
+  %15 = icmp ne i8 %14, 0
+  br i1 %15, label %16, label %81
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %alias.addr, align 8
-  %2 = load ptr, ptr %pErrorCode.addr, align 8
-  %call1 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %1, ptr noundef %2)
-  %tobool2 = icmp ne i8 %call1, 0
-  br i1 %tobool2, label %if.then, label %if.end21
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = load ptr, ptr %7, align 8, !tbaa !17
+  %19 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %17, ptr noundef %18)
+  %20 = icmp ne i8 %19, 0
+  br i1 %20, label %21, label %81
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr %alias.addr, align 8
-  %4 = load ptr, ptr %pErrorCode.addr, align 8
-  %call3 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %3, ptr noundef null, ptr noundef %4)
-  store i32 %call3, ptr %convNum, align 4
-  %5 = load i32, ptr %convNum, align 4
-  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %7 = load i32, ptr %6, align 8
-  %cmp = icmp ult i32 %5, %7
-  br i1 %cmp, label %if.then4, label %if.end20
+21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = load ptr, ptr %7, align 8, !tbaa !17
+  %24 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %22, ptr noundef null, ptr noundef %23)
+  store i32 %24, ptr %8, align 4, !tbaa !14
+  %25 = load i32, ptr %8, align 4, !tbaa !14
+  %26 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %27 = icmp ult i32 %25, %26
+  br i1 %27, label %28, label %77
 
-if.then4:                                         ; preds = %if.then
-  %8 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  %11 = load i32, ptr %10, align 4
-  %sub = sub i32 %11, 1
-  %12 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %13 = load i32, ptr %12, align 8
-  %mul = mul i32 %sub, %13
-  %14 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %14
-  %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
-  %15 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %15 to i32
-  store i32 %conv, ptr %listOffset, align 4
-  %16 = load i32, ptr %listOffset, align 4
-  %tobool5 = icmp ne i32 %16, 0
-  br i1 %tobool5, label %if.then6, label %if.end19
+28:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %29 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8, !tbaa !48
+  %30 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %31 = sub i32 %30, 1
+  %32 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %33 = mul i32 %31, %32
+  %34 = load i32, ptr %8, align 4, !tbaa !14
+  %35 = add i32 %33, %34
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw i16, ptr %29, i64 %36
+  %38 = load i16, ptr %37, align 2, !tbaa !23
+  %39 = zext i16 %38 to i32
+  store i32 %39, ptr %9, align 4, !tbaa !14
+  %40 = load i32, ptr %9, align 4, !tbaa !14
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %73
 
-if.then6:                                         ; preds = %if.then4
-  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %listOffset, align 4
-  %idxprom7 = sext i32 %19 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %18, i64 %idxprom7
-  %20 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %20 to i32
-  store i32 %conv9, ptr %listCount, align 4
-  %21 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr %listOffset, align 4
-  %idx.ext = sext i32 %23 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %22, i64 %idx.ext
-  %add.ptr10 = getelementptr inbounds i16, ptr %add.ptr, i64 1
-  store ptr %add.ptr10, ptr %currList, align 8
-  %24 = load i16, ptr %n.addr, align 2
-  %conv11 = zext i16 %24 to i32
-  %25 = load i32, ptr %listCount, align 4
-  %cmp12 = icmp ult i32 %conv11, %25
-  br i1 %cmp12, label %if.then13, label %if.end
+42:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #12
+  %43 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %44 = load i32, ptr %9, align 4, !tbaa !14
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i16, ptr %43, i64 %45
+  %47 = load i16, ptr %46, align 2, !tbaa !23
+  %48 = zext i16 %47 to i32
+  store i32 %48, ptr %10, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %49 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %50 = load i32, ptr %9, align 4, !tbaa !14
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i16, ptr %49, i64 %51
+  %53 = getelementptr inbounds i16, ptr %52, i64 1
+  store ptr %53, ptr %11, align 8, !tbaa !53
+  %54 = load i16, ptr %6, align 2, !tbaa !23
+  %55 = zext i16 %54 to i32
+  %56 = load i32, ptr %10, align 4, !tbaa !14
+  %57 = icmp ult i32 %55, %56
+  br i1 %57, label %58, label %68
 
-if.then13:                                        ; preds = %if.then6
-  %26 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %currList, align 8
-  %29 = load i16, ptr %n.addr, align 2
-  %idxprom14 = zext i16 %29 to i64
-  %arrayidx15 = getelementptr inbounds i16, ptr %28, i64 %idxprom14
-  %30 = load i16, ptr %arrayidx15, align 2
-  %conv16 = zext i16 %30 to i32
-  %idx.ext17 = sext i32 %conv16 to i64
-  %add.ptr18 = getelementptr inbounds i16, ptr %27, i64 %idx.ext17
-  store ptr %add.ptr18, ptr %retval, align 8
-  br label %return
+58:                                               ; preds = %42
+  %59 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %60 = load ptr, ptr %11, align 8, !tbaa !53
+  %61 = load i16, ptr %6, align 2, !tbaa !23
+  %62 = zext i16 %61 to i64
+  %63 = getelementptr inbounds nuw i16, ptr %60, i64 %62
+  %64 = load i16, ptr %63, align 2, !tbaa !23
+  %65 = zext i16 %64 to i32
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i16, ptr %59, i64 %66
+  store ptr %67, ptr %4, align 8
+  store i32 1, ptr %12, align 4
+  br label %70
 
-if.end:                                           ; preds = %if.then6
-  %31 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %31, align 4
-  br label %if.end19
+68:                                               ; preds = %42
+  %69 = load ptr, ptr %7, align 8, !tbaa !17
+  store i32 8, ptr %69, align 4, !tbaa !26
+  store i32 0, ptr %12, align 4
+  br label %70
 
-if.end19:                                         ; preds = %if.end, %if.then4
-  br label %if.end20
+70:                                               ; preds = %68, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #12
+  %71 = load i32, ptr %12, align 4
+  switch i32 %71, label %74 [
+    i32 0, label %72
+  ]
 
-if.end20:                                         ; preds = %if.end19, %if.then
-  br label %if.end21
+72:                                               ; preds = %70
+  br label %73
 
-if.end21:                                         ; preds = %if.end20, %land.lhs.true, %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+73:                                               ; preds = %72, %28
+  store i32 0, ptr %12, align 4
+  br label %74
 
-return:                                           ; preds = %if.end21, %if.then13
-  %32 = load ptr, ptr %retval, align 8
-  ret ptr %32
+74:                                               ; preds = %73, %70
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  %75 = load i32, ptr %12, align 4
+  switch i32 %75, label %78 [
+    i32 0, label %76
+  ]
+
+76:                                               ; preds = %74
+  br label %77
+
+77:                                               ; preds = %76, %21
+  store i32 0, ptr %12, align 4
+  br label %78
+
+78:                                               ; preds = %77, %74
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  %79 = load i32, ptr %12, align 4
+  switch i32 %79, label %84 [
+    i32 0, label %80
+    i32 1, label %82
+  ]
+
+80:                                               ; preds = %78
+  br label %81
+
+81:                                               ; preds = %80, %16, %3
+  store ptr null, ptr %4, align 8
+  br label %82
+
+82:                                               ; preds = %81, %78
+  %83 = load ptr, ptr %4, align 8
+  ret ptr %83
+
+84:                                               ; preds = %78
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_getAliases_75(ptr noundef %alias, ptr noundef %aliases, ptr noundef %pErrorCode) #1 {
-entry:
-  %alias.addr = alloca ptr, align 8
-  %aliases.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %aliases, ptr %aliases.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %alias.addr, align 8
-  %1 = load ptr, ptr %aliases.addr, align 8
-  %2 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef zeroext i16 @_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode(ptr noundef %0, i16 noundef zeroext 0, ptr noundef %1, ptr noundef %2)
+define void @ucnv_getAliases_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !54
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !54
+  %9 = load ptr, ptr %6, align 8, !tbaa !17
+  %10 = call noundef zeroext i16 @_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode(ptr noundef %7, i16 noundef zeroext 0, ptr noundef %8, ptr noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i16 @_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode(ptr noundef %alias, i16 noundef zeroext %start, ptr noundef %aliases, ptr noundef %pErrorCode) #1 {
-entry:
-  %alias.addr = alloca ptr, align 8
-  %start.addr = alloca i16, align 2
-  %aliases.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %currAlias = alloca i32, align 4
-  %convNum = alloca i32, align 4
-  %listOffset = alloca i32, align 4
-  %listCount = alloca i32, align 4
-  %currList = alloca ptr, align 8
-  store ptr %alias, ptr %alias.addr, align 8
-  store i16 %start, ptr %start.addr, align 2
-  store ptr %aliases, ptr %aliases.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end21
+define internal noundef zeroext i16 @_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3) #2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i16, align 2
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i16 %1, ptr %6, align 2, !tbaa !23
+  store ptr %2, ptr %7, align 8, !tbaa !54
+  store ptr %3, ptr %8, align 8, !tbaa !17
+  %14 = load ptr, ptr %8, align 8, !tbaa !17
+  %15 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %14)
+  %16 = icmp ne i8 %15, 0
+  br i1 %16, label %17, label %81
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %alias.addr, align 8
-  %2 = load ptr, ptr %pErrorCode.addr, align 8
-  %call1 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %1, ptr noundef %2)
-  %tobool2 = icmp ne i8 %call1, 0
-  br i1 %tobool2, label %if.then, label %if.end21
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = load ptr, ptr %8, align 8, !tbaa !17
+  %20 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %18, ptr noundef %19)
+  %21 = icmp ne i8 %20, 0
+  br i1 %21, label %22, label %81
 
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr %alias.addr, align 8
-  %4 = load ptr, ptr %pErrorCode.addr, align 8
-  %call3 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %3, ptr noundef null, ptr noundef %4)
-  store i32 %call3, ptr %convNum, align 4
-  %5 = load i32, ptr %convNum, align 4
-  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %7 = load i32, ptr %6, align 8
-  %cmp = icmp ult i32 %5, %7
-  br i1 %cmp, label %if.then4, label %if.end20
+22:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #12
+  %23 = load ptr, ptr %5, align 8, !tbaa !3
+  %24 = load ptr, ptr %8, align 8, !tbaa !17
+  %25 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %23, ptr noundef null, ptr noundef %24)
+  store i32 %25, ptr %10, align 4, !tbaa !14
+  %26 = load i32, ptr %10, align 4, !tbaa !14
+  %27 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %28 = icmp ult i32 %26, %27
+  br i1 %28, label %29, label %80
 
-if.then4:                                         ; preds = %if.then
-  %8 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  %11 = load i32, ptr %10, align 4
-  %sub = sub i32 %11, 1
-  %12 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %13 = load i32, ptr %12, align 8
-  %mul = mul i32 %sub, %13
-  %14 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %14
-  %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
-  %15 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %15 to i32
-  store i32 %conv, ptr %listOffset, align 4
-  %16 = load i32, ptr %listOffset, align 4
-  %tobool5 = icmp ne i32 %16, 0
-  br i1 %tobool5, label %if.then6, label %if.end
+29:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  %30 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8, !tbaa !48
+  %31 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %32 = sub i32 %31, 1
+  %33 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %34 = mul i32 %32, %33
+  %35 = load i32, ptr %10, align 4, !tbaa !14
+  %36 = add i32 %34, %35
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i16, ptr %30, i64 %37
+  %39 = load i16, ptr %38, align 2, !tbaa !23
+  %40 = zext i16 %39 to i32
+  store i32 %40, ptr %11, align 4, !tbaa !14
+  %41 = load i32, ptr %11, align 4, !tbaa !14
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %79
 
-if.then6:                                         ; preds = %if.then4
-  %17 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %listOffset, align 4
-  %idxprom7 = sext i32 %19 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %18, i64 %idxprom7
-  %20 = load i16, ptr %arrayidx8, align 2
-  %conv9 = zext i16 %20 to i32
-  store i32 %conv9, ptr %listCount, align 4
-  %21 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr %listOffset, align 4
-  %idx.ext = sext i32 %23 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %22, i64 %idx.ext
-  %add.ptr10 = getelementptr inbounds i16, ptr %add.ptr, i64 1
-  store ptr %add.ptr10, ptr %currList, align 8
-  %24 = load i16, ptr %start.addr, align 2
-  %conv11 = zext i16 %24 to i32
-  store i32 %conv11, ptr %currAlias, align 4
-  br label %for.cond
+43:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #12
+  %44 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %45 = load i32, ptr %11, align 4, !tbaa !14
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i16, ptr %44, i64 %46
+  %48 = load i16, ptr %47, align 2, !tbaa !23
+  %49 = zext i16 %48 to i32
+  store i32 %49, ptr %12, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  %50 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %51 = load i32, ptr %11, align 4, !tbaa !14
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i16, ptr %50, i64 %52
+  %54 = getelementptr inbounds i16, ptr %53, i64 1
+  store ptr %54, ptr %13, align 8, !tbaa !53
+  %55 = load i16, ptr %6, align 2, !tbaa !23
+  %56 = zext i16 %55 to i32
+  store i32 %56, ptr %9, align 4, !tbaa !14
+  br label %57
 
-for.cond:                                         ; preds = %for.inc, %if.then6
-  %25 = load i32, ptr %currAlias, align 4
-  %26 = load i32, ptr %listCount, align 4
-  %cmp12 = icmp ult i32 %25, %26
-  br i1 %cmp12, label %for.body, label %for.end
+57:                                               ; preds = %75, %43
+  %58 = load i32, ptr %9, align 4, !tbaa !14
+  %59 = load i32, ptr %12, align 4, !tbaa !14
+  %60 = icmp ult i32 %58, %59
+  br i1 %60, label %61, label %78
 
-for.body:                                         ; preds = %for.cond
-  %27 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %currList, align 8
-  %30 = load i32, ptr %currAlias, align 4
-  %idxprom13 = zext i32 %30 to i64
-  %arrayidx14 = getelementptr inbounds i16, ptr %29, i64 %idxprom13
-  %31 = load i16, ptr %arrayidx14, align 2
-  %conv15 = zext i16 %31 to i32
-  %idx.ext16 = sext i32 %conv15 to i64
-  %add.ptr17 = getelementptr inbounds i16, ptr %28, i64 %idx.ext16
-  %32 = load ptr, ptr %aliases.addr, align 8
-  %33 = load i32, ptr %currAlias, align 4
-  %idxprom18 = zext i32 %33 to i64
-  %arrayidx19 = getelementptr inbounds ptr, ptr %32, i64 %idxprom18
-  store ptr %add.ptr17, ptr %arrayidx19, align 8
-  br label %for.inc
+61:                                               ; preds = %57
+  %62 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %63 = load ptr, ptr %13, align 8, !tbaa !53
+  %64 = load i32, ptr %9, align 4, !tbaa !14
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds nuw i16, ptr %63, i64 %65
+  %67 = load i16, ptr %66, align 2, !tbaa !23
+  %68 = zext i16 %67 to i32
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i16, ptr %62, i64 %69
+  %71 = load ptr, ptr %7, align 8, !tbaa !54
+  %72 = load i32, ptr %9, align 4, !tbaa !14
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %73
+  store ptr %70, ptr %74, align 8, !tbaa !3
+  br label %75
 
-for.inc:                                          ; preds = %for.body
-  %34 = load i32, ptr %currAlias, align 4
-  %inc = add i32 %34, 1
-  store i32 %inc, ptr %currAlias, align 4
-  br label %for.cond, !llvm.loop !13
+75:                                               ; preds = %61
+  %76 = load i32, ptr %9, align 4, !tbaa !14
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %9, align 4, !tbaa !14
+  br label %57, !llvm.loop !57
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+78:                                               ; preds = %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #12
+  br label %79
 
-if.end:                                           ; preds = %for.end, %if.then4
-  br label %if.end20
+79:                                               ; preds = %78, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  br label %80
 
-if.end20:                                         ; preds = %if.end, %if.then
-  br label %if.end21
+80:                                               ; preds = %79, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  br label %81
 
-if.end21:                                         ; preds = %if.end20, %land.lhs.true, %entry
+81:                                               ; preds = %80, %17, %4
   ret i16 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define zeroext i16 @ucnv_countStandards_75() #1 {
-entry:
-  %err = alloca i32, align 4
-  store i32 0, ptr %err, align 4
-  %call = call noundef zeroext i16 @_ZL22ucnv_io_countStandardsP10UErrorCode(ptr noundef %err)
-  ret i16 %call
+define zeroext i16 @ucnv_countStandards_77() #2 {
+  %1 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #12
+  store i32 0, ptr %1, align 4, !tbaa !26
+  %2 = call noundef zeroext i16 @_ZL22ucnv_io_countStandardsP10UErrorCode(ptr noundef %1)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #12
+  ret i16 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i16 @_ZL22ucnv_io_countStandardsP10UErrorCode(ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca i16, align 2
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal noundef zeroext i16 @_ZL22ucnv_io_countStandardsP10UErrorCode(ptr noundef %0) #2 {
+  %2 = alloca i16, align 2
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  %5 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %4)
+  %6 = icmp ne i8 %5, 0
+  br i1 %6, label %7, label %11
 
-if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  %2 = load i32, ptr %1, align 4
-  %sub = sub i32 %2, 1
-  %conv = trunc i32 %sub to i16
-  store i16 %conv, ptr %retval, align 2
-  br label %return
+7:                                                ; preds = %1
+  %8 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %9 = sub i32 %8, 1
+  %10 = trunc i32 %9 to i16
+  store i16 %10, ptr %2, align 2
+  br label %12
 
-if.end:                                           ; preds = %entry
-  store i16 0, ptr %retval, align 2
-  br label %return
+11:                                               ; preds = %1
+  store i16 0, ptr %2, align 2
+  br label %12
 
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i16, ptr %retval, align 2
-  ret i16 %3
+12:                                               ; preds = %11, %7
+  %13 = load i16, ptr %2, align 2
+  ret i16 %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucnv_getCanonicalName_75(ptr noundef %alias, ptr noundef %standard, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %alias.addr = alloca ptr, align 8
-  %standard.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %convNum = alloca i32, align 4
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %standard, ptr %standard.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end5
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %alias.addr, align 8
-  %2 = load ptr, ptr %pErrorCode.addr, align 8
-  %call1 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %1, ptr noundef %2)
-  %tobool2 = icmp ne i8 %call1, 0
-  br i1 %tobool2, label %if.then, label %if.end5
-
-if.then:                                          ; preds = %land.lhs.true
-  %3 = load ptr, ptr %alias.addr, align 8
-  %4 = load ptr, ptr %standard.addr, align 8
-  %5 = load ptr, ptr %pErrorCode.addr, align 8
-  %call3 = call noundef i32 @_ZL22findTaggedConverterNumPKcS0_P10UErrorCode(ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  store i32 %call3, ptr %convNum, align 4
-  %6 = load i32, ptr %convNum, align 4
-  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %8 = load i32, ptr %7, align 8
-  %cmp = icmp ult i32 %6, %8
-  br i1 %cmp, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.then
-  %9 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr @_ZL10gMainTable, align 8
-  %12 = load i32, ptr %convNum, align 4
-  %idxprom = zext i32 %12 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %11, i64 %idxprom
-  %13 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %13 to i32
-  %idx.ext = sext i32 %conv to i64
-  %add.ptr = getelementptr inbounds i16, ptr %10, i64 %idx.ext
-  store ptr %add.ptr, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.end, %land.lhs.true, %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end5, %if.then4
-  %14 = load ptr, ptr %retval, align 8
-  ret ptr %14
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL22findTaggedConverterNumPKcS0_P10UErrorCode(ptr noundef %alias, ptr noundef %standard, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %alias.addr = alloca ptr, align 8
-  %standard.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %idx = alloca i32, align 4
-  %listOffset = alloca i32, align 4
-  %convNum = alloca i32, align 4
-  %myErr = alloca i32, align 4
-  %tagNum = alloca i32, align 4
-  %convStart = alloca i32, align 4
-  %convLimit = alloca i32, align 4
-  store ptr %alias, ptr %alias.addr, align 8
-  store ptr %standard, ptr %standard.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  store i32 0, ptr %myErr, align 4
-  %0 = load ptr, ptr %standard.addr, align 8
-  %call = call noundef i32 @_ZL12getTagNumberPKc(ptr noundef %0)
-  store i32 %call, ptr %tagNum, align 4
-  %1 = load ptr, ptr %alias.addr, align 8
-  %call1 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %1, ptr noundef null, ptr noundef %myErr)
-  store i32 %call1, ptr %convNum, align 4
-  %2 = load i32, ptr %myErr, align 4
-  %cmp = icmp ne i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %myErr, align 4
-  %4 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 %3, ptr %4, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %5 = load i32, ptr %tagNum, align 4
-  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  %7 = load i32, ptr %6, align 4
-  %sub = sub i32 %7, 1
-  %cmp2 = icmp ult i32 %5, %sub
-  br i1 %cmp2, label %land.lhs.true, label %if.end27
-
-land.lhs.true:                                    ; preds = %if.end
-  %8 = load i32, ptr %convNum, align 4
-  %9 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %10 = load i32, ptr %9, align 8
-  %cmp3 = icmp ult i32 %8, %10
-  br i1 %cmp3, label %if.then4, label %if.end27
-
-if.then4:                                         ; preds = %land.lhs.true
-  %11 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i32, ptr %tagNum, align 4
-  %14 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %15 = load i32, ptr %14, align 8
-  %mul = mul i32 %13, %15
-  %16 = load i32, ptr %convNum, align 4
-  %add = add i32 %mul, %16
-  %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds i16, ptr %12, i64 %idxprom
-  %17 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %17 to i32
-  store i32 %conv, ptr %listOffset, align 4
-  %18 = load i32, ptr %listOffset, align 4
-  %tobool = icmp ne i32 %18, 0
-  br i1 %tobool, label %land.lhs.true5, label %if.end9
-
-land.lhs.true5:                                   ; preds = %if.then4
-  %19 = load ptr, ptr %alias.addr, align 8
-  %20 = load i32, ptr %listOffset, align 4
-  %call6 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %19, i32 noundef %20)
-  %tobool7 = icmp ne i8 %call6, 0
-  br i1 %tobool7, label %if.then8, label %if.end9
-
-if.then8:                                         ; preds = %land.lhs.true5
-  %21 = load i32, ptr %convNum, align 4
-  store i32 %21, ptr %retval, align 4
-  br label %return
-
-if.end9:                                          ; preds = %land.lhs.true5, %if.then4
-  %22 = load i32, ptr %myErr, align 4
-  %cmp10 = icmp eq i32 %22, -122
-  br i1 %cmp10, label %if.then11, label %if.end26
-
-if.then11:                                        ; preds = %if.end9
-  %23 = load i32, ptr %tagNum, align 4
-  %24 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %25 = load i32, ptr %24, align 8
-  %mul12 = mul i32 %23, %25
-  store i32 %mul12, ptr %convStart, align 4
-  %26 = load i32, ptr %tagNum, align 4
-  %add13 = add i32 %26, 1
-  %27 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %28 = load i32, ptr %27, align 8
-  %mul14 = mul i32 %add13, %28
-  store i32 %mul14, ptr %convLimit, align 4
-  %29 = load i32, ptr %convStart, align 4
-  store i32 %29, ptr %idx, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then11
-  %30 = load i32, ptr %idx, align 4
-  %31 = load i32, ptr %convLimit, align 4
-  %cmp15 = icmp ult i32 %30, %31
-  br i1 %cmp15, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %32 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i32, ptr %idx, align 4
-  %idxprom16 = zext i32 %34 to i64
-  %arrayidx17 = getelementptr inbounds i16, ptr %33, i64 %idxprom16
-  %35 = load i16, ptr %arrayidx17, align 2
-  %conv18 = zext i16 %35 to i32
-  store i32 %conv18, ptr %listOffset, align 4
-  %36 = load i32, ptr %listOffset, align 4
-  %tobool19 = icmp ne i32 %36, 0
-  br i1 %tobool19, label %land.lhs.true20, label %if.end25
-
-land.lhs.true20:                                  ; preds = %for.body
-  %37 = load ptr, ptr %alias.addr, align 8
-  %38 = load i32, ptr %listOffset, align 4
-  %call21 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %37, i32 noundef %38)
-  %tobool22 = icmp ne i8 %call21, 0
-  br i1 %tobool22, label %if.then23, label %if.end25
-
-if.then23:                                        ; preds = %land.lhs.true20
-  %39 = load i32, ptr %idx, align 4
-  %40 = load i32, ptr %convStart, align 4
-  %sub24 = sub i32 %39, %40
-  store i32 %sub24, ptr %retval, align 4
-  br label %return
-
-if.end25:                                         ; preds = %land.lhs.true20, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end25
-  %41 = load i32, ptr %idx, align 4
-  %inc = add i32 %41, 1
-  store i32 %inc, ptr %idx, align 4
-  br label %for.cond, !llvm.loop !14
-
-for.end:                                          ; preds = %for.cond
-  br label %if.end26
-
-if.end26:                                         ; preds = %for.end, %if.end9
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.end26, %land.lhs.true, %if.end
-  store i32 -1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end27, %if.then23, %if.then8
-  %42 = load i32, ptr %retval, align 4
-  ret i32 %42
-}
-
-; Function Attrs: mustprogress uwtable
-define ptr @ucnv_openAllNames_75(ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %myEnum = alloca ptr, align 8
-  %myContext = alloca ptr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  store ptr null, ptr %myEnum, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end7
-
-if.then:                                          ; preds = %entry
-  %call1 = call noalias ptr @uprv_malloc_75(i64 noundef 56) #9
-  store ptr %call1, ptr %myEnum, align 8
-  %1 = load ptr, ptr %myEnum, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then2, label %if.end
-
-if.then2:                                         ; preds = %if.then
-  %2 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %2, align 4
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %do.body
-
-do.body:                                          ; preds = %if.end
-  %3 = load ptr, ptr %myEnum, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 @_ZL18gEnumAllConverters, i64 56, i1 false)
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  %call3 = call noalias ptr @uprv_malloc_75(i64 noundef 2) #9
-  store ptr %call3, ptr %myContext, align 8
-  %4 = load ptr, ptr %myContext, align 8
-  %cmp4 = icmp eq ptr %4, null
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %do.end
-  %5 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %5, align 4
-  %6 = load ptr, ptr %myEnum, align 8
-  call void @uprv_free_75(ptr noundef %6)
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end6:                                          ; preds = %do.end
-  %7 = load ptr, ptr %myContext, align 8
-  store i16 0, ptr %7, align 2
-  %8 = load ptr, ptr %myContext, align 8
-  %9 = load ptr, ptr %myEnum, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %9, i32 0, i32 1
-  store ptr %8, ptr %context, align 8
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.end6, %entry
-  %10 = load ptr, ptr %myEnum, align 8
-  store ptr %10, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end7, %if.then5, %if.then2
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
-}
-
-; Function Attrs: mustprogress uwtable
-define zeroext i16 @ucnv_io_countKnownConverters_75(ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca i16, align 2
-  %pErrorCode.addr = alloca ptr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %0)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %2 = load i32, ptr %1, align 8
-  %conv = trunc i32 %2 to i16
-  store i16 %conv, ptr %retval, align 2
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store i16 0, ptr %retval, align 2
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i16, ptr %retval, align 2
-  ret i16 %3
-}
-
-; Function Attrs: mustprogress uwtable
-define i32 @ucnv_swapAliases_75(ptr noundef %ds, ptr noundef %inData, i32 noundef %length, ptr noundef %outData, ptr noundef %pErrorCode) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %ds.addr = alloca ptr, align 8
-  %inData.addr = alloca ptr, align 8
-  %length.addr = alloca i32, align 4
-  %outData.addr = alloca ptr, align 8
-  %pErrorCode.addr = alloca ptr, align 8
-  %pInfo = alloca ptr, align 8
-  %headerSize = alloca i32, align 4
-  %inTable = alloca ptr, align 8
-  %inSectionSizes = alloca ptr, align 8
-  %toc = alloca [10 x i32], align 16
-  %offsets = alloca [10 x i32], align 16
-  %i = alloca i32, align 4
-  %count = alloca i32, align 4
-  %tocLength = alloca i32, align 4
-  %topOffset = alloca i32, align 4
-  %rows = alloca [500 x %struct.TempRow], align 16
-  %resort = alloca [500 x i16], align 16
-  %tempTable = alloca %struct.TempAliasTable, align 8
-  %outTable = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %p2 = alloca ptr, align 8
-  %q = alloca ptr, align 8
-  %q2 = alloca ptr, align 8
-  %oldIndex = alloca i16, align 2
-  %r = alloca ptr, align 8
-  store ptr %ds, ptr %ds.addr, align 8
-  store ptr %inData, ptr %inData.addr, align 8
-  store i32 %length, ptr %length.addr, align 4
-  store ptr %outData, ptr %outData.addr, align 8
-  store ptr %pErrorCode, ptr %pErrorCode.addr, align 8
-  %0 = load ptr, ptr %ds.addr, align 8
-  %1 = load ptr, ptr %inData.addr, align 8
-  %2 = load i32, ptr %length.addr, align 4
-  %3 = load ptr, ptr %outData.addr, align 8
-  %4 = load ptr, ptr %pErrorCode.addr, align 8
-  %call = call i32 @udata_swapDataHeader_75(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
-  store i32 %call, ptr %headerSize, align 4
-  %5 = load ptr, ptr %pErrorCode.addr, align 8
-  %cmp = icmp eq ptr %5, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %6 = load ptr, ptr %pErrorCode.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %call1 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %7)
-  %tobool = icmp ne i8 %call1, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %8 = load ptr, ptr %inData.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 4
-  store ptr %add.ptr, ptr %pInfo, align 8
-  %9 = load ptr, ptr %pInfo, align 8
-  %dataFormat = getelementptr inbounds %struct.UDataInfo, ptr %9, i32 0, i32 6
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %dataFormat, i64 0, i64 0
-  %10 = load i8, ptr %arrayidx, align 2
-  %conv = zext i8 %10 to i32
-  %cmp2 = icmp eq i32 %conv, 67
-  br i1 %cmp2, label %land.lhs.true, label %if.then21
-
-land.lhs.true:                                    ; preds = %if.end
-  %11 = load ptr, ptr %pInfo, align 8
-  %dataFormat3 = getelementptr inbounds %struct.UDataInfo, ptr %11, i32 0, i32 6
-  %arrayidx4 = getelementptr inbounds [4 x i8], ptr %dataFormat3, i64 0, i64 1
-  %12 = load i8, ptr %arrayidx4, align 1
-  %conv5 = zext i8 %12 to i32
-  %cmp6 = icmp eq i32 %conv5, 118
-  br i1 %cmp6, label %land.lhs.true7, label %if.then21
-
-land.lhs.true7:                                   ; preds = %land.lhs.true
-  %13 = load ptr, ptr %pInfo, align 8
-  %dataFormat8 = getelementptr inbounds %struct.UDataInfo, ptr %13, i32 0, i32 6
-  %arrayidx9 = getelementptr inbounds [4 x i8], ptr %dataFormat8, i64 0, i64 2
-  %14 = load i8, ptr %arrayidx9, align 2
-  %conv10 = zext i8 %14 to i32
-  %cmp11 = icmp eq i32 %conv10, 65
-  br i1 %cmp11, label %land.lhs.true12, label %if.then21
-
-land.lhs.true12:                                  ; preds = %land.lhs.true7
-  %15 = load ptr, ptr %pInfo, align 8
-  %dataFormat13 = getelementptr inbounds %struct.UDataInfo, ptr %15, i32 0, i32 6
-  %arrayidx14 = getelementptr inbounds [4 x i8], ptr %dataFormat13, i64 0, i64 3
-  %16 = load i8, ptr %arrayidx14, align 1
-  %conv15 = zext i8 %16 to i32
-  %cmp16 = icmp eq i32 %conv15, 108
-  br i1 %cmp16, label %land.lhs.true17, label %if.then21
-
-land.lhs.true17:                                  ; preds = %land.lhs.true12
-  %17 = load ptr, ptr %pInfo, align 8
-  %formatVersion = getelementptr inbounds %struct.UDataInfo, ptr %17, i32 0, i32 7
-  %arrayidx18 = getelementptr inbounds [4 x i8], ptr %formatVersion, i64 0, i64 0
-  %18 = load i8, ptr %arrayidx18, align 2
-  %conv19 = zext i8 %18 to i32
-  %cmp20 = icmp eq i32 %conv19, 3
-  br i1 %cmp20, label %if.end37, label %if.then21
-
-if.then21:                                        ; preds = %land.lhs.true17, %land.lhs.true12, %land.lhs.true7, %land.lhs.true, %if.end
-  %19 = load ptr, ptr %ds.addr, align 8
-  %20 = load ptr, ptr %pInfo, align 8
-  %dataFormat22 = getelementptr inbounds %struct.UDataInfo, ptr %20, i32 0, i32 6
-  %arrayidx23 = getelementptr inbounds [4 x i8], ptr %dataFormat22, i64 0, i64 0
-  %21 = load i8, ptr %arrayidx23, align 2
-  %conv24 = zext i8 %21 to i32
-  %22 = load ptr, ptr %pInfo, align 8
-  %dataFormat25 = getelementptr inbounds %struct.UDataInfo, ptr %22, i32 0, i32 6
-  %arrayidx26 = getelementptr inbounds [4 x i8], ptr %dataFormat25, i64 0, i64 1
-  %23 = load i8, ptr %arrayidx26, align 1
-  %conv27 = zext i8 %23 to i32
-  %24 = load ptr, ptr %pInfo, align 8
-  %dataFormat28 = getelementptr inbounds %struct.UDataInfo, ptr %24, i32 0, i32 6
-  %arrayidx29 = getelementptr inbounds [4 x i8], ptr %dataFormat28, i64 0, i64 2
-  %25 = load i8, ptr %arrayidx29, align 2
-  %conv30 = zext i8 %25 to i32
-  %26 = load ptr, ptr %pInfo, align 8
-  %dataFormat31 = getelementptr inbounds %struct.UDataInfo, ptr %26, i32 0, i32 6
-  %arrayidx32 = getelementptr inbounds [4 x i8], ptr %dataFormat31, i64 0, i64 3
-  %27 = load i8, ptr %arrayidx32, align 1
-  %conv33 = zext i8 %27 to i32
-  %28 = load ptr, ptr %pInfo, align 8
-  %formatVersion34 = getelementptr inbounds %struct.UDataInfo, ptr %28, i32 0, i32 7
-  %arrayidx35 = getelementptr inbounds [4 x i8], ptr %formatVersion34, i64 0, i64 0
-  %29 = load i8, ptr %arrayidx35, align 2
-  %conv36 = zext i8 %29 to i32
-  call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %19, ptr noundef @.str, i32 noundef %conv24, i32 noundef %conv27, i32 noundef %conv30, i32 noundef %conv33, i32 noundef %conv36)
-  %30 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 16, ptr %30, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end37:                                         ; preds = %land.lhs.true17
-  %31 = load i32, ptr %length.addr, align 4
-  %cmp38 = icmp sge i32 %31, 0
-  br i1 %cmp38, label %land.lhs.true39, label %if.end43
-
-land.lhs.true39:                                  ; preds = %if.end37
-  %32 = load i32, ptr %length.addr, align 4
-  %33 = load i32, ptr %headerSize, align 4
-  %sub = sub nsw i32 %32, %33
-  %cmp40 = icmp slt i32 %sub, 36
-  br i1 %cmp40, label %if.then41, label %if.end43
-
-if.then41:                                        ; preds = %land.lhs.true39
-  %34 = load ptr, ptr %ds.addr, align 8
-  %35 = load i32, ptr %length.addr, align 4
-  %36 = load i32, ptr %headerSize, align 4
-  %sub42 = sub nsw i32 %35, %36
-  call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %34, ptr noundef @.str.1, i32 noundef %sub42)
-  %37 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %37, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end43:                                         ; preds = %land.lhs.true39, %if.end37
-  %38 = load ptr, ptr %inData.addr, align 8
-  %39 = load i32, ptr %headerSize, align 4
-  %idx.ext = sext i32 %39 to i64
-  %add.ptr44 = getelementptr inbounds i8, ptr %38, i64 %idx.ext
-  store ptr %add.ptr44, ptr %inSectionSizes, align 8
-  %40 = load ptr, ptr %inSectionSizes, align 8
-  store ptr %40, ptr %inTable, align 8
-  %arraydecay = getelementptr inbounds [10 x i32], ptr %toc, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %arraydecay, i8 0, i64 40, i1 false)
-  %41 = load ptr, ptr %ds.addr, align 8
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %41, i32 0, i32 5
-  %42 = load ptr, ptr %readUInt32, align 8
-  %43 = load ptr, ptr %inSectionSizes, align 8
-  %arrayidx45 = getelementptr inbounds i32, ptr %43, i64 0
-  %44 = load i32, ptr %arrayidx45, align 4
-  %call46 = call noundef i32 %42(i32 noundef %44)
-  store i32 %call46, ptr %tocLength, align 4
-  %arrayidx47 = getelementptr inbounds [10 x i32], ptr %toc, i64 0, i64 0
-  store i32 %call46, ptr %arrayidx47, align 16
-  %45 = load i32, ptr %tocLength, align 4
-  %cmp48 = icmp ult i32 %45, 8
-  br i1 %cmp48, label %if.then51, label %lor.lhs.false49
-
-lor.lhs.false49:                                  ; preds = %if.end43
-  %46 = load i32, ptr %tocLength, align 4
-  %cmp50 = icmp ule i32 10, %46
-  br i1 %cmp50, label %if.then51, label %if.end52
-
-if.then51:                                        ; preds = %lor.lhs.false49, %if.end43
-  %47 = load ptr, ptr %ds.addr, align 8
-  %48 = load i32, ptr %tocLength, align 4
-  call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %47, ptr noundef @.str.2, i32 noundef %48)
-  %49 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 3, ptr %49, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end52:                                         ; preds = %lor.lhs.false49
-  store i32 1, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end52
-  %50 = load i32, ptr %i, align 4
-  %51 = load i32, ptr %tocLength, align 4
-  %cmp53 = icmp ule i32 %50, %51
-  br i1 %cmp53, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %52 = load ptr, ptr %ds.addr, align 8
-  %readUInt3254 = getelementptr inbounds %struct.UDataSwapper, ptr %52, i32 0, i32 5
-  %53 = load ptr, ptr %readUInt3254, align 8
-  %54 = load ptr, ptr %inSectionSizes, align 8
-  %55 = load i32, ptr %i, align 4
-  %idxprom = zext i32 %55 to i64
-  %arrayidx55 = getelementptr inbounds i32, ptr %54, i64 %idxprom
-  %56 = load i32, ptr %arrayidx55, align 4
-  %call56 = call noundef i32 %53(i32 noundef %56)
-  %57 = load i32, ptr %i, align 4
-  %idxprom57 = zext i32 %57 to i64
-  %arrayidx58 = getelementptr inbounds [10 x i32], ptr %toc, i64 0, i64 %idxprom57
-  store i32 %call56, ptr %arrayidx58, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %58 = load i32, ptr %i, align 4
-  %inc = add i32 %58, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !15
-
-for.end:                                          ; preds = %for.cond
-  %arraydecay59 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %arraydecay59, i8 0, i64 40, i1 false)
-  %59 = load i32, ptr %tocLength, align 4
-  %add = add i32 1, %59
-  %mul = mul i32 2, %add
-  %arrayidx60 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 1
-  store i32 %mul, ptr %arrayidx60, align 4
-  store i32 2, ptr %i, align 4
-  br label %for.cond61
-
-for.cond61:                                       ; preds = %for.inc73, %for.end
-  %60 = load i32, ptr %i, align 4
-  %61 = load i32, ptr %tocLength, align 4
-  %cmp62 = icmp ule i32 %60, %61
-  br i1 %cmp62, label %for.body63, label %for.end75
-
-for.body63:                                       ; preds = %for.cond61
-  %62 = load i32, ptr %i, align 4
-  %sub64 = sub i32 %62, 1
-  %idxprom65 = zext i32 %sub64 to i64
-  %arrayidx66 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 %idxprom65
-  %63 = load i32, ptr %arrayidx66, align 4
-  %64 = load i32, ptr %i, align 4
-  %sub67 = sub i32 %64, 1
-  %idxprom68 = zext i32 %sub67 to i64
-  %arrayidx69 = getelementptr inbounds [10 x i32], ptr %toc, i64 0, i64 %idxprom68
-  %65 = load i32, ptr %arrayidx69, align 4
-  %add70 = add i32 %63, %65
-  %66 = load i32, ptr %i, align 4
-  %idxprom71 = zext i32 %66 to i64
-  %arrayidx72 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 %idxprom71
-  store i32 %add70, ptr %arrayidx72, align 4
-  br label %for.inc73
-
-for.inc73:                                        ; preds = %for.body63
-  %67 = load i32, ptr %i, align 4
-  %inc74 = add i32 %67, 1
-  store i32 %inc74, ptr %i, align 4
-  br label %for.cond61, !llvm.loop !16
-
-for.end75:                                        ; preds = %for.cond61
-  %68 = load i32, ptr %i, align 4
-  %sub76 = sub i32 %68, 1
-  %idxprom77 = zext i32 %sub76 to i64
-  %arrayidx78 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 %idxprom77
-  %69 = load i32, ptr %arrayidx78, align 4
-  %70 = load i32, ptr %i, align 4
-  %sub79 = sub i32 %70, 1
-  %idxprom80 = zext i32 %sub79 to i64
-  %arrayidx81 = getelementptr inbounds [10 x i32], ptr %toc, i64 0, i64 %idxprom80
-  %71 = load i32, ptr %arrayidx81, align 4
-  %add82 = add i32 %69, %71
-  store i32 %add82, ptr %topOffset, align 4
-  %72 = load i32, ptr %length.addr, align 4
-  %cmp83 = icmp sge i32 %72, 0
-  br i1 %cmp83, label %if.then84, label %if.end297
-
-if.then84:                                        ; preds = %for.end75
-  %73 = load i32, ptr %length.addr, align 4
-  %74 = load i32, ptr %headerSize, align 4
-  %sub85 = sub nsw i32 %73, %74
-  %75 = load i32, ptr %topOffset, align 4
-  %mul86 = mul nsw i32 2, %75
-  %cmp87 = icmp slt i32 %sub85, %mul86
-  br i1 %cmp87, label %if.then88, label %if.end90
-
-if.then88:                                        ; preds = %if.then84
-  %76 = load ptr, ptr %ds.addr, align 8
-  %77 = load i32, ptr %length.addr, align 4
-  %78 = load i32, ptr %headerSize, align 4
-  %sub89 = sub nsw i32 %77, %78
-  call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %76, ptr noundef @.str.1, i32 noundef %sub89)
-  %79 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 8, ptr %79, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end90:                                         ; preds = %if.then84
-  %80 = load ptr, ptr %outData.addr, align 8
-  %81 = load i32, ptr %headerSize, align 4
-  %idx.ext91 = sext i32 %81 to i64
-  %add.ptr92 = getelementptr inbounds i8, ptr %80, i64 %idx.ext91
-  store ptr %add.ptr92, ptr %outTable, align 8
-  %82 = load ptr, ptr %ds.addr, align 8
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %82, i32 0, i32 10
-  %83 = load ptr, ptr %swapArray32, align 8
-  %84 = load ptr, ptr %ds.addr, align 8
-  %85 = load ptr, ptr %inTable, align 8
-  %86 = load i32, ptr %tocLength, align 4
-  %add93 = add i32 1, %86
-  %mul94 = mul i32 4, %add93
-  %87 = load ptr, ptr %outTable, align 8
-  %88 = load ptr, ptr %pErrorCode.addr, align 8
-  %call95 = call noundef i32 %83(ptr noundef %84, ptr noundef %85, i32 noundef %mul94, ptr noundef %87, ptr noundef %88)
-  %89 = load ptr, ptr %ds.addr, align 8
-  %swapInvChars = getelementptr inbounds %struct.UDataSwapper, ptr %89, i32 0, i32 12
-  %90 = load ptr, ptr %swapInvChars, align 8
-  %91 = load ptr, ptr %ds.addr, align 8
-  %92 = load ptr, ptr %inTable, align 8
-  %arrayidx96 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 8
-  %93 = load i32, ptr %arrayidx96, align 16
-  %idx.ext97 = zext i32 %93 to i64
-  %add.ptr98 = getelementptr inbounds i16, ptr %92, i64 %idx.ext97
-  %arrayidx99 = getelementptr inbounds [10 x i32], ptr %toc, i64 0, i64 8
-  %94 = load i32, ptr %arrayidx99, align 16
-  %arrayidx100 = getelementptr inbounds [10 x i32], ptr %toc, i64 0, i64 9
-  %95 = load i32, ptr %arrayidx100, align 4
-  %add101 = add i32 %94, %95
-  %mul102 = mul nsw i32 2, %add101
-  %96 = load ptr, ptr %outTable, align 8
-  %arrayidx103 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 8
-  %97 = load i32, ptr %arrayidx103, align 16
-  %idx.ext104 = zext i32 %97 to i64
-  %add.ptr105 = getelementptr inbounds i16, ptr %96, i64 %idx.ext104
-  %98 = load ptr, ptr %pErrorCode.addr, align 8
-  %call106 = call noundef i32 %90(ptr noundef %91, ptr noundef %add.ptr98, i32 noundef %mul102, ptr noundef %add.ptr105, ptr noundef %98)
-  %99 = load ptr, ptr %pErrorCode.addr, align 8
-  %100 = load i32, ptr %99, align 4
-  %call107 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %100)
-  %tobool108 = icmp ne i8 %call107, 0
-  br i1 %tobool108, label %if.then109, label %if.end110
-
-if.then109:                                       ; preds = %if.end90
-  %101 = load ptr, ptr %ds.addr, align 8
-  call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %101, ptr noundef @.str.3)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end110:                                        ; preds = %if.end90
-  %102 = load ptr, ptr %ds.addr, align 8
-  %inCharset = getelementptr inbounds %struct.UDataSwapper, ptr %102, i32 0, i32 1
-  %103 = load i8, ptr %inCharset, align 1
-  %conv111 = zext i8 %103 to i32
-  %104 = load ptr, ptr %ds.addr, align 8
-  %outCharset = getelementptr inbounds %struct.UDataSwapper, ptr %104, i32 0, i32 3
-  %105 = load i8, ptr %outCharset, align 1
-  %conv112 = zext i8 %105 to i32
-  %cmp113 = icmp eq i32 %conv111, %conv112
-  br i1 %cmp113, label %if.then114, label %if.else
-
-if.then114:                                       ; preds = %if.end110
-  %106 = load ptr, ptr %ds.addr, align 8
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %106, i32 0, i32 9
-  %107 = load ptr, ptr %swapArray16, align 8
-  %108 = load ptr, ptr %ds.addr, align 8
-  %109 = load ptr, ptr %inTable, align 8
-  %arrayidx115 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 1
-  %110 = load i32, ptr %arrayidx115, align 4
-  %idx.ext116 = zext i32 %110 to i64
-  %add.ptr117 = getelementptr inbounds i16, ptr %109, i64 %idx.ext116
-  %arrayidx118 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 8
-  %111 = load i32, ptr %arrayidx118, align 16
-  %arrayidx119 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 1
-  %112 = load i32, ptr %arrayidx119, align 4
-  %sub120 = sub i32 %111, %112
-  %mul121 = mul nsw i32 2, %sub120
-  %113 = load ptr, ptr %outTable, align 8
-  %arrayidx122 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 1
-  %114 = load i32, ptr %arrayidx122, align 4
-  %idx.ext123 = zext i32 %114 to i64
-  %add.ptr124 = getelementptr inbounds i16, ptr %113, i64 %idx.ext123
-  %115 = load ptr, ptr %pErrorCode.addr, align 8
-  %call125 = call noundef i32 %107(ptr noundef %108, ptr noundef %add.ptr117, i32 noundef %mul121, ptr noundef %add.ptr124, ptr noundef %115)
-  br label %if.end296
-
-if.else:                                          ; preds = %if.end110
-  %arrayidx126 = getelementptr inbounds [10 x i32], ptr %toc, i64 0, i64 3
-  %116 = load i32, ptr %arrayidx126, align 4
-  store i32 %116, ptr %count, align 4
-  %117 = load ptr, ptr %outTable, align 8
-  %arrayidx127 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 8
-  %118 = load i32, ptr %arrayidx127, align 16
-  %idx.ext128 = zext i32 %118 to i64
-  %add.ptr129 = getelementptr inbounds i16, ptr %117, i64 %idx.ext128
-  %chars = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 0
-  store ptr %add.ptr129, ptr %chars, align 8
-  %119 = load i32, ptr %count, align 4
-  %cmp130 = icmp ule i32 %119, 500
-  br i1 %cmp130, label %if.then131, label %if.else136
-
-if.then131:                                       ; preds = %if.else
-  %arraydecay132 = getelementptr inbounds [500 x %struct.TempRow], ptr %rows, i64 0, i64 0
-  %rows133 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  store ptr %arraydecay132, ptr %rows133, align 8
-  %arraydecay134 = getelementptr inbounds [500 x i16], ptr %resort, i64 0, i64 0
-  %resort135 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 2
-  store ptr %arraydecay134, ptr %resort135, align 8
-  br label %if.end152
-
-if.else136:                                       ; preds = %if.else
-  %120 = load i32, ptr %count, align 4
-  %conv137 = zext i32 %120 to i64
-  %mul138 = mul i64 %conv137, 4
-  %121 = load i32, ptr %count, align 4
-  %mul139 = mul i32 %121, 2
-  %conv140 = zext i32 %mul139 to i64
-  %add141 = add i64 %mul138, %conv140
-  %call142 = call noalias ptr @uprv_malloc_75(i64 noundef %add141) #9
-  %rows143 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  store ptr %call142, ptr %rows143, align 8
-  %rows144 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %122 = load ptr, ptr %rows144, align 8
-  %cmp145 = icmp eq ptr %122, null
-  br i1 %cmp145, label %if.then146, label %if.end147
-
-if.then146:                                       ; preds = %if.else136
-  %123 = load ptr, ptr %ds.addr, align 8
-  %124 = load i32, ptr %count, align 4
-  call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %123, ptr noundef @.str.4, i32 noundef %124)
-  %125 = load ptr, ptr %pErrorCode.addr, align 8
-  store i32 7, ptr %125, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end147:                                        ; preds = %if.else136
-  %rows148 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %126 = load ptr, ptr %rows148, align 8
-  %127 = load i32, ptr %count, align 4
-  %idx.ext149 = zext i32 %127 to i64
-  %add.ptr150 = getelementptr inbounds %struct.TempRow, ptr %126, i64 %idx.ext149
-  %resort151 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 2
-  store ptr %add.ptr150, ptr %resort151, align 8
-  br label %if.end152
-
-if.end152:                                        ; preds = %if.end147, %if.then131
-  %128 = load ptr, ptr %ds.addr, align 8
-  %outCharset153 = getelementptr inbounds %struct.UDataSwapper, ptr %128, i32 0, i32 3
-  %129 = load i8, ptr %outCharset153, align 1
-  %conv154 = zext i8 %129 to i32
-  %cmp155 = icmp eq i32 %conv154, 0
-  br i1 %cmp155, label %if.then156, label %if.else157
-
-if.then156:                                       ; preds = %if.end152
-  %stripForCompare = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 3
-  store ptr @ucnv_io_stripASCIIForCompare_75, ptr %stripForCompare, align 8
-  br label %if.end159
-
-if.else157:                                       ; preds = %if.end152
-  %stripForCompare158 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 3
-  store ptr @ucnv_io_stripEBCDICForCompare_75, ptr %stripForCompare158, align 8
-  br label %if.end159
-
-if.end159:                                        ; preds = %if.else157, %if.then156
-  %130 = load ptr, ptr %inTable, align 8
-  %arrayidx160 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 3
-  %131 = load i32, ptr %arrayidx160, align 4
-  %idx.ext161 = zext i32 %131 to i64
-  %add.ptr162 = getelementptr inbounds i16, ptr %130, i64 %idx.ext161
-  store ptr %add.ptr162, ptr %p, align 8
-  %132 = load ptr, ptr %outTable, align 8
-  %arrayidx163 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 3
-  %133 = load i32, ptr %arrayidx163, align 4
-  %idx.ext164 = zext i32 %133 to i64
-  %add.ptr165 = getelementptr inbounds i16, ptr %132, i64 %idx.ext164
-  store ptr %add.ptr165, ptr %q, align 8
-  %134 = load ptr, ptr %inTable, align 8
-  %arrayidx166 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 4
-  %135 = load i32, ptr %arrayidx166, align 16
-  %idx.ext167 = zext i32 %135 to i64
-  %add.ptr168 = getelementptr inbounds i16, ptr %134, i64 %idx.ext167
-  store ptr %add.ptr168, ptr %p2, align 8
-  %136 = load ptr, ptr %outTable, align 8
-  %arrayidx169 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 4
-  %137 = load i32, ptr %arrayidx169, align 16
-  %idx.ext170 = zext i32 %137 to i64
-  %add.ptr171 = getelementptr inbounds i16, ptr %136, i64 %idx.ext170
-  store ptr %add.ptr171, ptr %q2, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond172
-
-for.cond172:                                      ; preds = %for.inc185, %if.end159
-  %138 = load i32, ptr %i, align 4
-  %139 = load i32, ptr %count, align 4
-  %cmp173 = icmp ult i32 %138, %139
-  br i1 %cmp173, label %for.body174, label %for.end187
-
-for.body174:                                      ; preds = %for.cond172
-  %140 = load ptr, ptr %ds.addr, align 8
-  %readUInt16 = getelementptr inbounds %struct.UDataSwapper, ptr %140, i32 0, i32 4
-  %141 = load ptr, ptr %readUInt16, align 8
-  %142 = load ptr, ptr %p, align 8
-  %143 = load i32, ptr %i, align 4
-  %idxprom175 = zext i32 %143 to i64
-  %arrayidx176 = getelementptr inbounds i16, ptr %142, i64 %idxprom175
-  %144 = load i16, ptr %arrayidx176, align 2
-  %call177 = call noundef zeroext i16 %141(i16 noundef zeroext %144)
-  %rows178 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %145 = load ptr, ptr %rows178, align 8
-  %146 = load i32, ptr %i, align 4
-  %idxprom179 = zext i32 %146 to i64
-  %arrayidx180 = getelementptr inbounds %struct.TempRow, ptr %145, i64 %idxprom179
-  %strIndex = getelementptr inbounds %struct.TempRow, ptr %arrayidx180, i32 0, i32 0
-  store i16 %call177, ptr %strIndex, align 2
-  %147 = load i32, ptr %i, align 4
-  %conv181 = trunc i32 %147 to i16
-  %rows182 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %148 = load ptr, ptr %rows182, align 8
-  %149 = load i32, ptr %i, align 4
-  %idxprom183 = zext i32 %149 to i64
-  %arrayidx184 = getelementptr inbounds %struct.TempRow, ptr %148, i64 %idxprom183
-  %sortIndex = getelementptr inbounds %struct.TempRow, ptr %arrayidx184, i32 0, i32 1
-  store i16 %conv181, ptr %sortIndex, align 2
-  br label %for.inc185
-
-for.inc185:                                       ; preds = %for.body174
-  %150 = load i32, ptr %i, align 4
-  %inc186 = add i32 %150, 1
-  store i32 %inc186, ptr %i, align 4
-  br label %for.cond172, !llvm.loop !17
-
-for.end187:                                       ; preds = %for.cond172
-  %rows188 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %151 = load ptr, ptr %rows188, align 8
-  %152 = load i32, ptr %count, align 4
-  %153 = load ptr, ptr %pErrorCode.addr, align 8
-  call void @uprv_sortArray_75(ptr noundef %151, i32 noundef %152, i32 noundef 4, ptr noundef @_ZL14io_compareRowsPKvS0_S0_, ptr noundef %tempTable, i8 noundef signext 0, ptr noundef %153)
-  %154 = load ptr, ptr %pErrorCode.addr, align 8
-  %155 = load i32, ptr %154, align 4
-  %call189 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %155)
-  %tobool190 = icmp ne i8 %call189, 0
-  br i1 %tobool190, label %if.then191, label %if.end261
-
-if.then191:                                       ; preds = %for.end187
-  %156 = load ptr, ptr %p, align 8
-  %157 = load ptr, ptr %q, align 8
-  %cmp192 = icmp ne ptr %156, %157
-  br i1 %cmp192, label %if.then193, label %if.else218
-
-if.then193:                                       ; preds = %if.then191
-  store i32 0, ptr %i, align 4
-  br label %for.cond194
-
-for.cond194:                                      ; preds = %for.inc215, %if.then193
-  %158 = load i32, ptr %i, align 4
-  %159 = load i32, ptr %count, align 4
-  %cmp195 = icmp ult i32 %158, %159
-  br i1 %cmp195, label %for.body196, label %for.end217
-
-for.body196:                                      ; preds = %for.cond194
-  %rows197 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %160 = load ptr, ptr %rows197, align 8
-  %161 = load i32, ptr %i, align 4
-  %idxprom198 = zext i32 %161 to i64
-  %arrayidx199 = getelementptr inbounds %struct.TempRow, ptr %160, i64 %idxprom198
-  %sortIndex200 = getelementptr inbounds %struct.TempRow, ptr %arrayidx199, i32 0, i32 1
-  %162 = load i16, ptr %sortIndex200, align 2
-  store i16 %162, ptr %oldIndex, align 2
-  %163 = load ptr, ptr %ds.addr, align 8
-  %swapArray16201 = getelementptr inbounds %struct.UDataSwapper, ptr %163, i32 0, i32 9
-  %164 = load ptr, ptr %swapArray16201, align 8
-  %165 = load ptr, ptr %ds.addr, align 8
-  %166 = load ptr, ptr %p, align 8
-  %167 = load i16, ptr %oldIndex, align 2
-  %conv202 = zext i16 %167 to i32
-  %idx.ext203 = sext i32 %conv202 to i64
-  %add.ptr204 = getelementptr inbounds i16, ptr %166, i64 %idx.ext203
-  %168 = load ptr, ptr %q, align 8
-  %169 = load i32, ptr %i, align 4
-  %idx.ext205 = zext i32 %169 to i64
-  %add.ptr206 = getelementptr inbounds i16, ptr %168, i64 %idx.ext205
-  %170 = load ptr, ptr %pErrorCode.addr, align 8
-  %call207 = call noundef i32 %164(ptr noundef %165, ptr noundef %add.ptr204, i32 noundef 2, ptr noundef %add.ptr206, ptr noundef %170)
-  %171 = load ptr, ptr %ds.addr, align 8
-  %swapArray16208 = getelementptr inbounds %struct.UDataSwapper, ptr %171, i32 0, i32 9
-  %172 = load ptr, ptr %swapArray16208, align 8
-  %173 = load ptr, ptr %ds.addr, align 8
-  %174 = load ptr, ptr %p2, align 8
-  %175 = load i16, ptr %oldIndex, align 2
-  %conv209 = zext i16 %175 to i32
-  %idx.ext210 = sext i32 %conv209 to i64
-  %add.ptr211 = getelementptr inbounds i16, ptr %174, i64 %idx.ext210
-  %176 = load ptr, ptr %q2, align 8
-  %177 = load i32, ptr %i, align 4
-  %idx.ext212 = zext i32 %177 to i64
-  %add.ptr213 = getelementptr inbounds i16, ptr %176, i64 %idx.ext212
-  %178 = load ptr, ptr %pErrorCode.addr, align 8
-  %call214 = call noundef i32 %172(ptr noundef %173, ptr noundef %add.ptr211, i32 noundef 2, ptr noundef %add.ptr213, ptr noundef %178)
-  br label %for.inc215
-
-for.inc215:                                       ; preds = %for.body196
-  %179 = load i32, ptr %i, align 4
-  %inc216 = add i32 %179, 1
-  store i32 %inc216, ptr %i, align 4
-  br label %for.cond194, !llvm.loop !18
-
-for.end217:                                       ; preds = %for.cond194
-  br label %if.end260
-
-if.else218:                                       ; preds = %if.then191
-  %resort219 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 2
-  %180 = load ptr, ptr %resort219, align 8
-  store ptr %180, ptr %r, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond220
-
-for.cond220:                                      ; preds = %for.inc234, %if.else218
-  %181 = load i32, ptr %i, align 4
-  %182 = load i32, ptr %count, align 4
-  %cmp221 = icmp ult i32 %181, %182
-  br i1 %cmp221, label %for.body222, label %for.end236
-
-for.body222:                                      ; preds = %for.cond220
-  %rows223 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %183 = load ptr, ptr %rows223, align 8
-  %184 = load i32, ptr %i, align 4
-  %idxprom224 = zext i32 %184 to i64
-  %arrayidx225 = getelementptr inbounds %struct.TempRow, ptr %183, i64 %idxprom224
-  %sortIndex226 = getelementptr inbounds %struct.TempRow, ptr %arrayidx225, i32 0, i32 1
-  %185 = load i16, ptr %sortIndex226, align 2
-  store i16 %185, ptr %oldIndex, align 2
-  %186 = load ptr, ptr %ds.addr, align 8
-  %swapArray16227 = getelementptr inbounds %struct.UDataSwapper, ptr %186, i32 0, i32 9
-  %187 = load ptr, ptr %swapArray16227, align 8
-  %188 = load ptr, ptr %ds.addr, align 8
-  %189 = load ptr, ptr %p, align 8
-  %190 = load i16, ptr %oldIndex, align 2
-  %conv228 = zext i16 %190 to i32
-  %idx.ext229 = sext i32 %conv228 to i64
-  %add.ptr230 = getelementptr inbounds i16, ptr %189, i64 %idx.ext229
-  %191 = load ptr, ptr %r, align 8
-  %192 = load i32, ptr %i, align 4
-  %idx.ext231 = zext i32 %192 to i64
-  %add.ptr232 = getelementptr inbounds i16, ptr %191, i64 %idx.ext231
-  %193 = load ptr, ptr %pErrorCode.addr, align 8
-  %call233 = call noundef i32 %187(ptr noundef %188, ptr noundef %add.ptr230, i32 noundef 2, ptr noundef %add.ptr232, ptr noundef %193)
-  br label %for.inc234
-
-for.inc234:                                       ; preds = %for.body222
-  %194 = load i32, ptr %i, align 4
-  %inc235 = add i32 %194, 1
-  store i32 %inc235, ptr %i, align 4
-  br label %for.cond220, !llvm.loop !19
-
-for.end236:                                       ; preds = %for.cond220
-  br label %do.body
-
-do.body:                                          ; preds = %for.end236
-  %195 = load ptr, ptr %q, align 8
-  %196 = load ptr, ptr %r, align 8
-  %197 = load i32, ptr %count, align 4
-  %conv237 = zext i32 %197 to i64
-  %mul238 = mul i64 2, %conv237
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %195, ptr align 2 %196, i64 %mul238, i1 false)
-  br label %do.end
-
-do.end:                                           ; preds = %do.body
-  store i32 0, ptr %i, align 4
-  br label %for.cond239
-
-for.cond239:                                      ; preds = %for.inc253, %do.end
-  %198 = load i32, ptr %i, align 4
-  %199 = load i32, ptr %count, align 4
-  %cmp240 = icmp ult i32 %198, %199
-  br i1 %cmp240, label %for.body241, label %for.end255
-
-for.body241:                                      ; preds = %for.cond239
-  %rows242 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %200 = load ptr, ptr %rows242, align 8
-  %201 = load i32, ptr %i, align 4
-  %idxprom243 = zext i32 %201 to i64
-  %arrayidx244 = getelementptr inbounds %struct.TempRow, ptr %200, i64 %idxprom243
-  %sortIndex245 = getelementptr inbounds %struct.TempRow, ptr %arrayidx244, i32 0, i32 1
-  %202 = load i16, ptr %sortIndex245, align 2
-  store i16 %202, ptr %oldIndex, align 2
-  %203 = load ptr, ptr %ds.addr, align 8
-  %swapArray16246 = getelementptr inbounds %struct.UDataSwapper, ptr %203, i32 0, i32 9
-  %204 = load ptr, ptr %swapArray16246, align 8
-  %205 = load ptr, ptr %ds.addr, align 8
-  %206 = load ptr, ptr %p2, align 8
-  %207 = load i16, ptr %oldIndex, align 2
-  %conv247 = zext i16 %207 to i32
-  %idx.ext248 = sext i32 %conv247 to i64
-  %add.ptr249 = getelementptr inbounds i16, ptr %206, i64 %idx.ext248
-  %208 = load ptr, ptr %r, align 8
-  %209 = load i32, ptr %i, align 4
-  %idx.ext250 = zext i32 %209 to i64
-  %add.ptr251 = getelementptr inbounds i16, ptr %208, i64 %idx.ext250
-  %210 = load ptr, ptr %pErrorCode.addr, align 8
-  %call252 = call noundef i32 %204(ptr noundef %205, ptr noundef %add.ptr249, i32 noundef 2, ptr noundef %add.ptr251, ptr noundef %210)
-  br label %for.inc253
-
-for.inc253:                                       ; preds = %for.body241
-  %211 = load i32, ptr %i, align 4
-  %inc254 = add i32 %211, 1
-  store i32 %inc254, ptr %i, align 4
-  br label %for.cond239, !llvm.loop !20
-
-for.end255:                                       ; preds = %for.cond239
-  br label %do.body256
-
-do.body256:                                       ; preds = %for.end255
-  %212 = load ptr, ptr %q2, align 8
-  %213 = load ptr, ptr %r, align 8
-  %214 = load i32, ptr %count, align 4
-  %conv257 = zext i32 %214 to i64
-  %mul258 = mul i64 2, %conv257
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %212, ptr align 2 %213, i64 %mul258, i1 false)
-  br label %do.end259
-
-do.end259:                                        ; preds = %do.body256
-  br label %if.end260
-
-if.end260:                                        ; preds = %do.end259, %for.end217
-  br label %if.end261
-
-if.end261:                                        ; preds = %if.end260, %for.end187
-  %rows262 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %215 = load ptr, ptr %rows262, align 8
-  %arraydecay263 = getelementptr inbounds [500 x %struct.TempRow], ptr %rows, i64 0, i64 0
-  %cmp264 = icmp ne ptr %215, %arraydecay263
-  br i1 %cmp264, label %if.then265, label %if.end267
-
-if.then265:                                       ; preds = %if.end261
-  %rows266 = getelementptr inbounds %struct.TempAliasTable, ptr %tempTable, i32 0, i32 1
-  %216 = load ptr, ptr %rows266, align 8
-  call void @uprv_free_75(ptr noundef %216)
-  br label %if.end267
-
-if.end267:                                        ; preds = %if.then265, %if.end261
-  %217 = load ptr, ptr %pErrorCode.addr, align 8
-  %218 = load i32, ptr %217, align 4
-  %call268 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %218)
-  %tobool269 = icmp ne i8 %call268, 0
-  br i1 %tobool269, label %if.then270, label %if.end271
-
-if.then270:                                       ; preds = %if.end267
-  %219 = load ptr, ptr %ds.addr, align 8
-  %220 = load i32, ptr %count, align 4
-  call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %219, ptr noundef @.str.5, i32 noundef %220)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end271:                                        ; preds = %if.end267
-  %221 = load ptr, ptr %ds.addr, align 8
-  %swapArray16272 = getelementptr inbounds %struct.UDataSwapper, ptr %221, i32 0, i32 9
-  %222 = load ptr, ptr %swapArray16272, align 8
-  %223 = load ptr, ptr %ds.addr, align 8
-  %224 = load ptr, ptr %inTable, align 8
-  %arrayidx273 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 1
-  %225 = load i32, ptr %arrayidx273, align 4
-  %idx.ext274 = zext i32 %225 to i64
-  %add.ptr275 = getelementptr inbounds i16, ptr %224, i64 %idx.ext274
-  %arrayidx276 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 3
-  %226 = load i32, ptr %arrayidx276, align 4
-  %arrayidx277 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 1
-  %227 = load i32, ptr %arrayidx277, align 4
-  %sub278 = sub i32 %226, %227
-  %mul279 = mul nsw i32 2, %sub278
-  %228 = load ptr, ptr %outTable, align 8
-  %arrayidx280 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 1
-  %229 = load i32, ptr %arrayidx280, align 4
-  %idx.ext281 = zext i32 %229 to i64
-  %add.ptr282 = getelementptr inbounds i16, ptr %228, i64 %idx.ext281
-  %230 = load ptr, ptr %pErrorCode.addr, align 8
-  %call283 = call noundef i32 %222(ptr noundef %223, ptr noundef %add.ptr275, i32 noundef %mul279, ptr noundef %add.ptr282, ptr noundef %230)
-  %231 = load ptr, ptr %ds.addr, align 8
-  %swapArray16284 = getelementptr inbounds %struct.UDataSwapper, ptr %231, i32 0, i32 9
-  %232 = load ptr, ptr %swapArray16284, align 8
-  %233 = load ptr, ptr %ds.addr, align 8
-  %234 = load ptr, ptr %inTable, align 8
-  %arrayidx285 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 5
-  %235 = load i32, ptr %arrayidx285, align 4
-  %idx.ext286 = zext i32 %235 to i64
-  %add.ptr287 = getelementptr inbounds i16, ptr %234, i64 %idx.ext286
-  %arrayidx288 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 8
-  %236 = load i32, ptr %arrayidx288, align 16
-  %arrayidx289 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 5
-  %237 = load i32, ptr %arrayidx289, align 4
-  %sub290 = sub i32 %236, %237
-  %mul291 = mul nsw i32 2, %sub290
-  %238 = load ptr, ptr %outTable, align 8
-  %arrayidx292 = getelementptr inbounds [10 x i32], ptr %offsets, i64 0, i64 5
-  %239 = load i32, ptr %arrayidx292, align 4
-  %idx.ext293 = zext i32 %239 to i64
-  %add.ptr294 = getelementptr inbounds i16, ptr %238, i64 %idx.ext293
-  %240 = load ptr, ptr %pErrorCode.addr, align 8
-  %call295 = call noundef i32 %232(ptr noundef %233, ptr noundef %add.ptr287, i32 noundef %mul291, ptr noundef %add.ptr294, ptr noundef %240)
-  br label %if.end296
-
-if.end296:                                        ; preds = %if.end271, %if.then114
-  br label %if.end297
-
-if.end297:                                        ; preds = %if.end296, %for.end75
-  %241 = load i32, ptr %headerSize, align 4
-  %242 = load i32, ptr %topOffset, align 4
-  %mul298 = mul nsw i32 2, %242
-  %add299 = add nsw i32 %241, %mul298
-  store i32 %add299, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end297, %if.then270, %if.then146, %if.then109, %if.then88, %if.then51, %if.then41, %if.then21, %if.then
-  %243 = load i32, ptr %retval, align 4
-  ret i32 %243
-}
-
-declare i32 @udata_swapDataHeader_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #4
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %code) #0 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
-}
-
-declare void @udata_printError_75(ptr noundef, ptr noundef, ...) #4
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
-
-declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) #4
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL14io_compareRowsPKvS0_S0_(ptr noundef %context, ptr noundef %left, ptr noundef %right) #1 {
-entry:
-  %context.addr = alloca ptr, align 8
-  %left.addr = alloca ptr, align 8
-  %right.addr = alloca ptr, align 8
-  %strippedLeft = alloca [60 x i8], align 16
-  %strippedRight = alloca [60 x i8], align 16
-  %tempTable = alloca ptr, align 8
-  %chars = alloca ptr, align 8
-  store ptr %context, ptr %context.addr, align 8
-  store ptr %left, ptr %left.addr, align 8
-  store ptr %right, ptr %right.addr, align 8
-  %0 = load ptr, ptr %context.addr, align 8
-  store ptr %0, ptr %tempTable, align 8
-  %1 = load ptr, ptr %tempTable, align 8
-  %chars1 = getelementptr inbounds %struct.TempAliasTable, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %chars1, align 8
-  store ptr %2, ptr %chars, align 8
-  %3 = load ptr, ptr %tempTable, align 8
-  %stripForCompare = getelementptr inbounds %struct.TempAliasTable, ptr %3, i32 0, i32 3
-  %4 = load ptr, ptr %stripForCompare, align 8
-  %arraydecay = getelementptr inbounds [60 x i8], ptr %strippedLeft, i64 0, i64 0
-  %5 = load ptr, ptr %chars, align 8
-  %6 = load ptr, ptr %left.addr, align 8
-  %strIndex = getelementptr inbounds %struct.TempRow, ptr %6, i32 0, i32 0
-  %7 = load i16, ptr %strIndex, align 2
-  %conv = zext i16 %7 to i32
-  %mul = mul nsw i32 2, %conv
-  %idx.ext = sext i32 %mul to i64
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %idx.ext
-  %call = call noundef ptr %4(ptr noundef %arraydecay, ptr noundef %add.ptr)
-  %8 = load ptr, ptr %tempTable, align 8
-  %stripForCompare2 = getelementptr inbounds %struct.TempAliasTable, ptr %8, i32 0, i32 3
-  %9 = load ptr, ptr %stripForCompare2, align 8
-  %arraydecay3 = getelementptr inbounds [60 x i8], ptr %strippedRight, i64 0, i64 0
-  %10 = load ptr, ptr %chars, align 8
-  %11 = load ptr, ptr %right.addr, align 8
-  %strIndex4 = getelementptr inbounds %struct.TempRow, ptr %11, i32 0, i32 0
-  %12 = load i16, ptr %strIndex4, align 2
-  %conv5 = zext i16 %12 to i32
-  %mul6 = mul nsw i32 2, %conv5
-  %idx.ext7 = sext i32 %mul6 to i64
-  %add.ptr8 = getelementptr inbounds i8, ptr %10, i64 %idx.ext7
-  %call9 = call noundef ptr %9(ptr noundef %arraydecay3, ptr noundef %add.ptr8)
-  %call10 = call i32 @strcmp(ptr noundef %call, ptr noundef %call9) #8
-  ret i32 %call10
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %code) #0 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sle i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_(ptr noundef nonnull align 4 dereferenceable(8) %uio, ptr noundef %fp, ptr noundef nonnull align 4 dereferenceable(4) %errCode) #1 comdat {
-entry:
-  %uio.addr = alloca ptr, align 8
-  %fp.addr = alloca ptr, align 8
-  %errCode.addr = alloca ptr, align 8
-  store ptr %uio, ptr %uio.addr, align 8
-  store ptr %fp, ptr %fp.addr, align 8
-  store ptr %errCode, ptr %errCode.addr, align 8
-  %0 = load ptr, ptr %errCode.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %if.end11
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %uio.addr, align 8
-  %fState = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %2, i32 0, i32 0
-  %call1 = call noundef i32 @_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %fState)
-  %cmp = icmp ne i32 %call1, 2
-  br i1 %cmp, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %if.end
-  %3 = load ptr, ptr %uio.addr, align 8
-  %call2 = call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %3)
-  %tobool3 = icmp ne i8 %call2, 0
-  br i1 %tobool3, label %if.then4, label %if.else
-
-if.then4:                                         ; preds = %land.lhs.true
-  %4 = load ptr, ptr %fp.addr, align 8
-  %5 = load ptr, ptr %errCode.addr, align 8
-  call void %4(ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %6 = load ptr, ptr %errCode.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %uio.addr, align 8
-  %fErrCode = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %8, i32 0, i32 1
-  store i32 %7, ptr %fErrCode, align 4
-  %9 = load ptr, ptr %uio.addr, align 8
-  call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br label %if.end11
-
-if.else:                                          ; preds = %land.lhs.true, %if.end
-  %10 = load ptr, ptr %uio.addr, align 8
-  %fErrCode5 = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %10, i32 0, i32 1
-  %11 = load i32, ptr %fErrCode5, align 4
-  %call6 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %11)
-  %tobool7 = icmp ne i8 %call6, 0
-  br i1 %tobool7, label %if.then8, label %if.end10
-
-if.then8:                                         ; preds = %if.else
-  %12 = load ptr, ptr %uio.addr, align 8
-  %fErrCode9 = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %12, i32 0, i32 1
-  %13 = load i32, ptr %fErrCode9, align 4
-  %14 = load ptr, ptr %errCode.addr, align 8
-  store i32 %13, ptr %14, align 4
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then8, %if.else
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.end10, %if.then4, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL13initAliasDataR10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errCode) #1 {
-entry:
-  %errCode.addr = alloca ptr, align 8
-  %data = alloca ptr, align 8
-  %table = alloca ptr, align 8
-  %sectionSizes = alloca ptr, align 8
-  %tableStart = alloca i32, align 4
-  %currOffset = alloca i32, align 4
-  store ptr %errCode, ptr %errCode.addr, align 8
-  call void @ucln_common_registerCleanup_75(i32 noundef 22, ptr noundef @_ZL15ucnv_io_cleanupv)
-  %0 = load ptr, ptr %errCode.addr, align 8
-  %call = call ptr @udata_openChoice_75(ptr noundef null, ptr noundef @_ZL9DATA_TYPE, ptr noundef @_ZL9DATA_NAME, ptr noundef @_ZL12isAcceptablePvPKcS1_PK9UDataInfo, ptr noundef null, ptr noundef %0)
-  store ptr %call, ptr %data, align 8
-  %1 = load ptr, ptr %errCode.addr, align 8
-  %2 = load i32, ptr %1, align 4
-  %call1 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %2)
-  %tobool = icmp ne i8 %call1, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %data, align 8
-  %call2 = call ptr @udata_getMemory_75(ptr noundef %3)
-  store ptr %call2, ptr %sectionSizes, align 8
-  %4 = load ptr, ptr %sectionSizes, align 8
-  store ptr %4, ptr %table, align 8
-  %5 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %5, i64 0
-  %6 = load i32, ptr %arrayidx, align 4
-  store i32 %6, ptr %tableStart, align 4
-  %7 = load i32, ptr %tableStart, align 4
-  %cmp = icmp ult i32 %7, 8
-  br i1 %cmp, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %8 = load ptr, ptr %errCode.addr, align 8
-  store i32 3, ptr %8, align 4
-  %9 = load ptr, ptr %data, align 8
-  call void @udata_close_75(ptr noundef %9)
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %10 = load ptr, ptr %data, align 8
-  store ptr %10, ptr @_ZL10gAliasData, align 8
-  %11 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx5 = getelementptr inbounds i32, ptr %11, i64 1
-  %12 = load i32, ptr %arrayidx5, align 4
-  %13 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  store i32 %12, ptr %13, align 8
-  %14 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx6 = getelementptr inbounds i32, ptr %14, i64 2
-  %15 = load i32, ptr %arrayidx6, align 4
-  %16 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  store i32 %15, ptr %16, align 4
-  %17 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx7 = getelementptr inbounds i32, ptr %17, i64 3
-  %18 = load i32, ptr %arrayidx7, align 4
-  %19 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 11
-  store i32 %18, ptr %19, align 8
-  %20 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx8 = getelementptr inbounds i32, ptr %20, i64 4
-  %21 = load i32, ptr %arrayidx8, align 4
-  %22 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12
-  store i32 %21, ptr %22, align 4
-  %23 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx9 = getelementptr inbounds i32, ptr %23, i64 5
-  %24 = load i32, ptr %arrayidx9, align 4
-  %25 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13
-  store i32 %24, ptr %25, align 8
-  %26 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx10 = getelementptr inbounds i32, ptr %26, i64 6
-  %27 = load i32, ptr %arrayidx10, align 4
-  %28 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14
-  store i32 %27, ptr %28, align 4
-  %29 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx11 = getelementptr inbounds i32, ptr %29, i64 7
-  %30 = load i32, ptr %arrayidx11, align 4
-  %31 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15
-  store i32 %30, ptr %31, align 8
-  %32 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx12 = getelementptr inbounds i32, ptr %32, i64 8
-  %33 = load i32, ptr %arrayidx12, align 4
-  %34 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 16
-  store i32 %33, ptr %34, align 4
-  %35 = load i32, ptr %tableStart, align 4
-  %cmp13 = icmp ugt i32 %35, 8
-  br i1 %cmp13, label %if.then14, label %if.end16
-
-if.then14:                                        ; preds = %if.end4
-  %36 = load ptr, ptr %sectionSizes, align 8
-  %arrayidx15 = getelementptr inbounds i32, ptr %36, i64 9
-  %37 = load i32, ptr %arrayidx15, align 4
-  %38 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 17
-  store i32 %37, ptr %38, align 8
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.then14, %if.end4
-  %39 = load i32, ptr %tableStart, align 4
-  %conv = zext i32 %39 to i64
-  %mul = mul i64 %conv, 2
-  %add = add i64 %mul, 2
-  %conv17 = trunc i64 %add to i32
-  store i32 %conv17, ptr %currOffset, align 4
-  %40 = load ptr, ptr %table, align 8
-  %41 = load i32, ptr %currOffset, align 4
-  %idx.ext = zext i32 %41 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %40, i64 %idx.ext
-  store ptr %add.ptr, ptr @_ZL10gMainTable, align 8
-  %42 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %43 = load i32, ptr %42, align 8
-  %44 = load i32, ptr %currOffset, align 4
-  %add18 = add i32 %44, %43
-  store i32 %add18, ptr %currOffset, align 4
-  %45 = load ptr, ptr %table, align 8
-  %46 = load i32, ptr %currOffset, align 4
-  %idx.ext19 = zext i32 %46 to i64
-  %add.ptr20 = getelementptr inbounds i16, ptr %45, i64 %idx.ext19
-  %47 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1
-  store ptr %add.ptr20, ptr %47, align 8
-  %48 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  %49 = load i32, ptr %48, align 4
-  %50 = load i32, ptr %currOffset, align 4
-  %add21 = add i32 %50, %49
-  store i32 %add21, ptr %currOffset, align 4
-  %51 = load ptr, ptr %table, align 8
-  %52 = load i32, ptr %currOffset, align 4
-  %idx.ext22 = zext i32 %52 to i64
-  %add.ptr23 = getelementptr inbounds i16, ptr %51, i64 %idx.ext22
-  %53 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2
-  store ptr %add.ptr23, ptr %53, align 8
-  %54 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 11
-  %55 = load i32, ptr %54, align 8
-  %56 = load i32, ptr %currOffset, align 4
-  %add24 = add i32 %56, %55
-  store i32 %add24, ptr %currOffset, align 4
-  %57 = load ptr, ptr %table, align 8
-  %58 = load i32, ptr %currOffset, align 4
-  %idx.ext25 = zext i32 %58 to i64
-  %add.ptr26 = getelementptr inbounds i16, ptr %57, i64 %idx.ext25
-  %59 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3
-  store ptr %add.ptr26, ptr %59, align 8
-  %60 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12
-  %61 = load i32, ptr %60, align 4
-  %62 = load i32, ptr %currOffset, align 4
-  %add27 = add i32 %62, %61
-  store i32 %add27, ptr %currOffset, align 4
-  %63 = load ptr, ptr %table, align 8
-  %64 = load i32, ptr %currOffset, align 4
-  %idx.ext28 = zext i32 %64 to i64
-  %add.ptr29 = getelementptr inbounds i16, ptr %63, i64 %idx.ext28
-  %65 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4
-  store ptr %add.ptr29, ptr %65, align 8
-  %66 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13
-  %67 = load i32, ptr %66, align 8
-  %68 = load i32, ptr %currOffset, align 4
-  %add30 = add i32 %68, %67
-  store i32 %add30, ptr %currOffset, align 4
-  %69 = load ptr, ptr %table, align 8
-  %70 = load i32, ptr %currOffset, align 4
-  %idx.ext31 = zext i32 %70 to i64
-  %add.ptr32 = getelementptr inbounds i16, ptr %69, i64 %idx.ext31
-  %71 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  store ptr %add.ptr32, ptr %71, align 8
-  %72 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14
-  %73 = load i32, ptr %72, align 4
-  %74 = load i32, ptr %currOffset, align 4
-  %add33 = add i32 %74, %73
-  store i32 %add33, ptr %currOffset, align 4
-  %75 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15
-  %76 = load i32, ptr %75, align 8
-  %cmp34 = icmp ugt i32 %76, 0
-  br i1 %cmp34, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %if.end16
-  %77 = load ptr, ptr %table, align 8
-  %78 = load i32, ptr %currOffset, align 4
-  %idx.ext35 = zext i32 %78 to i64
-  %add.ptr36 = getelementptr inbounds i16, ptr %77, i64 %idx.ext35
-  %stringNormalizationType = getelementptr inbounds %struct.UConverterAliasOptions, ptr %add.ptr36, i32 0, i32 0
-  %79 = load i16, ptr %stringNormalizationType, align 2
-  %conv37 = zext i16 %79 to i32
-  %cmp38 = icmp slt i32 %conv37, 2
-  br i1 %cmp38, label %if.then39, label %if.else
-
-if.then39:                                        ; preds = %land.lhs.true
-  %80 = load ptr, ptr %table, align 8
-  %81 = load i32, ptr %currOffset, align 4
-  %idx.ext40 = zext i32 %81 to i64
-  %add.ptr41 = getelementptr inbounds i16, ptr %80, i64 %idx.ext40
-  %82 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
-  store ptr %add.ptr41, ptr %82, align 8
-  br label %if.end42
-
-if.else:                                          ; preds = %land.lhs.true, %if.end16
-  %83 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
-  store ptr @_ZL19defaultTableOptions, ptr %83, align 8
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.else, %if.then39
-  %84 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15
-  %85 = load i32, ptr %84, align 8
-  %86 = load i32, ptr %currOffset, align 4
-  %add43 = add i32 %86, %85
-  store i32 %add43, ptr %currOffset, align 4
-  %87 = load ptr, ptr %table, align 8
-  %88 = load i32, ptr %currOffset, align 4
-  %idx.ext44 = zext i32 %88 to i64
-  %add.ptr45 = getelementptr inbounds i16, ptr %87, i64 %idx.ext44
-  %89 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  store ptr %add.ptr45, ptr %89, align 8
-  %90 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 16
-  %91 = load i32, ptr %90, align 4
-  %92 = load i32, ptr %currOffset, align 4
-  %add46 = add i32 %92, %91
-  store i32 %add46, ptr %currOffset, align 4
-  %93 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6
-  %94 = load ptr, ptr %93, align 8
-  %stringNormalizationType47 = getelementptr inbounds %struct.UConverterAliasOptions, ptr %94, i32 0, i32 0
-  %95 = load i16, ptr %stringNormalizationType47, align 2
-  %conv48 = zext i16 %95 to i32
-  %cmp49 = icmp eq i32 %conv48, 0
-  br i1 %cmp49, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end42
-  %96 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %97 = load ptr, ptr %96, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end42
-  %98 = load ptr, ptr %table, align 8
-  %99 = load i32, ptr %currOffset, align 4
-  %idx.ext50 = zext i32 %99 to i64
-  %add.ptr51 = getelementptr inbounds i16, ptr %98, i64 %idx.ext50
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %97, %cond.true ], [ %add.ptr51, %cond.false ]
-  %100 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 8
-  store ptr %cond, ptr %100, align 8
-  br label %return
-
-return:                                           ; preds = %cond.end, %if.then3, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN6icu_7516umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %var) #0 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %atomic-temp.i = alloca i32, align 4
-  %var.addr = alloca ptr, align 8
-  store ptr %var, ptr %var.addr, align 8
-  %0 = load ptr, ptr %var.addr, align 8
-  store ptr %0, ptr %this.addr.i, align 8
-  store i32 2, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load i32, ptr %__m.addr.i, align 4
-  %call.i = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
-          to label %invoke.cont.i unwind label %terminate.lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  store i32 %call.i, ptr %__b.i, align 4
-  %2 = load i32, ptr %__m.addr.i, align 4
-  switch i32 %2, label %monotonic.i [
-    i32 1, label %acquire.i
-    i32 2, label %acquire.i
-    i32 5, label %seqcst.i
+define ptr @ucnv_getCanonicalName_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  %10 = load ptr, ptr %7, align 8, !tbaa !17
+  %11 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %10)
+  %12 = icmp ne i8 %11, 0
+  br i1 %12, label %13, label %40
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = load ptr, ptr %7, align 8, !tbaa !17
+  %16 = call noundef signext i8 @_ZL7isAliasPKcP10UErrorCode(ptr noundef %14, ptr noundef %15)
+  %17 = icmp ne i8 %16, 0
+  br i1 %17, label %18, label %40
+
+18:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = load ptr, ptr %6, align 8, !tbaa !3
+  %21 = load ptr, ptr %7, align 8, !tbaa !17
+  %22 = call noundef i32 @_ZL22findTaggedConverterNumPKcS0_P10UErrorCode(ptr noundef %19, ptr noundef %20, ptr noundef %21)
+  store i32 %22, ptr %8, align 4, !tbaa !14
+  %23 = load i32, ptr %8, align 4, !tbaa !14
+  %24 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %25 = icmp ult i32 %23, %24
+  br i1 %25, label %26, label %36
+
+26:                                               ; preds = %18
+  %27 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %28 = load ptr, ptr @_ZL10gMainTable, align 8, !tbaa !22
+  %29 = load i32, ptr %8, align 4, !tbaa !14
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds nuw i16, ptr %28, i64 %30
+  %32 = load i16, ptr %31, align 2, !tbaa !23
+  %33 = zext i16 %32 to i32
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i16, ptr %27, i64 %34
+  store ptr %35, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %37
+
+36:                                               ; preds = %18
+  store i32 0, ptr %9, align 4
+  br label %37
+
+37:                                               ; preds = %36, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  %38 = load i32, ptr %9, align 4
+  switch i32 %38, label %43 [
+    i32 0, label %39
+    i32 1, label %41
   ]
 
-monotonic.i:                                      ; preds = %invoke.cont.i
-  %3 = load atomic i32, ptr %this1.i monotonic, align 4
-  store i32 %3, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+39:                                               ; preds = %37
+  br label %40
 
-acquire.i:                                        ; preds = %invoke.cont.i, %invoke.cont.i
-  %4 = load atomic i32, ptr %this1.i acquire, align 4
-  store i32 %4, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+40:                                               ; preds = %39, %13, %3
+  store ptr null, ptr %4, align 8
+  br label %41
 
-seqcst.i:                                         ; preds = %invoke.cont.i
-  %5 = load atomic i32, ptr %this1.i seq_cst, align 4
-  store i32 %5, ptr %atomic-temp.i, align 4
-  br label %_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit
+41:                                               ; preds = %40, %37
+  %42 = load ptr, ptr %4, align 8
+  ret ptr %42
 
-terminate.lpad.i:                                 ; preds = %entry
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #10
+43:                                               ; preds = %37
   unreachable
-
-_ZNKSt13__atomic_baseIiE4loadESt12memory_order.exit: ; preds = %seqcst.i, %acquire.i, %monotonic.i
-  %8 = load i32, ptr %atomic-temp.i, align 4
-  ret i32 %8
 }
 
-declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #4
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZL22findTaggedConverterNumPKcS0_P10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  store i32 0, ptr %11, align 4, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #12
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = call noundef i32 @_ZL12getTagNumberPKc(ptr noundef %16)
+  store i32 %17, ptr %12, align 4, !tbaa !14
+  %18 = load ptr, ptr %5, align 8, !tbaa !3
+  %19 = call noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %18, ptr noundef null, ptr noundef %11)
+  store i32 %19, ptr %10, align 4, !tbaa !14
+  %20 = load i32, ptr %11, align 4, !tbaa !26
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %25
 
-declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #4
+22:                                               ; preds = %3
+  %23 = load i32, ptr %11, align 4, !tbaa !26
+  %24 = load ptr, ptr %7, align 8, !tbaa !17
+  store i32 %23, ptr %24, align 4, !tbaa !26
+  br label %25
+
+25:                                               ; preds = %22, %3
+  %26 = load i32, ptr %12, align 4, !tbaa !14
+  %27 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %28 = sub i32 %27, 1
+  %29 = icmp ult i32 %26, %28
+  br i1 %29, label %30, label %97
+
+30:                                               ; preds = %25
+  %31 = load i32, ptr %10, align 4, !tbaa !14
+  %32 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %33 = icmp ult i32 %31, %32
+  br i1 %33, label %34, label %97
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8, !tbaa !48
+  %36 = load i32, ptr %12, align 4, !tbaa !14
+  %37 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %38 = mul i32 %36, %37
+  %39 = load i32, ptr %10, align 4, !tbaa !14
+  %40 = add i32 %38, %39
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw i16, ptr %35, i64 %41
+  %43 = load i16, ptr %42, align 2, !tbaa !23
+  %44 = zext i16 %43 to i32
+  store i32 %44, ptr %9, align 4, !tbaa !14
+  %45 = load i32, ptr %9, align 4, !tbaa !14
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %54
+
+47:                                               ; preds = %34
+  %48 = load ptr, ptr %5, align 8, !tbaa !3
+  %49 = load i32, ptr %9, align 4, !tbaa !14
+  %50 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %48, i32 noundef %49)
+  %51 = icmp ne i8 %50, 0
+  br i1 %51, label %52, label %54
+
+52:                                               ; preds = %47
+  %53 = load i32, ptr %10, align 4, !tbaa !14
+  store i32 %53, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %98
+
+54:                                               ; preds = %47, %34
+  %55 = load i32, ptr %11, align 4, !tbaa !26
+  %56 = icmp eq i32 %55, -122
+  br i1 %56, label %57, label %96
+
+57:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
+  %58 = load i32, ptr %12, align 4, !tbaa !14
+  %59 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %60 = mul i32 %58, %59
+  store i32 %60, ptr %14, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #12
+  %61 = load i32, ptr %12, align 4, !tbaa !14
+  %62 = add i32 %61, 1
+  %63 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %64 = mul i32 %62, %63
+  store i32 %64, ptr %15, align 4, !tbaa !14
+  %65 = load i32, ptr %14, align 4, !tbaa !14
+  store i32 %65, ptr %8, align 4, !tbaa !14
+  br label %66
+
+66:                                               ; preds = %89, %57
+  %67 = load i32, ptr %8, align 4, !tbaa !14
+  %68 = load i32, ptr %15, align 4, !tbaa !14
+  %69 = icmp ult i32 %67, %68
+  br i1 %69, label %70, label %92
+
+70:                                               ; preds = %66
+  %71 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8, !tbaa !48
+  %72 = load i32, ptr %8, align 4, !tbaa !14
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds nuw i16, ptr %71, i64 %73
+  %75 = load i16, ptr %74, align 2, !tbaa !23
+  %76 = zext i16 %75 to i32
+  store i32 %76, ptr %9, align 4, !tbaa !14
+  %77 = load i32, ptr %9, align 4, !tbaa !14
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %88
+
+79:                                               ; preds = %70
+  %80 = load ptr, ptr %5, align 8, !tbaa !3
+  %81 = load i32, ptr %9, align 4, !tbaa !14
+  %82 = call noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %80, i32 noundef %81)
+  %83 = icmp ne i8 %82, 0
+  br i1 %83, label %84, label %88
+
+84:                                               ; preds = %79
+  %85 = load i32, ptr %8, align 4, !tbaa !14
+  %86 = load i32, ptr %14, align 4, !tbaa !14
+  %87 = sub i32 %85, %86
+  store i32 %87, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %93
+
+88:                                               ; preds = %79, %70
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = load i32, ptr %8, align 4, !tbaa !14
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %8, align 4, !tbaa !14
+  br label %66, !llvm.loop !58
+
+92:                                               ; preds = %66
+  store i32 0, ptr %13, align 4
+  br label %93
+
+93:                                               ; preds = %92, %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  %94 = load i32, ptr %13, align 4
+  switch i32 %94, label %98 [
+    i32 0, label %95
+  ]
+
+95:                                               ; preds = %93
+  br label %96
+
+96:                                               ; preds = %95, %54
+  br label %97
+
+97:                                               ; preds = %96, %30, %25
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %98
+
+98:                                               ; preds = %97, %93, %52
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  %99 = load i32, ptr %4, align 4
+  ret i32 %99
+}
+
+; Function Attrs: mustprogress uwtable
+define ptr @ucnv_openAllNames_77(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  store ptr null, ptr %4, align 8, !tbaa !37
+  %7 = load ptr, ptr %3, align 8, !tbaa !17
+  %8 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %7)
+  %9 = icmp ne i8 %8, 0
+  br i1 %9, label %10, label %35
+
+10:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  %11 = call noalias ptr @uprv_malloc_77(i64 noundef 56) #14
+  store ptr %11, ptr %4, align 8, !tbaa !37
+  %12 = load ptr, ptr %4, align 8, !tbaa !37
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8, !tbaa !17
+  store i32 7, ptr %15, align 4, !tbaa !26
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %32
+
+16:                                               ; preds = %10
+  br label %17
+
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %4, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 @_ZL18gEnumAllConverters, i64 56, i1 false)
+  br label %19
+
+19:                                               ; preds = %17
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = call noalias ptr @uprv_malloc_77(i64 noundef 2) #14
+  store ptr %21, ptr %5, align 8, !tbaa !53
+  %22 = load ptr, ptr %5, align 8, !tbaa !53
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %27
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8, !tbaa !17
+  store i32 7, ptr %25, align 4, !tbaa !26
+  %26 = load ptr, ptr %4, align 8, !tbaa !37
+  call void @uprv_free_77(ptr noundef %26)
+  store ptr null, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %32
+
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %5, align 8, !tbaa !53
+  store i16 0, ptr %28, align 2, !tbaa !23
+  %29 = load ptr, ptr %5, align 8, !tbaa !53
+  %30 = load ptr, ptr %4, align 8, !tbaa !37
+  %31 = getelementptr inbounds nuw %struct.UEnumeration, ptr %30, i32 0, i32 1
+  store ptr %29, ptr %31, align 8, !tbaa !45
+  store i32 0, ptr %6, align 4
+  br label %32
+
+32:                                               ; preds = %27, %24, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  %33 = load i32, ptr %6, align 4
+  switch i32 %33, label %37 [
+    i32 0, label %34
+  ]
+
+34:                                               ; preds = %32
+  br label %35
+
+35:                                               ; preds = %34, %1
+  %36 = load ptr, ptr %4, align 8, !tbaa !37
+  store ptr %36, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %37
+
+37:                                               ; preds = %35, %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  %38 = load ptr, ptr %2, align 8
+  ret ptr %38
+}
+
+; Function Attrs: mustprogress uwtable
+define zeroext i16 @ucnv_io_countKnownConverters_77(ptr noundef %0) #2 {
+  %2 = alloca i16, align 2
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  %5 = call noundef signext i8 @_ZL13haveAliasDataP10UErrorCode(ptr noundef %4)
+  %6 = icmp ne i8 %5, 0
+  br i1 %6, label %7, label %10
+
+7:                                                ; preds = %1
+  %8 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %9 = trunc i32 %8 to i16
+  store i16 %9, ptr %2, align 2
+  br label %11
+
+10:                                               ; preds = %1
+  store i16 0, ptr %2, align 2
+  br label %11
+
+11:                                               ; preds = %10, %7
+  %12 = load i16, ptr %2, align 2
+  ret i16 %12
+}
+
+; Function Attrs: mustprogress uwtable
+define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca [10 x i32], align 16
+  %17 = alloca [10 x i32], align 16
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca [500 x %struct.TempRow], align 16
+  %23 = alloca [500 x i16], align 16
+  %24 = alloca %struct.TempAliasTable, align 8
+  %25 = alloca i32, align 4
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
+  %30 = alloca ptr, align 8
+  %31 = alloca i16, align 2
+  %32 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !59
+  store ptr %1, ptr %8, align 8, !tbaa !17
+  store i32 %2, ptr %9, align 4, !tbaa !14
+  store ptr %3, ptr %10, align 8, !tbaa !17
+  store ptr %4, ptr %11, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.start.p0(i64 40, ptr %16) #12
+  call void @llvm.lifetime.start.p0(i64 40, ptr %17) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #12
+  call void @llvm.lifetime.start.p0(i64 2000, ptr %22) #12
+  call void @llvm.lifetime.start.p0(i64 1000, ptr %23) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr %24) #12
+  %33 = load ptr, ptr %7, align 8, !tbaa !59
+  %34 = load ptr, ptr %8, align 8, !tbaa !17
+  %35 = load i32, ptr %9, align 4, !tbaa !14
+  %36 = load ptr, ptr %10, align 8, !tbaa !17
+  %37 = load ptr, ptr %11, align 8, !tbaa !17
+  %38 = call i32 @udata_swapDataHeader_77(ptr noundef %33, ptr noundef %34, i32 noundef %35, ptr noundef %36, ptr noundef %37)
+  store i32 %38, ptr %13, align 4, !tbaa !14
+  %39 = load ptr, ptr %11, align 8, !tbaa !17
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %46, label %41
+
+41:                                               ; preds = %5
+  %42 = load ptr, ptr %11, align 8, !tbaa !17
+  %43 = load i32, ptr %42, align 4, !tbaa !26
+  %44 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %43)
+  %45 = icmp ne i8 %44, 0
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %41, %5
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %25, align 4
+  br label %617
+
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %8, align 8, !tbaa !17
+  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  store ptr %49, ptr %12, align 8, !tbaa !17
+  %50 = load ptr, ptr %12, align 8, !tbaa !17
+  %51 = getelementptr inbounds nuw %struct.UDataInfo, ptr %50, i32 0, i32 6
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 0, i64 0
+  %53 = load i8, ptr %52, align 2, !tbaa !8
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 67
+  br i1 %55, label %56, label %84
+
+56:                                               ; preds = %47
+  %57 = load ptr, ptr %12, align 8, !tbaa !17
+  %58 = getelementptr inbounds nuw %struct.UDataInfo, ptr %57, i32 0, i32 6
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 0, i64 1
+  %60 = load i8, ptr %59, align 1, !tbaa !8
+  %61 = zext i8 %60 to i32
+  %62 = icmp eq i32 %61, 118
+  br i1 %62, label %63, label %84
+
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %12, align 8, !tbaa !17
+  %65 = getelementptr inbounds nuw %struct.UDataInfo, ptr %64, i32 0, i32 6
+  %66 = getelementptr inbounds [4 x i8], ptr %65, i64 0, i64 2
+  %67 = load i8, ptr %66, align 2, !tbaa !8
+  %68 = zext i8 %67 to i32
+  %69 = icmp eq i32 %68, 65
+  br i1 %69, label %70, label %84
+
+70:                                               ; preds = %63
+  %71 = load ptr, ptr %12, align 8, !tbaa !17
+  %72 = getelementptr inbounds nuw %struct.UDataInfo, ptr %71, i32 0, i32 6
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 0, i64 3
+  %74 = load i8, ptr %73, align 1, !tbaa !8
+  %75 = zext i8 %74 to i32
+  %76 = icmp eq i32 %75, 108
+  br i1 %76, label %77, label %84
+
+77:                                               ; preds = %70
+  %78 = load ptr, ptr %12, align 8, !tbaa !17
+  %79 = getelementptr inbounds nuw %struct.UDataInfo, ptr %78, i32 0, i32 7
+  %80 = getelementptr inbounds [4 x i8], ptr %79, i64 0, i64 0
+  %81 = load i8, ptr %80, align 2, !tbaa !8
+  %82 = zext i8 %81 to i32
+  %83 = icmp eq i32 %82, 3
+  br i1 %83, label %112, label %84
+
+84:                                               ; preds = %77, %70, %63, %56, %47
+  %85 = load ptr, ptr %7, align 8, !tbaa !59
+  %86 = load ptr, ptr %12, align 8, !tbaa !17
+  %87 = getelementptr inbounds nuw %struct.UDataInfo, ptr %86, i32 0, i32 6
+  %88 = getelementptr inbounds [4 x i8], ptr %87, i64 0, i64 0
+  %89 = load i8, ptr %88, align 2, !tbaa !8
+  %90 = zext i8 %89 to i32
+  %91 = load ptr, ptr %12, align 8, !tbaa !17
+  %92 = getelementptr inbounds nuw %struct.UDataInfo, ptr %91, i32 0, i32 6
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 0, i64 1
+  %94 = load i8, ptr %93, align 1, !tbaa !8
+  %95 = zext i8 %94 to i32
+  %96 = load ptr, ptr %12, align 8, !tbaa !17
+  %97 = getelementptr inbounds nuw %struct.UDataInfo, ptr %96, i32 0, i32 6
+  %98 = getelementptr inbounds [4 x i8], ptr %97, i64 0, i64 2
+  %99 = load i8, ptr %98, align 2, !tbaa !8
+  %100 = zext i8 %99 to i32
+  %101 = load ptr, ptr %12, align 8, !tbaa !17
+  %102 = getelementptr inbounds nuw %struct.UDataInfo, ptr %101, i32 0, i32 6
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 0, i64 3
+  %104 = load i8, ptr %103, align 1, !tbaa !8
+  %105 = zext i8 %104 to i32
+  %106 = load ptr, ptr %12, align 8, !tbaa !17
+  %107 = getelementptr inbounds nuw %struct.UDataInfo, ptr %106, i32 0, i32 7
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 0, i64 0
+  %109 = load i8, ptr %108, align 2, !tbaa !8
+  %110 = zext i8 %109 to i32
+  call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %85, ptr noundef @.str, i32 noundef %90, i32 noundef %95, i32 noundef %100, i32 noundef %105, i32 noundef %110)
+  %111 = load ptr, ptr %11, align 8, !tbaa !17
+  store i32 16, ptr %111, align 4, !tbaa !26
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %25, align 4
+  br label %617
+
+112:                                              ; preds = %77
+  %113 = load i32, ptr %9, align 4, !tbaa !14
+  %114 = icmp sge i32 %113, 0
+  br i1 %114, label %115, label %126
+
+115:                                              ; preds = %112
+  %116 = load i32, ptr %9, align 4, !tbaa !14
+  %117 = load i32, ptr %13, align 4, !tbaa !14
+  %118 = sub nsw i32 %116, %117
+  %119 = icmp slt i32 %118, 36
+  br i1 %119, label %120, label %126
+
+120:                                              ; preds = %115
+  %121 = load ptr, ptr %7, align 8, !tbaa !59
+  %122 = load i32, ptr %9, align 4, !tbaa !14
+  %123 = load i32, ptr %13, align 4, !tbaa !14
+  %124 = sub nsw i32 %122, %123
+  call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %121, ptr noundef @.str.1, i32 noundef %124)
+  %125 = load ptr, ptr %11, align 8, !tbaa !17
+  store i32 8, ptr %125, align 4, !tbaa !26
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %25, align 4
+  br label %617
+
+126:                                              ; preds = %115, %112
+  %127 = load ptr, ptr %8, align 8, !tbaa !17
+  %128 = load i32, ptr %13, align 4, !tbaa !14
+  %129 = sext i32 %128 to i64
+  %130 = getelementptr inbounds i8, ptr %127, i64 %129
+  store ptr %130, ptr %15, align 8, !tbaa !61
+  %131 = load ptr, ptr %15, align 8, !tbaa !61
+  store ptr %131, ptr %14, align 8, !tbaa !53
+  %132 = getelementptr inbounds [10 x i32], ptr %16, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 16 %132, i8 0, i64 40, i1 false)
+  %133 = load ptr, ptr %7, align 8, !tbaa !59
+  %134 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %133, i32 0, i32 5
+  %135 = load ptr, ptr %134, align 8, !tbaa !63
+  %136 = load ptr, ptr %15, align 8, !tbaa !61
+  %137 = getelementptr inbounds nuw i32, ptr %136, i64 0
+  %138 = load i32, ptr %137, align 4, !tbaa !14
+  %139 = call noundef i32 %135(i32 noundef %138)
+  store i32 %139, ptr %20, align 4, !tbaa !14
+  %140 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 0
+  store i32 %139, ptr %140, align 16, !tbaa !14
+  %141 = load i32, ptr %20, align 4, !tbaa !14
+  %142 = icmp ult i32 %141, 8
+  br i1 %142, label %146, label %143
+
+143:                                              ; preds = %126
+  %144 = load i32, ptr %20, align 4, !tbaa !14
+  %145 = icmp ule i32 10, %144
+  br i1 %145, label %146, label %150
+
+146:                                              ; preds = %143, %126
+  %147 = load ptr, ptr %7, align 8, !tbaa !59
+  %148 = load i32, ptr %20, align 4, !tbaa !14
+  call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %147, ptr noundef @.str.2, i32 noundef %148)
+  %149 = load ptr, ptr %11, align 8, !tbaa !17
+  store i32 3, ptr %149, align 4, !tbaa !26
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %25, align 4
+  br label %617
+
+150:                                              ; preds = %143
+  store i32 1, ptr %18, align 4, !tbaa !14
+  br label %151
+
+151:                                              ; preds = %168, %150
+  %152 = load i32, ptr %18, align 4, !tbaa !14
+  %153 = load i32, ptr %20, align 4, !tbaa !14
+  %154 = icmp ule i32 %152, %153
+  br i1 %154, label %155, label %171
+
+155:                                              ; preds = %151
+  %156 = load ptr, ptr %7, align 8, !tbaa !59
+  %157 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %156, i32 0, i32 5
+  %158 = load ptr, ptr %157, align 8, !tbaa !63
+  %159 = load ptr, ptr %15, align 8, !tbaa !61
+  %160 = load i32, ptr %18, align 4, !tbaa !14
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds nuw i32, ptr %159, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !14
+  %164 = call noundef i32 %158(i32 noundef %163)
+  %165 = load i32, ptr %18, align 4, !tbaa !14
+  %166 = zext i32 %165 to i64
+  %167 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 %166
+  store i32 %164, ptr %167, align 4, !tbaa !14
+  br label %168
+
+168:                                              ; preds = %155
+  %169 = load i32, ptr %18, align 4, !tbaa !14
+  %170 = add i32 %169, 1
+  store i32 %170, ptr %18, align 4, !tbaa !14
+  br label %151, !llvm.loop !65
+
+171:                                              ; preds = %151
+  %172 = getelementptr inbounds [10 x i32], ptr %17, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 16 %172, i8 0, i64 40, i1 false)
+  %173 = load i32, ptr %20, align 4, !tbaa !14
+  %174 = add i32 1, %173
+  %175 = mul i32 2, %174
+  %176 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 1
+  store i32 %175, ptr %176, align 4, !tbaa !14
+  store i32 2, ptr %18, align 4, !tbaa !14
+  br label %177
+
+177:                                              ; preds = %196, %171
+  %178 = load i32, ptr %18, align 4, !tbaa !14
+  %179 = load i32, ptr %20, align 4, !tbaa !14
+  %180 = icmp ule i32 %178, %179
+  br i1 %180, label %181, label %199
+
+181:                                              ; preds = %177
+  %182 = load i32, ptr %18, align 4, !tbaa !14
+  %183 = sub i32 %182, 1
+  %184 = zext i32 %183 to i64
+  %185 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 %184
+  %186 = load i32, ptr %185, align 4, !tbaa !14
+  %187 = load i32, ptr %18, align 4, !tbaa !14
+  %188 = sub i32 %187, 1
+  %189 = zext i32 %188 to i64
+  %190 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 %189
+  %191 = load i32, ptr %190, align 4, !tbaa !14
+  %192 = add i32 %186, %191
+  %193 = load i32, ptr %18, align 4, !tbaa !14
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 %194
+  store i32 %192, ptr %195, align 4, !tbaa !14
+  br label %196
+
+196:                                              ; preds = %181
+  %197 = load i32, ptr %18, align 4, !tbaa !14
+  %198 = add i32 %197, 1
+  store i32 %198, ptr %18, align 4, !tbaa !14
+  br label %177, !llvm.loop !66
+
+199:                                              ; preds = %177
+  %200 = load i32, ptr %18, align 4, !tbaa !14
+  %201 = sub i32 %200, 1
+  %202 = zext i32 %201 to i64
+  %203 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 %202
+  %204 = load i32, ptr %203, align 4, !tbaa !14
+  %205 = load i32, ptr %18, align 4, !tbaa !14
+  %206 = sub i32 %205, 1
+  %207 = zext i32 %206 to i64
+  %208 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 %207
+  %209 = load i32, ptr %208, align 4, !tbaa !14
+  %210 = add i32 %204, %209
+  store i32 %210, ptr %21, align 4, !tbaa !14
+  %211 = load i32, ptr %9, align 4, !tbaa !14
+  %212 = icmp sge i32 %211, 0
+  br i1 %212, label %213, label %612
+
+213:                                              ; preds = %199
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #12
+  call void @llvm.lifetime.start.p0(i64 2, ptr %31) #12
+  %214 = load i32, ptr %9, align 4, !tbaa !14
+  %215 = load i32, ptr %13, align 4, !tbaa !14
+  %216 = sub nsw i32 %214, %215
+  %217 = load i32, ptr %21, align 4, !tbaa !14
+  %218 = mul nsw i32 2, %217
+  %219 = icmp slt i32 %216, %218
+  br i1 %219, label %220, label %226
+
+220:                                              ; preds = %213
+  %221 = load ptr, ptr %7, align 8, !tbaa !59
+  %222 = load i32, ptr %9, align 4, !tbaa !14
+  %223 = load i32, ptr %13, align 4, !tbaa !14
+  %224 = sub nsw i32 %222, %223
+  call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %221, ptr noundef @.str.1, i32 noundef %224)
+  %225 = load ptr, ptr %11, align 8, !tbaa !17
+  store i32 8, ptr %225, align 4, !tbaa !26
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %25, align 4
+  br label %609
+
+226:                                              ; preds = %213
+  %227 = load ptr, ptr %10, align 8, !tbaa !17
+  %228 = load i32, ptr %13, align 4, !tbaa !14
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds i8, ptr %227, i64 %229
+  store ptr %230, ptr %26, align 8, !tbaa !53
+  %231 = load ptr, ptr %7, align 8, !tbaa !59
+  %232 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %231, i32 0, i32 10
+  %233 = load ptr, ptr %232, align 8, !tbaa !67
+  %234 = load ptr, ptr %7, align 8, !tbaa !59
+  %235 = load ptr, ptr %14, align 8, !tbaa !53
+  %236 = load i32, ptr %20, align 4, !tbaa !14
+  %237 = add i32 1, %236
+  %238 = mul i32 4, %237
+  %239 = load ptr, ptr %26, align 8, !tbaa !53
+  %240 = load ptr, ptr %11, align 8, !tbaa !17
+  %241 = call noundef i32 %233(ptr noundef %234, ptr noundef %235, i32 noundef %238, ptr noundef %239, ptr noundef %240)
+  %242 = load ptr, ptr %7, align 8, !tbaa !59
+  %243 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %242, i32 0, i32 12
+  %244 = load ptr, ptr %243, align 8, !tbaa !68
+  %245 = load ptr, ptr %7, align 8, !tbaa !59
+  %246 = load ptr, ptr %14, align 8, !tbaa !53
+  %247 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 8
+  %248 = load i32, ptr %247, align 16, !tbaa !14
+  %249 = zext i32 %248 to i64
+  %250 = getelementptr inbounds nuw i16, ptr %246, i64 %249
+  %251 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 8
+  %252 = load i32, ptr %251, align 16, !tbaa !14
+  %253 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 9
+  %254 = load i32, ptr %253, align 4, !tbaa !14
+  %255 = add i32 %252, %254
+  %256 = mul nsw i32 2, %255
+  %257 = load ptr, ptr %26, align 8, !tbaa !53
+  %258 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 8
+  %259 = load i32, ptr %258, align 16, !tbaa !14
+  %260 = zext i32 %259 to i64
+  %261 = getelementptr inbounds nuw i16, ptr %257, i64 %260
+  %262 = load ptr, ptr %11, align 8, !tbaa !17
+  %263 = call noundef i32 %244(ptr noundef %245, ptr noundef %250, i32 noundef %256, ptr noundef %261, ptr noundef %262)
+  %264 = load ptr, ptr %11, align 8, !tbaa !17
+  %265 = load i32, ptr %264, align 4, !tbaa !26
+  %266 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %265)
+  %267 = icmp ne i8 %266, 0
+  br i1 %267, label %268, label %270
+
+268:                                              ; preds = %226
+  %269 = load ptr, ptr %7, align 8, !tbaa !59
+  call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %269, ptr noundef @.str.3)
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %25, align 4
+  br label %609
+
+270:                                              ; preds = %226
+  %271 = load ptr, ptr %7, align 8, !tbaa !59
+  %272 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %271, i32 0, i32 1
+  %273 = load i8, ptr %272, align 1, !tbaa !69
+  %274 = zext i8 %273 to i32
+  %275 = load ptr, ptr %7, align 8, !tbaa !59
+  %276 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %275, i32 0, i32 3
+  %277 = load i8, ptr %276, align 1, !tbaa !70
+  %278 = zext i8 %277 to i32
+  %279 = icmp eq i32 %274, %278
+  br i1 %279, label %280, label %303
+
+280:                                              ; preds = %270
+  %281 = load ptr, ptr %7, align 8, !tbaa !59
+  %282 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %281, i32 0, i32 9
+  %283 = load ptr, ptr %282, align 8, !tbaa !71
+  %284 = load ptr, ptr %7, align 8, !tbaa !59
+  %285 = load ptr, ptr %14, align 8, !tbaa !53
+  %286 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 1
+  %287 = load i32, ptr %286, align 4, !tbaa !14
+  %288 = zext i32 %287 to i64
+  %289 = getelementptr inbounds nuw i16, ptr %285, i64 %288
+  %290 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 8
+  %291 = load i32, ptr %290, align 16, !tbaa !14
+  %292 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 1
+  %293 = load i32, ptr %292, align 4, !tbaa !14
+  %294 = sub i32 %291, %293
+  %295 = mul nsw i32 2, %294
+  %296 = load ptr, ptr %26, align 8, !tbaa !53
+  %297 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 1
+  %298 = load i32, ptr %297, align 4, !tbaa !14
+  %299 = zext i32 %298 to i64
+  %300 = getelementptr inbounds nuw i16, ptr %296, i64 %299
+  %301 = load ptr, ptr %11, align 8, !tbaa !17
+  %302 = call noundef i32 %283(ptr noundef %284, ptr noundef %289, i32 noundef %295, ptr noundef %300, ptr noundef %301)
+  br label %608
+
+303:                                              ; preds = %270
+  %304 = getelementptr inbounds nuw [10 x i32], ptr %16, i64 0, i64 3
+  %305 = load i32, ptr %304, align 4, !tbaa !14
+  store i32 %305, ptr %19, align 4, !tbaa !14
+  %306 = load ptr, ptr %26, align 8, !tbaa !53
+  %307 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 8
+  %308 = load i32, ptr %307, align 16, !tbaa !14
+  %309 = zext i32 %308 to i64
+  %310 = getelementptr inbounds nuw i16, ptr %306, i64 %309
+  %311 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 0
+  store ptr %310, ptr %311, align 8, !tbaa !72
+  %312 = load i32, ptr %19, align 4, !tbaa !14
+  %313 = icmp ule i32 %312, 500
+  br i1 %313, label %314, label %319
+
+314:                                              ; preds = %303
+  %315 = getelementptr inbounds [500 x %struct.TempRow], ptr %22, i64 0, i64 0
+  %316 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  store ptr %315, ptr %316, align 8, !tbaa !75
+  %317 = getelementptr inbounds [500 x i16], ptr %23, i64 0, i64 0
+  %318 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 2
+  store ptr %317, ptr %318, align 8, !tbaa !76
+  br label %343
+
+319:                                              ; preds = %303
+  %320 = load i32, ptr %19, align 4, !tbaa !14
+  %321 = zext i32 %320 to i64
+  %322 = mul i64 %321, 4
+  %323 = load i32, ptr %19, align 4, !tbaa !14
+  %324 = mul i32 %323, 2
+  %325 = zext i32 %324 to i64
+  %326 = add i64 %322, %325
+  %327 = call noalias ptr @uprv_malloc_77(i64 noundef %326) #14
+  %328 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  store ptr %327, ptr %328, align 8, !tbaa !75
+  %329 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %330 = load ptr, ptr %329, align 8, !tbaa !75
+  %331 = icmp eq ptr %330, null
+  br i1 %331, label %332, label %336
+
+332:                                              ; preds = %319
+  %333 = load ptr, ptr %7, align 8, !tbaa !59
+  %334 = load i32, ptr %19, align 4, !tbaa !14
+  call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %333, ptr noundef @.str.4, i32 noundef %334)
+  %335 = load ptr, ptr %11, align 8, !tbaa !17
+  store i32 7, ptr %335, align 4, !tbaa !26
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %25, align 4
+  br label %609
+
+336:                                              ; preds = %319
+  %337 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %338 = load ptr, ptr %337, align 8, !tbaa !75
+  %339 = load i32, ptr %19, align 4, !tbaa !14
+  %340 = zext i32 %339 to i64
+  %341 = getelementptr inbounds nuw %struct.TempRow, ptr %338, i64 %340
+  %342 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 2
+  store ptr %341, ptr %342, align 8, !tbaa !76
+  br label %343
+
+343:                                              ; preds = %336, %314
+  %344 = load ptr, ptr %7, align 8, !tbaa !59
+  %345 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %344, i32 0, i32 3
+  %346 = load i8, ptr %345, align 1, !tbaa !70
+  %347 = zext i8 %346 to i32
+  %348 = icmp eq i32 %347, 0
+  br i1 %348, label %349, label %351
+
+349:                                              ; preds = %343
+  %350 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 3
+  store ptr @ucnv_io_stripASCIIForCompare_77, ptr %350, align 8, !tbaa !77
+  br label %353
+
+351:                                              ; preds = %343
+  %352 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 3
+  store ptr @ucnv_io_stripEBCDICForCompare_77, ptr %352, align 8, !tbaa !77
+  br label %353
+
+353:                                              ; preds = %351, %349
+  %354 = load ptr, ptr %14, align 8, !tbaa !53
+  %355 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 3
+  %356 = load i32, ptr %355, align 4, !tbaa !14
+  %357 = zext i32 %356 to i64
+  %358 = getelementptr inbounds nuw i16, ptr %354, i64 %357
+  store ptr %358, ptr %27, align 8, !tbaa !53
+  %359 = load ptr, ptr %26, align 8, !tbaa !53
+  %360 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 3
+  %361 = load i32, ptr %360, align 4, !tbaa !14
+  %362 = zext i32 %361 to i64
+  %363 = getelementptr inbounds nuw i16, ptr %359, i64 %362
+  store ptr %363, ptr %29, align 8, !tbaa !53
+  %364 = load ptr, ptr %14, align 8, !tbaa !53
+  %365 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 4
+  %366 = load i32, ptr %365, align 16, !tbaa !14
+  %367 = zext i32 %366 to i64
+  %368 = getelementptr inbounds nuw i16, ptr %364, i64 %367
+  store ptr %368, ptr %28, align 8, !tbaa !53
+  %369 = load ptr, ptr %26, align 8, !tbaa !53
+  %370 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 4
+  %371 = load i32, ptr %370, align 16, !tbaa !14
+  %372 = zext i32 %371 to i64
+  %373 = getelementptr inbounds nuw i16, ptr %369, i64 %372
+  store ptr %373, ptr %30, align 8, !tbaa !53
+  store i32 0, ptr %18, align 4, !tbaa !14
+  br label %374
+
+374:                                              ; preds = %402, %353
+  %375 = load i32, ptr %18, align 4, !tbaa !14
+  %376 = load i32, ptr %19, align 4, !tbaa !14
+  %377 = icmp ult i32 %375, %376
+  br i1 %377, label %378, label %405
+
+378:                                              ; preds = %374
+  %379 = load ptr, ptr %7, align 8, !tbaa !59
+  %380 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %379, i32 0, i32 4
+  %381 = load ptr, ptr %380, align 8, !tbaa !78
+  %382 = load ptr, ptr %27, align 8, !tbaa !53
+  %383 = load i32, ptr %18, align 4, !tbaa !14
+  %384 = zext i32 %383 to i64
+  %385 = getelementptr inbounds nuw i16, ptr %382, i64 %384
+  %386 = load i16, ptr %385, align 2, !tbaa !23
+  %387 = call noundef zeroext i16 %381(i16 noundef zeroext %386)
+  %388 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %389 = load ptr, ptr %388, align 8, !tbaa !75
+  %390 = load i32, ptr %18, align 4, !tbaa !14
+  %391 = zext i32 %390 to i64
+  %392 = getelementptr inbounds nuw %struct.TempRow, ptr %389, i64 %391
+  %393 = getelementptr inbounds nuw %struct.TempRow, ptr %392, i32 0, i32 0
+  store i16 %387, ptr %393, align 2, !tbaa !79
+  %394 = load i32, ptr %18, align 4, !tbaa !14
+  %395 = trunc i32 %394 to i16
+  %396 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %397 = load ptr, ptr %396, align 8, !tbaa !75
+  %398 = load i32, ptr %18, align 4, !tbaa !14
+  %399 = zext i32 %398 to i64
+  %400 = getelementptr inbounds nuw %struct.TempRow, ptr %397, i64 %399
+  %401 = getelementptr inbounds nuw %struct.TempRow, ptr %400, i32 0, i32 1
+  store i16 %395, ptr %401, align 2, !tbaa !81
+  br label %402
+
+402:                                              ; preds = %378
+  %403 = load i32, ptr %18, align 4, !tbaa !14
+  %404 = add i32 %403, 1
+  store i32 %404, ptr %18, align 4, !tbaa !14
+  br label %374, !llvm.loop !82
+
+405:                                              ; preds = %374
+  %406 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %407 = load ptr, ptr %406, align 8, !tbaa !75
+  %408 = load i32, ptr %19, align 4, !tbaa !14
+  %409 = load ptr, ptr %11, align 8, !tbaa !17
+  call void @uprv_sortArray_77(ptr noundef %407, i32 noundef %408, i32 noundef 4, ptr noundef @_ZL14io_compareRowsPKvS0_S0_, ptr noundef %24, i8 noundef signext 0, ptr noundef %409)
+  %410 = load ptr, ptr %11, align 8, !tbaa !17
+  %411 = load i32, ptr %410, align 4, !tbaa !26
+  %412 = call noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %411)
+  %413 = icmp ne i8 %412, 0
+  br i1 %413, label %414, label %547
+
+414:                                              ; preds = %405
+  %415 = load ptr, ptr %27, align 8, !tbaa !53
+  %416 = load ptr, ptr %29, align 8, !tbaa !53
+  %417 = icmp ne ptr %415, %416
+  br i1 %417, label %418, label %465
+
+418:                                              ; preds = %414
+  store i32 0, ptr %18, align 4, !tbaa !14
+  br label %419
+
+419:                                              ; preds = %461, %418
+  %420 = load i32, ptr %18, align 4, !tbaa !14
+  %421 = load i32, ptr %19, align 4, !tbaa !14
+  %422 = icmp ult i32 %420, %421
+  br i1 %422, label %423, label %464
+
+423:                                              ; preds = %419
+  %424 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %425 = load ptr, ptr %424, align 8, !tbaa !75
+  %426 = load i32, ptr %18, align 4, !tbaa !14
+  %427 = zext i32 %426 to i64
+  %428 = getelementptr inbounds nuw %struct.TempRow, ptr %425, i64 %427
+  %429 = getelementptr inbounds nuw %struct.TempRow, ptr %428, i32 0, i32 1
+  %430 = load i16, ptr %429, align 2, !tbaa !81
+  store i16 %430, ptr %31, align 2, !tbaa !23
+  %431 = load ptr, ptr %7, align 8, !tbaa !59
+  %432 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %431, i32 0, i32 9
+  %433 = load ptr, ptr %432, align 8, !tbaa !71
+  %434 = load ptr, ptr %7, align 8, !tbaa !59
+  %435 = load ptr, ptr %27, align 8, !tbaa !53
+  %436 = load i16, ptr %31, align 2, !tbaa !23
+  %437 = zext i16 %436 to i32
+  %438 = sext i32 %437 to i64
+  %439 = getelementptr inbounds i16, ptr %435, i64 %438
+  %440 = load ptr, ptr %29, align 8, !tbaa !53
+  %441 = load i32, ptr %18, align 4, !tbaa !14
+  %442 = zext i32 %441 to i64
+  %443 = getelementptr inbounds nuw i16, ptr %440, i64 %442
+  %444 = load ptr, ptr %11, align 8, !tbaa !17
+  %445 = call noundef i32 %433(ptr noundef %434, ptr noundef %439, i32 noundef 2, ptr noundef %443, ptr noundef %444)
+  %446 = load ptr, ptr %7, align 8, !tbaa !59
+  %447 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %446, i32 0, i32 9
+  %448 = load ptr, ptr %447, align 8, !tbaa !71
+  %449 = load ptr, ptr %7, align 8, !tbaa !59
+  %450 = load ptr, ptr %28, align 8, !tbaa !53
+  %451 = load i16, ptr %31, align 2, !tbaa !23
+  %452 = zext i16 %451 to i32
+  %453 = sext i32 %452 to i64
+  %454 = getelementptr inbounds i16, ptr %450, i64 %453
+  %455 = load ptr, ptr %30, align 8, !tbaa !53
+  %456 = load i32, ptr %18, align 4, !tbaa !14
+  %457 = zext i32 %456 to i64
+  %458 = getelementptr inbounds nuw i16, ptr %455, i64 %457
+  %459 = load ptr, ptr %11, align 8, !tbaa !17
+  %460 = call noundef i32 %448(ptr noundef %449, ptr noundef %454, i32 noundef 2, ptr noundef %458, ptr noundef %459)
+  br label %461
+
+461:                                              ; preds = %423
+  %462 = load i32, ptr %18, align 4, !tbaa !14
+  %463 = add i32 %462, 1
+  store i32 %463, ptr %18, align 4, !tbaa !14
+  br label %419, !llvm.loop !83
+
+464:                                              ; preds = %419
+  br label %546
+
+465:                                              ; preds = %414
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #12
+  %466 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 2
+  %467 = load ptr, ptr %466, align 8, !tbaa !76
+  store ptr %467, ptr %32, align 8, !tbaa !53
+  store i32 0, ptr %18, align 4, !tbaa !14
+  br label %468
+
+468:                                              ; preds = %495, %465
+  %469 = load i32, ptr %18, align 4, !tbaa !14
+  %470 = load i32, ptr %19, align 4, !tbaa !14
+  %471 = icmp ult i32 %469, %470
+  br i1 %471, label %472, label %498
+
+472:                                              ; preds = %468
+  %473 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %474 = load ptr, ptr %473, align 8, !tbaa !75
+  %475 = load i32, ptr %18, align 4, !tbaa !14
+  %476 = zext i32 %475 to i64
+  %477 = getelementptr inbounds nuw %struct.TempRow, ptr %474, i64 %476
+  %478 = getelementptr inbounds nuw %struct.TempRow, ptr %477, i32 0, i32 1
+  %479 = load i16, ptr %478, align 2, !tbaa !81
+  store i16 %479, ptr %31, align 2, !tbaa !23
+  %480 = load ptr, ptr %7, align 8, !tbaa !59
+  %481 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %480, i32 0, i32 9
+  %482 = load ptr, ptr %481, align 8, !tbaa !71
+  %483 = load ptr, ptr %7, align 8, !tbaa !59
+  %484 = load ptr, ptr %27, align 8, !tbaa !53
+  %485 = load i16, ptr %31, align 2, !tbaa !23
+  %486 = zext i16 %485 to i32
+  %487 = sext i32 %486 to i64
+  %488 = getelementptr inbounds i16, ptr %484, i64 %487
+  %489 = load ptr, ptr %32, align 8, !tbaa !53
+  %490 = load i32, ptr %18, align 4, !tbaa !14
+  %491 = zext i32 %490 to i64
+  %492 = getelementptr inbounds nuw i16, ptr %489, i64 %491
+  %493 = load ptr, ptr %11, align 8, !tbaa !17
+  %494 = call noundef i32 %482(ptr noundef %483, ptr noundef %488, i32 noundef 2, ptr noundef %492, ptr noundef %493)
+  br label %495
+
+495:                                              ; preds = %472
+  %496 = load i32, ptr %18, align 4, !tbaa !14
+  %497 = add i32 %496, 1
+  store i32 %497, ptr %18, align 4, !tbaa !14
+  br label %468, !llvm.loop !84
+
+498:                                              ; preds = %468
+  br label %499
+
+499:                                              ; preds = %498
+  %500 = load ptr, ptr %29, align 8, !tbaa !53
+  %501 = load ptr, ptr %32, align 8, !tbaa !53
+  %502 = load i32, ptr %19, align 4, !tbaa !14
+  %503 = zext i32 %502 to i64
+  %504 = mul i64 2, %503
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %500, ptr align 2 %501, i64 %504, i1 false)
+  br label %505
+
+505:                                              ; preds = %499
+  br label %506
+
+506:                                              ; preds = %505
+  store i32 0, ptr %18, align 4, !tbaa !14
+  br label %507
+
+507:                                              ; preds = %534, %506
+  %508 = load i32, ptr %18, align 4, !tbaa !14
+  %509 = load i32, ptr %19, align 4, !tbaa !14
+  %510 = icmp ult i32 %508, %509
+  br i1 %510, label %511, label %537
+
+511:                                              ; preds = %507
+  %512 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %513 = load ptr, ptr %512, align 8, !tbaa !75
+  %514 = load i32, ptr %18, align 4, !tbaa !14
+  %515 = zext i32 %514 to i64
+  %516 = getelementptr inbounds nuw %struct.TempRow, ptr %513, i64 %515
+  %517 = getelementptr inbounds nuw %struct.TempRow, ptr %516, i32 0, i32 1
+  %518 = load i16, ptr %517, align 2, !tbaa !81
+  store i16 %518, ptr %31, align 2, !tbaa !23
+  %519 = load ptr, ptr %7, align 8, !tbaa !59
+  %520 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %519, i32 0, i32 9
+  %521 = load ptr, ptr %520, align 8, !tbaa !71
+  %522 = load ptr, ptr %7, align 8, !tbaa !59
+  %523 = load ptr, ptr %28, align 8, !tbaa !53
+  %524 = load i16, ptr %31, align 2, !tbaa !23
+  %525 = zext i16 %524 to i32
+  %526 = sext i32 %525 to i64
+  %527 = getelementptr inbounds i16, ptr %523, i64 %526
+  %528 = load ptr, ptr %32, align 8, !tbaa !53
+  %529 = load i32, ptr %18, align 4, !tbaa !14
+  %530 = zext i32 %529 to i64
+  %531 = getelementptr inbounds nuw i16, ptr %528, i64 %530
+  %532 = load ptr, ptr %11, align 8, !tbaa !17
+  %533 = call noundef i32 %521(ptr noundef %522, ptr noundef %527, i32 noundef 2, ptr noundef %531, ptr noundef %532)
+  br label %534
+
+534:                                              ; preds = %511
+  %535 = load i32, ptr %18, align 4, !tbaa !14
+  %536 = add i32 %535, 1
+  store i32 %536, ptr %18, align 4, !tbaa !14
+  br label %507, !llvm.loop !85
+
+537:                                              ; preds = %507
+  br label %538
+
+538:                                              ; preds = %537
+  %539 = load ptr, ptr %30, align 8, !tbaa !53
+  %540 = load ptr, ptr %32, align 8, !tbaa !53
+  %541 = load i32, ptr %19, align 4, !tbaa !14
+  %542 = zext i32 %541 to i64
+  %543 = mul i64 2, %542
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %539, ptr align 2 %540, i64 %543, i1 false)
+  br label %544
+
+544:                                              ; preds = %538
+  br label %545
+
+545:                                              ; preds = %544
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #12
+  br label %546
+
+546:                                              ; preds = %545, %464
+  br label %547
+
+547:                                              ; preds = %546, %405
+  %548 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %549 = load ptr, ptr %548, align 8, !tbaa !75
+  %550 = getelementptr inbounds [500 x %struct.TempRow], ptr %22, i64 0, i64 0
+  %551 = icmp ne ptr %549, %550
+  br i1 %551, label %552, label %555
+
+552:                                              ; preds = %547
+  %553 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %24, i32 0, i32 1
+  %554 = load ptr, ptr %553, align 8, !tbaa !75
+  call void @uprv_free_77(ptr noundef %554)
+  br label %555
+
+555:                                              ; preds = %552, %547
+  %556 = load ptr, ptr %11, align 8, !tbaa !17
+  %557 = load i32, ptr %556, align 4, !tbaa !26
+  %558 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %557)
+  %559 = icmp ne i8 %558, 0
+  br i1 %559, label %560, label %563
+
+560:                                              ; preds = %555
+  %561 = load ptr, ptr %7, align 8, !tbaa !59
+  %562 = load i32, ptr %19, align 4, !tbaa !14
+  call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %561, ptr noundef @.str.5, i32 noundef %562)
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %25, align 4
+  br label %609
+
+563:                                              ; preds = %555
+  %564 = load ptr, ptr %7, align 8, !tbaa !59
+  %565 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %564, i32 0, i32 9
+  %566 = load ptr, ptr %565, align 8, !tbaa !71
+  %567 = load ptr, ptr %7, align 8, !tbaa !59
+  %568 = load ptr, ptr %14, align 8, !tbaa !53
+  %569 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 1
+  %570 = load i32, ptr %569, align 4, !tbaa !14
+  %571 = zext i32 %570 to i64
+  %572 = getelementptr inbounds nuw i16, ptr %568, i64 %571
+  %573 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 3
+  %574 = load i32, ptr %573, align 4, !tbaa !14
+  %575 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 1
+  %576 = load i32, ptr %575, align 4, !tbaa !14
+  %577 = sub i32 %574, %576
+  %578 = mul nsw i32 2, %577
+  %579 = load ptr, ptr %26, align 8, !tbaa !53
+  %580 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 1
+  %581 = load i32, ptr %580, align 4, !tbaa !14
+  %582 = zext i32 %581 to i64
+  %583 = getelementptr inbounds nuw i16, ptr %579, i64 %582
+  %584 = load ptr, ptr %11, align 8, !tbaa !17
+  %585 = call noundef i32 %566(ptr noundef %567, ptr noundef %572, i32 noundef %578, ptr noundef %583, ptr noundef %584)
+  %586 = load ptr, ptr %7, align 8, !tbaa !59
+  %587 = getelementptr inbounds nuw %struct.UDataSwapper, ptr %586, i32 0, i32 9
+  %588 = load ptr, ptr %587, align 8, !tbaa !71
+  %589 = load ptr, ptr %7, align 8, !tbaa !59
+  %590 = load ptr, ptr %14, align 8, !tbaa !53
+  %591 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 5
+  %592 = load i32, ptr %591, align 4, !tbaa !14
+  %593 = zext i32 %592 to i64
+  %594 = getelementptr inbounds nuw i16, ptr %590, i64 %593
+  %595 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 8
+  %596 = load i32, ptr %595, align 16, !tbaa !14
+  %597 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 5
+  %598 = load i32, ptr %597, align 4, !tbaa !14
+  %599 = sub i32 %596, %598
+  %600 = mul nsw i32 2, %599
+  %601 = load ptr, ptr %26, align 8, !tbaa !53
+  %602 = getelementptr inbounds nuw [10 x i32], ptr %17, i64 0, i64 5
+  %603 = load i32, ptr %602, align 4, !tbaa !14
+  %604 = zext i32 %603 to i64
+  %605 = getelementptr inbounds nuw i16, ptr %601, i64 %604
+  %606 = load ptr, ptr %11, align 8, !tbaa !17
+  %607 = call noundef i32 %588(ptr noundef %589, ptr noundef %594, i32 noundef %600, ptr noundef %605, ptr noundef %606)
+  br label %608
+
+608:                                              ; preds = %563, %280
+  store i32 0, ptr %25, align 4
+  br label %609
+
+609:                                              ; preds = %608, %560, %332, %268, %220
+  call void @llvm.lifetime.end.p0(i64 2, ptr %31) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #12
+  %610 = load i32, ptr %25, align 4
+  switch i32 %610, label %617 [
+    i32 0, label %611
+  ]
+
+611:                                              ; preds = %609
+  br label %612
+
+612:                                              ; preds = %611, %199
+  %613 = load i32, ptr %13, align 4, !tbaa !14
+  %614 = load i32, ptr %21, align 4, !tbaa !14
+  %615 = mul nsw i32 2, %614
+  %616 = add nsw i32 %613, %615
+  store i32 %616, ptr %6, align 4
+  store i32 1, ptr %25, align 4
+  br label %617
+
+617:                                              ; preds = %612, %609, %146, %120, %84, %46
+  call void @llvm.lifetime.end.p0(i64 32, ptr %24) #12
+  call void @llvm.lifetime.end.p0(i64 1000, ptr %23) #12
+  call void @llvm.lifetime.end.p0(i64 2000, ptr %22) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #12
+  call void @llvm.lifetime.end.p0(i64 40, ptr %17) #12
+  call void @llvm.lifetime.end.p0(i64 40, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  %618 = load i32, ptr %6, align 4
+  ret i32 %618
+}
+
+declare i32 @udata_swapDataHeader_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #6
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !26
+  %3 = load i32, ptr %2, align 4, !tbaa !26
+  %4 = icmp sgt i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
+}
+
+declare void @udata_printError_77(ptr noundef, ptr noundef, ...) #6
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+
+declare void @uprv_sortArray_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) #6
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i32 @_ZL14io_compareRowsPKvS0_S0_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca [60 x i8], align 16
+  %8 = alloca [60 x i8], align 16
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !17
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 60, ptr %7) #12
+  call void @llvm.lifetime.start.p0(i64 60, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %11 = load ptr, ptr %4, align 8, !tbaa !17
+  store ptr %11, ptr %9, align 8, !tbaa !86
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  %12 = load ptr, ptr %9, align 8, !tbaa !86
+  %13 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8, !tbaa !72
+  store ptr %14, ptr %10, align 8, !tbaa !3
+  %15 = load ptr, ptr %9, align 8, !tbaa !86
+  %16 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8, !tbaa !77
+  %18 = getelementptr inbounds [60 x i8], ptr %7, i64 0, i64 0
+  %19 = load ptr, ptr %10, align 8, !tbaa !3
+  %20 = load ptr, ptr %5, align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw %struct.TempRow, ptr %20, i32 0, i32 0
+  %22 = load i16, ptr %21, align 2, !tbaa !79
+  %23 = zext i16 %22 to i32
+  %24 = mul nsw i32 2, %23
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %19, i64 %25
+  %27 = call noundef ptr %17(ptr noundef %18, ptr noundef %26)
+  %28 = load ptr, ptr %9, align 8, !tbaa !86
+  %29 = getelementptr inbounds nuw %struct.TempAliasTable, ptr %28, i32 0, i32 3
+  %30 = load ptr, ptr %29, align 8, !tbaa !77
+  %31 = getelementptr inbounds [60 x i8], ptr %8, i64 0, i64 0
+  %32 = load ptr, ptr %10, align 8, !tbaa !3
+  %33 = load ptr, ptr %6, align 8, !tbaa !17
+  %34 = getelementptr inbounds nuw %struct.TempRow, ptr %33, i32 0, i32 0
+  %35 = load i16, ptr %34, align 2, !tbaa !79
+  %36 = zext i16 %35 to i32
+  %37 = mul nsw i32 2, %36
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i8, ptr %32, i64 %38
+  %40 = call noundef ptr %30(ptr noundef %31, ptr noundef %39)
+  %41 = call i32 @strcmp(ptr noundef %27, ptr noundef %40) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 60, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 60, ptr %7) #12
+  ret i32 %41
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_SUCCESS10UErrorCode(i32 noundef %0) #3 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !26
+  %3 = load i32, ptr %2, align 4, !tbaa !26
+  %4 = icmp sle i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #8 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !88
+  store ptr %1, ptr %5, align 8, !tbaa !17
+  store ptr %2, ptr %6, align 8, !tbaa !17
+  %7 = load ptr, ptr %6, align 8, !tbaa !17
+  %8 = load i32, ptr %7, align 4, !tbaa !26
+  %9 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %8)
+  %10 = icmp ne i8 %9, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %3
+  br label %41
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !88
+  %14 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %13, i32 0, i32 0
+  %15 = call noundef i32 @_ZN6icu_7716umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %16 = icmp ne i32 %15, 2
+  br i1 %16, label %17, label %29
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8, !tbaa !88
+  %19 = call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %18)
+  %20 = icmp ne i8 %19, 0
+  br i1 %20, label %21, label %29
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8, !tbaa !17
+  %23 = load ptr, ptr %6, align 8, !tbaa !17
+  call void %22(ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %24 = load ptr, ptr %6, align 8, !tbaa !17
+  %25 = load i32, ptr %24, align 4, !tbaa !26
+  %26 = load ptr, ptr %4, align 8, !tbaa !88
+  %27 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %26, i32 0, i32 1
+  store i32 %25, ptr %27, align 4, !tbaa !90
+  %28 = load ptr, ptr %4, align 8, !tbaa !88
+  call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %28)
+  br label %41
+
+29:                                               ; preds = %17, %12
+  %30 = load ptr, ptr %4, align 8, !tbaa !88
+  %31 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %30, i32 0, i32 1
+  %32 = load i32, ptr %31, align 4, !tbaa !90
+  %33 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %32)
+  %34 = icmp ne i8 %33, 0
+  br i1 %34, label %35, label %40
+
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %4, align 8, !tbaa !88
+  %37 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %36, i32 0, i32 1
+  %38 = load i32, ptr %37, align 4, !tbaa !90
+  %39 = load ptr, ptr %6, align 8, !tbaa !17
+  store i32 %38, ptr %39, align 4, !tbaa !26
+  br label %40
+
+40:                                               ; preds = %35, %29
+  br label %41
+
+41:                                               ; preds = %11, %40, %21
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL13initAliasDataR10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  call void @ucln_common_registerCleanup_77(i32 noundef 22, ptr noundef @_ZL15ucnv_io_cleanupv)
+  %9 = load ptr, ptr %2, align 8, !tbaa !17
+  %10 = call ptr @udata_openChoice_77(ptr noundef null, ptr noundef @_ZL9DATA_TYPE, ptr noundef @_ZL9DATA_NAME, ptr noundef @_ZL12isAcceptablePvPKcS1_PK9UDataInfo, ptr noundef null, ptr noundef %9)
+  store ptr %10, ptr %3, align 8, !tbaa !94
+  %11 = load ptr, ptr %2, align 8, !tbaa !17
+  %12 = load i32, ptr %11, align 4, !tbaa !26
+  %13 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %12)
+  %14 = icmp ne i8 %13, 0
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %1
+  store i32 1, ptr %8, align 4
+  br label %150
+
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %3, align 8, !tbaa !94
+  %18 = call ptr @udata_getMemory_77(ptr noundef %17)
+  store ptr %18, ptr %5, align 8, !tbaa !61
+  %19 = load ptr, ptr %5, align 8, !tbaa !61
+  store ptr %19, ptr %4, align 8, !tbaa !53
+  %20 = load ptr, ptr %5, align 8, !tbaa !61
+  %21 = getelementptr inbounds i32, ptr %20, i64 0
+  %22 = load i32, ptr %21, align 4, !tbaa !14
+  store i32 %22, ptr %6, align 4, !tbaa !14
+  %23 = load i32, ptr %6, align 4, !tbaa !14
+  %24 = icmp ult i32 %23, 8
+  br i1 %24, label %25, label %28
+
+25:                                               ; preds = %16
+  %26 = load ptr, ptr %2, align 8, !tbaa !17
+  store i32 3, ptr %26, align 4, !tbaa !26
+  %27 = load ptr, ptr %3, align 8, !tbaa !94
+  call void @udata_close_77(ptr noundef %27)
+  store i32 1, ptr %8, align 4
+  br label %150
+
+28:                                               ; preds = %16
+  %29 = load ptr, ptr %3, align 8, !tbaa !94
+  store ptr %29, ptr @_ZL10gAliasData, align 8, !tbaa !94
+  %30 = load ptr, ptr %5, align 8, !tbaa !61
+  %31 = getelementptr inbounds i32, ptr %30, i64 1
+  %32 = load i32, ptr %31, align 4, !tbaa !14
+  store i32 %32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %33 = load ptr, ptr %5, align 8, !tbaa !61
+  %34 = getelementptr inbounds i32, ptr %33, i64 2
+  %35 = load i32, ptr %34, align 4, !tbaa !14
+  store i32 %35, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %36 = load ptr, ptr %5, align 8, !tbaa !61
+  %37 = getelementptr inbounds i32, ptr %36, i64 3
+  %38 = load i32, ptr %37, align 4, !tbaa !14
+  store i32 %38, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 11), align 8, !tbaa !96
+  %39 = load ptr, ptr %5, align 8, !tbaa !61
+  %40 = getelementptr inbounds i32, ptr %39, i64 4
+  %41 = load i32, ptr %40, align 4, !tbaa !14
+  store i32 %41, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12), align 4, !tbaa !31
+  %42 = load ptr, ptr %5, align 8, !tbaa !61
+  %43 = getelementptr inbounds i32, ptr %42, i64 5
+  %44 = load i32, ptr %43, align 4, !tbaa !14
+  store i32 %44, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13), align 8, !tbaa !50
+  %45 = load ptr, ptr %5, align 8, !tbaa !61
+  %46 = getelementptr inbounds i32, ptr %45, i64 6
+  %47 = load i32, ptr %46, align 4, !tbaa !14
+  store i32 %47, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14), align 4, !tbaa !39
+  %48 = load ptr, ptr %5, align 8, !tbaa !61
+  %49 = getelementptr inbounds i32, ptr %48, i64 7
+  %50 = load i32, ptr %49, align 4, !tbaa !14
+  store i32 %50, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15), align 8, !tbaa !97
+  %51 = load ptr, ptr %5, align 8, !tbaa !61
+  %52 = getelementptr inbounds i32, ptr %51, i64 8
+  %53 = load i32, ptr %52, align 4, !tbaa !14
+  store i32 %53, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 16), align 4, !tbaa !98
+  %54 = load i32, ptr %6, align 4, !tbaa !14
+  %55 = icmp ugt i32 %54, 8
+  br i1 %55, label %56, label %60
+
+56:                                               ; preds = %28
+  %57 = load ptr, ptr %5, align 8, !tbaa !61
+  %58 = getelementptr inbounds i32, ptr %57, i64 9
+  %59 = load i32, ptr %58, align 4, !tbaa !14
+  store i32 %59, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 17), align 8, !tbaa !99
+  br label %60
+
+60:                                               ; preds = %56, %28
+  %61 = load i32, ptr %6, align 4, !tbaa !14
+  %62 = zext i32 %61 to i64
+  %63 = mul i64 %62, 2
+  %64 = add i64 %63, 2
+  %65 = trunc i64 %64 to i32
+  store i32 %65, ptr %7, align 4, !tbaa !14
+  %66 = load ptr, ptr %4, align 8, !tbaa !53
+  %67 = load i32, ptr %7, align 4, !tbaa !14
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw i16, ptr %66, i64 %68
+  store ptr %69, ptr @_ZL10gMainTable, align 8, !tbaa !22
+  %70 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %71 = load i32, ptr %7, align 4, !tbaa !14
+  %72 = add i32 %71, %70
+  store i32 %72, ptr %7, align 4, !tbaa !14
+  %73 = load ptr, ptr %4, align 8, !tbaa !53
+  %74 = load i32, ptr %7, align 4, !tbaa !14
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw i16, ptr %73, i64 %75
+  store ptr %76, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1), align 8, !tbaa !52
+  %77 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %78 = load i32, ptr %7, align 4, !tbaa !14
+  %79 = add i32 %78, %77
+  store i32 %79, ptr %7, align 4, !tbaa !14
+  %80 = load ptr, ptr %4, align 8, !tbaa !53
+  %81 = load i32, ptr %7, align 4, !tbaa !14
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds nuw i16, ptr %80, i64 %82
+  store ptr %83, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 2), align 8, !tbaa !32
+  %84 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 11), align 8, !tbaa !96
+  %85 = load i32, ptr %7, align 4, !tbaa !14
+  %86 = add i32 %85, %84
+  store i32 %86, ptr %7, align 4, !tbaa !14
+  %87 = load ptr, ptr %4, align 8, !tbaa !53
+  %88 = load i32, ptr %7, align 4, !tbaa !14
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw i16, ptr %87, i64 %89
+  store ptr %90, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 3), align 8, !tbaa !34
+  %91 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 12), align 4, !tbaa !31
+  %92 = load i32, ptr %7, align 4, !tbaa !14
+  %93 = add i32 %92, %91
+  store i32 %93, ptr %7, align 4, !tbaa !14
+  %94 = load ptr, ptr %4, align 8, !tbaa !53
+  %95 = load i32, ptr %7, align 4, !tbaa !14
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr inbounds nuw i16, ptr %94, i64 %96
+  store ptr %97, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 4), align 8, !tbaa !48
+  %98 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 13), align 8, !tbaa !50
+  %99 = load i32, ptr %7, align 4, !tbaa !14
+  %100 = add i32 %99, %98
+  store i32 %100, ptr %7, align 4, !tbaa !14
+  %101 = load ptr, ptr %4, align 8, !tbaa !53
+  %102 = load i32, ptr %7, align 4, !tbaa !14
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds nuw i16, ptr %101, i64 %103
+  store ptr %104, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %105 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 14), align 4, !tbaa !39
+  %106 = load i32, ptr %7, align 4, !tbaa !14
+  %107 = add i32 %106, %105
+  store i32 %107, ptr %7, align 4, !tbaa !14
+  %108 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15), align 8, !tbaa !97
+  %109 = icmp ugt i32 %108, 0
+  br i1 %109, label %110, label %124
+
+110:                                              ; preds = %60
+  %111 = load ptr, ptr %4, align 8, !tbaa !53
+  %112 = load i32, ptr %7, align 4, !tbaa !14
+  %113 = zext i32 %112 to i64
+  %114 = getelementptr inbounds nuw i16, ptr %111, i64 %113
+  %115 = getelementptr inbounds nuw %struct.UConverterAliasOptions, ptr %114, i32 0, i32 0
+  %116 = load i16, ptr %115, align 2, !tbaa !29
+  %117 = zext i16 %116 to i32
+  %118 = icmp slt i32 %117, 2
+  br i1 %118, label %119, label %124
+
+119:                                              ; preds = %110
+  %120 = load ptr, ptr %4, align 8, !tbaa !53
+  %121 = load i32, ptr %7, align 4, !tbaa !14
+  %122 = zext i32 %121 to i64
+  %123 = getelementptr inbounds nuw i16, ptr %120, i64 %122
+  store ptr %123, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8, !tbaa !28
+  br label %125
+
+124:                                              ; preds = %110, %60
+  store ptr @_ZL19defaultTableOptions, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8, !tbaa !28
+  br label %125
+
+125:                                              ; preds = %124, %119
+  %126 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 15), align 8, !tbaa !97
+  %127 = load i32, ptr %7, align 4, !tbaa !14
+  %128 = add i32 %127, %126
+  store i32 %128, ptr %7, align 4, !tbaa !14
+  %129 = load ptr, ptr %4, align 8, !tbaa !53
+  %130 = load i32, ptr %7, align 4, !tbaa !14
+  %131 = zext i32 %130 to i64
+  %132 = getelementptr inbounds nuw i16, ptr %129, i64 %131
+  store ptr %132, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %133 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 16), align 4, !tbaa !98
+  %134 = load i32, ptr %7, align 4, !tbaa !14
+  %135 = add i32 %134, %133
+  store i32 %135, ptr %7, align 4, !tbaa !14
+  %136 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 6), align 8, !tbaa !28
+  %137 = getelementptr inbounds nuw %struct.UConverterAliasOptions, ptr %136, i32 0, i32 0
+  %138 = load i16, ptr %137, align 2, !tbaa !29
+  %139 = zext i16 %138 to i32
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %143
+
+141:                                              ; preds = %125
+  %142 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  br label %148
+
+143:                                              ; preds = %125
+  %144 = load ptr, ptr %4, align 8, !tbaa !53
+  %145 = load i32, ptr %7, align 4, !tbaa !14
+  %146 = zext i32 %145 to i64
+  %147 = getelementptr inbounds nuw i16, ptr %144, i64 %146
+  br label %148
+
+148:                                              ; preds = %143, %141
+  %149 = phi ptr [ %142, %141 ], [ %147, %143 ]
+  store ptr %149, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 8), align 8, !tbaa !33
+  store i32 0, ptr %8, align 4
+  br label %150
+
+150:                                              ; preds = %148, %25, %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #12
+  %151 = load i32, ptr %8, align 4
+  switch i32 %151, label %153 [
+    i32 0, label %152
+    i32 1, label %152
+  ]
+
+152:                                              ; preds = %150, %150
+  ret void
+
+153:                                              ; preds = %150
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZN6icu_7716umtx_loadAcquireERSt6atomicIiE(ptr noundef nonnull align 4 dereferenceable(4) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !100
+  %4 = call noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 2) #12
+  ret i32 %4
+}
+
+declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #6
+
+declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) #6
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !102
+  store i32 %1, ptr %4, align 4, !tbaa !104
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  %8 = load i32, ptr %4, align 4, !tbaa !104
+  %9 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+          to label %10 unwind label %27
+
+10:                                               ; preds = %2
+  store i32 %9, ptr %5, align 4, !tbaa !104
+  br label %11
+
+11:                                               ; preds = %10
+  br label %12
+
+12:                                               ; preds = %11
+  br label %13
+
+13:                                               ; preds = %12
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %14
+  br label %16
+
+16:                                               ; preds = %15
+  %17 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %7, i32 0, i32 0
+  %18 = load i32, ptr %4, align 4, !tbaa !104
+  switch i32 %18, label %19 [
+    i32 1, label %21
+    i32 2, label %21
+    i32 5, label %23
+  ]
+
+19:                                               ; preds = %16
+  %20 = load atomic i32, ptr %17 monotonic, align 4
+  store i32 %20, ptr %6, align 4
+  br label %25
+
+21:                                               ; preds = %16, %16
+  %22 = load atomic i32, ptr %17 acquire, align 4
+  store i32 %22, ptr %6, align 4
+  br label %25
+
+23:                                               ; preds = %16
+  %24 = load atomic i32, ptr %17 seq_cst, align 4
+  store i32 %24, ptr %6, align 4
+  br label %25
+
+25:                                               ; preds = %23, %21, %19
+  %26 = load i32, ptr %6, align 4, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  ret i32 %26
+
+27:                                               ; preds = %2
+  %28 = landingpad { ptr, i32 }
+          catch ptr null
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #15
+  unreachable
+}
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %__m, i32 noundef %__mod) #0 comdat {
-entry:
-  %__m.addr = alloca i32, align 4
-  %__mod.addr = alloca i32, align 4
-  store i32 %__m, ptr %__m.addr, align 4
-  store i32 %__mod, ptr %__mod.addr, align 4
-  %0 = load i32, ptr %__m.addr, align 4
-  %1 = load i32, ptr %__mod.addr, align 4
-  %and = and i32 %0, %1
-  ret i32 %and
+define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #0 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !104
+  store i32 %1, ptr %4, align 4, !tbaa !106
+  %5 = load i32, ptr %3, align 4, !tbaa !104
+  %6 = load i32, ptr %4, align 4, !tbaa !106
+  %7 = and i32 %5, %6
+  ret i32 %7
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
-  call void @_ZSt9terminatev() #10
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
+  call void @_ZSt9terminatev() #15
   unreachable
 }
 
@@ -3401,653 +3738,833 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-declare void @ucln_common_registerCleanup_75(i32 noundef, ptr noundef) #4
+declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL15ucnv_io_cleanupv() #1 {
-entry:
-  %0 = load ptr, ptr @_ZL10gAliasData, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define internal noundef signext i8 @_ZL15ucnv_io_cleanupv() #2 {
+  %1 = load ptr, ptr @_ZL10gAliasData, align 8, !tbaa !94
+  %2 = icmp ne ptr %1, null
+  br i1 %2, label %3, label %5
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @_ZL10gAliasData, align 8
-  call void @udata_close_75(ptr noundef %1)
-  store ptr null, ptr @_ZL10gAliasData, align 8
-  br label %if.end
+3:                                                ; preds = %0
+  %4 = load ptr, ptr @_ZL10gAliasData, align 8, !tbaa !94
+  call void @udata_close_77(ptr noundef %4)
+  store ptr null, ptr @_ZL10gAliasData, align 8, !tbaa !94
+  br label %5
 
-if.end:                                           ; preds = %if.then, %entry
-  call void @_ZN6icu_759UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) @_ZL18gAliasDataInitOnce)
+5:                                                ; preds = %3, %0
+  call void @_ZN6icu_779UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) @_ZL18gAliasDataInitOnce)
   call void @llvm.memset.p0.i64(ptr align 8 @_ZL10gMainTable, i8 0, i64 112, i1 false)
   ret i8 1
 }
 
-declare ptr @udata_openChoice_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare ptr @udata_openChoice_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL12isAcceptablePvPKcS1_PK9UDataInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %pInfo) #0 {
-entry:
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  %.addr2 = alloca ptr, align 8
-  %pInfo.addr = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  store ptr %2, ptr %.addr2, align 8
-  store ptr %pInfo, ptr %pInfo.addr, align 8
-  %3 = load ptr, ptr %pInfo.addr, align 8
-  %size = getelementptr inbounds %struct.UDataInfo, ptr %3, i32 0, i32 0
-  %4 = load i16, ptr %size, align 2
-  %conv = zext i16 %4 to i32
-  %cmp = icmp sge i32 %conv, 20
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define internal noundef signext i8 @_ZL12isAcceptablePvPKcS1_PK9UDataInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !17
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %10 = getelementptr inbounds nuw %struct.UDataInfo, ptr %9, i32 0, i32 0
+  %11 = load i16, ptr %10, align 2, !tbaa !108
+  %12 = zext i16 %11 to i32
+  %13 = icmp sge i32 %12, 20
+  br i1 %13, label %14, label %61
 
-land.lhs.true:                                    ; preds = %entry
-  %5 = load ptr, ptr %pInfo.addr, align 8
-  %isBigEndian = getelementptr inbounds %struct.UDataInfo, ptr %5, i32 0, i32 2
-  %6 = load i8, ptr %isBigEndian, align 2
-  %conv3 = zext i8 %6 to i32
-  %cmp4 = icmp eq i32 %conv3, 0
-  br i1 %cmp4, label %land.lhs.true5, label %land.end
+14:                                               ; preds = %4
+  %15 = load ptr, ptr %8, align 8, !tbaa !17
+  %16 = getelementptr inbounds nuw %struct.UDataInfo, ptr %15, i32 0, i32 2
+  %17 = load i8, ptr %16, align 2, !tbaa !110
+  %18 = zext i8 %17 to i32
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %61
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %7 = load ptr, ptr %pInfo.addr, align 8
-  %charsetFamily = getelementptr inbounds %struct.UDataInfo, ptr %7, i32 0, i32 3
-  %8 = load i8, ptr %charsetFamily, align 1
-  %conv6 = zext i8 %8 to i32
-  %cmp7 = icmp eq i32 %conv6, 0
-  br i1 %cmp7, label %land.lhs.true8, label %land.end
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %8, align 8, !tbaa !17
+  %22 = getelementptr inbounds nuw %struct.UDataInfo, ptr %21, i32 0, i32 3
+  %23 = load i8, ptr %22, align 1, !tbaa !111
+  %24 = zext i8 %23 to i32
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %61
 
-land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %9 = load ptr, ptr %pInfo.addr, align 8
-  %dataFormat = getelementptr inbounds %struct.UDataInfo, ptr %9, i32 0, i32 6
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %dataFormat, i64 0, i64 0
-  %10 = load i8, ptr %arrayidx, align 2
-  %conv9 = zext i8 %10 to i32
-  %cmp10 = icmp eq i32 %conv9, 67
-  br i1 %cmp10, label %land.lhs.true11, label %land.end
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %8, align 8, !tbaa !17
+  %28 = getelementptr inbounds nuw %struct.UDataInfo, ptr %27, i32 0, i32 6
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 0, i64 0
+  %30 = load i8, ptr %29, align 2, !tbaa !8
+  %31 = zext i8 %30 to i32
+  %32 = icmp eq i32 %31, 67
+  br i1 %32, label %33, label %61
 
-land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %11 = load ptr, ptr %pInfo.addr, align 8
-  %dataFormat12 = getelementptr inbounds %struct.UDataInfo, ptr %11, i32 0, i32 6
-  %arrayidx13 = getelementptr inbounds [4 x i8], ptr %dataFormat12, i64 0, i64 1
-  %12 = load i8, ptr %arrayidx13, align 1
-  %conv14 = zext i8 %12 to i32
-  %cmp15 = icmp eq i32 %conv14, 118
-  br i1 %cmp15, label %land.lhs.true16, label %land.end
+33:                                               ; preds = %26
+  %34 = load ptr, ptr %8, align 8, !tbaa !17
+  %35 = getelementptr inbounds nuw %struct.UDataInfo, ptr %34, i32 0, i32 6
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 0, i64 1
+  %37 = load i8, ptr %36, align 1, !tbaa !8
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %38, 118
+  br i1 %39, label %40, label %61
 
-land.lhs.true16:                                  ; preds = %land.lhs.true11
-  %13 = load ptr, ptr %pInfo.addr, align 8
-  %dataFormat17 = getelementptr inbounds %struct.UDataInfo, ptr %13, i32 0, i32 6
-  %arrayidx18 = getelementptr inbounds [4 x i8], ptr %dataFormat17, i64 0, i64 2
-  %14 = load i8, ptr %arrayidx18, align 2
-  %conv19 = zext i8 %14 to i32
-  %cmp20 = icmp eq i32 %conv19, 65
-  br i1 %cmp20, label %land.lhs.true21, label %land.end
+40:                                               ; preds = %33
+  %41 = load ptr, ptr %8, align 8, !tbaa !17
+  %42 = getelementptr inbounds nuw %struct.UDataInfo, ptr %41, i32 0, i32 6
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 0, i64 2
+  %44 = load i8, ptr %43, align 2, !tbaa !8
+  %45 = zext i8 %44 to i32
+  %46 = icmp eq i32 %45, 65
+  br i1 %46, label %47, label %61
 
-land.lhs.true21:                                  ; preds = %land.lhs.true16
-  %15 = load ptr, ptr %pInfo.addr, align 8
-  %dataFormat22 = getelementptr inbounds %struct.UDataInfo, ptr %15, i32 0, i32 6
-  %arrayidx23 = getelementptr inbounds [4 x i8], ptr %dataFormat22, i64 0, i64 3
-  %16 = load i8, ptr %arrayidx23, align 1
-  %conv24 = zext i8 %16 to i32
-  %cmp25 = icmp eq i32 %conv24, 108
-  br i1 %cmp25, label %land.rhs, label %land.end
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %8, align 8, !tbaa !17
+  %49 = getelementptr inbounds nuw %struct.UDataInfo, ptr %48, i32 0, i32 6
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 0, i64 3
+  %51 = load i8, ptr %50, align 1, !tbaa !8
+  %52 = zext i8 %51 to i32
+  %53 = icmp eq i32 %52, 108
+  br i1 %53, label %54, label %61
 
-land.rhs:                                         ; preds = %land.lhs.true21
-  %17 = load ptr, ptr %pInfo.addr, align 8
-  %formatVersion = getelementptr inbounds %struct.UDataInfo, ptr %17, i32 0, i32 7
-  %arrayidx26 = getelementptr inbounds [4 x i8], ptr %formatVersion, i64 0, i64 0
-  %18 = load i8, ptr %arrayidx26, align 2
-  %conv27 = zext i8 %18 to i32
-  %cmp28 = icmp eq i32 %conv27, 3
-  br label %land.end
+54:                                               ; preds = %47
+  %55 = load ptr, ptr %8, align 8, !tbaa !17
+  %56 = getelementptr inbounds nuw %struct.UDataInfo, ptr %55, i32 0, i32 7
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 0, i64 0
+  %58 = load i8, ptr %57, align 2, !tbaa !8
+  %59 = zext i8 %58 to i32
+  %60 = icmp eq i32 %59, 3
+  br label %61
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true21, %land.lhs.true16, %land.lhs.true11, %land.lhs.true8, %land.lhs.true5, %land.lhs.true, %entry
-  %19 = phi i1 [ false, %land.lhs.true21 ], [ false, %land.lhs.true16 ], [ false, %land.lhs.true11 ], [ false, %land.lhs.true8 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp28, %land.rhs ]
-  %conv29 = zext i1 %19 to i8
-  ret i8 %conv29
+61:                                               ; preds = %54, %47, %40, %33, %26, %20, %14, %4
+  %62 = phi i1 [ false, %47 ], [ false, %40 ], [ false, %33 ], [ false, %26 ], [ false, %20 ], [ false, %14 ], [ false, %4 ], [ %60, %54 ]
+  %63 = zext i1 %62 to i8
+  ret i8 %63
 }
 
-declare ptr @udata_getMemory_75(ptr noundef) #4
+declare ptr @udata_getMemory_77(ptr noundef) #6
 
-declare void @udata_close_75(ptr noundef) #4
+declare void @udata_close_77(ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_759UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fState = getelementptr inbounds %"struct.icu_75::UInitOnce", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNSt13__atomic_baseIiEaSEi(ptr noundef nonnull align 4 dereferenceable(4) %fState, i32 noundef 0) #11
+define linkonce_odr void @_ZN6icu_779UInitOnce5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.icu_77::UInitOnce", ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNSt13__atomic_baseIiEaSEi(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEaSEi(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %__i) #0 comdat align 2 {
-entry:
-  %this.addr.i = alloca ptr, align 8
-  %__i.addr.i = alloca i32, align 4
-  %__m.addr.i = alloca i32, align 4
-  %__b.i = alloca i32, align 4
-  %.atomictmp.i = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %__i, ptr %__i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %__i.addr, align 4
-  store ptr %this1, ptr %this.addr.i, align 8
-  store i32 %0, ptr %__i.addr.i, align 4
-  store i32 5, ptr %__m.addr.i, align 4
-  %this1.i = load ptr, ptr %this.addr.i, align 8
-  %1 = load i32, ptr %__m.addr.i, align 4
-  %call.i = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %1, i32 noundef 65535)
-  store i32 %call.i, ptr %__b.i, align 4
-  %2 = load i32, ptr %__m.addr.i, align 4
-  %3 = load i32, ptr %__i.addr.i, align 4
-  store i32 %3, ptr %.atomictmp.i, align 4
-  switch i32 %2, label %monotonic.i [
-    i32 3, label %release.i
-    i32 5, label %seqcst.i
-  ]
-
-monotonic.i:                                      ; preds = %entry
-  %4 = load i32, ptr %.atomictmp.i, align 4
-  store atomic i32 %4, ptr %this1.i monotonic, align 4
-  br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit
-
-release.i:                                        ; preds = %entry
-  %5 = load i32, ptr %.atomictmp.i, align 4
-  store atomic i32 %5, ptr %this1.i release, align 4
-  br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit
-
-seqcst.i:                                         ; preds = %entry
-  %6 = load i32, ptr %.atomictmp.i, align 4
-  store atomic i32 %6, ptr %this1.i seq_cst, align 4
-  br label %_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit
-
-_ZNSt13__atomic_baseIiE5storeEiSt12memory_order.exit: ; preds = %seqcst.i, %release.i, %monotonic.i
-  %7 = load i32, ptr %__i.addr, align 4
+define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEaSEi(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !102
+  store i32 %1, ptr %4, align 4, !tbaa !14
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !14
+  call void @_ZNSt13__atomic_baseIiE5storeEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6, i32 noundef 5) #12
+  %7 = load i32, ptr %4, align 4, !tbaa !14
   ret i32 %7
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #7
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13__atomic_baseIiE5storeEiSt12memory_order(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) #9 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !102
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  store i32 %2, ptr %6, align 4, !tbaa !104
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %10 = load i32, ptr %6, align 4, !tbaa !104
+  %11 = call noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %10, i32 noundef 65535)
+  store i32 %11, ptr %7, align 4, !tbaa !104
+  br label %12
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #7
+12:                                               ; preds = %3
+  br label %13
 
-; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL12getTagNumberPKc(ptr noundef %tagname) #1 {
-entry:
-  %retval = alloca i32, align 4
-  %tagname.addr = alloca ptr, align 8
-  %tagNum = alloca i32, align 4
-  store ptr %tagname, ptr %tagname.addr, align 8
-  %0 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1
-  %1 = load ptr, ptr %0, align 8
-  %tobool = icmp ne ptr %1, null
-  br i1 %tobool, label %if.then, label %if.end3
+13:                                               ; preds = %12
+  br label %14
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %tagNum, align 4
-  br label %for.cond
+14:                                               ; preds = %13
+  br label %15
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %2 = load i32, ptr %tagNum, align 4
-  %3 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10
-  %4 = load i32, ptr %3, align 4
-  %cmp = icmp ult i32 %2, %4
-  br i1 %cmp, label %for.body, label %for.end
+15:                                               ; preds = %14
+  br label %16
 
-for.body:                                         ; preds = %for.cond
-  %5 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr %tagNum, align 4
-  %idxprom = zext i32 %9 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %8, i64 %idxprom
-  %10 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %10 to i32
-  %idx.ext = sext i32 %conv to i64
-  %add.ptr = getelementptr inbounds i16, ptr %6, i64 %idx.ext
-  %11 = load ptr, ptr %tagname.addr, align 8
-  %call = call i32 @uprv_stricmp_75(ptr noundef %add.ptr, ptr noundef %11)
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.end, label %if.then2
+16:                                               ; preds = %15
+  br label %17
 
-if.then2:                                         ; preds = %for.body
-  %12 = load i32, ptr %tagNum, align 4
-  store i32 %12, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %16
+  br label %18
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+18:                                               ; preds = %17
+  br label %19
 
-for.inc:                                          ; preds = %if.end
-  %13 = load i32, ptr %tagNum, align 4
-  %inc = add i32 %13, 1
-  store i32 %inc, ptr %tagNum, align 4
-  br label %for.cond, !llvm.loop !21
+19:                                               ; preds = %18
+  br label %20
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end3
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %9, i32 0, i32 0
+  %22 = load i32, ptr %6, align 4, !tbaa !104
+  %23 = load i32, ptr %5, align 4, !tbaa !14
+  store i32 %23, ptr %8, align 4, !tbaa !14
+  switch i32 %22, label %24 [
+    i32 3, label %26
+    i32 5, label %28
+  ]
 
-if.end3:                                          ; preds = %for.end, %entry
-  store i32 -1, ptr %retval, align 4
-  br label %return
+24:                                               ; preds = %20
+  %25 = load i32, ptr %8, align 4
+  store atomic i32 %25, ptr %21 monotonic, align 4
+  br label %30
 
-return:                                           ; preds = %if.end3, %if.then2
-  %14 = load i32, ptr %retval, align 4
-  ret i32 %14
+26:                                               ; preds = %20
+  %27 = load i32, ptr %8, align 4
+  store atomic i32 %27, ptr %21 release, align 4
+  br label %30
+
+28:                                               ; preds = %20
+  %29 = load i32, ptr %8, align 4
+  store atomic i32 %29, ptr %21 seq_cst, align 4
+  br label %30
+
+30:                                               ; preds = %28, %26, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %alias, i32 noundef %listOffset) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %alias.addr = alloca ptr, align 8
-  %listOffset.addr = alloca i32, align 4
-  %currAlias = alloca i32, align 4
-  %listCount = alloca i32, align 4
-  %currList = alloca ptr, align 8
-  store ptr %alias, ptr %alias.addr, align 8
-  store i32 %listOffset, ptr %listOffset.addr, align 4
-  %0 = load i32, ptr %listOffset.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %if.then, label %if.end12
+; Function Attrs: nounwind willreturn memory(read)
+declare i64 @strlen(ptr noundef) #11
 
-if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %2 = load ptr, ptr %1, align 8
-  %3 = load i32, ptr %listOffset.addr, align 4
-  %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
-  store i32 %conv, ptr %listCount, align 4
-  %5 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i32, ptr %listOffset.addr, align 4
-  %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %6, i64 %idx.ext
-  %add.ptr1 = getelementptr inbounds i16, ptr %add.ptr, i64 1
-  store ptr %add.ptr1, ptr %currList, align 8
-  store i32 0, ptr %currAlias, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %8 = load i32, ptr %currAlias, align 4
-  %9 = load i32, ptr %listCount, align 4
-  %cmp = icmp ult i32 %8, %9
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %currList, align 8
-  %11 = load i32, ptr %currAlias, align 4
-  %idxprom2 = zext i32 %11 to i64
-  %arrayidx3 = getelementptr inbounds i16, ptr %10, i64 %idxprom2
-  %12 = load i16, ptr %arrayidx3, align 2
-  %tobool4 = icmp ne i16 %12, 0
-  br i1 %tobool4, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %for.body
-  %13 = load ptr, ptr %alias.addr, align 8
-  %14 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %currList, align 8
-  %17 = load i32, ptr %currAlias, align 4
-  %idxprom5 = zext i32 %17 to i64
-  %arrayidx6 = getelementptr inbounds i16, ptr %16, i64 %idxprom5
-  %18 = load i16, ptr %arrayidx6, align 2
-  %conv7 = zext i16 %18 to i32
-  %idx.ext8 = sext i32 %conv7 to i64
-  %add.ptr9 = getelementptr inbounds i16, ptr %15, i64 %idx.ext8
-  %call = call i32 @ucnv_compareNames_75(ptr noundef %13, ptr noundef %add.ptr9)
-  %cmp10 = icmp eq i32 %call, 0
-  br i1 %cmp10, label %if.then11, label %if.end
-
-if.then11:                                        ; preds = %land.lhs.true
-  store i8 1, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %19 = load i32, ptr %currAlias, align 4
-  %inc = add i32 %19, 1
-  store i32 %inc, ptr %currAlias, align 4
-  br label %for.cond, !llvm.loop !22
-
-for.end:                                          ; preds = %for.cond
-  br label %if.end12
-
-if.end12:                                         ; preds = %for.end, %entry
-  store i8 0, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end12, %if.then11
-  %20 = load i8, ptr %retval, align 1
-  ret i8 %20
-}
-
-declare i32 @uprv_stricmp_75(ptr noundef, ptr noundef) #4
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #11
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25ucnv_io_closeUEnumerationP12UEnumeration(ptr noundef %enumerator) #1 {
-entry:
-  %enumerator.addr = alloca ptr, align 8
-  store ptr %enumerator, ptr %enumerator.addr, align 8
-  %0 = load ptr, ptr %enumerator.addr, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %context, align 8
-  call void @uprv_free_75(ptr noundef %1)
-  %2 = load ptr, ptr %enumerator.addr, align 8
-  call void @uprv_free_75(ptr noundef %2)
+define internal noundef i32 @_ZL12getTagNumberPKc(ptr noundef %0) #2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1), align 8, !tbaa !52
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %36
+
+8:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #12
+  store i32 0, ptr %4, align 4, !tbaa !14
+  br label %9
+
+9:                                                ; preds = %29, %8
+  %10 = load i32, ptr %4, align 4, !tbaa !14
+  %11 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 10), align 4, !tbaa !47
+  %12 = icmp ult i32 %10, %11
+  br i1 %12, label %13, label %32
+
+13:                                               ; preds = %9
+  %14 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %15 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 1), align 8, !tbaa !52
+  %16 = load i32, ptr %4, align 4, !tbaa !14
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw i16, ptr %15, i64 %17
+  %19 = load i16, ptr %18, align 2, !tbaa !23
+  %20 = zext i16 %19 to i32
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i16, ptr %14, i64 %21
+  %23 = load ptr, ptr %3, align 8, !tbaa !3
+  %24 = call i32 @uprv_stricmp_77(ptr noundef %22, ptr noundef %23)
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %28, label %26
+
+26:                                               ; preds = %13
+  %27 = load i32, ptr %4, align 4, !tbaa !14
+  store i32 %27, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %33
+
+28:                                               ; preds = %13
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load i32, ptr %4, align 4, !tbaa !14
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %4, align 4, !tbaa !14
+  br label %9, !llvm.loop !112
+
+32:                                               ; preds = %9
+  store i32 0, ptr %5, align 4
+  br label %33
+
+33:                                               ; preds = %32, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #12
+  %34 = load i32, ptr %5, align 4
+  switch i32 %34, label %39 [
+    i32 0, label %35
+    i32 1, label %37
+  ]
+
+35:                                               ; preds = %33
+  br label %36
+
+36:                                               ; preds = %35, %1
+  store i32 -1, ptr %2, align 4
+  br label %37
+
+37:                                               ; preds = %36, %33
+  %38 = load i32, ptr %2, align 4
+  ret i32 %38
+
+39:                                               ; preds = %33
+  unreachable
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL13isAliasInListPKcj(ptr noundef %0, i32 noundef %1) #3 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  %10 = load i32, ptr %5, align 4, !tbaa !14
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %57
+
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %13 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %14 = load i32, ptr %5, align 4, !tbaa !14
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
+  %17 = load i16, ptr %16, align 2, !tbaa !23
+  %18 = zext i16 %17 to i32
+  store i32 %18, ptr %7, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %19 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %20 = load i32, ptr %5, align 4, !tbaa !14
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw i16, ptr %19, i64 %21
+  %23 = getelementptr inbounds i16, ptr %22, i64 1
+  store ptr %23, ptr %8, align 8, !tbaa !53
+  store i32 0, ptr %6, align 4, !tbaa !14
+  br label %24
+
+24:                                               ; preds = %50, %12
+  %25 = load i32, ptr %6, align 4, !tbaa !14
+  %26 = load i32, ptr %7, align 4, !tbaa !14
+  %27 = icmp ult i32 %25, %26
+  br i1 %27, label %28, label %53
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %8, align 8, !tbaa !53
+  %30 = load i32, ptr %6, align 4, !tbaa !14
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw i16, ptr %29, i64 %31
+  %33 = load i16, ptr %32, align 2, !tbaa !23
+  %34 = icmp ne i16 %33, 0
+  br i1 %34, label %35, label %49
+
+35:                                               ; preds = %28
+  %36 = load ptr, ptr %4, align 8, !tbaa !3
+  %37 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %38 = load ptr, ptr %8, align 8, !tbaa !53
+  %39 = load i32, ptr %6, align 4, !tbaa !14
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw i16, ptr %38, i64 %40
+  %42 = load i16, ptr %41, align 2, !tbaa !23
+  %43 = zext i16 %42 to i32
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i16, ptr %37, i64 %44
+  %46 = call i32 @ucnv_compareNames_77(ptr noundef %36, ptr noundef %45)
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %49
+
+48:                                               ; preds = %35
+  store i8 1, ptr %3, align 1
+  store i32 1, ptr %9, align 4
+  br label %54
+
+49:                                               ; preds = %35, %28
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load i32, ptr %6, align 4, !tbaa !14
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %6, align 4, !tbaa !14
+  br label %24, !llvm.loop !113
+
+53:                                               ; preds = %24
+  store i32 0, ptr %9, align 4
+  br label %54
+
+54:                                               ; preds = %53, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #12
+  %55 = load i32, ptr %9, align 4
+  switch i32 %55, label %60 [
+    i32 0, label %56
+    i32 1, label %58
+  ]
+
+56:                                               ; preds = %54
+  br label %57
+
+57:                                               ; preds = %56, %2
+  store i8 0, ptr %3, align 1
+  br label %58
+
+58:                                               ; preds = %57, %54
+  %59 = load i8, ptr %3, align 1
+  ret i8 %59
+
+60:                                               ; preds = %54
+  unreachable
+}
+
+declare i32 @uprv_stricmp_77(ptr noundef, ptr noundef) #6
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL25ucnv_io_closeUEnumerationP12UEnumeration(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %4 = getelementptr inbounds nuw %struct.UEnumeration, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @uprv_free_77(ptr noundef %5)
+  %6 = load ptr, ptr %2, align 8, !tbaa !37
+  call void @uprv_free_77(ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL28ucnv_io_countStandardAliasesP12UEnumerationP10UErrorCode(ptr noundef %enumerator, ptr noundef %0) #0 {
-entry:
-  %enumerator.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %value = alloca i32, align 4
-  %myContext = alloca ptr, align 8
-  %listOffset = alloca i32, align 4
-  store ptr %enumerator, ptr %enumerator.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store i32 0, ptr %value, align 4
-  %1 = load ptr, ptr %enumerator.addr, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %context, align 8
-  store ptr %2, ptr %myContext, align 8
-  %3 = load ptr, ptr %myContext, align 8
-  %listOffset1 = getelementptr inbounds %struct.UAliasContext, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %listOffset1, align 4
-  store i32 %4, ptr %listOffset, align 4
-  %5 = load i32, ptr %listOffset, align 4
-  %tobool = icmp ne i32 %5, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal noundef i32 @_ZL28ucnv_io_countStandardAliasesP12UEnumerationP10UErrorCode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #12
+  store i32 0, ptr %5, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #12
+  %8 = load ptr, ptr %3, align 8, !tbaa !37
+  %9 = getelementptr inbounds nuw %struct.UEnumeration, ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %9, align 8, !tbaa !45
+  store ptr %10, ptr %6, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #12
+  %11 = load ptr, ptr %6, align 8, !tbaa !40
+  %12 = getelementptr inbounds nuw %struct.UAliasContext, ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %12, align 4, !tbaa !42
+  store i32 %13, ptr %7, align 4, !tbaa !14
+  %14 = load i32, ptr %7, align 4, !tbaa !14
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %23
 
-if.then:                                          ; preds = %entry
-  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %listOffset, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
-  %9 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %9 to i32
-  store i32 %conv, ptr %value, align 4
-  br label %if.end
+16:                                               ; preds = %2
+  %17 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %18 = load i32, ptr %7, align 4, !tbaa !14
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw i16, ptr %17, i64 %19
+  %21 = load i16, ptr %20, align 2, !tbaa !23
+  %22 = zext i16 %21 to i32
+  store i32 %22, ptr %5, align 4, !tbaa !14
+  br label %23
 
-if.end:                                           ; preds = %if.then, %entry
-  %10 = load i32, ptr %value, align 4
-  ret i32 %10
+23:                                               ; preds = %16, %2
+  %24 = load i32, ptr %5, align 4, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #12
+  ret i32 %24
 }
 
-declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #4
+declare ptr @uenum_unextDefault_77(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZL27ucnv_io_nextStandardAliasesP12UEnumerationPiP10UErrorCode(ptr noundef %enumerator, ptr noundef %resultLength, ptr noundef %0) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %enumerator.addr = alloca ptr, align 8
-  %resultLength.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %myContext = alloca ptr, align 8
-  %listOffset = alloca i32, align 4
-  %listCount = alloca i32, align 4
-  %currList = alloca ptr, align 8
-  %myStr = alloca ptr, align 8
-  store ptr %enumerator, ptr %enumerator.addr, align 8
-  store ptr %resultLength, ptr %resultLength.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %enumerator.addr, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %context, align 8
-  store ptr %2, ptr %myContext, align 8
-  %3 = load ptr, ptr %myContext, align 8
-  %listOffset1 = getelementptr inbounds %struct.UAliasContext, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %listOffset1, align 4
-  store i32 %4, ptr %listOffset, align 4
-  %5 = load i32, ptr %listOffset, align 4
-  %tobool = icmp ne i32 %5, 0
-  br i1 %tobool, label %if.then, label %if.end14
+define internal noundef ptr @_ZL27ucnv_io_nextStandardAliasesP12UEnumerationPiP10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !37
+  store ptr %1, ptr %6, align 8, !tbaa !61
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %14 = load ptr, ptr %5, align 8, !tbaa !37
+  %15 = getelementptr inbounds nuw %struct.UEnumeration, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !45
+  store ptr %16, ptr %8, align 8, !tbaa !40
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #12
+  %17 = load ptr, ptr %8, align 8, !tbaa !40
+  %18 = getelementptr inbounds nuw %struct.UAliasContext, ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %18, align 4, !tbaa !42
+  store i32 %19, ptr %9, align 4, !tbaa !14
+  %20 = load i32, ptr %9, align 4, !tbaa !14
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %22, label %65
 
-if.then:                                          ; preds = %entry
-  %6 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %listOffset, align 4
-  %idxprom = zext i32 %8 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %7, i64 %idxprom
-  %9 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %9 to i32
-  store i32 %conv, ptr %listCount, align 4
-  %10 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5
-  %11 = load ptr, ptr %10, align 8
-  %12 = load i32, ptr %listOffset, align 4
-  %idx.ext = zext i32 %12 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %11, i64 %idx.ext
-  %add.ptr2 = getelementptr inbounds i16, ptr %add.ptr, i64 1
-  store ptr %add.ptr2, ptr %currList, align 8
-  %13 = load ptr, ptr %myContext, align 8
-  %listIdx = getelementptr inbounds %struct.UAliasContext, ptr %13, i32 0, i32 1
-  %14 = load i32, ptr %listIdx, align 4
-  %15 = load i32, ptr %listCount, align 4
-  %cmp = icmp ult i32 %14, %15
-  br i1 %cmp, label %if.then3, label %if.end13
+22:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #12
+  %23 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %24 = load i32, ptr %9, align 4, !tbaa !14
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw i16, ptr %23, i64 %25
+  %27 = load i16, ptr %26, align 2, !tbaa !23
+  %28 = zext i16 %27 to i32
+  store i32 %28, ptr %10, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  %29 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 5), align 8, !tbaa !49
+  %30 = load i32, ptr %9, align 4, !tbaa !14
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw i16, ptr %29, i64 %31
+  %33 = getelementptr inbounds i16, ptr %32, i64 1
+  store ptr %33, ptr %11, align 8, !tbaa !53
+  %34 = load ptr, ptr %8, align 8, !tbaa !40
+  %35 = getelementptr inbounds nuw %struct.UAliasContext, ptr %34, i32 0, i32 1
+  %36 = load i32, ptr %35, align 4, !tbaa !44
+  %37 = load i32, ptr %10, align 4, !tbaa !14
+  %38 = icmp ult i32 %36, %37
+  br i1 %38, label %39, label %61
 
-if.then3:                                         ; preds = %if.then
-  %16 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %currList, align 8
-  %19 = load ptr, ptr %myContext, align 8
-  %listIdx4 = getelementptr inbounds %struct.UAliasContext, ptr %19, i32 0, i32 1
-  %20 = load i32, ptr %listIdx4, align 4
-  %inc = add i32 %20, 1
-  store i32 %inc, ptr %listIdx4, align 4
-  %idxprom5 = zext i32 %20 to i64
-  %arrayidx6 = getelementptr inbounds i16, ptr %18, i64 %idxprom5
-  %21 = load i16, ptr %arrayidx6, align 2
-  %conv7 = zext i16 %21 to i32
-  %idx.ext8 = sext i32 %conv7 to i64
-  %add.ptr9 = getelementptr inbounds i16, ptr %17, i64 %idx.ext8
-  store ptr %add.ptr9, ptr %myStr, align 8
-  %22 = load ptr, ptr %resultLength.addr, align 8
-  %tobool10 = icmp ne ptr %22, null
-  br i1 %tobool10, label %if.then11, label %if.end
+39:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %40 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %41 = load ptr, ptr %11, align 8, !tbaa !53
+  %42 = load ptr, ptr %8, align 8, !tbaa !40
+  %43 = getelementptr inbounds nuw %struct.UAliasContext, ptr %42, i32 0, i32 1
+  %44 = load i32, ptr %43, align 4, !tbaa !44
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %43, align 4, !tbaa !44
+  %46 = zext i32 %44 to i64
+  %47 = getelementptr inbounds nuw i16, ptr %41, i64 %46
+  %48 = load i16, ptr %47, align 2, !tbaa !23
+  %49 = zext i16 %48 to i32
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i16, ptr %40, i64 %50
+  store ptr %51, ptr %12, align 8, !tbaa !3
+  %52 = load ptr, ptr %6, align 8, !tbaa !61
+  %53 = icmp ne ptr %52, null
+  br i1 %53, label %54, label %59
 
-if.then11:                                        ; preds = %if.then3
-  %23 = load ptr, ptr %myStr, align 8
-  %call = call i64 @strlen(ptr noundef %23) #8
-  %conv12 = trunc i64 %call to i32
-  %24 = load ptr, ptr %resultLength.addr, align 8
-  store i32 %conv12, ptr %24, align 4
-  br label %if.end
+54:                                               ; preds = %39
+  %55 = load ptr, ptr %12, align 8, !tbaa !3
+  %56 = call i64 @strlen(ptr noundef %55) #13
+  %57 = trunc i64 %56 to i32
+  %58 = load ptr, ptr %6, align 8, !tbaa !61
+  store i32 %57, ptr %58, align 4, !tbaa !14
+  br label %59
 
-if.end:                                           ; preds = %if.then11, %if.then3
-  %25 = load ptr, ptr %myStr, align 8
-  store ptr %25, ptr %retval, align 8
-  br label %return
+59:                                               ; preds = %54, %39
+  %60 = load ptr, ptr %12, align 8, !tbaa !3
+  store ptr %60, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  br label %62
 
-if.end13:                                         ; preds = %if.then
-  br label %if.end14
+61:                                               ; preds = %22
+  store i32 0, ptr %13, align 4
+  br label %62
 
-if.end14:                                         ; preds = %if.end13, %entry
-  %26 = load ptr, ptr %resultLength.addr, align 8
-  %tobool15 = icmp ne ptr %26, null
-  br i1 %tobool15, label %if.then16, label %if.end17
+62:                                               ; preds = %61, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #12
+  %63 = load i32, ptr %13, align 4
+  switch i32 %63, label %71 [
+    i32 0, label %64
+  ]
 
-if.then16:                                        ; preds = %if.end14
-  %27 = load ptr, ptr %resultLength.addr, align 8
-  store i32 0, ptr %27, align 4
-  br label %if.end17
+64:                                               ; preds = %62
+  br label %65
 
-if.end17:                                         ; preds = %if.then16, %if.end14
-  store ptr null, ptr %retval, align 8
-  br label %return
+65:                                               ; preds = %64, %3
+  %66 = load ptr, ptr %6, align 8, !tbaa !61
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %70
 
-return:                                           ; preds = %if.end17, %if.end
-  %28 = load ptr, ptr %retval, align 8
-  ret ptr %28
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %6, align 8, !tbaa !61
+  store i32 0, ptr %69, align 4, !tbaa !14
+  br label %70
+
+70:                                               ; preds = %68, %65
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  br label %71
+
+71:                                               ; preds = %70, %62
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %72 = load ptr, ptr %4, align 8
+  ret ptr %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL28ucnv_io_resetStandardAliasesP12UEnumerationP10UErrorCode(ptr noundef %enumerator, ptr noundef %0) #0 {
-entry:
-  %enumerator.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %enumerator, ptr %enumerator.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %enumerator.addr, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %context, align 8
-  %listIdx = getelementptr inbounds %struct.UAliasContext, ptr %2, i32 0, i32 1
-  store i32 0, ptr %listIdx, align 4
+define internal void @_ZL28ucnv_io_resetStandardAliasesP12UEnumerationP10UErrorCode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8, !tbaa !37
+  %6 = getelementptr inbounds nuw %struct.UEnumeration, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  %8 = getelementptr inbounds nuw %struct.UAliasContext, ptr %7, i32 0, i32 1
+  store i32 0, ptr %8, align 4, !tbaa !44
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZL26ucnv_io_countAllConvertersP12UEnumerationP10UErrorCode(ptr noundef %0, ptr noundef %1) #0 {
-entry:
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
-  %2 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %3 = load i32, ptr %2, align 8
-  ret i32 %3
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZL25ucnv_io_nextAllConvertersP12UEnumerationPiP10UErrorCode(ptr noundef %enumerator, ptr noundef %resultLength, ptr noundef %0) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %enumerator.addr = alloca ptr, align 8
-  %resultLength.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %myContext = alloca ptr, align 8
-  %myStr = alloca ptr, align 8
-  store ptr %enumerator, ptr %enumerator.addr, align 8
-  store ptr %resultLength, ptr %resultLength.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %enumerator.addr, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %context, align 8
-  store ptr %2, ptr %myContext, align 8
-  %3 = load ptr, ptr %myContext, align 8
-  %4 = load i16, ptr %3, align 2
-  %conv = zext i16 %4 to i32
-  %5 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9
-  %6 = load i32, ptr %5, align 8
-  %cmp = icmp ult i32 %conv, %6
-  br i1 %cmp, label %if.then, label %if.end4
+define internal noundef ptr @_ZL25ucnv_io_nextAllConvertersP12UEnumerationPiP10UErrorCode(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !37
+  store ptr %1, ptr %6, align 8, !tbaa !61
+  store ptr %2, ptr %7, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %11 = load ptr, ptr %5, align 8, !tbaa !37
+  %12 = getelementptr inbounds nuw %struct.UEnumeration, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !45
+  store ptr %13, ptr %8, align 8, !tbaa !53
+  %14 = load ptr, ptr %8, align 8, !tbaa !53
+  %15 = load i16, ptr %14, align 2, !tbaa !23
+  %16 = zext i16 %15 to i32
+  %17 = load i32, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 9), align 8, !tbaa !18
+  %18 = icmp ult i32 %16, %17
+  br i1 %18, label %19, label %40
 
-if.then:                                          ; preds = %entry
-  %7 = getelementptr inbounds %struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr @_ZL10gMainTable, align 8
-  %10 = load ptr, ptr %myContext, align 8
-  %11 = load i16, ptr %10, align 2
-  %inc = add i16 %11, 1
-  store i16 %inc, ptr %10, align 2
-  %idxprom = zext i16 %11 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %9, i64 %idxprom
-  %12 = load i16, ptr %arrayidx, align 2
-  %conv1 = zext i16 %12 to i32
-  %idx.ext = sext i32 %conv1 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %8, i64 %idx.ext
-  store ptr %add.ptr, ptr %myStr, align 8
-  %13 = load ptr, ptr %resultLength.addr, align 8
-  %tobool = icmp ne ptr %13, null
-  br i1 %tobool, label %if.then2, label %if.end
+19:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %20 = load ptr, ptr getelementptr inbounds nuw (%struct.UConverterAlias, ptr @_ZL10gMainTable, i32 0, i32 7), align 8, !tbaa !21
+  %21 = load ptr, ptr @_ZL10gMainTable, align 8, !tbaa !22
+  %22 = load ptr, ptr %8, align 8, !tbaa !53
+  %23 = load i16, ptr %22, align 2, !tbaa !23
+  %24 = add i16 %23, 1
+  store i16 %24, ptr %22, align 2, !tbaa !23
+  %25 = zext i16 %23 to i64
+  %26 = getelementptr inbounds nuw i16, ptr %21, i64 %25
+  %27 = load i16, ptr %26, align 2, !tbaa !23
+  %28 = zext i16 %27 to i32
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i16, ptr %20, i64 %29
+  store ptr %30, ptr %9, align 8, !tbaa !3
+  %31 = load ptr, ptr %6, align 8, !tbaa !61
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %38
 
-if.then2:                                         ; preds = %if.then
-  %14 = load ptr, ptr %myStr, align 8
-  %call = call i64 @strlen(ptr noundef %14) #8
-  %conv3 = trunc i64 %call to i32
-  %15 = load ptr, ptr %resultLength.addr, align 8
-  store i32 %conv3, ptr %15, align 4
-  br label %if.end
+33:                                               ; preds = %19
+  %34 = load ptr, ptr %9, align 8, !tbaa !3
+  %35 = call i64 @strlen(ptr noundef %34) #13
+  %36 = trunc i64 %35 to i32
+  %37 = load ptr, ptr %6, align 8, !tbaa !61
+  store i32 %36, ptr %37, align 4, !tbaa !14
+  br label %38
 
-if.end:                                           ; preds = %if.then2, %if.then
-  %16 = load ptr, ptr %myStr, align 8
-  store ptr %16, ptr %retval, align 8
-  br label %return
+38:                                               ; preds = %33, %19
+  %39 = load ptr, ptr %9, align 8, !tbaa !3
+  store ptr %39, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  br label %46
 
-if.end4:                                          ; preds = %entry
-  %17 = load ptr, ptr %resultLength.addr, align 8
-  %tobool5 = icmp ne ptr %17, null
-  br i1 %tobool5, label %if.then6, label %if.end7
+40:                                               ; preds = %3
+  %41 = load ptr, ptr %6, align 8, !tbaa !61
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %45
 
-if.then6:                                         ; preds = %if.end4
-  %18 = load ptr, ptr %resultLength.addr, align 8
-  store i32 0, ptr %18, align 4
-  br label %if.end7
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %6, align 8, !tbaa !61
+  store i32 0, ptr %44, align 4, !tbaa !14
+  br label %45
 
-if.end7:                                          ; preds = %if.then6, %if.end4
-  store ptr null, ptr %retval, align 8
-  br label %return
+45:                                               ; preds = %43, %40
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %46
 
-return:                                           ; preds = %if.end7, %if.end
-  %19 = load ptr, ptr %retval, align 8
-  ret ptr %19
+46:                                               ; preds = %45, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %47 = load ptr, ptr %4, align 8
+  ret ptr %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL26ucnv_io_resetAllConvertersP12UEnumerationP10UErrorCode(ptr noundef %enumerator, ptr noundef %0) #0 {
-entry:
-  %enumerator.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %enumerator, ptr %enumerator.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %enumerator.addr, align 8
-  %context = getelementptr inbounds %struct.UEnumeration, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %context, align 8
-  store i16 0, ptr %2, align 2
+define internal void @_ZL26ucnv_io_resetAllConvertersP12UEnumerationP10UErrorCode(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %5 = load ptr, ptr %3, align 8, !tbaa !37
+  %6 = getelementptr inbounds nuw %struct.UEnumeration, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret void
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { allocsize(0) }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { allocsize(0) }
+attributes #15 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!6, !6, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = distinct !{!16, !10}
+!17 = !{!5, !5, i64 0}
+!18 = !{!19, !15, i64 72}
+!19 = !{!"_ZTS15UConverterAlias", !20, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !5, i64 48, !20, i64 56, !20, i64 64, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104}
+!20 = !{!"p1 short", !5, i64 0}
+!21 = !{!19, !20, i64 56}
+!22 = !{!19, !20, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"short", !6, i64 0}
+!25 = distinct !{!25, !10}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!28 = !{!19, !5, i64 48}
+!29 = !{!30, !24, i64 0}
+!30 = !{!"_ZTS22UConverterAliasOptions", !24, i64 0, !24, i64 2}
+!31 = !{!19, !15, i64 84}
+!32 = !{!19, !20, i64 16}
+!33 = !{!19, !20, i64 64}
+!34 = !{!19, !20, i64 24}
+!35 = !{!30, !24, i64 2}
+!36 = distinct !{!36, !10}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS12UEnumeration", !5, i64 0}
+!39 = !{!19, !15, i64 92}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS13UAliasContext", !5, i64 0}
+!42 = !{!43, !15, i64 0}
+!43 = !{!"_ZTS13UAliasContext", !15, i64 0, !15, i64 4}
+!44 = !{!43, !15, i64 4}
+!45 = !{!46, !5, i64 8}
+!46 = !{!"_ZTS12UEnumeration", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48}
+!47 = !{!19, !15, i64 76}
+!48 = !{!19, !20, i64 32}
+!49 = !{!19, !20, i64 40}
+!50 = !{!19, !15, i64 88}
+!51 = distinct !{!51, !10}
+!52 = !{!19, !20, i64 8}
+!53 = !{!20, !20, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p2 omnipotent char", !56, i64 0}
+!56 = !{!"any p2 pointer", !5, i64 0}
+!57 = distinct !{!57, !10}
+!58 = distinct !{!58, !10}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS12UDataSwapper", !5, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 int", !5, i64 0}
+!63 = !{!64, !5, i64 16}
+!64 = !{!"_ZTS12UDataSwapper", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88}
+!65 = distinct !{!65, !10}
+!66 = distinct !{!66, !10}
+!67 = !{!64, !5, i64 56}
+!68 = !{!64, !5, i64 72}
+!69 = !{!64, !6, i64 1}
+!70 = !{!64, !6, i64 3}
+!71 = !{!64, !5, i64 48}
+!72 = !{!73, !4, i64 0}
+!73 = !{!"_ZTS14TempAliasTable", !4, i64 0, !74, i64 8, !20, i64 16, !5, i64 24}
+!74 = !{!"p1 _ZTS7TempRow", !5, i64 0}
+!75 = !{!73, !74, i64 8}
+!76 = !{!73, !20, i64 16}
+!77 = !{!73, !5, i64 24}
+!78 = !{!64, !5, i64 8}
+!79 = !{!80, !24, i64 0}
+!80 = !{!"_ZTS7TempRow", !24, i64 0, !24, i64 2}
+!81 = !{!80, !24, i64 2}
+!82 = distinct !{!82, !10}
+!83 = distinct !{!83, !10}
+!84 = distinct !{!84, !10}
+!85 = distinct !{!85, !10}
+!86 = !{!87, !87, i64 0}
+!87 = !{!"p1 _ZTS14TempAliasTable", !5, i64 0}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"p1 _ZTSN6icu_779UInitOnceE", !5, i64 0}
+!90 = !{!91, !27, i64 4}
+!91 = !{!"_ZTSN6icu_779UInitOnceE", !92, i64 0, !27, i64 4}
+!92 = !{!"_ZTSSt6atomicIiE", !93, i64 0}
+!93 = !{!"_ZTSSt13__atomic_baseIiE", !15, i64 0}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTS11UDataMemory", !5, i64 0}
+!96 = !{!19, !15, i64 80}
+!97 = !{!19, !15, i64 96}
+!98 = !{!19, !15, i64 100}
+!99 = !{!19, !15, i64 104}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTSSt6atomicIiE", !5, i64 0}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTSSt13__atomic_baseIiE", !5, i64 0}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"_ZTSSt12memory_order", !6, i64 0}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"_ZTSSt23__memory_order_modifier", !6, i64 0}
+!108 = !{!109, !24, i64 0}
+!109 = !{!"_ZTS9UDataInfo", !24, i64 0, !24, i64 2, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !6, i64 8, !6, i64 12, !6, i64 16}
+!110 = !{!109, !6, i64 4}
+!111 = !{!109, !6, i64 5}
+!112 = distinct !{!112, !10}
+!113 = distinct !{!113, !10}

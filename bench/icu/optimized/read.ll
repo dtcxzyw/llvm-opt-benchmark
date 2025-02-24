@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/icu/original/read.ll'
 source_filename = "bench/icu/original/read.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 @lineCount = internal unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [35 x i8] c"Mixing quoted and unquoted strings\00", align 1
@@ -9,651 +9,655 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @resetLineNumber() local_unnamed_addr #0 {
-entry:
-  store i32 1, ptr @lineCount, align 4
+  store i32 1, ptr @lineCount, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @getNextToken(ptr noundef %buf, ptr noundef %token, ptr noundef writeonly captures(none) %linenumber, ptr noundef %comment, ptr noundef %status) local_unnamed_addr #1 {
-entry:
-  %target.i = alloca [3 x i16], align 2
-  %0 = load i32, ptr %status, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %return, label %if.end
+define dso_local range(i32 0, 7) i32 @getNextToken(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+  %6 = alloca [3 x i16], align 2
+  %7 = load i32, ptr %4, align 4, !tbaa !4
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %136, label %9
 
-if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @getNextChar(ptr noundef %buf, i8 noundef signext 1, ptr noundef %comment, ptr noundef nonnull %status)
-  %1 = load i32, ptr %status, align 4
-  %cmp1 = icmp sgt i32 %1, 0
-  br i1 %cmp1, label %return, label %if.end3
+9:                                                ; preds = %5
+  %10 = tail call fastcc i32 @getNextChar(ptr noundef %0, i8 noundef signext 1, ptr noundef %3, ptr noundef nonnull %4)
+  %11 = load i32, ptr %4, align 4, !tbaa !4
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %136, label %13
 
-if.end3:                                          ; preds = %if.end
-  %2 = load i32, ptr @lineCount, align 4
-  store i32 %2, ptr %linenumber, align 4
-  switch i32 %call, label %sw.default [
-    i32 65534, label %return
-    i32 123, label %sw.bb4
-    i32 125, label %sw.bb5
-    i32 44, label %sw.bb6
-    i32 -1, label %sw.bb7
-    i32 58, label %sw.bb8
+13:                                               ; preds = %9
+  %14 = load i32, ptr @lineCount, align 4, !tbaa !4
+  store i32 %14, ptr %2, align 4, !tbaa !4
+  switch i32 %10, label %20 [
+    i32 65534, label %136
+    i32 123, label %15
+    i32 125, label %16
+    i32 44, label %17
+    i32 -1, label %18
+    i32 58, label %19
   ]
 
-sw.bb4:                                           ; preds = %if.end3
-  br label %return
+15:                                               ; preds = %13
+  br label %136
 
-sw.bb5:                                           ; preds = %if.end3
-  br label %return
+16:                                               ; preds = %13
+  br label %136
 
-sw.bb6:                                           ; preds = %if.end3
-  br label %return
+17:                                               ; preds = %13
+  br label %136
 
-sw.bb7:                                           ; preds = %if.end3
-  br label %return
+18:                                               ; preds = %13
+  br label %136
 
-sw.bb8:                                           ; preds = %if.end3
-  br label %return
+19:                                               ; preds = %13
+  br label %136
 
-sw.default:                                       ; preds = %if.end3
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %target.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %target.i, i8 0, i64 6, i1 false)
-  %3 = load i32, ptr %status, align 4
-  %cmp.i = icmp sgt i32 %3, 0
-  br i1 %cmp.i, label %getStringToken.exit, label %if.end.i
+20:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %6, i8 0, i64 6, i1 false)
+  %21 = load i32, ptr %4, align 4, !tbaa !4
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %getStringToken.exit, label %23
 
-if.end.i:                                         ; preds = %sw.default
-  tail call void @ustr_setlen(ptr noundef %token, i32 noundef 0, ptr noundef nonnull %status) #5
-  %4 = load i32, ptr %status, align 4
-  %cmp1.i = icmp sgt i32 %4, 0
-  br i1 %cmp1.i, label %getStringToken.exit, label %for.cond.preheader.i
+23:                                               ; preds = %20
+  tail call void @ustr_setlen(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %4) #5
+  %24 = load i32, ptr %4, align 4, !tbaa !4
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %getStringToken.exit, label %.preheader188.i
 
-for.cond.preheader.i:                             ; preds = %if.end.i
-  %fLength71.i = getelementptr inbounds nuw i8, ptr %token, i64 8
-  %arrayidx115.i = getelementptr inbounds nuw i8, ptr %target.i, i64 2
-  br label %for.cond.i
+.preheader188.i:                                  ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  br label %28
 
-for.cond.i:                                       ; preds = %if.end193.i, %for.cond.preheader.i
-  %lastStringWasQuoted.0.i = phi i8 [ %lastStringWasQuoted.1.i, %if.end193.i ], [ 0, %for.cond.preheader.i ]
-  %c.0.i = phi i32 [ %call189.i, %if.end193.i ], [ %call, %for.cond.preheader.i ]
-  %isNLUnescaped.0.i = phi i8 [ %isNLUnescaped.4.i, %if.end193.i ], [ 0, %for.cond.preheader.i ]
-  %prevC.0.i = phi i32 [ %prevC.2.i, %if.end193.i ], [ 0, %for.cond.preheader.i ]
-  %cmp4.i = icmp eq i32 %c.0.i, 34
-  br i1 %cmp4.i, label %if.then5.i, label %if.else70.i
+28:                                               ; preds = %134, %.preheader188.i
+  %.0150.i = phi i8 [ %.1151.i, %134 ], [ 0, %.preheader188.i ]
+  %.0146.i = phi i32 [ %131, %134 ], [ %10, %.preheader188.i ]
+  %.0131.i = phi i8 [ %.4.i, %134 ], [ 0, %.preheader188.i ]
+  %.0.i = phi i32 [ %.2.i, %134 ], [ 0, %.preheader188.i ]
+  %29 = icmp eq i32 %.0146.i, 34
+  br i1 %29, label %30, label %71
 
-if.then5.i:                                       ; preds = %for.cond.i
-  %tobool.not.i = icmp eq i8 %lastStringWasQuoted.0.i, 0
-  br i1 %tobool.not.i, label %land.lhs.true.i, label %for.cond12.i.preheader
+30:                                               ; preds = %28
+  %.not163.i = icmp eq i8 %.0150.i, 0
+  br i1 %.not163.i, label %31, label %.preheader
 
-land.lhs.true.i:                                  ; preds = %if.then5.i
-  %5 = load i32, ptr %fLength71.i, align 8
-  %cmp6.i = icmp sgt i32 %5, 0
-  br i1 %cmp6.i, label %if.then7.i, label %for.cond12.i.preheader
+31:                                               ; preds = %30
+  %32 = load i32, ptr %26, align 8, !tbaa !8
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %34, label %.preheader
 
-if.then7.i:                                       ; preds = %land.lhs.true.i
-  call void @ustr_ucat(ptr noundef nonnull %token, i16 noundef zeroext 32, ptr noundef nonnull %status) #5
-  %6 = load i32, ptr %status, align 4
-  %cmp8.i = icmp sgt i32 %6, 0
-  br i1 %cmp8.i, label %getStringToken.exit, label %for.cond12.i.preheader
+34:                                               ; preds = %31
+  call void @ustr_ucat(ptr noundef nonnull %1, i16 noundef zeroext 32, ptr noundef nonnull %4) #5
+  %35 = load i32, ptr %4, align 4, !tbaa !4
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %getStringToken.exit, label %.preheader
 
-for.cond12.i.preheader:                           ; preds = %if.then7.i, %land.lhs.true.i, %if.then5.i
-  br label %for.cond12.i
+.preheader:                                       ; preds = %34, %31, %30
+  br label %37
 
-for.cond12.i:                                     ; preds = %for.cond12.i.preheader, %if.end65.i
-  %isFollowingCharEscaped.1.i = phi i8 [ %isFollowingCharEscaped.2.i, %if.end65.i ], [ 0, %for.cond12.i.preheader ]
-  %isNLUnescaped.1.i = phi i8 [ %isNLUnescaped.3.i, %if.end65.i ], [ %isNLUnescaped.0.i, %for.cond12.i.preheader ]
-  %prevC.1.i = phi i32 [ %c.1124.i, %if.end65.i ], [ %prevC.0.i, %for.cond12.i.preheader ]
-  %call.i = call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp13.i = icmp eq i32 %call.i, -1
-  br i1 %cmp13.i, label %getStringToken.exit, label %if.end15.i
+37:                                               ; preds = %.preheader, %68
+  %.1135.i = phi i8 [ %.2136.i, %68 ], [ 0, %.preheader ]
+  %.1132.i = phi i8 [ %.3.i, %68 ], [ %.0131.i, %.preheader ]
+  %.1.i = phi i32 [ %.1147173.i, %68 ], [ %.0.i, %.preheader ]
+  %38 = call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %4) #5
+  %39 = icmp eq i32 %38, -1
+  br i1 %39, label %getStringToken.exit, label %40
 
-if.end15.i:                                       ; preds = %for.cond12.i
-  %7 = load i32, ptr %status, align 4
-  %cmp16.i = icmp sgt i32 %7, 0
-  br i1 %cmp16.i, label %getStringToken.exit, label %if.end18.i
+40:                                               ; preds = %37
+  %41 = load i32, ptr %4, align 4, !tbaa !4
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %getStringToken.exit, label %43
 
-if.end18.i:                                       ; preds = %if.end15.i
-  %cmp19.i = icmp ne i32 %call.i, 34
-  %tobool21.i = icmp ne i8 %isFollowingCharEscaped.1.i, 0
-  %or.cond.i = or i1 %tobool21.i, %cmp19.i
-  br i1 %or.cond.i, label %if.end23.i, label %if.end188.i
+43:                                               ; preds = %40
+  %44 = icmp ne i32 %38, 34
+  %45 = icmp ne i8 %.1135.i, 0
+  %or.cond.i = or i1 %45, %44
+  br i1 %or.cond.i, label %46, label %isWhitespace.exit.thread.i
 
-if.end23.i:                                       ; preds = %if.end18.i
-  %cmp24.i = icmp ne i32 %call.i, 92
-  %or.cond1.i = or i1 %tobool21.i, %cmp24.i
-  br i1 %or.cond1.i, label %if.end37.i, label %unescape.exit.i
+46:                                               ; preds = %43
+  %47 = icmp ne i32 %38, 92
+  %or.cond3.i = or i1 %45, %47
+  br i1 %or.cond3.i, label %49, label %unescape.exit.i
 
-unescape.exit.i:                                  ; preds = %if.end23.i
-  call void @ucbuf_ungetc(i32 noundef 92, ptr noundef %buf) #5
-  %call.i.i = call i32 @ucbuf_getcx32(ptr noundef %buf, ptr noundef nonnull %status) #5
-  switch i32 %call.i.i, label %if.end37.i [
+unescape.exit.i:                                  ; preds = %46
+  call void @ucbuf_ungetc(i32 noundef 92, ptr noundef %0) #5
+  %48 = call i32 @ucbuf_getcx32(ptr noundef %0, ptr noundef nonnull %4) #5
+  switch i32 %48, label %49 [
     i32 -2, label %getStringToken.exit
-    i32 13, label %if.then43.i
-    i32 10, label %if.then43.i
+    i32 13, label %.thread175.i
+    i32 10, label %.thread175.i
   ]
 
-if.end37.i:                                       ; preds = %unescape.exit.i, %if.end23.i
-  %c.1.i = phi i32 [ %call.i, %if.end23.i ], [ %call.i.i, %unescape.exit.i ]
-  %cmp38.i = icmp ne i32 %c.1.i, 92
-  %or.cond3.i = or i1 %tobool21.i, %cmp38.i
-  br i1 %or.cond3.i, label %do.body.i, label %if.end65.i
+49:                                               ; preds = %unescape.exit.i, %46
+  %.1147.i = phi i32 [ %38, %46 ], [ %48, %unescape.exit.i ]
+  %50 = icmp ne i32 %.1147.i, 92
+  %or.cond7.i = or i1 %45, %50
+  br i1 %or.cond7.i, label %51, label %68
 
-do.body.i:                                        ; preds = %if.end37.i
-  %cmp42.i = icmp slt i32 %c.1.i, 65536
-  br i1 %cmp42.i, label %if.then43.i, label %if.else44.i
+51:                                               ; preds = %49
+  %52 = icmp slt i32 %.1147.i, 65536
+  br i1 %52, label %.thread175.i, label %54
 
-if.then43.i:                                      ; preds = %do.body.i, %unescape.exit.i, %unescape.exit.i
-  %c.1123131.i = phi i32 [ %c.1.i, %do.body.i ], [ %call.i.i, %unescape.exit.i ], [ %call.i.i, %unescape.exit.i ]
-  %isNLUnescaped.2125130.i = phi i8 [ %isNLUnescaped.1.i, %do.body.i ], [ 1, %unescape.exit.i ], [ 1, %unescape.exit.i ]
-  %conv.i = trunc i32 %c.1123131.i to i16
-  store i16 %conv.i, ptr %target.i, align 2
-  br label %do.end.i
+.thread175.i:                                     ; preds = %51, %unescape.exit.i, %unescape.exit.i
+  %.1147172180.i = phi i32 [ %.1147.i, %51 ], [ %48, %unescape.exit.i ], [ %48, %unescape.exit.i ]
+  %.2133174179.i = phi i8 [ %.1132.i, %51 ], [ 1, %unescape.exit.i ], [ 1, %unescape.exit.i ]
+  %53 = trunc i32 %.1147172180.i to i16
+  store i16 %53, ptr %6, align 2, !tbaa !12
+  br label %61
 
-if.else44.i:                                      ; preds = %do.body.i
-  %shr.i = lshr i32 %c.1.i, 10
-  %8 = trunc i32 %shr.i to i16
-  %conv45.i = add i16 %8, -10304
-  store i16 %conv45.i, ptr %target.i, align 2
-  %9 = trunc i32 %c.1.i to i16
-  %10 = and i16 %9, 1023
-  %conv46.i = or disjoint i16 %10, -9216
-  store i16 %conv46.i, ptr %arrayidx115.i, align 2
-  br label %do.end.i
+54:                                               ; preds = %51
+  %55 = lshr i32 %.1147.i, 10
+  %56 = trunc i32 %55 to i16
+  %57 = add i16 %56, -10304
+  store i16 %57, ptr %6, align 2, !tbaa !12
+  %58 = trunc i32 %.1147.i to i16
+  %59 = and i16 %58, 1023
+  %60 = or disjoint i16 %59, -9216
+  store i16 %60, ptr %27, align 2, !tbaa !12
+  br label %61
 
-do.end.i:                                         ; preds = %if.else44.i, %if.then43.i
-  %c.1123132.i = phi i32 [ %c.1123131.i, %if.then43.i ], [ %c.1.i, %if.else44.i ]
-  %isNLUnescaped.2125129.i = phi i8 [ %isNLUnescaped.2125130.i, %if.then43.i ], [ %isNLUnescaped.1.i, %if.else44.i ]
-  %len.0.i = phi i32 [ 1, %if.then43.i ], [ 2, %if.else44.i ]
-  call void @ustr_uscat(ptr noundef %token, ptr noundef nonnull %target.i, i32 noundef %len.0.i, ptr noundef nonnull %status) #5
-  switch i32 %c.1123132.i, label %if.end65.i [
-    i32 13, label %if.then55.i
-    i32 10, label %if.then55.i
+61:                                               ; preds = %54, %.thread175.i
+  %.1147172181.i = phi i32 [ %.1147172180.i, %.thread175.i ], [ %.1147.i, %54 ]
+  %.2133174178.i = phi i8 [ %.2133174179.i, %.thread175.i ], [ %.1132.i, %54 ]
+  %.0138.i = phi i32 [ 1, %.thread175.i ], [ 2, %54 ]
+  call void @ustr_uscat(ptr noundef %1, ptr noundef nonnull %6, i32 noundef %.0138.i, ptr noundef nonnull %4) #5
+  switch i32 %.1147172181.i, label %68 [
+    i32 13, label %62
+    i32 10, label %62
   ]
 
-if.then55.i:                                      ; preds = %do.end.i, %do.end.i
-  %cmp57.i = icmp eq i8 %isNLUnescaped.2125129.i, 0
-  %cmp60.i = icmp ne i32 %prevC.1.i, 13
-  %or.cond5.i = select i1 %cmp57.i, i1 %cmp60.i, i1 false
-  br i1 %or.cond5.i, label %if.then62.i, label %if.end65.i
+62:                                               ; preds = %61, %61
+  %63 = icmp eq i8 %.2133174178.i, 0
+  %64 = icmp ne i32 %.1.i, 13
+  %or.cond11.i = select i1 %63, i1 %64, i1 false
+  br i1 %or.cond11.i, label %65, label %68
 
-if.then62.i:                                      ; preds = %if.then55.i
-  %11 = load i32, ptr @lineCount, align 4
-  %inc.i = add nsw i32 %11, 1
-  store i32 %inc.i, ptr @lineCount, align 4
-  br label %if.end65.i
+65:                                               ; preds = %62
+  %66 = load i32, ptr @lineCount, align 4, !tbaa !4
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr @lineCount, align 4, !tbaa !4
+  br label %68
 
-if.end65.i:                                       ; preds = %if.then62.i, %if.then55.i, %do.end.i, %if.end37.i
-  %c.1124.i = phi i32 [ %c.1123132.i, %do.end.i ], [ 92, %if.end37.i ], [ %c.1123132.i, %if.then62.i ], [ %c.1123132.i, %if.then55.i ]
-  %isFollowingCharEscaped.2.i = phi i8 [ 0, %do.end.i ], [ 1, %if.end37.i ], [ 0, %if.then62.i ], [ 0, %if.then55.i ]
-  %isNLUnescaped.3.i = phi i8 [ %isNLUnescaped.2125129.i, %do.end.i ], [ %isNLUnescaped.1.i, %if.end37.i ], [ 0, %if.then62.i ], [ 0, %if.then55.i ]
-  %12 = load i32, ptr %status, align 4
-  %cmp66.i = icmp sgt i32 %12, 0
-  br i1 %cmp66.i, label %getStringToken.exit, label %for.cond12.i
+68:                                               ; preds = %65, %62, %61, %49
+  %.1147173.i = phi i32 [ %.1147172181.i, %61 ], [ 92, %49 ], [ %.1147172181.i, %65 ], [ %.1147172181.i, %62 ]
+  %.2136.i = phi i8 [ 0, %61 ], [ 1, %49 ], [ 0, %65 ], [ 0, %62 ]
+  %.3.i = phi i8 [ %.2133174178.i, %61 ], [ %.1132.i, %49 ], [ 0, %65 ], [ 0, %62 ]
+  %69 = load i32, ptr %4, align 4, !tbaa !4
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %getStringToken.exit, label %37
 
-if.else70.i:                                      ; preds = %for.cond.i
-  %13 = load i32, ptr %fLength71.i, align 8
-  %cmp72.i = icmp sgt i32 %13, 0
-  br i1 %cmp72.i, label %if.then74.i, label %if.end79.i
+71:                                               ; preds = %28
+  %72 = load i32, ptr %26, align 8, !tbaa !8
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %74, label %77
 
-if.then74.i:                                      ; preds = %if.else70.i
-  call void @ustr_ucat(ptr noundef nonnull %token, i16 noundef zeroext 32, ptr noundef nonnull %status) #5
-  %14 = load i32, ptr %status, align 4
-  %cmp75.i = icmp sgt i32 %14, 0
-  br i1 %cmp75.i, label %getStringToken.exit, label %if.end79.i
+74:                                               ; preds = %71
+  call void @ustr_ucat(ptr noundef nonnull %1, i16 noundef zeroext 32, ptr noundef nonnull %4) #5
+  %75 = load i32, ptr %4, align 4, !tbaa !4
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %getStringToken.exit, label %77
 
-if.end79.i:                                       ; preds = %if.then74.i, %if.else70.i
-  %tobool80.not.i = icmp eq i8 %lastStringWasQuoted.0.i, 0
-  br i1 %tobool80.not.i, label %if.end90.i, label %if.then81.i
+77:                                               ; preds = %74, %71
+  %.not.i = icmp eq i8 %.0150.i, 0
+  br i1 %.not.i, label %84, label %78
 
-if.then81.i:                                      ; preds = %if.end79.i
-  %call82.i = call signext i8 @getShowWarning() #5
-  %tobool83.not.i = icmp eq i8 %call82.i, 0
-  br i1 %tobool83.not.i, label %if.end85.i, label %if.then84.i
+78:                                               ; preds = %77
+  %79 = call signext i8 @getShowWarning() #5
+  %.not160.i = icmp eq i8 %79, 0
+  br i1 %.not160.i, label %82, label %80
 
-if.then84.i:                                      ; preds = %if.then81.i
-  %15 = load i32, ptr @lineCount, align 4
-  call void (i32, ptr, ...) @warning(i32 noundef %15, ptr noundef nonnull @.str) #5
-  br label %if.end85.i
+80:                                               ; preds = %78
+  %81 = load i32, ptr @lineCount, align 4, !tbaa !4
+  call void (i32, ptr, ...) @warning(i32 noundef %81, ptr noundef nonnull @.str) #5
+  br label %82
 
-if.end85.i:                                       ; preds = %if.then84.i, %if.then81.i
-  %call86.i = call signext i8 @isStrict() #5
-  %tobool87.not.i = icmp eq i8 %call86.i, 0
-  br i1 %tobool87.not.i, label %if.end90.i, label %getStringToken.exit
+82:                                               ; preds = %80, %78
+  %83 = call signext i8 @isStrict() #5
+  %.not161.i = icmp eq i8 %83, 0
+  br i1 %.not161.i, label %84, label %getStringToken.exit
 
-if.end90.i:                                       ; preds = %if.end85.i, %if.end79.i
-  %cmp91.i = icmp eq i32 %c.0.i, 92
-  br i1 %cmp91.i, label %if.then93.i, label %do.body101.i
+84:                                               ; preds = %82, %77
+  %85 = icmp eq i32 %.0146.i, 92
+  br i1 %85, label %86, label %91
 
-if.then93.i:                                      ; preds = %if.end90.i
-  %16 = load i32, ptr %status, align 4
-  %cmp.i108.i = icmp sgt i32 %16, 0
-  br i1 %cmp.i108.i, label %getStringToken.exit, label %unescape.exit112.i
+86:                                               ; preds = %84
+  %87 = load i32, ptr %4, align 4, !tbaa !4
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %getStringToken.exit, label %unescape.exit165.i
 
-unescape.exit112.i:                               ; preds = %if.then93.i
-  call void @ucbuf_ungetc(i32 noundef 92, ptr noundef %buf) #5
-  %call.i110.i = call i32 @ucbuf_getcx32(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp96.i = icmp eq i32 %call.i110.i, -1
-  br i1 %cmp96.i, label %getStringToken.exit, label %do.body101.i
+unescape.exit165.i:                               ; preds = %86
+  call void @ucbuf_ungetc(i32 noundef 92, ptr noundef %0) #5
+  %89 = call i32 @ucbuf_getcx32(ptr noundef %0, ptr noundef nonnull %4) #5
+  %90 = icmp eq i32 %89, -1
+  br i1 %90, label %getStringToken.exit, label %91
 
-do.body101.i:                                     ; preds = %unescape.exit112.i, %if.end90.i
-  %c.2.i = phi i32 [ %call.i110.i, %unescape.exit112.i ], [ %c.0.i, %if.end90.i ]
-  %cmp102.i = icmp slt i32 %c.2.i, 65536
-  br i1 %cmp102.i, label %if.then104.i, label %if.else107.i
+91:                                               ; preds = %unescape.exit165.i, %84
+  %.2148.i = phi i32 [ %89, %unescape.exit165.i ], [ %.0146.i, %84 ]
+  %92 = icmp slt i32 %.2148.i, 65536
+  br i1 %92, label %93, label %95
 
-if.then104.i:                                     ; preds = %do.body101.i
-  %conv105.i = trunc i32 %c.2.i to i16
-  br label %do.end118.i
+93:                                               ; preds = %91
+  %94 = trunc i32 %.2148.i to i16
+  br label %102
 
-if.else107.i:                                     ; preds = %do.body101.i
-  %shr108.i = lshr i32 %c.2.i, 10
-  %17 = trunc i32 %shr108.i to i16
-  %conv110.i = add i16 %17, -10304
-  %18 = trunc i32 %c.2.i to i16
-  %19 = and i16 %18, 1023
-  %conv114.i = or disjoint i16 %19, -9216
-  store i16 %conv114.i, ptr %arrayidx115.i, align 2
-  br label %do.end118.i
+95:                                               ; preds = %91
+  %96 = lshr i32 %.2148.i, 10
+  %97 = trunc i32 %96 to i16
+  %98 = add i16 %97, -10304
+  %99 = trunc i32 %.2148.i to i16
+  %100 = and i16 %99, 1023
+  %101 = or disjoint i16 %100, -9216
+  store i16 %101, ptr %27, align 2, !tbaa !12
+  br label %102
 
-do.end118.i:                                      ; preds = %if.else107.i, %if.then104.i
-  %conv110.sink.i = phi i16 [ %conv105.i, %if.then104.i ], [ %conv110.i, %if.else107.i ]
-  %len.1.i = phi i32 [ 1, %if.then104.i ], [ 2, %if.else107.i ]
-  store i16 %conv110.sink.i, ptr %target.i, align 2
-  call void @ustr_uscat(ptr noundef nonnull %token, ptr noundef nonnull %target.i, i32 noundef %len.1.i, ptr noundef nonnull %status) #5
-  %20 = load i32, ptr %status, align 4
-  %cmp120.i = icmp sgt i32 %20, 0
-  br i1 %cmp120.i, label %getStringToken.exit, label %for.cond124.i
+102:                                              ; preds = %95, %93
+  %.sink.i = phi i16 [ %94, %93 ], [ %98, %95 ]
+  %.1139.i = phi i32 [ 1, %93 ], [ 2, %95 ]
+  store i16 %.sink.i, ptr %6, align 2, !tbaa !12
+  call void @ustr_uscat(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef %.1139.i, ptr noundef nonnull %4) #5
+  %103 = load i32, ptr %4, align 4, !tbaa !4
+  %104 = icmp sgt i32 %103, 0
+  br i1 %104, label %getStringToken.exit, label %.preheader.i
 
-for.cond124.i:                                    ; preds = %do.end118.i, %do.end181.i
-  %call125.i = call fastcc i32 @getNextChar(ptr noundef %buf, i8 noundef signext 0, ptr noundef null, ptr noundef nonnull %status)
-  %cmp126.i = icmp eq i32 %call125.i, -1
-  br i1 %cmp126.i, label %return.sink.split.i, label %if.end129.i
+.preheader.i:                                     ; preds = %102, %128
+  %105 = call fastcc i32 @getNextChar(ptr noundef %0, i8 noundef signext 0, ptr noundef null, ptr noundef nonnull %4)
+  %106 = icmp eq i32 %105, -1
+  br i1 %106, label %unescape.exit165.thread.sink.split.i, label %107
 
-if.end129.i:                                      ; preds = %for.cond124.i
-  %21 = load i32, ptr %status, align 4
-  %cmp130.i = icmp sgt i32 %21, 0
-  br i1 %cmp130.i, label %getStringToken.exit, label %if.end133.i
+107:                                              ; preds = %.preheader.i
+  %108 = load i32, ptr %4, align 4, !tbaa !4
+  %109 = icmp sgt i32 %108, 0
+  br i1 %109, label %getStringToken.exit, label %110
 
-if.end133.i:                                      ; preds = %if.end129.i
-  switch i32 %call125.i, label %do.body164.i [
-    i32 125, label %if.then148.i
-    i32 123, label %if.then148.i
-    i32 58, label %if.then148.i
-    i32 44, label %if.then148.i
-    i32 34, label %if.then148.i
-    i32 10, label %sw.bb.i.i
-    i32 8233, label %sw.bb.i.i
-    i32 13, label %if.end188.i
-    i32 32, label %if.end188.i
-    i32 9, label %if.end188.i
-    i32 65279, label %if.end188.i
-    i32 92, label %unescape.exit118.i
+110:                                              ; preds = %107
+  switch i32 %105, label %117 [
+    i32 125, label %111
+    i32 123, label %111
+    i32 58, label %111
+    i32 44, label %111
+    i32 34, label %111
+    i32 10, label %112
+    i32 8233, label %112
+    i32 13, label %isWhitespace.exit.thread.i
+    i32 32, label %isWhitespace.exit.thread.i
+    i32 9, label %isWhitespace.exit.thread.i
+    i32 65279, label %isWhitespace.exit.thread.i
+    i32 92, label %unescape.exit168.i
   ]
 
-if.then148.i:                                     ; preds = %if.end133.i, %if.end133.i, %if.end133.i, %if.end133.i, %if.end133.i
-  call void @ucbuf_ungetc(i32 noundef %call125.i, ptr noundef %buf) #5
-  br label %if.end188.i
+111:                                              ; preds = %110, %110, %110, %110, %110
+  call void @ucbuf_ungetc(i32 noundef %105, ptr noundef %0) #5
+  br label %isWhitespace.exit.thread.i
 
-sw.bb.i.i:                                        ; preds = %if.end133.i, %if.end133.i
-  %22 = load i32, ptr @lineCount, align 4
-  %inc.i.i = add nsw i32 %22, 1
-  store i32 %inc.i.i, ptr @lineCount, align 4
-  br label %if.end188.i
+112:                                              ; preds = %110, %110
+  %113 = load i32, ptr @lineCount, align 4, !tbaa !4
+  %114 = add nsw i32 %113, 1
+  store i32 %114, ptr @lineCount, align 4, !tbaa !4
+  br label %isWhitespace.exit.thread.i
 
-unescape.exit118.i:                               ; preds = %if.end133.i
-  call void @ucbuf_ungetc(i32 noundef 92, ptr noundef %buf) #5
-  %call.i116.i = call i32 @ucbuf_getcx32(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp159.i = icmp eq i32 %call.i116.i, -2
-  br i1 %cmp159.i, label %getStringToken.exit, label %do.body164.i
+unescape.exit168.i:                               ; preds = %110
+  call void @ucbuf_ungetc(i32 noundef 92, ptr noundef %0) #5
+  %115 = call i32 @ucbuf_getcx32(ptr noundef %0, ptr noundef nonnull %4) #5
+  %116 = icmp eq i32 %115, -2
+  br i1 %116, label %getStringToken.exit, label %117
 
-do.body164.i:                                     ; preds = %unescape.exit118.i, %if.end133.i
-  %c.3.i = phi i32 [ %call.i116.i, %unescape.exit118.i ], [ %call125.i, %if.end133.i ]
-  %cmp165.i = icmp slt i32 %c.3.i, 65536
-  br i1 %cmp165.i, label %if.then167.i, label %if.else170.i
+117:                                              ; preds = %unescape.exit168.i, %110
+  %.3149.i = phi i32 [ %115, %unescape.exit168.i ], [ %105, %110 ]
+  %118 = icmp slt i32 %.3149.i, 65536
+  br i1 %118, label %119, label %121
 
-if.then167.i:                                     ; preds = %do.body164.i
-  %conv168.i = trunc i32 %c.3.i to i16
-  br label %do.end181.i
+119:                                              ; preds = %117
+  %120 = trunc i32 %.3149.i to i16
+  br label %128
 
-if.else170.i:                                     ; preds = %do.body164.i
-  %shr171.i = lshr i32 %c.3.i, 10
-  %23 = trunc i32 %shr171.i to i16
-  %conv173.i = add i16 %23, -10304
-  %24 = trunc i32 %c.3.i to i16
-  %25 = and i16 %24, 1023
-  %conv177.i = or disjoint i16 %25, -9216
-  store i16 %conv177.i, ptr %arrayidx115.i, align 2
-  br label %do.end181.i
+121:                                              ; preds = %117
+  %122 = lshr i32 %.3149.i, 10
+  %123 = trunc i32 %122 to i16
+  %124 = add i16 %123, -10304
+  %125 = trunc i32 %.3149.i to i16
+  %126 = and i16 %125, 1023
+  %127 = or disjoint i16 %126, -9216
+  store i16 %127, ptr %27, align 2, !tbaa !12
+  br label %128
 
-do.end181.i:                                      ; preds = %if.else170.i, %if.then167.i
-  %conv173.sink.i = phi i16 [ %conv168.i, %if.then167.i ], [ %conv173.i, %if.else170.i ]
-  %len.2.i = phi i32 [ 1, %if.then167.i ], [ 2, %if.else170.i ]
-  store i16 %conv173.sink.i, ptr %target.i, align 2
-  call void @ustr_uscat(ptr noundef nonnull %token, ptr noundef nonnull %target.i, i32 noundef %len.2.i, ptr noundef nonnull %status) #5
-  %26 = load i32, ptr %status, align 4
-  %cmp183.i = icmp sgt i32 %26, 0
-  br i1 %cmp183.i, label %getStringToken.exit, label %for.cond124.i
+128:                                              ; preds = %121, %119
+  %.sink208.i = phi i16 [ %120, %119 ], [ %124, %121 ]
+  %.2140.i = phi i32 [ 1, %119 ], [ 2, %121 ]
+  store i16 %.sink208.i, ptr %6, align 2, !tbaa !12
+  call void @ustr_uscat(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef %.2140.i, ptr noundef nonnull %4) #5
+  %129 = load i32, ptr %4, align 4, !tbaa !4
+  %130 = icmp sgt i32 %129, 0
+  br i1 %130, label %getStringToken.exit, label %.preheader.i
 
-if.end188.i:                                      ; preds = %if.end133.i, %if.end133.i, %if.end133.i, %if.end133.i, %if.end18.i, %sw.bb.i.i, %if.then148.i
-  %lastStringWasQuoted.1.i = phi i8 [ 0, %if.then148.i ], [ 0, %sw.bb.i.i ], [ 1, %if.end18.i ], [ 0, %if.end133.i ], [ 0, %if.end133.i ], [ 0, %if.end133.i ], [ 0, %if.end133.i ]
-  %isNLUnescaped.4.i = phi i8 [ %isNLUnescaped.0.i, %if.then148.i ], [ %isNLUnescaped.0.i, %sw.bb.i.i ], [ %isNLUnescaped.1.i, %if.end18.i ], [ %isNLUnescaped.0.i, %if.end133.i ], [ %isNLUnescaped.0.i, %if.end133.i ], [ %isNLUnescaped.0.i, %if.end133.i ], [ %isNLUnescaped.0.i, %if.end133.i ]
-  %prevC.2.i = phi i32 [ %prevC.0.i, %if.then148.i ], [ %prevC.0.i, %sw.bb.i.i ], [ %prevC.1.i, %if.end18.i ], [ %prevC.0.i, %if.end133.i ], [ %prevC.0.i, %if.end133.i ], [ %prevC.0.i, %if.end133.i ], [ %prevC.0.i, %if.end133.i ]
-  %call189.i = call fastcc i32 @getNextChar(ptr noundef %buf, i8 noundef signext 1, ptr noundef null, ptr noundef nonnull %status)
-  %27 = load i32, ptr %status, align 4
-  %cmp190.i = icmp sgt i32 %27, 0
-  br i1 %cmp190.i, label %getStringToken.exit, label %if.end193.i
+isWhitespace.exit.thread.i:                       ; preds = %110, %110, %110, %110, %43, %112, %111
+  %.1151.i = phi i8 [ 0, %111 ], [ 0, %112 ], [ 1, %43 ], [ 0, %110 ], [ 0, %110 ], [ 0, %110 ], [ 0, %110 ]
+  %.4.i = phi i8 [ %.0131.i, %111 ], [ %.0131.i, %112 ], [ %.1132.i, %43 ], [ %.0131.i, %110 ], [ %.0131.i, %110 ], [ %.0131.i, %110 ], [ %.0131.i, %110 ]
+  %.2.i = phi i32 [ %.0.i, %111 ], [ %.0.i, %112 ], [ %.1.i, %43 ], [ %.0.i, %110 ], [ %.0.i, %110 ], [ %.0.i, %110 ], [ %.0.i, %110 ]
+  %131 = call fastcc i32 @getNextChar(ptr noundef %0, i8 noundef signext 1, ptr noundef null, ptr noundef nonnull %4)
+  %132 = load i32, ptr %4, align 4, !tbaa !4
+  %133 = icmp sgt i32 %132, 0
+  br i1 %133, label %getStringToken.exit, label %134
 
-if.end193.i:                                      ; preds = %if.end188.i
-  switch i32 %call189.i, label %for.cond.i [
-    i32 125, label %return.sink.split.i
-    i32 123, label %return.sink.split.i
-    i32 58, label %return.sink.split.i
-    i32 44, label %return.sink.split.i
+134:                                              ; preds = %isWhitespace.exit.thread.i
+  switch i32 %131, label %28 [
+    i32 125, label %unescape.exit165.thread.sink.split.i
+    i32 123, label %unescape.exit165.thread.sink.split.i
+    i32 58, label %unescape.exit165.thread.sink.split.i
+    i32 44, label %unescape.exit165.thread.sink.split.i
   ]
 
-return.sink.split.i:                              ; preds = %if.end193.i, %if.end193.i, %if.end193.i, %if.end193.i, %for.cond124.i
-  %call189.lcssa.sink.i = phi i32 [ -1, %for.cond124.i ], [ %call189.i, %if.end193.i ], [ %call189.i, %if.end193.i ], [ %call189.i, %if.end193.i ], [ %call189.i, %if.end193.i ]
-  call void @ucbuf_ungetc(i32 noundef %call189.lcssa.sink.i, ptr noundef %buf) #5
+unescape.exit165.thread.sink.split.i:             ; preds = %134, %134, %134, %134, %.preheader.i
+  %.lcssa.sink.i = phi i32 [ -1, %.preheader.i ], [ %131, %134 ], [ %131, %134 ], [ %131, %134 ], [ %131, %134 ]
+  call void @ucbuf_ungetc(i32 noundef %.lcssa.sink.i, ptr noundef %0) #5
   br label %getStringToken.exit
 
-getStringToken.exit:                              ; preds = %if.then7.i, %if.then74.i, %if.end85.i, %if.then93.i, %unescape.exit112.i, %do.end118.i, %if.end188.i, %if.end129.i, %unescape.exit118.i, %do.end181.i, %for.cond12.i, %if.end15.i, %unescape.exit.i, %if.end65.i, %sw.default, %if.end.i, %return.sink.split.i
-  %retval.0.i = phi i32 [ 6, %sw.default ], [ 6, %if.end.i ], [ 0, %return.sink.split.i ], [ 5, %for.cond12.i ], [ 6, %if.end15.i ], [ 6, %unescape.exit.i ], [ 6, %if.end65.i ], [ 0, %if.end129.i ], [ 6, %unescape.exit118.i ], [ 6, %do.end181.i ], [ 6, %if.then7.i ], [ 6, %if.then74.i ], [ 6, %if.end85.i ], [ 6, %unescape.exit112.i ], [ 6, %do.end118.i ], [ 0, %if.end188.i ], [ 6, %if.then93.i ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %target.i)
-  %28 = load i32, ptr @lineCount, align 4
-  store i32 %28, ptr %linenumber, align 4
-  br label %return
+getStringToken.exit:                              ; preds = %34, %74, %82, %86, %unescape.exit165.i, %102, %isWhitespace.exit.thread.i, %107, %unescape.exit168.i, %128, %37, %40, %unescape.exit.i, %68, %20, %23, %unescape.exit165.thread.sink.split.i
+  %.0152.i = phi i32 [ 6, %20 ], [ 6, %23 ], [ 0, %unescape.exit165.thread.sink.split.i ], [ 5, %37 ], [ 6, %40 ], [ 6, %unescape.exit.i ], [ 6, %68 ], [ 0, %107 ], [ 6, %unescape.exit168.i ], [ 6, %128 ], [ 6, %34 ], [ 6, %74 ], [ 6, %82 ], [ 6, %unescape.exit165.i ], [ 6, %102 ], [ 0, %isWhitespace.exit.thread.i ], [ 6, %86 ]
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #5
+  %135 = load i32, ptr @lineCount, align 4, !tbaa !4
+  store i32 %135, ptr %2, align 4, !tbaa !4
+  br label %136
 
-return:                                           ; preds = %if.end3, %if.end, %entry, %getStringToken.exit, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4
-  %retval.0 = phi i32 [ %retval.0.i, %getStringToken.exit ], [ 4, %sw.bb8 ], [ 5, %sw.bb7 ], [ 3, %sw.bb6 ], [ 2, %sw.bb5 ], [ 1, %sw.bb4 ], [ 6, %entry ], [ 6, %if.end ], [ 6, %if.end3 ]
-  ret i32 %retval.0
+136:                                              ; preds = %13, %9, %5, %getStringToken.exit, %19, %18, %17, %16, %15
+  %.0 = phi i32 [ %.0152.i, %getStringToken.exit ], [ 4, %19 ], [ 5, %18 ], [ 3, %17 ], [ 2, %16 ], [ 1, %15 ], [ 6, %5 ], [ 6, %9 ], [ 6, %13 ]
+  ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getNextChar(ptr noundef %buf, i8 noundef signext range(i8 0, 2) %skipwhite, ptr noundef %token, ptr noundef %status) unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %return, label %for.cond.preheader
+define internal fastcc i32 @getNextChar(ptr noundef %0, i8 noundef signext range(i8 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+  %5 = load i32, ptr %3, align 4, !tbaa !4
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.loopexit, label %.preheader
 
-for.cond.preheader:                               ; preds = %entry
-  %call25 = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp126 = icmp eq i32 %call25, -1
-  br i1 %cmp126, label %return, label %if.end3.lr.ph
+.preheader:                                       ; preds = %4
+  %7 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %3) #5
+  %8 = icmp eq i32 %7, -1
+  br i1 %8, label %.loopexit, label %.lr.ph
 
-if.end3.lr.ph:                                    ; preds = %for.cond.preheader
-  %tobool.not = icmp eq i8 %skipwhite, 0
-  br label %if.end3
+.lr.ph:                                           ; preds = %.preheader
+  %.not = icmp eq i8 %1, 0
+  br label %9
 
-if.end3:                                          ; preds = %if.end3.lr.ph, %for.cond.backedge
-  %call27 = phi i32 [ %call25, %if.end3.lr.ph ], [ %call, %for.cond.backedge ]
-  br i1 %tobool.not, label %if.end8, label %land.lhs.true
+9:                                                ; preds = %.lr.ph, %.backedge
+  %10 = phi i32 [ %7, %.lr.ph ], [ %46, %.backedge ]
+  br i1 %.not, label %isWhitespace.exit.thread, label %11
 
-land.lhs.true:                                    ; preds = %if.end3
-  switch i32 %call27, label %return [
-    i32 10, label %sw.bb.i
-    i32 8233, label %sw.bb.i
-    i32 13, label %for.cond.backedge
-    i32 32, label %for.cond.backedge
-    i32 9, label %for.cond.backedge
-    i32 65279, label %for.cond.backedge
-    i32 47, label %if.end12
+11:                                               ; preds = %9
+  switch i32 %10, label %.loopexit [
+    i32 10, label %12
+    i32 8233, label %12
+    i32 13, label %.backedge
+    i32 32, label %.backedge
+    i32 9, label %.backedge
+    i32 65279, label %.backedge
+    i32 47, label %15
   ]
 
-sw.bb.i:                                          ; preds = %land.lhs.true, %land.lhs.true
-  %1 = load i32, ptr @lineCount, align 4
-  %inc.i = add nsw i32 %1, 1
-  store i32 %inc.i, ptr @lineCount, align 4
-  br label %for.cond.backedge
+12:                                               ; preds = %11, %11
+  %13 = load i32, ptr @lineCount, align 4, !tbaa !4
+  %14 = add nsw i32 %13, 1
+  store i32 %14, ptr @lineCount, align 4, !tbaa !4
+  br label %.backedge
 
-if.end8:                                          ; preds = %if.end3
-  %cmp9.not = icmp eq i32 %call27, 47
-  br i1 %cmp9.not, label %if.end12, label %return
+isWhitespace.exit.thread:                         ; preds = %9
+  %.not30 = icmp eq i32 %10, 47
+  br i1 %.not30, label %15, label %.loopexit
 
-if.end12:                                         ; preds = %land.lhs.true, %if.end8
-  %call13 = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  switch i32 %call13, label %sw.default [
-    i32 -1, label %return
-    i32 47, label %sw.bb
-    i32 42, label %sw.bb18
+15:                                               ; preds = %11, %isWhitespace.exit.thread
+  %16 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %3) #5
+  switch i32 %16, label %45 [
+    i32 -1, label %.loopexit
+    i32 47, label %17
+    i32 42, label %27
   ]
 
-sw.bb:                                            ; preds = %if.end12
-  %2 = load i32, ptr %status, align 4
-  %cmp.i = icmp sgt i32 %2, 0
-  br i1 %cmp.i, label %for.cond.backedge, label %do.body.i
+17:                                               ; preds = %15
+  %18 = load i32, ptr %3, align 4, !tbaa !4
+  %19 = icmp sgt i32 %18, 0
+  br i1 %19, label %.backedge, label %.preheader.i
 
-do.body.i:                                        ; preds = %sw.bb, %land.rhs.i
-  %call.i = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  switch i32 %call.i, label %land.rhs.i [
-    i32 10, label %sw.bb.i.i
-    i32 8233, label %sw.bb.i.i
-    i32 13, label %for.cond.backedge
-    i32 -1, label %for.cond.backedge
+.preheader.i:                                     ; preds = %17, %24
+  %20 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %3) #5
+  switch i32 %20, label %24 [
+    i32 10, label %21
+    i32 8233, label %21
+    i32 13, label %.backedge
+    i32 -1, label %.backedge
   ]
 
-sw.bb.i.i:                                        ; preds = %do.body.i, %do.body.i
-  %3 = load i32, ptr @lineCount, align 4
-  %inc.i.i = add nsw i32 %3, 1
-  store i32 %inc.i.i, ptr @lineCount, align 4
-  br label %for.cond.backedge
+21:                                               ; preds = %.preheader.i, %.preheader.i
+  %22 = load i32, ptr @lineCount, align 4, !tbaa !4
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr @lineCount, align 4, !tbaa !4
+  br label %.backedge
 
-land.rhs.i:                                       ; preds = %do.body.i
-  %4 = load i32, ptr %status, align 4
-  %cmp6.i = icmp eq i32 %4, 0
-  br i1 %cmp6.i, label %do.body.i, label %for.cond.backedge, !llvm.loop !5
+24:                                               ; preds = %.preheader.i
+  %25 = load i32, ptr %3, align 4, !tbaa !4
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.preheader.i, label %.backedge, !llvm.loop !14
 
-sw.bb18:                                          ; preds = %if.end12
-  %call19 = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp20 = icmp eq i32 %call19, 42
-  br i1 %cmp20, label %if.then22, label %if.else
+27:                                               ; preds = %15
+  %28 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %3) #5
+  %29 = icmp eq i32 %28, 42
+  br i1 %29, label %30, label %31
 
-if.then22:                                        ; preds = %sw.bb18
-  tail call fastcc void @seekUntilEndOfComment(ptr noundef %buf, ptr noundef %token, ptr noundef nonnull %status)
-  br label %for.cond.backedge
+30:                                               ; preds = %27
+  tail call fastcc void @seekUntilEndOfComment(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3)
+  br label %.backedge
 
-if.else:                                          ; preds = %sw.bb18
-  tail call void @ucbuf_ungetc(i32 noundef %call19, ptr noundef %buf) #5
-  %5 = load i32, ptr %status, align 4
-  %cmp.i21 = icmp sgt i32 %5, 0
-  br i1 %cmp.i21, label %for.cond.backedge, label %if.end.i
+31:                                               ; preds = %27
+  tail call void @ucbuf_ungetc(i32 noundef %28, ptr noundef %0) #5
+  %32 = load i32, ptr %3, align 4, !tbaa !4
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %.backedge, label %34
 
-if.end.i:                                         ; preds = %if.else
-  %6 = load i32, ptr @lineCount, align 4
-  br label %do.body.us.i
+34:                                               ; preds = %31
+  %35 = load i32, ptr @lineCount, align 4, !tbaa !4
+  br label %.split.us.i
 
-do.body.us.i:                                     ; preds = %land.rhs.us.i, %if.end.i
-  %call.us.i = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  switch i32 %call.us.i, label %land.rhs.us.i [
-    i32 42, label %if.then2.us.i
+.split.us.i:                                      ; preds = %42, %34
+  %36 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %3) #5
+  switch i32 %36, label %42 [
+    i32 42, label %37
     i32 10, label %isNewline.exit.thread.us.i
     i32 8233, label %isNewline.exit.thread.us.i
-    i32 -1, label %if.then15.i
+    i32 -1, label %.split23.us.i
   ]
 
-if.then2.us.i:                                    ; preds = %do.body.us.i
-  %call3.us.i = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp4.not.us.i = icmp eq i32 %call3.us.i, 47
-  br i1 %cmp4.not.us.i, label %for.cond.backedge, label %if.then5.us.i
+37:                                               ; preds = %.split.us.i
+  %38 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %3) #5
+  %.not.us.i = icmp eq i32 %38, 47
+  br i1 %.not.us.i, label %.backedge, label %39
 
-if.then5.us.i:                                    ; preds = %if.then2.us.i
-  tail call void @ucbuf_ungetc(i32 noundef %call3.us.i, ptr noundef %buf) #5
-  br label %land.rhs.us.i
+39:                                               ; preds = %37
+  tail call void @ucbuf_ungetc(i32 noundef %38, ptr noundef %0) #5
+  br label %42
 
-isNewline.exit.thread.us.i:                       ; preds = %do.body.us.i, %do.body.us.i
-  %7 = load i32, ptr @lineCount, align 4
-  %inc.i.us.i = add nsw i32 %7, 1
-  store i32 %inc.i.us.i, ptr @lineCount, align 4
-  br label %land.rhs.us.i
+isNewline.exit.thread.us.i:                       ; preds = %.split.us.i, %.split.us.i
+  %40 = load i32, ptr @lineCount, align 4, !tbaa !4
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr @lineCount, align 4, !tbaa !4
+  br label %42
 
-land.rhs.us.i:                                    ; preds = %isNewline.exit.thread.us.i, %if.then5.us.i, %do.body.us.i
-  %8 = load i32, ptr %status, align 4
-  %cmp13.us.i = icmp eq i32 %8, 0
-  br i1 %cmp13.us.i, label %do.body.us.i, label %for.cond.backedge, !llvm.loop !7
+42:                                               ; preds = %isNewline.exit.thread.us.i, %39, %.split.us.i
+  %43 = load i32, ptr %3, align 4, !tbaa !4
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %.split.us.i, label %.backedge, !llvm.loop !16
 
-if.then15.i:                                      ; preds = %do.body.us.i
-  store i32 3, ptr %status, align 4
-  tail call void (i32, ptr, ...) @error(i32 noundef %6, ptr noundef nonnull @.str.1) #5
-  br label %for.cond.backedge
+.split23.us.i:                                    ; preds = %.split.us.i
+  store i32 3, ptr %3, align 4, !tbaa !4
+  tail call void (i32, ptr, ...) @error(i32 noundef %35, ptr noundef nonnull @.str.1) #5
+  br label %.backedge
 
-sw.default:                                       ; preds = %if.end12
-  tail call void @ucbuf_ungetc(i32 noundef %call13, ptr noundef %buf) #5
-  br label %return
+45:                                               ; preds = %15
+  tail call void @ucbuf_ungetc(i32 noundef %16, ptr noundef %0) #5
+  br label %.loopexit
 
-for.cond.backedge:                                ; preds = %if.then2.us.i, %land.rhs.us.i, %do.body.i, %do.body.i, %land.rhs.i, %if.then22, %sw.bb, %sw.bb.i.i, %if.else, %if.then15.i, %sw.bb.i, %land.lhs.true, %land.lhs.true, %land.lhs.true, %land.lhs.true
-  %call = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp1 = icmp eq i32 %call, -1
-  br i1 %cmp1, label %return, label %if.end3
+.backedge:                                        ; preds = %37, %42, %.preheader.i, %.preheader.i, %24, %30, %17, %21, %31, %.split23.us.i, %12, %11, %11, %11, %11
+  %46 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %3) #5
+  %47 = icmp eq i32 %46, -1
+  br i1 %47, label %.loopexit, label %9
 
-return:                                           ; preds = %for.cond.backedge, %if.end8, %if.end12, %land.lhs.true, %for.cond.preheader, %entry, %sw.default
-  %retval.0 = phi i32 [ 47, %sw.default ], [ -1, %entry ], [ -1, %for.cond.preheader ], [ -1, %for.cond.backedge ], [ %call27, %if.end8 ], [ %call13, %if.end12 ], [ %call27, %land.lhs.true ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %.backedge, %isWhitespace.exit.thread, %15, %11, %.preheader, %4, %45
+  %.0 = phi i32 [ 47, %45 ], [ -1, %4 ], [ -1, %.preheader ], [ -1, %.backedge ], [ %10, %isWhitespace.exit.thread ], [ %16, %15 ], [ %10, %11 ]
+  ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @unescape(ptr noundef %buf, ptr noundef %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %return, label %if.end
+define dso_local i32 @unescape(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load i32, ptr %1, align 4, !tbaa !4
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %7, label %5
 
-if.end:                                           ; preds = %entry
-  tail call void @ucbuf_ungetc(i32 noundef 92, ptr noundef %buf) #5
-  %call = tail call i32 @ucbuf_getcx32(ptr noundef %buf, ptr noundef nonnull %status) #5
-  br label %return
+5:                                                ; preds = %2
+  tail call void @ucbuf_ungetc(i32 noundef 92, ptr noundef %0) #5
+  %6 = tail call i32 @ucbuf_getcx32(ptr noundef %0, ptr noundef nonnull %1) #5
+  br label %7
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ %call, %if.end ], [ -1, %entry ]
-  ret i32 %retval.0
+7:                                                ; preds = %2, %5
+  %.0 = phi i32 [ %6, %5 ], [ -1, %2 ]
+  ret i32 %.0
 }
 
-declare void @ucbuf_ungetc(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ucbuf_ungetc(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ucbuf_getcx32(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ucbuf_getcx32(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @ustr_setlen(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ustr_setlen(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ustr_ucat(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare void @ustr_ucat(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ucbuf_getc(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ucbuf_getc(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ustr_uscat(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ustr_uscat(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare signext i8 @getShowWarning() local_unnamed_addr #2
+declare signext i8 @getShowWarning() local_unnamed_addr #3
 
-declare void @warning(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @warning(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare signext i8 @isStrict() local_unnamed_addr #2
+declare signext i8 @isStrict() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @seekUntilEndOfComment(ptr noundef %buf, ptr noundef %token, ptr noundef %status) unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp = icmp sgt i32 %0, 0
-  br i1 %cmp, label %if.end16, label %if.end
+define internal fastcc void @seekUntilEndOfComment(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+  %4 = load i32, ptr %2, align 4, !tbaa !4
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.critedge, label %6
 
-if.end:                                           ; preds = %entry
-  %1 = load i32, ptr @lineCount, align 4
-  %cmp8.not = icmp eq ptr %token, null
-  br i1 %cmp8.not, label %do.body.us, label %do.body
+6:                                                ; preds = %3
+  %7 = load i32, ptr @lineCount, align 4, !tbaa !4
+  %.not19 = icmp eq ptr %1, null
+  br i1 %.not19, label %.split.us, label %.split
 
-do.body.us:                                       ; preds = %if.end, %land.rhs.us
-  %call.us = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  switch i32 %call.us, label %land.rhs.us [
-    i32 42, label %if.then2.us
+.split.us:                                        ; preds = %6, %14
+  %8 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %2) #5
+  switch i32 %8, label %14 [
+    i32 42, label %9
     i32 10, label %isNewline.exit.thread.us
     i32 8233, label %isNewline.exit.thread.us
-    i32 -1, label %if.then15
+    i32 -1, label %.split23.us
   ]
 
-if.then2.us:                                      ; preds = %do.body.us
-  %call3.us = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp4.not.us = icmp eq i32 %call3.us, 47
-  br i1 %cmp4.not.us, label %if.end16, label %if.then5.us
+9:                                                ; preds = %.split.us
+  %10 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %2) #5
+  %.not.us = icmp eq i32 %10, 47
+  br i1 %.not.us, label %.critedge, label %11
 
-if.then5.us:                                      ; preds = %if.then2.us
-  tail call void @ucbuf_ungetc(i32 noundef %call3.us, ptr noundef %buf) #5
-  br label %land.rhs.us
+11:                                               ; preds = %9
+  tail call void @ucbuf_ungetc(i32 noundef %10, ptr noundef %0) #5
+  br label %14
 
-isNewline.exit.thread.us:                         ; preds = %do.body.us, %do.body.us
-  %2 = load i32, ptr @lineCount, align 4
-  %inc.i.us = add nsw i32 %2, 1
-  store i32 %inc.i.us, ptr @lineCount, align 4
-  br label %land.rhs.us
+isNewline.exit.thread.us:                         ; preds = %.split.us, %.split.us
+  %12 = load i32, ptr @lineCount, align 4, !tbaa !4
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr @lineCount, align 4, !tbaa !4
+  br label %14
 
-land.rhs.us:                                      ; preds = %if.then5.us, %do.body.us, %isNewline.exit.thread.us
-  %3 = load i32, ptr %status, align 4
-  %cmp13.us = icmp eq i32 %3, 0
-  br i1 %cmp13.us, label %do.body.us, label %if.end16, !llvm.loop !7
+14:                                               ; preds = %11, %.split.us, %isNewline.exit.thread.us
+  %15 = load i32, ptr %2, align 4, !tbaa !4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %.split.us, label %.critedge, !llvm.loop !16
 
-do.body:                                          ; preds = %if.end, %land.rhs
-  %call = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp1 = icmp eq i32 %call, 42
-  br i1 %cmp1, label %if.then2, label %if.end7
+.split:                                           ; preds = %6, %24
+  %17 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %2) #5
+  %18 = icmp eq i32 %17, 42
+  br i1 %18, label %19, label %21
 
-if.then2:                                         ; preds = %do.body
-  %call3 = tail call i32 @ucbuf_getc(ptr noundef %buf, ptr noundef nonnull %status) #5
-  %cmp4.not = icmp eq i32 %call3, 47
-  br i1 %cmp4.not, label %if.end16, label %if.end7.thread
+19:                                               ; preds = %.split
+  %20 = tail call i32 @ucbuf_getc(ptr noundef %0, ptr noundef nonnull %2) #5
+  %.not = icmp eq i32 %20, 47
+  br i1 %.not, label %.critedge, label %.thread
 
-if.end7.thread:                                   ; preds = %if.then2
-  tail call void @ucbuf_ungetc(i32 noundef %call3, ptr noundef %buf) #5
-  tail call void @ustr_u32cat(ptr noundef nonnull %token, i32 noundef %call, ptr noundef nonnull %status) #5
-  br label %land.rhs
+.thread:                                          ; preds = %19
+  tail call void @ucbuf_ungetc(i32 noundef %20, ptr noundef %0) #5
+  tail call void @ustr_u32cat(ptr noundef nonnull %1, i32 noundef %17, ptr noundef nonnull %2) #5
+  br label %24
 
-if.end7:                                          ; preds = %do.body
-  tail call void @ustr_u32cat(ptr noundef nonnull %token, i32 noundef %call, ptr noundef nonnull %status) #5
-  switch i32 %call, label %land.rhs [
+21:                                               ; preds = %.split
+  tail call void @ustr_u32cat(ptr noundef nonnull %1, i32 noundef %17, ptr noundef nonnull %2) #5
+  switch i32 %17, label %24 [
     i32 10, label %isNewline.exit.thread
     i32 8233, label %isNewline.exit.thread
-    i32 -1, label %if.then15
+    i32 -1, label %.split23.us
   ]
 
-isNewline.exit.thread:                            ; preds = %if.end7, %if.end7
-  %4 = load i32, ptr @lineCount, align 4
-  %inc.i = add nsw i32 %4, 1
-  store i32 %inc.i, ptr @lineCount, align 4
-  br label %land.rhs
+isNewline.exit.thread:                            ; preds = %21, %21
+  %22 = load i32, ptr @lineCount, align 4, !tbaa !4
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr @lineCount, align 4, !tbaa !4
+  br label %24
 
-land.rhs:                                         ; preds = %if.end7.thread, %if.end7, %isNewline.exit.thread
-  %5 = load i32, ptr %status, align 4
-  %cmp13 = icmp eq i32 %5, 0
-  br i1 %cmp13, label %do.body, label %if.end16, !llvm.loop !7
+24:                                               ; preds = %.thread, %21, %isNewline.exit.thread
+  %25 = load i32, ptr %2, align 4, !tbaa !4
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.split, label %.critedge, !llvm.loop !16
 
-if.then15:                                        ; preds = %if.end7, %do.body.us
-  store i32 3, ptr %status, align 4
-  tail call void (i32, ptr, ...) @error(i32 noundef %1, ptr noundef nonnull @.str.1) #5
-  br label %if.end16
+.split23.us:                                      ; preds = %21, %.split.us
+  store i32 3, ptr %2, align 4, !tbaa !4
+  tail call void (i32, ptr, ...) @error(i32 noundef %7, ptr noundef nonnull @.str.1) #5
+  br label %.critedge
 
-if.end16:                                         ; preds = %if.then2, %land.rhs, %land.rhs.us, %if.then2.us, %entry, %if.then15
+.critedge:                                        ; preds = %19, %24, %14, %9, %.split23.us, %3
   ret void
 }
 
-declare void @ustr_u32cat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ustr_u32cat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !5, i64 8}
+!9 = !{!"UString", !10, i64 0, !5, i64 8, !5, i64 12}
+!10 = !{!"p1 short", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = distinct !{!16, !15}

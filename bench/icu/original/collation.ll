@@ -1,383 +1,414 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN6icu_759Collation25incTwoBytePrimaryByOffsetEjai(i32 noundef %basePrimary, i8 noundef signext %isCompressible, i32 noundef %offset) #0 align 2 {
-entry:
-  %basePrimary.addr = alloca i32, align 4
-  %isCompressible.addr = alloca i8, align 1
-  %offset.addr = alloca i32, align 4
-  %primary = alloca i32, align 4
-  store i32 %basePrimary, ptr %basePrimary.addr, align 4
-  store i8 %isCompressible, ptr %isCompressible.addr, align 1
-  store i32 %offset, ptr %offset.addr, align 4
-  %0 = load i8, ptr %isCompressible.addr, align 1
-  %tobool = icmp ne i8 %0, 0
-  br i1 %tobool, label %if.then, label %if.else
+define noundef i32 @_ZN6icu_779Collation25incTwoBytePrimaryByOffsetEjai(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i8 %1, ptr %5, align 1, !tbaa !7
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #2
+  %8 = load i8, ptr %5, align 1, !tbaa !7
+  %9 = icmp ne i8 %8, 0
+  br i1 %9, label %10, label %23
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %basePrimary.addr, align 4
-  %shr = lshr i32 %1, 16
-  %and = and i32 %shr, 255
-  %sub = sub nsw i32 %and, 4
-  %2 = load i32, ptr %offset.addr, align 4
-  %add = add nsw i32 %2, %sub
-  store i32 %add, ptr %offset.addr, align 4
-  %3 = load i32, ptr %offset.addr, align 4
-  %rem = srem i32 %3, 251
-  %add1 = add nsw i32 %rem, 4
-  %shl = shl i32 %add1, 16
-  store i32 %shl, ptr %primary, align 4
-  %4 = load i32, ptr %offset.addr, align 4
-  %div = sdiv i32 %4, 251
-  store i32 %div, ptr %offset.addr, align 4
-  br label %if.end
+10:                                               ; preds = %3
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  %12 = lshr i32 %11, 16
+  %13 = and i32 %12, 255
+  %14 = sub nsw i32 %13, 4
+  %15 = load i32, ptr %6, align 4, !tbaa !3
+  %16 = add nsw i32 %15, %14
+  store i32 %16, ptr %6, align 4, !tbaa !3
+  %17 = load i32, ptr %6, align 4, !tbaa !3
+  %18 = srem i32 %17, 251
+  %19 = add nsw i32 %18, 4
+  %20 = shl i32 %19, 16
+  store i32 %20, ptr %7, align 4, !tbaa !3
+  %21 = load i32, ptr %6, align 4, !tbaa !3
+  %22 = sdiv i32 %21, 251
+  store i32 %22, ptr %6, align 4, !tbaa !3
+  br label %36
 
-if.else:                                          ; preds = %entry
-  %5 = load i32, ptr %basePrimary.addr, align 4
-  %shr2 = lshr i32 %5, 16
-  %and3 = and i32 %shr2, 255
-  %sub4 = sub nsw i32 %and3, 2
-  %6 = load i32, ptr %offset.addr, align 4
-  %add5 = add nsw i32 %6, %sub4
-  store i32 %add5, ptr %offset.addr, align 4
-  %7 = load i32, ptr %offset.addr, align 4
-  %rem6 = srem i32 %7, 254
-  %add7 = add nsw i32 %rem6, 2
-  %shl8 = shl i32 %add7, 16
-  store i32 %shl8, ptr %primary, align 4
-  %8 = load i32, ptr %offset.addr, align 4
-  %div9 = sdiv i32 %8, 254
-  store i32 %div9, ptr %offset.addr, align 4
-  br label %if.end
+23:                                               ; preds = %3
+  %24 = load i32, ptr %4, align 4, !tbaa !3
+  %25 = lshr i32 %24, 16
+  %26 = and i32 %25, 255
+  %27 = sub nsw i32 %26, 2
+  %28 = load i32, ptr %6, align 4, !tbaa !3
+  %29 = add nsw i32 %28, %27
+  store i32 %29, ptr %6, align 4, !tbaa !3
+  %30 = load i32, ptr %6, align 4, !tbaa !3
+  %31 = srem i32 %30, 254
+  %32 = add nsw i32 %31, 2
+  %33 = shl i32 %32, 16
+  store i32 %33, ptr %7, align 4, !tbaa !3
+  %34 = load i32, ptr %6, align 4, !tbaa !3
+  %35 = sdiv i32 %34, 254
+  store i32 %35, ptr %6, align 4, !tbaa !3
+  br label %36
 
-if.end:                                           ; preds = %if.else, %if.then
-  %9 = load i32, ptr %primary, align 4
-  %10 = load i32, ptr %basePrimary.addr, align 4
-  %and10 = and i32 %10, -16777216
-  %11 = load i32, ptr %offset.addr, align 4
-  %shl11 = shl i32 %11, 24
-  %add12 = add i32 %and10, %shl11
-  %or = or i32 %9, %add12
-  ret i32 %or
+36:                                               ; preds = %23, %10
+  %37 = load i32, ptr %7, align 4, !tbaa !3
+  %38 = load i32, ptr %4, align 4, !tbaa !3
+  %39 = and i32 %38, -16777216
+  %40 = load i32, ptr %6, align 4, !tbaa !3
+  %41 = shl i32 %40, 24
+  %42 = add i32 %39, %41
+  %43 = or i32 %37, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #2
+  ret i32 %43
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef i32 @_ZN6icu_779Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i8 %1, ptr %5, align 1, !tbaa !7
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  %8 = load i32, ptr %4, align 4, !tbaa !3
+  %9 = lshr i32 %8, 8
+  %10 = and i32 %9, 255
+  %11 = sub nsw i32 %10, 2
+  %12 = load i32, ptr %6, align 4, !tbaa !3
+  %13 = add nsw i32 %12, %11
+  store i32 %13, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #2
+  %14 = load i32, ptr %6, align 4, !tbaa !3
+  %15 = srem i32 %14, 254
+  %16 = add nsw i32 %15, 2
+  %17 = shl i32 %16, 8
+  store i32 %17, ptr %7, align 4, !tbaa !3
+  %18 = load i32, ptr %6, align 4, !tbaa !3
+  %19 = sdiv i32 %18, 254
+  store i32 %19, ptr %6, align 4, !tbaa !3
+  %20 = load i8, ptr %5, align 1, !tbaa !7
+  %21 = icmp ne i8 %20, 0
+  br i1 %21, label %22, label %37
+
+22:                                               ; preds = %3
+  %23 = load i32, ptr %4, align 4, !tbaa !3
+  %24 = lshr i32 %23, 16
+  %25 = and i32 %24, 255
+  %26 = sub nsw i32 %25, 4
+  %27 = load i32, ptr %6, align 4, !tbaa !3
+  %28 = add nsw i32 %27, %26
+  store i32 %28, ptr %6, align 4, !tbaa !3
+  %29 = load i32, ptr %6, align 4, !tbaa !3
+  %30 = srem i32 %29, 251
+  %31 = add nsw i32 %30, 4
+  %32 = shl i32 %31, 16
+  %33 = load i32, ptr %7, align 4, !tbaa !3
+  %34 = or i32 %33, %32
+  store i32 %34, ptr %7, align 4, !tbaa !3
+  %35 = load i32, ptr %6, align 4, !tbaa !3
+  %36 = sdiv i32 %35, 251
+  store i32 %36, ptr %6, align 4, !tbaa !3
+  br label %52
+
+37:                                               ; preds = %3
+  %38 = load i32, ptr %4, align 4, !tbaa !3
+  %39 = lshr i32 %38, 16
+  %40 = and i32 %39, 255
+  %41 = sub nsw i32 %40, 2
+  %42 = load i32, ptr %6, align 4, !tbaa !3
+  %43 = add nsw i32 %42, %41
+  store i32 %43, ptr %6, align 4, !tbaa !3
+  %44 = load i32, ptr %6, align 4, !tbaa !3
+  %45 = srem i32 %44, 254
+  %46 = add nsw i32 %45, 2
+  %47 = shl i32 %46, 16
+  %48 = load i32, ptr %7, align 4, !tbaa !3
+  %49 = or i32 %48, %47
+  store i32 %49, ptr %7, align 4, !tbaa !3
+  %50 = load i32, ptr %6, align 4, !tbaa !3
+  %51 = sdiv i32 %50, 254
+  store i32 %51, ptr %6, align 4, !tbaa !3
+  br label %52
+
+52:                                               ; preds = %37, %22
+  %53 = load i32, ptr %7, align 4, !tbaa !3
+  %54 = load i32, ptr %4, align 4, !tbaa !3
+  %55 = and i32 %54, -16777216
+  %56 = load i32, ptr %6, align 4, !tbaa !3
+  %57 = shl i32 %56, 24
+  %58 = add i32 %55, %57
+  %59 = or i32 %53, %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #2
+  ret i32 %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef %basePrimary, i8 noundef signext %isCompressible, i32 noundef %offset) #0 align 2 {
-entry:
-  %basePrimary.addr = alloca i32, align 4
-  %isCompressible.addr = alloca i8, align 1
-  %offset.addr = alloca i32, align 4
-  %primary = alloca i32, align 4
-  store i32 %basePrimary, ptr %basePrimary.addr, align 4
-  store i8 %isCompressible, ptr %isCompressible.addr, align 1
-  store i32 %offset, ptr %offset.addr, align 4
-  %0 = load i32, ptr %basePrimary.addr, align 4
-  %shr = lshr i32 %0, 8
-  %and = and i32 %shr, 255
-  %sub = sub nsw i32 %and, 2
-  %1 = load i32, ptr %offset.addr, align 4
-  %add = add nsw i32 %1, %sub
-  store i32 %add, ptr %offset.addr, align 4
-  %2 = load i32, ptr %offset.addr, align 4
-  %rem = srem i32 %2, 254
-  %add1 = add nsw i32 %rem, 2
-  %shl = shl i32 %add1, 8
-  store i32 %shl, ptr %primary, align 4
-  %3 = load i32, ptr %offset.addr, align 4
-  %div = sdiv i32 %3, 254
-  store i32 %div, ptr %offset.addr, align 4
-  %4 = load i8, ptr %isCompressible.addr, align 1
-  %tobool = icmp ne i8 %4, 0
-  br i1 %tobool, label %if.then, label %if.else
+define noundef i32 @_ZN6icu_779Collation26decTwoBytePrimaryByOneStepEjai(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i8 %1, ptr %5, align 1, !tbaa !7
+  store i32 %2, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #2
+  %8 = load i32, ptr %4, align 4, !tbaa !3
+  %9 = lshr i32 %8, 16
+  %10 = and i32 %9, 255
+  %11 = load i32, ptr %6, align 4, !tbaa !3
+  %12 = sub nsw i32 %10, %11
+  store i32 %12, ptr %7, align 4, !tbaa !3
+  %13 = load i8, ptr %5, align 1, !tbaa !7
+  %14 = icmp ne i8 %13, 0
+  br i1 %14, label %15, label %24
 
-if.then:                                          ; preds = %entry
-  %5 = load i32, ptr %basePrimary.addr, align 4
-  %shr2 = lshr i32 %5, 16
-  %and3 = and i32 %shr2, 255
-  %sub4 = sub nsw i32 %and3, 4
-  %6 = load i32, ptr %offset.addr, align 4
-  %add5 = add nsw i32 %6, %sub4
-  store i32 %add5, ptr %offset.addr, align 4
-  %7 = load i32, ptr %offset.addr, align 4
-  %rem6 = srem i32 %7, 251
-  %add7 = add nsw i32 %rem6, 4
-  %shl8 = shl i32 %add7, 16
-  %8 = load i32, ptr %primary, align 4
-  %or = or i32 %8, %shl8
-  store i32 %or, ptr %primary, align 4
-  %9 = load i32, ptr %offset.addr, align 4
-  %div9 = sdiv i32 %9, 251
-  store i32 %div9, ptr %offset.addr, align 4
-  br label %if.end
+15:                                               ; preds = %3
+  %16 = load i32, ptr %7, align 4, !tbaa !3
+  %17 = icmp slt i32 %16, 4
+  br i1 %17, label %18, label %23
 
-if.else:                                          ; preds = %entry
-  %10 = load i32, ptr %basePrimary.addr, align 4
-  %shr10 = lshr i32 %10, 16
-  %and11 = and i32 %shr10, 255
-  %sub12 = sub nsw i32 %and11, 2
-  %11 = load i32, ptr %offset.addr, align 4
-  %add13 = add nsw i32 %11, %sub12
-  store i32 %add13, ptr %offset.addr, align 4
-  %12 = load i32, ptr %offset.addr, align 4
-  %rem14 = srem i32 %12, 254
-  %add15 = add nsw i32 %rem14, 2
-  %shl16 = shl i32 %add15, 16
-  %13 = load i32, ptr %primary, align 4
-  %or17 = or i32 %13, %shl16
-  store i32 %or17, ptr %primary, align 4
-  %14 = load i32, ptr %offset.addr, align 4
-  %div18 = sdiv i32 %14, 254
-  store i32 %div18, ptr %offset.addr, align 4
-  br label %if.end
+18:                                               ; preds = %15
+  %19 = load i32, ptr %7, align 4, !tbaa !3
+  %20 = add nsw i32 %19, 251
+  store i32 %20, ptr %7, align 4, !tbaa !3
+  %21 = load i32, ptr %4, align 4, !tbaa !3
+  %22 = sub i32 %21, 16777216
+  store i32 %22, ptr %4, align 4, !tbaa !3
+  br label %23
 
-if.end:                                           ; preds = %if.else, %if.then
-  %15 = load i32, ptr %primary, align 4
-  %16 = load i32, ptr %basePrimary.addr, align 4
-  %and19 = and i32 %16, -16777216
-  %17 = load i32, ptr %offset.addr, align 4
-  %shl20 = shl i32 %17, 24
-  %add21 = add i32 %and19, %shl20
-  %or22 = or i32 %15, %add21
-  ret i32 %or22
+23:                                               ; preds = %18, %15
+  br label %33
+
+24:                                               ; preds = %3
+  %25 = load i32, ptr %7, align 4, !tbaa !3
+  %26 = icmp slt i32 %25, 2
+  br i1 %26, label %27, label %32
+
+27:                                               ; preds = %24
+  %28 = load i32, ptr %7, align 4, !tbaa !3
+  %29 = add nsw i32 %28, 254
+  store i32 %29, ptr %7, align 4, !tbaa !3
+  %30 = load i32, ptr %4, align 4, !tbaa !3
+  %31 = sub i32 %30, 16777216
+  store i32 %31, ptr %4, align 4, !tbaa !3
+  br label %32
+
+32:                                               ; preds = %27, %24
+  br label %33
+
+33:                                               ; preds = %32, %23
+  %34 = load i32, ptr %4, align 4, !tbaa !3
+  %35 = and i32 %34, -16777216
+  %36 = load i32, ptr %7, align 4, !tbaa !3
+  %37 = shl i32 %36, 16
+  %38 = or i32 %35, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #2
+  ret i32 %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN6icu_759Collation26decTwoBytePrimaryByOneStepEjai(i32 noundef %basePrimary, i8 noundef signext %isCompressible, i32 noundef %step) #0 align 2 {
-entry:
-  %basePrimary.addr = alloca i32, align 4
-  %isCompressible.addr = alloca i8, align 1
-  %step.addr = alloca i32, align 4
-  %byte2 = alloca i32, align 4
-  store i32 %basePrimary, ptr %basePrimary.addr, align 4
-  store i8 %isCompressible, ptr %isCompressible.addr, align 1
-  store i32 %step, ptr %step.addr, align 4
-  %0 = load i32, ptr %basePrimary.addr, align 4
-  %shr = lshr i32 %0, 16
-  %and = and i32 %shr, 255
-  %1 = load i32, ptr %step.addr, align 4
-  %sub = sub nsw i32 %and, %1
-  store i32 %sub, ptr %byte2, align 4
-  %2 = load i8, ptr %isCompressible.addr, align 1
-  %tobool = icmp ne i8 %2, 0
-  br i1 %tobool, label %if.then, label %if.else
+define noundef i32 @_ZN6icu_779Collation28decThreeBytePrimaryByOneStepEjai(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) #0 align 2 {
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !3
+  store i8 %1, ptr %6, align 1, !tbaa !7
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #2
+  %11 = load i32, ptr %5, align 4, !tbaa !3
+  %12 = lshr i32 %11, 8
+  %13 = and i32 %12, 255
+  %14 = load i32, ptr %7, align 4, !tbaa !3
+  %15 = sub nsw i32 %13, %14
+  store i32 %15, ptr %8, align 4, !tbaa !3
+  %16 = load i32, ptr %8, align 4, !tbaa !3
+  %17 = icmp sge i32 %16, 2
+  br i1 %17, label %18, label %24
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %byte2, align 4
-  %cmp = icmp slt i32 %3, 4
-  br i1 %cmp, label %if.then1, label %if.end
+18:                                               ; preds = %3
+  %19 = load i32, ptr %5, align 4, !tbaa !3
+  %20 = and i32 %19, -65536
+  %21 = load i32, ptr %8, align 4, !tbaa !3
+  %22 = shl i32 %21, 8
+  %23 = or i32 %20, %22
+  store i32 %23, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %56
 
-if.then1:                                         ; preds = %if.then
-  %4 = load i32, ptr %byte2, align 4
-  %add = add nsw i32 %4, 251
-  store i32 %add, ptr %byte2, align 4
-  %5 = load i32, ptr %basePrimary.addr, align 4
-  %sub2 = sub i32 %5, 16777216
-  store i32 %sub2, ptr %basePrimary.addr, align 4
-  br label %if.end
+24:                                               ; preds = %3
+  %25 = load i32, ptr %8, align 4, !tbaa !3
+  %26 = add nsw i32 %25, 254
+  store i32 %26, ptr %8, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #2
+  %27 = load i32, ptr %5, align 4, !tbaa !3
+  %28 = lshr i32 %27, 16
+  %29 = and i32 %28, 255
+  %30 = sub nsw i32 %29, 1
+  store i32 %30, ptr %10, align 4, !tbaa !3
+  %31 = load i8, ptr %6, align 1, !tbaa !7
+  %32 = icmp ne i8 %31, 0
+  br i1 %32, label %33, label %40
 
-if.end:                                           ; preds = %if.then1, %if.then
-  br label %if.end8
+33:                                               ; preds = %24
+  %34 = load i32, ptr %10, align 4, !tbaa !3
+  %35 = icmp slt i32 %34, 4
+  br i1 %35, label %36, label %39
 
-if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %byte2, align 4
-  %cmp3 = icmp slt i32 %6, 2
-  br i1 %cmp3, label %if.then4, label %if.end7
+36:                                               ; preds = %33
+  store i32 254, ptr %10, align 4, !tbaa !3
+  %37 = load i32, ptr %5, align 4, !tbaa !3
+  %38 = sub i32 %37, 16777216
+  store i32 %38, ptr %5, align 4, !tbaa !3
+  br label %39
 
-if.then4:                                         ; preds = %if.else
-  %7 = load i32, ptr %byte2, align 4
-  %add5 = add nsw i32 %7, 254
-  store i32 %add5, ptr %byte2, align 4
-  %8 = load i32, ptr %basePrimary.addr, align 4
-  %sub6 = sub i32 %8, 16777216
-  store i32 %sub6, ptr %basePrimary.addr, align 4
-  br label %if.end7
+39:                                               ; preds = %36, %33
+  br label %47
 
-if.end7:                                          ; preds = %if.then4, %if.else
-  br label %if.end8
+40:                                               ; preds = %24
+  %41 = load i32, ptr %10, align 4, !tbaa !3
+  %42 = icmp slt i32 %41, 2
+  br i1 %42, label %43, label %46
 
-if.end8:                                          ; preds = %if.end7, %if.end
-  %9 = load i32, ptr %basePrimary.addr, align 4
-  %and9 = and i32 %9, -16777216
-  %10 = load i32, ptr %byte2, align 4
-  %shl = shl i32 %10, 16
-  %or = or i32 %and9, %shl
-  ret i32 %or
+43:                                               ; preds = %40
+  store i32 255, ptr %10, align 4, !tbaa !3
+  %44 = load i32, ptr %5, align 4, !tbaa !3
+  %45 = sub i32 %44, 16777216
+  store i32 %45, ptr %5, align 4, !tbaa !3
+  br label %46
+
+46:                                               ; preds = %43, %40
+  br label %47
+
+47:                                               ; preds = %46, %39
+  %48 = load i32, ptr %5, align 4, !tbaa !3
+  %49 = and i32 %48, -16777216
+  %50 = load i32, ptr %10, align 4, !tbaa !3
+  %51 = shl i32 %50, 16
+  %52 = or i32 %49, %51
+  %53 = load i32, ptr %8, align 4, !tbaa !3
+  %54 = shl i32 %53, 8
+  %55 = or i32 %52, %54
+  store i32 %55, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #2
+  br label %56
+
+56:                                               ; preds = %47, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #2
+  %57 = load i32, ptr %4, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN6icu_759Collation28decThreeBytePrimaryByOneStepEjai(i32 noundef %basePrimary, i8 noundef signext %isCompressible, i32 noundef %step) #0 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %basePrimary.addr = alloca i32, align 4
-  %isCompressible.addr = alloca i8, align 1
-  %step.addr = alloca i32, align 4
-  %byte3 = alloca i32, align 4
-  %byte2 = alloca i32, align 4
-  store i32 %basePrimary, ptr %basePrimary.addr, align 4
-  store i8 %isCompressible, ptr %isCompressible.addr, align 1
-  store i32 %step, ptr %step.addr, align 4
-  %0 = load i32, ptr %basePrimary.addr, align 4
-  %shr = lshr i32 %0, 8
-  %and = and i32 %shr, 255
-  %1 = load i32, ptr %step.addr, align 4
-  %sub = sub nsw i32 %and, %1
-  store i32 %sub, ptr %byte3, align 4
-  %2 = load i32, ptr %byte3, align 4
-  %cmp = icmp sge i32 %2, 2
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %basePrimary.addr, align 4
-  %and1 = and i32 %3, -65536
-  %4 = load i32, ptr %byte3, align 4
-  %shl = shl i32 %4, 8
-  %or = or i32 %and1, %shl
-  store i32 %or, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load i32, ptr %byte3, align 4
-  %add = add nsw i32 %5, 254
-  store i32 %add, ptr %byte3, align 4
-  %6 = load i32, ptr %basePrimary.addr, align 4
-  %shr2 = lshr i32 %6, 16
-  %and3 = and i32 %shr2, 255
-  %sub4 = sub nsw i32 %and3, 1
-  store i32 %sub4, ptr %byte2, align 4
-  %7 = load i8, ptr %isCompressible.addr, align 1
-  %tobool = icmp ne i8 %7, 0
-  br i1 %tobool, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %if.end
-  %8 = load i32, ptr %byte2, align 4
-  %cmp6 = icmp slt i32 %8, 4
-  br i1 %cmp6, label %if.then7, label %if.end9
-
-if.then7:                                         ; preds = %if.then5
-  store i32 254, ptr %byte2, align 4
-  %9 = load i32, ptr %basePrimary.addr, align 4
-  %sub8 = sub i32 %9, 16777216
-  store i32 %sub8, ptr %basePrimary.addr, align 4
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.then7, %if.then5
-  br label %if.end14
-
-if.else:                                          ; preds = %if.end
-  %10 = load i32, ptr %byte2, align 4
-  %cmp10 = icmp slt i32 %10, 2
-  br i1 %cmp10, label %if.then11, label %if.end13
-
-if.then11:                                        ; preds = %if.else
-  store i32 255, ptr %byte2, align 4
-  %11 = load i32, ptr %basePrimary.addr, align 4
-  %sub12 = sub i32 %11, 16777216
-  store i32 %sub12, ptr %basePrimary.addr, align 4
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then11, %if.else
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.end13, %if.end9
-  %12 = load i32, ptr %basePrimary.addr, align 4
-  %and15 = and i32 %12, -16777216
-  %13 = load i32, ptr %byte2, align 4
-  %shl16 = shl i32 %13, 16
-  %or17 = or i32 %and15, %shl16
-  %14 = load i32, ptr %byte3, align 4
-  %shl18 = shl i32 %14, 8
-  %or19 = or i32 %or17, %shl18
-  store i32 %or19, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end14, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+define noundef i32 @_ZN6icu_779Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i8, align 1
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #2
+  %9 = load i64, ptr %4, align 8, !tbaa !8
+  %10 = ashr i64 %9, 32
+  %11 = trunc i64 %10 to i32
+  store i32 %11, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #2
+  %12 = load i64, ptr %4, align 8, !tbaa !8
+  %13 = trunc i64 %12 to i32
+  store i32 %13, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #2
+  %14 = load i32, ptr %3, align 4, !tbaa !3
+  %15 = load i32, ptr %6, align 4, !tbaa !3
+  %16 = ashr i32 %15, 8
+  %17 = sub nsw i32 %14, %16
+  %18 = load i32, ptr %6, align 4, !tbaa !3
+  %19 = and i32 %18, 127
+  %20 = mul nsw i32 %17, %19
+  store i32 %20, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #2
+  %21 = load i32, ptr %6, align 4, !tbaa !3
+  %22 = and i32 %21, 128
+  %23 = icmp ne i32 %22, 0
+  %24 = zext i1 %23 to i8
+  store i8 %24, ptr %8, align 1, !tbaa !7
+  %25 = load i32, ptr %5, align 4, !tbaa !3
+  %26 = load i8, ptr %8, align 1, !tbaa !7
+  %27 = load i32, ptr %7, align 4, !tbaa !3
+  %28 = call noundef i32 @_ZN6icu_779Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef %25, i8 noundef signext %26, i32 noundef %27)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #2
+  ret i32 %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN6icu_759Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %c, i64 noundef %dataCE) #0 align 2 {
-entry:
-  %c.addr = alloca i32, align 4
-  %dataCE.addr = alloca i64, align 8
-  %p = alloca i32, align 4
-  %lower32 = alloca i32, align 4
-  %offset = alloca i32, align 4
-  %isCompressible = alloca i8, align 1
-  store i32 %c, ptr %c.addr, align 4
-  store i64 %dataCE, ptr %dataCE.addr, align 8
-  %0 = load i64, ptr %dataCE.addr, align 8
-  %shr = ashr i64 %0, 32
-  %conv = trunc i64 %shr to i32
-  store i32 %conv, ptr %p, align 4
-  %1 = load i64, ptr %dataCE.addr, align 8
-  %conv1 = trunc i64 %1 to i32
-  store i32 %conv1, ptr %lower32, align 4
-  %2 = load i32, ptr %c.addr, align 4
-  %3 = load i32, ptr %lower32, align 4
-  %shr2 = ashr i32 %3, 8
-  %sub = sub nsw i32 %2, %shr2
-  %4 = load i32, ptr %lower32, align 4
-  %and = and i32 %4, 127
-  %mul = mul nsw i32 %sub, %and
-  store i32 %mul, ptr %offset, align 4
-  %5 = load i32, ptr %lower32, align 4
-  %and3 = and i32 %5, 128
-  %cmp = icmp ne i32 %and3, 0
-  %conv4 = zext i1 %cmp to i8
-  store i8 %conv4, ptr %isCompressible, align 1
-  %6 = load i32, ptr %p, align 4
-  %7 = load i8, ptr %isCompressible, align 1
-  %8 = load i32, ptr %offset, align 4
-  %call = call noundef i32 @_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef %6, i8 noundef signext %7, i32 noundef %8)
-  ret i32 %call
+define noundef i32 @_ZN6icu_779Collation30unassignedPrimaryFromCodePointEi(i32 noundef %0) #0 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %4 = load i32, ptr %2, align 4, !tbaa !3
+  %5 = add nsw i32 %4, 1
+  store i32 %5, ptr %2, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #2
+  %6 = load i32, ptr %2, align 4, !tbaa !3
+  %7 = srem i32 %6, 18
+  %8 = mul nsw i32 %7, 14
+  %9 = add nsw i32 2, %8
+  store i32 %9, ptr %3, align 4, !tbaa !3
+  %10 = load i32, ptr %2, align 4, !tbaa !3
+  %11 = sdiv i32 %10, 18
+  store i32 %11, ptr %2, align 4, !tbaa !3
+  %12 = load i32, ptr %2, align 4, !tbaa !3
+  %13 = srem i32 %12, 254
+  %14 = add nsw i32 2, %13
+  %15 = shl i32 %14, 8
+  %16 = load i32, ptr %3, align 4, !tbaa !3
+  %17 = or i32 %16, %15
+  store i32 %17, ptr %3, align 4, !tbaa !3
+  %18 = load i32, ptr %2, align 4, !tbaa !3
+  %19 = sdiv i32 %18, 254
+  store i32 %19, ptr %2, align 4, !tbaa !3
+  %20 = load i32, ptr %2, align 4, !tbaa !3
+  %21 = srem i32 %20, 251
+  %22 = add nsw i32 4, %21
+  %23 = shl i32 %22, 16
+  %24 = load i32, ptr %3, align 4, !tbaa !3
+  %25 = or i32 %24, %23
+  store i32 %25, ptr %3, align 4, !tbaa !3
+  %26 = load i32, ptr %3, align 4, !tbaa !3
+  %27 = or i32 %26, -33554432
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #2
+  ret i32 %27
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN6icu_759Collation30unassignedPrimaryFromCodePointEi(i32 noundef %c) #0 align 2 {
-entry:
-  %c.addr = alloca i32, align 4
-  %primary = alloca i32, align 4
-  store i32 %c, ptr %c.addr, align 4
-  %0 = load i32, ptr %c.addr, align 4
-  %inc = add nsw i32 %0, 1
-  store i32 %inc, ptr %c.addr, align 4
-  %1 = load i32, ptr %c.addr, align 4
-  %rem = srem i32 %1, 18
-  %mul = mul nsw i32 %rem, 14
-  %add = add nsw i32 2, %mul
-  store i32 %add, ptr %primary, align 4
-  %2 = load i32, ptr %c.addr, align 4
-  %div = sdiv i32 %2, 18
-  store i32 %div, ptr %c.addr, align 4
-  %3 = load i32, ptr %c.addr, align 4
-  %rem1 = srem i32 %3, 254
-  %add2 = add nsw i32 2, %rem1
-  %shl = shl i32 %add2, 8
-  %4 = load i32, ptr %primary, align 4
-  %or = or i32 %4, %shl
-  store i32 %or, ptr %primary, align 4
-  %5 = load i32, ptr %c.addr, align 4
-  %div3 = sdiv i32 %5, 254
-  store i32 %div3, ptr %c.addr, align 4
-  %6 = load i32, ptr %c.addr, align 4
-  %rem4 = srem i32 %6, 251
-  %add5 = add nsw i32 4, %rem4
-  %shl6 = shl i32 %add5, 16
-  %7 = load i32, ptr %primary, align 4
-  %or7 = or i32 %7, %shl6
-  store i32 %or7, ptr %primary, align 4
-  %8 = load i32, ptr %primary, align 4
-  %or8 = or i32 %8, -33554432
-  ret i32 %or8
-}
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !5, i64 0}

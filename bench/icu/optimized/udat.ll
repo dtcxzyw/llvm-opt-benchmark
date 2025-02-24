@@ -1,3614 +1,3787 @@
 ; ModuleID = 'bench/icu/original/udat.ll'
 source_filename = "bench/icu/original/udat.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
+%"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+%"class.icu_77::UObject" = type { ptr }
+%"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
+%"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
+%"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"class.icu_75::FieldPosition" = type <{ %"class.icu_75::UObject", i32, i32, i32, [4 x i8] }>
-%"class.icu_75::Char16Ptr" = type { ptr }
-%"class.icu_75::ParsePosition" = type { %"class.icu_75::UObject", i32, i32 }
+%"class.icu_77::ConstChar16Ptr" = type { ptr }
+%"class.icu_77::FieldPosition" = type <{ %"class.icu_77::UObject", i32, i32, i32, [4 x i8] }>
+%"class.icu_77::Char16Ptr" = type { ptr }
+%"class.icu_77::ParsePosition" = type { %"class.icu_77::UObject", i32, i32 }
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter6setEraEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter6setEraEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter10setEraNameEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter10setEraNameEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter8setMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter8setMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter13setShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter13setShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter14setNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter14setNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter18setStandaloneMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter18setStandaloneMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter23setStandaloneShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter23setStandaloneShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter24setStandaloneNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter24setStandaloneNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter10setWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter10setWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter15setShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter15setShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter17setShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter17setShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter16setNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter16setNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter20setStandaloneWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter20setStandaloneWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter25setStandaloneShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter25setStandaloneShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter27setStandaloneShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter27setStandaloneShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter26setStandaloneNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter26setStandaloneNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter10setQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter10setQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter15setShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter15setShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter16setNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter16setNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter20setStandaloneQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter20setStandaloneQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter25setStandaloneShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter25setStandaloneShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter26setStandaloneNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter26setStandaloneNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter17setShortYearNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter17setShortYearNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter19setShortZodiacNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter19setShortZodiacNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter7setAmPmEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter7setAmPmEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode = comdat any
 
-$_ZN6icu_7529DateFormatSymbolsSingleSetter20setLocalPatternCharsEPNS_17DateFormatSymbolsEPKDsiR10UErrorCode = comdat any
+$_ZN6icu_7729DateFormatSymbolsSingleSetter20setLocalPatternCharsEPNS_17DateFormatSymbolsEPKDsiR10UErrorCode = comdat any
 
 @_ZL17gDateFieldMapping = internal unnamed_addr constant [38 x i32] [i32 0, i32 1, i32 2, i32 5, i32 11, i32 11, i32 12, i32 13, i32 14, i32 7, i32 6, i32 8, i32 3, i32 4, i32 9, i32 10, i32 10, i32 15, i32 17, i32 18, i32 19, i32 20, i32 21, i32 15, i32 15, i32 18, i32 2, i32 2, i32 2, i32 15, i32 1, i32 15, i32 15, i32 15, i32 19, i32 24, i32 24, i32 24], align 16
 @_ZL7gOpener = internal unnamed_addr global ptr null, align 8
-@_ZTIN6icu_7510DateFormatE = external constant ptr
-@_ZTIN6icu_7516SimpleDateFormatE = external constant ptr
-@_ZTIN6icu_7518RelativeDateFormatE = external constant ptr
-@_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
-@_ZTVN6icu_7513FieldPositionE = external unnamed_addr constant { [5 x ptr] }, align 8
-@_ZTVN6icu_7513ParsePositionE = external unnamed_addr constant { [5 x ptr] }, align 8
+@_ZTIN6icu_7710DateFormatE = external constant ptr
+@_ZTIN6icu_7716SimpleDateFormatE = external constant ptr
+@_ZTIN6icu_7718RelativeDateFormatE = external constant ptr
+@_ZTVN6icu_7713UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
+@_ZTVN6icu_7713FieldPositionE = external unnamed_addr constant { [5 x ptr] }, align 8
+@_ZTVN6icu_7713ParsePositionE = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @udat_toCalendarDateField_75(i32 noundef %field) local_unnamed_addr #0 {
-entry:
-  %or.cond = icmp ult i32 %field, 38
-  br i1 %or.cond, label %cond.true, label %cond.end
+define i32 @udat_toCalendarDateField_77(i32 noundef %0) local_unnamed_addr #0 {
+  %or.cond = icmp ult i32 %0, 38
+  br i1 %or.cond, label %2, label %6
 
-cond.true:                                        ; preds = %entry
-  %idxprom = zext nneg i32 %field to i64
-  %arrayidx = getelementptr inbounds nuw [38 x i32], ptr @_ZL17gDateFieldMapping, i64 0, i64 %idxprom
-  %0 = load i32, ptr %arrayidx, align 4
-  br label %cond.end
+2:                                                ; preds = %1
+  %3 = zext nneg i32 %0 to i64
+  %4 = getelementptr inbounds nuw [38 x i32], ptr @_ZL17gDateFieldMapping, i64 0, i64 %3
+  %5 = load i32, ptr %4, align 4, !tbaa !3
+  br label %6
 
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %0, %cond.true ], [ 24, %entry ]
-  ret i32 %cond
+6:                                                ; preds = %1, %2
+  %7 = phi i32 [ %5, %2 ], [ 24, %1 ]
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_registerOpener_75(ptr noundef %opener, ptr noundef captures(none) %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define void @udat_registerOpener_77(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+  %3 = load i32, ptr %1, align 4, !tbaa !7
+  %4 = icmp slt i32 %3, 1
+  br i1 %4, label %5, label %11
 
-if.end:                                           ; preds = %entry
-  tail call void @umtx_lock_75(ptr noundef null)
-  %1 = load ptr, ptr @_ZL7gOpener, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then1, label %if.else
+5:                                                ; preds = %2
+  tail call void @umtx_lock_77(ptr noundef null)
+  %6 = load ptr, ptr @_ZL7gOpener, align 8, !tbaa !9
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-if.then1:                                         ; preds = %if.end
-  store ptr %opener, ptr @_ZL7gOpener, align 8
-  br label %if.end2
+8:                                                ; preds = %5
+  store ptr %0, ptr @_ZL7gOpener, align 8, !tbaa !9
+  br label %10
 
-if.else:                                          ; preds = %if.end
-  store i32 1, ptr %status, align 4
-  br label %if.end2
+9:                                                ; preds = %5
+  store i32 1, ptr %1, align 4, !tbaa !7
+  br label %10
 
-if.end2:                                          ; preds = %if.else, %if.then1
-  tail call void @umtx_unlock_75(ptr noundef null)
-  br label %return
+10:                                               ; preds = %9, %8
+  tail call void @umtx_unlock_77(ptr noundef null)
+  br label %11
 
-return:                                           ; preds = %entry, %if.end2
+11:                                               ; preds = %2, %10
   ret void
 }
 
-declare void @umtx_lock_75(ptr noundef) local_unnamed_addr #2
+declare void @umtx_lock_77(ptr noundef) local_unnamed_addr #2
 
-declare void @umtx_unlock_75(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress uwtable
-define ptr @udat_unregisterOpener_75(ptr noundef readnone %opener, ptr noundef captures(none) %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
-
-if.end:                                           ; preds = %entry
-  tail call void @umtx_lock_75(ptr noundef null)
-  %1 = load ptr, ptr @_ZL7gOpener, align 8
-  %cmp = icmp ne ptr %1, null
-  %cmp1.not = icmp eq ptr %1, %opener
-  %or.cond = and i1 %cmp, %cmp1.not
-  br i1 %or.cond, label %if.else, label %if.then2
-
-if.then2:                                         ; preds = %if.end
-  store i32 1, ptr %status, align 4
-  br label %if.end3
-
-if.else:                                          ; preds = %if.end
-  store ptr null, ptr @_ZL7gOpener, align 8
-  br label %if.end3
-
-if.end3:                                          ; preds = %if.else, %if.then2
-  %oldOpener.0 = phi ptr [ null, %if.then2 ], [ %1, %if.else ]
-  tail call void @umtx_unlock_75(ptr noundef null)
-  br label %return
-
-return:                                           ; preds = %entry, %if.end3
-  %retval.0 = phi ptr [ %oldOpener.0, %if.end3 ], [ null, %entry ]
-  ret ptr %retval.0
-}
+declare void @umtx_unlock_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udat_open_75(i32 noundef %timeStyle, i32 noundef %dateStyle, ptr noundef %locale, ptr noundef %tzID, i32 noundef %tzIDLength, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.icu_75::Locale", align 8
-  %pat = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %ref.tmp30 = alloca %"class.icu_75::Locale", align 8
-  %ref.tmp58 = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp61 = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define ptr @udat_unregisterOpener_77(ptr noundef readnone %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+  %3 = load i32, ptr %1, align 4, !tbaa !7
+  %4 = icmp slt i32 %3, 1
+  br i1 %4, label %5, label %11
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr @_ZL7gOpener, align 8
-  %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %if.end6, label %if.then1
+5:                                                ; preds = %2
+  tail call void @umtx_lock_77(ptr noundef null)
+  %6 = load ptr, ptr @_ZL7gOpener, align 8, !tbaa !9
+  %7 = icmp ne ptr %6, null
+  %.not7 = icmp eq ptr %6, %0
+  %or.cond = and i1 %7, %.not7
+  br i1 %or.cond, label %9, label %8
 
-if.then1:                                         ; preds = %if.end
-  %call2 = tail call noundef ptr %1(i32 noundef %timeStyle, i32 noundef %dateStyle, ptr noundef %locale, ptr noundef %tzID, i32 noundef %tzIDLength, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef nonnull %status)
-  %cmp3.not = icmp eq ptr %call2, null
-  br i1 %cmp3.not, label %if.end6, label %return
+8:                                                ; preds = %5
+  store i32 1, ptr %1, align 4, !tbaa !7
+  br label %10
 
-if.end6:                                          ; preds = %if.then1, %if.end
-  %cmp7.not = icmp eq i32 %timeStyle, -2
-  br i1 %cmp7.not, label %if.else15, label %if.then8
+9:                                                ; preds = %5
+  store ptr null, ptr @_ZL7gOpener, align 8, !tbaa !9
+  br label %10
 
-if.then8:                                         ; preds = %if.end6
-  %cmp9 = icmp eq ptr %locale, null
-  br i1 %cmp9, label %if.then10, label %if.else
+10:                                               ; preds = %9, %8
+  %.0 = phi ptr [ null, %8 ], [ %6, %9 ]
+  tail call void @umtx_unlock_77(ptr noundef null)
+  br label %11
 
-if.then10:                                        ; preds = %if.then8
-  %call11 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
-  %call12 = tail call noundef ptr @_ZN6icu_7510DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %dateStyle, i32 noundef %timeStyle, ptr noundef nonnull align 8 dereferenceable(217) %call11)
-  br label %if.end48
-
-if.else:                                          ; preds = %if.then8
-  call void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp, ptr noundef nonnull %locale, ptr noundef null, ptr noundef null, ptr noundef null)
-  %call13 = invoke noundef ptr @_ZN6icu_7510DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %dateStyle, i32 noundef %timeStyle, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.else
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #7
-  br label %if.end48
-
-lpad:                                             ; preds = %if.else
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #7
-  br label %eh.resume
-
-if.else15:                                        ; preds = %if.end6
-  %cmp16 = icmp eq i32 %patternLength, -1
-  %conv = zext i1 %cmp16 to i8
-  store ptr %pattern, ptr %agg.tmp, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %pat, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %patternLength)
-          to label %invoke.cont18 unwind label %lpad17
-
-invoke.cont18:                                    ; preds = %if.else15
-  %3 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #7, !srcloc !4
-  %cmp19 = icmp eq ptr %locale, null
-  %call21 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 832) #7
-  %new.isnull = icmp eq ptr %call21, null
-  br i1 %cmp19, label %if.then20, label %if.else24
-
-if.then20:                                        ; preds = %invoke.cont18
-  br i1 %new.isnull, label %if.end46, label %new.notnull
-
-new.notnull:                                      ; preds = %if.then20
-  invoke void @_ZN6icu_7516SimpleDateFormatC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %call21, ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %if.end46 unwind label %lpad22
-
-lpad17:                                           ; preds = %if.else15
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #7, !srcloc !4
-  br label %eh.resume
-
-lpad22:                                           ; preds = %new.notnull
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup47
-
-if.else24:                                        ; preds = %invoke.cont18
-  br i1 %new.isnull, label %if.end46, label %new.notnull27
-
-new.notnull27:                                    ; preds = %if.else24
-  invoke void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp30, ptr noundef nonnull %locale, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %invoke.cont32 unwind label %lpad31
-
-invoke.cont32:                                    ; preds = %new.notnull27
-  invoke void @_ZN6icu_7516SimpleDateFormatC1ERKNS_13UnicodeStringERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %call21, ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp30, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %cleanup.action38 unwind label %lpad34
-
-cleanup.action38:                                 ; preds = %invoke.cont32
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp30) #7
-  br label %if.end46
-
-lpad31:                                           ; preds = %new.notnull27
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup47
-
-lpad34:                                           ; preds = %invoke.cont32
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp30) #7
-  br label %ehcleanup47
-
-if.end46:                                         ; preds = %if.else24, %if.then20, %new.notnull, %cleanup.action38
-  %fmt.1 = phi ptr [ %call21, %cleanup.action38 ], [ null, %if.then20 ], [ %call21, %new.notnull ], [ null, %if.else24 ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pat) #7
-  br label %if.end48
-
-ehcleanup47:                                      ; preds = %lpad34, %lpad31, %lpad22
-  %.pn31 = phi { ptr, i32 } [ %6, %lpad22 ], [ %8, %lpad34 ], [ %7, %lpad31 ]
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call21) #7
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pat) #7
-  br label %eh.resume
-
-if.end48:                                         ; preds = %if.then10, %invoke.cont, %if.end46
-  %fmt.0 = phi ptr [ %call12, %if.then10 ], [ %call13, %invoke.cont ], [ %fmt.1, %if.end46 ]
-  %cmp49 = icmp eq ptr %fmt.0, null
-  br i1 %cmp49, label %if.then50, label %if.end51
-
-if.then50:                                        ; preds = %if.end48
-  store i32 7, ptr %status, align 4
-  br label %return
-
-if.end51:                                         ; preds = %if.end48
-  %9 = load i32, ptr %status, align 4
-  %cmp.i36 = icmp slt i32 %9, 1
-  br i1 %cmp.i36, label %if.end55, label %delete.notnull
-
-delete.notnull:                                   ; preds = %if.end51
-  %vtable = load ptr, ptr %fmt.0, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
-  %10 = load ptr, ptr %vfn, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(352) %fmt.0) #7
-  br label %return
-
-if.end55:                                         ; preds = %if.end51
-  %cmp56.not = icmp eq ptr %tzID, null
-  br i1 %cmp56.not, label %return, label %if.then57
-
-if.then57:                                        ; preds = %if.end55
-  %cmp59 = icmp eq i32 %tzIDLength, -1
-  %conv60 = zext i1 %cmp59 to i8
-  store ptr %tzID, ptr %agg.tmp61, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp58, i8 noundef signext %conv60, ptr noundef nonnull %agg.tmp61, i32 noundef %tzIDLength)
-          to label %invoke.cont63 unwind label %lpad62
-
-invoke.cont63:                                    ; preds = %if.then57
-  %call66 = invoke noundef ptr @_ZN6icu_758TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp58)
-          to label %invoke.cont65 unwind label %lpad64
-
-invoke.cont65:                                    ; preds = %invoke.cont63
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp58) #7
-  %11 = load ptr, ptr %agg.tmp61, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #7, !srcloc !4
-  %cmp69 = icmp eq ptr %call66, null
-  br i1 %cmp69, label %if.then70, label %if.end76
-
-if.then70:                                        ; preds = %invoke.cont65
-  store i32 7, ptr %status, align 4
-  %vtable73 = load ptr, ptr %fmt.0, align 8
-  %vfn74 = getelementptr inbounds nuw i8, ptr %vtable73, i64 8
-  %12 = load ptr, ptr %vfn74, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(352) %fmt.0) #7
-  br label %return
-
-lpad62:                                           ; preds = %if.then57
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup68
-
-lpad64:                                           ; preds = %invoke.cont63
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp58) #7
-  br label %ehcleanup68
-
-ehcleanup68:                                      ; preds = %lpad64, %lpad62
-  %.pn33 = phi { ptr, i32 } [ %14, %lpad64 ], [ %13, %lpad62 ]
-  %15 = load ptr, ptr %agg.tmp61, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #7, !srcloc !4
-  br label %eh.resume
-
-if.end76:                                         ; preds = %invoke.cont65
-  %vtable77 = load ptr, ptr %fmt.0, align 8
-  %vfn78 = getelementptr inbounds nuw i8, ptr %vtable77, i64 184
-  %16 = load ptr, ptr %vfn78, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(352) %fmt.0, ptr noundef nonnull %call66)
-  br label %return
-
-return:                                           ; preds = %if.end55, %if.end76, %if.then1, %entry, %if.then70, %delete.notnull, %if.then50
-  %retval.0 = phi ptr [ null, %if.then50 ], [ null, %delete.notnull ], [ null, %if.then70 ], [ null, %entry ], [ %call2, %if.then1 ], [ %fmt.0, %if.end76 ], [ %fmt.0, %if.end55 ]
-  ret ptr %retval.0
-
-eh.resume:                                        ; preds = %ehcleanup68, %ehcleanup47, %lpad17, %lpad
-  %.pn33.pn = phi { ptr, i32 } [ %.pn33, %ehcleanup68 ], [ %2, %lpad ], [ %.pn31, %ehcleanup47 ], [ %4, %lpad17 ]
-  resume { ptr, i32 } %.pn33.pn
+11:                                               ; preds = %2, %10
+  %.05 = phi ptr [ %.0, %10 ], [ null, %2 ]
+  ret ptr %.05
 }
 
-declare noundef ptr @_ZN6icu_7510DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv() local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
-declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
+; Function Attrs: mustprogress uwtable
+define noundef ptr @udat_open_77(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %9 = alloca %"class.icu_77::Locale", align 8
+  %10 = alloca %"class.icu_77::UnicodeString", align 8
+  %11 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %12 = alloca %"class.icu_77::Locale", align 8
+  %13 = alloca %"class.icu_77::UnicodeString", align 8
+  %14 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %15 = load i32, ptr %7, align 4, !tbaa !7
+  %16 = icmp slt i32 %15, 1
+  br i1 %16, label %17, label %89
+
+17:                                               ; preds = %8
+  %18 = load ptr, ptr @_ZL7gOpener, align 8, !tbaa !9
+  %.not70 = icmp eq ptr %18, null
+  br i1 %.not70, label %21, label %19
+
+19:                                               ; preds = %17
+  %20 = tail call noundef ptr %18(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7)
+  %.not71 = icmp eq ptr %20, null
+  br i1 %.not71, label %21, label %89
+
+21:                                               ; preds = %19, %17
+  %.not72 = icmp eq i32 %0, -2
+  br i1 %.not72, label %32, label %22
+
+22:                                               ; preds = %21
+  %23 = icmp eq ptr %2, null
+  br i1 %23, label %24, label %27
+
+24:                                               ; preds = %22
+  %25 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale10getDefaultEv()
+  %26 = tail call noundef ptr @_ZN6icu_7710DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %1, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(217) %25)
+  br label %58
+
+27:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %9) #8
+  call void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %9, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null)
+  %28 = invoke noundef ptr @_ZN6icu_7710DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %1, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(217) %9)
+          to label %29 unwind label %30
+
+29:                                               ; preds = %27
+  call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %9) #8
+  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %9) #8
+  br label %58
+
+30:                                               ; preds = %27
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %9) #8
+  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %9) #8
+  br label %90
+
+32:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
+  %33 = icmp eq i32 %6, -1
+  %34 = zext i1 %33 to i8
+  store ptr %5, ptr %11, align 8, !tbaa !11
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 noundef signext %34, ptr noundef nonnull %11, i32 noundef %6)
+          to label %35 unwind label %42
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %11, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #8, !srcloc !14
+  %37 = icmp eq ptr %2, null
+  %38 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 528) #8
+  %39 = icmp eq ptr %38, null
+  br i1 %37, label %40, label %47
+
+40:                                               ; preds = %35
+  br i1 %39, label %.critedge, label %41
+
+41:                                               ; preds = %40
+  invoke void @_ZN6icu_7716SimpleDateFormatC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %38, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %.critedge unwind label %45
+
+42:                                               ; preds = %32
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = load ptr, ptr %11, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #8, !srcloc !14
+  br label %57
+
+45:                                               ; preds = %41
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  br label %56
+
+47:                                               ; preds = %35
+  br i1 %39, label %.critedge, label %48
+
+48:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %12) #8
+  invoke void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %12, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %49 unwind label %51
+
+49:                                               ; preds = %48
+  invoke void @_ZN6icu_7716SimpleDateFormatC1ERKNS_13UnicodeStringERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %38, ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(217) %12, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %50 unwind label %53
+
+50:                                               ; preds = %49
+  call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %12) #8
+  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %12) #8
+  br label %.critedge
+
+51:                                               ; preds = %48
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  br label %55
+
+53:                                               ; preds = %49
+  %54 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %12) #8
+  br label %55
+
+55:                                               ; preds = %51, %53
+  %.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
+  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %12) #8
+  br label %56
+
+.critedge:                                        ; preds = %47, %40, %41, %50
+  %.153 = phi ptr [ %38, %50 ], [ null, %40 ], [ %38, %41 ], [ null, %47 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  br label %58
+
+56:                                               ; preds = %55, %45
+  %.pn75 = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %55 ]
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %38) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #8
+  br label %57
+
+57:                                               ; preds = %56, %42
+  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %56 ], [ %43, %42 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  br label %90
+
+58:                                               ; preds = %24, %29, %.critedge
+  %.052 = phi ptr [ %26, %24 ], [ %28, %29 ], [ %.153, %.critedge ]
+  %59 = icmp eq ptr %.052, null
+  br i1 %59, label %60, label %61
+
+60:                                               ; preds = %58
+  store i32 7, ptr %7, align 4, !tbaa !7
+  br label %89
+
+61:                                               ; preds = %58
+  %62 = load i32, ptr %7, align 4, !tbaa !7
+  %63 = icmp slt i32 %62, 1
+  br i1 %63, label %68, label %64
+
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %.052, align 8, !tbaa !15
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = load ptr, ptr %66, align 8
+  call void %67(ptr noundef nonnull align 8 dereferenceable(48) %.052) #8
+  br label %89
+
+68:                                               ; preds = %61
+  %.not79 = icmp eq ptr %3, null
+  br i1 %.not79, label %89, label %69
+
+69:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #8
+  %70 = icmp eq i32 %4, -1
+  %71 = zext i1 %70 to i8
+  store ptr %3, ptr %14, align 8, !tbaa !11
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 noundef signext %71, ptr noundef nonnull %14, i32 noundef %4)
+          to label %72 unwind label %79
+
+72:                                               ; preds = %69
+  %73 = invoke noundef ptr @_ZN6icu_778TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %13)
+          to label %74 unwind label %81
+
+74:                                               ; preds = %72
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #8
+  %75 = load ptr, ptr %14, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %75) #8, !srcloc !14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #8
+  %.not83 = icmp eq ptr %73, null
+  br i1 %.not83, label %.thread84, label %85
+
+.thread84:                                        ; preds = %74
+  store i32 7, ptr %7, align 4, !tbaa !7
+  %76 = load ptr, ptr %.052, align 8, !tbaa !15
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %78 = load ptr, ptr %77, align 8
+  call void %78(ptr noundef nonnull align 8 dereferenceable(48) %.052) #8
+  br label %89
+
+79:                                               ; preds = %69
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  br label %83
+
+81:                                               ; preds = %72
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #8
+  br label %83
+
+83:                                               ; preds = %81, %79
+  %.pn80 = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
+  %84 = load ptr, ptr %14, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %84) #8, !srcloc !14
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #8
+  br label %90
+
+85:                                               ; preds = %74
+  %86 = load ptr, ptr %.052, align 8, !tbaa !15
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 184
+  %88 = load ptr, ptr %87, align 8
+  call void %88(ptr noundef nonnull align 8 dereferenceable(48) %.052, ptr noundef nonnull %73)
+  br label %89
+
+89:                                               ; preds = %68, %85, %.thread84, %19, %8, %64, %60
+  %.0 = phi ptr [ null, %60 ], [ null, %64 ], [ null, %8 ], [ %20, %19 ], [ null, %.thread84 ], [ %.052, %85 ], [ %.052, %68 ]
+  ret ptr %.0
+
+90:                                               ; preds = %83, %57, %30
+  %.pn80.pn = phi { ptr, i32 } [ %.pn80, %83 ], [ %31, %30 ], [ %.pn75.pn, %57 ]
+  resume { ptr, i32 } %.pn80.pn
+}
+
+declare noundef ptr @_ZN6icu_7710DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #2
+
+declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale10getDefaultEv() local_unnamed_addr #2
+
+declare void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #3
+declare void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #4
 
-declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #2
-
-; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
-
-declare void @_ZN6icu_7516SimpleDateFormatC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #4
 
-declare void @_ZN6icu_7516SimpleDateFormatC1ERKNS_13UnicodeStringERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+declare void @_ZN6icu_7716SimpleDateFormatC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #4
 
-declare noundef ptr @_ZN6icu_758TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
+declare void @_ZN6icu_7716SimpleDateFormatC1ERKNS_13UnicodeStringERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
+
+declare noundef ptr @_ZN6icu_778TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @udat_close_75(ptr noundef %format) local_unnamed_addr #4 {
-entry:
-  %cmp = icmp eq ptr %format, null
-  br i1 %cmp, label %delete.end, label %delete.notnull
+define void @udat_close_77(ptr noundef %0) local_unnamed_addr #5 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %7, label %3
 
-delete.notnull:                                   ; preds = %entry
-  %vtable = load ptr, ptr %format, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
-  %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(352) %format) #7
-  br label %delete.end
+3:                                                ; preds = %1
+  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %0) #8
+  br label %7
 
-delete.end:                                       ; preds = %entry, %delete.notnull
+7:                                                ; preds = %1, %3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udat_clone_75(ptr noundef %fmt, ptr noundef captures(none) %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define noundef ptr @udat_clone_77(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+  %3 = load i32, ptr %1, align 4, !tbaa !7
+  %4 = icmp slt i32 %3, 1
+  br i1 %4, label %5, label %12
 
-if.end:                                           ; preds = %entry
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %1 = load ptr, ptr %vfn, align 8
-  %call1 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(352) %fmt)
-  %cmp = icmp eq ptr %call1, null
-  br i1 %cmp, label %if.then2, label %return
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %0, align 8, !tbaa !15
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
-if.then2:                                         ; preds = %if.end
-  store i32 7, ptr %status, align 4
-  br label %return
+11:                                               ; preds = %5
+  store i32 7, ptr %1, align 4, !tbaa !7
+  br label %12
 
-return:                                           ; preds = %if.end, %entry, %if.then2
-  %retval.0 = phi ptr [ null, %if.then2 ], [ null, %entry ], [ %call1, %if.end ]
-  ret ptr %retval.0
+12:                                               ; preds = %11, %5, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ %9, %5 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_format_75(ptr noundef %format, double noundef %dateToFormat, ptr noundef %result, i32 noundef %resultLength, ptr noundef %position, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %res = alloca %"class.icu_75::UnicodeString", align 8
-  %fp = alloca %"class.icu_75::FieldPosition", align 8
-  %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define noundef i32 @udat_format_77(ptr noundef %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.icu_77::UnicodeString", align 8
+  %8 = alloca %"class.icu_77::FieldPosition", align 8
+  %9 = alloca %"class.icu_77::Char16Ptr", align 8
+  %10 = load i32, ptr %5, align 4, !tbaa !7
+  %11 = icmp slt i32 %10, 1
+  br i1 %11, label %12, label %49
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq ptr %result, null
-  br i1 %cmp, label %cond.true, label %cond.false
+12:                                               ; preds = %6
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %16
 
-cond.true:                                        ; preds = %if.end
-  %cmp1.not = icmp eq i32 %resultLength, 0
-  br i1 %cmp1.not, label %if.end4.thread, label %if.then3
+14:                                               ; preds = %12
+  %.not26 = icmp eq i32 %3, 0
+  br i1 %.not26, label %.thread, label %18
 
-if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i18 = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i18, align 8
-  br label %if.end8
+.thread:                                          ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 2, ptr %15, align 8, !tbaa !17
+  br label %24
 
-cond.false:                                       ; preds = %if.end
-  %cmp2 = icmp slt i32 %resultLength, 0
-  br i1 %cmp2, label %if.then3, label %if.then6
+16:                                               ; preds = %12
+  %17 = icmp slt i32 %3, 0
+  br i1 %17, label %18, label %19
 
-if.then3:                                         ; preds = %cond.false, %cond.true
-  store i32 1, ptr %status, align 4
-  br label %return
+18:                                               ; preds = %16, %14
+  store i32 1, ptr %5, align 4, !tbaa !7
+  br label %49
 
-if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
-          to label %if.end8 unwind label %lpad
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 2, ptr %20, align 8, !tbaa !17
+  %21 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+          to label %24 unwind label %22
 
-lpad:                                             ; preds = %if.then6
-  %1 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup28
+  br label %48
 
-if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %fp, align 8
-  %fField.i = getelementptr inbounds nuw i8, ptr %fp, i64 8
-  store i32 -1, ptr %fField.i, align 8
-  %fBeginIndex.i = getelementptr inbounds nuw i8, ptr %fp, i64 12
-  store i32 0, ptr %fBeginIndex.i, align 4
-  %fEndIndex.i = getelementptr inbounds nuw i8, ptr %fp, i64 16
-  store i32 0, ptr %fEndIndex.i, align 8
-  %cmp10.not = icmp eq ptr %position, null
-  br i1 %cmp10.not, label %if.end14, label %if.then11
+24:                                               ; preds = %.thread, %19
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7713FieldPositionE, i64 16), ptr %8, align 8, !tbaa !15
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 -1, ptr %25, align 8, !tbaa !18
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 0, ptr %26, align 4, !tbaa !22
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 0, ptr %27, align 8, !tbaa !23
+  %.not28 = icmp eq ptr %4, null
+  br i1 %.not28, label %32, label %28
 
-if.then11:                                        ; preds = %if.end8
-  %2 = load i32, ptr %position, align 4
-  store i32 %2, ptr %fField.i, align 8
-  br label %if.end14
+28:                                               ; preds = %24
+  %29 = load i32, ptr %4, align 4, !tbaa !24
+  store i32 %29, ptr %25, align 8, !tbaa !18
+  br label %32
 
-lpad12:                                           ; preds = %if.end14
-  %3 = landingpad { ptr, i32 }
+30:                                               ; preds = %32
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %47
 
-if.end14:                                         ; preds = %if.then11, %if.end8
-  %call16 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510DateFormat6formatEdRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(352) %format, double noundef %dateToFormat, ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull align 8 dereferenceable(20) %fp)
-          to label %invoke.cont15 unwind label %lpad12
+32:                                               ; preds = %28, %24
+  %33 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7710DateFormat6formatEdRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(20) %8)
+          to label %34 unwind label %30
 
-invoke.cont15:                                    ; preds = %if.end14
-  br i1 %cmp10.not, label %if.end23, label %if.then18
+34:                                               ; preds = %32
+  br i1 %.not28, label %40, label %35
 
-if.then18:                                        ; preds = %invoke.cont15
-  %4 = load i32, ptr %fBeginIndex.i, align 4
-  %beginIndex = getelementptr inbounds nuw i8, ptr %position, i64 4
-  store i32 %4, ptr %beginIndex, align 4
-  %5 = load i32, ptr %fEndIndex.i, align 8
-  %endIndex = getelementptr inbounds nuw i8, ptr %position, i64 8
-  store i32 %5, ptr %endIndex, align 4
-  br label %if.end23
+35:                                               ; preds = %34
+  %36 = load i32, ptr %26, align 4, !tbaa !22
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %36, ptr %37, align 4, !tbaa !26
+  %38 = load i32, ptr %27, align 8, !tbaa !23
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %38, ptr %39, align 4, !tbaa !27
+  br label %40
 
-if.end23:                                         ; preds = %if.then18, %invoke.cont15
-  store ptr %result, ptr %agg.tmp, align 8
-  %call27 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %agg.tmp, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont26 unwind label %lpad25
+40:                                               ; preds = %35, %34
+  store ptr %2, ptr %9, align 8, !tbaa !28
+  %41 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %9, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %42 unwind label %44
 
-invoke.cont26:                                    ; preds = %if.end23
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #7, !srcloc !5
-  call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #7
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
-  br label %return
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %9, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #8, !srcloc !30
+  call void @_ZN6icu_7713FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %8) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  br label %49
 
-lpad25:                                           ; preds = %if.end23
-  %7 = landingpad { ptr, i32 }
+44:                                               ; preds = %40
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #7, !srcloc !5
-  br label %ehcleanup
+  %46 = load ptr, ptr %9, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %46) #8, !srcloc !30
+  br label %47
 
-ehcleanup:                                        ; preds = %lpad25, %lpad12
-  %.pn = phi { ptr, i32 } [ %7, %lpad25 ], [ %3, %lpad12 ]
-  call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #7
-  br label %ehcleanup28
+47:                                               ; preds = %44, %30
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %31, %30 ]
+  call void @_ZN6icu_7713FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %8) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
+  br label %48
 
-ehcleanup28:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
+48:                                               ; preds = %47, %22
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %47 ], [ %23, %22 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
   resume { ptr, i32 } %.pn.pn
 
-return:                                           ; preds = %entry, %invoke.cont26, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ %call27, %invoke.cont26 ], [ -1, %entry ]
-  ret i32 %retval.0
+49:                                               ; preds = %6, %42, %18
+  %.022 = phi i32 [ -1, %18 ], [ %41, %42 ], [ -1, %6 ]
+  ret i32 %.022
 }
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510DateFormat6formatEdRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(352), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7710DateFormat6formatEdRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(48), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #3
+declare void @_ZN6icu_7713FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_formatCalendar_75(ptr noundef %format, ptr noundef %calendar, ptr noundef %result, i32 noundef %resultLength, ptr noundef %position, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %res = alloca %"class.icu_75::UnicodeString", align 8
-  %fp = alloca %"class.icu_75::FieldPosition", align 8
-  %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define noundef i32 @udat_formatCalendar_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.icu_77::UnicodeString", align 8
+  %8 = alloca %"class.icu_77::FieldPosition", align 8
+  %9 = alloca %"class.icu_77::Char16Ptr", align 8
+  %10 = load i32, ptr %5, align 4, !tbaa !7
+  %11 = icmp slt i32 %10, 1
+  br i1 %11, label %12, label %52
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq ptr %result, null
-  br i1 %cmp, label %cond.true, label %cond.false
+12:                                               ; preds = %6
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %16
 
-cond.true:                                        ; preds = %if.end
-  %cmp1.not = icmp eq i32 %resultLength, 0
-  br i1 %cmp1.not, label %if.end4.thread, label %if.then3
+14:                                               ; preds = %12
+  %.not26 = icmp eq i32 %3, 0
+  br i1 %.not26, label %.thread, label %18
 
-if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i18 = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i18, align 8
-  br label %if.end8
+.thread:                                          ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 2, ptr %15, align 8, !tbaa !17
+  br label %24
 
-cond.false:                                       ; preds = %if.end
-  %cmp2 = icmp slt i32 %resultLength, 0
-  br i1 %cmp2, label %if.then3, label %if.then6
+16:                                               ; preds = %12
+  %17 = icmp slt i32 %3, 0
+  br i1 %17, label %18, label %19
 
-if.then3:                                         ; preds = %cond.false, %cond.true
-  store i32 1, ptr %status, align 4
-  br label %return
+18:                                               ; preds = %16, %14
+  store i32 1, ptr %5, align 4, !tbaa !7
+  br label %52
 
-if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
-          to label %if.end8 unwind label %lpad
+19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 2, ptr %20, align 8, !tbaa !17
+  %21 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+          to label %24 unwind label %22
 
-lpad:                                             ; preds = %if.then6
-  %1 = landingpad { ptr, i32 }
+22:                                               ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup28
+  br label %51
 
-if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513FieldPositionE, i64 16), ptr %fp, align 8
-  %fField.i = getelementptr inbounds nuw i8, ptr %fp, i64 8
-  store i32 -1, ptr %fField.i, align 8
-  %fBeginIndex.i = getelementptr inbounds nuw i8, ptr %fp, i64 12
-  store i32 0, ptr %fBeginIndex.i, align 4
-  %fEndIndex.i = getelementptr inbounds nuw i8, ptr %fp, i64 16
-  store i32 0, ptr %fEndIndex.i, align 8
-  %cmp10.not = icmp eq ptr %position, null
-  br i1 %cmp10.not, label %if.end14, label %if.then11
+24:                                               ; preds = %.thread, %19
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7713FieldPositionE, i64 16), ptr %8, align 8, !tbaa !15
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 -1, ptr %25, align 8, !tbaa !18
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 0, ptr %26, align 4, !tbaa !22
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 0, ptr %27, align 8, !tbaa !23
+  %.not28 = icmp eq ptr %4, null
+  br i1 %.not28, label %32, label %28
 
-if.then11:                                        ; preds = %if.end8
-  %2 = load i32, ptr %position, align 4
-  store i32 %2, ptr %fField.i, align 8
-  br label %if.end14
+28:                                               ; preds = %24
+  %29 = load i32, ptr %4, align 4, !tbaa !24
+  store i32 %29, ptr %25, align 8, !tbaa !18
+  br label %32
 
-lpad12:                                           ; preds = %if.end14
-  %3 = landingpad { ptr, i32 }
+30:                                               ; preds = %32
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %50
 
-if.end14:                                         ; preds = %if.then11, %if.end8
-  %vtable = load ptr, ptr %format, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
-  %4 = load ptr, ptr %vfn, align 8
-  %call16 = invoke noundef nonnull align 8 dereferenceable(64) ptr %4(ptr noundef nonnull align 8 dereferenceable(352) %format, ptr noundef nonnull align 8 dereferenceable(618) %calendar, ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull align 8 dereferenceable(20) %fp)
-          to label %invoke.cont15 unwind label %lpad12
+32:                                               ; preds = %28, %24
+  %33 = load ptr, ptr %0, align 8, !tbaa !15
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %35 = load ptr, ptr %34, align 8
+  %36 = invoke noundef nonnull align 8 dereferenceable(64) ptr %35(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(20) %8)
+          to label %37 unwind label %30
 
-invoke.cont15:                                    ; preds = %if.end14
-  br i1 %cmp10.not, label %if.end23, label %if.then18
+37:                                               ; preds = %32
+  br i1 %.not28, label %43, label %38
 
-if.then18:                                        ; preds = %invoke.cont15
-  %5 = load i32, ptr %fBeginIndex.i, align 4
-  %beginIndex = getelementptr inbounds nuw i8, ptr %position, i64 4
-  store i32 %5, ptr %beginIndex, align 4
-  %6 = load i32, ptr %fEndIndex.i, align 8
-  %endIndex = getelementptr inbounds nuw i8, ptr %position, i64 8
-  store i32 %6, ptr %endIndex, align 4
-  br label %if.end23
+38:                                               ; preds = %37
+  %39 = load i32, ptr %26, align 4, !tbaa !22
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %39, ptr %40, align 4, !tbaa !26
+  %41 = load i32, ptr %27, align 8, !tbaa !23
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %41, ptr %42, align 4, !tbaa !27
+  br label %43
 
-if.end23:                                         ; preds = %if.then18, %invoke.cont15
-  store ptr %result, ptr %agg.tmp, align 8
-  %call27 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %agg.tmp, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont26 unwind label %lpad25
+43:                                               ; preds = %38, %37
+  store ptr %2, ptr %9, align 8, !tbaa !28
+  %44 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %9, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %45 unwind label %47
 
-invoke.cont26:                                    ; preds = %if.end23
-  %7 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #7, !srcloc !5
-  call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #7
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
-  br label %return
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %9, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %46) #8, !srcloc !30
+  call void @_ZN6icu_7713FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %8) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  br label %52
 
-lpad25:                                           ; preds = %if.end23
-  %8 = landingpad { ptr, i32 }
+47:                                               ; preds = %43
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %9 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #7, !srcloc !5
-  br label %ehcleanup
+  %49 = load ptr, ptr %9, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %49) #8, !srcloc !30
+  br label %50
 
-ehcleanup:                                        ; preds = %lpad25, %lpad12
-  %.pn = phi { ptr, i32 } [ %8, %lpad25 ], [ %3, %lpad12 ]
-  call void @_ZN6icu_7513FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fp) #7
-  br label %ehcleanup28
+50:                                               ; preds = %47, %30
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %31, %30 ]
+  call void @_ZN6icu_7713FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %8) #8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
+  br label %51
 
-ehcleanup28:                                      ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
+51:                                               ; preds = %50, %22
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %50 ], [ %23, %22 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
   resume { ptr, i32 } %.pn.pn
 
-return:                                           ; preds = %entry, %invoke.cont26, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ %call27, %invoke.cont26 ], [ -1, %entry ]
-  ret i32 %retval.0
+52:                                               ; preds = %6, %45, %18
+  %.022 = phi i32 [ -1, %18 ], [ %44, %45 ], [ -1, %6 ]
+  ret i32 %.022
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_formatForFields_75(ptr noundef %format, double noundef %dateToFormat, ptr noundef %result, i32 noundef %resultLength, ptr noundef %fpositer, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %res = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define noundef i32 @udat_formatForFields_77(ptr noundef %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.icu_77::UnicodeString", align 8
+  %8 = alloca %"class.icu_77::Char16Ptr", align 8
+  %9 = load i32, ptr %5, align 4, !tbaa !7
+  %10 = icmp slt i32 %9, 1
+  br i1 %10, label %11, label %33
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq ptr %result, null
-  br i1 %cmp, label %cond.true, label %cond.false
+11:                                               ; preds = %6
+  %12 = icmp eq ptr %2, null
+  br i1 %12, label %13, label %15
 
-cond.true:                                        ; preds = %if.end
-  %cmp1.not = icmp eq i32 %resultLength, 0
-  br i1 %cmp1.not, label %if.end4.thread, label %if.then3
+13:                                               ; preds = %11
+  %.not20 = icmp eq i32 %3, 0
+  br i1 %.not20, label %.thread, label %17
 
-if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i11 = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i11, align 8
-  br label %if.end8
+.thread:                                          ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 2, ptr %14, align 8, !tbaa !17
+  br label %23
 
-cond.false:                                       ; preds = %if.end
-  %cmp2 = icmp slt i32 %resultLength, 0
-  br i1 %cmp2, label %if.then3, label %if.then6
+15:                                               ; preds = %11
+  %16 = icmp slt i32 %3, 0
+  br i1 %16, label %17, label %18
 
-if.then3:                                         ; preds = %cond.false, %cond.true
-  store i32 1, ptr %status, align 4
-  br label %return
+17:                                               ; preds = %15, %13
+  store i32 1, ptr %5, align 4, !tbaa !7
+  br label %33
 
-if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
-          to label %if.end8 unwind label %lpad
+18:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 2, ptr %19, align 8, !tbaa !17
+  %20 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+          to label %23 unwind label %21
 
-lpad:                                             ; preds = %if.end8, %if.then6
-  %1 = landingpad { ptr, i32 }
+21:                                               ; preds = %23, %18
+  %22 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %32
 
-if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  %call10 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510DateFormat6formatEdRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352) %format, double noundef %dateToFormat, ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef %fpositer, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont9 unwind label %lpad
+23:                                               ; preds = %.thread, %18
+  %24 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7710DateFormat6formatEdRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %25 unwind label %21
 
-invoke.cont9:                                     ; preds = %if.end8
-  store ptr %result, ptr %agg.tmp, align 8
-  %call14 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %agg.tmp, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont13 unwind label %lpad12
+25:                                               ; preds = %23
+  store ptr %2, ptr %8, align 8, !tbaa !28
+  %26 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %8, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %27 unwind label %29
 
-invoke.cont13:                                    ; preds = %invoke.cont9
-  %2 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2) #7, !srcloc !5
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
-  br label %return
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %8, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #8, !srcloc !30
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  br label %33
 
-lpad12:                                           ; preds = %invoke.cont9
-  %3 = landingpad { ptr, i32 }
+29:                                               ; preds = %25
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #7, !srcloc !5
-  br label %ehcleanup
+  %31 = load ptr, ptr %8, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %31) #8, !srcloc !30
+  br label %32
 
-ehcleanup:                                        ; preds = %lpad12, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad12 ], [ %1, %lpad ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
+32:                                               ; preds = %29, %21
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %22, %21 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %entry, %invoke.cont13, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ %call14, %invoke.cont13 ], [ -1, %entry ]
-  ret i32 %retval.0
+33:                                               ; preds = %6, %27, %17
+  %.018 = phi i32 [ -1, %17 ], [ %26, %27 ], [ -1, %6 ]
+  ret i32 %.018
 }
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7510DateFormat6formatEdRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7710DateFormat6formatEdRNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_formatCalendarForFields_75(ptr noundef %format, ptr noundef %calendar, ptr noundef %result, i32 noundef %resultLength, ptr noundef %fpositer, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %res = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define noundef i32 @udat_formatCalendarForFields_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.icu_77::UnicodeString", align 8
+  %8 = alloca %"class.icu_77::Char16Ptr", align 8
+  %9 = load i32, ptr %5, align 4, !tbaa !7
+  %10 = icmp slt i32 %9, 1
+  br i1 %10, label %11, label %36
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq ptr %result, null
-  br i1 %cmp, label %cond.true, label %cond.false
+11:                                               ; preds = %6
+  %12 = icmp eq ptr %2, null
+  br i1 %12, label %13, label %15
 
-cond.true:                                        ; preds = %if.end
-  %cmp1.not = icmp eq i32 %resultLength, 0
-  br i1 %cmp1.not, label %if.end4.thread, label %if.then3
+13:                                               ; preds = %11
+  %.not20 = icmp eq i32 %3, 0
+  br i1 %.not20, label %.thread, label %17
 
-if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i11 = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i11, align 8
-  br label %if.end8
+.thread:                                          ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 2, ptr %14, align 8, !tbaa !17
+  br label %23
 
-cond.false:                                       ; preds = %if.end
-  %cmp2 = icmp slt i32 %resultLength, 0
-  br i1 %cmp2, label %if.then3, label %if.then6
+15:                                               ; preds = %11
+  %16 = icmp slt i32 %3, 0
+  br i1 %16, label %17, label %18
 
-if.then3:                                         ; preds = %cond.false, %cond.true
-  store i32 1, ptr %status, align 4
-  br label %return
+17:                                               ; preds = %15, %13
+  store i32 1, ptr %5, align 4, !tbaa !7
+  br label %36
 
-if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
-          to label %if.end8 unwind label %lpad
+18:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !15
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i16 2, ptr %19, align 8, !tbaa !17
+  %20 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+          to label %23 unwind label %21
 
-lpad:                                             ; preds = %if.end8, %if.then6
-  %1 = landingpad { ptr, i32 }
+21:                                               ; preds = %23, %18
+  %22 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %35
 
-if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  %vtable = load ptr, ptr %format, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
-  %2 = load ptr, ptr %vfn, align 8
-  %call10 = invoke noundef nonnull align 8 dereferenceable(64) ptr %2(ptr noundef nonnull align 8 dereferenceable(352) %format, ptr noundef nonnull align 8 dereferenceable(618) %calendar, ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef %fpositer, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont9 unwind label %lpad
+23:                                               ; preds = %.thread, %18
+  %24 = load ptr, ptr %0, align 8, !tbaa !15
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
+  %26 = load ptr, ptr %25, align 8
+  %27 = invoke noundef nonnull align 8 dereferenceable(64) ptr %26(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %28 unwind label %21
 
-invoke.cont9:                                     ; preds = %if.end8
-  store ptr %result, ptr %agg.tmp, align 8
-  %call14 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %agg.tmp, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont13 unwind label %lpad12
+28:                                               ; preds = %23
+  store ptr %2, ptr %8, align 8, !tbaa !28
+  %29 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %8, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %30 unwind label %32
 
-invoke.cont13:                                    ; preds = %invoke.cont9
-  %3 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3) #7, !srcloc !5
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
-  br label %return
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %8, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %31) #8, !srcloc !30
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  br label %36
 
-lpad12:                                           ; preds = %invoke.cont9
-  %4 = landingpad { ptr, i32 }
+32:                                               ; preds = %28
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #7, !srcloc !5
-  br label %ehcleanup
+  %34 = load ptr, ptr %8, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #8, !srcloc !30
+  br label %35
 
-ehcleanup:                                        ; preds = %lpad12, %lpad
-  %.pn = phi { ptr, i32 } [ %4, %lpad12 ], [ %1, %lpad ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
+35:                                               ; preds = %32, %21
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %22, %21 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %entry, %invoke.cont13, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ %call14, %invoke.cont13 ], [ -1, %entry ]
-  ret i32 %retval.0
+36:                                               ; preds = %6, %30, %17
+  %.018 = phi i32 [ -1, %17 ], [ %29, %30 ], [ -1, %6 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @udat_parse_75(ptr noundef %format, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef captures(none) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %src = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %pp = alloca %"class.icu_75::ParsePosition", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define noundef double @udat_parse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %"class.icu_77::UnicodeString", align 8
+  %7 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %8 = alloca %"class.icu_77::ParsePosition", align 8
+  %9 = load i32, ptr %4, align 4, !tbaa !7
+  %10 = icmp slt i32 %9, 1
+  br i1 %10, label %11, label %33
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq i32 %textLength, -1
-  %conv = zext i1 %cmp to i8
-  store ptr %text, ptr %agg.tmp, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %src, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %textLength)
-          to label %invoke.cont unwind label %lpad
+11:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #8
+  %12 = icmp eq i32 %2, -1
+  %13 = zext i1 %12 to i8
+  store ptr %1, ptr %7, align 8, !tbaa !11
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 noundef signext %13, ptr noundef nonnull %7, i32 noundef %2)
+          to label %14 unwind label %21
 
-invoke.cont:                                      ; preds = %if.end
-  %1 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #7, !srcloc !4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %pp, align 8
-  %index.i = getelementptr inbounds nuw i8, ptr %pp, i64 8
-  %errorIndex.i = getelementptr inbounds nuw i8, ptr %pp, i64 12
-  store i32 -1, ptr %errorIndex.i, align 4
-  %cmp3 = icmp eq ptr %parsePos, null
-  br i1 %cmp3, label %invoke.cont.cont, label %invoke.cont.else
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %7, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #8, !srcloc !14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7713ParsePositionE, i64 16), ptr %8, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 -1, ptr %17, align 4, !tbaa !31
+  %18 = icmp eq ptr %3, null
+  br i1 %18, label %.cont19, label %.else20
 
-invoke.cont.else:                                 ; preds = %invoke.cont
-  %.else.val = load i32, ptr %parsePos, align 4
-  br label %invoke.cont.cont
+.else20:                                          ; preds = %14
+  %.else.val = load i32, ptr %3, align 4, !tbaa !33
+  br label %.cont19
 
-invoke.cont.cont:                                 ; preds = %invoke.cont, %invoke.cont.else
-  %2 = phi i32 [ 0, %invoke.cont ], [ %.else.val, %invoke.cont.else ]
-  store i32 %2, ptr %index.i, align 8
-  %call9 = invoke noundef double @_ZNK6icu_7510DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(352) %format, ptr noundef nonnull align 8 dereferenceable(64) %src, ptr noundef nonnull align 8 dereferenceable(16) %pp)
-          to label %invoke.cont8 unwind label %lpad6
+.cont19:                                          ; preds = %14, %.else20
+  %19 = phi i32 [ 0, %14 ], [ %.else.val, %.else20 ]
+  store i32 %19, ptr %16, align 8, !tbaa !34
+  %20 = invoke noundef double @_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %24 unwind label %29
 
-lpad:                                             ; preds = %if.end
-  %3 = landingpad { ptr, i32 }
+21:                                               ; preds = %11
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #7, !srcloc !4
-  br label %eh.resume
+  %23 = load ptr, ptr %7, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23) #8, !srcloc !14
+  br label %32
 
-invoke.cont8:                                     ; preds = %invoke.cont.cont
-  %5 = load i32, ptr %errorIndex.i, align 4
-  %cmp12 = icmp eq i32 %5, -1
-  br i1 %cmp12, label %if.then13, label %if.else
+24:                                               ; preds = %.cont19
+  %25 = load i32, ptr %17, align 4, !tbaa !31
+  %26 = icmp eq i32 %25, -1
+  br i1 %26, label %27, label %31
 
-if.then13:                                        ; preds = %invoke.cont8
-  br i1 %cmp3, label %if.end18, label %if.then13.else
+27:                                               ; preds = %24
+  br i1 %18, label %.cont16, label %.else18
 
-if.then13.else:                                   ; preds = %if.then13
-  %6 = load i32, ptr %index.i, align 8
-  store i32 %6, ptr %parsePos, align 4
-  br label %if.end18
+.else18:                                          ; preds = %27
+  %28 = load i32, ptr %16, align 8, !tbaa !34
+  store i32 %28, ptr %3, align 4, !tbaa !33
+  br label %.cont16
 
-lpad6:                                            ; preds = %invoke.cont.cont
-  %7 = landingpad { ptr, i32 }
+29:                                               ; preds = %.cont19
+  %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pp) #7
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #7
-  br label %eh.resume
+  call void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #8
+  br label %32
 
-if.else:                                          ; preds = %invoke.cont8
-  br i1 %cmp3, label %if.else.cont, label %if.else.else
+31:                                               ; preds = %24
+  br i1 %18, label %.cont, label %.else
 
-if.else.else:                                     ; preds = %if.else
-  store i32 %5, ptr %parsePos, align 4
-  br label %if.else.cont
+.else:                                            ; preds = %31
+  store i32 %25, ptr %3, align 4, !tbaa !33
+  br label %.cont
 
-if.else.cont:                                     ; preds = %if.else, %if.else.else
-  store i32 9, ptr %status, align 4
-  br label %if.end18
+.cont:                                            ; preds = %31, %.else
+  store i32 9, ptr %4, align 4, !tbaa !7
+  br label %.cont16
 
-if.end18:                                         ; preds = %if.then13.else, %if.then13, %if.else.cont
-  call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pp) #7
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #7
-  br label %return
+.cont16:                                          ; preds = %.else18, %27, %.cont
+  call void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
+  br label %33
 
-return:                                           ; preds = %entry, %if.end18
-  %retval.0 = phi double [ %call9, %if.end18 ], [ 0.000000e+00, %entry ]
-  ret double %retval.0
-
-eh.resume:                                        ; preds = %lpad6, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad6 ], [ %3, %lpad ]
+32:                                               ; preds = %29, %21
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %22, %21 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
   resume { ptr, i32 } %.pn
+
+33:                                               ; preds = %5, %.cont16
+  %.0 = phi double [ %20, %.cont16 ], [ 0.000000e+00, %5 ]
+  ret double %.0
 }
 
-declare noundef double @_ZNK6icu_7510DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(352), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+declare noundef double @_ZNK6icu_7710DateFormat5parseERKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_parseCalendar_75(ptr noundef %format, ptr noundef %calendar, ptr noundef %text, i32 noundef %textLength, ptr noundef %parsePos, ptr noundef captures(none) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %src = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %pp = alloca %"class.icu_75::ParsePosition", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define void @udat_parseCalendar_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.icu_77::UnicodeString", align 8
+  %8 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %9 = alloca %"class.icu_77::ParsePosition", align 8
+  %10 = load i32, ptr %5, align 4, !tbaa !7
+  %11 = icmp slt i32 %10, 1
+  br i1 %11, label %12, label %35
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq i32 %textLength, -1
-  %conv = zext i1 %cmp to i8
-  store ptr %text, ptr %agg.tmp, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %src, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %textLength)
-          to label %invoke.cont unwind label %lpad
+12:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  %13 = icmp eq i32 %3, -1
+  %14 = zext i1 %13 to i8
+  store ptr %2, ptr %8, align 8, !tbaa !11
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef signext %14, ptr noundef nonnull %8, i32 noundef %3)
+          to label %15 unwind label %24
 
-invoke.cont:                                      ; preds = %if.end
-  %1 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #7, !srcloc !4
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513ParsePositionE, i64 16), ptr %pp, align 8
-  %index.i = getelementptr inbounds nuw i8, ptr %pp, i64 8
-  %errorIndex.i = getelementptr inbounds nuw i8, ptr %pp, i64 12
-  store i32 -1, ptr %errorIndex.i, align 4
-  %cmp3 = icmp eq ptr %parsePos, null
-  br i1 %cmp3, label %invoke.cont.cont, label %invoke.cont.else
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %8, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #8, !srcloc !14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_7713ParsePositionE, i64 16), ptr %9, align 8, !tbaa !15
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 -1, ptr %18, align 4, !tbaa !31
+  %19 = icmp eq ptr %4, null
+  br i1 %19, label %.cont17, label %.else18
 
-invoke.cont.else:                                 ; preds = %invoke.cont
-  %.else.val = load i32, ptr %parsePos, align 4
-  br label %invoke.cont.cont
+.else18:                                          ; preds = %15
+  %.else.val = load i32, ptr %4, align 4, !tbaa !33
+  br label %.cont17
 
-invoke.cont.cont:                                 ; preds = %invoke.cont, %invoke.cont.else
-  %2 = phi i32 [ 0, %invoke.cont ], [ %.else.val, %invoke.cont.else ]
-  store i32 %2, ptr %index.i, align 8
-  %vtable = load ptr, ptr %format, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
-  %3 = load ptr, ptr %vfn, align 8
-  invoke void %3(ptr noundef nonnull align 8 dereferenceable(352) %format, ptr noundef nonnull align 8 dereferenceable(64) %src, ptr noundef nonnull align 8 dereferenceable(618) %calendar, ptr noundef nonnull align 8 dereferenceable(16) %pp)
-          to label %invoke.cont8 unwind label %lpad6
+.cont17:                                          ; preds = %15, %.else18
+  %20 = phi i32 [ 0, %15 ], [ %.else.val, %.else18 ]
+  store i32 %20, ptr %17, align 8, !tbaa !34
+  %21 = load ptr, ptr %0, align 8, !tbaa !15
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %23 = load ptr, ptr %22, align 8
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %27 unwind label %32
 
-lpad:                                             ; preds = %if.end
-  %4 = landingpad { ptr, i32 }
+24:                                               ; preds = %12
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #7, !srcloc !4
-  br label %eh.resume
+  %26 = load ptr, ptr %8, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %26) #8, !srcloc !14
+  br label %36
 
-invoke.cont8:                                     ; preds = %invoke.cont.cont
-  %6 = load i32, ptr %errorIndex.i, align 4
-  %cmp11 = icmp eq i32 %6, -1
-  br i1 %cmp11, label %if.then12, label %if.else
+27:                                               ; preds = %.cont17
+  %28 = load i32, ptr %18, align 4, !tbaa !31
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %30, label %34
 
-if.then12:                                        ; preds = %invoke.cont8
-  br i1 %cmp3, label %if.end17, label %if.then12.else
+30:                                               ; preds = %27
+  br i1 %19, label %.cont14, label %.else16
 
-if.then12.else:                                   ; preds = %if.then12
-  %7 = load i32, ptr %index.i, align 8
-  store i32 %7, ptr %parsePos, align 4
-  br label %if.end17
+.else16:                                          ; preds = %30
+  %31 = load i32, ptr %17, align 8, !tbaa !34
+  store i32 %31, ptr %4, align 4, !tbaa !33
+  br label %.cont14
 
-lpad6:                                            ; preds = %invoke.cont.cont
-  %8 = landingpad { ptr, i32 }
+32:                                               ; preds = %.cont17
+  %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pp) #7
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #7
-  br label %eh.resume
+  call void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  br label %36
 
-if.else:                                          ; preds = %invoke.cont8
-  br i1 %cmp3, label %if.else.cont, label %if.else.else
+34:                                               ; preds = %27
+  br i1 %19, label %.cont, label %.else
 
-if.else.else:                                     ; preds = %if.else
-  store i32 %6, ptr %parsePos, align 4
-  br label %if.else.cont
+.else:                                            ; preds = %34
+  store i32 %28, ptr %4, align 4, !tbaa !33
+  br label %.cont
 
-if.else.cont:                                     ; preds = %if.else, %if.else.else
-  store i32 9, ptr %status, align 4
-  br label %if.end17
+.cont:                                            ; preds = %34, %.else
+  store i32 9, ptr %5, align 4, !tbaa !7
+  br label %.cont14
 
-if.end17:                                         ; preds = %if.then12.else, %if.then12, %if.else.cont
-  call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pp) #7
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %src) #7
-  br label %return
+.cont14:                                          ; preds = %.else16, %30, %.cont
+  call void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  br label %35
 
-return:                                           ; preds = %entry, %if.end17
+35:                                               ; preds = %6, %.cont14
   ret void
 
-eh.resume:                                        ; preds = %lpad6, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad6 ], [ %4, %lpad ]
+36:                                               ; preds = %32, %24
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %25, %24 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @udat_isLenient_75(ptr noundef %fmt) local_unnamed_addr #1 {
-entry:
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
-  %0 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef signext i8 %0(ptr noundef nonnull align 8 dereferenceable(352) %fmt)
-  ret i8 %call
+define noundef signext i8 @udat_isLenient_77(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noundef signext i8 %4(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  ret i8 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_setLenient_75(ptr noundef %fmt, i8 noundef signext %isLenient) local_unnamed_addr #1 {
-entry:
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
-  %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(352) %fmt, i8 noundef signext %isLenient)
+define void @udat_setLenient_77(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #1 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %5 = load ptr, ptr %4, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 noundef signext %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @udat_getBooleanAttribute_75(ptr noundef %fmt, i32 noundef %attr, ptr noundef %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define noundef signext i8 @udat_getBooleanAttribute_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = load i32, ptr %2, align 4, !tbaa !7
+  %5 = icmp slt i32 %4, 1
+  br i1 %5, label %6, label %11
 
-if.end:                                           ; preds = %entry
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
-  %1 = load ptr, ptr %vfn, align 8
-  %call1 = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(352) %fmt, i32 noundef %attr, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %return
+6:                                                ; preds = %3
+  %7 = load ptr, ptr %0, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 224
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noundef signext i8 %9(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %11
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i8 [ %call1, %if.end ], [ 0, %entry ]
-  ret i8 %retval.0
+11:                                               ; preds = %3, %6
+  %.0 = phi i8 [ %10, %6 ], [ 0, %3 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_setBooleanAttribute_75(ptr noundef %fmt, i32 noundef %attr, i8 noundef signext %newValue, ptr noundef %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define void @udat_setBooleanAttribute_77(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, ptr noundef %3) local_unnamed_addr #1 {
+  %5 = load i32, ptr %3, align 4, !tbaa !7
+  %6 = icmp slt i32 %5, 1
+  br i1 %6, label %7, label %12
 
-if.end:                                           ; preds = %entry
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 216
-  %1 = load ptr, ptr %vfn, align 8
-  %call1 = tail call noundef nonnull align 8 dereferenceable(352) ptr %1(ptr noundef nonnull align 8 dereferenceable(352) %fmt, i32 noundef %attr, i8 noundef signext %newValue, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %return
+7:                                                ; preds = %4
+  %8 = load ptr, ptr %0, align 8, !tbaa !15
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call noundef nonnull align 8 dereferenceable(48) ptr %10(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i8 noundef signext %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %12
 
-return:                                           ; preds = %entry, %if.end
+12:                                               ; preds = %4, %7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udat_getCalendar_75(ptr noundef %fmt) local_unnamed_addr #1 {
-entry:
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
-  %0 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(352) %fmt)
-  ret ptr %call
+define noundef ptr @udat_getCalendar_77(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_setCalendar_75(ptr noundef %fmt, ptr noundef %calendarToSet) local_unnamed_addr #1 {
-entry:
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
-  %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(352) %fmt, ptr noundef nonnull align 8 dereferenceable(618) %calendarToSet)
+define void @udat_setCalendar_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %5 = load ptr, ptr %4, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(192) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udat_getNumberFormatForField_75(ptr noundef %fmt, i16 noundef zeroext %field) local_unnamed_addr #1 {
-land.lhs.true.i:
-  %0 = icmp eq ptr %fmt, null
-  br i1 %0, label %if.then, label %dynamic_cast.notnull.i
+define noundef ptr @udat_getNumberFormatForField_77(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #1 {
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %7, label %4
 
-dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
-  %2 = icmp eq ptr %1, null
-  br i1 %2, label %if.then, label %if.end
+4:                                                ; preds = %2
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7716SimpleDateFormatE, i64 0) #8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %12
 
-if.then:                                          ; preds = %dynamic_cast.notnull.i, %land.lhs.true.i
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
-  %3 = load ptr, ptr %vfn, align 8
-  %call1 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(352) %fmt)
-  br label %return
+7:                                                ; preds = %4, %2
+  %8 = load ptr, ptr %0, align 8, !tbaa !15
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  br label %14
 
-if.end:                                           ; preds = %dynamic_cast.notnull.i
-  %call2 = tail call noundef ptr @_ZNK6icu_7516SimpleDateFormat23getNumberFormatForFieldEDs(ptr noundef nonnull align 8 dereferenceable(832) %fmt, i16 noundef zeroext %field)
-  br label %return
+12:                                               ; preds = %4
+  %13 = tail call noundef ptr @_ZNK6icu_7716SimpleDateFormat23getNumberFormatForFieldEDs(ptr noundef nonnull align 8 dereferenceable(528) %0, i16 noundef zeroext %1)
+  br label %14
 
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi ptr [ %call1, %if.then ], [ %call2, %if.end ]
-  ret ptr %retval.0
+14:                                               ; preds = %12, %7
+  %.0 = phi ptr [ %11, %7 ], [ %13, %12 ]
+  ret ptr %.0
 }
 
-declare noundef ptr @_ZNK6icu_7516SimpleDateFormat23getNumberFormatForFieldEDs(ptr noundef nonnull align 8 dereferenceable(832), i16 noundef zeroext) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7716SimpleDateFormat23getNumberFormatForFieldEDs(ptr noundef nonnull align 8 dereferenceable(528), i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udat_getNumberFormat_75(ptr noundef %fmt) local_unnamed_addr #1 {
-entry:
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
-  %0 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(352) %fmt)
-  ret ptr %call
+define noundef ptr @udat_getNumberFormat_77(ptr noundef %0) local_unnamed_addr #1 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_adoptNumberFormatForFields_75(ptr noundef %fmt, ptr noundef %fields, ptr noundef %numberFormatToSet, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %overrideFields = alloca %"class.icu_75::UnicodeString", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i.i, label %if.end2, label %land.lhs.true.i
+define void @udat_adoptNumberFormatForFields_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.icu_77::UnicodeString", align 8
+  %6 = load i32, ptr %3, align 4, !tbaa !7
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread, label %8
 
-land.lhs.true.i:                                  ; preds = %entry
-  %1 = icmp eq ptr %fmt, null
-  br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
+8:                                                ; preds = %4
+  %9 = icmp eq ptr %0, null
+  br i1 %9, label %.critedge.i, label %10
 
-dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %if.then.i, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+10:                                               ; preds = %8
+  %11 = tail call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7716SimpleDateFormatE, i64 0) #8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %.critedge.i, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
 
-if.then.i:                                        ; preds = %dynamic_cast.notnull.i, %land.lhs.true.i
-  store i32 1, ptr %status, align 4
-  br label %if.end2
+.critedge.i:                                      ; preds = %10, %8
+  store i32 1, ptr %3, align 4, !tbaa !7
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit: ; preds = %dynamic_cast.notnull.i
-  %cmp.not = icmp eq ptr %fields, null
-  br i1 %cmp.not, label %if.end2, label %if.then1
+_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit: ; preds = %10
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread, label %13
 
-if.then1:                                         ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
-  call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %overrideFields, ptr noundef nonnull %fields)
-  invoke void @_ZN6icu_7516SimpleDateFormat17adoptNumberFormatERKNS_13UnicodeStringEPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832) %fmt, ptr noundef nonnull align 8 dereferenceable(64) %overrideFields, ptr noundef %numberFormatToSet, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont unwind label %lpad
+13:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !15
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i16 2, ptr %14, align 8, !tbaa !17
+  br label %.preheader.i.i
 
-invoke.cont:                                      ; preds = %if.then1
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %overrideFields) #7
-  br label %if.end2
+.preheader.i.i:                                   ; preds = %13, %.preheader.i.i
+  %.0.i.i.i.i = phi i64 [ %18, %.preheader.i.i ], [ 0, %13 ]
+  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i.i.i.i
+  %16 = load i16, ptr %15, align 2, !tbaa !35
+  %17 = icmp eq i16 %16, 0
+  %18 = add i64 %.0.i.i.i.i, 1
+  br i1 %17, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !37
 
-lpad:                                             ; preds = %if.then1
-  %4 = landingpad { ptr, i32 }
+.loopexit.i:                                      ; preds = %.preheader.i.i
+  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 %.0.i.i.i.i, ptr nonnull %1)
+          to label %_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit unwind label %20
+
+common.resume:                                    ; preds = %23, %20
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %24, %23 ]
+  resume { ptr, i32 } %common.resume.op
+
+20:                                               ; preds = %.loopexit.i
+  %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %overrideFields) #7
-  resume { ptr, i32 } %4
+  call void @_ZN6icu_7711ReplaceableD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
+  br label %common.resume
 
-if.end2:                                          ; preds = %if.then.i, %entry, %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit, %invoke.cont
+_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i
+  invoke void @_ZN6icu_7716SimpleDateFormat17adoptNumberFormatERKNS_13UnicodeStringEPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %22 unwind label %23
+
+22:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
+
+23:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
+  br label %common.resume
+
+_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread: ; preds = %.critedge.i, %4, %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit, %22
   ret void
 }
 
-declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #2
-
-declare void @_ZN6icu_7516SimpleDateFormat17adoptNumberFormatERKNS_13UnicodeStringEPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(832), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare void @_ZN6icu_7716SimpleDateFormat17adoptNumberFormatERKNS_13UnicodeStringEPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_setNumberFormat_75(ptr noundef %fmt, ptr noundef %numberFormatToSet) local_unnamed_addr #1 {
-entry:
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 168
-  %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(352) %fmt, ptr noundef nonnull align 8 dereferenceable(356) %numberFormatToSet)
+define void @udat_setNumberFormat_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %5 = load ptr, ptr %4, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(60) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_adoptNumberFormat_75(ptr noundef %fmt, ptr noundef %numberFormatToAdopt) local_unnamed_addr #1 {
-entry:
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
-  %0 = load ptr, ptr %vfn, align 8
-  tail call void %0(ptr noundef nonnull align 8 dereferenceable(352) %fmt, ptr noundef %numberFormatToAdopt)
+define void @udat_adoptNumberFormat_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+  %3 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %5 = load ptr, ptr %4, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @udat_getAvailable_75(i32 noundef %index) local_unnamed_addr #1 {
-entry:
-  %call = tail call ptr @uloc_getAvailable_75(i32 noundef %index)
-  ret ptr %call
+define ptr @udat_getAvailable_77(i32 noundef %0) local_unnamed_addr #1 {
+  %2 = tail call ptr @uloc_getAvailable_77(i32 noundef %0)
+  ret ptr %2
 }
 
-declare ptr @uloc_getAvailable_75(i32 noundef) local_unnamed_addr #2
+declare ptr @uloc_getAvailable_77(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @udat_countAvailable_75() local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @uloc_countAvailable_75()
-  ret i32 %call
+define i32 @udat_countAvailable_77() local_unnamed_addr #1 {
+  %1 = tail call i32 @uloc_countAvailable_77()
+  ret i32 %1
 }
 
-declare i32 @uloc_countAvailable_75() local_unnamed_addr #2
+declare i32 @uloc_countAvailable_77() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define double @udat_get2DigitYearStart_75(ptr noundef readonly %fmt, ptr noundef captures(none) %status) local_unnamed_addr #5 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i.i, label %return, label %land.lhs.true.i
+define double @udat_get2DigitYearStart_77(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+  %3 = load i32, ptr %1, align 4, !tbaa !7
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread, label %5
 
-land.lhs.true.i:                                  ; preds = %entry
-  %1 = icmp eq ptr %fmt, null
-  br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
+5:                                                ; preds = %2
+  %6 = icmp eq ptr %0, null
+  br i1 %6, label %.critedge.i, label %7
 
-dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %if.then.i, label %if.end
+7:                                                ; preds = %5
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7716SimpleDateFormatE, i64 0) #8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %.critedge.i, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
 
-if.then.i:                                        ; preds = %dynamic_cast.notnull.i, %land.lhs.true.i
-  store i32 1, ptr %status, align 4
-  br label %return
+.critedge.i:                                      ; preds = %7, %5
+  store i32 1, ptr %1, align 4, !tbaa !7
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-if.end:                                           ; preds = %dynamic_cast.notnull.i
-  %fDefaultCenturyStart.i = getelementptr inbounds nuw i8, ptr %fmt, i64 784
-  %4 = load double, ptr %fDefaultCenturyStart.i, align 8
-  br label %return
+_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit: ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %11 = load double, ptr %10, align 8, !tbaa !39
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-return:                                           ; preds = %if.then.i, %entry, %if.end
-  %retval.0 = phi double [ %4, %if.end ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.then.i ]
-  ret double %retval.0
+_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread: ; preds = %.critedge.i, %2, %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  %.0 = phi double [ %11, %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %.critedge.i ]
+  ret double %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_set2DigitYearStart_75(ptr noundef %fmt, double noundef %d, ptr noundef %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i.i, label %return, label %land.lhs.true.i
+define void @udat_set2DigitYearStart_77(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = load i32, ptr %2, align 4, !tbaa !7
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread, label %6
 
-land.lhs.true.i:                                  ; preds = %entry
-  %1 = icmp eq ptr %fmt, null
-  br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
+6:                                                ; preds = %3
+  %7 = icmp eq ptr %0, null
+  br i1 %7, label %.critedge.i, label %8
 
-dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %if.then.i, label %if.end
+8:                                                ; preds = %6
+  %9 = tail call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7716SimpleDateFormatE, i64 0) #8
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %.critedge.i, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
 
-if.then.i:                                        ; preds = %dynamic_cast.notnull.i, %land.lhs.true.i
-  store i32 1, ptr %status, align 4
-  br label %return
+.critedge.i:                                      ; preds = %8, %6
+  store i32 1, ptr %2, align 4, !tbaa !7
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-if.end:                                           ; preds = %dynamic_cast.notnull.i
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 232
-  %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(832) %fmt, double noundef %d, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %return
+_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit: ; preds = %8
+  %11 = load ptr, ptr %0, align 8, !tbaa !15
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  %13 = load ptr, ptr %12, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(528) %0, double noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-return:                                           ; preds = %if.then.i, %entry, %if.end
+_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread: ; preds = %.critedge.i, %3, %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_toPattern_75(ptr noundef %fmt, i8 noundef signext %localized, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %res = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define noundef i32 @udat_toPattern_77(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %"class.icu_77::UnicodeString", align 8
+  %7 = alloca %"class.icu_77::Char16Ptr", align 8
+  %8 = load i32, ptr %4, align 4, !tbaa !7
+  %9 = icmp slt i32 %8, 1
+  br i1 %9, label %10, label %52
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp eq ptr %result, null
-  br i1 %cmp, label %cond.true, label %cond.false
+10:                                               ; preds = %5
+  %11 = icmp eq ptr %2, null
+  br i1 %11, label %12, label %14
 
-cond.true:                                        ; preds = %if.end
-  %cmp1.not = icmp eq i32 %resultLength, 0
-  br i1 %cmp1.not, label %if.end4.thread, label %if.then3
+12:                                               ; preds = %10
+  %.not34 = icmp eq i32 %3, 0
+  br i1 %.not34, label %.thread, label %16
 
-if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i18 = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i18, align 8
-  br label %if.end8
+.thread:                                          ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !15
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i16 2, ptr %13, align 8, !tbaa !17
+  br label %22
 
-cond.false:                                       ; preds = %if.end
-  %cmp2 = icmp slt i32 %resultLength, 0
-  br i1 %cmp2, label %if.then3, label %if.then6
+14:                                               ; preds = %10
+  %15 = icmp slt i32 %3, 0
+  br i1 %15, label %16, label %17
 
-if.then3:                                         ; preds = %cond.false, %cond.true
-  store i32 1, ptr %status, align 4
-  br label %return
+16:                                               ; preds = %14, %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %52
 
-if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res, align 8
-  %fUnion2.i = getelementptr inbounds nuw i8, ptr %res, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
-          to label %if.end8 unwind label %lpad
+17:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !15
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i16 2, ptr %18, align 8, !tbaa !17
+  %19 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+          to label %22 unwind label %20
 
-lpad:                                             ; preds = %if.then26.invoke, %if.else, %if.then6
-  %1 = landingpad { ptr, i32 }
+20:                                               ; preds = %17
+  %21 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %51
 
-if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  %2 = icmp eq ptr %fmt, null
-  br i1 %2, label %if.else31, label %dynamic_cast.end
+22:                                               ; preds = %.thread, %17
+  %23 = icmp eq ptr %0, null
+  br i1 %23, label %.thread47, label %24
 
-dynamic_cast.end:                                 ; preds = %if.end8
-  %3 = call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
-  %cmp9.not = icmp eq ptr %3, null
-  %tobool21.not20 = icmp eq i8 %localized, 0
-  br i1 %cmp9.not, label %if.else20.thread, label %if.then10
+24:                                               ; preds = %22
+  %25 = call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7716SimpleDateFormatE, i64 0) #8
+  %.not36 = icmp eq ptr %25, null
+  %.not3745 = icmp eq i8 %1, 0
+  br i1 %.not36, label %.thread44, label %26
 
-if.then10:                                        ; preds = %dynamic_cast.end
-  %vtable15 = load ptr, ptr %3, align 8
-  br i1 %tobool21.not20, label %if.else, label %if.then12
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %25, align 8, !tbaa !15
+  br i1 %.not3745, label %32, label %28
 
-if.then12:                                        ; preds = %if.then10
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable15, i64 248
-  br label %if.then26.invoke
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 248
+  br label %.invoke
 
-if.else:                                          ; preds = %if.then10
-  %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 240
-  %4 = load ptr, ptr %vfn16, align 8
-  %call18 = invoke noundef nonnull align 8 dereferenceable(64) ptr %4(ptr noundef nonnull align 8 dereferenceable(832) %3, ptr noundef nonnull align 8 dereferenceable(64) %res)
-          to label %if.end33 unwind label %lpad
-
-if.else20.thread:                                 ; preds = %dynamic_cast.end
-  br i1 %tobool21.not20, label %dynamic_cast.end24, label %if.else31
-
-dynamic_cast.end24:                               ; preds = %if.else20.thread
-  %5 = call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
-  %cmp25.not = icmp eq ptr %5, null
-  br i1 %cmp25.not, label %if.else31, label %if.then26
-
-if.then26:                                        ; preds = %dynamic_cast.end24
-  %vtable27 = load ptr, ptr %5, align 8
-  %vfn28 = getelementptr inbounds nuw i8, ptr %vtable27, i64 232
-  br label %if.then26.invoke
-
-if.then26.invoke:                                 ; preds = %if.then12, %if.then26
-  %6 = phi ptr [ %5, %if.then26 ], [ %3, %if.then12 ]
-  %.in = phi ptr [ %vfn28, %if.then26 ], [ %vfn, %if.then12 ]
-  %7 = load ptr, ptr %.in, align 8
-  %8 = invoke noundef nonnull align 8 dereferenceable(64) ptr %7(ptr noundef nonnull align 8 dereferenceable(760) %6, ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %if.end33 unwind label %lpad
-
-if.else31:                                        ; preds = %if.end8, %if.else20.thread, %dynamic_cast.end24
-  store i32 1, ptr %status, align 4
-  br label %cleanup
-
-if.end33:                                         ; preds = %if.then26.invoke, %if.else
-  store ptr %result, ptr %agg.tmp, align 8
-  %call37 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %agg.tmp, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont36 unwind label %lpad35
-
-invoke.cont36:                                    ; preds = %if.end33
-  %9 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #7, !srcloc !5
-  br label %cleanup
-
-lpad35:                                           ; preds = %if.end33
-  %10 = landingpad { ptr, i32 }
+30:                                               ; preds = %.invoke, %32
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #7, !srcloc !5
-  br label %ehcleanup
+  br label %51
 
-cleanup:                                          ; preds = %invoke.cont36, %if.else31
-  %retval.1 = phi i32 [ %call37, %invoke.cont36 ], [ -1, %if.else31 ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
-  br label %return
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 240
+  %34 = load ptr, ptr %33, align 8
+  %35 = invoke noundef nonnull align 8 dereferenceable(64) ptr %34(ptr noundef nonnull align 8 dereferenceable(528) %25, ptr noundef nonnull align 8 dereferenceable(64) %6)
+          to label %43 unwind label %30
 
-ehcleanup:                                        ; preds = %lpad35, %lpad
-  %.pn = phi { ptr, i32 } [ %10, %lpad35 ], [ %1, %lpad ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
-  resume { ptr, i32 } %.pn
+.thread44:                                        ; preds = %24
+  br i1 %.not3745, label %.thread46, label %.thread47
 
-return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ %retval.1, %cleanup ], [ -1, %entry ]
-  ret i32 %retval.0
+.thread46:                                        ; preds = %.thread44
+  %36 = call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7718RelativeDateFormatE, i64 0) #8
+  %.not38 = icmp eq ptr %36, null
+  br i1 %.not38, label %.thread47, label %37
+
+37:                                               ; preds = %.thread46
+  %38 = load ptr, ptr %36, align 8, !tbaa !15
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 232
+  br label %.invoke
+
+.invoke:                                          ; preds = %28, %37
+  %40 = phi ptr [ %36, %37 ], [ %25, %28 ]
+  %.in = phi ptr [ %39, %37 ], [ %29, %28 ]
+  %41 = load ptr, ptr %.in, align 8
+  %42 = invoke noundef nonnull align 8 dereferenceable(64) ptr %41(ptr noundef nonnull align 8 dereferenceable(456) %40, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %43 unwind label %30
+
+.thread47:                                        ; preds = %22, %.thread44, %.thread46
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %50
+
+43:                                               ; preds = %.invoke, %32
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %44 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %7, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %45 unwind label %47
+
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %7, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %46) #8, !srcloc !30
+  br label %50
+
+47:                                               ; preds = %43
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = load ptr, ptr %7, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %49) #8, !srcloc !30
+  br label %51
+
+50:                                               ; preds = %45, %.thread47
+  %.1 = phi i32 [ %44, %45 ], [ -1, %.thread47 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
+  br label %52
+
+51:                                               ; preds = %30, %47, %20
+  %.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %48, %47 ], [ %31, %30 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
+  resume { ptr, i32 } %.pn.pn
+
+52:                                               ; preds = %5, %50, %16
+  %.0 = phi i32 [ -1, %16 ], [ %.1, %50 ], [ -1, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_applyPattern_75(ptr noundef %format, i8 noundef signext %localized, ptr noundef %pattern, i32 noundef %patternLength) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %pat = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %status = alloca i32, align 4
-  %cmp = icmp eq i32 %patternLength, -1
-  %conv = zext i1 %cmp to i8
-  store ptr %pattern, ptr %agg.tmp, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %pat, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %patternLength)
-          to label %land.lhs.true.i unwind label %lpad
+define void @udat_applyPattern_77(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.icu_77::UnicodeString", align 8
+  %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
+  %8 = icmp eq i32 %3, -1
+  %9 = zext i1 %8 to i8
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 noundef signext %9, ptr noundef nonnull %6, i32 noundef %3)
+          to label %10 unwind label %16
 
-land.lhs.true.i:                                  ; preds = %entry
-  %0 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #7, !srcloc !4
-  store i32 0, ptr %status, align 4
-  %1 = icmp eq ptr %format, null
-  br i1 %1, label %invoke.cont2, label %dynamic_cast.notnull.i
+10:                                               ; preds = %4
+  %11 = load ptr, ptr %6, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #8, !srcloc !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  store i32 0, ptr %7, align 4, !tbaa !7
+  %12 = icmp eq ptr %0, null
+  br i1 %12, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit, label %13
 
-dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = call ptr @__dynamic_cast(ptr nonnull readonly %format, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %invoke.cont2, label %if.end
+13:                                               ; preds = %10
+  %14 = call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7716SimpleDateFormatE, i64 0) #8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit, label %21
 
-invoke.cont2:                                     ; preds = %land.lhs.true.i, %dynamic_cast.notnull.i
-  store i32 1, ptr %status, align 4
-  br label %cleanup
-
-lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+16:                                               ; preds = %4
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %5 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #7, !srcloc !4
-  br label %eh.resume
+  %18 = load ptr, ptr %6, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18) #8, !srcloc !14
+  br label %29
 
-lpad1:                                            ; preds = %if.else, %if.then5
-  %6 = landingpad { ptr, i32 }
+19:                                               ; preds = %26, %23
+  %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pat) #7
-  br label %eh.resume
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
+  br label %29
 
-if.end:                                           ; preds = %dynamic_cast.notnull.i
-  %tobool4.not = icmp eq i8 %localized, 0
-  %vtable7 = load ptr, ptr %format, align 8
-  br i1 %tobool4.not, label %if.else, label %if.then5
+21:                                               ; preds = %13
+  %.not9 = icmp eq i8 %1, 0
+  %22 = load ptr, ptr %0, align 8, !tbaa !15
+  br i1 %.not9, label %26, label %23
 
-if.then5:                                         ; preds = %if.end
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable7, i64 264
-  %7 = load ptr, ptr %vfn, align 8
-  invoke void %7(ptr noundef nonnull align 8 dereferenceable(832) %format, ptr noundef nonnull align 8 dereferenceable(64) %pat, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %cleanup unwind label %lpad1
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 264
+  %25 = load ptr, ptr %24, align 8
+  invoke void %25(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit unwind label %19
 
-if.else:                                          ; preds = %if.end
-  %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 256
-  %8 = load ptr, ptr %vfn8, align 8
-  invoke void %8(ptr noundef nonnull align 8 dereferenceable(832) %format, ptr noundef nonnull align 8 dereferenceable(64) %pat)
-          to label %cleanup unwind label %lpad1
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 256
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %5)
+          to label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit unwind label %19
 
-cleanup:                                          ; preds = %invoke.cont2, %if.then5, %if.else
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pat) #7
+_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit: ; preds = %13, %10, %23, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
   ret void
 
-eh.resume:                                        ; preds = %lpad1, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad1 ], [ %4, %lpad ]
+29:                                               ; preds = %19, %16
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %17, %16 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_getSymbols_75(ptr noundef %fmt, i32 noundef %type, i32 noundef %index, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %count = alloca i32, align 4
-  %res1 = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  %agg.tmp82 = alloca %"class.icu_75::Char16Ptr", align 8
-  %0 = icmp eq ptr %fmt, null
-  br i1 %0, label %return, label %dynamic_cast.end
+define noundef i32 @udat_getSymbols_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.icu_77::UnicodeString", align 8
+  %9 = alloca %"class.icu_77::Char16Ptr", align 8
+  %10 = alloca %"class.icu_77::Char16Ptr", align 8
+  %11 = icmp eq ptr %0, null
+  br i1 %11, label %.thread68, label %12
 
-dynamic_cast.end:                                 ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
-  %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %dynamic_cast.end3, label %if.end10
+12:                                               ; preds = %6
+  %13 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7716SimpleDateFormatE, i64 0) #8
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %14, label %16
 
-dynamic_cast.end3:                                ; preds = %dynamic_cast.end
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
-  %cmp4.not = icmp eq ptr %2, null
-  br i1 %cmp4.not, label %return, label %if.end10
+14:                                               ; preds = %12
+  %15 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7718RelativeDateFormatE, i64 0) #8
+  %.not62 = icmp eq ptr %15, null
+  br i1 %.not62, label %.thread68, label %16
 
-if.end10:                                         ; preds = %dynamic_cast.end3, %dynamic_cast.end
-  %.sink47 = phi ptr [ %1, %dynamic_cast.end ], [ %2, %dynamic_cast.end3 ]
-  %.sink46 = phi i64 [ 272, %dynamic_cast.end ], [ 264, %dynamic_cast.end3 ]
-  %vtable6 = load ptr, ptr %.sink47, align 8
-  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 %.sink46
-  %3 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(760) %.sink47)
-  store i32 0, ptr %count, align 4
-  switch i32 %type, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 7, label %sw.bb12
-    i32 1, label %sw.bb14
-    i32 2, label %sw.bb16
-    i32 3, label %sw.bb18
-    i32 4, label %sw.bb20
-    i32 5, label %sw.bb22
-    i32 6, label %sw.bb24
-    i32 8, label %sw.bb36
-    i32 20, label %sw.bb38
-    i32 9, label %sw.bb40
-    i32 10, label %sw.bb42
-    i32 11, label %sw.bb44
-    i32 12, label %sw.bb46
-    i32 13, label %sw.bb48
-    i32 14, label %sw.bb50
-    i32 21, label %sw.bb52
-    i32 15, label %sw.bb54
-    i32 16, label %sw.bb56
-    i32 17, label %sw.bb58
-    i32 28, label %sw.bb60
-    i32 18, label %sw.bb62
-    i32 19, label %sw.bb64
-    i32 29, label %sw.bb66
-    i32 22, label %sw.bb68
-    i32 23, label %sw.bb70
-    i32 24, label %sw.bb72
-    i32 25, label %sw.bb74
-    i32 26, label %sw.bb76
-    i32 27, label %sw.bb78
+16:                                               ; preds = %14, %12
+  %.sink74 = phi ptr [ %13, %12 ], [ %15, %14 ]
+  %.sink73 = phi i64 [ 272, %12 ], [ 264, %14 ]
+  %17 = load ptr, ptr %.sink74, align 8, !tbaa !15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink73
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(456) %.sink74)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  store i32 0, ptr %7, align 4, !tbaa !33
+  switch i32 %1, label %97 [
+    i32 0, label %21
+    i32 7, label %23
+    i32 1, label %25
+    i32 2, label %27
+    i32 3, label %29
+    i32 4, label %31
+    i32 5, label %33
+    i32 6, label %35
+    i32 8, label %53
+    i32 20, label %55
+    i32 9, label %57
+    i32 10, label %59
+    i32 11, label %61
+    i32 12, label %63
+    i32 13, label %65
+    i32 14, label %67
+    i32 21, label %69
+    i32 15, label %71
+    i32 16, label %73
+    i32 17, label %75
+    i32 28, label %77
+    i32 18, label %79
+    i32 19, label %81
+    i32 29, label %83
+    i32 22, label %85
+    i32 23, label %87
+    i32 24, label %89
+    i32 25, label %91
+    i32 26, label %93
+    i32 27, label %95
   ]
 
-sw.bb:                                            ; preds = %if.end10
-  %call11 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+21:                                               ; preds = %16
+  %22 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br label %97
 
-sw.bb12:                                          ; preds = %if.end10
-  %call13 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+23:                                               ; preds = %16
+  %24 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br label %97
 
-sw.bb14:                                          ; preds = %if.end10
-  %call15 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+25:                                               ; preds = %16
+  %26 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br label %97
 
-sw.bb16:                                          ; preds = %if.end10
-  %call17 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+27:                                               ; preds = %16
+  %28 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br label %97
 
-sw.bb18:                                          ; preds = %if.end10
-  %call19 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+29:                                               ; preds = %16
+  %30 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br label %97
 
-sw.bb20:                                          ; preds = %if.end10
-  %call21 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+31:                                               ; preds = %16
+  %32 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br label %97
 
-sw.bb22:                                          ; preds = %if.end10
-  %call23 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+33:                                               ; preds = %16
+  %34 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br label %97
 
-sw.bb24:                                          ; preds = %if.end10
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %res1, align 8
-  %fUnion2.i = getelementptr inbounds nuw i8, ptr %res1, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
-  %cmp25 = icmp eq ptr %result, null
-  %cmp26 = icmp eq i32 %resultLength, 0
-  %or.cond = and i1 %cmp25, %cmp26
-  br i1 %or.cond, label %if.end29, label %if.then27
+35:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !15
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i16 2, ptr %36, align 8, !tbaa !17
+  %37 = icmp eq ptr %3, null
+  %38 = icmp eq i32 %4, 0
+  %or.cond = and i1 %37, %38
+  br i1 %or.cond, label %43, label %39
 
-if.then27:                                        ; preds = %sw.bb24
-  %call28 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res1, ptr noundef %result, i32 noundef 0, i32 noundef %resultLength)
-          to label %if.end29 unwind label %lpad
+39:                                               ; preds = %35
+  %40 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %3, i32 noundef 0, i32 noundef %4)
+          to label %43 unwind label %41
 
-lpad:                                             ; preds = %if.end29, %if.then27
-  %4 = landingpad { ptr, i32 }
+41:                                               ; preds = %43, %39
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %52
 
-if.end29:                                         ; preds = %if.then27, %sw.bb24
-  %call31 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7517DateFormatSymbols20getLocalPatternCharsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 8 dereferenceable(64) %res1)
-          to label %invoke.cont30 unwind label %lpad
+43:                                               ; preds = %39, %35
+  %44 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717DateFormatSymbols20getLocalPatternCharsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 8 dereferenceable(64) %8)
+          to label %45 unwind label %41
 
-invoke.cont30:                                    ; preds = %if.end29
-  store ptr %result, ptr %agg.tmp, align 8
-  %call35 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %res1, ptr noundef nonnull %agg.tmp, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont34 unwind label %lpad33
+45:                                               ; preds = %43
+  store ptr %3, ptr %9, align 8, !tbaa !28
+  %46 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %9, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %47 unwind label %49
 
-invoke.cont34:                                    ; preds = %invoke.cont30
-  %5 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #7, !srcloc !5
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res1) #7
-  br label %return
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %9, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48) #8, !srcloc !30
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #8
+  br label %109
 
-lpad33:                                           ; preds = %invoke.cont30
-  %6 = landingpad { ptr, i32 }
+49:                                               ; preds = %45
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #7, !srcloc !5
-  br label %ehcleanup
+  %51 = load ptr, ptr %9, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %51) #8, !srcloc !30
+  br label %52
 
-ehcleanup:                                        ; preds = %lpad33, %lpad
-  %.pn = phi { ptr, i32 } [ %6, %lpad33 ], [ %4, %lpad ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res1) #7
-  br label %eh.resume
+52:                                               ; preds = %49, %41
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %42, %41 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #8
+  br label %110
 
-sw.bb36:                                          ; preds = %if.end10
-  %call37 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+53:                                               ; preds = %16
+  %54 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 2)
+  br label %97
 
-sw.bb38:                                          ; preds = %if.end10
-  %call39 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 3)
-  br label %sw.epilog
+55:                                               ; preds = %16
+  %56 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 3)
+  br label %97
 
-sw.bb40:                                          ; preds = %if.end10
-  %call41 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+57:                                               ; preds = %16
+  %58 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 2)
+  br label %97
 
-sw.bb42:                                          ; preds = %if.end10
-  %call43 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
-  br label %sw.epilog
+59:                                               ; preds = %16
+  %60 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 1)
+  br label %97
 
-sw.bb44:                                          ; preds = %if.end10
-  %call45 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
-  br label %sw.epilog
+61:                                               ; preds = %16
+  %62 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 0)
+  br label %97
 
-sw.bb46:                                          ; preds = %if.end10
-  %call47 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
-  br label %sw.epilog
+63:                                               ; preds = %16
+  %64 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 2)
+  br label %97
 
-sw.bb48:                                          ; preds = %if.end10
-  %call49 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
-  br label %sw.epilog
+65:                                               ; preds = %16
+  %66 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 1)
+  br label %97
 
-sw.bb50:                                          ; preds = %if.end10
-  %call51 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
-  br label %sw.epilog
+67:                                               ; preds = %16
+  %68 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 0)
+  br label %97
 
-sw.bb52:                                          ; preds = %if.end10
-  %call53 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 3)
-  br label %sw.epilog
+69:                                               ; preds = %16
+  %70 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 3)
+  br label %97
 
-sw.bb54:                                          ; preds = %if.end10
-  %call55 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
-  br label %sw.epilog
+71:                                               ; preds = %16
+  %72 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 2)
+  br label %97
 
-sw.bb56:                                          ; preds = %if.end10
-  %call57 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
-  br label %sw.epilog
+73:                                               ; preds = %16
+  %74 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 1)
+  br label %97
 
-sw.bb58:                                          ; preds = %if.end10
-  %call59 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
-  br label %sw.epilog
+75:                                               ; preds = %16
+  %76 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 0)
+  br label %97
 
-sw.bb60:                                          ; preds = %if.end10
-  %call61 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+77:                                               ; preds = %16
+  %78 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 2)
+  br label %97
 
-sw.bb62:                                          ; preds = %if.end10
-  %call63 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
-  br label %sw.epilog
+79:                                               ; preds = %16
+  %80 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 1)
+  br label %97
 
-sw.bb64:                                          ; preds = %if.end10
-  %call65 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
-  br label %sw.epilog
+81:                                               ; preds = %16
+  %82 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 0)
+  br label %97
 
-sw.bb66:                                          ; preds = %if.end10
-  %call67 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
-  br label %sw.epilog
+83:                                               ; preds = %16
+  %84 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 1, i32 noundef 2)
+  br label %97
 
-sw.bb68:                                          ; preds = %if.end10
-  %call69 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
-  br label %sw.epilog
+85:                                               ; preds = %16
+  %86 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 1)
+  br label %97
 
-sw.bb70:                                          ; preds = %if.end10
-  %call71 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
-  br label %sw.epilog
+87:                                               ; preds = %16
+  %88 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 0)
+  br label %97
 
-sw.bb72:                                          ; preds = %if.end10
-  %call73 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+89:                                               ; preds = %16
+  %90 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 2)
+  br label %97
 
-sw.bb74:                                          ; preds = %if.end10
-  %call75 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
-  br label %sw.epilog
+91:                                               ; preds = %16
+  %92 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 1)
+  br label %97
 
-sw.bb76:                                          ; preds = %if.end10
-  %call77 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
-  br label %sw.epilog
+93:                                               ; preds = %16
+  %94 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 0)
+  br label %97
 
-sw.bb78:                                          ; preds = %if.end10
-  %call79 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+95:                                               ; preds = %16
+  %96 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %20, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 0, i32 noundef 2)
+  br label %97
 
-sw.epilog:                                        ; preds = %sw.bb78, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb54, %sw.bb52, %sw.bb50, %sw.bb48, %sw.bb46, %sw.bb44, %sw.bb42, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb, %if.end10
-  %res.0 = phi ptr [ null, %if.end10 ], [ %call79, %sw.bb78 ], [ %call77, %sw.bb76 ], [ %call75, %sw.bb74 ], [ %call73, %sw.bb72 ], [ %call71, %sw.bb70 ], [ %call69, %sw.bb68 ], [ %call67, %sw.bb66 ], [ %call65, %sw.bb64 ], [ %call63, %sw.bb62 ], [ %call61, %sw.bb60 ], [ %call59, %sw.bb58 ], [ %call57, %sw.bb56 ], [ %call55, %sw.bb54 ], [ %call53, %sw.bb52 ], [ %call51, %sw.bb50 ], [ %call49, %sw.bb48 ], [ %call47, %sw.bb46 ], [ %call45, %sw.bb44 ], [ %call43, %sw.bb42 ], [ %call41, %sw.bb40 ], [ %call39, %sw.bb38 ], [ %call37, %sw.bb36 ], [ %call23, %sw.bb22 ], [ %call21, %sw.bb20 ], [ %call19, %sw.bb18 ], [ %call17, %sw.bb16 ], [ %call15, %sw.bb14 ], [ %call13, %sw.bb12 ], [ %call11, %sw.bb ]
-  %8 = load i32, ptr %count, align 4
-  %cmp80 = icmp slt i32 %index, %8
-  br i1 %cmp80, label %if.then81, label %return
+97:                                               ; preds = %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %33, %31, %29, %27, %25, %23, %21, %16
+  %.053 = phi ptr [ null, %16 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %83 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ]
+  %98 = load i32, ptr %7, align 4, !tbaa !33
+  %99 = icmp slt i32 %2, %98
+  br i1 %99, label %100, label %109
 
-if.then81:                                        ; preds = %sw.epilog
-  %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %res.0, i64 %idxprom
-  store ptr %result, ptr %agg.tmp82, align 8
-  %call85 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull %agg.tmp82, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont84 unwind label %lpad83
+100:                                              ; preds = %97
+  %101 = sext i32 %2 to i64
+  %102 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.053, i64 %101
+  store ptr %3, ptr %10, align 8, !tbaa !28
+  %103 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %102, ptr noundef nonnull %10, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %104 unwind label %106
 
-invoke.cont84:                                    ; preds = %if.then81
-  %9 = load ptr, ptr %agg.tmp82, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #7, !srcloc !5
-  br label %return
+104:                                              ; preds = %100
+  %105 = load ptr, ptr %10, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %105) #8, !srcloc !30
+  br label %109
 
-lpad83:                                           ; preds = %if.then81
-  %10 = landingpad { ptr, i32 }
+106:                                              ; preds = %100
+  %107 = landingpad { ptr, i32 }
           cleanup
-  %11 = load ptr, ptr %agg.tmp82, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %11) #7, !srcloc !5
-  br label %eh.resume
+  %108 = load ptr, ptr %10, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %108) #8, !srcloc !30
+  br label %110
 
-return:                                           ; preds = %entry, %sw.epilog, %dynamic_cast.end3, %invoke.cont84, %invoke.cont34
-  %retval.0 = phi i32 [ %call85, %invoke.cont84 ], [ %call35, %invoke.cont34 ], [ -1, %dynamic_cast.end3 ], [ 0, %sw.epilog ], [ -1, %entry ]
-  ret i32 %retval.0
+109:                                              ; preds = %97, %104, %47
+  %.155 = phi i32 [ %103, %104 ], [ %46, %47 ], [ 0, %97 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  br label %.thread68
 
-eh.resume:                                        ; preds = %lpad83, %ehcleanup
-  %.pn41 = phi { ptr, i32 } [ %10, %lpad83 ], [ %.pn, %ehcleanup ]
-  resume { ptr, i32 } %.pn41
+110:                                              ; preds = %106, %52
+  %.pn64 = phi { ptr, i32 } [ %107, %106 ], [ %.pn, %52 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  resume { ptr, i32 } %.pn64
+
+.thread68:                                        ; preds = %6, %14, %109
+  %.054 = phi i32 [ %.155, %109 ], [ -1, %14 ], [ -1, %6 ]
+  ret i32 %.054
 }
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7517DateFormatSymbols20getLocalPatternCharsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717DateFormatSymbols20getLocalPatternCharsERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_7717DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @udat_countSymbols_75(ptr noundef %fmt, i32 noundef %type) local_unnamed_addr #1 {
-entry:
-  %count = alloca i32, align 4
-  %0 = icmp eq ptr %fmt, null
-  br i1 %0, label %return, label %dynamic_cast.end
+define i32 @udat_countSymbols_77(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+  %3 = alloca i32, align 4
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %.thread41, label %5
 
-dynamic_cast.end:                                 ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
-  %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %dynamic_cast.end3, label %if.end10
+5:                                                ; preds = %2
+  %6 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7716SimpleDateFormatE, i64 0) #8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %7, label %9
 
-dynamic_cast.end3:                                ; preds = %dynamic_cast.end
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
-  %cmp4.not = icmp eq ptr %2, null
-  br i1 %cmp4.not, label %return, label %if.end10
+7:                                                ; preds = %5
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7718RelativeDateFormatE, i64 0) #8
+  %.not38 = icmp eq ptr %8, null
+  br i1 %.not38, label %.thread41, label %9
 
-if.end10:                                         ; preds = %dynamic_cast.end3, %dynamic_cast.end
-  %.sink35 = phi ptr [ %1, %dynamic_cast.end ], [ %2, %dynamic_cast.end3 ]
-  %.sink34 = phi i64 [ 272, %dynamic_cast.end ], [ 264, %dynamic_cast.end3 ]
-  %vtable6 = load ptr, ptr %.sink35, align 8
-  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 %.sink34
-  %3 = load ptr, ptr %vfn7, align 8
-  %call8 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(760) %.sink35)
-  store i32 0, ptr %count, align 4
-  switch i32 %type, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb12
-    i32 2, label %sw.bb14
-    i32 3, label %sw.bb16
-    i32 4, label %sw.bb18
-    i32 5, label %sw.bb20
-    i32 6, label %sw.bb22
-    i32 7, label %sw.bb23
-    i32 8, label %sw.bb25
-    i32 20, label %sw.bb27
-    i32 9, label %sw.bb29
-    i32 10, label %sw.bb31
-    i32 11, label %sw.bb33
-    i32 12, label %sw.bb35
-    i32 13, label %sw.bb37
-    i32 14, label %sw.bb39
-    i32 21, label %sw.bb41
-    i32 15, label %sw.bb43
-    i32 16, label %sw.bb45
-    i32 17, label %sw.bb47
-    i32 28, label %sw.bb49
-    i32 18, label %sw.bb51
-    i32 19, label %sw.bb53
-    i32 29, label %sw.bb55
-    i32 22, label %sw.bb57
-    i32 23, label %sw.bb59
-    i32 24, label %sw.bb61
-    i32 25, label %sw.bb63
-    i32 26, label %sw.bb65
-    i32 27, label %sw.bb67
+9:                                                ; preds = %7, %5
+  %.sink47 = phi ptr [ %6, %5 ], [ %8, %7 ]
+  %.sink46 = phi i64 [ 272, %5 ], [ 264, %7 ]
+  %10 = load ptr, ptr %.sink47, align 8, !tbaa !15
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink46
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(456) %.sink47)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  store i32 0, ptr %3, align 4, !tbaa !33
+  switch i32 %1, label %73 [
+    i32 0, label %14
+    i32 1, label %16
+    i32 2, label %18
+    i32 3, label %20
+    i32 4, label %22
+    i32 5, label %24
+    i32 6, label %26
+    i32 7, label %27
+    i32 8, label %29
+    i32 20, label %31
+    i32 9, label %33
+    i32 10, label %35
+    i32 11, label %37
+    i32 12, label %39
+    i32 13, label %41
+    i32 14, label %43
+    i32 21, label %45
+    i32 15, label %47
+    i32 16, label %49
+    i32 17, label %51
+    i32 28, label %53
+    i32 18, label %55
+    i32 19, label %57
+    i32 29, label %59
+    i32 22, label %61
+    i32 23, label %63
+    i32 24, label %65
+    i32 25, label %67
+    i32 26, label %69
+    i32 27, label %71
   ]
 
-sw.bb:                                            ; preds = %if.end10
-  %call11 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+14:                                               ; preds = %9
+  %15 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols7getErasERi(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %73
 
-sw.bb12:                                          ; preds = %if.end10
-  %call13 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+16:                                               ; preds = %9
+  %17 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERi(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %73
 
-sw.bb14:                                          ; preds = %if.end10
-  %call15 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+18:                                               ; preds = %9
+  %19 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getShortMonthsERi(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %73
 
-sw.bb16:                                          ; preds = %if.end10
-  %call17 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+20:                                               ; preds = %9
+  %21 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %73
 
-sw.bb18:                                          ; preds = %if.end10
-  %call19 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+22:                                               ; preds = %9
+  %23 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols16getShortWeekdaysERi(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %73
 
-sw.bb20:                                          ; preds = %if.end10
-  %call21 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+24:                                               ; preds = %9
+  %25 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getAmPmStringsERi(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %73
 
-sw.bb22:                                          ; preds = %if.end10
-  store i32 1, ptr %count, align 4
-  br label %sw.epilog
+26:                                               ; preds = %9
+  store i32 1, ptr %3, align 4, !tbaa !33
+  br label %73
 
-sw.bb23:                                          ; preds = %if.end10
-  %call24 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count)
-  br label %sw.epilog
+27:                                               ; preds = %9
+  %28 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getEraNamesERi(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %73
 
-sw.bb25:                                          ; preds = %if.end10
-  %call26 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+29:                                               ; preds = %9
+  %30 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 2)
+  br label %73
 
-sw.bb27:                                          ; preds = %if.end10
-  %call28 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 3)
-  br label %sw.epilog
+31:                                               ; preds = %9
+  %32 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 3)
+  br label %73
 
-sw.bb29:                                          ; preds = %if.end10
-  %call30 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+33:                                               ; preds = %9
+  %34 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 2)
+  br label %73
 
-sw.bb31:                                          ; preds = %if.end10
-  %call32 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
-  br label %sw.epilog
+35:                                               ; preds = %9
+  %36 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 1)
+  br label %73
 
-sw.bb33:                                          ; preds = %if.end10
-  %call34 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
-  br label %sw.epilog
+37:                                               ; preds = %9
+  %38 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 0)
+  br label %73
 
-sw.bb35:                                          ; preds = %if.end10
-  %call36 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
-  br label %sw.epilog
+39:                                               ; preds = %9
+  %40 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 2)
+  br label %73
 
-sw.bb37:                                          ; preds = %if.end10
-  %call38 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
-  br label %sw.epilog
+41:                                               ; preds = %9
+  %42 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 1)
+  br label %73
 
-sw.bb39:                                          ; preds = %if.end10
-  %call40 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
-  br label %sw.epilog
+43:                                               ; preds = %9
+  %44 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 0)
+  br label %73
 
-sw.bb41:                                          ; preds = %if.end10
-  %call42 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 3)
-  br label %sw.epilog
+45:                                               ; preds = %9
+  %46 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 3)
+  br label %73
 
-sw.bb43:                                          ; preds = %if.end10
-  %call44 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
-  br label %sw.epilog
+47:                                               ; preds = %9
+  %48 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 2)
+  br label %73
 
-sw.bb45:                                          ; preds = %if.end10
-  %call46 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
-  br label %sw.epilog
+49:                                               ; preds = %9
+  %50 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 1)
+  br label %73
 
-sw.bb47:                                          ; preds = %if.end10
-  %call48 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
-  br label %sw.epilog
+51:                                               ; preds = %9
+  %52 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 0)
+  br label %73
 
-sw.bb49:                                          ; preds = %if.end10
-  %call50 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+53:                                               ; preds = %9
+  %54 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 2)
+  br label %73
 
-sw.bb51:                                          ; preds = %if.end10
-  %call52 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 1)
-  br label %sw.epilog
+55:                                               ; preds = %9
+  %56 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 1)
+  br label %73
 
-sw.bb53:                                          ; preds = %if.end10
-  %call54 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 0)
-  br label %sw.epilog
+57:                                               ; preds = %9
+  %58 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 0)
+  br label %73
 
-sw.bb55:                                          ; preds = %if.end10
-  %call56 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 1, i32 noundef 2)
-  br label %sw.epilog
+59:                                               ; preds = %9
+  %60 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 1, i32 noundef 2)
+  br label %73
 
-sw.bb57:                                          ; preds = %if.end10
-  %call58 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
-  br label %sw.epilog
+61:                                               ; preds = %9
+  %62 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 1)
+  br label %73
 
-sw.bb59:                                          ; preds = %if.end10
-  %call60 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
-  br label %sw.epilog
+63:                                               ; preds = %9
+  %64 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 0)
+  br label %73
 
-sw.bb61:                                          ; preds = %if.end10
-  %call62 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+65:                                               ; preds = %9
+  %66 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 2)
+  br label %73
 
-sw.bb63:                                          ; preds = %if.end10
-  %call64 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 1)
-  br label %sw.epilog
+67:                                               ; preds = %9
+  %68 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 1)
+  br label %73
 
-sw.bb65:                                          ; preds = %if.end10
-  %call66 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 0)
-  br label %sw.epilog
+69:                                               ; preds = %9
+  %70 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 0)
+  br label %73
 
-sw.bb67:                                          ; preds = %if.end10
-  %call68 = call noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(1272) %call8, ptr noundef nonnull align 4 dereferenceable(4) %count, i32 noundef 0, i32 noundef 2)
-  br label %sw.epilog
+71:                                               ; preds = %9
+  %72 = call noundef ptr @_ZNK6icu_7717DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0, i32 noundef 2)
+  br label %73
 
-sw.epilog:                                        ; preds = %sw.bb67, %sw.bb65, %sw.bb63, %sw.bb61, %sw.bb59, %sw.bb57, %sw.bb55, %sw.bb53, %sw.bb51, %sw.bb49, %sw.bb47, %sw.bb45, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb, %if.end10
-  %4 = load i32, ptr %count, align 4
-  br label %return
+73:                                               ; preds = %71, %69, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %26, %24, %22, %20, %18, %16, %14, %9
+  %74 = load i32, ptr %3, align 4, !tbaa !33
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  br label %.thread41
 
-return:                                           ; preds = %entry, %dynamic_cast.end3, %sw.epilog
-  %retval.0 = phi i32 [ %4, %sw.epilog ], [ 0, %dynamic_cast.end3 ], [ 0, %entry ]
-  ret i32 %retval.0
+.thread41:                                        ; preds = %2, %7, %73
+  %.0 = phi i32 [ %74, %73 ], [ 0, %7 ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_setSymbols_75(ptr noundef %format, i32 noundef %type, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i.i, label %sw.epilog, label %land.lhs.true.i
+define void @udat_setSymbols_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+  %7 = load i32, ptr %5, align 4, !tbaa !7
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread, label %9
 
-land.lhs.true.i:                                  ; preds = %entry
-  %1 = icmp eq ptr %format, null
-  br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
+9:                                                ; preds = %6
+  %10 = icmp eq ptr %0, null
+  br i1 %10, label %.critedge.i, label %11
 
-dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %format, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7516SimpleDateFormatE, i64 0) #7
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %if.then.i, label %if.end
+11:                                               ; preds = %9
+  %12 = tail call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7716SimpleDateFormatE, i64 0) #8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %.critedge.i, label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
 
-if.then.i:                                        ; preds = %dynamic_cast.notnull.i, %land.lhs.true.i
-  store i32 1, ptr %status, align 4
-  br label %sw.epilog
+.critedge.i:                                      ; preds = %11, %9
+  store i32 1, ptr %5, align 4, !tbaa !7
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-if.end:                                           ; preds = %dynamic_cast.notnull.i
-  %vtable = load ptr, ptr %format, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 272
-  %4 = load ptr, ptr %vfn, align 8
-  %call1 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(832) %format)
-  switch i32 %type, label %sw.default [
-    i32 0, label %sw.bb
-    i32 7, label %sw.bb2
-    i32 1, label %sw.bb3
-    i32 2, label %sw.bb4
-    i32 8, label %sw.bb5
-    i32 10, label %sw.bb6
-    i32 11, label %sw.bb7
-    i32 12, label %sw.bb8
-    i32 3, label %sw.bb9
-    i32 4, label %sw.bb10
-    i32 20, label %sw.bb11
-    i32 9, label %sw.bb12
-    i32 13, label %sw.bb13
-    i32 14, label %sw.bb14
-    i32 21, label %sw.bb15
-    i32 15, label %sw.bb16
-    i32 16, label %sw.bb17
-    i32 17, label %sw.bb18
-    i32 28, label %sw.bb19
-    i32 18, label %sw.bb20
-    i32 19, label %sw.bb21
-    i32 29, label %sw.bb22
-    i32 23, label %sw.bb23
-    i32 26, label %sw.bb24
-    i32 5, label %sw.bb25
-    i32 6, label %sw.bb26
+_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit: ; preds = %11
+  %14 = load ptr, ptr %0, align 8, !tbaa !15
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(528) %0)
+  switch i32 %1, label %44 [
+    i32 0, label %18
+    i32 7, label %19
+    i32 1, label %20
+    i32 2, label %21
+    i32 8, label %22
+    i32 10, label %23
+    i32 11, label %24
+    i32 12, label %25
+    i32 3, label %26
+    i32 4, label %27
+    i32 20, label %28
+    i32 9, label %29
+    i32 13, label %30
+    i32 14, label %31
+    i32 21, label %32
+    i32 15, label %33
+    i32 16, label %34
+    i32 17, label %35
+    i32 28, label %36
+    i32 18, label %37
+    i32 19, label %38
+    i32 29, label %39
+    i32 23, label %40
+    i32 26, label %41
+    i32 5, label %42
+    i32 6, label %43
   ]
 
-sw.bb:                                            ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter6setEraEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+18:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter6setEraEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb2:                                           ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter10setEraNameEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+19:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter10setEraNameEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb3:                                           ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter8setMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+20:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter8setMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb4:                                           ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter13setShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+21:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter13setShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb5:                                           ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter14setNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+22:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter14setNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb6:                                           ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter18setStandaloneMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+23:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter18setStandaloneMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb7:                                           ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter23setStandaloneShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+24:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter23setStandaloneShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb8:                                           ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter24setStandaloneNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+25:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter24setStandaloneNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb9:                                           ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter10setWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+26:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter10setWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb10:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter15setShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+27:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter15setShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb11:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter17setShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+28:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter17setShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb12:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter16setNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+29:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter16setNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb13:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter20setStandaloneWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+30:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter20setStandaloneWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb14:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter25setStandaloneShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+31:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter25setStandaloneShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb15:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter27setStandaloneShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+32:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter27setStandaloneShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb16:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter26setStandaloneNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+33:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter26setStandaloneNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb17:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter10setQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+34:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter10setQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb18:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter15setShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+35:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter15setShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb19:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter16setNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+36:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter16setNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb20:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter20setStandaloneQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+37:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter20setStandaloneQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb21:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter25setStandaloneShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+38:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter25setStandaloneShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb22:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter26setStandaloneNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+39:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter26setStandaloneNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb23:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter17setShortYearNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+40:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter17setShortYearNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb24:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter19setShortZodiacNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+41:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter19setShortZodiacNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb25:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter7setAmPmEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %call1, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+42:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter7setAmPmEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.bb26:                                          ; preds = %if.end
-  tail call void @_ZN6icu_7529DateFormatSymbolsSingleSetter20setLocalPatternCharsEPNS_17DateFormatSymbolsEPKDsiR10UErrorCode(ptr noundef %call1, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %sw.epilog
+43:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  tail call void @_ZN6icu_7729DateFormatSymbolsSingleSetter20setLocalPatternCharsEPNS_17DateFormatSymbolsEPKDsiR10UErrorCode(ptr noundef %17, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.default:                                       ; preds = %if.end
-  store i32 16, ptr %status, align 4
-  br label %sw.epilog
+44:                                               ; preds = %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit
+  store i32 16, ptr %5, align 4, !tbaa !7
+  br label %_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread
 
-sw.epilog:                                        ; preds = %if.then.i, %entry, %sw.default, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb
+_ZL24verifyIsSimpleDateFormatPKPvP10UErrorCode.exit.thread: ; preds = %.critedge.i, %6, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter6setEraEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fEras = getelementptr inbounds nuw i8, ptr %syms, i64 8
-  %0 = load ptr, ptr %fEras, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter6setEraEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fErasCount = getelementptr inbounds nuw i8, ptr %syms, i64 16
-  %1 = load i32, ptr %fErasCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load i32, ptr %9, align 8, !tbaa !63
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter10setEraNameEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fEraNames = getelementptr inbounds nuw i8, ptr %syms, i64 24
-  %0 = load ptr, ptr %fEraNames, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter10setEraNameEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fEraNamesCount = getelementptr inbounds nuw i8, ptr %syms, i64 32
-  %1 = load i32, ptr %fEraNamesCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = load i32, ptr %9, align 8, !tbaa !65
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter8setMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fMonths = getelementptr inbounds nuw i8, ptr %syms, i64 56
-  %0 = load ptr, ptr %fMonths, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter8setMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fMonthsCount = getelementptr inbounds nuw i8, ptr %syms, i64 64
-  %1 = load i32, ptr %fMonthsCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = load i32, ptr %9, align 8, !tbaa !67
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter13setShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fShortMonths = getelementptr inbounds nuw i8, ptr %syms, i64 72
-  %0 = load ptr, ptr %fShortMonths, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter13setShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fShortMonthsCount = getelementptr inbounds nuw i8, ptr %syms, i64 80
-  %1 = load i32, ptr %fShortMonthsCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = load i32, ptr %9, align 8, !tbaa !69
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter14setNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fNarrowMonths = getelementptr inbounds nuw i8, ptr %syms, i64 88
-  %0 = load ptr, ptr %fNarrowMonths, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter14setNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fNarrowMonthsCount = getelementptr inbounds nuw i8, ptr %syms, i64 96
-  %1 = load i32, ptr %fNarrowMonthsCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %10 = load i32, ptr %9, align 8, !tbaa !71
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter18setStandaloneMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneMonths = getelementptr inbounds nuw i8, ptr %syms, i64 104
-  %0 = load ptr, ptr %fStandaloneMonths, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter18setStandaloneMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %7 = load ptr, ptr %6, align 8, !tbaa !72
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneMonthsCount = getelementptr inbounds nuw i8, ptr %syms, i64 112
-  %1 = load i32, ptr %fStandaloneMonthsCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %10 = load i32, ptr %9, align 8, !tbaa !73
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter23setStandaloneShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneShortMonths = getelementptr inbounds nuw i8, ptr %syms, i64 120
-  %0 = load ptr, ptr %fStandaloneShortMonths, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter23setStandaloneShortMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneShortMonthsCount = getelementptr inbounds nuw i8, ptr %syms, i64 128
-  %1 = load i32, ptr %fStandaloneShortMonthsCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %10 = load i32, ptr %9, align 8, !tbaa !75
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter24setStandaloneNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneNarrowMonths = getelementptr inbounds nuw i8, ptr %syms, i64 136
-  %0 = load ptr, ptr %fStandaloneNarrowMonths, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter24setStandaloneNarrowMonthEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %7 = load ptr, ptr %6, align 8, !tbaa !76
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneNarrowMonthsCount = getelementptr inbounds nuw i8, ptr %syms, i64 144
-  %1 = load i32, ptr %fStandaloneNarrowMonthsCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = load i32, ptr %9, align 8, !tbaa !77
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter10setWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fWeekdays = getelementptr inbounds nuw i8, ptr %syms, i64 152
-  %0 = load ptr, ptr %fWeekdays, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter10setWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %7 = load ptr, ptr %6, align 8, !tbaa !78
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fWeekdaysCount = getelementptr inbounds nuw i8, ptr %syms, i64 160
-  %1 = load i32, ptr %fWeekdaysCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %10 = load i32, ptr %9, align 8, !tbaa !79
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter15setShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fShortWeekdays = getelementptr inbounds nuw i8, ptr %syms, i64 168
-  %0 = load ptr, ptr %fShortWeekdays, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter15setShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %7 = load ptr, ptr %6, align 8, !tbaa !80
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fShortWeekdaysCount = getelementptr inbounds nuw i8, ptr %syms, i64 176
-  %1 = load i32, ptr %fShortWeekdaysCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %10 = load i32, ptr %9, align 8, !tbaa !81
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter17setShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fShorterWeekdays = getelementptr inbounds nuw i8, ptr %syms, i64 184
-  %0 = load ptr, ptr %fShorterWeekdays, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter17setShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %7 = load ptr, ptr %6, align 8, !tbaa !82
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fShorterWeekdaysCount = getelementptr inbounds nuw i8, ptr %syms, i64 192
-  %1 = load i32, ptr %fShorterWeekdaysCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %10 = load i32, ptr %9, align 8, !tbaa !83
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter16setNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fNarrowWeekdays = getelementptr inbounds nuw i8, ptr %syms, i64 200
-  %0 = load ptr, ptr %fNarrowWeekdays, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter16setNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fNarrowWeekdaysCount = getelementptr inbounds nuw i8, ptr %syms, i64 208
-  %1 = load i32, ptr %fNarrowWeekdaysCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %10 = load i32, ptr %9, align 8, !tbaa !85
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter20setStandaloneWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneWeekdays = getelementptr inbounds nuw i8, ptr %syms, i64 216
-  %0 = load ptr, ptr %fStandaloneWeekdays, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter20setStandaloneWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %7 = load ptr, ptr %6, align 8, !tbaa !86
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneWeekdaysCount = getelementptr inbounds nuw i8, ptr %syms, i64 224
-  %1 = load i32, ptr %fStandaloneWeekdaysCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %10 = load i32, ptr %9, align 8, !tbaa !87
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter25setStandaloneShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneShortWeekdays = getelementptr inbounds nuw i8, ptr %syms, i64 232
-  %0 = load ptr, ptr %fStandaloneShortWeekdays, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter25setStandaloneShortWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneShortWeekdaysCount = getelementptr inbounds nuw i8, ptr %syms, i64 240
-  %1 = load i32, ptr %fStandaloneShortWeekdaysCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %10 = load i32, ptr %9, align 8, !tbaa !89
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter27setStandaloneShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneShorterWeekdays = getelementptr inbounds nuw i8, ptr %syms, i64 248
-  %0 = load ptr, ptr %fStandaloneShorterWeekdays, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter27setStandaloneShorterWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %7 = load ptr, ptr %6, align 8, !tbaa !90
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneShorterWeekdaysCount = getelementptr inbounds nuw i8, ptr %syms, i64 256
-  %1 = load i32, ptr %fStandaloneShorterWeekdaysCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %10 = load i32, ptr %9, align 8, !tbaa !91
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter26setStandaloneNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneNarrowWeekdays = getelementptr inbounds nuw i8, ptr %syms, i64 264
-  %0 = load ptr, ptr %fStandaloneNarrowWeekdays, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter26setStandaloneNarrowWeekdayEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %7 = load ptr, ptr %6, align 8, !tbaa !92
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneNarrowWeekdaysCount = getelementptr inbounds nuw i8, ptr %syms, i64 272
-  %1 = load i32, ptr %fStandaloneNarrowWeekdaysCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %10 = load i32, ptr %9, align 8, !tbaa !93
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter10setQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fQuarters = getelementptr inbounds nuw i8, ptr %syms, i64 376
-  %0 = load ptr, ptr %fQuarters, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter10setQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %7 = load ptr, ptr %6, align 8, !tbaa !94
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fQuartersCount = getelementptr inbounds nuw i8, ptr %syms, i64 384
-  %1 = load i32, ptr %fQuartersCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %10 = load i32, ptr %9, align 8, !tbaa !95
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter15setShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fShortQuarters = getelementptr inbounds nuw i8, ptr %syms, i64 392
-  %0 = load ptr, ptr %fShortQuarters, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter15setShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %7 = load ptr, ptr %6, align 8, !tbaa !96
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fShortQuartersCount = getelementptr inbounds nuw i8, ptr %syms, i64 400
-  %1 = load i32, ptr %fShortQuartersCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %10 = load i32, ptr %9, align 8, !tbaa !97
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter16setNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fNarrowQuarters = getelementptr inbounds nuw i8, ptr %syms, i64 408
-  %0 = load ptr, ptr %fNarrowQuarters, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter16setNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %7 = load ptr, ptr %6, align 8, !tbaa !98
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fNarrowQuartersCount = getelementptr inbounds nuw i8, ptr %syms, i64 416
-  %1 = load i32, ptr %fNarrowQuartersCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %10 = load i32, ptr %9, align 8, !tbaa !99
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter20setStandaloneQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneQuarters = getelementptr inbounds nuw i8, ptr %syms, i64 424
-  %0 = load ptr, ptr %fStandaloneQuarters, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter20setStandaloneQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %7 = load ptr, ptr %6, align 8, !tbaa !100
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneQuartersCount = getelementptr inbounds nuw i8, ptr %syms, i64 432
-  %1 = load i32, ptr %fStandaloneQuartersCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %10 = load i32, ptr %9, align 8, !tbaa !101
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter25setStandaloneShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneShortQuarters = getelementptr inbounds nuw i8, ptr %syms, i64 440
-  %0 = load ptr, ptr %fStandaloneShortQuarters, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter25setStandaloneShortQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %7 = load ptr, ptr %6, align 8, !tbaa !102
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneShortQuartersCount = getelementptr inbounds nuw i8, ptr %syms, i64 448
-  %1 = load i32, ptr %fStandaloneShortQuartersCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %10 = load i32, ptr %9, align 8, !tbaa !103
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter26setStandaloneNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fStandaloneNarrowQuarters = getelementptr inbounds nuw i8, ptr %syms, i64 456
-  %0 = load ptr, ptr %fStandaloneNarrowQuarters, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter26setStandaloneNarrowQuarterEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fStandaloneNarrowQuartersCount = getelementptr inbounds nuw i8, ptr %syms, i64 464
-  %1 = load i32, ptr %fStandaloneNarrowQuartersCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %10 = load i32, ptr %9, align 8, !tbaa !105
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter17setShortYearNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fShortYearNames = getelementptr inbounds nuw i8, ptr %syms, i64 488
-  %0 = load ptr, ptr %fShortYearNames, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter17setShortYearNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %7 = load ptr, ptr %6, align 8, !tbaa !106
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fShortYearNamesCount = getelementptr inbounds nuw i8, ptr %syms, i64 496
-  %1 = load i32, ptr %fShortYearNamesCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %10 = load i32, ptr %9, align 8, !tbaa !107
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter19setShortZodiacNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fShortZodiacNames = getelementptr inbounds nuw i8, ptr %syms, i64 504
-  %0 = load ptr, ptr %fShortZodiacNames, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter19setShortZodiacNamesEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %7 = load ptr, ptr %6, align 8, !tbaa !108
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fShortZodiacNamesCount = getelementptr inbounds nuw i8, ptr %syms, i64 512
-  %1 = load i32, ptr %fShortZodiacNamesCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %10 = load i32, ptr %9, align 8, !tbaa !109
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter7setAmPmEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %syms, i32 noundef %index, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %fAmPms = getelementptr inbounds nuw i8, ptr %syms, i64 280
-  %0 = load ptr, ptr %fAmPms, align 8
-  %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %if.then.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter7setAmPmEPNS_17DateFormatSymbolsEiPKDsiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #1 comdat align 2 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %7 = load ptr, ptr %6, align 8, !tbaa !110
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit, label %8
 
-if.then.i:                                        ; preds = %entry
-  %fAmPmsCount = getelementptr inbounds nuw i8, ptr %syms, i64 288
-  %1 = load i32, ptr %fAmPmsCount, align 8
-  %cmp1.not.i = icmp slt i32 %index, %1
-  br i1 %cmp1.not.i, label %if.else.i, label %if.then2.i
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %10 = load i32, ptr %9, align 8, !tbaa !111
+  %.not11.i = icmp slt i32 %1, %10
+  br i1 %.not11.i, label %12, label %11
 
-if.then2.i:                                       ; preds = %if.then.i
-  store i32 8, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+11:                                               ; preds = %8
+  store i32 8, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+12:                                               ; preds = %8
+  %13 = icmp eq ptr %2, null
+  br i1 %13, label %14, label %15
 
-if.then4.i:                                       ; preds = %if.else.i
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+14:                                               ; preds = %12
+  store i32 1, ptr %4, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %if.else.i
-  %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %0, i64 %idxprom.i
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %2 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %2, 0
-  %3 = ashr i16 %2, 5
-  %shr.i.i.i.i = sext i16 %3 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
-  %4 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+15:                                               ; preds = %12
+  %16 = sext i32 %1 to i64
+  %17 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %7, i64 %16
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load i16, ptr %18, align 8, !tbaa !17
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %3)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %entry, %if.then2.i, %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %5, %11, %14, %15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6icu_7529DateFormatSymbolsSingleSetter20setLocalPatternCharsEPNS_17DateFormatSymbolsEPKDsiR10UErrorCode(ptr noundef %syms, ptr noundef %value, i32 noundef %valueLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 comdat align 2 {
-entry:
-  %cmp3.i = icmp eq ptr %value, null
-  br i1 %cmp3.i, label %if.then4.i, label %if.else5.i
+define linkonce_odr void @_ZN6icu_7729DateFormatSymbolsSingleSetter20setLocalPatternCharsEPNS_17DateFormatSymbolsEPKDsiR10UErrorCode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 comdat align 2 {
+  %5 = icmp eq ptr %1, null
+  br i1 %5, label %6, label %7
 
-if.then4.i:                                       ; preds = %entry
-  store i32 1, ptr %errorCode, align 4
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+6:                                                ; preds = %4
+  store i32 1, ptr %3, align 4, !tbaa !7
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-if.else5.i:                                       ; preds = %entry
-  %fLocalPatternChars = getelementptr inbounds nuw i8, ptr %syms, i64 768
-  tail call void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %fLocalPatternChars)
-  %fUnion.i.i.i.i = getelementptr inbounds nuw i8, ptr %syms, i64 776
-  %0 = load i16, ptr %fUnion.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %0, 0
-  %1 = ashr i16 %0, 5
-  %shr.i.i.i.i = sext i16 %1 to i32
-  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %syms, i64 780
-  %2 = load i32, ptr %fLength.i.i.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %2, i32 %shr.i.i.i.i
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %fLocalPatternChars, i32 noundef 0, i32 noundef %cond.i.i.i, ptr noundef nonnull %value, i32 noundef 0, i32 noundef %valueLength)
-  br label %_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %10 = load i16, ptr %9, align 8, !tbaa !17
+  %11 = icmp slt i16 %10, 0
+  %12 = ashr i16 %10, 5
+  %13 = sext i16 %12 to i32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 780
+  %15 = load i32, ptr %14, align 4
+  %16 = select i1 %11, i32 %15, i32 %13
+  %17 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef 0, i32 noundef %16, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %2)
+  br label %_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit
 
-_ZN6icu_7529DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %if.then4.i, %if.else5.i
+_ZN6icu_7729DateFormatSymbolsSingleSetter9setSymbolEPNS_13UnicodeStringEiiPKDsiR10UErrorCode.exit: ; preds = %6, %7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udat_getLocaleByType_75(ptr noundef %fmt, i32 noundef %type, ptr noundef %status) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %fmt, null
-  br i1 %cmp, label %if.then, label %if.end2
+define noundef ptr @udat_getLocaleByType_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %5, label %9
 
-if.then:                                          ; preds = %entry
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i, label %return, label %if.then1
+5:                                                ; preds = %3
+  %6 = load i32, ptr %2, align 4, !tbaa !7
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %11, label %8
 
-if.then1:                                         ; preds = %if.then
-  store i32 1, ptr %status, align 4
-  br label %return
+8:                                                ; preds = %5
+  store i32 1, ptr %2, align 4, !tbaa !7
+  br label %11
 
-if.end2:                                          ; preds = %entry
-  %call3 = tail call noundef ptr @_ZNK6icu_756Format11getLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(322) %fmt, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %return
+9:                                                ; preds = %3
+  %10 = tail call noundef ptr @_ZNK6icu_776Format11getLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %11
 
-return:                                           ; preds = %if.then, %if.then1, %if.end2
-  %retval.0 = phi ptr [ %call3, %if.end2 ], [ null, %if.then1 ], [ null, %if.then ]
-  ret ptr %retval.0
+11:                                               ; preds = %5, %8, %9
+  %.0 = phi ptr [ %10, %9 ], [ null, %8 ], [ null, %5 ]
+  ret ptr %.0
 }
 
-declare noundef ptr @_ZNK6icu_756Format11getLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(322), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+declare noundef ptr @_ZNK6icu_776Format11getLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_setContext_75(ptr noundef %fmt, i32 noundef %value, ptr noundef %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define void @udat_setContext_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = load i32, ptr %2, align 4, !tbaa !7
+  %5 = icmp slt i32 %4, 1
+  br i1 %5, label %6, label %10
 
-if.end:                                           ; preds = %entry
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 200
-  %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(352) %fmt, i32 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %return
+6:                                                ; preds = %3
+  %7 = load ptr, ptr %0, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %10
 
-return:                                           ; preds = %entry, %if.end
+10:                                               ; preds = %3, %6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_getContext_75(ptr noundef %fmt, i32 noundef %type, ptr noundef %status) local_unnamed_addr #1 {
-entry:
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %0, 1
-  br i1 %cmp.i, label %if.end, label %return
+define noundef i32 @udat_getContext_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+  %4 = load i32, ptr %2, align 4, !tbaa !7
+  %5 = icmp slt i32 %4, 1
+  br i1 %5, label %6, label %11
 
-if.end:                                           ; preds = %entry
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 208
-  %1 = load ptr, ptr %vfn, align 8
-  %call1 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(352) %fmt, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %return
+6:                                                ; preds = %3
+  %7 = load ptr, ptr %0, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %11
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i32 [ %call1, %if.end ], [ 0, %entry ]
-  ret i32 %retval.0
+11:                                               ; preds = %3, %6
+  %.0 = phi i32 [ %10, %6 ], [ 0, %3 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_toPatternRelativeDate_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %datePattern = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i.i, label %return, label %land.lhs.true.i
+define noundef i32 @udat_toPatternRelativeDate_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.icu_77::UnicodeString", align 8
+  %6 = alloca %"class.icu_77::Char16Ptr", align 8
+  %7 = load i32, ptr %3, align 4, !tbaa !7
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread, label %9
 
-land.lhs.true.i:                                  ; preds = %entry
-  %1 = icmp eq ptr %fmt, null
-  br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
+9:                                                ; preds = %4
+  %10 = icmp eq ptr %0, null
+  br i1 %10, label %.critedge.i, label %11
 
-dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %if.then.i, label %if.end
+11:                                               ; preds = %9
+  %12 = tail call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7718RelativeDateFormatE, i64 0) #8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %.critedge.i, label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit
 
-if.then.i:                                        ; preds = %dynamic_cast.notnull.i, %land.lhs.true.i
-  store i32 1, ptr %status, align 4
-  br label %return
+.critedge.i:                                      ; preds = %11, %9
+  store i32 1, ptr %3, align 4, !tbaa !7
+  br label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread
 
-if.end:                                           ; preds = %dynamic_cast.notnull.i
-  %cmp = icmp eq ptr %result, null
-  br i1 %cmp, label %cond.true, label %cond.false
+_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit: ; preds = %11
+  %14 = icmp eq ptr %1, null
+  br i1 %14, label %15, label %17
 
-cond.true:                                        ; preds = %if.end
-  %cmp1.not = icmp eq i32 %resultLength, 0
-  br i1 %cmp1.not, label %if.end4.thread, label %if.then3
+15:                                               ; preds = %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit
+  %.not20 = icmp eq i32 %2, 0
+  br i1 %.not20, label %.thread, label %19
 
-if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %datePattern, align 8
-  %fUnion2.i13 = getelementptr inbounds nuw i8, ptr %datePattern, i64 8
-  store i16 2, ptr %fUnion2.i13, align 8
-  br label %if.end8
+.thread:                                          ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i16 2, ptr %16, align 8, !tbaa !17
+  br label %25
 
-cond.false:                                       ; preds = %if.end
-  %cmp2 = icmp slt i32 %resultLength, 0
-  br i1 %cmp2, label %if.then3, label %if.then6
+17:                                               ; preds = %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit
+  %18 = icmp slt i32 %2, 0
+  br i1 %18, label %19, label %20
 
-if.then3:                                         ; preds = %cond.false, %cond.true
-  store i32 1, ptr %status, align 4
-  br label %return
+19:                                               ; preds = %17, %15
+  store i32 1, ptr %3, align 4, !tbaa !7
+  br label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread
 
-if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %datePattern, align 8
-  %fUnion2.i = getelementptr inbounds nuw i8, ptr %datePattern, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %datePattern, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
-          to label %if.end8 unwind label %lpad
+20:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i16 2, ptr %21, align 8, !tbaa !17
+  %22 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %2)
+          to label %25 unwind label %23
 
-lpad:                                             ; preds = %if.end8, %if.then6
-  %4 = landingpad { ptr, i32 }
+23:                                               ; preds = %25, %20
+  %24 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %37
 
-if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 240
-  %5 = load ptr, ptr %vfn, align 8
-  %call10 = invoke noundef nonnull align 8 dereferenceable(64) ptr %5(ptr noundef nonnull align 8 dereferenceable(760) %fmt, ptr noundef nonnull align 8 dereferenceable(64) %datePattern, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont9 unwind label %lpad
+25:                                               ; preds = %.thread, %20
+  %26 = load ptr, ptr %0, align 8, !tbaa !15
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 240
+  %28 = load ptr, ptr %27, align 8
+  %29 = invoke noundef nonnull align 8 dereferenceable(64) ptr %28(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %30 unwind label %23
 
-invoke.cont9:                                     ; preds = %if.end8
-  store ptr %result, ptr %agg.tmp, align 8
-  %call14 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %datePattern, ptr noundef nonnull %agg.tmp, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont13 unwind label %lpad12
+30:                                               ; preds = %25
+  store ptr %1, ptr %6, align 8, !tbaa !28
+  %31 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %32 unwind label %34
 
-invoke.cont13:                                    ; preds = %invoke.cont9
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #7, !srcloc !5
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %datePattern) #7
-  br label %return
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %6, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #8, !srcloc !30
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
+  br label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread
 
-lpad12:                                           ; preds = %invoke.cont9
-  %7 = landingpad { ptr, i32 }
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #7, !srcloc !5
-  br label %ehcleanup
+  %36 = load ptr, ptr %6, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #8, !srcloc !30
+  br label %37
 
-ehcleanup:                                        ; preds = %lpad12, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad12 ], [ %4, %lpad ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %datePattern) #7
+37:                                               ; preds = %34, %23
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %24, %23 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %if.then.i, %entry, %invoke.cont13, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ %call14, %invoke.cont13 ], [ -1, %entry ], [ -1, %if.then.i ]
-  ret i32 %retval.0
+_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread: ; preds = %.critedge.i, %4, %32, %19
+  %.018 = phi i32 [ -1, %19 ], [ %31, %32 ], [ -1, %4 ], [ -1, %.critedge.i ]
+  ret i32 %.018
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udat_toPatternRelativeTime_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %timePattern = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i.i, label %return, label %land.lhs.true.i
+define noundef i32 @udat_toPatternRelativeTime_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.icu_77::UnicodeString", align 8
+  %6 = alloca %"class.icu_77::Char16Ptr", align 8
+  %7 = load i32, ptr %3, align 4, !tbaa !7
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread, label %9
 
-land.lhs.true.i:                                  ; preds = %entry
-  %1 = icmp eq ptr %fmt, null
-  br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
+9:                                                ; preds = %4
+  %10 = icmp eq ptr %0, null
+  br i1 %10, label %.critedge.i, label %11
 
-dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %fmt, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %if.then.i, label %if.end
+11:                                               ; preds = %9
+  %12 = tail call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7718RelativeDateFormatE, i64 0) #8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %.critedge.i, label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit
 
-if.then.i:                                        ; preds = %dynamic_cast.notnull.i, %land.lhs.true.i
-  store i32 1, ptr %status, align 4
-  br label %return
+.critedge.i:                                      ; preds = %11, %9
+  store i32 1, ptr %3, align 4, !tbaa !7
+  br label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread
 
-if.end:                                           ; preds = %dynamic_cast.notnull.i
-  %cmp = icmp eq ptr %result, null
-  br i1 %cmp, label %cond.true, label %cond.false
+_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit: ; preds = %11
+  %14 = icmp eq ptr %1, null
+  br i1 %14, label %15, label %17
 
-cond.true:                                        ; preds = %if.end
-  %cmp1.not = icmp eq i32 %resultLength, 0
-  br i1 %cmp1.not, label %if.end4.thread, label %if.then3
+15:                                               ; preds = %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit
+  %.not20 = icmp eq i32 %2, 0
+  br i1 %.not20, label %.thread, label %19
 
-if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %timePattern, align 8
-  %fUnion2.i13 = getelementptr inbounds nuw i8, ptr %timePattern, i64 8
-  store i16 2, ptr %fUnion2.i13, align 8
-  br label %if.end8
+.thread:                                          ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i16 2, ptr %16, align 8, !tbaa !17
+  br label %25
 
-cond.false:                                       ; preds = %if.end
-  %cmp2 = icmp slt i32 %resultLength, 0
-  br i1 %cmp2, label %if.then3, label %if.then6
+17:                                               ; preds = %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit
+  %18 = icmp slt i32 %2, 0
+  br i1 %18, label %19, label %20
 
-if.then3:                                         ; preds = %cond.false, %cond.true
-  store i32 1, ptr %status, align 4
-  br label %return
+19:                                               ; preds = %17, %15
+  store i32 1, ptr %3, align 4, !tbaa !7
+  br label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread
 
-if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %timePattern, align 8
-  %fUnion2.i = getelementptr inbounds nuw i8, ptr %timePattern, i64 8
-  store i16 2, ptr %fUnion2.i, align 8
-  %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %timePattern, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
-          to label %if.end8 unwind label %lpad
+20:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i16 2, ptr %21, align 8, !tbaa !17
+  %22 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %2)
+          to label %25 unwind label %23
 
-lpad:                                             ; preds = %if.end8, %if.then6
-  %4 = landingpad { ptr, i32 }
+23:                                               ; preds = %25, %20
+  %24 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %37
 
-if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  %vtable = load ptr, ptr %fmt, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 248
-  %5 = load ptr, ptr %vfn, align 8
-  %call10 = invoke noundef nonnull align 8 dereferenceable(64) ptr %5(ptr noundef nonnull align 8 dereferenceable(760) %fmt, ptr noundef nonnull align 8 dereferenceable(64) %timePattern, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont9 unwind label %lpad
+25:                                               ; preds = %.thread, %20
+  %26 = load ptr, ptr %0, align 8, !tbaa !15
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 248
+  %28 = load ptr, ptr %27, align 8
+  %29 = invoke noundef nonnull align 8 dereferenceable(64) ptr %28(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %30 unwind label %23
 
-invoke.cont9:                                     ; preds = %if.end8
-  store ptr %result, ptr %agg.tmp, align 8
-  %call14 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %timePattern, ptr noundef nonnull %agg.tmp, i32 noundef %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont13 unwind label %lpad12
+30:                                               ; preds = %25
+  store ptr %1, ptr %6, align 8, !tbaa !28
+  %31 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %32 unwind label %34
 
-invoke.cont13:                                    ; preds = %invoke.cont9
-  %6 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6) #7, !srcloc !5
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %timePattern) #7
-  br label %return
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %6, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #8, !srcloc !30
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
+  br label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread
 
-lpad12:                                           ; preds = %invoke.cont9
-  %7 = landingpad { ptr, i32 }
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #7, !srcloc !5
-  br label %ehcleanup
+  %36 = load ptr, ptr %6, align 8, !tbaa !28
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #8, !srcloc !30
+  br label %37
 
-ehcleanup:                                        ; preds = %lpad12, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad12 ], [ %4, %lpad ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %timePattern) #7
+37:                                               ; preds = %34, %23
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %24, %23 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %if.then.i, %entry, %invoke.cont13, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ %call14, %invoke.cont13 ], [ -1, %entry ], [ -1, %if.then.i ]
-  ret i32 %retval.0
+_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread: ; preds = %.critedge.i, %4, %32, %19
+  %.018 = phi i32 [ -1, %19 ], [ %31, %32 ], [ -1, %4 ], [ -1, %.critedge.i ]
+  ret i32 %.018
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udat_applyPatternRelative_75(ptr noundef %format, ptr noundef %datePattern, i32 noundef %datePatternLength, ptr noundef %timePattern, i32 noundef %timePatternLength, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %datePat = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %timePat = alloca %"class.icu_75::UnicodeString", align 8
-  %agg.tmp3 = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %0 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i.i, label %return, label %land.lhs.true.i
+define void @udat_applyPatternRelative_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.icu_77::UnicodeString", align 8
+  %8 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %9 = alloca %"class.icu_77::UnicodeString", align 8
+  %10 = alloca %"class.icu_77::ConstChar16Ptr", align 8
+  %11 = load i32, ptr %5, align 4, !tbaa !7
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread, label %13
 
-land.lhs.true.i:                                  ; preds = %entry
-  %1 = icmp eq ptr %format, null
-  br i1 %1, label %if.then.i, label %dynamic_cast.notnull.i
+13:                                               ; preds = %6
+  %14 = icmp eq ptr %0, null
+  br i1 %14, label %.critedge.i, label %15
 
-dynamic_cast.notnull.i:                           ; preds = %land.lhs.true.i
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull readonly %format, ptr nonnull @_ZTIN6icu_7510DateFormatE, ptr nonnull @_ZTIN6icu_7518RelativeDateFormatE, i64 0) #7
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %if.then.i, label %if.end
+15:                                               ; preds = %13
+  %16 = tail call ptr @__dynamic_cast(ptr nonnull readonly %0, ptr nonnull @_ZTIN6icu_7710DateFormatE, ptr nonnull @_ZTIN6icu_7718RelativeDateFormatE, i64 0) #8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %.critedge.i, label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit
 
-if.then.i:                                        ; preds = %dynamic_cast.notnull.i, %land.lhs.true.i
-  store i32 1, ptr %status, align 4
-  br label %return
+.critedge.i:                                      ; preds = %15, %13
+  store i32 1, ptr %5, align 4, !tbaa !7
+  br label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread
 
-if.end:                                           ; preds = %dynamic_cast.notnull.i
-  %cmp = icmp eq i32 %datePatternLength, -1
-  %conv = zext i1 %cmp to i8
-  store ptr %datePattern, ptr %agg.tmp, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %datePat, i8 noundef signext %conv, ptr noundef nonnull %agg.tmp, i32 noundef %datePatternLength)
-          to label %invoke.cont unwind label %lpad
+_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit: ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
+  %18 = icmp eq i32 %2, -1
+  %19 = zext i1 %18 to i8
+  store ptr %1, ptr %8, align 8, !tbaa !11
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef signext %19, ptr noundef nonnull %8, i32 noundef %2)
+          to label %20 unwind label %30
 
-invoke.cont:                                      ; preds = %if.end
-  %4 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #7, !srcloc !4
-  %cmp1 = icmp eq i32 %timePatternLength, -1
-  %conv2 = zext i1 %cmp1 to i8
-  store ptr %timePattern, ptr %agg.tmp3, align 8
-  invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %timePat, i8 noundef signext %conv2, ptr noundef nonnull %agg.tmp3, i32 noundef %timePatternLength)
-          to label %invoke.cont7 unwind label %lpad6
+20:                                               ; preds = %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit
+  %21 = load ptr, ptr %8, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %21) #8, !srcloc !14
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #8
+  %22 = icmp eq i32 %4, -1
+  %23 = zext i1 %22 to i8
+  store ptr %3, ptr %10, align 8, !tbaa !11
+  invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 noundef signext %23, ptr noundef nonnull %10, i32 noundef %4)
+          to label %24 unwind label %33
 
-invoke.cont7:                                     ; preds = %invoke.cont
-  %5 = load ptr, ptr %agg.tmp3, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %5) #7, !srcloc !4
-  %vtable = load ptr, ptr %format, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 256
-  %6 = load ptr, ptr %vfn, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(760) %format, ptr noundef nonnull align 8 dereferenceable(64) %datePat, ptr noundef nonnull align 8 dereferenceable(64) %timePat, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont9 unwind label %lpad8
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25) #8, !srcloc !14
+  %26 = load ptr, ptr %0, align 8, !tbaa !15
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 256
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %29 unwind label %36
 
-invoke.cont9:                                     ; preds = %invoke.cont7
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %timePat) #7
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %datePat) #7
-  br label %return
+29:                                               ; preds = %24
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
+  br label %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread
 
-return:                                           ; preds = %if.then.i, %entry, %invoke.cont9
+_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit.thread: ; preds = %.critedge.i, %6, %29
   ret void
 
-lpad:                                             ; preds = %if.end
-  %7 = landingpad { ptr, i32 }
+30:                                               ; preds = %_ZL26verifyIsRelativeDateFormatPKPvP10UErrorCode.exit
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %8 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %8) #7, !srcloc !4
-  br label %eh.resume
+  %32 = load ptr, ptr %8, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #8, !srcloc !14
+  br label %39
 
-lpad6:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+33:                                               ; preds = %20
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %agg.tmp3, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #7, !srcloc !4
-  br label %ehcleanup
+  %35 = load ptr, ptr %10, align 8, !tbaa !11
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #8, !srcloc !14
+  br label %38
 
-lpad8:                                            ; preds = %invoke.cont7
-  %11 = landingpad { ptr, i32 }
+36:                                               ; preds = %24
+  %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %timePat) #7
-  br label %ehcleanup
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #8
+  br label %38
 
-ehcleanup:                                        ; preds = %lpad8, %lpad6
-  %.pn = phi { ptr, i32 } [ %11, %lpad8 ], [ %9, %lpad6 ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %datePat) #7
-  br label %eh.resume
+38:                                               ; preds = %36, %33
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %34, %33 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #8
+  br label %39
 
-eh.resume:                                        ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
+39:                                               ; preds = %38, %30
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %38 ], [ %31, %30 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
   resume { ptr, i32 } %.pn.pn
 }
 
-declare void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
+declare void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #7 = { nounwind }
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendESt17basic_string_viewIDsSt11char_traitsIDsEE(ptr noundef nonnull align 8 dereferenceable(64), i64, ptr) local_unnamed_addr #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nounwind
+declare void @_ZN6icu_7711ReplaceableD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #8 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{i64 2150694837}
-!5 = !{i64 2150694731}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"_ZTS19UCalendarDateFields", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"_ZTS10UErrorCode", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !13, i64 0}
+!13 = !{!"p1 char16_t", !10, i64 0}
+!14 = !{i64 2150736500}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"vtable pointer", !6, i64 0}
+!17 = !{!5, !5, i64 0}
+!18 = !{!19, !21, i64 8}
+!19 = !{!"_ZTSN6icu_7713FieldPositionE", !20, i64 0, !21, i64 8, !21, i64 12, !21, i64 16}
+!20 = !{!"_ZTSN6icu_777UObjectE"}
+!21 = !{!"int", !5, i64 0}
+!22 = !{!19, !21, i64 12}
+!23 = !{!19, !21, i64 16}
+!24 = !{!25, !21, i64 0}
+!25 = !{!"_ZTS14UFieldPosition", !21, i64 0, !21, i64 4, !21, i64 8}
+!26 = !{!25, !21, i64 4}
+!27 = !{!25, !21, i64 8}
+!28 = !{!29, !13, i64 0}
+!29 = !{!"_ZTSN6icu_779Char16PtrE", !13, i64 0}
+!30 = !{i64 2150736394}
+!31 = !{!32, !21, i64 12}
+!32 = !{!"_ZTSN6icu_7713ParsePositionE", !20, i64 0, !21, i64 8, !21, i64 12}
+!33 = !{!21, !21, i64 0}
+!34 = !{!32, !21, i64 8}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"char16_t", !5, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!40, !54, i64 480}
+!40 = !{!"_ZTSN6icu_7716SimpleDateFormatE", !41, i64 0, !48, i64 48, !48, i64 112, !48, i64 176, !50, i64 240, !52, i64 464, !53, i64 472, !54, i64 480, !5, i64 488, !5, i64 489, !5, i64 490, !21, i64 492, !55, i64 496, !57, i64 504, !5, i64 512, !58, i64 520}
+!41 = !{!"_ZTSN6icu_7710DateFormatE", !42, i64 0, !44, i64 24, !45, i64 32, !46, i64 40, !47, i64 44}
+!42 = !{!"_ZTSN6icu_776FormatE", !20, i64 0, !43, i64 8, !43, i64 16}
+!43 = !{!"p1 _ZTSN6icu_7710CharStringE", !10, i64 0}
+!44 = !{!"p1 _ZTSN6icu_778CalendarE", !10, i64 0}
+!45 = !{!"p1 _ZTSN6icu_7712NumberFormatE", !10, i64 0}
+!46 = !{!"_ZTSN6icu_777EnumSetI27UDateFormatBooleanAttributeLj0ELj4EEE", !21, i64 0}
+!47 = !{!"_ZTS15UDisplayContext", !5, i64 0}
+!48 = !{!"_ZTSN6icu_7713UnicodeStringE", !49, i64 0, !5, i64 8}
+!49 = !{!"_ZTSN6icu_7711ReplaceableE", !20, i64 0}
+!50 = !{!"_ZTSN6icu_776LocaleE", !20, i64 0, !5, i64 8, !5, i64 20, !5, i64 26, !21, i64 32, !51, i64 40, !5, i64 48, !51, i64 208, !5, i64 216}
+!51 = !{!"p1 omnipotent char", !10, i64 0}
+!52 = !{!"p1 _ZTSN6icu_7717DateFormatSymbolsE", !10, i64 0}
+!53 = !{!"p1 _ZTSN6icu_7714TimeZoneFormatE", !10, i64 0}
+!54 = !{!"double", !5, i64 0}
+!55 = !{!"p2 _ZTSN6icu_7718SharedNumberFormatE", !56, i64 0}
+!56 = !{!"any p2 pointer", !10, i64 0}
+!57 = !{!"p1 _ZTSN6icu_776number21SimpleNumberFormatterE", !10, i64 0}
+!58 = !{!"p1 _ZTSN6icu_7713BreakIteratorE", !10, i64 0}
+!59 = !{!60, !61, i64 8}
+!60 = !{!"_ZTSN6icu_7717DateFormatSymbolsE", !20, i64 0, !61, i64 8, !21, i64 16, !61, i64 24, !21, i64 32, !61, i64 40, !21, i64 48, !61, i64 56, !21, i64 64, !61, i64 72, !21, i64 80, !61, i64 88, !21, i64 96, !61, i64 104, !21, i64 112, !61, i64 120, !21, i64 128, !61, i64 136, !21, i64 144, !61, i64 152, !21, i64 160, !61, i64 168, !21, i64 176, !61, i64 184, !21, i64 192, !61, i64 200, !21, i64 208, !61, i64 216, !21, i64 224, !61, i64 232, !21, i64 240, !61, i64 248, !21, i64 256, !61, i64 264, !21, i64 272, !61, i64 280, !21, i64 288, !61, i64 296, !21, i64 304, !48, i64 312, !61, i64 376, !21, i64 384, !61, i64 392, !21, i64 400, !61, i64 408, !21, i64 416, !61, i64 424, !21, i64 432, !61, i64 440, !21, i64 448, !61, i64 456, !21, i64 464, !61, i64 472, !21, i64 480, !61, i64 488, !21, i64 496, !61, i64 504, !21, i64 512, !62, i64 520, !62, i64 528, !21, i64 536, !21, i64 540, !50, i64 544, !48, i64 768, !5, i64 832, !61, i64 864, !21, i64 872, !61, i64 880, !21, i64 888, !61, i64 896, !21, i64 904, !61, i64 912, !21, i64 920, !61, i64 928, !21, i64 936, !61, i64 944, !21, i64 952, !43, i64 960, !43, i64 968}
+!61 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !10, i64 0}
+!62 = !{!"p2 _ZTSN6icu_7713UnicodeStringE", !56, i64 0}
+!63 = !{!60, !21, i64 16}
+!64 = !{!60, !61, i64 24}
+!65 = !{!60, !21, i64 32}
+!66 = !{!60, !61, i64 56}
+!67 = !{!60, !21, i64 64}
+!68 = !{!60, !61, i64 72}
+!69 = !{!60, !21, i64 80}
+!70 = !{!60, !61, i64 88}
+!71 = !{!60, !21, i64 96}
+!72 = !{!60, !61, i64 104}
+!73 = !{!60, !21, i64 112}
+!74 = !{!60, !61, i64 120}
+!75 = !{!60, !21, i64 128}
+!76 = !{!60, !61, i64 136}
+!77 = !{!60, !21, i64 144}
+!78 = !{!60, !61, i64 152}
+!79 = !{!60, !21, i64 160}
+!80 = !{!60, !61, i64 168}
+!81 = !{!60, !21, i64 176}
+!82 = !{!60, !61, i64 184}
+!83 = !{!60, !21, i64 192}
+!84 = !{!60, !61, i64 200}
+!85 = !{!60, !21, i64 208}
+!86 = !{!60, !61, i64 216}
+!87 = !{!60, !21, i64 224}
+!88 = !{!60, !61, i64 232}
+!89 = !{!60, !21, i64 240}
+!90 = !{!60, !61, i64 248}
+!91 = !{!60, !21, i64 256}
+!92 = !{!60, !61, i64 264}
+!93 = !{!60, !21, i64 272}
+!94 = !{!60, !61, i64 376}
+!95 = !{!60, !21, i64 384}
+!96 = !{!60, !61, i64 392}
+!97 = !{!60, !21, i64 400}
+!98 = !{!60, !61, i64 408}
+!99 = !{!60, !21, i64 416}
+!100 = !{!60, !61, i64 424}
+!101 = !{!60, !21, i64 432}
+!102 = !{!60, !61, i64 440}
+!103 = !{!60, !21, i64 448}
+!104 = !{!60, !61, i64 456}
+!105 = !{!60, !21, i64 464}
+!106 = !{!60, !61, i64 488}
+!107 = !{!60, !21, i64 496}
+!108 = !{!60, !61, i64 504}
+!109 = !{!60, !21, i64 512}
+!110 = !{!60, !61, i64 280}
+!111 = !{!60, !21, i64 288}

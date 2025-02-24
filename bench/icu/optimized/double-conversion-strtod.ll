@@ -1,1052 +1,1050 @@
 ; ModuleID = 'bench/icu/original/double-conversion-strtod.ll'
 source_filename = "bench/icu/original/double-conversion-strtod.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::double_conversion::DiyFp" = type <{ i64, i32, [4 x i8] }>
-%"class.icu_75::double_conversion::Bignum" = type { i16, i16, [128 x i32] }
+%"class.icu_77::double_conversion::DiyFp" = type <{ i64, i32, [4 x i8] }>
+%"class.icu_77::double_conversion::Bignum" = type { i16, i16, [128 x i32] }
 
-@_ZN6icu_7517double_conversionL19exact_powers_of_tenE = internal unnamed_addr constant [23 x double] [double 1.000000e+00, double 1.000000e+01, double 1.000000e+02, double 1.000000e+03, double 1.000000e+04, double 1.000000e+05, double 1.000000e+06, double 1.000000e+07, double 1.000000e+08, double 1.000000e+09, double 1.000000e+10, double 1.000000e+11, double 1.000000e+12, double 1.000000e+13, double 1.000000e+14, double 1.000000e+15, double 1.000000e+16, double 1.000000e+17, double 1.000000e+18, double 1.000000e+19, double 1.000000e+20, double 1.000000e+21, double 1.000000e+22], align 16
-@switch.table._ZN6icu_7517double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd = private unnamed_addr constant [7 x i32] [i32 4, i32 7, i32 10, i32 14, i32 17, i32 20, i32 24], align 4
-@switch.table._ZN6icu_7517double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1 = private unnamed_addr constant [7 x i64] [i64 2684354560, i64 3355443200, i64 4194304000, i64 2621440000, i64 3276800000, i64 4096000000, i64 2560000000], align 8
+@_ZN6icu_7717double_conversionL19exact_powers_of_tenE = internal unnamed_addr constant [23 x double] [double 1.000000e+00, double 1.000000e+01, double 1.000000e+02, double 1.000000e+03, double 1.000000e+04, double 1.000000e+05, double 1.000000e+06, double 1.000000e+07, double 1.000000e+08, double 1.000000e+09, double 1.000000e+10, double 1.000000e+11, double 1.000000e+12, double 1.000000e+13, double 1.000000e+14, double 1.000000e+15, double 1.000000e+16, double 1.000000e+17, double 1.000000e+18, double 1.000000e+19, double 1.000000e+20, double 1.000000e+21, double 1.000000e+22], align 16
+@switch.table._ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd = private unnamed_addr constant [7 x i32] [i32 4, i32 7, i32 10, i32 14, i32 17, i32 20, i32 24], align 4
+@switch.table._ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1 = private unnamed_addr constant [7 x i64] [i64 2684354560, i64 3355443200, i64 4194304000, i64 2621440000, i64 3276800000, i64 4096000000, i64 2560000000], align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent) local_unnamed_addr #0 {
-entry:
-  %guess = alloca double, align 8
-  %call = call fastcc noundef zeroext i1 @_ZN6icu_7517double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr noundef %guess)
-  %0 = load double, ptr %guess, align 8
-  br i1 %call, label %return, label %if.end
+define noundef double @_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  %5 = call fastcc noundef zeroext i1 @_ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %0, i32 %1, i32 noundef %2, ptr noundef %4)
+  %6 = load double, ptr %4, align 8, !tbaa !3
+  br i1 %5, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit, label %7
 
-if.end:                                           ; preds = %entry
-  %1 = bitcast double %0 to i64
-  %and.i.i.i = and i64 %1, 9218868437227405312
-  %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
-  %and.i.i = shl i64 %1, 1
-  %2 = and i64 %and.i.i, 9007199254740990
-  %3 = or disjoint i64 %2, 9007199254740992
-  %mul.i = select i1 %cmp.i.i.i, i64 %2, i64 %3
-  %add.i = or disjoint i64 %mul.i, 1
-  %and.i3.i = lshr i64 %1, 52
-  %4 = trunc nuw nsw i64 %and.i3.i to i32
-  %conv.i.i = and i32 %4, 2047
-  %5 = add nsw i32 %conv.i.i, -1076
-  %sub.i = select i1 %cmp.i.i.i, i32 -1075, i32 %5
-  %call4 = tail call fastcc noundef i32 @_ZN6icu_7517double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, i64 %add.i, i32 %sub.i)
-  %cmp = icmp slt i32 %call4, 0
-  br i1 %cmp, label %return, label %if.else
+7:                                                ; preds = %3
+  %8 = bitcast double %6 to i64
+  %9 = and i64 %8, 9218868437227405312
+  %10 = icmp eq i64 %9, 0
+  %11 = shl i64 %8, 1
+  %12 = and i64 %11, 9007199254740990
+  %13 = or disjoint i64 %12, 9007199254740992
+  %14 = select i1 %10, i64 %12, i64 %13
+  %15 = or disjoint i64 %14, 1
+  %16 = lshr i64 %8, 52
+  %17 = trunc nuw nsw i64 %16 to i32
+  %18 = and i32 %17, 2047
+  %19 = add nsw i32 %18, -1076
+  %20 = select i1 %10, i32 -1075, i32 %19
+  %21 = tail call fastcc noundef i32 @_ZN6icu_7717double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %0, i32 %1, i32 noundef %2, i64 %15, i32 %20)
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit, label %23
 
-if.else:                                          ; preds = %if.end
-  %cmp6.not = icmp eq i32 %call4, 0
-  br i1 %cmp6.not, label %if.else10, label %if.then7
+23:                                               ; preds = %7
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %36, label %24
 
-if.then7:                                         ; preds = %if.else
-  %cmp.i = icmp eq i64 %1, 9218868437227405312
-  br i1 %cmp.i, label %return, label %if.end.i
+24:                                               ; preds = %23
+  %25 = icmp eq i64 %8, 9218868437227405312
+  br i1 %25, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit, label %26
 
-if.end.i:                                         ; preds = %if.then7
-  %cmp3.i = icmp slt i64 %1, 0
-  br i1 %cmp3.i, label %land.lhs.true.i, label %if.else.i
+26:                                               ; preds = %24
+  %27 = icmp slt i64 %8, 0
+  br i1 %27, label %28, label %33
 
-land.lhs.true.i:                                  ; preds = %if.end.i
-  %cmp5.i = fcmp oeq double %0, 0.000000e+00
-  br i1 %cmp5.i, label %return, label %if.then10.i
+28:                                               ; preds = %26
+  %29 = fcmp oeq double %6, 0.000000e+00
+  br i1 %29, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit, label %30
 
-if.then10.i:                                      ; preds = %land.lhs.true.i
-  %sub.i6 = add i64 %1, -1
-  %6 = bitcast i64 %sub.i6 to double
-  br label %return
+30:                                               ; preds = %28
+  %31 = add i64 %8, -1
+  %32 = bitcast i64 %31 to double
+  br label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit
 
-if.else.i:                                        ; preds = %if.end.i
-  %add.i5 = add nuw i64 %1, 1
-  %7 = bitcast i64 %add.i5 to double
-  br label %return
+33:                                               ; preds = %26
+  %34 = add nuw i64 %8, 1
+  %35 = bitcast i64 %34 to double
+  br label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit
 
-if.else10:                                        ; preds = %if.else
-  %and = and i64 %1, 1
-  %cmp13 = icmp eq i64 %and, 0
-  br i1 %cmp13, label %return, label %if.end.i11
+36:                                               ; preds = %23
+  %37 = and i64 %8, 1
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit, label %39
 
-if.end.i11:                                       ; preds = %if.else10
-  %cmp3.i12 = icmp slt i64 %1, 0
-  br i1 %cmp3.i12, label %land.lhs.true.i16, label %if.else.i13
+39:                                               ; preds = %36
+  %40 = icmp slt i64 %8, 0
+  br i1 %40, label %41, label %46
 
-land.lhs.true.i16:                                ; preds = %if.end.i11
-  %cmp5.i17 = fcmp oeq double %0, 0.000000e+00
-  br i1 %cmp5.i17, label %return, label %if.then10.i18
+41:                                               ; preds = %39
+  %42 = fcmp oeq double %6, 0.000000e+00
+  br i1 %42, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit, label %43
 
-if.then10.i18:                                    ; preds = %land.lhs.true.i16
-  %sub.i19 = add nsw i64 %1, -1
-  %8 = bitcast i64 %sub.i19 to double
-  br label %return
+43:                                               ; preds = %41
+  %44 = add nsw i64 %8, -1
+  %45 = bitcast i64 %44 to double
+  br label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit
 
-if.else.i13:                                      ; preds = %if.end.i11
-  %add.i14 = add nuw i64 %1, 1
-  %9 = bitcast i64 %add.i14 to double
-  br label %return
+46:                                               ; preds = %39
+  %47 = add nuw i64 %8, 1
+  %48 = bitcast i64 %47 to double
+  br label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit
 
-return:                                           ; preds = %entry, %if.else.i13, %if.then10.i18, %land.lhs.true.i16, %if.else10, %if.else.i, %if.then10.i, %land.lhs.true.i, %if.then7, %if.end
-  %retval.0 = phi double [ %0, %if.end ], [ %6, %if.then10.i ], [ %7, %if.else.i ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.then7 ], [ %0, %if.else10 ], [ %8, %if.then10.i18 ], [ %9, %if.else.i13 ], [ 0.000000e+00, %land.lhs.true.i16 ], [ %0, %entry ]
-  ret double %retval.0
+_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit: ; preds = %3, %46, %43, %41, %36, %33, %30, %28, %24, %7
+  %.0 = phi double [ %6, %7 ], [ %32, %30 ], [ %35, %33 ], [ 0.000000e+00, %28 ], [ 0x7FF0000000000000, %24 ], [ %6, %36 ], [ %45, %43 ], [ %48, %46 ], [ 0.000000e+00, %41 ], [ %6, %3 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  ret double %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6icu_7517double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr readonly captures(none) %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr noundef nonnull writeonly captures(none) %guess) unnamed_addr #0 {
-entry:
-  %cached_power.i = alloca %"class.icu_75::double_conversion::DiyFp", align 8
-  %cached_decimal_exponent.i = alloca i32, align 4
-  %cmp = icmp eq i32 %trimmed.coerce1, 0
-  br i1 %cmp, label %if.then, label %if.end
+define internal fastcc noundef zeroext i1 @_ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr readonly captures(none) %0, i32 %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
+  %5 = alloca %"class.icu_77::double_conversion::DiyFp", align 8
+  %6 = alloca i32, align 4
+  %7 = icmp eq i32 %1, 0
+  br i1 %7, label %.sink.split, label %8
 
-if.then:                                          ; preds = %entry
-  store double 0.000000e+00, ptr %guess, align 8
-  br label %return
+8:                                                ; preds = %4
+  %9 = add nsw i32 %2, %1
+  %10 = icmp sgt i32 %9, 309
+  br i1 %10, label %.sink.split, label %11
 
-if.end:                                           ; preds = %entry
-  %add = add nsw i32 %exponent, %trimmed.coerce1
-  %cmp2 = icmp sgt i32 %add, 309
-  br i1 %cmp2, label %if.then3, label %if.end5
+11:                                               ; preds = %8
+  %12 = icmp slt i32 %9, -323
+  br i1 %12, label %.sink.split, label %13
 
-if.then3:                                         ; preds = %if.end
-  store double 0x7FF0000000000000, ptr %guess, align 8
-  br label %return
+13:                                               ; preds = %11
+  %14 = icmp slt i32 %1, 16
+  br i1 %14, label %15, label %.lr.ph.preheader.i.i.i
 
-if.end5:                                          ; preds = %if.end
-  %cmp8 = icmp slt i32 %add, -323
-  br i1 %cmp8, label %if.then9, label %if.end10
+15:                                               ; preds = %13
+  %or.cond31.i = icmp ugt i32 %2, -23
+  br i1 %or.cond31.i, label %16, label %34
 
-if.then9:                                         ; preds = %if.end5
-  store double 0.000000e+00, ptr %guess, align 8
-  br label %return
+16:                                               ; preds = %15
+  %17 = sub nsw i32 0, %2
+  %18 = icmp sgt i32 %1, 0
+  br i1 %18, label %.lr.ph.preheader.i.i, label %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i
 
-if.end10:                                         ; preds = %if.end5
-  %cmp.i = icmp slt i32 %trimmed.coerce1, 16
-  br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.thread
+.lr.ph.preheader.i.i:                             ; preds = %16
+  %19 = zext nneg i32 %1 to i64
+  br label %.lr.ph.i.i
 
-lor.lhs.false.thread:                             ; preds = %if.end10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cached_power.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cached_decimal_exponent.i)
-  br label %while.body.preheader.i.i.i
-
-if.then.i:                                        ; preds = %if.end10
-  %or.cond17.i = icmp ugt i32 %exponent, -23
-  br i1 %or.cond17.i, label %if.then3.i, label %if.end.i
-
-if.then3.i:                                       ; preds = %if.then.i
-  %sub.i = sub nsw i32 0, %exponent
-  %cmp5.i.i = icmp sgt i32 %trimmed.coerce1, 0
-  br i1 %cmp5.i.i, label %while.body.preheader.i.i, label %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i
-
-while.body.preheader.i.i:                         ; preds = %if.then3.i
-  %0 = zext nneg i32 %trimmed.coerce1 to i64
-  br label %while.body.i.i
-
-while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %while.body.preheader.i.i ], [ %indvars.iv.next.i.i, %while.body.i.i ]
-  %result.07.i.i = phi i64 [ 0, %while.body.preheader.i.i ], [ %add.i.i, %while.body.i.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %.09.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %25, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %indvars.iv.i.i
-  %1 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i = sext i8 %1 to i64
-  %mul.i.i = mul nuw i64 %result.07.i.i, 10
-  %sub.i.i = add i64 %mul.i.i, -48
-  %add.i.i = add i64 %sub.i.i, %conv.i.i
-  %cmp.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %0
-  %cmp1.i.i = icmp ult i64 %add.i.i, 1844674407370955161
-  %2 = select i1 %cmp.i.i, i1 %cmp1.i.i, i1 false
-  br i1 %2, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
+  %21 = load i8, ptr %20, align 1, !tbaa !7
+  %22 = sext i8 %21 to i64
+  %23 = mul nuw i64 %.09.i.i, 10
+  %24 = add i64 %23, -48
+  %25 = add i64 %24, %22
+  %26 = icmp samesign ult i64 %indvars.iv.next.i.i, %19
+  %27 = icmp ult i64 %25, 1844674407370955161
+  %28 = select i1 %26, i1 %27, i1 false
+  br i1 %28, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !8
 
-while.end.loopexit.i.i:                           ; preds = %while.body.i.i
-  %3 = uitofp i64 %add.i.i to double
-  br label %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i
+._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
+  %29 = uitofp i64 %25 to double
+  br label %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i
 
-_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i: ; preds = %while.end.loopexit.i.i, %if.then3.i
-  %result.0.lcssa.i.i = phi double [ 0.000000e+00, %if.then3.i ], [ %3, %while.end.loopexit.i.i ]
-  %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw [23 x double], ptr @_ZN6icu_7517double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom.i
-  %4 = load double, ptr %arrayidx.i, align 8
-  %div.i = fdiv double %result.0.lcssa.i.i, %4
-  br label %_ZN6icu_7517double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
+_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %16
+  %.0.lcssa.i.i = phi double [ 0.000000e+00, %16 ], [ %29, %._crit_edge.loopexit.i.i ]
+  %30 = zext nneg i32 %17 to i64
+  %31 = getelementptr inbounds nuw [23 x double], ptr @_ZN6icu_7717double_conversionL19exact_powers_of_tenE, i64 0, i64 %30
+  %32 = load double, ptr %31, align 8, !tbaa !3
+  %33 = fdiv double %.0.lcssa.i.i, %32
+  br label %.sink.split
 
-if.end.i:                                         ; preds = %if.then.i
-  %or.cond.i = icmp ult i32 %exponent, 23
-  br i1 %or.cond.i, label %if.then9.i, label %if.end15.i
+34:                                               ; preds = %15
+  %or.cond.i = icmp ult i32 %2, 23
+  br i1 %or.cond.i, label %35, label %52
 
-if.then9.i:                                       ; preds = %if.end.i
-  %cmp5.i18.i = icmp sgt i32 %trimmed.coerce1, 0
-  br i1 %cmp5.i18.i, label %while.body.preheader.i21.i, label %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit34.i
+35:                                               ; preds = %34
+  %36 = icmp sgt i32 %1, 0
+  br i1 %36, label %.lr.ph.preheader.i34.i, label %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i
 
-while.body.preheader.i21.i:                       ; preds = %if.then9.i
-  %5 = zext nneg i32 %trimmed.coerce1 to i64
-  br label %while.body.i22.i
+.lr.ph.preheader.i34.i:                           ; preds = %35
+  %37 = zext nneg i32 %1 to i64
+  br label %.lr.ph.i35.i
 
-while.body.i22.i:                                 ; preds = %while.body.i22.i, %while.body.preheader.i21.i
-  %indvars.iv.i23.i = phi i64 [ 0, %while.body.preheader.i21.i ], [ %indvars.iv.next.i25.i, %while.body.i22.i ]
-  %result.07.i24.i = phi i64 [ 0, %while.body.preheader.i21.i ], [ %add.i30.i, %while.body.i22.i ]
-  %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i23.i, 1
-  %arrayidx.i.i26.i = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %indvars.iv.i23.i
-  %6 = load i8, ptr %arrayidx.i.i26.i, align 1
-  %conv.i27.i = sext i8 %6 to i64
-  %mul.i28.i = mul nuw i64 %result.07.i24.i, 10
-  %sub.i29.i = add i64 %mul.i28.i, -48
-  %add.i30.i = add i64 %sub.i29.i, %conv.i27.i
-  %cmp.i31.i = icmp samesign ult i64 %indvars.iv.next.i25.i, %5
-  %cmp1.i32.i = icmp ult i64 %add.i30.i, 1844674407370955161
-  %7 = select i1 %cmp.i31.i, i1 %cmp1.i32.i, i1 false
-  br i1 %7, label %while.body.i22.i, label %while.end.loopexit.i33.i, !llvm.loop !4
+.lr.ph.i35.i:                                     ; preds = %.lr.ph.i35.i, %.lr.ph.preheader.i34.i
+  %indvars.iv.i36.i = phi i64 [ 0, %.lr.ph.preheader.i34.i ], [ %indvars.iv.next.i38.i, %.lr.ph.i35.i ]
+  %.09.i37.i = phi i64 [ 0, %.lr.ph.preheader.i34.i ], [ %43, %.lr.ph.i35.i ]
+  %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i36.i, 1
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i36.i
+  %39 = load i8, ptr %38, align 1, !tbaa !7
+  %40 = sext i8 %39 to i64
+  %41 = mul nuw i64 %.09.i37.i, 10
+  %42 = add i64 %41, -48
+  %43 = add i64 %42, %40
+  %44 = icmp samesign ult i64 %indvars.iv.next.i38.i, %37
+  %45 = icmp ult i64 %43, 1844674407370955161
+  %46 = select i1 %44, i1 %45, i1 false
+  br i1 %46, label %.lr.ph.i35.i, label %._crit_edge.loopexit.i39.i, !llvm.loop !8
 
-while.end.loopexit.i33.i:                         ; preds = %while.body.i22.i
-  %8 = uitofp i64 %add.i30.i to double
-  br label %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit34.i
+._crit_edge.loopexit.i39.i:                       ; preds = %.lr.ph.i35.i
+  %47 = uitofp i64 %43 to double
+  br label %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i
 
-_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit34.i: ; preds = %while.end.loopexit.i33.i, %if.then9.i
-  %result.0.lcssa.i20.i = phi double [ 0.000000e+00, %if.then9.i ], [ %8, %while.end.loopexit.i33.i ]
-  %idxprom13.i = zext nneg i32 %exponent to i64
-  %arrayidx14.i = getelementptr inbounds nuw [23 x double], ptr @_ZN6icu_7517double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom13.i
-  %9 = load double, ptr %arrayidx14.i, align 8
-  %mul.i = fmul double %result.0.lcssa.i20.i, %9
-  br label %_ZN6icu_7517double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
+_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i: ; preds = %._crit_edge.loopexit.i39.i, %35
+  %.0.lcssa.i33.i = phi double [ 0.000000e+00, %35 ], [ %47, %._crit_edge.loopexit.i39.i ]
+  %48 = zext nneg i32 %2 to i64
+  %49 = getelementptr inbounds nuw [23 x double], ptr @_ZN6icu_7717double_conversionL19exact_powers_of_tenE, i64 0, i64 %48
+  %50 = load double, ptr %49, align 8, !tbaa !3
+  %51 = fmul double %.0.lcssa.i33.i, %50
+  br label %.sink.split
 
-if.end15.i:                                       ; preds = %if.end.i
-  %cmp6.i = icmp sgt i32 %exponent, -1
-  %sub17.i = sub nsw i32 15, %trimmed.coerce1
-  br i1 %cmp6.i, label %land.lhs.true19.i, label %lor.lhs.false
+52:                                               ; preds = %34
+  %53 = icmp sgt i32 %2, -1
+  %54 = sub nsw i32 15, %1
+  br i1 %53, label %55, label %79
 
-land.lhs.true19.i:                                ; preds = %if.end15.i
-  %sub20.i = sub nsw i32 %exponent, %sub17.i
-  %cmp21.i = icmp slt i32 %sub20.i, 23
-  br i1 %cmp21.i, label %if.then22.i, label %lor.lhs.false
+55:                                               ; preds = %52
+  %56 = sub nsw i32 %2, %54
+  %57 = icmp slt i32 %56, 23
+  br i1 %57, label %58, label %79
 
-if.then22.i:                                      ; preds = %land.lhs.true19.i
-  %cmp5.i36.i = icmp sgt i32 %trimmed.coerce1, 0
-  br i1 %cmp5.i36.i, label %while.body.preheader.i39.i, label %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit52.i
+58:                                               ; preds = %55
+  %59 = icmp sgt i32 %1, 0
+  br i1 %59, label %.lr.ph.preheader.i43.i, label %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i
 
-while.body.preheader.i39.i:                       ; preds = %if.then22.i
-  %10 = zext nneg i32 %trimmed.coerce1 to i64
-  br label %while.body.i40.i
+.lr.ph.preheader.i43.i:                           ; preds = %58
+  %60 = zext nneg i32 %1 to i64
+  br label %.lr.ph.i44.i
 
-while.body.i40.i:                                 ; preds = %while.body.i40.i, %while.body.preheader.i39.i
-  %indvars.iv.i41.i = phi i64 [ 0, %while.body.preheader.i39.i ], [ %indvars.iv.next.i43.i, %while.body.i40.i ]
-  %result.07.i42.i = phi i64 [ 0, %while.body.preheader.i39.i ], [ %add.i48.i, %while.body.i40.i ]
-  %indvars.iv.next.i43.i = add nuw nsw i64 %indvars.iv.i41.i, 1
-  %arrayidx.i.i44.i = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %indvars.iv.i41.i
-  %11 = load i8, ptr %arrayidx.i.i44.i, align 1
-  %conv.i45.i = sext i8 %11 to i64
-  %mul.i46.i = mul nuw i64 %result.07.i42.i, 10
-  %sub.i47.i = add i64 %mul.i46.i, -48
-  %add.i48.i = add i64 %sub.i47.i, %conv.i45.i
-  %cmp.i49.i = icmp samesign ult i64 %indvars.iv.next.i43.i, %10
-  %cmp1.i50.i = icmp ult i64 %add.i48.i, 1844674407370955161
-  %12 = select i1 %cmp.i49.i, i1 %cmp1.i50.i, i1 false
-  br i1 %12, label %while.body.i40.i, label %while.end.loopexit.i51.i, !llvm.loop !4
+.lr.ph.i44.i:                                     ; preds = %.lr.ph.i44.i, %.lr.ph.preheader.i43.i
+  %indvars.iv.i45.i = phi i64 [ 0, %.lr.ph.preheader.i43.i ], [ %indvars.iv.next.i47.i, %.lr.ph.i44.i ]
+  %.09.i46.i = phi i64 [ 0, %.lr.ph.preheader.i43.i ], [ %66, %.lr.ph.i44.i ]
+  %indvars.iv.next.i47.i = add nuw nsw i64 %indvars.iv.i45.i, 1
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i45.i
+  %62 = load i8, ptr %61, align 1, !tbaa !7
+  %63 = sext i8 %62 to i64
+  %64 = mul nuw i64 %.09.i46.i, 10
+  %65 = add i64 %64, -48
+  %66 = add i64 %65, %63
+  %67 = icmp samesign ult i64 %indvars.iv.next.i47.i, %60
+  %68 = icmp ult i64 %66, 1844674407370955161
+  %69 = select i1 %67, i1 %68, i1 false
+  br i1 %69, label %.lr.ph.i44.i, label %._crit_edge.loopexit.i48.i, !llvm.loop !8
 
-while.end.loopexit.i51.i:                         ; preds = %while.body.i40.i
-  %13 = uitofp i64 %add.i48.i to double
-  br label %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit52.i
+._crit_edge.loopexit.i48.i:                       ; preds = %.lr.ph.i44.i
+  %70 = uitofp i64 %66 to double
+  br label %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i
 
-_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit52.i: ; preds = %while.end.loopexit.i51.i, %if.then22.i
-  %result.0.lcssa.i38.i = phi double [ 0.000000e+00, %if.then22.i ], [ %13, %while.end.loopexit.i51.i ]
-  %idxprom26.i = zext nneg i32 %sub17.i to i64
-  %arrayidx27.i = getelementptr inbounds nuw [23 x double], ptr @_ZN6icu_7517double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom26.i
-  %14 = load double, ptr %arrayidx27.i, align 8
-  %mul28.i = fmul double %result.0.lcssa.i38.i, %14
-  %idxprom30.i = sext i32 %sub20.i to i64
-  %arrayidx31.i = getelementptr inbounds [23 x double], ptr @_ZN6icu_7517double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom30.i
-  %15 = load double, ptr %arrayidx31.i, align 8
-  %mul32.i = fmul double %mul28.i, %15
-  br label %_ZN6icu_7517double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
+_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i: ; preds = %._crit_edge.loopexit.i48.i, %58
+  %.0.lcssa.i42.i = phi double [ 0.000000e+00, %58 ], [ %70, %._crit_edge.loopexit.i48.i ]
+  %71 = zext nneg i32 %54 to i64
+  %72 = getelementptr inbounds nuw [23 x double], ptr @_ZN6icu_7717double_conversionL19exact_powers_of_tenE, i64 0, i64 %71
+  %73 = load double, ptr %72, align 8, !tbaa !3
+  %74 = fmul double %.0.lcssa.i42.i, %73
+  %75 = sext i32 %56 to i64
+  %76 = getelementptr inbounds [23 x double], ptr @_ZN6icu_7717double_conversionL19exact_powers_of_tenE, i64 0, i64 %75
+  %77 = load double, ptr %76, align 8, !tbaa !3
+  %78 = fmul double %74, %77
+  br label %.sink.split
 
-_ZN6icu_7517double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit: ; preds = %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i, %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit34.i, %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit52.i
-  %mul32.sink.i = phi double [ %mul32.i, %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit52.i ], [ %mul.i, %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit34.i ], [ %div.i, %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i ]
-  store double %mul32.sink.i, ptr %guess, align 8
-  br label %return
+79:                                               ; preds = %52, %55
+  %80 = icmp sgt i32 %1, 0
+  br i1 %80, label %.lr.ph.preheader.i.i.i, label %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
 
-lor.lhs.false:                                    ; preds = %if.end15.i, %land.lhs.true19.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cached_power.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cached_decimal_exponent.i)
-  %cmp5.i.i.i = icmp sgt i32 %trimmed.coerce1, 0
-  br i1 %cmp5.i.i.i, label %while.body.preheader.i.i.i, label %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
+.lr.ph.preheader.i.i.i:                           ; preds = %13, %79
+  %81 = zext nneg i32 %1 to i64
+  br label %.lr.ph.i.i.i
 
-while.body.preheader.i.i.i:                       ; preds = %lor.lhs.false.thread, %lor.lhs.false
-  %16 = zext nneg i32 %trimmed.coerce1 to i64
-  br label %while.body.i.i.i
-
-while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %while.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %while.body.i.i.i ]
-  %result.07.i.i.i = phi i64 [ 0, %while.body.preheader.i.i.i ], [ %add.i.i.i, %while.body.i.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
+  %.09.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %87, %.lr.ph.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %indvars.iv.i.i.i
-  %17 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %conv.i.i.i = sext i8 %17 to i64
-  %mul.i.i.i = mul nuw i64 %result.07.i.i.i, 10
-  %sub.i.i.i = add i64 %mul.i.i.i, -48
-  %add.i.i.i = add i64 %sub.i.i.i, %conv.i.i.i
-  %cmp.i.i.i = icmp samesign ult i64 %indvars.iv.next.i.i.i, %16
-  %cmp1.i.i.i = icmp ult i64 %add.i.i.i, 1844674407370955161
-  %18 = select i1 %cmp.i.i.i, i1 %cmp1.i.i.i, i1 false
-  br i1 %18, label %while.body.i.i.i, label %while.end.loopexit.i.i.i, !llvm.loop !4
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i.i
+  %83 = load i8, ptr %82, align 1, !tbaa !7
+  %84 = sext i8 %83 to i64
+  %85 = mul nuw i64 %.09.i.i.i, 10
+  %86 = add i64 %85, -48
+  %87 = add i64 %86, %84
+  %88 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %81
+  %89 = icmp ult i64 %87, 1844674407370955161
+  %90 = select i1 %88, i1 %89, i1 false
+  br i1 %90, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !8
 
-while.end.loopexit.i.i.i:                         ; preds = %while.body.i.i.i
-  %19 = trunc nuw nsw i64 %indvars.iv.next.i.i.i to i32
-  br label %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
+._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
+  %91 = trunc nuw nsw i64 %indvars.iv.next.i.i.i to i32
+  br label %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
 
-_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i: ; preds = %while.end.loopexit.i.i.i, %lor.lhs.false
-  %i.0.lcssa.i.i.i = phi i32 [ 0, %lor.lhs.false ], [ %19, %while.end.loopexit.i.i.i ]
-  %result.0.lcssa.i.i.i = phi i64 [ 0, %lor.lhs.false ], [ %add.i.i.i, %while.end.loopexit.i.i.i ]
-  %cmp.i.i11 = icmp eq i32 %trimmed.coerce1, %i.0.lcssa.i.i.i
-  br i1 %cmp.i.i11, label %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i, label %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i
+_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i, %79
+  %.07.lcssa.i.i.i = phi i32 [ 0, %79 ], [ %91, %._crit_edge.loopexit.i.i.i ]
+  %.0.lcssa.i.i.i = phi i64 [ 0, %79 ], [ %87, %._crit_edge.loopexit.i.i.i ]
+  %92 = icmp eq i32 %1, %.07.lcssa.i.i.i
+  br i1 %92, label %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i, label %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i
 
-_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i: ; preds = %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
-  %idxprom.i.i.i = zext nneg i32 %i.0.lcssa.i.i.i to i64
-  %arrayidx.i.i.i12 = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %idxprom.i.i.i
-  %20 = load i8, ptr %arrayidx.i.i.i12, align 1
-  %cmp3.i.i = icmp sgt i8 %20, 52
-  %inc.i.i = zext i1 %cmp3.i.i to i64
-  %spec.select.i.i = add i64 %result.0.lcssa.i.i.i, %inc.i.i
-  %add.i = sub i32 %add, %i.0.lcssa.i.i.i
-  br label %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i
+_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i: ; preds = %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
+  %93 = zext nneg i32 %.07.lcssa.i.i.i to i64
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 %93
+  %95 = load i8, ptr %94, align 1, !tbaa !7
+  %96 = icmp sgt i8 %95, 52
+  %97 = zext i1 %96 to i64
+  %spec.select.i.i = add i64 %.0.lcssa.i.i.i, %97
+  %98 = sub i32 %9, %.07.lcssa.i.i.i
+  br label %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i
 
-_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i: ; preds = %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i, %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
-  %add123.i = phi i32 [ %exponent, %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ %add.i, %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
-  %spec.select.sink.i121.i = phi i64 [ %result.0.lcssa.i.i.i, %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ %spec.select.i.i, %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
-  %21 = phi i64 [ 0, %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ 4, %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
-  %cmp7.i.i = icmp ult i64 %spec.select.sink.i121.i, 18014398509481984
-  br i1 %cmp7.i.i, label %while.body.i.i20, label %while.cond2.preheader.i.i
+_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i: ; preds = %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
+  %99 = phi i32 [ %2, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ %98, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
+  %spec.select.sink.i103.i = phi i64 [ %.0.lcssa.i.i.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ %spec.select.i.i, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
+  %100 = phi i64 [ 0, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i ], [ 4, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i ]
+  %101 = icmp ult i64 %spec.select.sink.i103.i, 18014398509481984
+  br i1 %101, label %.lr.ph.i.i15, label %.preheader.i.i
 
-while.cond2.preheader.i.i:                        ; preds = %while.body.i.i20, %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i
-  %exponent.0.lcssa.i.i = phi i32 [ 0, %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i ], [ %sub.i35.i, %while.body.i.i20 ]
-  %significand.0.lcssa.i.i = phi i64 [ %spec.select.sink.i121.i, %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i ], [ %shl.i.i, %while.body.i.i20 ]
-  %cmp411.i.i = icmp sgt i64 %significand.0.lcssa.i.i, -1
-  br i1 %cmp411.i.i, label %while.body5.i.i, label %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit.i
+.preheader.i.i:                                   ; preds = %.lr.ph.i.i15, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i
+  %.08.lcssa.i.i = phi i32 [ 0, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i ], [ %104, %.lr.ph.i.i15 ]
+  %.0.lcssa.i.i13 = phi i64 [ %spec.select.sink.i103.i, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i ], [ %103, %.lr.ph.i.i15 ]
+  %102 = icmp sgt i64 %.0.lcssa.i.i13, -1
+  br i1 %102, label %.lr.ph15.i.i, label %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i
 
-while.body.i.i20:                                 ; preds = %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i, %while.body.i.i20
-  %significand.09.i.i = phi i64 [ %shl.i.i, %while.body.i.i20 ], [ %spec.select.sink.i121.i, %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i ]
-  %exponent.08.i.i = phi i32 [ %sub.i35.i, %while.body.i.i20 ], [ 0, %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i ]
-  %shl.i.i = shl nuw i64 %significand.09.i.i, 10
-  %sub.i35.i = add nsw i32 %exponent.08.i.i, -10
-  %cmp.i36.i = icmp ult i64 %significand.09.i.i, 17592186044416
-  br i1 %cmp.i36.i, label %while.body.i.i20, label %while.cond2.preheader.i.i, !llvm.loop !6
+.lr.ph.i.i15:                                     ; preds = %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i, %.lr.ph.i.i15
+  %.011.i.i = phi i64 [ %103, %.lr.ph.i.i15 ], [ %spec.select.sink.i103.i, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i ]
+  %.0810.i.i = phi i32 [ %104, %.lr.ph.i.i15 ], [ 0, %_ZN6icu_7717double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i ]
+  %103 = shl nuw i64 %.011.i.i, 10
+  %104 = add nsw i32 %.0810.i.i, -10
+  %105 = icmp ult i64 %.011.i.i, 17592186044416
+  br i1 %105, label %.lr.ph.i.i15, label %.preheader.i.i, !llvm.loop !10
 
-while.body5.i.i:                                  ; preds = %while.cond2.preheader.i.i, %while.body5.i.i
-  %significand.113.i.i = phi i64 [ %shl6.i.i, %while.body5.i.i ], [ %significand.0.lcssa.i.i, %while.cond2.preheader.i.i ]
-  %exponent.112.i.i = phi i32 [ %dec.i.i, %while.body5.i.i ], [ %exponent.0.lcssa.i.i, %while.cond2.preheader.i.i ]
-  %shl6.i.i = shl nuw i64 %significand.113.i.i, 1
-  %dec.i.i = add nsw i32 %exponent.112.i.i, -1
-  %cmp4.i.i = icmp sgt i64 %shl6.i.i, -1
-  br i1 %cmp4.i.i, label %while.body5.i.i, label %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit.i, !llvm.loop !7
+.lr.ph15.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph15.i.i
+  %.114.i.i = phi i64 [ %106, %.lr.ph15.i.i ], [ %.0.lcssa.i.i13, %.preheader.i.i ]
+  %.1913.i.i = phi i32 [ %107, %.lr.ph15.i.i ], [ %.08.lcssa.i.i, %.preheader.i.i ]
+  %106 = shl nuw i64 %.114.i.i, 1
+  %107 = add nsw i32 %.1913.i.i, -1
+  %108 = icmp sgt i64 %106, -1
+  br i1 %108, label %.lr.ph15.i.i, label %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i, !llvm.loop !11
 
-_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit.i: ; preds = %while.body5.i.i, %while.cond2.preheader.i.i
-  %exponent.1.lcssa.i.i = phi i32 [ %exponent.0.lcssa.i.i, %while.cond2.preheader.i.i ], [ %dec.i.i, %while.body5.i.i ]
-  %significand.1.lcssa.i.i = phi i64 [ %significand.0.lcssa.i.i, %while.cond2.preheader.i.i ], [ %shl6.i.i, %while.body5.i.i ]
-  %sub.i14 = sub nsw i32 0, %exponent.1.lcssa.i.i
-  %sh_prom.i = zext nneg i32 %sub.i14 to i64
-  %shl.i = shl i64 %21, %sh_prom.i
-  %cmp2.i = icmp slt i32 %add123.i, -348
-  br i1 %cmp2.i, label %_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit.thread, label %if.end.i15
+_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i: ; preds = %.lr.ph15.i.i, %.preheader.i.i
+  %.19.lcssa.i.i = phi i32 [ %.08.lcssa.i.i, %.preheader.i.i ], [ %107, %.lr.ph15.i.i ]
+  %.1.lcssa.i.i = phi i64 [ %.0.lcssa.i.i13, %.preheader.i.i ], [ %106, %.lr.ph15.i.i ]
+  %109 = sub nsw i32 0, %.19.lcssa.i.i
+  %110 = zext nneg i32 %109 to i64
+  %111 = shl i64 %100, %110
+  %112 = icmp slt i32 %99, -348
+  br i1 %112, label %.sink.split, label %113
 
-_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit.thread: ; preds = %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit.i
-  store double 0.000000e+00, ptr %guess, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cached_power.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cached_decimal_exponent.i)
-  br label %return
+113:                                              ; preds = %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  store i64 0, ptr %5, align 8, !tbaa !12
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 0, ptr %114, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @_ZN6icu_7717double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS0_5DiyFpEPi(i32 noundef %99, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %115 = load i32, ptr %6, align 4, !tbaa !17
+  %.not.i = icmp eq i32 %115, %99
+  br i1 %.not.i, label %135, label %116
 
-if.end.i15:                                       ; preds = %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit.i
-  store i64 0, ptr %cached_power.i, align 8
-  %e_.i38.i = getelementptr inbounds nuw i8, ptr %cached_power.i, i64 8
-  store i32 0, ptr %e_.i38.i, align 8
-  call void @_ZN6icu_7517double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS0_5DiyFpEPi(i32 noundef %add123.i, ptr noundef nonnull %cached_power.i, ptr noundef nonnull %cached_decimal_exponent.i)
-  %22 = load i32, ptr %cached_decimal_exponent.i, align 4
-  %cmp3.not.i = icmp eq i32 %22, %add123.i
-  br i1 %cmp3.not.i, label %if.end13.i, label %if.then4.i
+116:                                              ; preds = %113
+  %117 = sub nsw i32 %99, %115
+  %118 = icmp ult i32 %117, 8
+  br i1 %118, label %switch.lookup, label %119
 
-if.then4.i:                                       ; preds = %if.end.i15
-  %sub5.i = sub nsw i32 %add123.i, %22
-  %23 = icmp ult i32 %sub5.i, 8
-  br i1 %23, label %switch.lookup, label %sw.default.i.i
-
-sw.default.i.i:                                   ; preds = %if.then4.i
-  call void @abort() #6
+119:                                              ; preds = %116
+  call void @abort() #7
   unreachable
 
-switch.lookup:                                    ; preds = %if.then4.i
-  %switch.tableidx = add nsw i32 %sub5.i, -1
-  %24 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7517double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %24
+switch.lookup:                                    ; preds = %116
+  %switch.tableidx = add nsw i32 %117, -1
+  %120 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %120
   %switch.load = load i32, ptr %switch.gep, align 4
-  %25 = sext i32 %switch.tableidx to i64
-  %switch.gep28 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN6icu_7517double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %25
-  %switch.load29 = load i64, ptr %switch.gep28, align 8
-  %shr.i.i = lshr i64 %significand.1.lcssa.i.i, 32
-  %and.i.i = and i64 %significand.1.lcssa.i.i, 4294967295
-  %mul.i.i16 = mul nuw i64 %switch.load29, %shr.i.i
-  %mul7.i.i = mul nuw i64 %switch.load29, %and.i.i
-  %and12.i.i = and i64 %mul7.i.i, 2147483648
-  %add14.i.i = add nuw nsw i64 %and12.i.i, 2147483648
-  %add17.i.i = add nsw i32 %switch.load, %exponent.1.lcssa.i.i
-  %shr20.i.i = lshr i64 %mul7.i.i, 32
-  %add21.i.i = add nuw i64 %shr20.i.i, %mul.i.i16
-  %shr22.i.i = lshr i64 %add14.i.i, 32
-  %add23.i.i = add nuw i64 %add21.i.i, %shr22.i.i
-  %sub8.i = sub nsw i32 19, %trimmed.coerce1
-  %cmp9.not.i = icmp slt i32 %sub8.i, %sub5.i
-  %add11.i = add i64 %shl.i, 4
-  %spec.select.i = select i1 %cmp9.not.i, i64 %add11.i, i64 %shl.i
-  br label %if.end13.i
+  %121 = sext i32 %switch.tableidx to i64
+  %switch.gep86 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %121
+  %switch.load87 = load i64, ptr %switch.gep86, align 8
+  %122 = lshr i64 %.1.lcssa.i.i, 32
+  %123 = and i64 %.1.lcssa.i.i, 4294967295
+  %124 = mul nuw i64 %switch.load87, %122
+  %125 = mul nuw i64 %switch.load87, %123
+  %126 = and i64 %125, 2147483648
+  %127 = add nuw nsw i64 %126, 2147483648
+  %128 = add nsw i32 %switch.load, %.19.lcssa.i.i
+  %129 = lshr i64 %125, 32
+  %130 = add nuw i64 %129, %124
+  %131 = lshr i64 %127, 32
+  %132 = add nuw i64 %130, %131
+  %133 = sub nsw i32 19, %1
+  %.not59.i = icmp slt i32 %133, %117
+  %134 = add i64 %111, 4
+  %spec.select.i = select i1 %.not59.i, i64 %134, i64 %111
+  br label %135
 
-if.end13.i:                                       ; preds = %switch.lookup, %if.end.i15
-  %input.sroa.0.0.i = phi i64 [ %significand.1.lcssa.i.i, %if.end.i15 ], [ %add23.i.i, %switch.lookup ]
-  %input.sroa.14.0.i = phi i32 [ %exponent.1.lcssa.i.i, %if.end.i15 ], [ %add17.i.i, %switch.lookup ]
-  %error.0.i = phi i64 [ %shl.i, %if.end.i15 ], [ %spec.select.i, %switch.lookup ]
-  %shr.i40.i = lshr i64 %input.sroa.0.0.i, 32
-  %and.i41.i = and i64 %input.sroa.0.0.i, 4294967295
-  %26 = load i64, ptr %cached_power.i, align 8
-  %shr4.i42.i = lshr i64 %26, 32
-  %and6.i43.i = and i64 %26, 4294967295
-  %mul.i44.i = mul nuw i64 %shr4.i42.i, %shr.i40.i
-  %mul7.i45.i = mul nuw i64 %shr4.i42.i, %and.i41.i
-  %mul8.i46.i = mul nuw i64 %and6.i43.i, %shr.i40.i
-  %mul9.i47.i = mul nuw i64 %and6.i43.i, %and.i41.i
-  %shr10.i48.i = lshr i64 %mul9.i47.i, 32
-  %and11.i49.i = and i64 %mul8.i46.i, 4294967295
-  %and12.i50.i = and i64 %mul7.i45.i, 4294967295
-  %add.i51.i = add nuw nsw i64 %and11.i49.i, 2147483648
-  %add13.i52.i = add nuw nsw i64 %add.i51.i, %shr10.i48.i
-  %add14.i53.i = add nuw nsw i64 %add13.i52.i, %and12.i50.i
-  %27 = load i32, ptr %e_.i38.i, align 8
-  %add15.i55.i = add i32 %input.sroa.14.0.i, 64
-  %add17.i57.i = add i32 %add15.i55.i, %27
-  %shr18.i58.i = lshr i64 %mul8.i46.i, 32
-  %add19.i59.i = add nuw i64 %shr18.i58.i, %mul.i44.i
-  %shr20.i60.i = lshr i64 %mul7.i45.i, 32
-  %add21.i61.i = add nuw i64 %add19.i59.i, %shr20.i60.i
-  %shr22.i62.i = lshr i64 %add14.i53.i, 32
-  %add23.i63.i = add i64 %add21.i61.i, %shr22.i62.i
-  %cmp14.not.i = icmp eq i64 %error.0.i, 0
-  %conv18.i = select i1 %cmp14.not.i, i64 8, i64 9
-  %add19.i = add i64 %conv18.i, %error.0.i
-  %cmp7.i66.i = icmp ult i64 %add23.i63.i, 18014398509481984
-  br i1 %cmp7.i66.i, label %while.body.i79.i, label %while.cond2.preheader.i67.i
+135:                                              ; preds = %switch.lookup, %113
+  %.sroa.081.0.i = phi i64 [ %.1.lcssa.i.i, %113 ], [ %132, %switch.lookup ]
+  %.sroa.16.0.i = phi i32 [ %.19.lcssa.i.i, %113 ], [ %128, %switch.lookup ]
+  %.052.i = phi i64 [ %111, %113 ], [ %spec.select.i, %switch.lookup ]
+  %136 = lshr i64 %.sroa.081.0.i, 32
+  %137 = and i64 %.sroa.081.0.i, 4294967295
+  %138 = load i64, ptr %5, align 8, !tbaa !12
+  %139 = lshr i64 %138, 32
+  %140 = and i64 %138, 4294967295
+  %141 = mul nuw i64 %139, %136
+  %142 = mul nuw i64 %139, %137
+  %143 = mul nuw i64 %140, %136
+  %144 = mul nuw i64 %140, %137
+  %145 = lshr i64 %144, 32
+  %146 = and i64 %143, 4294967295
+  %147 = and i64 %142, 4294967295
+  %148 = add nuw nsw i64 %146, 2147483648
+  %149 = add nuw nsw i64 %148, %145
+  %150 = add nuw nsw i64 %149, %147
+  %151 = load i32, ptr %114, align 8, !tbaa !16
+  %152 = add i32 %.sroa.16.0.i, 64
+  %153 = add i32 %152, %151
+  %154 = lshr i64 %143, 32
+  %155 = add nuw i64 %154, %141
+  %156 = lshr i64 %142, 32
+  %157 = add nuw i64 %155, %156
+  %158 = lshr i64 %150, 32
+  %159 = add i64 %157, %158
+  %.not60.i = icmp eq i64 %.052.i, 0
+  %160 = select i1 %.not60.i, i64 8, i64 9
+  %161 = add i64 %160, %.052.i
+  %162 = icmp ult i64 %159, 18014398509481984
+  br i1 %162, label %.lr.ph.i71.i, label %.preheader.i63.i
 
-while.cond2.preheader.i67.i:                      ; preds = %while.body.i79.i, %if.end13.i
-  %exponent.0.lcssa.i68.i = phi i32 [ %add17.i57.i, %if.end13.i ], [ %sub.i83.i, %while.body.i79.i ]
-  %significand.0.lcssa.i69.i = phi i64 [ %add23.i63.i, %if.end13.i ], [ %shl.i82.i, %while.body.i79.i ]
-  %cmp411.i70.i = icmp sgt i64 %significand.0.lcssa.i69.i, -1
-  br i1 %cmp411.i70.i, label %while.body5.i73.i, label %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit85.i
+.preheader.i63.i:                                 ; preds = %.lr.ph.i71.i, %135
+  %.08.lcssa.i64.i = phi i32 [ %153, %135 ], [ %165, %.lr.ph.i71.i ]
+  %.0.lcssa.i65.i = phi i64 [ %159, %135 ], [ %164, %.lr.ph.i71.i ]
+  %163 = icmp sgt i64 %.0.lcssa.i65.i, -1
+  br i1 %163, label %.lr.ph15.i68.i, label %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i
 
-while.body.i79.i:                                 ; preds = %if.end13.i, %while.body.i79.i
-  %significand.09.i80.i = phi i64 [ %shl.i82.i, %while.body.i79.i ], [ %add23.i63.i, %if.end13.i ]
-  %exponent.08.i81.i = phi i32 [ %sub.i83.i, %while.body.i79.i ], [ %add17.i57.i, %if.end13.i ]
-  %shl.i82.i = shl nuw i64 %significand.09.i80.i, 10
-  %sub.i83.i = add nsw i32 %exponent.08.i81.i, -10
-  %cmp.i84.i = icmp ult i64 %significand.09.i80.i, 17592186044416
-  br i1 %cmp.i84.i, label %while.body.i79.i, label %while.cond2.preheader.i67.i, !llvm.loop !6
+.lr.ph.i71.i:                                     ; preds = %135, %.lr.ph.i71.i
+  %.011.i72.i = phi i64 [ %164, %.lr.ph.i71.i ], [ %159, %135 ]
+  %.0810.i73.i = phi i32 [ %165, %.lr.ph.i71.i ], [ %153, %135 ]
+  %164 = shl nuw i64 %.011.i72.i, 10
+  %165 = add nsw i32 %.0810.i73.i, -10
+  %166 = icmp ult i64 %.011.i72.i, 17592186044416
+  br i1 %166, label %.lr.ph.i71.i, label %.preheader.i63.i, !llvm.loop !10
 
-while.body5.i73.i:                                ; preds = %while.cond2.preheader.i67.i, %while.body5.i73.i
-  %significand.113.i74.i = phi i64 [ %shl6.i76.i, %while.body5.i73.i ], [ %significand.0.lcssa.i69.i, %while.cond2.preheader.i67.i ]
-  %exponent.112.i75.i = phi i32 [ %dec.i77.i, %while.body5.i73.i ], [ %exponent.0.lcssa.i68.i, %while.cond2.preheader.i67.i ]
-  %shl6.i76.i = shl nuw i64 %significand.113.i74.i, 1
-  %dec.i77.i = add nsw i32 %exponent.112.i75.i, -1
-  %cmp4.i78.i = icmp sgt i64 %shl6.i76.i, -1
-  br i1 %cmp4.i78.i, label %while.body5.i73.i, label %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit85.i, !llvm.loop !7
+.lr.ph15.i68.i:                                   ; preds = %.preheader.i63.i, %.lr.ph15.i68.i
+  %.114.i69.i = phi i64 [ %167, %.lr.ph15.i68.i ], [ %.0.lcssa.i65.i, %.preheader.i63.i ]
+  %.1913.i70.i = phi i32 [ %168, %.lr.ph15.i68.i ], [ %.08.lcssa.i64.i, %.preheader.i63.i ]
+  %167 = shl nuw i64 %.114.i69.i, 1
+  %168 = add nsw i32 %.1913.i70.i, -1
+  %169 = icmp sgt i64 %167, -1
+  br i1 %169, label %.lr.ph15.i68.i, label %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i, !llvm.loop !11
 
-_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit85.i: ; preds = %while.body5.i73.i, %while.cond2.preheader.i67.i
-  %exponent.1.lcssa.i71.i = phi i32 [ %exponent.0.lcssa.i68.i, %while.cond2.preheader.i67.i ], [ %dec.i77.i, %while.body5.i73.i ]
-  %significand.1.lcssa.i72.i = phi i64 [ %significand.0.lcssa.i69.i, %while.cond2.preheader.i67.i ], [ %shl6.i76.i, %while.body5.i73.i ]
-  %sub22.i = sub nsw i32 %add17.i57.i, %exponent.1.lcssa.i71.i
-  %sh_prom23.i = zext nneg i32 %sub22.i to i64
-  %shl24.i = shl i64 %add19.i, %sh_prom23.i
-  %add26.i = add nsw i32 %exponent.1.lcssa.i71.i, 64
-  %cmp.i88.i = icmp sgt i32 %exponent.1.lcssa.i71.i, -1086
-  %spec.select.i89.i = call i32 @llvm.usub.sat.i32(i32 %add26.i, i32 -1074)
-  %retval.0.i.i = select i1 %cmp.i88.i, i32 53, i32 %spec.select.i89.i
-  %sub28.i = sub nsw i32 64, %retval.0.i.i
-  %cmp30.i = icmp samesign ult i32 %retval.0.i.i, 4
-  br i1 %cmp30.i, label %if.then31.i, label %if.end44.i
+_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i: ; preds = %.lr.ph15.i68.i, %.preheader.i63.i
+  %.19.lcssa.i66.i = phi i32 [ %.08.lcssa.i64.i, %.preheader.i63.i ], [ %168, %.lr.ph15.i68.i ]
+  %.1.lcssa.i67.i = phi i64 [ %.0.lcssa.i65.i, %.preheader.i63.i ], [ %167, %.lr.ph15.i68.i ]
+  %170 = sub nsw i32 %153, %.19.lcssa.i66.i
+  %171 = zext nneg i32 %170 to i64
+  %172 = shl i64 %161, %171
+  %173 = add nsw i32 %.19.lcssa.i66.i, 64
+  %174 = icmp sgt i32 %.19.lcssa.i66.i, -1086
+  %spec.select.i75.i = call i32 @llvm.usub.sat.i32(i32 %173, i32 -1074)
+  %.0.i.i = select i1 %174, i32 53, i32 %spec.select.i75.i
+  %175 = sub nsw i32 64, %.0.i.i
+  %176 = icmp samesign ult i32 %.0.i.i, 4
+  br i1 %176, label %177, label %184
 
-if.then31.i:                                      ; preds = %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit85.i
-  %add34.i = sub nuw nsw i32 4, %retval.0.i.i
-  %sh_prom36.i = zext nneg i32 %add34.i to i64
-  %shr.i = lshr i64 %significand.1.lcssa.i72.i, %sh_prom36.i
-  %add38.i = add nsw i32 %add34.i, %exponent.1.lcssa.i71.i
-  %shr40.i = lshr i64 %shl24.i, %sh_prom36.i
-  %add42.i = add nuw i64 %shr40.i, 9
-  br label %if.end44.i
+177:                                              ; preds = %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i
+  %178 = sub nuw nsw i32 4, %.0.i.i
+  %179 = zext nneg i32 %178 to i64
+  %180 = lshr i64 %.1.lcssa.i67.i, %179
+  %181 = add nsw i32 %178, %.19.lcssa.i66.i
+  %182 = lshr i64 %172, %179
+  %183 = add nuw i64 %182, 9
+  br label %184
 
-if.end44.i:                                       ; preds = %if.then31.i, %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit85.i
-  %input.sroa.0.1.i = phi i64 [ %shr.i, %if.then31.i ], [ %significand.1.lcssa.i72.i, %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit85.i ]
-  %input.sroa.14.1.i = phi i32 [ %add38.i, %if.then31.i ], [ %exponent.1.lcssa.i71.i, %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit85.i ]
-  %precision_digits_count.0.i = phi i32 [ 60, %if.then31.i ], [ %sub28.i, %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit85.i ]
-  %error.1.i = phi i64 [ %add42.i, %if.then31.i ], [ %shl24.i, %_ZN6icu_7517double_conversion5DiyFp9NormalizeEv.exit85.i ]
-  %sh_prom45.i = zext i32 %precision_digits_count.0.i to i64
-  %notmask.i = shl nsw i64 -1, %sh_prom45.i
-  %sub47.i = xor i64 %notmask.i, -1
-  %and.i = and i64 %input.sroa.0.1.i, %sub47.i
-  %sub49.i = add nsw i32 %precision_digits_count.0.i, -1
-  %sh_prom50.i = zext nneg i32 %sub49.i to i64
-  %mul.i17 = shl i64 %and.i, 3
-  %mul52.i = shl i64 8, %sh_prom50.i
-  %shr55.i = lshr i64 %input.sroa.0.1.i, %sh_prom45.i
-  %add57.i = add nsw i32 %precision_digits_count.0.i, %input.sroa.14.1.i
-  %add58.i = add i64 %mul52.i, %error.1.i
-  %cmp59.not.i = icmp uge i64 %mul.i17, %add58.i
-  %add62.i = zext i1 %cmp59.not.i to i64
-  %spec.select126.i = add i64 %shr55.i, %add62.i
-  %cmp12.i.i.i = icmp ugt i64 %spec.select126.i, 9007199254740991
-  br i1 %cmp12.i.i.i, label %while.body.i.i96.i, label %while.end.i.i.i
+184:                                              ; preds = %177, %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i
+  %.sroa.081.1.i = phi i64 [ %180, %177 ], [ %.1.lcssa.i67.i, %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i ]
+  %.sroa.16.1.i = phi i32 [ %181, %177 ], [ %.19.lcssa.i66.i, %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i ]
+  %.054.i = phi i32 [ 60, %177 ], [ %175, %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i ]
+  %.2.i14 = phi i64 [ %183, %177 ], [ %172, %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit74.i ]
+  %185 = zext i32 %.054.i to i64
+  %notmask.i = shl nsw i64 -1, %185
+  %186 = xor i64 %notmask.i, -1
+  %187 = and i64 %.sroa.081.1.i, %186
+  %188 = add nsw i32 %.054.i, -1
+  %189 = zext nneg i32 %188 to i64
+  %190 = shl i64 %187, 3
+  %191 = shl i64 8, %189
+  %192 = lshr i64 %.sroa.081.1.i, %185
+  %193 = add nsw i32 %.054.i, %.sroa.16.1.i
+  %194 = add i64 %191, %.2.i14
+  %.not61.i = icmp uge i64 %190, %194
+  %195 = zext i1 %.not61.i to i64
+  %spec.select106.i = add i64 %192, %195
+  %196 = icmp ugt i64 %spec.select106.i, 9007199254740991
+  br i1 %196, label %.lr.ph.i.i76.i, label %._crit_edge.i.i.i
 
-while.body.i.i96.i:                               ; preds = %if.end44.i, %while.body.i.i96.i
-  %exponent.014.i.i.i = phi i32 [ %inc.i.i.i, %while.body.i.i96.i ], [ %add57.i, %if.end44.i ]
-  %significand.013.i.i.i = phi i64 [ %shr.i.i.i, %while.body.i.i96.i ], [ %spec.select126.i, %if.end44.i ]
-  %shr.i.i.i = lshr i64 %significand.013.i.i.i, 1
-  %inc.i.i.i = add nsw i32 %exponent.014.i.i.i, 1
-  %cmp.i.i97.i = icmp ugt i64 %significand.013.i.i.i, 18014398509481983
-  br i1 %cmp.i.i97.i, label %while.body.i.i96.i, label %while.end.i.i.i, !llvm.loop !8
+.lr.ph.i.i76.i:                                   ; preds = %184, %.lr.ph.i.i76.i
+  %.01521.i.i.i = phi i32 [ %198, %.lr.ph.i.i76.i ], [ %193, %184 ]
+  %.01620.i.i.i = phi i64 [ %197, %.lr.ph.i.i76.i ], [ %spec.select106.i, %184 ]
+  %197 = lshr i64 %.01620.i.i.i, 1
+  %198 = add nsw i32 %.01521.i.i.i, 1
+  %199 = icmp ugt i64 %.01620.i.i.i, 18014398509481983
+  br i1 %199, label %.lr.ph.i.i76.i, label %._crit_edge.i.i.i, !llvm.loop !18
 
-while.end.i.i.i:                                  ; preds = %while.body.i.i96.i, %if.end44.i
-  %significand.0.lcssa.i.i.i = phi i64 [ %spec.select126.i, %if.end44.i ], [ %shr.i.i.i, %while.body.i.i96.i ]
-  %exponent.0.lcssa.i.i.i = phi i32 [ %add57.i, %if.end44.i ], [ %inc.i.i.i, %while.body.i.i96.i ]
-  %cmp2.i.i.i = icmp sgt i32 %exponent.0.lcssa.i.i.i, 971
-  br i1 %cmp2.i.i.i, label %_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, label %if.end.i.i.i
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i76.i, %184
+  %.016.lcssa.i.i.i = phi i64 [ %spec.select106.i, %184 ], [ %197, %.lr.ph.i.i76.i ]
+  %.015.lcssa.i.i.i = phi i32 [ %193, %184 ], [ %198, %.lr.ph.i.i76.i ]
+  %200 = icmp sgt i32 %.015.lcssa.i.i.i, 971
+  br i1 %200, label %_ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, label %201
 
-if.end.i.i.i:                                     ; preds = %while.end.i.i.i
-  %cmp3.i.i.i = icmp slt i32 %exponent.0.lcssa.i.i.i, -1074
-  br i1 %cmp3.i.i.i, label %_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, label %while.cond6.preheader.i.i.i
+201:                                              ; preds = %._crit_edge.i.i.i
+  %202 = icmp slt i32 %.015.lcssa.i.i.i, -1074
+  br i1 %202, label %_ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, label %.preheader.i.i.i
 
-while.cond6.preheader.i.i.i:                      ; preds = %if.end.i.i.i
-  %cmp716.i.i.i = icmp ne i32 %exponent.0.lcssa.i.i.i, -1074
-  %and17.i.i.i = and i64 %significand.0.lcssa.i.i.i, 4503599627370496
-  %cmp818.i.i.i = icmp eq i64 %and17.i.i.i, 0
-  %28 = and i1 %cmp716.i.i.i, %cmp818.i.i.i
-  br i1 %28, label %while.body9.i.i.i, label %while.end10.i.i.i
+.preheader.i.i.i:                                 ; preds = %201
+  %203 = icmp ne i32 %.015.lcssa.i.i.i, -1074
+  %204 = and i64 %.016.lcssa.i.i.i, 4503599627370496
+  %205 = icmp eq i64 %204, 0
+  %206 = and i1 %203, %205
+  br i1 %206, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i
 
-while.body9.i.i.i:                                ; preds = %while.cond6.preheader.i.i.i, %while.body9.i.i.i
-  %exponent.120.i.i.i = phi i32 [ %dec.i.i.i, %while.body9.i.i.i ], [ %exponent.0.lcssa.i.i.i, %while.cond6.preheader.i.i.i ]
-  %significand.119.i.i.i = phi i64 [ %shl.i.i.i, %while.body9.i.i.i ], [ %significand.0.lcssa.i.i.i, %while.cond6.preheader.i.i.i ]
-  %shl.i.i.i = shl i64 %significand.119.i.i.i, 1
-  %dec.i.i.i = add nsw i32 %exponent.120.i.i.i, -1
-  %cmp7.i.i.i = icmp sgt i32 %exponent.120.i.i.i, -1073
-  %29 = and i64 %significand.119.i.i.i, 2251799813685248
-  %cmp8.i.i.i = icmp eq i64 %29, 0
-  %30 = select i1 %cmp7.i.i.i, i1 %cmp8.i.i.i, i1 false
-  br i1 %30, label %while.body9.i.i.i, label %while.end10.i.i.i, !llvm.loop !9
+.lr.ph25.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph25.i.i.i
+  %.124.i.i.i = phi i32 [ %208, %.lr.ph25.i.i.i ], [ %.015.lcssa.i.i.i, %.preheader.i.i.i ]
+  %.11723.i.i.i = phi i64 [ %207, %.lr.ph25.i.i.i ], [ %.016.lcssa.i.i.i, %.preheader.i.i.i ]
+  %207 = shl i64 %.11723.i.i.i, 1
+  %208 = add nsw i32 %.124.i.i.i, -1
+  %209 = icmp sgt i32 %.124.i.i.i, -1073
+  %210 = and i64 %.11723.i.i.i, 2251799813685248
+  %211 = icmp eq i64 %210, 0
+  %212 = select i1 %209, i1 %211, i1 false
+  br i1 %212, label %.lr.ph25.i.i.i, label %._crit_edge26.i.i.i, !llvm.loop !19
 
-while.end10.i.i.i:                                ; preds = %while.body9.i.i.i, %while.cond6.preheader.i.i.i
-  %significand.1.lcssa.i.i.i = phi i64 [ %significand.0.lcssa.i.i.i, %while.cond6.preheader.i.i.i ], [ %shl.i.i.i, %while.body9.i.i.i ]
-  %exponent.1.lcssa.i.i.i = phi i32 [ %exponent.0.lcssa.i.i.i, %while.cond6.preheader.i.i.i ], [ %dec.i.i.i, %while.body9.i.i.i ]
-  %cmp8.lcssa.i.i.i = phi i1 [ %cmp818.i.i.i, %while.cond6.preheader.i.i.i ], [ %cmp8.i.i.i, %while.body9.i.i.i ]
-  %cmp11.i.i.i = icmp eq i32 %exponent.1.lcssa.i.i.i, -1074
-  %brmerge.not.i.i.i = select i1 %cmp11.i.i.i, i1 %cmp8.lcssa.i.i.i, i1 false
-  %add.i.i94.i = add nsw i32 %exponent.1.lcssa.i.i.i, 1075
-  %conv.i.i95.i = zext nneg i32 %add.i.i94.i to i64
-  %31 = shl nuw nsw i64 %conv.i.i95.i, 52
-  %biased_exponent.0.i.i.i = select i1 %brmerge.not.i.i.i, i64 0, i64 %31
-  %and16.i.i.i = and i64 %significand.1.lcssa.i.i.i, 4503599627370495
-  %or.i.i.i = or disjoint i64 %biased_exponent.0.i.i.i, %and16.i.i.i
-  %32 = bitcast i64 %or.i.i.i to double
-  br label %_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit
+._crit_edge26.i.i.i:                              ; preds = %.lr.ph25.i.i.i, %.preheader.i.i.i
+  %.117.lcssa.i.i.i = phi i64 [ %.016.lcssa.i.i.i, %.preheader.i.i.i ], [ %207, %.lr.ph25.i.i.i ]
+  %.1.lcssa.i.i.i = phi i32 [ %.015.lcssa.i.i.i, %.preheader.i.i.i ], [ %208, %.lr.ph25.i.i.i ]
+  %.lcssa.i.i.i = phi i1 [ %205, %.preheader.i.i.i ], [ %211, %.lr.ph25.i.i.i ]
+  %213 = icmp eq i32 %.1.lcssa.i.i.i, -1074
+  %brmerge.not.i.i.i = select i1 %213, i1 %.lcssa.i.i.i, i1 false
+  %214 = add nsw i32 %.1.lcssa.i.i.i, 1075
+  %215 = zext nneg i32 %214 to i64
+  %216 = shl nuw nsw i64 %215, 52
+  %.0.i.i.i = select i1 %brmerge.not.i.i.i, i64 0, i64 %216
+  %217 = and i64 %.117.lcssa.i.i.i, 4503599627370495
+  %218 = or disjoint i64 %.0.i.i.i, %217
+  %219 = bitcast i64 %218 to double
+  br label %_ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit
 
-_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit: ; preds = %while.end.i.i.i, %if.end.i.i.i, %while.end10.i.i.i
-  %33 = phi double [ %32, %while.end10.i.i.i ], [ 0x7FF0000000000000, %while.end.i.i.i ], [ 0.000000e+00, %if.end.i.i.i ]
-  store double %33, ptr %guess, align 8
-  %sub66.i = sub i64 %mul52.i, %error.1.i
-  %cmp67.i = icmp uge i64 %sub66.i, %mul.i17
-  %or.cond.not.i = or i1 %cmp67.i, %cmp59.not.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cached_power.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cached_decimal_exponent.i)
-  %cmp17 = fcmp oeq double %33, 0x7FF0000000000000
-  %spec.select = select i1 %or.cond.not.i, i1 true, i1 %cmp17
-  br label %return
+_ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit: ; preds = %._crit_edge.i.i.i, %201, %._crit_edge26.i.i.i
+  %220 = phi double [ %219, %._crit_edge26.i.i.i ], [ 0x7FF0000000000000, %._crit_edge.i.i.i ], [ 0.000000e+00, %201 ]
+  store double %220, ptr %3, align 8, !tbaa !3
+  %221 = sub i64 %191, %.2.i14
+  %222 = icmp uge i64 %221, %190
+  %or.cond.not.i = or i1 %222, %.not61.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  %223 = fcmp oeq double %220, 0x7FF0000000000000
+  %spec.select = select i1 %or.cond.not.i, i1 true, i1 %223
+  br label %224
 
-return:                                           ; preds = %_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, %_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit.thread, %_ZN6icu_7517double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit, %if.then9, %if.then3, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.then3 ], [ true, %if.then9 ], [ true, %_ZN6icu_7517double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit ], [ true, %_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit.thread ], [ %spec.select, %_ZN6icu_7517double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit ]
-  ret i1 %retval.0
+.sink.split:                                      ; preds = %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i, %11, %8, %4
+  %.sink = phi double [ 0.000000e+00, %4 ], [ 0x7FF0000000000000, %8 ], [ 0.000000e+00, %11 ], [ %78, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i ], [ %51, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i ], [ %33, %_ZN6icu_7717double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i ], [ 0.000000e+00, %_ZN6icu_7717double_conversion5DiyFp9NormalizeEv.exit.i ]
+  store double %.sink, ptr %3, align 8, !tbaa !3
+  br label %224
+
+224:                                              ; preds = %_ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit, %.sink.split
+  %.0 = phi i1 [ %spec.select, %_ZN6icu_7717double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit ], [ true, %.sink.split ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6icu_7517double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %buffer.coerce0, i32 %buffer.coerce1, i32 noundef %exponent, i64 %diy_fp.coerce0, i32 %diy_fp.coerce1) unnamed_addr #0 {
-entry:
-  %buffer_bignum = alloca %"class.icu_75::double_conversion::Bignum", align 4
-  %diy_fp_bignum = alloca %"class.icu_75::double_conversion::Bignum", align 4
-  store i16 0, ptr %buffer_bignum, align 4
-  %exponent_.i = getelementptr inbounds nuw i8, ptr %buffer_bignum, i64 2
-  store i16 0, ptr %exponent_.i, align 2
-  store i16 0, ptr %diy_fp_bignum, align 4
-  %exponent_.i3 = getelementptr inbounds nuw i8, ptr %diy_fp_bignum, i64 2
-  store i16 0, ptr %exponent_.i3, align 2
-  call void @_ZN6icu_7517double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 dereferenceable(516) %buffer_bignum, ptr %buffer.coerce0, i32 %buffer.coerce1)
-  call void @_ZN6icu_7517double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %diy_fp_bignum, i64 noundef %diy_fp.coerce0)
-  %cmp = icmp sgt i32 %exponent, -1
-  br i1 %cmp, label %if.then, label %if.else
+define internal fastcc noundef i32 @_ZN6icu_7717double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %0, i32 %1, i32 noundef %2, i64 %3, i32 %4) unnamed_addr #0 {
+  %6 = alloca %"class.icu_77::double_conversion::Bignum", align 4
+  %7 = alloca %"class.icu_77::double_conversion::Bignum", align 4
+  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %6) #6
+  store i16 0, ptr %6, align 4, !tbaa !20
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  store i16 0, ptr %8, align 2, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %7) #6
+  store i16 0, ptr %7, align 4, !tbaa !20
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i16 0, ptr %9, align 2, !tbaa !23
+  call void @_ZN6icu_7717double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 dereferenceable(516) %6, ptr %0, i32 %1)
+  call void @_ZN6icu_7717double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %7, i64 noundef %3)
+  %10 = icmp sgt i32 %2, -1
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  call void @_ZN6icu_7517double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516) %buffer_bignum, i32 noundef %exponent)
-  br label %if.end
+11:                                               ; preds = %5
+  call void @_ZN6icu_7717double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516) %6, i32 noundef %2)
+  br label %14
 
-if.else:                                          ; preds = %entry
-  %sub = sub nsw i32 0, %exponent
-  call void @_ZN6icu_7517double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516) %diy_fp_bignum, i32 noundef %sub)
-  br label %if.end
+12:                                               ; preds = %5
+  %13 = sub nsw i32 0, %2
+  call void @_ZN6icu_7717double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516) %7, i32 noundef %13)
+  br label %14
 
-if.end:                                           ; preds = %if.else, %if.then
-  %cmp2 = icmp sgt i32 %diy_fp.coerce1, 0
-  br i1 %cmp2, label %if.then3, label %if.else5
+14:                                               ; preds = %12, %11
+  %15 = icmp sgt i32 %4, 0
+  br i1 %15, label %16, label %17
 
-if.then3:                                         ; preds = %if.end
-  call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %diy_fp_bignum, i32 noundef %diy_fp.coerce1)
-  br label %if.end8
+16:                                               ; preds = %14
+  call void @_ZN6icu_7717double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %7, i32 noundef %4)
+  br label %19
 
-if.else5:                                         ; preds = %if.end
-  %sub7 = sub nsw i32 0, %diy_fp.coerce1
-  call void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %buffer_bignum, i32 noundef %sub7)
-  br label %if.end8
+17:                                               ; preds = %14
+  %18 = sub nsw i32 0, %4
+  call void @_ZN6icu_7717double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %6, i32 noundef %18)
+  br label %19
 
-if.end8:                                          ; preds = %if.else5, %if.then3
-  %call9 = call noundef i32 @_ZN6icu_7517double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull align 4 dereferenceable(516) %buffer_bignum, ptr noundef nonnull align 4 dereferenceable(516) %diy_fp_bignum)
-  ret i32 %call9
+19:                                               ; preds = %17, %16
+  %20 = call noundef i32 @_ZN6icu_7717double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull align 4 dereferenceable(516) %6, ptr noundef nonnull align 4 dereferenceable(516) %7)
+  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %6) #6
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6icu_7517double_conversion6StrtodENS0_6VectorIKcEEi(ptr %buffer.coerce0, i32 %buffer.coerce1, i32 noundef %exponent) local_unnamed_addr #0 {
-entry:
-  %guess.i = alloca double, align 8
-  %copy_buffer = alloca [780 x i8], align 16
-  %cmp10.i.i = icmp sgt i32 %buffer.coerce1, 0
-  br i1 %cmp10.i.i, label %for.body.preheader.i.i, label %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
+define noundef double @_ZN6icu_7717double_conversion6StrtodENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = alloca double, align 8
+  %5 = alloca [780 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 780, ptr nonnull %5) #6
+  %6 = icmp sgt i32 %1, 0
+  br i1 %6, label %.lr.ph.preheader.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
 
-for.body.preheader.i.i:                           ; preds = %entry
-  %wide.trip.count.i.i = zext nneg i32 %buffer.coerce1 to i64
-  br label %for.body.i.i
+.lr.ph.preheader.i.i:                             ; preds = %3
+  %wide.trip.count.i.i = zext nneg i32 %1 to i64
+  br label %.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
-  %0 = load i8, ptr %arrayidx.i.i.i, align 1
-  %cmp2.not.i.i = icmp eq i8 %0, 48
-  br i1 %cmp2.not.i.i, label %for.inc.i.i, label %if.then.i.i
+.lr.ph.i.i:                                       ; preds = %9, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %9 ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
+  %8 = load i8, ptr %7, align 1, !tbaa !7
+  %.not.i.i = icmp eq i8 %8, 48
+  br i1 %.not.i.i, label %9, label %10
 
-if.then.i.i:                                      ; preds = %for.body.i.i
-  %arrayidx.i.i.i.le = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
-  %1 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %sub.i.i.i = sub nsw i32 %buffer.coerce1, %1
-  br label %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
-
-for.inc.i.i:                                      ; preds = %for.body.i.i
+9:                                                ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %for.body.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !24
 
-_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i: ; preds = %for.inc.i.i, %if.then.i.i, %entry
-  %retval.sroa.0.0.i.i = phi ptr [ %arrayidx.i.i.i.le, %if.then.i.i ], [ %buffer.coerce0, %entry ], [ %buffer.coerce0, %for.inc.i.i ]
-  %retval.sroa.3.0.i.i = phi i32 [ %sub.i.i.i, %if.then.i.i ], [ 0, %entry ], [ 0, %for.inc.i.i ]
-  %2 = zext i32 %retval.sroa.3.0.i.i to i64
-  br label %for.cond.i.i
+10:                                               ; preds = %.lr.ph.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
+  %12 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %13 = sub nsw i32 %1, %12
+  br label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
 
-for.cond.i.i:                                     ; preds = %for.body.i10.i, %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
-  %indvars.iv.i6.i = phi i64 [ %4, %for.body.i10.i ], [ %2, %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i ]
-  %3 = trunc nuw i64 %indvars.iv.i6.i to i32
-  %cmp.i.i = icmp sgt i32 %3, 0
-  br i1 %cmp.i.i, label %for.body.i10.i, label %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i
+_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i: ; preds = %9, %10, %3
+  %.sroa.09.1.i.i = phi ptr [ %11, %10 ], [ %0, %3 ], [ %0, %9 ]
+  %.sroa.3.1.i.i = phi i32 [ %13, %10 ], [ 0, %3 ], [ 0, %9 ]
+  %14 = zext i32 %.sroa.3.1.i.i to i64
+  br label %15
 
-_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i: ; preds = %for.cond.i.i
-  %add26.i = add nsw i32 %retval.sroa.3.0.i.i, %exponent
-  br label %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
+15:                                               ; preds = %19, %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
+  %indvars.iv.i22.i = phi i64 [ %20, %19 ], [ %14, %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i ]
+  %16 = trunc nuw i64 %indvars.iv.i22.i to i32
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %19, label %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i
 
-for.body.i10.i:                                   ; preds = %for.cond.i.i
-  %4 = add nsw i64 %indvars.iv.i6.i, -1
-  %arrayidx.i.i11.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 %4
-  %5 = load i8, ptr %arrayidx.i.i11.i, align 1
-  %cmp2.not.i12.i = icmp eq i8 %5, 48
-  br i1 %cmp2.not.i12.i, label %for.cond.i.i, label %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !11
+_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i: ; preds = %15
+  %18 = add nsw i32 %.sroa.3.1.i.i, %2
+  br label %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
 
-_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %for.body.i10.i
-  %sub.i = sub nsw i32 %retval.sroa.3.0.i.i, %3
-  %add.i = add nsw i32 %sub.i, %exponent
-  %cmp.i = icmp ugt i64 %indvars.iv.i6.i, 780
-  br i1 %cmp.i, label %for.body.i15.i.preheader, label %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
+19:                                               ; preds = %15
+  %20 = add nsw i64 %indvars.iv.i22.i, -1
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.09.1.i.i, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !7
+  %.not.i26.i = icmp eq i8 %22, 48
+  br i1 %.not.i26.i, label %15, label %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !25
 
-for.body.i15.i.preheader:                         ; preds = %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %copy_buffer, ptr noundef nonnull align 1 dereferenceable(779) %retval.sroa.0.0.i.i, i64 779, i1 false)
-  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %copy_buffer, i64 779
-  store i8 49, ptr %arrayidx1.i.i, align 1
-  %sub.i.i = add nsw i32 %3, -780
-  %add.i.i = add nsw i32 %sub.i.i, %add.i
-  br label %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
+_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %19
+  %23 = sub nsw i32 %.sroa.3.1.i.i, %16
+  %24 = add nsw i32 %23, %2
+  %25 = icmp ugt i64 %indvars.iv.i22.i, 780
+  br i1 %25, label %.preheader.i.preheader, label %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
 
-_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit: ; preds = %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, %for.body.i15.i.preheader
-  %trimmed.sroa.4.0 = phi i32 [ 780, %for.body.i15.i.preheader ], [ 0, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %3, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
-  %trimmed.sroa.0.0 = phi ptr [ %copy_buffer, %for.body.i15.i.preheader ], [ %retval.sroa.0.0.i.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %retval.sroa.0.0.i.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
-  %updated_exponent.0 = phi i32 [ %add.i.i, %for.body.i15.i.preheader ], [ %add26.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %add.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %guess.i)
-  %call.i = call fastcc noundef zeroext i1 @_ZN6icu_7517double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %trimmed.sroa.0.0, i32 %trimmed.sroa.4.0, i32 noundef %updated_exponent.0, ptr noundef %guess.i)
-  %6 = load double, ptr %guess.i, align 8
-  br i1 %call.i, label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.end.i
+.preheader.i.preheader:                           ; preds = %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %5, ptr noundef nonnull align 1 dereferenceable(779) %.sroa.09.1.i.i, i64 779, i1 false), !tbaa !7
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 779
+  store i8 49, ptr %26, align 1, !tbaa !7
+  %27 = add nsw i32 %16, -780
+  %28 = add nsw i32 %27, %24
+  br label %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
 
-if.end.i:                                         ; preds = %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
-  %7 = bitcast double %6 to i64
-  %and.i.i.i.i = and i64 %7, 9218868437227405312
-  %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
-  %and.i.i.i = shl i64 %7, 1
-  %8 = and i64 %and.i.i.i, 9007199254740990
-  %9 = or disjoint i64 %8, 9007199254740992
-  %mul.i.i = select i1 %cmp.i.i.i.i, i64 %8, i64 %9
-  %add.i.i1 = or disjoint i64 %mul.i.i, 1
-  %and.i3.i.i = lshr i64 %7, 52
-  %10 = trunc nuw nsw i64 %and.i3.i.i to i32
-  %conv.i.i.i = and i32 %10, 2047
-  %11 = add nsw i32 %conv.i.i.i, -1076
-  %sub.i.i2 = select i1 %cmp.i.i.i.i, i32 -1075, i32 %11
-  %call4.i = call fastcc noundef i32 @_ZN6icu_7517double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %trimmed.sroa.0.0, i32 %trimmed.sroa.4.0, i32 noundef %updated_exponent.0, i64 %add.i.i1, i32 %sub.i.i2)
-  %cmp.i3 = icmp slt i32 %call4.i, 0
-  br i1 %cmp.i3, label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.else.i4
+_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit: ; preds = %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, %.preheader.i.preheader
+  %.sroa.6.0 = phi i32 [ 780, %.preheader.i.preheader ], [ 0, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %16, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
+  %.sroa.0.0 = phi ptr [ %5, %.preheader.i.preheader ], [ %.sroa.09.1.i.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %.sroa.09.1.i.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
+  %.0 = phi i32 [ %28, %.preheader.i.preheader ], [ %18, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %24, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  %29 = call fastcc noundef zeroext i1 @_ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %.sroa.0.0, i32 %.sroa.6.0, i32 noundef %.0, ptr noundef %4)
+  %30 = load double, ptr %4, align 8, !tbaa !3
+  br i1 %29, label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %31
 
-if.else.i4:                                       ; preds = %if.end.i
-  %cmp6.not.i = icmp eq i32 %call4.i, 0
-  br i1 %cmp6.not.i, label %if.else10.i, label %if.then7.i
+31:                                               ; preds = %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
+  %32 = bitcast double %30 to i64
+  %33 = and i64 %32, 9218868437227405312
+  %34 = icmp eq i64 %33, 0
+  %35 = shl i64 %32, 1
+  %36 = and i64 %35, 9007199254740990
+  %37 = or disjoint i64 %36, 9007199254740992
+  %38 = select i1 %34, i64 %36, i64 %37
+  %39 = or disjoint i64 %38, 1
+  %40 = lshr i64 %32, 52
+  %41 = trunc nuw nsw i64 %40 to i32
+  %42 = and i32 %41, 2047
+  %43 = add nsw i32 %42, -1076
+  %44 = select i1 %34, i32 -1075, i32 %43
+  %45 = call fastcc noundef i32 @_ZN6icu_7717double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %.sroa.0.0, i32 %.sroa.6.0, i32 noundef %.0, i64 %39, i32 %44)
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %47
 
-if.then7.i:                                       ; preds = %if.else.i4
-  %cmp.i.i5 = icmp eq i64 %7, 9218868437227405312
-  br i1 %cmp.i.i5, label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.end.i.i
+47:                                               ; preds = %31
+  %.not.i = icmp eq i32 %45, 0
+  br i1 %.not.i, label %60, label %48
 
-if.end.i.i:                                       ; preds = %if.then7.i
-  %cmp3.i.i = icmp slt i64 %7, 0
-  br i1 %cmp3.i.i, label %land.lhs.true.i.i, label %if.else.i.i
+48:                                               ; preds = %47
+  %49 = icmp eq i64 %32, 9218868437227405312
+  br i1 %49, label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %50
 
-land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %cmp5.i.i = fcmp oeq double %6, 0.000000e+00
-  br i1 %cmp5.i.i, label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.then10.i.i
+50:                                               ; preds = %48
+  %51 = icmp slt i64 %32, 0
+  br i1 %51, label %52, label %57
 
-if.then10.i.i:                                    ; preds = %land.lhs.true.i.i
-  %sub.i6.i = add i64 %7, -1
-  %12 = bitcast i64 %sub.i6.i to double
-  br label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
+52:                                               ; preds = %50
+  %53 = fcmp oeq double %30, 0.000000e+00
+  br i1 %53, label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %54
 
-if.else.i.i:                                      ; preds = %if.end.i.i
-  %add.i5.i = add nuw i64 %7, 1
-  %13 = bitcast i64 %add.i5.i to double
-  br label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
+54:                                               ; preds = %52
+  %55 = add i64 %32, -1
+  %56 = bitcast i64 %55 to double
+  br label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-if.else10.i:                                      ; preds = %if.else.i4
-  %and.i = and i64 %7, 1
-  %cmp13.i = icmp eq i64 %and.i, 0
-  br i1 %cmp13.i, label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.end.i11.i
+57:                                               ; preds = %50
+  %58 = add nuw i64 %32, 1
+  %59 = bitcast i64 %58 to double
+  br label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-if.end.i11.i:                                     ; preds = %if.else10.i
-  %cmp3.i12.i = icmp slt i64 %7, 0
-  br i1 %cmp3.i12.i, label %land.lhs.true.i16.i, label %if.else.i13.i
+60:                                               ; preds = %47
+  %61 = and i64 %32, 1
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %63
 
-land.lhs.true.i16.i:                              ; preds = %if.end.i11.i
-  %cmp5.i17.i = fcmp oeq double %6, 0.000000e+00
-  br i1 %cmp5.i17.i, label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.then10.i18.i
+63:                                               ; preds = %60
+  %64 = icmp slt i64 %32, 0
+  br i1 %64, label %65, label %70
 
-if.then10.i18.i:                                  ; preds = %land.lhs.true.i16.i
-  %sub.i19.i = add nsw i64 %7, -1
-  %14 = bitcast i64 %sub.i19.i to double
-  br label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
+65:                                               ; preds = %63
+  %66 = fcmp oeq double %30, 0.000000e+00
+  br i1 %66, label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %67
 
-if.else.i13.i:                                    ; preds = %if.end.i11.i
-  %add.i14.i = add nuw i64 %7, 1
-  %15 = bitcast i64 %add.i14.i to double
-  br label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
+67:                                               ; preds = %65
+  %68 = add nsw i64 %32, -1
+  %69 = bitcast i64 %68 to double
+  br label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %if.end.i, %if.then7.i, %land.lhs.true.i.i, %if.then10.i.i, %if.else.i.i, %if.else10.i, %land.lhs.true.i16.i, %if.then10.i18.i, %if.else.i13.i
-  %retval.0.i = phi double [ %6, %if.end.i ], [ %12, %if.then10.i.i ], [ %13, %if.else.i.i ], [ 0.000000e+00, %land.lhs.true.i.i ], [ 0x7FF0000000000000, %if.then7.i ], [ %6, %if.else10.i ], [ %14, %if.then10.i18.i ], [ %15, %if.else.i13.i ], [ 0.000000e+00, %land.lhs.true.i16.i ], [ %6, %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %guess.i)
-  ret double %retval.0.i
+70:                                               ; preds = %63
+  %71 = add nuw i64 %32, 1
+  %72 = bitcast i64 %71 to double
+  br label %_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
+
+_ZN6icu_7717double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %31, %48, %52, %54, %57, %60, %65, %67, %70
+  %.0.i = phi double [ %30, %31 ], [ %56, %54 ], [ %59, %57 ], [ 0.000000e+00, %52 ], [ 0x7FF0000000000000, %48 ], [ %30, %60 ], [ %69, %67 ], [ %72, %70 ], [ 0.000000e+00, %65 ], [ %30, %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(i64 780, ptr nonnull %5) #6
+  ret double %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZN6icu_7517double_conversion6StrtofENS0_6VectorIKcEEi(ptr %buffer.coerce0, i32 %buffer.coerce1, i32 noundef %exponent) local_unnamed_addr #0 {
-entry:
-  %copy_buffer = alloca [780 x i8], align 16
-  %cmp10.i.i = icmp sgt i32 %buffer.coerce1, 0
-  br i1 %cmp10.i.i, label %for.body.preheader.i.i, label %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
+define noundef float @_ZN6icu_7717double_conversion6StrtofENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = alloca [780 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 780, ptr nonnull %4) #6
+  %5 = icmp sgt i32 %1, 0
+  br i1 %5, label %.lr.ph.preheader.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
 
-for.body.preheader.i.i:                           ; preds = %entry
-  %wide.trip.count.i.i = zext nneg i32 %buffer.coerce1 to i64
-  br label %for.body.i.i
+.lr.ph.preheader.i.i:                             ; preds = %3
+  %wide.trip.count.i.i = zext nneg i32 %1 to i64
+  br label %.lr.ph.i.i
 
-for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
-  %0 = load i8, ptr %arrayidx.i.i.i, align 1
-  %cmp2.not.i.i = icmp eq i8 %0, 48
-  br i1 %cmp2.not.i.i, label %for.inc.i.i, label %if.then.i.i
+.lr.ph.i.i:                                       ; preds = %8, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %8 ]
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
+  %7 = load i8, ptr %6, align 1, !tbaa !7
+  %.not.i.i = icmp eq i8 %7, 48
+  br i1 %.not.i.i, label %8, label %9
 
-if.then.i.i:                                      ; preds = %for.body.i.i
-  %arrayidx.i.i.i.le = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
-  %1 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %sub.i.i.i = sub nsw i32 %buffer.coerce1, %1
-  br label %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
-
-for.inc.i.i:                                      ; preds = %for.body.i.i
+8:                                                ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %for.body.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i, label %.lr.ph.i.i, !llvm.loop !24
 
-_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i: ; preds = %for.inc.i.i, %if.then.i.i, %entry
-  %retval.sroa.0.0.i.i = phi ptr [ %arrayidx.i.i.i.le, %if.then.i.i ], [ %buffer.coerce0, %entry ], [ %buffer.coerce0, %for.inc.i.i ]
-  %retval.sroa.3.0.i.i = phi i32 [ %sub.i.i.i, %if.then.i.i ], [ 0, %entry ], [ 0, %for.inc.i.i ]
-  %2 = zext i32 %retval.sroa.3.0.i.i to i64
-  br label %for.cond.i.i
+9:                                                ; preds = %.lr.ph.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
+  %11 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %12 = sub nsw i32 %1, %11
+  br label %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
 
-for.cond.i.i:                                     ; preds = %for.body.i10.i, %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
-  %indvars.iv.i6.i = phi i64 [ %4, %for.body.i10.i ], [ %2, %_ZN6icu_7517double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i ]
-  %3 = trunc nuw i64 %indvars.iv.i6.i to i32
-  %cmp.i.i = icmp sgt i32 %3, 0
-  br i1 %cmp.i.i, label %for.body.i10.i, label %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i
+_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i: ; preds = %8, %9, %3
+  %.sroa.09.1.i.i = phi ptr [ %10, %9 ], [ %0, %3 ], [ %0, %8 ]
+  %.sroa.3.1.i.i = phi i32 [ %12, %9 ], [ 0, %3 ], [ 0, %8 ]
+  %13 = zext i32 %.sroa.3.1.i.i to i64
+  br label %14
 
-_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i: ; preds = %for.cond.i.i
-  %add26.i = add nsw i32 %retval.sroa.3.0.i.i, %exponent
-  br label %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
+14:                                               ; preds = %18, %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
+  %indvars.iv.i22.i = phi i64 [ %19, %18 ], [ %13, %_ZN6icu_7717double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i ]
+  %15 = trunc nuw i64 %indvars.iv.i22.i to i32
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %18, label %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i
 
-for.body.i10.i:                                   ; preds = %for.cond.i.i
-  %4 = add nsw i64 %indvars.iv.i6.i, -1
-  %arrayidx.i.i11.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 %4
-  %5 = load i8, ptr %arrayidx.i.i11.i, align 1
-  %cmp2.not.i12.i = icmp eq i8 %5, 48
-  br i1 %cmp2.not.i12.i, label %for.cond.i.i, label %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !11
+_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i: ; preds = %14
+  %17 = add nsw i32 %.sroa.3.1.i.i, %2
+  br label %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
 
-_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %for.body.i10.i
-  %sub.i = sub nsw i32 %retval.sroa.3.0.i.i, %3
-  %add.i = add nsw i32 %sub.i, %exponent
-  %cmp.i = icmp ugt i64 %indvars.iv.i6.i, 780
-  br i1 %cmp.i, label %for.body.i15.i.preheader, label %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
+18:                                               ; preds = %14
+  %19 = add nsw i64 %indvars.iv.i22.i, -1
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.09.1.i.i, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !7
+  %.not.i26.i = icmp eq i8 %21, 48
+  br i1 %.not.i26.i, label %14, label %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !25
 
-for.body.i15.i.preheader:                         ; preds = %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %copy_buffer, ptr noundef nonnull align 1 dereferenceable(779) %retval.sroa.0.0.i.i, i64 779, i1 false)
-  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %copy_buffer, i64 779
-  store i8 49, ptr %arrayidx1.i.i, align 1
-  %sub.i.i = add nsw i32 %3, -780
-  %add.i.i = add nsw i32 %sub.i.i, %add.i
-  br label %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
+_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i: ; preds = %18
+  %22 = sub nsw i32 %.sroa.3.1.i.i, %15
+  %23 = add nsw i32 %22, %2
+  %24 = icmp ugt i64 %indvars.iv.i22.i, 780
+  br i1 %24, label %.preheader.i.preheader, label %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
 
-_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit: ; preds = %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, %for.body.i15.i.preheader
-  %trimmed.sroa.4.0 = phi i32 [ 780, %for.body.i15.i.preheader ], [ 0, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %3, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
-  %trimmed.sroa.0.0 = phi ptr [ %copy_buffer, %for.body.i15.i.preheader ], [ %retval.sroa.0.0.i.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %retval.sroa.0.0.i.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
-  %updated_exponent.0 = phi i32 [ %add.i.i, %for.body.i15.i.preheader ], [ %add26.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %add.i, %_ZN6icu_7517double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
-  %call = call noundef float @_ZN6icu_7517double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr %trimmed.sroa.0.0, i32 %trimmed.sroa.4.0, i32 noundef %updated_exponent.0)
-  ret float %call
+.preheader.i.preheader:                           ; preds = %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %4, ptr noundef nonnull align 1 dereferenceable(779) %.sroa.09.1.i.i, i64 779, i1 false), !tbaa !7
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 779
+  store i8 49, ptr %25, align 1, !tbaa !7
+  %26 = add nsw i32 %15, -780
+  %27 = add nsw i32 %26, %23
+  br label %_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit
+
+_ZN6icu_7717double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit: ; preds = %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, %.preheader.i.preheader
+  %.sroa.6.0 = phi i32 [ 780, %.preheader.i.preheader ], [ 0, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %15, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
+  %.sroa.0.0 = phi ptr [ %4, %.preheader.i.preheader ], [ %.sroa.09.1.i.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %.sroa.09.1.i.i, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
+  %.0 = phi i32 [ %27, %.preheader.i.preheader ], [ %17, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %23, %_ZN6icu_7717double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
+  %28 = call noundef float @_ZN6icu_7717double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr %.sroa.0.0, i32 %.sroa.6.0, i32 noundef %.0)
+  call void @llvm.lifetime.end.p0(i64 780, ptr nonnull %4) #6
+  ret float %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZN6icu_7517double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent) local_unnamed_addr #0 {
-entry:
-  %double_guess = alloca double, align 8
-  %call = call fastcc noundef zeroext i1 @_ZN6icu_7517double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, ptr noundef %double_guess)
-  %0 = load double, ptr %double_guess, align 8
-  %cmp.i = fcmp ult double %0, 0x47EFFFFFE0000000
-  br i1 %cmp.i, label %if.else3.i, label %if.then.i
+define noundef float @_ZN6icu_7717double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = alloca double, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  %5 = call fastcc noundef zeroext i1 @_ZN6icu_7717double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %0, i32 %1, i32 noundef %2, ptr noundef %4)
+  %6 = load double, ptr %4, align 8, !tbaa !3
+  %7 = fcmp ult double %6, 0x47EFFFFFE0000000
+  br i1 %7, label %11, label %8
 
-if.then.i:                                        ; preds = %entry
-  %cmp1.i = fcmp ult double %0, 0x47EFFFFFF0000000
-  br i1 %cmp1.i, label %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit, label %if.then2.i
+8:                                                ; preds = %3
+  %9 = fcmp ult double %6, 0x47EFFFFFF0000000
+  br i1 %9, label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit, label %10
 
-if.then2.i:                                       ; preds = %if.then.i
-  br label %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit
+10:                                               ; preds = %8
+  br label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit
 
-if.else3.i:                                       ; preds = %entry
-  %conv4.i = fptrunc double %0 to float
-  br label %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit
+11:                                               ; preds = %3
+  %12 = fptrunc double %6 to float
+  br label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit
 
-_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit: ; preds = %if.then.i, %if.then2.i, %if.else3.i
-  %retval.0.i = phi float [ 0x7FF0000000000000, %if.then2.i ], [ %conv4.i, %if.else3.i ], [ 0x47EFFFFFE0000000, %if.then.i ]
-  %conv = fpext float %retval.0.i to double
-  %cmp = fcmp oeq double %0, %conv
-  br i1 %cmp, label %return, label %if.end
+_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit: ; preds = %8, %10, %11
+  %.0.i = phi float [ 0x7FF0000000000000, %10 ], [ %12, %11 ], [ 0x47EFFFFFE0000000, %8 ]
+  %13 = fpext float %.0.i to double
+  %14 = fcmp oeq double %6, %13
+  br i1 %14, label %78, label %15
 
-if.end:                                           ; preds = %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit
-  %1 = bitcast double %0 to i64
-  %cmp.i16 = icmp eq i64 %1, 9218868437227405312
-  br i1 %cmp.i16, label %_ZNK6icu_7517double_conversion6Double14PreviousDoubleEv.exit, label %if.end.i
+15:                                               ; preds = %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit
+  %16 = bitcast double %6 to i64
+  %17 = icmp eq i64 %16, 9218868437227405312
+  br i1 %17, label %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit, label %18
 
-if.end.i:                                         ; preds = %if.end
-  %cmp3.i = icmp slt i64 %1, 0
-  br i1 %cmp3.i, label %land.lhs.true.i, label %if.else.i21
+18:                                               ; preds = %15
+  %19 = icmp slt i64 %16, 0
+  br i1 %19, label %20, label %25
 
-land.lhs.true.i:                                  ; preds = %if.end.i
-  %cmp5.i = fcmp oeq double %0, 0.000000e+00
-  br i1 %cmp5.i, label %_ZNK6icu_7517double_conversion6Double14PreviousDoubleEv.exit, label %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit
+20:                                               ; preds = %18
+  %21 = fcmp oeq double %6, 0.000000e+00
+  br i1 %21, label %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit
 
-_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit: ; preds = %land.lhs.true.i
-  %sub.i = add i64 %1, -1
-  %2 = bitcast i64 %sub.i to double
-  %cmp.i18 = icmp eq i64 %1, -4503599627370496
-  br i1 %cmp.i18, label %if.else3.i30, label %_ZNK6icu_7517double_conversion6Double14PreviousDoubleEv.exit
+_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit: ; preds = %20
+  %22 = add i64 %16, -1
+  %23 = bitcast i64 %22 to double
+  %24 = icmp eq i64 %16, -4503599627370496
+  br i1 %24, label %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit.thread, label %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit
 
-if.else.i21:                                      ; preds = %if.end.i
-  %add.i = add nuw i64 %1, 1
-  %3 = bitcast i64 %add.i to double
-  %cmp8.i = icmp eq i64 %1, 0
-  br i1 %cmp8.i, label %if.else3.i30, label %_ZNK6icu_7517double_conversion6Double14PreviousDoubleEv.exit
+25:                                               ; preds = %18
+  %26 = add nuw i64 %16, 1
+  %27 = bitcast i64 %26 to double
+  %28 = icmp eq i64 %16, 0
+  br i1 %28, label %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit.thread, label %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit
 
-_ZNK6icu_7517double_conversion6Double14PreviousDoubleEv.exit: ; preds = %if.else.i21, %if.end, %land.lhs.true.i, %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit
-  %.sink = phi i64 [ 1, %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit ], [ 1, %land.lhs.true.i ], [ -1, %if.end ], [ -1, %if.else.i21 ]
-  %retval.0.i1774 = phi double [ %2, %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.end ], [ %3, %if.else.i21 ]
-  %add.i24 = add nsw i64 %.sink, %1
-  %retval.0.i23 = bitcast i64 %add.i24 to double
-  %cmp.i25 = fcmp ult double %retval.0.i23, 0x47EFFFFFE0000000
-  br i1 %cmp.i25, label %if.else3.i30, label %if.then.i26
+_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit: ; preds = %25, %15, %20, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit
+  %.sink = phi i64 [ 1, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit ], [ 1, %20 ], [ -1, %15 ], [ -1, %25 ]
+  %.0.i4970 = phi double [ %23, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit ], [ 0.000000e+00, %20 ], [ 0x7FF0000000000000, %15 ], [ %27, %25 ]
+  %29 = add nsw i64 %.sink, %16
+  %.0.i50 = bitcast i64 %29 to double
+  %30 = fcmp ult double %.0.i50, 0x47EFFFFFE0000000
+  br i1 %30, label %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit.thread, label %31
 
-if.then.i26:                                      ; preds = %_ZNK6icu_7517double_conversion6Double14PreviousDoubleEv.exit
-  %cmp1.i27 = fcmp ult double %retval.0.i23, 0x47EFFFFFF0000000
-  br i1 %cmp1.i27, label %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit32, label %if.then2.i28
+31:                                               ; preds = %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit
+  %32 = fcmp ult double %.0.i50, 0x47EFFFFFF0000000
+  br i1 %32, label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit52, label %33
 
-if.then2.i28:                                     ; preds = %if.then.i26
-  br label %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit32
+33:                                               ; preds = %31
+  br label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit52
 
-if.else3.i30:                                     ; preds = %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit, %if.else.i21, %_ZNK6icu_7517double_conversion6Double14PreviousDoubleEv.exit
-  %retval.0.i2390 = phi double [ %retval.0.i23, %_ZNK6icu_7517double_conversion6Double14PreviousDoubleEv.exit ], [ 0xFFF0000000000000, %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit ], [ -0.000000e+00, %if.else.i21 ]
-  %retval.0.i177489 = phi double [ %retval.0.i1774, %_ZNK6icu_7517double_conversion6Double14PreviousDoubleEv.exit ], [ %2, %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit ], [ %3, %if.else.i21 ]
-  %conv4.i31 = fptrunc double %retval.0.i2390 to float
-  br label %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit32
+_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit.thread: ; preds = %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit, %25, %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit
+  %.0.i5083 = phi double [ %.0.i50, %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit ], [ 0xFFF0000000000000, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit ], [ -0.000000e+00, %25 ]
+  %.0.i497082 = phi double [ %.0.i4970, %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit ], [ %23, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit ], [ %27, %25 ]
+  %34 = fptrunc double %.0.i5083 to float
+  br label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit52
 
-_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit32: ; preds = %if.then.i26, %if.then2.i28, %if.else3.i30
-  %retval.0.i177488 = phi double [ %retval.0.i1774, %if.then2.i28 ], [ %retval.0.i177489, %if.else3.i30 ], [ %retval.0.i1774, %if.then.i26 ]
-  %retval.0.i29 = phi float [ 0x7FF0000000000000, %if.then2.i28 ], [ %conv4.i31, %if.else3.i30 ], [ 0x47EFFFFFE0000000, %if.then.i26 ]
-  %cmp.i33 = fcmp ult double %retval.0.i177488, 0x47EFFFFFE0000000
-  br i1 %cmp.i33, label %if.else3.i38, label %if.then.i34
+_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit52: ; preds = %31, %33, %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit.thread
+  %.0.i497081 = phi double [ %.0.i4970, %33 ], [ %.0.i497082, %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit.thread ], [ %.0.i4970, %31 ]
+  %.0.i51 = phi float [ 0x7FF0000000000000, %33 ], [ %34, %_ZNK6icu_7717double_conversion6Double14PreviousDoubleEv.exit.thread ], [ 0x47EFFFFFE0000000, %31 ]
+  %35 = fcmp ult double %.0.i497081, 0x47EFFFFFE0000000
+  br i1 %35, label %39, label %36
 
-if.then.i34:                                      ; preds = %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit32
-  %cmp1.i35 = fcmp ult double %retval.0.i177488, 0x47EFFFFFF0000000
-  br i1 %cmp1.i35, label %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit40, label %if.then2.i36
+36:                                               ; preds = %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit52
+  %37 = fcmp ult double %.0.i497081, 0x47EFFFFFF0000000
+  br i1 %37, label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit54, label %38
 
-if.then2.i36:                                     ; preds = %if.then.i34
-  br label %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit40
+38:                                               ; preds = %36
+  br label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit54
 
-if.else3.i38:                                     ; preds = %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit32
-  %conv4.i39 = fptrunc double %retval.0.i177488 to float
-  br label %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit40
+39:                                               ; preds = %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit52
+  %40 = fptrunc double %.0.i497081 to float
+  br label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit54
 
-_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit40: ; preds = %if.then.i34, %if.then2.i36, %if.else3.i38
-  %retval.0.i37 = phi float [ 0x7FF0000000000000, %if.then2.i36 ], [ %conv4.i39, %if.else3.i38 ], [ 0x47EFFFFFE0000000, %if.then.i34 ]
-  br i1 %call, label %if.end11, label %if.else
+_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit54: ; preds = %36, %38, %39
+  %.0.i53 = phi float [ 0x7FF0000000000000, %38 ], [ %40, %39 ], [ 0x47EFFFFFE0000000, %36 ]
+  br i1 %5, label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58, label %41
 
-if.else:                                          ; preds = %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit40
-  %4 = bitcast double %retval.0.i177488 to i64
-  %cmp.i41 = icmp eq i64 %4, 9218868437227405312
-  br i1 %cmp.i41, label %if.then2.i55, label %if.end.i42
+41:                                               ; preds = %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit54
+  %42 = bitcast double %.0.i497081 to i64
+  %43 = icmp eq i64 %42, 9218868437227405312
+  br i1 %43, label %.thread89, label %44
 
-if.end.i42:                                       ; preds = %if.else
-  %cmp3.i43 = icmp slt i64 %4, 0
-  br i1 %cmp3.i43, label %land.lhs.true.i47, label %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit51
+44:                                               ; preds = %41
+  %45 = icmp slt i64 %42, 0
+  br i1 %45, label %46, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56
 
-land.lhs.true.i47:                                ; preds = %if.end.i42
-  %cmp5.i48 = fcmp oeq double %retval.0.i177488, 0.000000e+00
-  br i1 %cmp5.i48, label %if.else3.i57, label %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit51
+46:                                               ; preds = %44
+  %47 = fcmp oeq double %.0.i497081, 0.000000e+00
+  br i1 %47, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56.thread, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56
 
-_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit51: ; preds = %if.end.i42, %land.lhs.true.i47
-  %.sink100 = phi i64 [ -1, %land.lhs.true.i47 ], [ 1, %if.end.i42 ]
-  %sub.i50 = add i64 %.sink100, %4
-  %retval.0.i46 = bitcast i64 %sub.i50 to double
-  %cmp.i52 = fcmp ult double %retval.0.i46, 0x47EFFFFFE0000000
-  br i1 %cmp.i52, label %if.else3.i57, label %if.then.i53
+_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56: ; preds = %44, %46
+  %.sink91 = phi i64 [ -1, %46 ], [ 1, %44 ]
+  %48 = add i64 %.sink91, %42
+  %.0.i55 = bitcast i64 %48 to double
+  %49 = fcmp ult double %.0.i55, 0x47EFFFFFE0000000
+  br i1 %49, label %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56.thread, label %50
 
-if.then.i53:                                      ; preds = %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit51
-  %cmp1.i54 = fcmp ult double %retval.0.i46, 0x47EFFFFFF0000000
-  br i1 %cmp1.i54, label %if.end11, label %if.then2.i55
+50:                                               ; preds = %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56
+  %51 = fcmp ult double %.0.i55, 0x47EFFFFFF0000000
+  br i1 %51, label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58, label %.thread89
 
-if.then2.i55:                                     ; preds = %if.else, %if.then.i53
-  br label %if.end11
+.thread89:                                        ; preds = %41, %50
+  br label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58
 
-if.else3.i57:                                     ; preds = %land.lhs.true.i47, %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit51
-  %retval.0.i4693 = phi double [ %retval.0.i46, %_ZNK6icu_7517double_conversion6Double10NextDoubleEv.exit51 ], [ 0.000000e+00, %land.lhs.true.i47 ]
-  %conv4.i58 = fptrunc double %retval.0.i4693 to float
-  br label %if.end11
+_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56.thread: ; preds = %46, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56
+  %.0.i5585 = phi double [ %.0.i55, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56 ], [ 0.000000e+00, %46 ]
+  %52 = fptrunc double %.0.i5585 to float
+  br label %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58
 
-if.end11:                                         ; preds = %if.else3.i57, %if.then2.i55, %if.then.i53, %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit40
-  %f4.0 = phi float [ %retval.0.i37, %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit40 ], [ 0x7FF0000000000000, %if.then2.i55 ], [ %conv4.i58, %if.else3.i57 ], [ 0x47EFFFFFE0000000, %if.then.i53 ]
-  %cmp12 = fcmp oeq float %retval.0.i29, %f4.0
-  br i1 %cmp12, label %return, label %if.end14
+_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58: ; preds = %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56.thread, %.thread89, %50, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit54
+  %.046 = phi float [ %.0.i53, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit54 ], [ 0x7FF0000000000000, %.thread89 ], [ %52, %_ZNK6icu_7717double_conversion6Double10NextDoubleEv.exit56.thread ], [ 0x47EFFFFFE0000000, %50 ]
+  %53 = fcmp oeq float %.0.i51, %.046
+  br i1 %53, label %78, label %54
 
-if.end14:                                         ; preds = %if.end11
-  %cmp15 = fcmp oeq float %retval.0.i29, 0.000000e+00
-  br i1 %cmp15, label %if.end25, label %if.else21
+54:                                               ; preds = %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58
+  %55 = fcmp oeq float %.0.i51, 0.000000e+00
+  br i1 %55, label %70, label %56
 
-if.else21:                                        ; preds = %if.end14
-  %5 = bitcast float %retval.0.i29 to i32
-  %and.i.i.i60 = and i32 %5, 2139095040
-  %cmp.i.i.i61 = icmp eq i32 %and.i.i.i60, 0
-  %and.i.i62 = shl i32 %5, 1
-  %6 = and i32 %and.i.i62, 16777214
-  %7 = or disjoint i32 %6, 16777216
-  %mul.i = select i1 %cmp.i.i.i61, i32 %6, i32 %7
-  %add.i63 = or disjoint i32 %mul.i, 1
-  %conv.i = zext nneg i32 %add.i63 to i64
-  %and.i3.i64 = lshr i32 %5, 23
-  %shr.i.i = and i32 %and.i3.i64, 255
-  %8 = add nsw i32 %shr.i.i, -151
-  %sub.i65 = select i1 %cmp.i.i.i61, i32 -150, i32 %8
-  br label %if.end25
+56:                                               ; preds = %54
+  %57 = bitcast float %.0.i51 to i32
+  %58 = and i32 %57, 2139095040
+  %59 = icmp eq i32 %58, 0
+  %60 = shl i32 %57, 1
+  %61 = and i32 %60, 16777214
+  %62 = or disjoint i32 %61, 16777216
+  %63 = select i1 %59, i32 %61, i32 %62
+  %64 = or disjoint i32 %63, 1
+  %65 = zext nneg i32 %64 to i64
+  %66 = lshr i32 %57, 23
+  %67 = and i32 %66, 255
+  %68 = add nsw i32 %67, -151
+  %69 = select i1 %59, i32 -150, i32 %68
+  br label %70
 
-if.end25:                                         ; preds = %if.end14, %if.else21
-  %upper_boundary.sroa.0.0 = phi i64 [ %conv.i, %if.else21 ], [ 4503599627370496, %if.end14 ]
-  %upper_boundary.sroa.4.0 = phi i32 [ %sub.i65, %if.else21 ], [ -202, %if.end14 ]
-  %call28 = tail call fastcc noundef i32 @_ZN6icu_7517double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %trimmed.coerce0, i32 %trimmed.coerce1, i32 noundef %exponent, i64 %upper_boundary.sroa.0.0, i32 %upper_boundary.sroa.4.0)
-  %cmp29 = icmp slt i32 %call28, 0
-  br i1 %cmp29, label %return, label %if.else31
+70:                                               ; preds = %54, %56
+  %.sroa.064.0 = phi i64 [ %65, %56 ], [ 4503599627370496, %54 ]
+  %.sroa.6.0 = phi i32 [ %69, %56 ], [ -202, %54 ]
+  %71 = tail call fastcc noundef i32 @_ZN6icu_7717double_conversionL22CompareBufferWithDiyFpENS0_6VectorIKcEEiNS0_5DiyFpE(ptr %0, i32 %1, i32 noundef %2, i64 %.sroa.064.0, i32 %.sroa.6.0)
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %78, label %73
 
-if.else31:                                        ; preds = %if.end25
-  %cmp32.not = icmp eq i32 %call28, 0
-  br i1 %cmp32.not, label %if.else34, label %return
+73:                                               ; preds = %70
+  %.not = icmp eq i32 %71, 0
+  br i1 %.not, label %74, label %78
 
-if.else34:                                        ; preds = %if.else31
-  %9 = bitcast float %retval.0.i29 to i32
-  %and = and i32 %9, 1
-  %cmp37 = icmp eq i32 %and, 0
-  %call5.f4.0 = select i1 %cmp37, float %retval.0.i29, float %f4.0
-  br label %return
+74:                                               ; preds = %73
+  %75 = bitcast float %.0.i51 to i32
+  %76 = and i32 %75, 1
+  %77 = icmp eq i32 %76, 0
+  %..046 = select i1 %77, float %.0.i51, float %.046
+  br label %78
 
-return:                                           ; preds = %if.else34, %if.else31, %if.end25, %if.end11, %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit
-  %retval.0 = phi float [ %retval.0.i, %_ZN6icu_7517double_conversionL18SanitizedDoubletofEd.exit ], [ %retval.0.i, %if.end11 ], [ %retval.0.i29, %if.end25 ], [ %f4.0, %if.else31 ], [ %call5.f4.0, %if.else34 ]
-  ret float %retval.0
+78:                                               ; preds = %70, %73, %74, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit
+  %.0 = phi float [ %.0.i, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit ], [ %.0.i, %_ZN6icu_7717double_conversionL18SanitizedDoubletofEd.exit58 ], [ %.0.i51, %70 ], [ %.046, %73 ], [ %..046, %74 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  ret float %.0
 }
 
-declare void @_ZN6icu_7517double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS0_5DiyFpEPi(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN6icu_7717double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS0_5DiyFpEPi(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #4
 
-declare void @_ZN6icu_7517double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 dereferenceable(516), ptr, i32) local_unnamed_addr #2
+declare void @_ZN6icu_7717double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 dereferenceable(516), ptr, i32) local_unnamed_addr #3
 
-declare void @_ZN6icu_7517double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516), i64 noundef) local_unnamed_addr #2
+declare void @_ZN6icu_7717double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516), i64 noundef) local_unnamed_addr #3
 
-declare void @_ZN6icu_7517double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #2
+declare void @_ZN6icu_7717double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #3
 
-declare void @_ZN6icu_7517double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #2
+declare void @_ZN6icu_7717double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516), i32 noundef) local_unnamed_addr #3
 
-declare noundef i32 @_ZN6icu_7517double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #2
+declare noundef i32 @_ZN6icu_7717double_conversion6Bignum7CompareERKS1_S3_(ptr noundef nonnull align 4 dereferenceable(516), ptr noundef nonnull align 4 dereferenceable(516)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #4
+declare i32 @llvm.usub.sat.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"double", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"_ZTSN6icu_7717double_conversion5DiyFpE", !14, i64 0, !15, i64 8}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!"int", !5, i64 0}
+!16 = !{!13, !15, i64 8}
+!17 = !{!15, !15, i64 0}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"_ZTSN6icu_7717double_conversion6BignumE", !22, i64 0, !22, i64 2, !5, i64 4}
+!22 = !{!"short", !5, i64 0}
+!23 = !{!21, !22, i64 2}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}

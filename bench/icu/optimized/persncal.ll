@@ -1,633 +1,957 @@
 ; ModuleID = 'bench/icu/original/persncal.ll'
 source_filename = "bench/icu/original/persncal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::PersianCalendar" = type { %"class.icu_75::Calendar.base", [6 x i8] }
-%"class.icu_75::Calendar.base" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+%"class.icu_77::UnicodeSet" = type <{ %"class.icu_77::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
+%"class.icu_77::UnicodeFilter" = type { %"class.icu_77::UnicodeFunctor", %"class.icu_77::UnicodeMatcher" }
+%"class.icu_77::UnicodeFunctor" = type { %"class.icu_77::UObject" }
+%"class.icu_77::UObject" = type { ptr }
+%"class.icu_77::UnicodeMatcher" = type { ptr }
+%"class.icu_77::PersianCalendar" = type { %"class.icu_77::Calendar" }
+%"class.icu_77::Calendar" = type <{ %"class.icu_77::UObject", [24 x i32], [24 x i8], i8, [7 x i8], double, ptr, i8, i16, i8, i32, i32, i32, i8, i8, i16, [4 x i8], ptr, ptr }>
+%"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+
+$_ZNK6icu_778Calendar22isEra0CountingBackwardEv = comdat any
 
 @.str = private unnamed_addr constant [8 x i8] c"persian\00", align 1
-@_ZTVN6icu_7515PersianCalendarE = unnamed_addr constant { [57 x ptr] } { [57 x ptr] [ptr null, ptr @_ZTIN6icu_7515PersianCalendarE, ptr @_ZN6icu_7515PersianCalendarD1Ev, ptr @_ZN6icu_7515PersianCalendarD0Ev, ptr @_ZNK6icu_7515PersianCalendar17getDynamicClassIDEv, ptr @_ZNK6icu_7515PersianCalendar5cloneEv, ptr @_ZNK6icu_758CalendareqERKS0_, ptr @_ZNK6icu_758Calendar14isEquivalentToERKS0_, ptr @_ZN6icu_758Calendar3addENS0_11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_758Calendar4rollENS0_11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar4rollE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_758Calendar15fieldDifferenceEdNS0_11EDateFieldsER10UErrorCode, ptr @_ZN6icu_758Calendar15fieldDifferenceEd19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar14inDaylightTimeER10UErrorCode, ptr @_ZNK6icu_758Calendar10getMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar10getMinimumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar10getMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar10getMaximumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar18getGreatestMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar18getGreatestMinimumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar15getLeastMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar15getLeastMaximumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar16getActualMaximumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7515PersianCalendar7getTypeEv, ptr @_ZNK6icu_758Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_758Calendar20getWeekendTransitionE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_758Calendar9isWeekendEdR10UErrorCode, ptr @_ZNK6icu_758Calendar9isWeekendEv, ptr @_ZNK6icu_758Calendar18inTemporalLeapYearER10UErrorCode, ptr @_ZNK6icu_758Calendar20getTemporalMonthCodeER10UErrorCode, ptr @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode, ptr @_ZN6icu_758Calendar11computeTimeER10UErrorCode, ptr @_ZN6icu_758Calendar13computeFieldsER10UErrorCode, ptr @_ZNK6icu_758Calendar16internalGetMonthEv, ptr @_ZNK6icu_758Calendar16internalGetMonthEi, ptr @_ZN6icu_758Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErrorCode, ptr @_ZNK6icu_7515PersianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE, ptr @_ZNK6icu_758Calendar8getLimitE19UCalendarDateFieldsNS0_10ELimitTypeE, ptr @_ZNK6icu_7515PersianCalendar23handleComputeMonthStartEiia, ptr @_ZNK6icu_7515PersianCalendar20handleGetMonthLengthEii, ptr @_ZNK6icu_7515PersianCalendar19handleGetYearLengthEi, ptr @_ZN6icu_7515PersianCalendar21handleGetExtendedYearEv, ptr @_ZN6icu_758Calendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode, ptr @_ZN6icu_758Calendar35handleGetExtendedYearFromWeekFieldsEii, ptr @_ZN6icu_758Calendar13validateFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar23getFieldResolutionTableEv, ptr @_ZN6icu_7515PersianCalendar19handleComputeFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar21getDefaultMonthInYearEi, ptr @_ZN6icu_758Calendar20getDefaultDayInMonthEii, ptr @_ZN6icu_758Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7515PersianCalendar18haveDefaultCenturyEv, ptr @_ZNK6icu_7515PersianCalendar19defaultCenturyStartEv, ptr @_ZNK6icu_7515PersianCalendar23defaultCenturyStartYearEv, ptr @_ZNK6icu_7515PersianCalendar14getRelatedYearER10UErrorCode, ptr @_ZN6icu_7515PersianCalendar14setRelatedYearEi] }, align 8
+@_ZTVN6icu_7715PersianCalendarE = unnamed_addr constant { [58 x ptr] } { [58 x ptr] [ptr null, ptr @_ZTIN6icu_7715PersianCalendarE, ptr @_ZN6icu_7715PersianCalendarD1Ev, ptr @_ZN6icu_7715PersianCalendarD0Ev, ptr @_ZNK6icu_7715PersianCalendar17getDynamicClassIDEv, ptr @_ZNK6icu_7715PersianCalendar5cloneEv, ptr @_ZNK6icu_778CalendareqERKS0_, ptr @_ZNK6icu_778Calendar14isEquivalentToERKS0_, ptr @_ZN6icu_778Calendar3addENS0_11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_778Calendar3addE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_778Calendar4rollENS0_11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_778Calendar4rollE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_778Calendar15fieldDifferenceEdNS0_11EDateFieldsER10UErrorCode, ptr @_ZN6icu_778Calendar15fieldDifferenceEd19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_778Calendar14inDaylightTimeER10UErrorCode, ptr @_ZNK6icu_778Calendar10getMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_778Calendar10getMinimumE19UCalendarDateFields, ptr @_ZNK6icu_778Calendar10getMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_778Calendar10getMaximumE19UCalendarDateFields, ptr @_ZNK6icu_778Calendar18getGreatestMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_778Calendar18getGreatestMinimumE19UCalendarDateFields, ptr @_ZNK6icu_778Calendar15getLeastMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_778Calendar15getLeastMaximumE19UCalendarDateFields, ptr @_ZNK6icu_778Calendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_778Calendar16getActualMaximumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7715PersianCalendar7getTypeEv, ptr @_ZNK6icu_778Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_778Calendar20getWeekendTransitionE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_778Calendar9isWeekendEdR10UErrorCode, ptr @_ZNK6icu_778Calendar9isWeekendEv, ptr @_ZNK6icu_778Calendar18inTemporalLeapYearER10UErrorCode, ptr @_ZNK6icu_778Calendar20getTemporalMonthCodeER10UErrorCode, ptr @_ZN6icu_778Calendar20setTemporalMonthCodeEPKcR10UErrorCode, ptr @_ZN6icu_778Calendar11computeTimeER10UErrorCode, ptr @_ZN6icu_778Calendar13computeFieldsER10UErrorCode, ptr @_ZNK6icu_778Calendar22isEra0CountingBackwardEv, ptr @_ZNK6icu_778Calendar16internalGetMonthER10UErrorCode, ptr @_ZNK6icu_778Calendar16internalGetMonthEiR10UErrorCode, ptr @_ZN6icu_778Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErrorCode, ptr @_ZNK6icu_7715PersianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE, ptr @_ZNK6icu_778Calendar8getLimitE19UCalendarDateFieldsNS0_10ELimitTypeE, ptr @_ZNK6icu_7715PersianCalendar23handleComputeMonthStartEiiaR10UErrorCode, ptr @_ZNK6icu_7715PersianCalendar20handleGetMonthLengthEiiR10UErrorCode, ptr @_ZNK6icu_7715PersianCalendar19handleGetYearLengthEiR10UErrorCode, ptr @_ZN6icu_7715PersianCalendar21handleGetExtendedYearER10UErrorCode, ptr @_ZN6icu_778Calendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode, ptr @_ZN6icu_778Calendar35handleGetExtendedYearFromWeekFieldsEiiR10UErrorCode, ptr @_ZN6icu_778Calendar13validateFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_778Calendar23getFieldResolutionTableEv, ptr @_ZN6icu_7715PersianCalendar19handleComputeFieldsEiR10UErrorCode, ptr @_ZN6icu_778Calendar21getDefaultMonthInYearEiR10UErrorCode, ptr @_ZN6icu_778Calendar20getDefaultDayInMonthEiiR10UErrorCode, ptr @_ZN6icu_778Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7715PersianCalendar18haveDefaultCenturyEv, ptr @_ZNK6icu_7715PersianCalendar19defaultCenturyStartEv, ptr @_ZNK6icu_7715PersianCalendar23defaultCenturyStartYearEv, ptr @_ZNK6icu_7715PersianCalendar14getRelatedYearER10UErrorCode, ptr @_ZN6icu_7715PersianCalendar14setRelatedYearEi] }, align 8
 @_ZL22kPersianCalendarLimits = internal unnamed_addr constant [24 x [4 x i32]] [[4 x i32] zeroinitializer, [4 x i32] [i32 -5000000, i32 -5000000, i32 5000000, i32 5000000], [4 x i32] [i32 0, i32 0, i32 11, i32 11], [4 x i32] [i32 1, i32 1, i32 52, i32 53], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 1, i32 1, i32 29, i32 31], [4 x i32] [i32 1, i32 1, i32 365, i32 366], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 1, i32 1, i32 5, i32 5], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -5000000, i32 -5000000, i32 5000000, i32 5000000], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -5000000, i32 -5000000, i32 5000000, i32 5000000], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 -1, i32 -1, i32 -1, i32 -1], [4 x i32] [i32 0, i32 0, i32 11, i32 11]], align 16
+@_ZN12_GLOBAL__N_114gMinCorrectionE = internal unnamed_addr global i1 false, align 4
 @_ZL23kPersianLeapMonthLength = internal unnamed_addr constant [12 x i8] c"\1F\1F\1F\1F\1F\1F\1E\1E\1E\1E\1E\1E", align 1
 @_ZL19kPersianMonthLength = internal unnamed_addr constant [12 x i8] c"\1F\1F\1F\1F\1F\1F\1E\1E\1E\1E\1E\1D", align 1
 @_ZL15kPersianNumDays = internal unnamed_addr constant [12 x i16] [i16 0, i16 31, i16 62, i16 93, i16 124, i16 155, i16 186, i16 216, i16 246, i16 276, i16 306, i16 336], align 16
-@_ZN6icu_75L26gSystemDefaultCenturyStartE = internal unnamed_addr global double 0x10000000000000, align 8
-@_ZN6icu_75L30gSystemDefaultCenturyStartYearE = internal unnamed_addr global i32 -1, align 4
-@_ZZN6icu_7515PersianCalendar16getStaticClassIDEvE7classID = internal global i8 0, align 1
+@_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE = internal unnamed_addr global double 0x10000000000000, align 8
+@_ZN6icu_7712_GLOBAL__N_130gSystemDefaultCenturyStartYearE = internal unnamed_addr global i32 -1, align 4
+@_ZZN6icu_7715PersianCalendar16getStaticClassIDEvE7classID = internal global i8 0, align 1
+@_ZTIN6icu_7715PersianCalendarE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7715PersianCalendarE, ptr @_ZTIN6icu_778CalendarE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
-@_ZTSN6icu_7515PersianCalendarE = constant [27 x i8] c"N6icu_7515PersianCalendarE\00", align 1
-@_ZTIN6icu_758CalendarE = external constant ptr
-@_ZTIN6icu_7515PersianCalendarE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6icu_7515PersianCalendarE, ptr @_ZTIN6icu_758CalendarE }, align 8
-@_ZN6icu_75L25gSystemDefaultCenturyInitE = internal global { { i32 }, i32 } zeroinitializer, align 4
-@.str.2 = private unnamed_addr constant [18 x i8] c"@calendar=persian\00", align 1
+@_ZTSN6icu_7715PersianCalendarE = constant [27 x i8] c"N6icu_7715PersianCalendarE\00", align 1
+@_ZTIN6icu_778CalendarE = external constant ptr
+@_ZN12_GLOBAL__N_115gLeapCorrectionE = internal unnamed_addr global ptr null, align 8
+@_ZN12_GLOBAL__N_119gCorrectionInitOnceE = internal global { { i32 }, i32 } zeroinitializer, align 4
+@_ZZN12_GLOBAL__N_118initLeapCorrectionEvE12nonLeapYears = internal unnamed_addr constant [78 x i16] [i16 1502, i16 1601, i16 1634, i16 1667, i16 1700, i16 1733, i16 1766, i16 1799, i16 1832, i16 1865, i16 1898, i16 1931, i16 1964, i16 1997, i16 2030, i16 2059, i16 2063, i16 2096, i16 2129, i16 2158, i16 2162, i16 2191, i16 2195, i16 2224, i16 2228, i16 2257, i16 2261, i16 2290, i16 2294, i16 2323, i16 2327, i16 2356, i16 2360, i16 2389, i16 2393, i16 2422, i16 2426, i16 2455, i16 2459, i16 2488, i16 2492, i16 2521, i16 2525, i16 2554, i16 2558, i16 2587, i16 2591, i16 2620, i16 2624, i16 2653, i16 2657, i16 2686, i16 2690, i16 2719, i16 2723, i16 2748, i16 2752, i16 2756, i16 2781, i16 2785, i16 2789, i16 2818, i16 2822, i16 2847, i16 2851, i16 2855, i16 2880, i16 2884, i16 2888, i16 2913, i16 2917, i16 2921, i16 2946, i16 2950, i16 2954, i16 2979, i16 2983, i16 2987], align 16
+@_ZN6icu_7712_GLOBAL__N_125gSystemDefaultCenturyInitE = internal global { { i32 }, i32 } zeroinitializer, align 4
+@.str.3 = private unnamed_addr constant [18 x i8] c"@calendar=persian\00", align 1
 
-@_ZN6icu_7515PersianCalendarC1ERKNS_6LocaleER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7515PersianCalendarC2ERKNS_6LocaleER10UErrorCode
-@_ZN6icu_7515PersianCalendarC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7515PersianCalendarC2ERKS0_
-@_ZN6icu_7515PersianCalendarD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7515PersianCalendarD2Ev
+@_ZN6icu_7715PersianCalendarC1ERKNS_6LocaleER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7715PersianCalendarC2ERKNS_6LocaleER10UErrorCode
+@_ZN6icu_7715PersianCalendarC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7715PersianCalendarC2ERKS0_
+@_ZN6icu_7715PersianCalendarD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7715PersianCalendarD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7515PersianCalendar7getTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
-entry:
+define noundef nonnull ptr @_ZNK6icu_7715PersianCalendar7getTypeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7515PersianCalendar5cloneEv(ptr noundef nonnull align 8 dereferenceable(618) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 624) #6
-  %new.isnull = icmp eq ptr %call, null
-  br i1 %new.isnull, label %new.cont, label %new.notnull
+define noundef ptr @_ZNK6icu_7715PersianCalendar5cloneEv(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 192) #6
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %5, label %4
 
-new.notnull:                                      ; preds = %entry
-  invoke void @_ZN6icu_7515PersianCalendarC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %call, ptr noundef nonnull align 8 dereferenceable(618) %this)
-          to label %new.cont unwind label %lpad
+4:                                                ; preds = %1
+  invoke void @_ZN6icu_7715PersianCalendarC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(192) %0)
+          to label %5 unwind label %6
 
-new.cont:                                         ; preds = %new.notnull, %entry
-  ret ptr %call
+5:                                                ; preds = %4, %1
+  ret ptr %2
 
-lpad:                                             ; preds = %new.notnull
-  %0 = landingpad { ptr, i32 }
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #6
-  resume { ptr, i32 } %0
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %2) #6
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515PersianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %call = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
-  tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515PersianCalendarE, i64 16), ptr %this, align 8
-  %call2 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %call2, ptr noundef nonnull align 4 dereferenceable(4) %success)
-          to label %invoke.cont3 unwind label %lpad
-
-invoke.cont3:                                     ; preds = %invoke.cont
+define void @_ZN6icu_7715PersianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 align 2 {
+  %4 = tail call noundef ptr @_ZN6icu_778TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %1)
+  tail call void @_ZN6icu_778CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  store ptr getelementptr inbounds nuw inrange(-16, 448) (i8, ptr @_ZTVN6icu_7715PersianCalendarE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
-
-lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZN6icu_758CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(618) %this) #6
-  resume { ptr, i32 } %0
 }
 
-declare noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_778TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #3
 
-declare void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef, ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_778CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7715PersianCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #1 align 2 {
+  tail call void @_ZN6icu_778CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %1)
+  store ptr getelementptr inbounds nuw inrange(-16, 448) (i8, ptr @_ZTVN6icu_7715PersianCalendarE, i64 16), ptr %0, align 8, !tbaa !3
+  ret void
+}
 
-declare noundef double @_ZN6icu_758Calendar6getNowEv() local_unnamed_addr #3
+declare void @_ZN6icu_778CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(192)) unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_758CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #2
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515PersianCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %other) unnamed_addr #1 align 2 {
-entry:
-  tail call void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %other)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7515PersianCalendarE, i64 16), ptr %this, align 8
-  ret void
-}
-
-declare void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #3
+declare void @_ZN6icu_778CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(192)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515PersianCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(618) %this) unnamed_addr #4 align 2 {
-entry:
-  tail call void @_ZN6icu_758CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(618) %this) #6
+define void @_ZN6icu_7715PersianCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 align 2 {
+  tail call void @_ZN6icu_778CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515PersianCalendarD0Ev(ptr noundef nonnull align 8 dereferenceable(618) %this) unnamed_addr #4 align 2 {
-entry:
-  tail call void @_ZN6icu_7515PersianCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(618) %this) #6
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6
+define void @_ZN6icu_7715PersianCalendarD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 align 2 {
+  tail call void @_ZN6icu_7715PersianCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #6
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #0 align 2 {
-entry:
-  %idxprom = zext i32 %field to i64
-  %idxprom2 = zext i32 %limitType to i64
-  %arrayidx3 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZL22kPersianCalendarLimits, i64 0, i64 %idxprom, i64 %idxprom2
-  %0 = load i32, ptr %arrayidx3, align 4
-  ret i32 %0
+define noundef i32 @_ZNK6icu_7715PersianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+  %4 = zext i32 %1 to i64
+  %5 = zext i32 %2 to i64
+  %6 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZL22kPersianCalendarLimits, i64 0, i64 %4, i64 %5
+  %7 = load i32, ptr %6, align 4, !tbaa !6
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7515PersianCalendar10isLeapYearEi(i32 noundef %year) local_unnamed_addr #1 align 2 {
-entry:
-  %remainder = alloca i32, align 4
-  %mul = mul nsw i32 %year, 25
-  %add = add nsw i32 %mul, 11
-  %call = call noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef %add, i32 noundef 33, ptr noundef nonnull %remainder)
-  %0 = load i32, ptr %remainder, align 4
-  %cmp = icmp slt i32 %0, 8
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
-}
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7715PersianCalendar10isLeapYearEi(i32 noundef %0) local_unnamed_addr #1 align 2 {
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %2 = select i1 %.b, i32 1502, i32 0
+  %.not = icmp slt i32 %0, %2
+  br i1 %.not, label %6, label %3
 
-declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+3:                                                ; preds = %1
+  %4 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %5 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %4, i32 noundef %0)
+  %.not9 = icmp eq i8 %5, 0
+  br i1 %.not9, label %._crit_edge, label %20
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7515PersianCalendar9yearStartEi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year) local_unnamed_addr #1 align 2 {
-entry:
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 304
-  %0 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year, i32 noundef 0, i8 noundef signext 0)
-  ret i32 %call
-}
+._crit_edge:                                      ; preds = %3
+  %.pre.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %.pre = select i1 %.pre.b, i32 1502, i32 0
+  br label %6
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar10monthStartEii(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year, i32 noundef %month) local_unnamed_addr #1 align 2 {
-entry:
-  %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 304
-  %0 = load ptr, ptr %vfn, align 8
-  %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year, i32 noundef %month, i8 noundef signext 1)
-  ret i32 %call
-}
+6:                                                ; preds = %._crit_edge, %1
+  %7 = phi i32 [ %.pre, %._crit_edge ], [ %2, %1 ]
+  %8 = icmp sgt i32 %0, %7
+  br i1 %8, label %9, label %13
 
-; Function Attrs: mustprogress uwtable
-define noundef range(i32 -128, 128) i32 @_ZNK6icu_7515PersianCalendar20handleGetMonthLengthEii(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #1 align 2 {
-entry:
-  %remainder.i = alloca i32, align 4
-  %month.addr = alloca i32, align 4
-  store i32 %month, ptr %month.addr, align 4
-  %or.cond = icmp ugt i32 %month, 11
-  br i1 %or.cond, label %if.then, label %if.end
+9:                                                ; preds = %6
+  %10 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %11 = add nsw i32 %0, -1
+  %12 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %10, i32 noundef %11)
+  %.not10 = icmp eq i8 %12, 0
+  br i1 %.not10, label %13, label %20
 
-if.then:                                          ; preds = %entry
-  %call = call noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef %month, i32 noundef 12, ptr noundef nonnull %month.addr)
-  %add = add nsw i32 %call, %extendedYear
-  br label %if.end
+13:                                               ; preds = %9, %6
+  %14 = sext i32 %0 to i64
+  %15 = mul nsw i64 %14, 25
+  %16 = add nsw i64 %15, 11
+  %17 = srem i64 %16, 33
+  %18 = icmp slt i64 %17, 8
+  %19 = zext i1 %18 to i8
+  br label %20
 
-if.end:                                           ; preds = %entry, %if.then
-  %extendedYear.addr.0 = phi i32 [ %add, %if.then ], [ %extendedYear, %entry ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %remainder.i)
-  %mul.i = mul nsw i32 %extendedYear.addr.0, 25
-  %add.i = add nsw i32 %mul.i, 11
-  %call.i = call noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef %add.i, i32 noundef 33, ptr noundef nonnull %remainder.i)
-  %0 = load i32, ptr %remainder.i, align 4
-  %cmp.i = icmp sgt i32 %0, 7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %remainder.i)
-  %1 = load i32, ptr %month.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [12 x i8], ptr @_ZL23kPersianLeapMonthLength, i64 0, i64 %idxprom
-  %arrayidx5 = getelementptr inbounds [12 x i8], ptr @_ZL19kPersianMonthLength, i64 0, i64 %idxprom
-  %cond.in = select i1 %cmp.i, ptr %arrayidx5, ptr %arrayidx
-  %cond = load i8, ptr %cond.in, align 1
-  %conv = sext i8 %cond to i32
-  ret i32 %conv
+20:                                               ; preds = %9, %3, %13
+  %.0 = phi i8 [ %19, %13 ], [ 0, %3 ], [ 1, %9 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 365, 367) i32 @_ZNK6icu_7515PersianCalendar19handleGetYearLengthEi(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %extendedYear) unnamed_addr #1 align 2 {
-entry:
-  %remainder.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %remainder.i)
-  %mul.i = mul nsw i32 %extendedYear, 25
-  %add.i = add nsw i32 %mul.i, 11
-  %call.i = call noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef %add.i, i32 noundef 33, ptr noundef nonnull %remainder.i)
-  %0 = load i32, ptr %remainder.i, align 4
-  %cmp.i = icmp sgt i32 %0, 7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %remainder.i)
-  %cond = select i1 %cmp.i, i32 365, i32 366
-  ret i32 %cond
-}
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.icu_77::UnicodeSet", align 8
+  %2 = load atomic i32, ptr @_ZN12_GLOBAL__N_119gCorrectionInitOnceE acquire, align 4
+  %3 = icmp eq i32 %2, 2
+  br i1 %3, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %4
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar23handleComputeMonthStartEiia(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #1 align 2 {
-entry:
-  %month.addr = alloca i32, align 4
-  store i32 %month, ptr %month.addr, align 4
-  %or.cond = icmp ugt i32 %month, 11
-  br i1 %or.cond, label %if.then, label %if.end
+4:                                                ; preds = %0
+  %5 = tail call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_119gCorrectionInitOnceE)
+  %.not.i = icmp eq i8 %5, 0
+  br i1 %.not.i, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %6
 
-if.then:                                          ; preds = %entry
-  %call = call noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef %month, i32 noundef 12, ptr noundef nonnull %month.addr)
-  %add = add nsw i32 %call, %eyear
-  br label %if.end
+6:                                                ; preds = %4
+  store i1 true, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1) #6
+  call void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %1)
+  br label %9
 
-if.end:                                           ; preds = %entry, %if.then
-  %eyear.addr.0 = phi i32 [ %add, %if.then ], [ %eyear, %entry ]
-  %1 = mul i32 %eyear.addr.0, 365
-  %add3 = add i32 %1, 1947954
-  %mul4 = shl nsw i32 %eyear.addr.0, 3
-  %add5 = add nsw i32 %mul4, 21
-  %call6 = call noundef i32 @_ZN6icu_759ClockMath11floorDivideEii(i32 noundef %add5, i32 noundef 33)
-  %add7 = add nsw i32 %add3, %call6
-  %2 = load i32, ptr %month.addr, align 4
-  %cmp8.not = icmp eq i32 %2, 0
-  br i1 %cmp8.not, label %if.end11, label %if.then9
+7:                                                ; preds = %13
+  %8 = invoke noundef ptr @_ZNK6icu_7710UnicodeSet13cloneAsThawedEv(ptr noundef nonnull align 8 dereferenceable(200) %1)
+          to label %16 unwind label %19
 
-if.then9:                                         ; preds = %if.end
-  %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [12 x i16], ptr @_ZL15kPersianNumDays, i64 0, i64 %idxprom
-  %3 = load i16, ptr %arrayidx, align 2
-  %conv = sext i16 %3 to i32
-  %add10 = add nsw i32 %add7, %conv
-  br label %if.end11
+9:                                                ; preds = %13, %6
+  %.07.idx9.i = phi i64 [ 0, %6 ], [ %.07.add.i, %13 ]
+  %.07.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_118initLeapCorrectionEvE12nonLeapYears, i64 %.07.idx9.i
+  %10 = load i16, ptr %.07.ptr.i, align 2, !tbaa !9
+  %11 = sext i16 %10 to i32
+  %12 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef %11)
+          to label %13 unwind label %14
 
-if.end11:                                         ; preds = %if.then9, %if.end
-  %julianDay.0 = phi i32 [ %add10, %if.then9 ], [ %add7, %if.end ]
-  ret i32 %julianDay.0
-}
+13:                                               ; preds = %9
+  %.07.add.i = add nuw nsw i64 %.07.idx9.i, 2
+  %.not.i1 = icmp eq i64 %.07.add.i, 156
+  br i1 %.not.i1, label %7, label %9
 
-declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEii(i32 noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7515PersianCalendar21handleGetExtendedYearEv(ptr noundef nonnull align 8 dereferenceable(618) %this) unnamed_addr #1 align 2 {
-entry:
-  %call = tail call noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 19, i32 noundef 1)
-  %cmp = icmp eq i32 %call, 19
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 208
-  %0 = load i32, ptr %arrayidx.i, align 8
-  %cmp.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i, label %cond.true.i, label %if.end
-
-cond.true.i:                                      ; preds = %if.then
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %1 = load i32, ptr %arrayidx3.i, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %arrayidx.i2 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %2 = load i32, ptr %arrayidx.i2, align 8
-  %cmp.i3 = icmp sgt i32 %2, 0
-  br i1 %cmp.i3, label %cond.true.i5, label %if.end
-
-cond.true.i5:                                     ; preds = %if.else
-  %arrayidx3.i7 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %3 = load i32, ptr %arrayidx3.i7, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %cond.true.i5, %if.else, %cond.true.i, %if.then
-  %year.0 = phi i32 [ %1, %cond.true.i ], [ 1, %if.then ], [ %3, %cond.true.i5 ], [ 1, %if.else ]
-  ret i32 %year.0
-}
-
-declare noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515PersianCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(618) initializes((12, 24), (32, 40), (88, 92), (104, 111), (113, 115), (127, 128), (131, 144), (152, 160), (208, 212), (224, 228)) %this, i32 noundef %julianDay, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
-entry:
-  %sub = add nsw i32 %julianDay, -1948320
-  %conv = sext i32 %sub to i64
-  %mul = mul nsw i64 %conv, 33
-  %add = add nsw i64 %mul, 3
-  %call = tail call noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef %add, i64 noundef 12053)
-  %conv2 = trunc i64 %call to i32
-  %add3 = add nsw i32 %conv2, 1
-  %mul6 = shl nsw i32 %add3, 3
-  %add7 = add nsw i32 %mul6, 21
-  %call8 = tail call noundef i32 @_ZN6icu_759ClockMath11floorDivideEii(i32 noundef %add7, i32 noundef 33)
-  %mul5.neg = mul i32 %conv2, -365
-  %add9.neg = sub i32 %sub, %call8
-  %sub10 = add i32 %add9.neg, %mul5.neg
-  %cmp = icmp slt i32 %sub10, 216
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %div = sdiv i32 %sub10, 31
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %sub11 = add nsw i32 %sub10, -6
-  %div12 = udiv i32 %sub11, 30
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %month.0 = phi i32 [ %div, %if.then ], [ %div12, %if.else ]
-  %idxprom = sext i32 %month.0 to i64
-  %arrayidx = getelementptr inbounds [12 x i16], ptr @_ZL15kPersianNumDays, i64 0, i64 %idxprom
-  %1 = load i16, ptr %arrayidx, align 2
-  %conv13 = sext i16 %1 to i32
-  %sub14 = add i32 %sub10, 1
-  %add15 = sub i32 %sub14, %conv13
-  %fFields.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i32 0, ptr %fFields.i, align 4
-  %fStamp.i = getelementptr inbounds nuw i8, ptr %this, i64 132
-  store i32 1, ptr %fStamp.i, align 4
-  %fIsSet.i = getelementptr inbounds nuw i8, ptr %this, i64 108
-  store i8 1, ptr %fIsSet.i, align 4
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %add3, ptr %arrayidx.i, align 8
-  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store i32 1, ptr %arrayidx3.i, align 8
-  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 109
-  store i8 1, ptr %arrayidx5.i, align 1
-  %arrayidx.i16 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store i32 %add3, ptr %arrayidx.i16, align 8
-  %arrayidx3.i18 = getelementptr inbounds nuw i8, ptr %this, i64 208
-  store i32 1, ptr %arrayidx3.i18, align 8
-  %arrayidx5.i20 = getelementptr inbounds nuw i8, ptr %this, i64 127
-  store i8 1, ptr %arrayidx5.i20, align 1
-  %arrayidx.i22 = getelementptr inbounds nuw i8, ptr %this, i64 20
-  store i32 %month.0, ptr %arrayidx.i22, align 4
-  %arrayidx3.i24 = getelementptr inbounds nuw i8, ptr %this, i64 140
-  store i32 1, ptr %arrayidx3.i24, align 4
-  %arrayidx5.i26 = getelementptr inbounds nuw i8, ptr %this, i64 110
-  store i8 1, ptr %arrayidx5.i26, align 2
-  %arrayidx.i28 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store i32 %month.0, ptr %arrayidx.i28, align 8
-  %arrayidx3.i30 = getelementptr inbounds nuw i8, ptr %this, i64 224
-  store i32 1, ptr %arrayidx3.i30, align 8
-  %arrayidx5.i32 = getelementptr inbounds nuw i8, ptr %this, i64 131
-  store i8 1, ptr %arrayidx5.i32, align 1
-  %arrayidx.i34 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i32 %add15, ptr %arrayidx.i34, align 8
-  %arrayidx3.i36 = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store i32 1, ptr %arrayidx3.i36, align 8
-  %arrayidx5.i38 = getelementptr inbounds nuw i8, ptr %this, i64 113
-  store i8 1, ptr %arrayidx5.i38, align 1
-  %arrayidx.i40 = getelementptr inbounds nuw i8, ptr %this, i64 36
-  store i32 %sub14, ptr %arrayidx.i40, align 4
-  %arrayidx3.i42 = getelementptr inbounds nuw i8, ptr %this, i64 156
-  store i32 1, ptr %arrayidx3.i42, align 4
-  %arrayidx5.i44 = getelementptr inbounds nuw i8, ptr %this, i64 114
-  store i8 1, ptr %arrayidx5.i44, align 2
-  ret void
-}
-
-declare noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar14getRelatedYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
-entry:
-  %call = tail call noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %0 = load i32, ptr %status, align 4
-  %add = add i32 %call, 622
-  %cmp.i.inv = icmp sgt i32 %0, 0
-  %retval.0 = select i1 %cmp.i.inv, i32 0, i32 %add
-  ret i32 %retval.0
-}
-
-declare noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515PersianCalendar14setRelatedYearEi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year) unnamed_addr #1 align 2 {
-entry:
-  %sub = add i32 %year, -622
-  tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 19, i32 noundef %sub)
-  ret void
-}
-
-declare void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7515PersianCalendar18haveDefaultCenturyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
-entry:
-  ret i8 1
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6icu_7515PersianCalendar19defaultCenturyStartEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i32, ptr @_ZN6icu_75L25gSystemDefaultCenturyInitE acquire, align 4
-  %cmp.i = icmp eq i32 %0, 2
-  br i1 %cmp.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L25gSystemDefaultCenturyInitE)
-  %tobool.not.i = icmp eq i8 %call1.i, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %if.then2.i
-
-if.then2.i:                                       ; preds = %if.end.i
-  tail call fastcc void @_ZN6icu_75L30initializeSystemDefaultCenturyEv()
-  tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L25gSystemDefaultCenturyInitE)
-  br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit
-
-_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %entry, %if.end.i, %if.then2.i
-  %1 = load double, ptr @_ZN6icu_75L26gSystemDefaultCenturyStartE, align 8
-  ret double %1
-}
-
-; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_75L30initializeSystemDefaultCenturyEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-entry:
-  %status = alloca i32, align 4
-  %calendar = alloca %"class.icu_75::PersianCalendar", align 8
-  %ref.tmp = alloca %"class.icu_75::Locale", align 8
-  store i32 0, ptr %status, align 4
-  call void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef null)
-  invoke void @_ZN6icu_7515PersianCalendarC1ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #6
-  %0 = load i32, ptr %status, align 4
-  %cmp.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i, label %if.end, label %if.then
-
-if.then:                                          ; preds = %invoke.cont
-  %call4 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
-          to label %invoke.cont3 unwind label %lpad1
-
-invoke.cont3:                                     ; preds = %if.then
-  invoke void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, double noundef %call4, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont5 unwind label %lpad1
-
-invoke.cont5:                                     ; preds = %invoke.cont3
-  invoke void @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, i32 noundef 1, i32 noundef -80, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont6 unwind label %lpad1
-
-invoke.cont6:                                     ; preds = %invoke.cont5
-  %call.i2 = invoke noundef double @_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont7 unwind label %lpad1
-
-invoke.cont7:                                     ; preds = %invoke.cont6
-  store double %call.i2, ptr @_ZN6icu_75L26gSystemDefaultCenturyStartE, align 8
-  %call10 = invoke noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %calendar, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont9 unwind label %lpad1
-
-invoke.cont9:                                     ; preds = %invoke.cont7
-  store i32 %call10, ptr @_ZN6icu_75L30gSystemDefaultCenturyStartYearE, align 4
-  br label %if.end
-
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+14:                                               ; preds = %9
+  %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #6
-  br label %eh.resume
+  br label %21
 
-lpad1:                                            ; preds = %invoke.cont6, %invoke.cont3, %invoke.cont7, %invoke.cont5, %if.then
-  %2 = landingpad { ptr, i32 }
+16:                                               ; preds = %7
+  %17 = invoke noundef ptr @_ZN6icu_7710UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200) %8)
+          to label %18 unwind label %19
+
+18:                                               ; preds = %16
+  store ptr %17, ptr @_ZN12_GLOBAL__N_115gLeapCorrectionE, align 8, !tbaa !11
+  invoke void @ucln_i18n_registerCleanup_77(i32 noundef 13, ptr noundef nonnull @_ZL24calendar_persian_cleanupv)
+          to label %_ZN12_GLOBAL__N_118initLeapCorrectionEv.exit unwind label %19
+
+19:                                               ; preds = %18, %16, %7
+  %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7515PersianCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(618) %calendar) #6
-  br label %eh.resume
+  br label %21
 
-if.end:                                           ; preds = %invoke.cont9, %invoke.cont
-  call void @_ZN6icu_7515PersianCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(618) %calendar) #6
+21:                                               ; preds = %19, %14
+  %.pn.i = phi { ptr, i32 } [ %15, %14 ], [ %20, %19 ]
+  call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %1) #6
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %1) #6
+  resume { ptr, i32 } %.pn.i
+
+_ZN12_GLOBAL__N_118initLeapCorrectionEv.exit:     ; preds = %18
+  call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %1) #6
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %1) #6
+  call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_119gCorrectionInitOnceE)
+  br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit
+
+_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %0, %4, %_ZN12_GLOBAL__N_118initLeapCorrectionEv.exit
+  %22 = load ptr, ptr @_ZN12_GLOBAL__N_115gLeapCorrectionE, align 8, !tbaa !11
+  ret ptr %22
+}
+
+declare noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN6icu_7715PersianCalendar9yearStartEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
+  %4 = load ptr, ptr %0, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 312
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef 0, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %8 = trunc i64 %7 to i32
+  ret i32 %8
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZNK6icu_7715PersianCalendar10monthStartEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 align 2 {
+  %5 = load ptr, ptr %0, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 312
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %2, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %9 = trunc i64 %8 to i32
+  ret i32 %9
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7715PersianCalendar20handleGetMonthLengthEiiR10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr nonnull readnone align 4 captures(none) %3) unnamed_addr #1 align 2 {
+  %5 = alloca i32, align 4
+  store i32 %2, ptr %5, align 4, !tbaa !6
+  %or.cond = icmp ugt i32 %2, 11
+  br i1 %or.cond, label %6, label %9
+
+6:                                                ; preds = %4
+  %7 = call noundef i32 @_ZN6icu_779ClockMath11floorDivideEiiPi(i32 noundef %2, i32 noundef 12, ptr noundef nonnull %5)
+  %8 = add i32 %7, %1
+  br label %9
+
+9:                                                ; preds = %4, %6
+  %.0 = phi i32 [ %8, %6 ], [ %1, %4 ]
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %10 = select i1 %.b, i32 1502, i32 0
+  %.not.i = icmp slt i32 %.0, %10
+  br i1 %.not.i, label %17, label %11
+
+11:                                               ; preds = %9
+  %12 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %13 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %12, i32 noundef %.0)
+  %.not9.i = icmp eq i8 %13, 0
+  br i1 %.not9.i, label %._crit_edge.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread
+
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread: ; preds = %11
+  %14 = load i32, ptr %5, align 4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds [12 x i8], ptr @_ZL19kPersianMonthLength, i64 0, i64 %15
+  br label %35
+
+._crit_edge.i:                                    ; preds = %11
+  %.pre.i.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %.pre.i = select i1 %.pre.i.b, i32 1502, i32 0
+  br label %17
+
+17:                                               ; preds = %._crit_edge.i, %9
+  %18 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %10, %9 ]
+  %19 = icmp sgt i32 %.0, %18
+  br i1 %19, label %20, label %._ZN6icu_7715PersianCalendar10isLeapYearEi.exit_crit_edge
+
+._ZN6icu_7715PersianCalendar10isLeapYearEi.exit_crit_edge: ; preds = %17
+  %.pre = load i32, ptr %5, align 4
+  br label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit
+
+20:                                               ; preds = %17
+  %21 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %22 = add nsw i32 %.0, -1
+  %23 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %21, i32 noundef %22)
+  %.not10.i = icmp eq i8 %23, 0
+  %.pre12 = load i32, ptr %5, align 4
+  br i1 %.not10.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
+
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6: ; preds = %20
+  %24 = sext i32 %.pre12 to i64
+  %25 = getelementptr inbounds [12 x i8], ptr @_ZL23kPersianLeapMonthLength, i64 0, i64 %24
+  br label %35
+
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit:   ; preds = %._ZN6icu_7715PersianCalendar10isLeapYearEi.exit_crit_edge, %20
+  %26 = phi i32 [ %.pre, %._ZN6icu_7715PersianCalendar10isLeapYearEi.exit_crit_edge ], [ %.pre12, %20 ]
+  %27 = sext i32 %.0 to i64
+  %28 = mul nsw i64 %27, 25
+  %29 = add nsw i64 %28, 11
+  %30 = srem i64 %29, 33
+  %31 = icmp sgt i64 %30, 7
+  %32 = sext i32 %26 to i64
+  %33 = getelementptr inbounds [12 x i8], ptr @_ZL23kPersianLeapMonthLength, i64 0, i64 %32
+  %34 = getelementptr inbounds [12 x i8], ptr @_ZL19kPersianMonthLength, i64 0, i64 %32
+  %spec.select = select i1 %31, ptr %34, ptr %33
+  br label %35
+
+35:                                               ; preds = %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
+  %36 = phi ptr [ %25, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6 ], [ %16, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread ], [ %spec.select, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit ]
+  %37 = load i8, ptr %36, align 1, !tbaa !14
+  %38 = sext i8 %37 to i32
+  ret i32 %38
+}
+
+declare noundef i32 @_ZN6icu_779ClockMath11floorDivideEiiPi(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define noundef range(i32 0, 367) i32 @_ZNK6icu_7715PersianCalendar19handleGetYearLengthEiR10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 align 2 {
+  %4 = load i32, ptr %2, align 4, !tbaa !15
+  %5 = icmp slt i32 %4, 1
+  br i1 %5, label %6, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
+
+6:                                                ; preds = %3
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %7 = select i1 %.b, i32 1502, i32 0
+  %.not.i = icmp slt i32 %1, %7
+  br i1 %.not.i, label %11, label %8
+
+8:                                                ; preds = %6
+  %9 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %10 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %9, i32 noundef %1)
+  %.not9.i = icmp eq i8 %10, 0
+  br i1 %.not9.i, label %._crit_edge.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread
+
+._crit_edge.i:                                    ; preds = %8
+  %.pre.i.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %.pre.i = select i1 %.pre.i.b, i32 1502, i32 0
+  br label %11
+
+11:                                               ; preds = %._crit_edge.i, %6
+  %12 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %7, %6 ]
+  %13 = icmp sgt i32 %1, %12
+  br i1 %13, label %14, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit
+
+14:                                               ; preds = %11
+  %15 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %16 = add nsw i32 %1, -1
+  %17 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %15, i32 noundef %16)
+  %.not10.i = icmp eq i8 %17, 0
+  br i1 %.not10.i, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
+
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit:   ; preds = %11, %14
+  %18 = sext i32 %1 to i64
+  %19 = mul nsw i64 %18, 25
+  %20 = add nsw i64 %19, 11
+  %21 = srem i64 %20, 33
+  %22 = icmp sgt i64 %21, 7
+  br i1 %22, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
+
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread: ; preds = %8, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit
+  br label %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6
+
+_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread6: ; preds = %14, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit, %3
+  %.0 = phi i32 [ 0, %3 ], [ 365, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit.thread ], [ 366, %_ZN6icu_7715PersianCalendar10isLeapYearEi.exit ], [ 366, %14 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef range(i64 -785977099983, 785980995524) i64 @_ZNK6icu_7715PersianCalendar23handleComputeMonthStartEiiaR10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i8 signext %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %4) unnamed_addr #1 align 2 {
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store i32 %1, ptr %6, align 4, !tbaa !6
+  store i32 %2, ptr %7, align 4, !tbaa !6
+  %8 = load i32, ptr %4, align 4, !tbaa !15
+  %9 = icmp slt i32 %8, 1
+  br i1 %9, label %10, label %40
+
+10:                                               ; preds = %5
+  %or.cond = icmp ugt i32 %2, 11
+  br i1 %or.cond, label %11, label %15
+
+11:                                               ; preds = %10
+  %12 = call noundef i32 @_ZN6icu_779ClockMath11floorDivideEiiPi(i32 noundef %2, i32 noundef 12, ptr noundef nonnull %7)
+  %13 = call signext i8 @uprv_add32_overflow_77(i32 noundef %1, i32 noundef %12, ptr noundef nonnull %6)
+  %.not7 = icmp eq i8 %13, 0
+  br i1 %.not7, label %._crit_edge, label %14
+
+._crit_edge:                                      ; preds = %11
+  %.pre = load i32, ptr %6, align 4, !tbaa !6
+  br label %15
+
+14:                                               ; preds = %11
+  store i32 1, ptr %4, align 4, !tbaa !15
+  br label %40
+
+15:                                               ; preds = %._crit_edge, %10
+  %16 = phi i32 [ %.pre, %._crit_edge ], [ %1, %10 ]
+  %17 = sext i32 %16 to i64
+  %18 = add nsw i64 %17, -1
+  %19 = mul nsw i64 %18, 365
+  %20 = shl i32 %16, 3
+  %21 = add i32 %20, 21
+  %22 = call noundef i32 @_ZN6icu_779ClockMath11floorDivideEii(i32 noundef %21, i32 noundef 33)
+  %23 = sext i32 %22 to i64
+  %24 = add nsw i64 %19, %23
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %25 = select i1 %.b, i32 1502, i32 0
+  %26 = icmp sgt i32 %16, %25
+  br i1 %26, label %27, label %_ZN6icu_77L17firstJulianOfYearEl.exit
+
+27:                                               ; preds = %15
+  %28 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %29 = trunc i64 %18 to i32
+  %30 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %28, i32 noundef %29)
+  %.not.i = icmp ne i8 %30, 0
+  %31 = sext i1 %.not.i to i64
+  %spec.select.i = add nsw i64 %24, %31
+  br label %_ZN6icu_77L17firstJulianOfYearEl.exit
+
+_ZN6icu_77L17firstJulianOfYearEl.exit:            ; preds = %15, %27
+  %.0.i = phi i64 [ %24, %15 ], [ %spec.select.i, %27 ]
+  %32 = add nsw i64 %.0.i, 1948319
+  %33 = load i32, ptr %7, align 4, !tbaa !6
+  %.not8 = icmp eq i32 %33, 0
+  br i1 %.not8, label %40, label %34
+
+34:                                               ; preds = %_ZN6icu_77L17firstJulianOfYearEl.exit
+  %35 = sext i32 %33 to i64
+  %36 = getelementptr inbounds [12 x i16], ptr @_ZL15kPersianNumDays, i64 0, i64 %35
+  %37 = load i16, ptr %36, align 2, !tbaa !9
+  %38 = sext i16 %37 to i64
+  %39 = add nsw i64 %32, %38
+  br label %40
+
+40:                                               ; preds = %_ZN6icu_77L17firstJulianOfYearEl.exit, %34, %5, %14
+  %.05 = phi i64 [ 0, %14 ], [ 0, %5 ], [ %39, %34 ], [ %32, %_ZN6icu_77L17firstJulianOfYearEl.exit ]
+  ret i64 %.05
+}
+
+declare signext i8 @uprv_add32_overflow_77(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN6icu_7715PersianCalendar21handleGetExtendedYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #1 align 2 {
+  %3 = load i32, ptr %1, align 4, !tbaa !15
+  %4 = icmp slt i32 %3, 1
+  br i1 %4, label %5, label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
+
+5:                                                ; preds = %2
+  %6 = tail call noundef i32 @_ZNK6icu_778Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, i32 noundef 1)
+  %7 = icmp eq i32 %6, 19
+  br i1 %7, label %8, label %15
+
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 123
+  %10 = load i8, ptr %9, align 1, !tbaa !14
+  %11 = icmp sgt i8 %10, 0
+  br i1 %11, label %12, label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %14 = load i32, ptr %13, align 4, !tbaa !6
+  br label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
+
+15:                                               ; preds = %5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  %17 = load i8, ptr %16, align 1, !tbaa !14
+  %18 = icmp sgt i8 %17, 0
+  br i1 %18, label %19, label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
+
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %21 = load i32, ptr %20, align 4, !tbaa !6
+  br label %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit
+
+_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit: ; preds = %19, %15, %12, %8, %2
+  %.0 = phi i32 [ 0, %2 ], [ %14, %12 ], [ 1, %8 ], [ %21, %19 ], [ 1, %15 ]
+  ret i32 %.0
+}
+
+declare noundef i32 @_ZNK6icu_778Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7715PersianCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(192) %0, i32 noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #1 align 2 {
+  %4 = sext i32 %1 to i64
+  %5 = add nsw i64 %4, -1948320
+  %6 = mul nsw i64 %5, 33
+  %7 = add nsw i64 %6, 3
+  %8 = tail call noundef i64 @_ZN6icu_779ClockMath16floorDivideInt64Ell(i64 noundef %7, i64 noundef 12053)
+  %9 = add nsw i64 %8, 1
+  %10 = add i64 %8, -2147483647
+  %or.cond = icmp ult i64 %10, -4294967296
+  br i1 %or.cond, label %11, label %12
+
+11:                                               ; preds = %3
+  store i32 1, ptr %2, align 4, !tbaa !15
+  br label %60
+
+12:                                               ; preds = %3
+  %13 = mul nsw i64 %8, 365
+  %.tr.i = trunc i64 %9 to i32
+  %14 = shl i32 %.tr.i, 3
+  %15 = add i32 %14, 21
+  %16 = tail call noundef i32 @_ZN6icu_779ClockMath11floorDivideEii(i32 noundef %15, i32 noundef 33)
+  %17 = zext i32 %16 to i64
+  %18 = add nsw i64 %13, %17
+  %.b = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %19 = select i1 %.b, i64 1502, i64 0
+  %.not43 = icmp slt i64 %8, %19
+  br i1 %.not43, label %_ZN6icu_77L17firstJulianOfYearEl.exit, label %20
+
+20:                                               ; preds = %12
+  %21 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %22 = trunc i64 %8 to i32
+  %23 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %21, i32 noundef %22)
+  %.not.i = icmp ne i8 %23, 0
+  %24 = sext i1 %.not.i to i64
+  %spec.select.i = add nsw i64 %18, %24
+  br label %_ZN6icu_77L17firstJulianOfYearEl.exit
+
+_ZN6icu_77L17firstJulianOfYearEl.exit:            ; preds = %12, %20
+  %.0.i = phi i64 [ %18, %12 ], [ %spec.select.i, %20 ]
+  %25 = sub nsw i64 %5, %.0.i
+  %26 = trunc i64 %25 to i32
+  %27 = icmp eq i32 %26, 365
+  br i1 %27, label %28, label %34
+
+28:                                               ; preds = %_ZN6icu_77L17firstJulianOfYearEl.exit
+  %.b45 = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %29 = select i1 %.b45, i64 1502, i64 0
+  %.not = icmp slt i64 %9, %29
+  br i1 %.not, label %.thread, label %30
+
+30:                                               ; preds = %28
+  %31 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
+  %32 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %31, i32 noundef %.tr.i)
+  %.not30 = icmp eq i8 %32, 0
+  br i1 %.not30, label %.thread, label %..thread38_crit_edge
+
+..thread38_crit_edge:                             ; preds = %30
+  %33 = trunc i64 %8 to i32
+  %.pre44 = add i32 %33, 2
+  br label %.thread38
+
+34:                                               ; preds = %_ZN6icu_77L17firstJulianOfYearEl.exit
+  %35 = icmp slt i32 %26, 216
+  br i1 %35, label %.thread38, label %.thread
+
+.thread38:                                        ; preds = %..thread38_crit_edge, %34
+  %.pre.pre-phi = phi i32 [ %.pre44, %..thread38_crit_edge ], [ %.tr.i, %34 ]
+  %.02642 = phi i32 [ 0, %..thread38_crit_edge ], [ %26, %34 ]
+  %36 = sdiv i32 %.02642, 31
+  br label %39
+
+.thread:                                          ; preds = %30, %28, %34
+  %37 = add nsw i32 %26, -6
+  %38 = udiv i32 %37, 30
+  br label %39
+
+39:                                               ; preds = %.thread, %.thread38
+  %.pre-phi = phi i32 [ %.tr.i, %.thread ], [ %.pre.pre-phi, %.thread38 ]
+  %.02636 = phi i32 [ %26, %.thread ], [ %.02642, %.thread38 ]
+  %.0 = phi i32 [ %38, %.thread ], [ %36, %.thread38 ]
+  %40 = add nsw i32 %.02636, 1
+  %41 = sext i32 %.0 to i64
+  %42 = getelementptr inbounds [12 x i16], ptr @_ZL15kPersianNumDays, i64 0, i64 %41
+  %43 = load i16, ptr %42, align 2, !tbaa !9
+  %44 = sext i16 %43 to i32
+  %45 = sub nsw i32 %40, %44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %46, align 8, !tbaa !6
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i8 1, ptr %47, align 8, !tbaa !14
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.pre-phi, ptr %48, align 4, !tbaa !6
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  store i8 1, ptr %49, align 1, !tbaa !14
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %.pre-phi, ptr %50, align 4, !tbaa !6
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 123
+  store i8 1, ptr %51, align 1, !tbaa !14
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.0, ptr %52, align 8, !tbaa !6
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 106
+  store i8 1, ptr %53, align 2, !tbaa !14
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 %.0, ptr %54, align 4, !tbaa !6
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 127
+  store i8 1, ptr %55, align 1, !tbaa !14
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %45, ptr %56, align 4, !tbaa !6
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 109
+  store i8 1, ptr %57, align 1, !tbaa !14
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %40, ptr %58, align 8, !tbaa !6
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 110
+  store i8 1, ptr %59, align 2, !tbaa !14
+  br label %60
+
+60:                                               ; preds = %39, %11
+  ret void
+}
+
+declare noundef i64 @_ZN6icu_779ClockMath16floorDivideInt64Ell(i64 noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZNK6icu_7715PersianCalendar14getRelatedYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #1 align 2 {
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  %4 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  store i32 %4, ptr %3, align 4, !tbaa !6
+  %5 = load i32, ptr %1, align 4, !tbaa !15
+  %6 = icmp slt i32 %5, 1
+  br i1 %6, label %7, label %12
+
+7:                                                ; preds = %2
+  %8 = call signext i8 @uprv_add32_overflow_77(i32 noundef %4, i32 noundef 622, ptr noundef nonnull %3)
+  %.not4 = icmp eq i8 %8, 0
+  br i1 %.not4, label %10, label %9
+
+9:                                                ; preds = %7
+  store i32 1, ptr %1, align 4, !tbaa !15
+  br label %12
+
+10:                                               ; preds = %7
+  %11 = load i32, ptr %3, align 4, !tbaa !6
+  br label %12
+
+12:                                               ; preds = %2, %10, %9
+  %.0 = phi i32 [ 0, %9 ], [ %11, %10 ], [ 0, %2 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  ret i32 %.0
+}
+
+declare noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN6icu_7715PersianCalendar14setRelatedYearEi(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+  %3 = add i32 %1, -622
+  tail call void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, i32 noundef %3)
+  ret void
+}
+
+declare void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define noundef double @_ZNK6icu_7715PersianCalendar19defaultCenturyStartEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
+  %2 = load atomic i32, ptr @_ZN6icu_7712_GLOBAL__N_125gSystemDefaultCenturyInitE acquire, align 4
+  %3 = icmp eq i32 %2, 2
+  br i1 %3, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %4
+
+4:                                                ; preds = %1
+  %5 = tail call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7712_GLOBAL__N_125gSystemDefaultCenturyInitE)
+  %.not.i = icmp eq i8 %5, 0
+  br i1 %.not.i, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %6
+
+6:                                                ; preds = %4
+  tail call fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCenturyEv()
+  tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7712_GLOBAL__N_125gSystemDefaultCenturyInitE)
+  br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit
+
+_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %1, %4, %6
+  %7 = load double, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !17
+  ret double %7
+}
+
+; Function Attrs: mustprogress uwtable
+define internal fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCenturyEv() unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+  %1 = alloca i32, align 4
+  %2 = alloca %"class.icu_77::PersianCalendar", align 8
+  %3 = alloca %"class.icu_77::Locale", align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #6
+  store i32 0, ptr %1, align 4, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #6
+  call void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef null, ptr noundef null)
+  invoke void @_ZN6icu_7715PersianCalendarC1ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull align 4 dereferenceable(4) %1)
+          to label %4 unwind label %7
+
+4:                                                ; preds = %0
+  call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #6
+  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #6
+  %5 = load i32, ptr %1, align 4, !tbaa !15
+  %6 = icmp slt i32 %5, 1
+  br i1 %6, label %9, label %16
+
+7:                                                ; preds = %0
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #6
+  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #6
+  br label %19
+
+9:                                                ; preds = %4
+  %10 = invoke noundef double @_ZN6icu_778Calendar6getNowEv()
+          to label %11 unwind label %17
+
+11:                                               ; preds = %9
+  invoke void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, double noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %1)
+          to label %_ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit unwind label %17
+
+_ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit:  ; preds = %11
+  invoke void @_ZN6icu_778Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef 1, i32 noundef -80, ptr noundef nonnull align 4 dereferenceable(4) %1)
+          to label %12 unwind label %17
+
+12:                                               ; preds = %_ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit
+  %13 = invoke noundef double @_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 4 dereferenceable(4) %1)
+          to label %_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit unwind label %17
+
+_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %12
+  store double %13, ptr @_ZN6icu_7712_GLOBAL__N_126gSystemDefaultCenturyStartE, align 8, !tbaa !17
+  %14 = invoke noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %1)
+          to label %15 unwind label %17
+
+15:                                               ; preds = %_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit
+  store i32 %14, ptr @_ZN6icu_7712_GLOBAL__N_130gSystemDefaultCenturyStartYearE, align 4, !tbaa !6
+  br label %16
+
+16:                                               ; preds = %4, %15
+  call void @_ZN6icu_7715PersianCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #6
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
   ret void
 
-eh.resume:                                        ; preds = %lpad1, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
+17:                                               ; preds = %12, %11, %_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit, %_ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit, %9
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_7715PersianCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #6
+  br label %19
+
+19:                                               ; preds = %17, %7
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %8, %7 ]
+  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #6
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar23defaultCenturyStartYearEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i32, ptr @_ZN6icu_75L25gSystemDefaultCenturyInitE acquire, align 4
-  %cmp.i = icmp eq i32 %0, 2
-  br i1 %cmp.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %if.end.i
+define noundef i32 @_ZNK6icu_7715PersianCalendar23defaultCenturyStartYearEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
+  %2 = load atomic i32, ptr @_ZN6icu_7712_GLOBAL__N_125gSystemDefaultCenturyInitE acquire, align 4
+  %3 = icmp eq i32 %2, 2
+  br i1 %3, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %4
 
-if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L25gSystemDefaultCenturyInitE)
-  %tobool.not.i = icmp eq i8 %call1.i, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %if.then2.i
+4:                                                ; preds = %1
+  %5 = tail call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7712_GLOBAL__N_125gSystemDefaultCenturyInitE)
+  %.not.i = icmp eq i8 %5, 0
+  br i1 %.not.i, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit, label %6
 
-if.then2.i:                                       ; preds = %if.end.i
-  tail call fastcc void @_ZN6icu_75L30initializeSystemDefaultCenturyEv()
-  tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L25gSystemDefaultCenturyInitE)
-  br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit
+6:                                                ; preds = %4
+  tail call fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCenturyEv()
+  tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7712_GLOBAL__N_125gSystemDefaultCenturyInitE)
+  br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit
 
-_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %entry, %if.end.i, %if.then2.i
-  %1 = load i32, ptr @_ZN6icu_75L30gSystemDefaultCenturyStartYearE, align 4
-  ret i32 %1
+_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %1, %4, %6
+  %7 = load i32, ptr @_ZN6icu_7712_GLOBAL__N_130gSystemDefaultCenturyStartYearE, align 4, !tbaa !6
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN6icu_7515PersianCalendar16getStaticClassIDEv() local_unnamed_addr #0 align 2 {
-entry:
-  ret ptr @_ZZN6icu_7515PersianCalendar16getStaticClassIDEvE7classID
+define noundef signext i8 @_ZNK6icu_7715PersianCalendar18haveDefaultCenturyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+  ret i8 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7515PersianCalendar17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
-entry:
-  ret ptr @_ZZN6icu_7515PersianCalendar16getStaticClassIDEvE7classID
+define noundef nonnull ptr @_ZN6icu_7715PersianCalendar16getStaticClassIDEv() local_unnamed_addr #0 align 2 {
+  ret ptr @_ZZN6icu_7715PersianCalendar16getStaticClassIDEvE7classID
 }
 
-declare noundef zeroext i1 @_ZNK6icu_758CalendareqERKS0_(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #3
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define noundef nonnull ptr @_ZNK6icu_7715PersianCalendar17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+  ret ptr @_ZZN6icu_7715PersianCalendar16getStaticClassIDEvE7classID
+}
 
-declare noundef signext i8 @_ZNK6icu_758Calendar14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK6icu_778CalendareqERKS0_(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(192)) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar3addENS0_11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef signext i8 @_ZNK6icu_778Calendar14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(192)) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_778Calendar3addENS0_11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar4rollENS0_11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_778Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar4rollE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_778Calendar4rollENS0_11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZN6icu_758Calendar15fieldDifferenceEdNS0_11EDateFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), double noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_778Calendar4rollE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZN6icu_758Calendar15fieldDifferenceEd19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), double noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZN6icu_778Calendar15fieldDifferenceEdNS0_11EDateFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), double noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef signext i8 @_ZNK6icu_758Calendar14inDaylightTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZN6icu_778Calendar15fieldDifferenceEd19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), double noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar10getMinimumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+declare noundef signext i8 @_ZNK6icu_778Calendar14inDaylightTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar10getMinimumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar10getMinimumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar10getMaximumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar10getMinimumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar10getMaximumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar10getMaximumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar18getGreatestMinimumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar10getMaximumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar18getGreatestMinimumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar18getGreatestMinimumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar15getLeastMaximumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar18getGreatestMinimumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar15getLeastMaximumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar15getLeastMaximumENS0_11EDateFieldsE(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar15getLeastMaximumE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar16getActualMaximumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar16getActualMaximumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar20getWeekendTransitionE19UCalendarDaysOfWeekR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef signext i8 @_ZNK6icu_758Calendar9isWeekendEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar20getWeekendTransitionE19UCalendarDaysOfWeekR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef signext i8 @_ZNK6icu_758Calendar9isWeekendEv(ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #3
+declare noundef signext i8 @_ZNK6icu_778Calendar9isWeekendEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef zeroext i1 @_ZNK6icu_758Calendar18inTemporalLeapYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef signext i8 @_ZNK6icu_778Calendar9isWeekendEv(ptr noundef nonnull align 8 dereferenceable(192)) unnamed_addr #3
 
-declare noundef ptr @_ZNK6icu_758Calendar20getTemporalMonthCodeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef zeroext i1 @_ZNK6icu_778Calendar18inTemporalLeapYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef ptr @_ZNK6icu_778Calendar20getTemporalMonthCodeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar11computeTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_778Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar13computeFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_778Calendar11computeTimeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar16internalGetMonthEv(ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #3
+declare void @_ZN6icu_778Calendar13computeFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar16internalGetMonthEi(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK6icu_778Calendar22isEra0CountingBackwardEv(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 comdat align 2 {
+  ret i1 false
+}
 
-declare void @_ZN6icu_758Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar16internalGetMonthER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZNK6icu_758Calendar8getLimitE19UCalendarDateFieldsNS0_10ELimitTypeE(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar16internalGetMonthEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZN6icu_758Calendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_778Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZN6icu_758Calendar35handleGetExtendedYearFromWeekFieldsEii(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) unnamed_addr #3
+declare noundef i32 @_ZNK6icu_778Calendar8getLimitE19UCalendarDateFieldsNS0_10ELimitTypeE(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar13validateFieldE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZN6icu_778Calendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef ptr @_ZNK6icu_758Calendar23getFieldResolutionTableEv(ptr noundef nonnull align 8 dereferenceable(618)) unnamed_addr #3
+declare noundef i32 @_ZN6icu_778Calendar35handleGetExtendedYearFromWeekFieldsEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZN6icu_758Calendar21getDefaultMonthInYearEi(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef) unnamed_addr #3
+declare void @_ZN6icu_778Calendar13validateFieldE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef i32 @_ZN6icu_758Calendar20getDefaultDayInMonthEii(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) unnamed_addr #3
+declare noundef ptr @_ZNK6icu_778Calendar23getFieldResolutionTableEv(ptr noundef nonnull align 8 dereferenceable(192)) unnamed_addr #3
 
-declare void @_ZN6icu_758Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare noundef i32 @_ZN6icu_778Calendar21getDefaultMonthInYearEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
+declare noundef i32 @_ZN6icu_778Calendar20getDefaultDayInMonthEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
+declare void @_ZN6icu_778Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
-declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #3
+declare void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #3
+
+declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #3
+
+declare noundef ptr @_ZNK6icu_7710UnicodeSet13cloneAsThawedEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
+
+declare noundef ptr @_ZN6icu_7710UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
+
+declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL24calendar_persian_cleanupv() #4 personality ptr @__gxx_personality_v0 {
+  %1 = load ptr, ptr @_ZN12_GLOBAL__N_115gLeapCorrectionE, align 8, !tbaa !11
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %3, label %2
+
+2:                                                ; preds = %0
+  tail call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %1) #6
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %1) #6
+  store ptr null, ptr @_ZN12_GLOBAL__N_115gLeapCorrectionE, align 8, !tbaa !11
+  br label %3
+
+3:                                                ; preds = %2, %0
+  store atomic i32 0, ptr @_ZN12_GLOBAL__N_119gCorrectionInitOnceE seq_cst, align 4
+  ret i8 1
+}
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #2
+declare void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
-declare noundef double @_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare noundef i32 @_ZN6icu_779ClockMath11floorDivideEii(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+declare void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #3
+
+; Function Attrs: nounwind
+declare void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #2
+
+declare noundef double @_ZN6icu_778Calendar6getNowEv() local_unnamed_addr #3
+
+declare void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+
+declare noundef double @_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"vtable pointer", !5, i64 0}
+!5 = !{!"Simple C++ TBAA"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"short", !8, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !13, i64 0}
+!13 = !{!"any pointer", !8, i64 0}
+!14 = !{!8, !8, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"_ZTS10UErrorCode", !8, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"double", !8, i64 0}

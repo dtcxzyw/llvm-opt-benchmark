@@ -1,321 +1,352 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_75::number::IntegerWidth" = type <{ %union.anon, i8, [3 x i8] }>
+%"class.icu_77::number::IntegerWidth" = type <{ %union.anon, i8, [3 x i8] }>
 %union.anon = type { i32, [4 x i8] }
 %struct.anon = type { i16, i16, i8 }
 
-$_ZN6icu_756number12IntegerWidthC2E10UErrorCode = comdat any
+$_ZN6icu_776number12IntegerWidthC2E10UErrorCode = comdat any
 
-@_ZN6icu_756number12IntegerWidthC1Essb = unnamed_addr alias void (ptr, i16, i16, i1), ptr @_ZN6icu_756number12IntegerWidthC2Essb
+@_ZN6icu_776number12IntegerWidthC1Essb = unnamed_addr alias void (ptr, i16, i16, i1), ptr @_ZN6icu_776number12IntegerWidthC2Essb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number12IntegerWidthC2Essb(ptr noundef nonnull align 4 dereferenceable(9) %this, i16 noundef signext %minInt, i16 noundef signext %maxInt, i1 noundef zeroext %formatFailIfMoreThanMaxDigits) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %minInt.addr = alloca i16, align 2
-  %maxInt.addr = alloca i16, align 2
-  %formatFailIfMoreThanMaxDigits.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i16 %minInt, ptr %minInt.addr, align 2
-  store i16 %maxInt, ptr %maxInt.addr, align 2
-  %frombool = zext i1 %formatFailIfMoreThanMaxDigits to i8
-  store i8 %frombool, ptr %formatFailIfMoreThanMaxDigits.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fHasError = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %fHasError, align 4
-  %0 = load i16, ptr %minInt.addr, align 2
-  %fUnion2 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMinInt = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
-  store i16 %0, ptr %fMinInt, align 4
-  %1 = load i16, ptr %maxInt.addr, align 2
-  %fUnion3 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMaxInt = getelementptr inbounds %struct.anon, ptr %fUnion3, i32 0, i32 1
-  store i16 %1, ptr %fMaxInt, align 2
-  %2 = load i8, ptr %formatFailIfMoreThanMaxDigits.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %fUnion4 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds %struct.anon, ptr %fUnion4, i32 0, i32 2
-  %frombool5 = zext i1 %tobool to i8
-  store i8 %frombool5, ptr %fFormatFailIfMoreThanMaxDigits, align 4
+define void @_ZN6icu_776number12IntegerWidthC2Essb(ptr noundef nonnull align 4 dereferenceable(9) %0, i16 noundef signext %1, i16 noundef signext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i16, align 2
+  %7 = alloca i16, align 2
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i16 %1, ptr %6, align 2, !tbaa !8
+  store i16 %2, ptr %7, align 2, !tbaa !8
+  %9 = zext i1 %3 to i8
+  store i8 %9, ptr %8, align 1, !tbaa !10
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %10, i32 0, i32 1
+  store i8 0, ptr %11, align 4, !tbaa !12
+  %12 = load i16, ptr %6, align 2, !tbaa !8
+  %13 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %10, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.anon, ptr %13, i32 0, i32 0
+  store i16 %12, ptr %14, align 4, !tbaa !14
+  %15 = load i16, ptr %7, align 2, !tbaa !8
+  %16 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %10, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.anon, ptr %16, i32 0, i32 1
+  store i16 %15, ptr %17, align 2, !tbaa !14
+  %18 = load i8, ptr %8, align 1, !tbaa !10, !range !15, !noundef !16
+  %19 = trunc i8 %18 to i1
+  %20 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %10, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.anon, ptr %20, i32 0, i32 2
+  %22 = zext i1 %19 to i8
+  store i8 %22, ptr %21, align 4, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i8 } @_ZN6icu_756number12IntegerWidth10zeroFillToEi(i32 noundef %minInt) #1 align 2 {
-entry:
-  %retval = alloca %"class.icu_75::number::IntegerWidth", align 4
-  %minInt.addr = alloca i32, align 4
-  %retval.coerce = alloca { i64, i8 }, align 8
-  store i32 %minInt, ptr %minInt.addr, align 4
-  %0 = load i32, ptr %minInt.addr, align 4
-  %cmp = icmp sge i32 %0, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+define { i64, i8 } @_ZN6icu_776number12IntegerWidth10zeroFillToEi(i32 noundef %0) #1 align 2 {
+  %2 = alloca %"class.icu_77::number::IntegerWidth", align 4
+  %3 = alloca i32, align 4
+  %4 = alloca { i64, i8 }, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !17
+  %5 = load i32, ptr %3, align 4, !tbaa !17
+  %6 = icmp sge i32 %5, 0
+  br i1 %6, label %7, label %13
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %minInt.addr, align 4
-  %cmp1 = icmp sle i32 %1, 999
-  br i1 %cmp1, label %if.then, label %if.else
+7:                                                ; preds = %1
+  %8 = load i32, ptr %3, align 4, !tbaa !17
+  %9 = icmp sle i32 %8, 999
+  br i1 %9, label %10, label %13
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load i32, ptr %minInt.addr, align 4
-  %conv = trunc i32 %2 to i16
-  call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %conv, i16 noundef signext -1, i1 noundef zeroext false)
-  br label %return
+10:                                               ; preds = %7
+  %11 = load i32, ptr %3, align 4, !tbaa !17
+  %12 = trunc i32 %11 to i16
+  call void @_ZN6icu_776number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %2, i16 noundef signext %12, i16 noundef signext -1, i1 noundef zeroext false)
+  br label %14
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  call void @_ZN6icu_756number12IntegerWidthC2E10UErrorCode(ptr noundef nonnull align 4 dereferenceable(9) %retval, i32 noundef 65810)
-  br label %return
+13:                                               ; preds = %7, %1
+  call void @_ZN6icu_776number12IntegerWidthC2E10UErrorCode(ptr noundef nonnull align 4 dereferenceable(9) %2, i32 noundef 65810)
+  br label %14
 
-return:                                           ; preds = %if.else, %if.then
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %3 = load { i64, i8 }, ptr %retval.coerce, align 8
-  ret { i64, i8 } %3
+14:                                               ; preds = %13, %10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 4 %2, i64 12, i1 false)
+  %15 = load { i64, i8 }, ptr %4, align 8
+  ret { i64, i8 } %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_756number12IntegerWidthC2E10UErrorCode(ptr noundef nonnull align 4 dereferenceable(9) %this, i32 noundef %errorCode) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %errorCode.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %errorCode, ptr %errorCode.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fHasError = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %fHasError, align 4
-  %0 = load i32, ptr %errorCode.addr, align 4
-  %fUnion2 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  store i32 %0, ptr %fUnion2, align 4
-  %fHasError3 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 1
-  store i8 1, ptr %fHasError3, align 4
+define linkonce_odr void @_ZN6icu_776number12IntegerWidthC2E10UErrorCode(ptr noundef nonnull align 4 dereferenceable(9) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !19
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %5, i32 0, i32 1
+  store i8 0, ptr %6, align 4, !tbaa !12
+  %7 = load i32, ptr %4, align 4, !tbaa !19
+  %8 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %5, i32 0, i32 0
+  store i32 %7, ptr %8, align 4, !tbaa !14
+  %9 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %5, i32 0, i32 1
+  store i8 1, ptr %9, align 4, !tbaa !12
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i8 } @_ZN6icu_756number12IntegerWidth10truncateAtEi(ptr noundef nonnull align 4 dereferenceable(9) %this, i32 noundef %maxInt) #1 align 2 {
-entry:
-  %retval = alloca %"class.icu_75::number::IntegerWidth", align 4
-  %this.addr = alloca ptr, align 8
-  %maxInt.addr = alloca i32, align 4
-  %minInt = alloca i16, align 2
-  %retval.coerce = alloca { i64, i8 }, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %maxInt, ptr %maxInt.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fHasError = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 1
-  %0 = load i8, ptr %fHasError, align 4
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define { i64, i8 } @_ZN6icu_776number12IntegerWidth10truncateAtEi(ptr noundef nonnull align 4 dereferenceable(9) %0, i32 noundef %1) #1 align 2 {
+  %3 = alloca %"class.icu_77::number::IntegerWidth", align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i16, align 2
+  %7 = alloca i32, align 4
+  %8 = alloca { i64, i8 }, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !17
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %9, i32 0, i32 1
+  %11 = load i8, ptr %10, align 4, !tbaa !12, !range !15, !noundef !16
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %retval, ptr align 4 %this1, i64 12, i1 false)
-  br label %return
+13:                                               ; preds = %2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 4 %9, i64 12, i1 false)
+  br label %39
 
-if.end:                                           ; preds = %entry
-  %fUnion = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMinInt = getelementptr inbounds %struct.anon, ptr %fUnion, i32 0, i32 0
-  %1 = load i16, ptr %fMinInt, align 4
-  store i16 %1, ptr %minInt, align 2
-  %2 = load i32, ptr %maxInt.addr, align 4
-  %cmp = icmp sge i32 %2, 0
-  br i1 %cmp, label %land.lhs.true, label %if.else
+14:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #6
+  %15 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %9, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.anon, ptr %15, i32 0, i32 0
+  %17 = load i16, ptr %16, align 4, !tbaa !14
+  store i16 %17, ptr %6, align 2, !tbaa !8
+  %18 = load i32, ptr %5, align 4, !tbaa !17
+  %19 = icmp sge i32 %18, 0
+  br i1 %19, label %20, label %32
 
-land.lhs.true:                                    ; preds = %if.end
-  %3 = load i32, ptr %maxInt.addr, align 4
-  %cmp2 = icmp sle i32 %3, 999
-  br i1 %cmp2, label %land.lhs.true3, label %if.else
+20:                                               ; preds = %14
+  %21 = load i32, ptr %5, align 4, !tbaa !17
+  %22 = icmp sle i32 %21, 999
+  br i1 %22, label %23, label %32
 
-land.lhs.true3:                                   ; preds = %land.lhs.true
-  %4 = load i16, ptr %minInt, align 2
-  %conv = sext i16 %4 to i32
-  %5 = load i32, ptr %maxInt.addr, align 4
-  %cmp4 = icmp sle i32 %conv, %5
-  br i1 %cmp4, label %if.then5, label %if.else
+23:                                               ; preds = %20
+  %24 = load i16, ptr %6, align 2, !tbaa !8
+  %25 = sext i16 %24 to i32
+  %26 = load i32, ptr %5, align 4, !tbaa !17
+  %27 = icmp sle i32 %25, %26
+  br i1 %27, label %28, label %32
 
-if.then5:                                         ; preds = %land.lhs.true3
-  %6 = load i16, ptr %minInt, align 2
-  %7 = load i32, ptr %maxInt.addr, align 4
-  %conv6 = trunc i32 %7 to i16
-  call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %6, i16 noundef signext %conv6, i1 noundef zeroext false)
-  br label %return
+28:                                               ; preds = %23
+  %29 = load i16, ptr %6, align 2, !tbaa !8
+  %30 = load i32, ptr %5, align 4, !tbaa !17
+  %31 = trunc i32 %30 to i16
+  call void @_ZN6icu_776number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %3, i16 noundef signext %29, i16 noundef signext %31, i1 noundef zeroext false)
+  store i32 1, ptr %7, align 4
+  br label %38
 
-if.else:                                          ; preds = %land.lhs.true3, %land.lhs.true, %if.end
-  %8 = load i32, ptr %maxInt.addr, align 4
-  %cmp7 = icmp eq i32 %8, -1
-  br i1 %cmp7, label %if.then8, label %if.else9
+32:                                               ; preds = %23, %20, %14
+  %33 = load i32, ptr %5, align 4, !tbaa !17
+  %34 = icmp eq i32 %33, -1
+  br i1 %34, label %35, label %37
 
-if.then8:                                         ; preds = %if.else
-  %9 = load i16, ptr %minInt, align 2
-  call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %9, i16 noundef signext -1, i1 noundef zeroext false)
-  br label %return
+35:                                               ; preds = %32
+  %36 = load i16, ptr %6, align 2, !tbaa !8
+  call void @_ZN6icu_776number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %3, i16 noundef signext %36, i16 noundef signext -1, i1 noundef zeroext false)
+  store i32 1, ptr %7, align 4
+  br label %38
 
-if.else9:                                         ; preds = %if.else
-  call void @_ZN6icu_756number12IntegerWidthC2E10UErrorCode(ptr noundef nonnull align 4 dereferenceable(9) %retval, i32 noundef 65810)
-  br label %return
+37:                                               ; preds = %32
+  call void @_ZN6icu_776number12IntegerWidthC2E10UErrorCode(ptr noundef nonnull align 4 dereferenceable(9) %3, i32 noundef 65810)
+  store i32 1, ptr %7, align 4
+  br label %38
 
-return:                                           ; preds = %if.else9, %if.then8, %if.then5, %if.then
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval.coerce, ptr align 4 %retval, i64 12, i1 false)
-  %10 = load { i64, i8 }, ptr %retval.coerce, align 8
-  ret { i64, i8 } %10
+38:                                               ; preds = %37, %35, %28
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #6
+  br label %39
+
+39:                                               ; preds = %38, %13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %3, i64 12, i1 false)
+  %40 = load { i64, i8 }, ptr %8, align 8
+  ret { i64, i8 } %40
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number12IntegerWidth5applyERNS0_4impl15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(66) %quantity, ptr noundef nonnull align 4 dereferenceable(4) %status) #1 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %quantity.addr = alloca ptr, align 8
-  %status.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %quantity, ptr %quantity.addr, align 8
-  store ptr %status, ptr %status.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %status.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %call = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %1)
-  %tobool = icmp ne i8 %call, 0
-  br i1 %tobool, label %if.then, label %if.end
+define void @_ZNK6icu_776number12IntegerWidth5applyERNS0_4impl15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #1 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !23
+  %9 = load i32, ptr %8, align 4, !tbaa !19
+  %10 = call noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %9)
+  %11 = icmp ne i8 %10, 0
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %entry
-  br label %if.end24
+12:                                               ; preds = %3
+  br label %58
 
-if.end:                                           ; preds = %entry
-  %fHasError = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 1
-  %2 = load i8, ptr %fHasError, align 4
-  %tobool2 = trunc i8 %2 to i1
-  br i1 %tobool2, label %if.then3, label %if.else
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %7, i32 0, i32 1
+  %15 = load i8, ptr %14, align 4, !tbaa !12, !range !15, !noundef !16
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %19
 
-if.then3:                                         ; preds = %if.end
-  %3 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %3, align 4
-  br label %if.end24
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8, !tbaa !23
+  store i32 1, ptr %18, align 4, !tbaa !19
+  br label %58
 
-if.else:                                          ; preds = %if.end
-  %fUnion = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMaxInt = getelementptr inbounds %struct.anon, ptr %fUnion, i32 0, i32 1
-  %4 = load i16, ptr %fMaxInt, align 2
-  %conv = sext i16 %4 to i32
-  %cmp = icmp eq i32 %conv, -1
-  br i1 %cmp, label %if.then4, label %if.else7
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %7, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct.anon, ptr %20, i32 0, i32 1
+  %22 = load i16, ptr %21, align 2, !tbaa !14
+  %23 = sext i16 %22 to i32
+  %24 = icmp eq i32 %23, -1
+  br i1 %24, label %25, label %31
 
-if.then4:                                         ; preds = %if.else
-  %5 = load ptr, ptr %quantity.addr, align 8
-  %fUnion5 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMinInt = getelementptr inbounds %struct.anon, ptr %fUnion5, i32 0, i32 0
-  %6 = load i16, ptr %fMinInt, align 4
-  %conv6 = sext i16 %6 to i32
-  call void @_ZN6icu_756number4impl15DecimalQuantity13setMinIntegerEi(ptr noundef nonnull align 8 dereferenceable(66) %5, i32 noundef %conv6)
-  br label %if.end23
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %5, align 8, !tbaa !21
+  %27 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %7, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.anon, ptr %27, i32 0, i32 0
+  %29 = load i16, ptr %28, align 4, !tbaa !14
+  %30 = sext i16 %29 to i32
+  call void @_ZN6icu_776number4impl15DecimalQuantity20increaseMinIntegerToEi(ptr noundef nonnull align 8 dereferenceable(66) %26, i32 noundef %30)
+  br label %57
 
-if.else7:                                         ; preds = %if.else
-  %fUnion8 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds %struct.anon, ptr %fUnion8, i32 0, i32 2
-  %7 = load i8, ptr %fFormatFailIfMoreThanMaxDigits, align 4
-  %tobool9 = trunc i8 %7 to i1
-  br i1 %tobool9, label %land.lhs.true, label %if.end16
+31:                                               ; preds = %19
+  %32 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %7, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.anon, ptr %32, i32 0, i32 2
+  %34 = load i8, ptr %33, align 4, !tbaa !14, !range !15, !noundef !16
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %46
 
-land.lhs.true:                                    ; preds = %if.else7
-  %fUnion10 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMaxInt11 = getelementptr inbounds %struct.anon, ptr %fUnion10, i32 0, i32 1
-  %8 = load i16, ptr %fMaxInt11, align 2
-  %conv12 = sext i16 %8 to i32
-  %9 = load ptr, ptr %quantity.addr, align 8
-  %call13 = call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %9)
-  %cmp14 = icmp slt i32 %conv12, %call13
-  br i1 %cmp14, label %if.then15, label %if.end16
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %7, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %struct.anon, ptr %37, i32 0, i32 1
+  %39 = load i16, ptr %38, align 2, !tbaa !14
+  %40 = sext i16 %39 to i32
+  %41 = load ptr, ptr %5, align 8, !tbaa !21
+  %42 = call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %41)
+  %43 = icmp slt i32 %40, %42
+  br i1 %43, label %44, label %46
 
-if.then15:                                        ; preds = %land.lhs.true
-  %10 = load ptr, ptr %status.addr, align 8
-  store i32 1, ptr %10, align 4
-  br label %if.end16
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %6, align 8, !tbaa !23
+  store i32 1, ptr %45, align 4, !tbaa !19
+  br label %46
 
-if.end16:                                         ; preds = %if.then15, %land.lhs.true, %if.else7
-  %11 = load ptr, ptr %quantity.addr, align 8
-  %fUnion17 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMinInt18 = getelementptr inbounds %struct.anon, ptr %fUnion17, i32 0, i32 0
-  %12 = load i16, ptr %fMinInt18, align 4
-  %conv19 = sext i16 %12 to i32
-  call void @_ZN6icu_756number4impl15DecimalQuantity13setMinIntegerEi(ptr noundef nonnull align 8 dereferenceable(66) %11, i32 noundef %conv19)
-  %13 = load ptr, ptr %quantity.addr, align 8
-  %fUnion20 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMaxInt21 = getelementptr inbounds %struct.anon, ptr %fUnion20, i32 0, i32 1
-  %14 = load i16, ptr %fMaxInt21, align 2
-  %conv22 = sext i16 %14 to i32
-  call void @_ZN6icu_756number4impl15DecimalQuantity15applyMaxIntegerEi(ptr noundef nonnull align 8 dereferenceable(66) %13, i32 noundef %conv22)
-  br label %if.end23
+46:                                               ; preds = %44, %36, %31
+  %47 = load ptr, ptr %5, align 8, !tbaa !21
+  %48 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %7, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %struct.anon, ptr %48, i32 0, i32 0
+  %50 = load i16, ptr %49, align 4, !tbaa !14
+  %51 = sext i16 %50 to i32
+  call void @_ZN6icu_776number4impl15DecimalQuantity20increaseMinIntegerToEi(ptr noundef nonnull align 8 dereferenceable(66) %47, i32 noundef %51)
+  %52 = load ptr, ptr %5, align 8, !tbaa !21
+  %53 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %7, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %struct.anon, ptr %53, i32 0, i32 1
+  %55 = load i16, ptr %54, align 2, !tbaa !14
+  %56 = sext i16 %55 to i32
+  call void @_ZN6icu_776number4impl15DecimalQuantity15applyMaxIntegerEi(ptr noundef nonnull align 8 dereferenceable(66) %52, i32 noundef %56)
+  br label %57
 
-if.end23:                                         ; preds = %if.end16, %if.then4
-  br label %if.end24
+57:                                               ; preds = %46, %25
+  br label %58
 
-if.end24:                                         ; preds = %if.end23, %if.then3, %if.then
+58:                                               ; preds = %12, %57, %17
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %code) #0 {
-entry:
-  %code.addr = alloca i32, align 4
-  store i32 %code, ptr %code.addr, align 4
-  %0 = load i32, ptr %code.addr, align 4
-  %cmp = icmp sgt i32 %0, 0
-  %conv = zext i1 %cmp to i8
-  ret i8 %conv
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef signext i8 @_ZL9U_FAILURE10UErrorCode(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !19
+  %4 = icmp sgt i32 %3, 0
+  %5 = zext i1 %4 to i8
+  ret i8 %5
 }
 
-declare void @_ZN6icu_756number4impl15DecimalQuantity13setMinIntegerEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #3
+declare void @_ZN6icu_776number4impl15DecimalQuantity20increaseMinIntegerToEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #5
 
-declare noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) #3
+declare noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66)) #5
 
-declare void @_ZN6icu_756number4impl15DecimalQuantity15applyMaxIntegerEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #3
+declare void @_ZN6icu_776number4impl15DecimalQuantity15applyMaxIntegerEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK6icu_756number12IntegerWidtheqERKS1_(ptr noundef nonnull align 4 dereferenceable(9) %this, ptr noundef nonnull align 4 dereferenceable(9) %other) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMinInt = getelementptr inbounds %struct.anon, ptr %fUnion, i32 0, i32 0
-  %0 = load i16, ptr %fMinInt, align 4
-  %conv = sext i16 %0 to i32
-  %1 = load ptr, ptr %other.addr, align 8
-  %fUnion2 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %1, i32 0, i32 0
-  %fMinInt3 = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
-  %2 = load i16, ptr %fMinInt3, align 4
-  %conv4 = sext i16 %2 to i32
-  %cmp = icmp eq i32 %conv, %conv4
-  br i1 %cmp, label %land.rhs, label %land.end
+define noundef zeroext i1 @_ZNK6icu_776number12IntegerWidtheqERKS1_(ptr noundef nonnull align 4 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(9) %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct.anon, ptr %6, i32 0, i32 0
+  %8 = load i16, ptr %7, align 4, !tbaa !14
+  %9 = sext i16 %8 to i32
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.anon, ptr %11, i32 0, i32 0
+  %13 = load i16, ptr %12, align 4, !tbaa !14
+  %14 = sext i16 %13 to i32
+  %15 = icmp eq i32 %9, %14
+  br i1 %15, label %16, label %27
 
-land.rhs:                                         ; preds = %entry
-  %fUnion5 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this1, i32 0, i32 0
-  %fMaxInt = getelementptr inbounds %struct.anon, ptr %fUnion5, i32 0, i32 1
-  %3 = load i16, ptr %fMaxInt, align 2
-  %conv6 = sext i16 %3 to i32
-  %4 = load ptr, ptr %other.addr, align 8
-  %fUnion7 = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %4, i32 0, i32 0
-  %fMaxInt8 = getelementptr inbounds %struct.anon, ptr %fUnion7, i32 0, i32 1
-  %5 = load i16, ptr %fMaxInt8, align 2
-  %conv9 = sext i16 %5 to i32
-  %cmp10 = icmp eq i32 %conv6, %conv9
-  br label %land.end
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %5, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 1
+  %19 = load i16, ptr %18, align 2, !tbaa !14
+  %20 = sext i16 %19 to i32
+  %21 = load ptr, ptr %4, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %"class.icu_77::number::IntegerWidth", ptr %21, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.anon, ptr %22, i32 0, i32 1
+  %24 = load i16, ptr %23, align 2, !tbaa !14
+  %25 = sext i16 %24 to i32
+  %26 = icmp eq i32 %20, %25
+  br label %27
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %6 = phi i1 [ false, %entry ], [ %cmp10, %land.rhs ]
-  ret i1 %6
+27:                                               ; preds = %16, %2
+  %28 = phi i1 [ false, %2 ], [ %26, %16 ]
+  ret i1 %28
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN6icu_776number12IntegerWidthE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"short", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"bool", !6, i64 0}
+!12 = !{!13, !11, i64 8}
+!13 = !{!"_ZTSN6icu_776number12IntegerWidthE", !6, i64 0, !11, i64 8}
+!14 = !{!6, !6, i64 0}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSN6icu_776number4impl15DecimalQuantityE", !5, i64 0}
+!23 = !{!5, !5, i64 0}
