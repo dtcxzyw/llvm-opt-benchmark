@@ -108,6 +108,7 @@ supported_project = [
     "luau",
     "meshoptimizer",
     "mixbox",
+    "mold",
 ]
 
 modify_only = [
