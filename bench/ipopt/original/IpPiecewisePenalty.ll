@@ -126,10 +126,6 @@ $_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryEEvT_S3_ = comdat any
 
 $_ZNSt12_Destroy_auxILb1EE9__destroyIPN5Ipopt17PiecewisePenEntryEEEvT_S5_ = comdat any
 
-$_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implD2Ev = comdat any
-
-$_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEED2Ev = comdat any
-
 $_ZN9__gnu_cxxeqIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_ = comdat any
 
 $_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv = comdat any
@@ -150,7 +146,7 @@ $_ZN9__gnu_cxx14__alloc_traitsISaIN5Ipopt17PiecewisePenEntryEES2_E17_S_select_on
 
 $_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EEC2EmRKS2_ = comdat any
 
-$_ZNSaIN5Ipopt17PiecewisePenEntryEED2Ev = comdat any
+$_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEED2Ev = comdat any
 
 $_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E = comdat any
 
@@ -216,17 +212,17 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 define void @_ZN5Ipopt16PiecewisePenaltyC2Ei(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i32 %1, ptr %4, align 4, !tbaa !8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %5, i32 0, i32 0
-  %7 = load i32, ptr %4, align 4
-  store i32 %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %5, i32 0, i32 1
-  store double 0.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %5, i32 0, i32 2
-  store i32 100, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %5, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  store i32 %7, ptr %6, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %5, i32 0, i32 1
+  store double 0.000000e+00, ptr %8, align 8, !tbaa !18
+  %9 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %5, i32 0, i32 2
+  store i32 100, ptr %9, align 8, !tbaa !19
+  %10 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %5, i32 0, i32 3
   call void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   ret void
 }
@@ -234,7 +230,7 @@ define void @_ZN5Ipopt16PiecewisePenaltyC2Ei(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
@@ -253,403 +249,487 @@ define noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty10AcceptableEdd(ptr nounde
   %12 = alloca double, align 8
   %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %14 = alloca double, align 8
-  %15 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %15 = alloca i32, align 4
   %16 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %17 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %18 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %19 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %20 = alloca double, align 8
+  %20 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %21 = alloca double, align 8
   %22 = alloca double, align 8
-  %23 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %23 = alloca double, align 8
   %24 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %25 = alloca double, align 8
-  %26 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %25 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %26 = alloca double, align 8
   %27 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %5, align 8
-  store double %1, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  %28 = load ptr, ptr %5, align 8
-  store i8 0, ptr %8, align 1
+  %28 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store double %1, ptr %6, align 8, !tbaa !22
+  store double %2, ptr %7, align 8, !tbaa !22
+  %29 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  store i8 0, ptr %8, align 1, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   call void @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %29 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %28, i32 0, i32 3
-  %30 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #3
-  %31 = trunc i64 %30 to i32
-  store i32 %31, ptr %10, align 4
-  %32 = load i32, ptr %10, align 4
-  %33 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %28, i32 0, i32 2
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp sge i32 %32, %34
-  br i1 %35, label %36, label %234
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %30 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %29, i32 0, i32 3
+  %31 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %30) #3
+  %32 = trunc i64 %31 to i32
+  store i32 %32, ptr %10, align 4, !tbaa !8
+  %33 = load i32, ptr %10, align 4, !tbaa !8
+  %34 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %29, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8, !tbaa !19
+  %36 = icmp sge i32 %33, %35
+  br i1 %36, label %37, label %241
 
-36:                                               ; preds = %3
-  %37 = load double, ptr %7, align 8
-  store double %37, ptr %11, align 8
-  %38 = load double, ptr %6, align 8
-  store double %38, ptr %12, align 8
-  %39 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %28, i32 0, i32 3
-  %40 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %39) #3
-  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %13, i32 0, i32 0
-  store ptr %40, ptr %41, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %13, i64 8, i1 false)
-  %42 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %43 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %42, i32 0, i32 1
-  %44 = load double, ptr %43, align 8
-  %45 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %46 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %45, i32 0, i32 0
-  %47 = load double, ptr %46, align 8
-  %48 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %49 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %48, i32 0, i32 2
-  %50 = load double, ptr %49, align 8
-  %51 = call double @llvm.fmuladd.f64(double %47, double %50, double %44)
-  %52 = load double, ptr %12, align 8
-  %53 = fsub double %51, %52
-  %54 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %55 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %54, i32 0, i32 0
-  %56 = load double, ptr %55, align 8
-  %57 = load double, ptr %11, align 8
-  %58 = fneg double %56
-  %59 = call double @llvm.fmuladd.f64(double %58, double %57, double %53)
-  store double %59, ptr %14, align 8
-  %60 = load double, ptr %14, align 8
-  %61 = fcmp oge double %60, 0.000000e+00
-  br i1 %61, label %62, label %86
+37:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %38 = load double, ptr %7, align 8, !tbaa !22
+  store double %38, ptr %11, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %39 = load double, ptr %6, align 8, !tbaa !22
+  store double %39, ptr %12, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %40 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %29, i32 0, i32 3
+  %41 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #3
+  %42 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %13, i32 0, i32 0
+  store ptr %41, ptr %42, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %13, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %43 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %44 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %43, i32 0, i32 1
+  %45 = load double, ptr %44, align 8, !tbaa !27
+  %46 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %47 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %46, i32 0, i32 0
+  %48 = load double, ptr %47, align 8, !tbaa !29
+  %49 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %50 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %49, i32 0, i32 2
+  %51 = load double, ptr %50, align 8, !tbaa !30
+  %52 = call double @llvm.fmuladd.f64(double %48, double %51, double %45)
+  %53 = load double, ptr %12, align 8, !tbaa !22
+  %54 = fsub double %52, %53
+  %55 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %56 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %55, i32 0, i32 0
+  %57 = load double, ptr %56, align 8, !tbaa !29
+  %58 = load double, ptr %11, align 8, !tbaa !22
+  %59 = fneg double %57
+  %60 = call double @llvm.fmuladd.f64(double %59, double %58, double %54)
+  store double %60, ptr %14, align 8, !tbaa !22
+  %61 = load double, ptr %14, align 8, !tbaa !22
+  %62 = fcmp oge double %61, 0.000000e+00
+  br i1 %62, label %63, label %87
 
-62:                                               ; preds = %36
-  %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %64 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %65 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %64, i32 0, i32 1
-  %66 = load double, ptr %65, align 8
-  %67 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %68 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %67, i32 0, i32 0
-  %69 = load double, ptr %68, align 8
-  %70 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %71 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %70, i32 0, i32 2
-  %72 = load double, ptr %71, align 8
-  %73 = call double @llvm.fmuladd.f64(double %69, double %72, double %66)
-  %74 = load double, ptr %12, align 8
-  %75 = fsub double %73, %74
-  %76 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %77 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %76, i32 0, i32 0
-  %78 = load double, ptr %77, align 8
-  %79 = load double, ptr %11, align 8
-  %80 = fneg double %78
-  %81 = call double @llvm.fmuladd.f64(double %80, double %79, double %75)
-  store double %81, ptr %14, align 8
-  %82 = load double, ptr %14, align 8
-  %83 = fcmp ole double %82, 0.000000e+00
-  br i1 %83, label %84, label %85
+63:                                               ; preds = %37
+  %64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %65 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %66 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %65, i32 0, i32 1
+  %67 = load double, ptr %66, align 8, !tbaa !27
+  %68 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %69 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %68, i32 0, i32 0
+  %70 = load double, ptr %69, align 8, !tbaa !29
+  %71 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %72 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %71, i32 0, i32 2
+  %73 = load double, ptr %72, align 8, !tbaa !30
+  %74 = call double @llvm.fmuladd.f64(double %70, double %73, double %67)
+  %75 = load double, ptr %12, align 8, !tbaa !22
+  %76 = fsub double %74, %75
+  %77 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %78 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %77, i32 0, i32 0
+  %79 = load double, ptr %78, align 8, !tbaa !29
+  %80 = load double, ptr %11, align 8, !tbaa !22
+  %81 = fneg double %79
+  %82 = call double @llvm.fmuladd.f64(double %81, double %80, double %76)
+  store double %82, ptr %14, align 8, !tbaa !22
+  %83 = load double, ptr %14, align 8, !tbaa !22
+  %84 = fcmp ole double %83, 0.000000e+00
+  br i1 %84, label %85, label %86
 
-84:                                               ; preds = %62
+85:                                               ; preds = %63
   store i1 false, ptr %4, align 1
-  br label %284
-
-85:                                               ; preds = %62
-  br label %86
-
-86:                                               ; preds = %85, %36
-  %87 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %28, i32 0, i32 3
-  %88 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %87) #3
-  %89 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %16, i32 0, i32 0
-  store ptr %88, ptr %89, align 8
-  %90 = call ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmmEi(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef 0) #3
-  %91 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
-  store ptr %90, ptr %91, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %15, i64 8, i1 false)
-  %92 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %93 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %92, i32 0, i32 1
-  %94 = load double, ptr %93, align 8
-  %95 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %96 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %95, i32 0, i32 0
-  %97 = load double, ptr %96, align 8
-  %98 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %99 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %98, i32 0, i32 2
-  %100 = load double, ptr %99, align 8
-  %101 = call double @llvm.fmuladd.f64(double %97, double %100, double %94)
-  %102 = load double, ptr %12, align 8
-  %103 = fsub double %101, %102
-  %104 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %105 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %104, i32 0, i32 0
-  %106 = load double, ptr %105, align 8
-  %107 = load double, ptr %11, align 8
-  %108 = fneg double %106
-  %109 = call double @llvm.fmuladd.f64(double %108, double %107, double %103)
-  store double %109, ptr %14, align 8
-  %110 = load double, ptr %14, align 8
-  %111 = fcmp ole double %110, 0.000000e+00
-  br i1 %111, label %112, label %119
-
-112:                                              ; preds = %86
-  %113 = load double, ptr %11, align 8
-  %114 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %115 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %114, i32 0, i32 2
-  %116 = load double, ptr %115, align 8
-  %117 = fcmp ole double %113, %116
-  br i1 %117, label %118, label %119
-
-118:                                              ; preds = %112
-  store i1 false, ptr %4, align 1
-  br label %284
-
-119:                                              ; preds = %112, %86
-  %120 = load double, ptr %14, align 8
-  %121 = fcmp oge double %120, 0.000000e+00
-  br i1 %121, label %122, label %152
-
-122:                                              ; preds = %119
-  %123 = load double, ptr %11, align 8
-  %124 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %125 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %124, i32 0, i32 2
-  %126 = load double, ptr %125, align 8
-  %127 = fcmp oge double %123, %126
-  br i1 %127, label %128, label %152
-
-128:                                              ; preds = %122
-  %129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmIEl(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
-  %130 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %131 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %130, i32 0, i32 1
-  %132 = load double, ptr %131, align 8
-  %133 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %134 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %133, i32 0, i32 0
-  %135 = load double, ptr %134, align 8
-  %136 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %137 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %136, i32 0, i32 2
-  %138 = load double, ptr %137, align 8
-  %139 = call double @llvm.fmuladd.f64(double %135, double %138, double %132)
-  %140 = load double, ptr %12, align 8
-  %141 = fsub double %139, %140
-  %142 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %143 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %142, i32 0, i32 0
-  %144 = load double, ptr %143, align 8
-  %145 = load double, ptr %11, align 8
-  %146 = fneg double %144
-  %147 = call double @llvm.fmuladd.f64(double %146, double %145, double %141)
-  store double %147, ptr %14, align 8
-  %148 = load double, ptr %14, align 8
-  %149 = fcmp ole double %148, 0.000000e+00
-  br i1 %149, label %150, label %151
-
-150:                                              ; preds = %128
-  store i1 false, ptr %4, align 1
-  br label %284
-
-151:                                              ; preds = %128
-  br label %152
-
-152:                                              ; preds = %151, %122, %119
-  %153 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %28, i32 0, i32 3
-  %154 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %153) #3
-  %155 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %18, i32 0, i32 0
-  store ptr %154, ptr %155, align 8
-  %156 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 1) #3
-  %157 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %17, i32 0, i32 0
-  store ptr %156, ptr %157, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %17, i64 8, i1 false)
-  br label %158
-
-158:                                              ; preds = %231, %152
-  %159 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %28, i32 0, i32 3
-  %160 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %159) #3
-  %161 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %19, i32 0, i32 0
-  store ptr %160, ptr %161, align 8
-  %162 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %19) #3
-  br i1 %162, label %163, label %233
-
-163:                                              ; preds = %158
-  %164 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %165 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %164, i32 0, i32 1
-  %166 = load double, ptr %165, align 8
-  %167 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %168 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %167, i32 0, i32 0
-  %169 = load double, ptr %168, align 8
-  %170 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %171 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %170, i32 0, i32 2
-  %172 = load double, ptr %171, align 8
-  %173 = call double @llvm.fmuladd.f64(double %169, double %172, double %166)
-  %174 = load double, ptr %12, align 8
-  %175 = fsub double %173, %174
-  %176 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %177 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %176, i32 0, i32 0
-  %178 = load double, ptr %177, align 8
-  %179 = load double, ptr %11, align 8
-  %180 = fneg double %178
-  %181 = call double @llvm.fmuladd.f64(double %180, double %179, double %175)
-  store double %181, ptr %21, align 8
-  %182 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %183 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %184 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %183, i32 0, i32 1
-  %185 = load double, ptr %184, align 8
-  %186 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %187 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %186, i32 0, i32 0
-  %188 = load double, ptr %187, align 8
-  %189 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %190 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %189, i32 0, i32 2
-  %191 = load double, ptr %190, align 8
-  %192 = call double @llvm.fmuladd.f64(double %188, double %191, double %185)
-  %193 = load double, ptr %12, align 8
-  %194 = fsub double %192, %193
-  %195 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %196 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %195, i32 0, i32 0
-  %197 = load double, ptr %196, align 8
-  %198 = load double, ptr %11, align 8
-  %199 = fneg double %197
-  %200 = call double @llvm.fmuladd.f64(double %199, double %198, double %194)
-  store double %200, ptr %22, align 8
-  %201 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmIEl(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 2) #3
-  %202 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %203 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %202, i32 0, i32 1
-  %204 = load double, ptr %203, align 8
-  %205 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %206 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %205, i32 0, i32 0
-  %207 = load double, ptr %206, align 8
-  %208 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %209 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %208, i32 0, i32 2
-  %210 = load double, ptr %209, align 8
-  %211 = call double @llvm.fmuladd.f64(double %207, double %210, double %204)
-  %212 = load double, ptr %12, align 8
-  %213 = fsub double %211, %212
-  %214 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %215 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %214, i32 0, i32 0
-  %216 = load double, ptr %215, align 8
-  %217 = load double, ptr %11, align 8
-  %218 = fneg double %216
-  %219 = call double @llvm.fmuladd.f64(double %218, double %217, double %213)
-  store double %219, ptr %20, align 8
-  %220 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %221 = load double, ptr %20, align 8
-  %222 = fcmp ole double %221, 0.000000e+00
-  br i1 %222, label %223, label %230
-
-223:                                              ; preds = %163
-  %224 = load double, ptr %21, align 8
-  %225 = fcmp oge double %224, 0.000000e+00
-  br i1 %225, label %226, label %230
-
-226:                                              ; preds = %223
-  %227 = load double, ptr %22, align 8
-  %228 = fcmp ole double %227, 0.000000e+00
-  br i1 %228, label %229, label %230
-
-229:                                              ; preds = %226
-  store i1 false, ptr %4, align 1
-  br label %284
-
-230:                                              ; preds = %226, %223, %163
-  br label %231
-
-231:                                              ; preds = %230
-  %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %158, !llvm.loop !4
-
-233:                                              ; preds = %158
-  br label %234
-
-234:                                              ; preds = %233, %3
-  %235 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %28, i32 0, i32 3
-  %236 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %235) #3
-  %237 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %23, i32 0, i32 0
-  store ptr %236, ptr %237, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %23, i64 8, i1 false)
+  store i32 1, ptr %15, align 4
   br label %238
 
-238:                                              ; preds = %262, %234
-  %239 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %28, i32 0, i32 3
-  %240 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %239) #3
-  %241 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %24, i32 0, i32 0
-  store ptr %240, ptr %241, align 8
-  %242 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %24) #3
-  br i1 %242, label %243, label %264
+86:                                               ; preds = %63
+  br label %87
 
-243:                                              ; preds = %238
-  %244 = load double, ptr %6, align 8
-  %245 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %246 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %245, i32 0, i32 0
-  %247 = load double, ptr %246, align 8
-  %248 = load double, ptr %7, align 8
-  %249 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %250 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %249, i32 0, i32 2
-  %251 = load double, ptr %250, align 8
-  %252 = fsub double %248, %251
-  %253 = call double @llvm.fmuladd.f64(double %247, double %252, double %244)
-  %254 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %255 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %254, i32 0, i32 1
-  %256 = load double, ptr %255, align 8
-  %257 = fsub double %253, %256
-  store double %257, ptr %25, align 8
-  %258 = load double, ptr %25, align 8
-  %259 = fcmp olt double %258, 0.000000e+00
-  br i1 %259, label %260, label %261
+87:                                               ; preds = %86, %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  %88 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %29, i32 0, i32 3
+  %89 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %88) #3
+  %90 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %17, i32 0, i32 0
+  store ptr %89, ptr %90, align 8
+  %91 = call ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmmEi(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0) #3
+  %92 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %16, i32 0, i32 0
+  store ptr %91, ptr %92, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %16, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  %93 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %94 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %93, i32 0, i32 1
+  %95 = load double, ptr %94, align 8, !tbaa !27
+  %96 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %97 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %96, i32 0, i32 0
+  %98 = load double, ptr %97, align 8, !tbaa !29
+  %99 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %100 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %99, i32 0, i32 2
+  %101 = load double, ptr %100, align 8, !tbaa !30
+  %102 = call double @llvm.fmuladd.f64(double %98, double %101, double %95)
+  %103 = load double, ptr %12, align 8, !tbaa !22
+  %104 = fsub double %102, %103
+  %105 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %106 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %105, i32 0, i32 0
+  %107 = load double, ptr %106, align 8, !tbaa !29
+  %108 = load double, ptr %11, align 8, !tbaa !22
+  %109 = fneg double %107
+  %110 = call double @llvm.fmuladd.f64(double %109, double %108, double %104)
+  store double %110, ptr %14, align 8, !tbaa !22
+  %111 = load double, ptr %14, align 8, !tbaa !22
+  %112 = fcmp ole double %111, 0.000000e+00
+  br i1 %112, label %113, label %120
 
-260:                                              ; preds = %243
-  store i8 1, ptr %8, align 1
-  br label %264
+113:                                              ; preds = %87
+  %114 = load double, ptr %11, align 8, !tbaa !22
+  %115 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %116 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %115, i32 0, i32 2
+  %117 = load double, ptr %116, align 8, !tbaa !30
+  %118 = fcmp ole double %114, %117
+  br i1 %118, label %119, label %120
 
-261:                                              ; preds = %243
-  br label %262
+119:                                              ; preds = %113
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %15, align 4
+  br label %238
 
-262:                                              ; preds = %261
-  %263 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  br label %238, !llvm.loop !6
+120:                                              ; preds = %113, %87
+  %121 = load double, ptr %14, align 8, !tbaa !22
+  %122 = fcmp oge double %121, 0.000000e+00
+  br i1 %122, label %123, label %153
 
-264:                                              ; preds = %260, %238
-  %265 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %28, i32 0, i32 3
-  %266 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %265) #3
-  %267 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %27, i32 0, i32 0
-  store ptr %266, ptr %267, align 8
-  %268 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef 1) #3
-  %269 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %26, i32 0, i32 0
-  store ptr %268, ptr %269, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %26, i64 8, i1 false)
-  %270 = load i8, ptr %8, align 1
-  %271 = trunc i8 %270 to i1
-  %272 = zext i1 %271 to i32
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %281
+123:                                              ; preds = %120
+  %124 = load double, ptr %11, align 8, !tbaa !22
+  %125 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %126 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %125, i32 0, i32 2
+  %127 = load double, ptr %126, align 8, !tbaa !30
+  %128 = fcmp oge double %124, %127
+  br i1 %128, label %129, label %153
 
-274:                                              ; preds = %264
-  %275 = load double, ptr %7, align 8
-  %276 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  %277 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %276, i32 0, i32 2
-  %278 = load double, ptr %277, align 8
-  %279 = fcmp olt double %275, %278
-  br i1 %279, label %280, label %281
+129:                                              ; preds = %123
+  %130 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmIEl(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 1) #3
+  %131 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %132 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %131, i32 0, i32 1
+  %133 = load double, ptr %132, align 8, !tbaa !27
+  %134 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %135 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %134, i32 0, i32 0
+  %136 = load double, ptr %135, align 8, !tbaa !29
+  %137 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %138 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %137, i32 0, i32 2
+  %139 = load double, ptr %138, align 8, !tbaa !30
+  %140 = call double @llvm.fmuladd.f64(double %136, double %139, double %133)
+  %141 = load double, ptr %12, align 8, !tbaa !22
+  %142 = fsub double %140, %141
+  %143 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %144 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %143, i32 0, i32 0
+  %145 = load double, ptr %144, align 8, !tbaa !29
+  %146 = load double, ptr %11, align 8, !tbaa !22
+  %147 = fneg double %145
+  %148 = call double @llvm.fmuladd.f64(double %147, double %146, double %142)
+  store double %148, ptr %14, align 8, !tbaa !22
+  %149 = load double, ptr %14, align 8, !tbaa !22
+  %150 = fcmp ole double %149, 0.000000e+00
+  br i1 %150, label %151, label %152
 
-280:                                              ; preds = %274
-  store i8 1, ptr %8, align 1
-  br label %281
+151:                                              ; preds = %129
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %15, align 4
+  br label %238
 
-281:                                              ; preds = %280, %274, %264
-  %282 = load i8, ptr %8, align 1
-  %283 = trunc i8 %282 to i1
-  store i1 %283, ptr %4, align 1
-  br label %284
+152:                                              ; preds = %129
+  br label %153
 
-284:                                              ; preds = %281, %229, %150, %118, %84
-  %285 = load i1, ptr %4, align 1
-  ret i1 %285
+153:                                              ; preds = %152, %123, %120
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  %154 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %29, i32 0, i32 3
+  %155 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %154) #3
+  %156 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %19, i32 0, i32 0
+  store ptr %155, ptr %156, align 8
+  %157 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 1) #3
+  %158 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %18, i32 0, i32 0
+  store ptr %157, ptr %158, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %18, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  br label %159
+
+159:                                              ; preds = %235, %153
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  %160 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %29, i32 0, i32 3
+  %161 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %160) #3
+  %162 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %20, i32 0, i32 0
+  store ptr %161, ptr %162, align 8
+  %163 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  br i1 %163, label %164, label %237
+
+164:                                              ; preds = %159
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #3
+  %165 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %166 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %165, i32 0, i32 1
+  %167 = load double, ptr %166, align 8, !tbaa !27
+  %168 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %169 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %168, i32 0, i32 0
+  %170 = load double, ptr %169, align 8, !tbaa !29
+  %171 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %172 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %171, i32 0, i32 2
+  %173 = load double, ptr %172, align 8, !tbaa !30
+  %174 = call double @llvm.fmuladd.f64(double %170, double %173, double %167)
+  %175 = load double, ptr %12, align 8, !tbaa !22
+  %176 = fsub double %174, %175
+  %177 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %178 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %177, i32 0, i32 0
+  %179 = load double, ptr %178, align 8, !tbaa !29
+  %180 = load double, ptr %11, align 8, !tbaa !22
+  %181 = fneg double %179
+  %182 = call double @llvm.fmuladd.f64(double %181, double %180, double %176)
+  store double %182, ptr %22, align 8, !tbaa !22
+  %183 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %184 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %185 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %184, i32 0, i32 1
+  %186 = load double, ptr %185, align 8, !tbaa !27
+  %187 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %188 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %187, i32 0, i32 0
+  %189 = load double, ptr %188, align 8, !tbaa !29
+  %190 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %191 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %190, i32 0, i32 2
+  %192 = load double, ptr %191, align 8, !tbaa !30
+  %193 = call double @llvm.fmuladd.f64(double %189, double %192, double %186)
+  %194 = load double, ptr %12, align 8, !tbaa !22
+  %195 = fsub double %193, %194
+  %196 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %197 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %196, i32 0, i32 0
+  %198 = load double, ptr %197, align 8, !tbaa !29
+  %199 = load double, ptr %11, align 8, !tbaa !22
+  %200 = fneg double %198
+  %201 = call double @llvm.fmuladd.f64(double %200, double %199, double %195)
+  store double %201, ptr %23, align 8, !tbaa !22
+  %202 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmIEl(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 2) #3
+  %203 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %204 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %203, i32 0, i32 1
+  %205 = load double, ptr %204, align 8, !tbaa !27
+  %206 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %207 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %206, i32 0, i32 0
+  %208 = load double, ptr %207, align 8, !tbaa !29
+  %209 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %210 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %209, i32 0, i32 2
+  %211 = load double, ptr %210, align 8, !tbaa !30
+  %212 = call double @llvm.fmuladd.f64(double %208, double %211, double %205)
+  %213 = load double, ptr %12, align 8, !tbaa !22
+  %214 = fsub double %212, %213
+  %215 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %216 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %215, i32 0, i32 0
+  %217 = load double, ptr %216, align 8, !tbaa !29
+  %218 = load double, ptr %11, align 8, !tbaa !22
+  %219 = fneg double %217
+  %220 = call double @llvm.fmuladd.f64(double %219, double %218, double %214)
+  store double %220, ptr %21, align 8, !tbaa !22
+  %221 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %222 = load double, ptr %21, align 8, !tbaa !22
+  %223 = fcmp ole double %222, 0.000000e+00
+  br i1 %223, label %224, label %231
+
+224:                                              ; preds = %164
+  %225 = load double, ptr %22, align 8, !tbaa !22
+  %226 = fcmp oge double %225, 0.000000e+00
+  br i1 %226, label %227, label %231
+
+227:                                              ; preds = %224
+  %228 = load double, ptr %23, align 8, !tbaa !22
+  %229 = fcmp ole double %228, 0.000000e+00
+  br i1 %229, label %230, label %231
+
+230:                                              ; preds = %227
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %15, align 4
+  br label %232
+
+231:                                              ; preds = %227, %224, %164
+  store i32 0, ptr %15, align 4
+  br label %232
+
+232:                                              ; preds = %231, %230
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  %233 = load i32, ptr %15, align 4
+  switch i32 %233, label %238 [
+    i32 0, label %234
+  ]
+
+234:                                              ; preds = %232
+  br label %235
+
+235:                                              ; preds = %234
+  %236 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %159, !llvm.loop !31
+
+237:                                              ; preds = %159
+  store i32 0, ptr %15, align 4
+  br label %238
+
+238:                                              ; preds = %237, %232, %151, %119, %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  %239 = load i32, ptr %15, align 4
+  switch i32 %239, label %294 [
+    i32 0, label %240
+  ]
+
+240:                                              ; preds = %238
+  br label %241
+
+241:                                              ; preds = %240, %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #3
+  %242 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %29, i32 0, i32 3
+  %243 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %242) #3
+  %244 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %24, i32 0, i32 0
+  store ptr %243, ptr %244, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %24, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #3
+  br label %245
+
+245:                                              ; preds = %272, %241
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #3
+  %246 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %29, i32 0, i32 3
+  %247 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %246) #3
+  %248 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %25, i32 0, i32 0
+  store ptr %247, ptr %248, align 8
+  %249 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %25) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #3
+  br i1 %249, label %250, label %274
+
+250:                                              ; preds = %245
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #3
+  %251 = load double, ptr %6, align 8, !tbaa !22
+  %252 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %253 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %252, i32 0, i32 0
+  %254 = load double, ptr %253, align 8, !tbaa !29
+  %255 = load double, ptr %7, align 8, !tbaa !22
+  %256 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %257 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %256, i32 0, i32 2
+  %258 = load double, ptr %257, align 8, !tbaa !30
+  %259 = fsub double %255, %258
+  %260 = call double @llvm.fmuladd.f64(double %254, double %259, double %251)
+  %261 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %262 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %261, i32 0, i32 1
+  %263 = load double, ptr %262, align 8, !tbaa !27
+  %264 = fsub double %260, %263
+  store double %264, ptr %26, align 8, !tbaa !22
+  %265 = load double, ptr %26, align 8, !tbaa !22
+  %266 = fcmp olt double %265, 0.000000e+00
+  br i1 %266, label %267, label %268
+
+267:                                              ; preds = %250
+  store i8 1, ptr %8, align 1, !tbaa !23
+  store i32 5, ptr %15, align 4
+  br label %269
+
+268:                                              ; preds = %250
+  store i32 0, ptr %15, align 4
+  br label %269
+
+269:                                              ; preds = %268, %267
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #3
+  %270 = load i32, ptr %15, align 4
+  switch i32 %270, label %296 [
+    i32 0, label %271
+    i32 5, label %274
+  ]
+
+271:                                              ; preds = %269
+  br label %272
+
+272:                                              ; preds = %271
+  %273 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %245, !llvm.loop !33
+
+274:                                              ; preds = %269, %245
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #3
+  %275 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %29, i32 0, i32 3
+  %276 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %275) #3
+  %277 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %28, i32 0, i32 0
+  store ptr %276, ptr %277, align 8
+  %278 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef 1) #3
+  %279 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %27, i32 0, i32 0
+  store ptr %278, ptr %279, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %27, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #3
+  %280 = load i8, ptr %8, align 1, !tbaa !23, !range !34, !noundef !35
+  %281 = trunc i8 %280 to i1
+  %282 = zext i1 %281 to i32
+  %283 = icmp eq i32 %282, 0
+  br i1 %283, label %284, label %291
+
+284:                                              ; preds = %274
+  %285 = load double, ptr %7, align 8, !tbaa !22
+  %286 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %287 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %286, i32 0, i32 2
+  %288 = load double, ptr %287, align 8, !tbaa !30
+  %289 = fcmp olt double %285, %288
+  br i1 %289, label %290, label %291
+
+290:                                              ; preds = %284
+  store i8 1, ptr %8, align 1, !tbaa !23
+  br label %291
+
+291:                                              ; preds = %290, %284, %274
+  %292 = load i8, ptr %8, align 1, !tbaa !23, !range !34, !noundef !35
+  %293 = trunc i8 %292 to i1
+  store i1 %293, ptr %4, align 1
+  store i32 1, ptr %15, align 4
+  br label %294
+
+294:                                              ; preds = %291, %238
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  %295 = load i1, ptr %4, align 1
+  ret i1 %295
+
+296:                                              ; preds = %269
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !38
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %4, i32 0, i32 1
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -661,41 +741,44 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_
 define linkonce_odr ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %5, i32 0, i32 0
   call void @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   ret ptr %5
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %5, i32 1
-  store ptr %6, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %6 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !38
   ret ptr %3
 }
 
@@ -703,12 +786,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cx
 define linkonce_odr ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %5, i32 0, i32 1
   call void @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -719,16 +802,18 @@ define linkonce_odr ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePen
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !36
+  store i32 %1, ptr %5, align 4, !tbaa !8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 -1
-  store ptr %10, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
+  store ptr %10, ptr %8, align 8, !tbaa !38
+  store ptr %9, ptr %6, align 8, !tbaa !26
   call void @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   ret ptr %12
 }
@@ -737,15 +822,15 @@ define linkonce_odr ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePen
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmIEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store i64 %1, ptr %4, align 8, !tbaa !42
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !42
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = sub i64 0, %6
   %10 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %8, i64 %9
-  store ptr %10, ptr %7, align 8
+  store ptr %10, ptr %7, align 8, !tbaa !38
   ret ptr %5
 }
 
@@ -755,32 +840,34 @@ define linkonce_odr ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePe
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !36
+  store i64 %1, ptr %5, align 8, !tbaa !42
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
+  %10 = load i64, ptr %5, align 8, !tbaa !42
   %11 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %9, i64 %10
-  store ptr %11, ptr %6, align 8
+  store ptr %11, ptr %6, align 8, !tbaa !26
   call void @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   ret ptr %13
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !36
+  %5 = load ptr, ptr %3, align 8, !tbaa !36
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !36
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = icmp ne ptr %7, %10
   ret i1 %11
 }
@@ -791,17 +878,19 @@ define linkonce_odr ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePe
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !36
+  store i64 %1, ptr %5, align 8, !tbaa !42
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !38
+  %10 = load i64, ptr %5, align 8, !tbaa !42
   %11 = sub i64 0, %10
   %12 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %9, i64 %11
-  store ptr %12, ptr %6, align 8
+  store ptr %12, ptr %6, align 8, !tbaa !26
   call void @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   ret ptr %14
 }
@@ -810,23 +899,25 @@ define linkonce_odr ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePe
 define noundef double @_ZN5Ipopt16PiecewisePenalty11BiggestBarrEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca double, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %4 = load ptr, ptr %2, align 8
-  store double -1.000000e+20, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %4, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  store double -1.000000e+20, ptr %3, align 8, !tbaa !22
+  %5 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %4, i32 0, i32 3
   %6 = call noundef zeroext i1 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %4, i32 0, i32 3
+  %8 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %4, i32 0, i32 3
   %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
-  %10 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 1
-  %11 = load double, ptr %10, align 8
-  store double %11, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 1
+  %11 = load double, ptr %10, align 8, !tbaa !27
+  store double %11, ptr %3, align 8, !tbaa !22
   br label %12
 
 12:                                               ; preds = %7, %1
-  %13 = load double, ptr %3, align 8
+  %13 = load double, ptr %3, align 8, !tbaa !22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret double %13
 }
 
@@ -835,15 +926,19 @@ define linkonce_odr noundef zeroext i1 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntry
   %2 = alloca ptr, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
   %6 = call ptr @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %3, i32 0, i32 0
   store ptr %6, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
   %8 = call ptr @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
   store ptr %8, ptr %9, align 8
   %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret i1 %10
 }
 
@@ -852,20 +947,24 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %2 = alloca ptr, align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
   %6 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
   store ptr %6, ptr %7, align 8
   %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #3
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   store ptr %8, ptr %9, align 8
   %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %1, double noundef %2) #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %1, double noundef %2) #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -885,107 +984,124 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
   %20 = alloca i32, align 4
   %21 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %22 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %4, align 8
-  store double %1, ptr %5, align 8
-  store double %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store double %1, ptr %5, align 8, !tbaa !22
+  store double %2, ptr %6, align 8, !tbaa !22
   %23 = load ptr, ptr %4, align 8
-  store double 0.000000e+00, ptr %9, align 8
-  store double 0.000000e+00, ptr %10, align 8
-  %24 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %23, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  store double 0.000000e+00, ptr %9, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  store double 0.000000e+00, ptr %10, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #3
+  %24 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %23, i32 0, i32 3
   call void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %24)
-  %25 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %23, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %23, i32 0, i32 3
   call void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   %26 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %27 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %12, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %12, i32 0, i32 0
   store ptr %26, ptr %27, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   call void @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %28 = load double, ptr %5, align 8
+  %28 = load double, ptr %5, align 8, !tbaa !22
   %29 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %30 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %29, i32 0, i32 0
-  %31 = load double, ptr %30, align 8
-  %32 = load double, ptr %6, align 8
+  %30 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %29, i32 0, i32 0
+  %31 = load double, ptr %30, align 8, !tbaa !29
+  %32 = load double, ptr %6, align 8, !tbaa !22
   %33 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %34 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %33, i32 0, i32 2
-  %35 = load double, ptr %34, align 8
+  %34 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %33, i32 0, i32 2
+  %35 = load double, ptr %34, align 8, !tbaa !30
   %36 = fsub double %32, %35
   %37 = call double @llvm.fmuladd.f64(double %31, double %36, double %28)
   %38 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %39 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %38, i32 0, i32 1
-  %40 = load double, ptr %39, align 8
+  %39 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %38, i32 0, i32 1
+  %40 = load double, ptr %39, align 8, !tbaa !27
   %41 = fsub double %37, %40
-  store double %41, ptr %7, align 8
+  store double %41, ptr %7, align 8, !tbaa !22
   br label %42
 
 42:                                               ; preds = %214, %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   %43 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %44 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %15, i32 0, i32 0
   store ptr %43, ptr %44, align 8
   %45 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 1) #3
-  %46 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %14, i32 0, i32 0
   store ptr %45, ptr %46, align 8
   %47 = call noundef zeroext i1 @_ZN9__gnu_cxxleIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
   br i1 %47, label %48, label %216
 
 48:                                               ; preds = %42
   %49 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
   %50 = icmp ugt i64 %49, 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %48
   %52 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %53 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %17, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %17, i32 0, i32 0
   store ptr %52, ptr %53, align 8
   %54 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 2) #3
-  %55 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %16, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %16, i32 0, i32 0
   store ptr %54, ptr %55, align 8
   %56 = call noundef zeroext i1 @_ZN9__gnu_cxxleIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %16) #3
   br label %57
 
 57:                                               ; preds = %51, %48
   %58 = phi i1 [ false, %48 ], [ %56, %51 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
   br i1 %58, label %59, label %76
 
 59:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   %60 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 1) #3
-  %61 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %18, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %18, i32 0, i32 0
   store ptr %60, ptr %61, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %18, i64 8, i1 false)
-  %62 = load double, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %18, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  %62 = load double, ptr %5, align 8, !tbaa !22
   %63 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %64 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %63, i32 0, i32 0
-  %65 = load double, ptr %64, align 8
-  %66 = load double, ptr %6, align 8
+  %64 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %63, i32 0, i32 0
+  %65 = load double, ptr %64, align 8, !tbaa !29
+  %66 = load double, ptr %6, align 8, !tbaa !22
   %67 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %68 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %67, i32 0, i32 2
-  %69 = load double, ptr %68, align 8
+  %68 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %67, i32 0, i32 2
+  %69 = load double, ptr %68, align 8, !tbaa !30
   %70 = fsub double %66, %69
   %71 = call double @llvm.fmuladd.f64(double %65, double %70, double %62)
   %72 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  %73 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %72, i32 0, i32 1
-  %74 = load double, ptr %73, align 8
+  %73 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %72, i32 0, i32 1
+  %74 = load double, ptr %73, align 8, !tbaa !27
   %75 = fsub double %71, %74
-  store double %75, ptr %8, align 8
+  store double %75, ptr %8, align 8, !tbaa !22
   br label %82
 
 76:                                               ; preds = %57
-  %77 = load double, ptr %6, align 8
+  %77 = load double, ptr %6, align 8, !tbaa !22
   %78 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %79 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %78, i32 0, i32 2
-  %80 = load double, ptr %79, align 8
+  %79 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %78, i32 0, i32 2
+  %80 = load double, ptr %79, align 8, !tbaa !30
   %81 = fsub double %77, %80
-  store double %81, ptr %8, align 8
+  store double %81, ptr %8, align 8, !tbaa !22
   br label %82
 
 82:                                               ; preds = %76, %59
-  %83 = load double, ptr %7, align 8
-  %84 = load double, ptr %9, align 8
+  %83 = load double, ptr %7, align 8, !tbaa !22
+  %84 = load double, ptr %9, align 8, !tbaa !22
   %85 = fneg double %84
   %86 = fcmp olt double %83, %85
   br i1 %86, label %87, label %128
 
 87:                                               ; preds = %82
-  %88 = load double, ptr %8, align 8
-  %89 = load double, ptr %9, align 8
+  %88 = load double, ptr %8, align 8, !tbaa !22
+  %89 = load double, ptr %9, align 8, !tbaa !22
   %90 = fcmp oge double %88, %89
   br i1 %90, label %91, label %128
 
@@ -997,9 +1113,9 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
   br i1 %92, label %94, label %103
 
 94:                                               ; preds = %93
-  %95 = load double, ptr %10, align 8
-  %96 = load double, ptr %5, align 8
-  %97 = load double, ptr %6, align 8
+  %95 = load double, ptr %10, align 8, !tbaa !22
+  %96 = load double, ptr %5, align 8, !tbaa !22
+  %97 = load double, ptr %6, align 8, !tbaa !22
   invoke void @_ZN5Ipopt16PiecewisePenalty8AddEntryEddd(ptr noundef nonnull align 8 dereferenceable(48) %23, double noundef %95, double noundef %96, double noundef %97)
           to label %98 unwind label %99
 
@@ -1013,35 +1129,42 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
   store ptr %101, ptr %19, align 8
   %102 = extractvalue { ptr, i32 } %100, 1
   store i32 %102, ptr %20, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
   call void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   br label %221
 
 103:                                              ; preds = %98, %93
-  %104 = load double, ptr %8, align 8
-  %105 = load double, ptr %9, align 8
+  %104 = load double, ptr %8, align 8, !tbaa !22
+  %105 = load double, ptr %9, align 8, !tbaa !22
   %106 = fcmp ogt double %104, %105
   br i1 %106, label %107, label %127
 
 107:                                              ; preds = %103
   %108 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %109 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %108, i32 0, i32 1
-  %110 = load double, ptr %109, align 8
-  %111 = load double, ptr %5, align 8
+  %109 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %108, i32 0, i32 1
+  %110 = load double, ptr %109, align 8, !tbaa !27
+  %111 = load double, ptr %5, align 8, !tbaa !22
   %112 = fsub double %110, %111
-  %113 = load double, ptr %6, align 8
+  %113 = load double, ptr %6, align 8, !tbaa !22
   %114 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %115 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %114, i32 0, i32 2
-  %116 = load double, ptr %115, align 8
+  %115 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %114, i32 0, i32 2
+  %116 = load double, ptr %115, align 8, !tbaa !30
   %117 = fsub double %113, %116
   %118 = fdiv double %112, %117
-  store double %118, ptr %10, align 8
-  %119 = load double, ptr %10, align 8
+  store double %118, ptr %10, align 8, !tbaa !22
+  %119 = load double, ptr %10, align 8, !tbaa !22
   %120 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %121 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %120, i32 0, i32 1
-  %122 = load double, ptr %121, align 8
+  %121 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %120, i32 0, i32 1
+  %122 = load double, ptr %121, align 8, !tbaa !27
   %123 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %124 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %123, i32 0, i32 2
-  %125 = load double, ptr %124, align 8
+  %124 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %123, i32 0, i32 2
+  %125 = load double, ptr %124, align 8, !tbaa !30
   invoke void @_ZN5Ipopt16PiecewisePenalty8AddEntryEddd(ptr noundef nonnull align 8 dereferenceable(48) %23, double noundef %119, double noundef %122, double noundef %125)
           to label %126 unwind label %99
 
@@ -1052,34 +1175,34 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
   br label %128
 
 128:                                              ; preds = %127, %87, %82
-  %129 = load double, ptr %7, align 8
-  %130 = load double, ptr %9, align 8
+  %129 = load double, ptr %7, align 8, !tbaa !22
+  %130 = load double, ptr %9, align 8, !tbaa !22
   %131 = fcmp oge double %129, %130
   br i1 %131, label %132, label %168
 
 132:                                              ; preds = %128
-  %133 = load double, ptr %8, align 8
-  %134 = load double, ptr %9, align 8
+  %133 = load double, ptr %8, align 8, !tbaa !22
+  %134 = load double, ptr %9, align 8, !tbaa !22
   %135 = fneg double %134
   %136 = fcmp olt double %133, %135
   br i1 %136, label %137, label %168
 
 137:                                              ; preds = %132
-  %138 = load double, ptr %7, align 8
-  %139 = load double, ptr %9, align 8
+  %138 = load double, ptr %7, align 8, !tbaa !22
+  %139 = load double, ptr %9, align 8, !tbaa !22
   %140 = fcmp ogt double %138, %139
   br i1 %140, label %141, label %152
 
 141:                                              ; preds = %137
   %142 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %143 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %142, i32 0, i32 0
-  %144 = load double, ptr %143, align 8
+  %143 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %142, i32 0, i32 0
+  %144 = load double, ptr %143, align 8, !tbaa !29
   %145 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %146 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %145, i32 0, i32 1
-  %147 = load double, ptr %146, align 8
+  %146 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %145, i32 0, i32 1
+  %147 = load double, ptr %146, align 8, !tbaa !27
   %148 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %149 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %148, i32 0, i32 2
-  %150 = load double, ptr %149, align 8
+  %149 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %148, i32 0, i32 2
+  %150 = load double, ptr %149, align 8, !tbaa !30
   invoke void @_ZN5Ipopt16PiecewisePenalty8AddEntryEddd(ptr noundef nonnull align 8 dereferenceable(48) %23, double noundef %144, double noundef %147, double noundef %150)
           to label %151 unwind label %99
 
@@ -1088,20 +1211,20 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
 
 152:                                              ; preds = %151, %137
   %153 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %154 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %153, i32 0, i32 1
-  %155 = load double, ptr %154, align 8
-  %156 = load double, ptr %5, align 8
+  %154 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %153, i32 0, i32 1
+  %155 = load double, ptr %154, align 8, !tbaa !27
+  %156 = load double, ptr %5, align 8, !tbaa !22
   %157 = fsub double %155, %156
-  %158 = load double, ptr %6, align 8
+  %158 = load double, ptr %6, align 8, !tbaa !22
   %159 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %160 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %159, i32 0, i32 2
-  %161 = load double, ptr %160, align 8
+  %160 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %159, i32 0, i32 2
+  %161 = load double, ptr %160, align 8, !tbaa !30
   %162 = fsub double %158, %161
   %163 = fdiv double %157, %162
-  store double %163, ptr %10, align 8
-  %164 = load double, ptr %10, align 8
-  %165 = load double, ptr %5, align 8
-  %166 = load double, ptr %6, align 8
+  store double %163, ptr %10, align 8, !tbaa !22
+  %164 = load double, ptr %10, align 8, !tbaa !22
+  %165 = load double, ptr %5, align 8, !tbaa !22
+  %166 = load double, ptr %6, align 8, !tbaa !22
   invoke void @_ZN5Ipopt16PiecewisePenalty8AddEntryEddd(ptr noundef nonnull align 8 dereferenceable(48) %23, double noundef %164, double noundef %165, double noundef %166)
           to label %167 unwind label %99
 
@@ -1109,27 +1232,27 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
   br label %168
 
 168:                                              ; preds = %167, %132, %128
-  %169 = load double, ptr %7, align 8
-  %170 = load double, ptr %9, align 8
+  %169 = load double, ptr %7, align 8, !tbaa !22
+  %170 = load double, ptr %9, align 8, !tbaa !22
   %171 = fcmp oge double %169, %170
   br i1 %171, label %172, label %187
 
 172:                                              ; preds = %168
-  %173 = load double, ptr %8, align 8
-  %174 = load double, ptr %9, align 8
+  %173 = load double, ptr %8, align 8, !tbaa !22
+  %174 = load double, ptr %9, align 8, !tbaa !22
   %175 = fcmp oge double %173, %174
   br i1 %175, label %176, label %187
 
 176:                                              ; preds = %172
   %177 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %178 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %177, i32 0, i32 0
-  %179 = load double, ptr %178, align 8
+  %178 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %177, i32 0, i32 0
+  %179 = load double, ptr %178, align 8, !tbaa !29
   %180 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %181 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %180, i32 0, i32 1
-  %182 = load double, ptr %181, align 8
+  %181 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %180, i32 0, i32 1
+  %182 = load double, ptr %181, align 8, !tbaa !27
   %183 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  %184 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %183, i32 0, i32 2
-  %185 = load double, ptr %184, align 8
+  %184 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %183, i32 0, i32 2
+  %185 = load double, ptr %184, align 8, !tbaa !30
   invoke void @_ZN5Ipopt16PiecewisePenalty8AddEntryEddd(ptr noundef nonnull align 8 dereferenceable(48) %23, double noundef %179, double noundef %182, double noundef %185)
           to label %186 unwind label %99
 
@@ -1137,25 +1260,29 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
   br label %187
 
 187:                                              ; preds = %186, %172, %168
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #3
   %188 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %189 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %22, i32 0, i32 0
+  %189 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %22, i32 0, i32 0
   store ptr %188, ptr %189, align 8
   %190 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 1) #3
-  %191 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %21, i32 0, i32 0
+  %191 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %21, i32 0, i32 0
   store ptr %190, ptr %191, align 8
   %192 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
   br i1 %192, label %193, label %212
 
 193:                                              ; preds = %187
-  %194 = load double, ptr %7, align 8
-  %195 = load double, ptr %9, align 8
+  %194 = load double, ptr %7, align 8, !tbaa !22
+  %195 = load double, ptr %9, align 8, !tbaa !22
   %196 = fneg double %195
   %197 = fcmp olt double %194, %196
   br i1 %197, label %198, label %211
 
 198:                                              ; preds = %193
-  %199 = load double, ptr %8, align 8
-  %200 = load double, ptr %9, align 8
+  %199 = load double, ptr %8, align 8, !tbaa !22
+  %200 = load double, ptr %9, align 8, !tbaa !22
   %201 = fneg double %200
   %202 = fcmp olt double %199, %201
   br i1 %202, label %203, label %211
@@ -1168,8 +1295,8 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
   br i1 %204, label %206, label %210
 
 206:                                              ; preds = %205
-  %207 = load double, ptr %5, align 8
-  %208 = load double, ptr %6, align 8
+  %207 = load double, ptr %5, align 8, !tbaa !22
+  %208 = load double, ptr %6, align 8, !tbaa !22
   invoke void @_ZN5Ipopt16PiecewisePenalty8AddEntryEddd(ptr noundef nonnull align 8 dereferenceable(48) %23, double noundef 0.000000e+00, double noundef %207, double noundef %208)
           to label %209 unwind label %99
 
@@ -1183,21 +1310,28 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
   br label %212
 
 212:                                              ; preds = %211, %187
-  %213 = load double, ptr %8, align 8
-  store double %213, ptr %7, align 8
+  %213 = load double, ptr %8, align 8, !tbaa !22
+  store double %213, ptr %7, align 8, !tbaa !22
   br label %214
 
 214:                                              ; preds = %212
   %215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  br label %42, !llvm.loop !7
+  br label %42, !llvm.loop !44
 
 216:                                              ; preds = %42
-  %217 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %23, i32 0, i32 3
+  %217 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %23, i32 0, i32 3
   %218 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %217) #3
   %219 = trunc i64 %218 to i32
-  %220 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %23, i32 0, i32 0
-  store i32 %219, ptr %220, align 8
+  %220 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %23, i32 0, i32 0
+  store i32 %219, ptr %220, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
   call void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret void
 
 221:                                              ; preds = %99
@@ -1209,7 +1343,7 @@ define void @_ZN5Ipopt16PiecewisePenalty11UpdateEntryEdd(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -1217,42 +1351,44 @@ define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EEC2ERKS
   %7 = alloca i32, align 4
   %8 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !20
   %10 = load ptr, ptr %3, align 8
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !20
   %12 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
-  %13 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  %13 = load ptr, ptr %4, align 8, !tbaa !20
   %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   call void @_ZN9__gnu_cxx14__alloc_traitsISaIN5Ipopt17PiecewisePenEntryEES2_E17_S_select_on_copyERKS3_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %14)
   invoke void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %15 unwind label %34
 
 15:                                               ; preds = %2
-  call void @_ZNSaIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  %16 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  %16 = load ptr, ptr %4, align 8, !tbaa !20
   %17 = call ptr @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
   store ptr %17, ptr %18, align 8
-  %19 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !20
   %20 = call ptr @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds %"struct.std::_Vector_base", ptr %10, i32 0, i32 0
-  %23 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %22, i32 0, i32 0
-  %24 = load ptr, ptr %23, align 8
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %10, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
   %25 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   %30 = invoke noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E(ptr %27, ptr %29, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %25)
           to label %31 unwind label %38
 
 31:                                               ; preds = %15
-  %32 = getelementptr inbounds %"struct.std::_Vector_base", ptr %10, i32 0, i32 0
-  %33 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %32, i32 0, i32 1
-  store ptr %30, ptr %33, align 8
+  %32 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %10, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %32, i32 0, i32 1
+  store ptr %30, ptr %33, align 8, !tbaa !40
   ret void
 
 34:                                               ; preds = %2
@@ -1262,7 +1398,8 @@ define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EEC2ERKS
   store ptr %36, ptr %6, align 8
   %37 = extractvalue { ptr, i32 } %35, 1
   store i32 %37, ptr %7, align 4
-  call void @_ZNSaIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
   br label %42
 
 38:                                               ; preds = %15
@@ -1286,27 +1423,27 @@ define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EEC2ERKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
   call void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE15_M_erase_at_endEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxleIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxleIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !36
+  %5 = load ptr, ptr %3, align 8, !tbaa !36
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !36
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = icmp ule ptr %7, %10
   ret i1 %11
 }
@@ -1314,9 +1451,9 @@ define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxleIPN5Ipopt17PiecewisePenEn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty27IsPiecewisePenaltyListEmptyEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %3, i32 0, i32 3
   %5 = call noundef zeroext i1 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   ret i1 %5
 }
@@ -1324,55 +1461,57 @@ define linkonce_odr noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty27IsPiecewise
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5Ipopt16PiecewisePenalty8AddEntryEddd(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %1, double noundef %2, double noundef %3) #7 comdat align 2 {
+define linkonce_odr void @_ZN5Ipopt16PiecewisePenalty8AddEntryEddd(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %1, double noundef %2, double noundef %3) #9 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = alloca %"struct.Ipopt::PiecewisePenEntry", align 8
-  store ptr %0, ptr %5, align 8
-  store double %1, ptr %6, align 8
-  store double %2, ptr %7, align 8
-  store double %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store double %1, ptr %6, align 8, !tbaa !22
+  store double %2, ptr %7, align 8, !tbaa !22
+  store double %3, ptr %8, align 8, !tbaa !22
   %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #3
   %11 = call noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty27IsPiecewisePenaltyListEmptyEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 0
-  store double 0.000000e+00, ptr %13, align 8
+  %13 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 0
+  store double 0.000000e+00, ptr %13, align 8, !tbaa !29
   br label %17
 
 14:                                               ; preds = %4
-  %15 = load double, ptr %6, align 8
-  %16 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 0
-  store double %15, ptr %16, align 8
+  %15 = load double, ptr %6, align 8, !tbaa !22
+  %16 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 0
+  store double %15, ptr %16, align 8, !tbaa !29
   br label %17
 
 17:                                               ; preds = %14, %12
-  %18 = load double, ptr %7, align 8
-  %19 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 1
-  store double %18, ptr %19, align 8
-  %20 = load double, ptr %8, align 8
-  %21 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 2
-  store double %20, ptr %21, align 8
-  %22 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %10, i32 0, i32 3
+  %18 = load double, ptr %7, align 8, !tbaa !22
+  %19 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 1
+  store double %18, ptr %19, align 8, !tbaa !27
+  %20 = load double, ptr %8, align 8, !tbaa !22
+  %21 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %9, i32 0, i32 2
+  store double %20, ptr %21, align 8, !tbaa !30
+  %22 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %10, i32 0, i32 3
   call void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #3
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !36
+  %5 = load ptr, ptr %3, align 8, !tbaa !36
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !36
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
@@ -1380,14 +1519,14 @@ define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPN5Ipopt17PiecewisePenEn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
   %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   invoke void @_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryES1_EvT_S3_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %11 unwind label %12
@@ -1400,121 +1539,133 @@ define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev(p
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #12
+  call void @__clang_call_terminate(ptr %14) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt16PiecewisePenalty5PrintERKNS_10JournalistE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #7 align 2 {
+define void @_ZN5Ipopt16PiecewisePenalty5PrintERKNS_10JournalistE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #9 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !45
   %8 = load ptr, ptr %3, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 3
+  %9 = load ptr, ptr %4, align 8, !tbaa !45
+  %10 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 3
   %11 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
-  %12 = load ptr, ptr %9, align 8
+  %12 = load ptr, ptr %9, align 8, !tbaa !47
   %13 = getelementptr inbounds ptr, ptr %12, i64 2
   %14 = load ptr, ptr %13, align 8
   call void (ptr, i32, i32, ptr, ...) %14(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 6, i32 noundef 8, ptr noundef @.str, i64 noundef %11)
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 2
-  %17 = load i32, ptr %16, align 8
-  %18 = load ptr, ptr %15, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !45
+  %16 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 2
+  %17 = load i32, ptr %16, align 8, !tbaa !19
+  %18 = load ptr, ptr %15, align 8, !tbaa !47
   %19 = getelementptr inbounds ptr, ptr %18, i64 2
   %20 = load ptr, ptr %19, align 8
   call void (ptr, i32, i32, ptr, ...) %20(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef 6, i32 noundef 8, ptr noundef @.str.1, i32 noundef %17)
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 1
-  %23 = load double, ptr %22, align 8
-  %24 = load ptr, ptr %21, align 8
+  %21 = load ptr, ptr %4, align 8, !tbaa !45
+  %22 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 1
+  %23 = load double, ptr %22, align 8, !tbaa !18
+  %24 = load ptr, ptr %21, align 8, !tbaa !47
   %25 = getelementptr inbounds ptr, ptr %24, i64 2
   %26 = load ptr, ptr %25, align 8
   call void (ptr, i32, i32, ptr, ...) %26(ptr noundef nonnull align 8 dereferenceable(40) %21, i32 noundef 6, i32 noundef 8, ptr noundef @.str.2, double noundef %23)
-  %27 = load ptr, ptr %4, align 8
-  %28 = load ptr, ptr %27, align 8
+  %27 = load ptr, ptr %4, align 8, !tbaa !45
+  %28 = load ptr, ptr %27, align 8, !tbaa !47
   %29 = getelementptr inbounds ptr, ptr %28, i64 7
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(40) %27, i32 noundef 6, i32 noundef 8)
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %2
-  br label %74
+  br label %76
 
 33:                                               ; preds = %2
-  store i32 0, ptr %5, align 4
-  %34 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  store i32 0, ptr %5, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %34 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 3
   %35 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
-  %36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
   store ptr %35, ptr %36, align 8
   br label %37
 
-37:                                               ; preds = %72, %33
-  %38 = getelementptr inbounds %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 3
+37:                                               ; preds = %73, %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %38 = getelementptr inbounds nuw %"class.Ipopt::PiecewisePenalty", ptr %8, i32 0, i32 3
   %39 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %38) #3
-  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
   store ptr %39, ptr %40, align 8
   %41 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br i1 %41, label %42, label %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br i1 %41, label %43, label %42
 
 42:                                               ; preds = %37
-  %43 = load i32, ptr %5, align 4
-  %44 = srem i32 %43, 10
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %75
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %4, align 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 2
-  %50 = load ptr, ptr %49, align 8
-  call void (ptr, i32, i32, ptr, ...) %50(ptr noundef nonnull align 8 dereferenceable(40) %47, i32 noundef 6, i32 noundef 8, ptr noundef @.str.3)
-  br label %51
+43:                                               ; preds = %37
+  %44 = load i32, ptr %5, align 4, !tbaa !8
+  %45 = srem i32 %44, 10
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %52
 
-51:                                               ; preds = %46, %42
-  %52 = load i32, ptr %5, align 4
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %5, align 4
-  %54 = load ptr, ptr %4, align 8
-  %55 = load i32, ptr %5, align 4
-  %56 = load ptr, ptr %54, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 2
-  %58 = load ptr, ptr %57, align 8
-  call void (ptr, i32, i32, ptr, ...) %58(ptr noundef nonnull align 8 dereferenceable(40) %54, i32 noundef 6, i32 noundef 8, ptr noundef @.str.4, i32 noundef %55)
-  %59 = load ptr, ptr %4, align 8
-  %60 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %61 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %60, i32 0, i32 0
-  %62 = load double, ptr %61, align 8
-  %63 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %64 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %63, i32 0, i32 1
-  %65 = load double, ptr %64, align 8
-  %66 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %67 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %66, i32 0, i32 2
-  %68 = load double, ptr %67, align 8
-  %69 = load ptr, ptr %59, align 8
-  %70 = getelementptr inbounds ptr, ptr %69, i64 2
-  %71 = load ptr, ptr %70, align 8
-  call void (ptr, i32, i32, ptr, ...) %71(ptr noundef nonnull align 8 dereferenceable(40) %59, i32 noundef 6, i32 noundef 8, ptr noundef @.str.5, double noundef %62, double noundef %65, double noundef %68)
-  br label %72
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %4, align 8, !tbaa !45
+  %49 = load ptr, ptr %48, align 8, !tbaa !47
+  %50 = getelementptr inbounds ptr, ptr %49, i64 2
+  %51 = load ptr, ptr %50, align 8
+  call void (ptr, i32, i32, ptr, ...) %51(ptr noundef nonnull align 8 dereferenceable(40) %48, i32 noundef 6, i32 noundef 8, ptr noundef @.str.3)
+  br label %52
 
-72:                                               ; preds = %51
-  %73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  br label %37, !llvm.loop !8
+52:                                               ; preds = %47, %43
+  %53 = load i32, ptr %5, align 4, !tbaa !8
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %5, align 4, !tbaa !8
+  %55 = load ptr, ptr %4, align 8, !tbaa !45
+  %56 = load i32, ptr %5, align 4, !tbaa !8
+  %57 = load ptr, ptr %55, align 8, !tbaa !47
+  %58 = getelementptr inbounds ptr, ptr %57, i64 2
+  %59 = load ptr, ptr %58, align 8
+  call void (ptr, i32, i32, ptr, ...) %59(ptr noundef nonnull align 8 dereferenceable(40) %55, i32 noundef 6, i32 noundef 8, ptr noundef @.str.4, i32 noundef %56)
+  %60 = load ptr, ptr %4, align 8, !tbaa !45
+  %61 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %62 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %61, i32 0, i32 0
+  %63 = load double, ptr %62, align 8, !tbaa !29
+  %64 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %65 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %64, i32 0, i32 1
+  %66 = load double, ptr %65, align 8, !tbaa !27
+  %67 = call noundef ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %68 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %67, i32 0, i32 2
+  %69 = load double, ptr %68, align 8, !tbaa !30
+  %70 = load ptr, ptr %60, align 8, !tbaa !47
+  %71 = getelementptr inbounds ptr, ptr %70, i64 2
+  %72 = load ptr, ptr %71, align 8
+  call void (ptr, i32, i32, ptr, ...) %72(ptr noundef nonnull align 8 dereferenceable(40) %60, i32 noundef 6, i32 noundef 8, ptr noundef @.str.5, double noundef %63, double noundef %66, double noundef %69)
+  br label %73
 
-74:                                               ; preds = %37, %32
+73:                                               ; preds = %52
+  %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  br label %37, !llvm.loop !49
+
+75:                                               ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
+  br label %76
+
+76:                                               ; preds = %75, %32
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   call void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   ret void
 }
@@ -1522,7 +1673,7 @@ define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSaIN5Ipopt17PiecewisePenEntryEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   call void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
@@ -1532,7 +1683,7 @@ define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSaIN5Ipopt17PiecewisePenEntryEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   ret void
@@ -1541,61 +1692,61 @@ define linkonce_odr void @_ZNSaIN5Ipopt17PiecewisePenEntryEEC2Ev(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %3, i32 0, i32 1
-  store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %3, i32 0, i32 2
-  store ptr null, ptr %6, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !41
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !40
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !58
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #7 comdat align 2 {
+define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !58
   %13 = icmp ne ptr %9, %12
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %17 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %19 = load ptr, ptr %4, align 8, !tbaa !26
   call void @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %19) #3
-  %20 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %22, i32 1
-  store ptr %23, ptr %21, align 8
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !40
+  %23 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !40
   br label %30
 
 24:                                               ; preds = %2
   %25 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
   store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %27 = load ptr, ptr %4, align 8, !tbaa !26
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(24) %27)
   br label %30
@@ -1609,18 +1760,18 @@ define linkonce_odr void @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryE
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !54
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %4, align 8, !tbaa !54
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load ptr, ptr %6, align 8, !tbaa !26
   call void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE9constructIS1_JRKS1_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #7 comdat align 2 {
+define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #9 comdat align 2 {
   %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1631,79 +1782,93 @@ define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_r
   %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
   store ptr %1, ptr %14, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %2, ptr %6, align 8, !tbaa !26
   %15 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
   %16 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str.6)
-  store i64 %16, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %18 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %8, align 8
-  %20 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %9, align 8
+  store i64 %16, ptr %7, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !41
+  store ptr %19, ptr %8, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !40
+  store ptr %22, ptr %9, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   %23 = call ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
   store ptr %23, ptr %24, align 8
   %25 = call noundef i64 @_ZN9__gnu_cxxmiIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  store i64 %25, ptr %10, align 8
-  %26 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  store i64 %25, ptr %10, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %26 = load i64, ptr %7, align 8, !tbaa !42
   %27 = call noundef ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
-  store ptr %27, ptr %12, align 8
-  %28 = load ptr, ptr %12, align 8
-  store ptr %28, ptr %13, align 8
-  %29 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %30, i64 %31
-  %33 = load ptr, ptr %6, align 8
+  store ptr %27, ptr %12, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %28 = load ptr, ptr %12, align 8, !tbaa !26
+  store ptr %28, ptr %13, align 8, !tbaa !26
+  %29 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %30 = load ptr, ptr %12, align 8, !tbaa !26
+  %31 = load i64, ptr %10, align 8, !tbaa !42
+  %32 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %30, i64 %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !26
   call void @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(24) %33) #3
-  store ptr null, ptr %13, align 8
-  %34 = load ptr, ptr %8, align 8
+  store ptr null, ptr %13, align 8, !tbaa !26
+  %34 = load ptr, ptr %8, align 8, !tbaa !26
   %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %12, align 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !26
+  %37 = load ptr, ptr %12, align 8, !tbaa !26
   %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
   %39 = call noundef ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  store ptr %39, ptr %13, align 8
-  %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %40, i32 1
-  store ptr %41, ptr %13, align 8
+  store ptr %39, ptr %13, align 8, !tbaa !26
+  %40 = load ptr, ptr %13, align 8, !tbaa !26
+  %41 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %40, i32 1
+  store ptr %41, ptr %13, align 8, !tbaa !26
   %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %13, align 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !26
+  %44 = load ptr, ptr %9, align 8, !tbaa !26
+  %45 = load ptr, ptr %13, align 8, !tbaa !26
   %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
   %47 = call noundef ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #3
-  store ptr %47, ptr %13, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %50 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
+  store ptr %47, ptr %13, align 8, !tbaa !26
+  %48 = load ptr, ptr %8, align 8, !tbaa !26
+  %49 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8, !tbaa !58
+  %52 = load ptr, ptr %8, align 8, !tbaa !26
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = sdiv exact i64 %55, 24
   call void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %48, i64 noundef %56)
-  %57 = load ptr, ptr %12, align 8
-  %58 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %59 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %58, i32 0, i32 0
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %13, align 8
-  %61 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %62 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %61, i32 0, i32 1
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = load i64, ptr %7, align 8
-  %65 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %63, i64 %64
-  %66 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
-  %67 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %66, i32 0, i32 2
-  store ptr %65, ptr %67, align 8
+  %57 = load ptr, ptr %12, align 8, !tbaa !26
+  %58 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %58, i32 0, i32 0
+  store ptr %57, ptr %59, align 8, !tbaa !41
+  %60 = load ptr, ptr %13, align 8, !tbaa !26
+  %61 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %61, i32 0, i32 1
+  store ptr %60, ptr %62, align 8, !tbaa !40
+  %63 = load ptr, ptr %12, align 8, !tbaa !26
+  %64 = load i64, ptr %7, align 8, !tbaa !42
+  %65 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %63, i64 %64
+  %66 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %66, i32 0, i32 2
+  store ptr %65, ptr %67, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret void
 }
 
@@ -1712,53 +1877,56 @@ define linkonce_odr void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE9co
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false)
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %5, align 8, !tbaa !26
+  %8 = load ptr, ptr %6, align 8, !tbaa !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 24, i1 false), !tbaa.struct !61
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #7 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #9 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !20
+  store i64 %1, ptr %5, align 8, !tbaa !42
+  store ptr %2, ptr %6, align 8, !tbaa !62
   %9 = load ptr, ptr %4, align 8
   %10 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %11 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %12 = sub i64 %10, %11
-  %13 = load i64, ptr %5, align 8
+  %13 = load i64, ptr %5, align 8, !tbaa !42
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #13
+  %16 = load ptr, ptr %6, align 8, !tbaa !62
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #17
   unreachable
 
 17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
   %18 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
   %19 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
-  store i64 %19, ptr %8, align 8
+  store i64 %19, ptr %8, align 8, !tbaa !42
   %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !42
   %22 = add i64 %18, %21
-  store i64 %22, ptr %7, align 8
-  %23 = load i64, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  store i64 %22, ptr %7, align 8, !tbaa !42
+  %23 = load i64, ptr %7, align 8, !tbaa !42
   %24 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %25 = icmp ult i64 %23, %24
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %17
-  %27 = load i64, ptr %7, align 8
+  %27 = load i64, ptr %7, align 8, !tbaa !42
   %28 = call noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %29 = icmp ugt i64 %27, %28
   br i1 %29, label %30, label %32
@@ -1768,26 +1936,27 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_
   br label %34
 
 32:                                               ; preds = %26
-  %33 = load i64, ptr %7, align 8
+  %33 = load i64, ptr %7, align 8, !tbaa !42
   br label %34
 
 34:                                               ; preds = %32, %30
   %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !36
+  %5 = load ptr, ptr %3, align 8, !tbaa !36
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !36
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -1796,19 +1965,19 @@ define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN5Ipopt17PiecewisePenEntryESt6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #7 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store i64 %1, ptr %4, align 8, !tbaa !42
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !42
   %7 = icmp ne i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %10 = load i64, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !42
   %11 = call noundef ptr @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE8allocateERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
   br label %13
 
@@ -1826,14 +1995,14 @@ define linkonce_odr noundef ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_E
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !26
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %5, align 8, !tbaa !26
+  %10 = load ptr, ptr %6, align 8, !tbaa !26
+  %11 = load ptr, ptr %7, align 8, !tbaa !26
+  %12 = load ptr, ptr %8, align 8, !tbaa !54
   %13 = call noundef ptr @_ZSt12__relocate_aIPN5Ipopt17PiecewisePenEntryES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #3
   ret ptr %13
 }
@@ -1841,38 +2010,38 @@ define linkonce_odr noundef ptr @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #7 comdat align 2 {
+define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE13_M_deallocateEPS1_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #9 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !50
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store i64 %2, ptr %6, align 8, !tbaa !42
   %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !26
+  %13 = load i64, ptr %6, align 8, !tbaa !42
   call void @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE10deallocateERS2_PS1_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
   br label %14
 
@@ -1883,7 +2052,7 @@ define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   %5 = call noundef i64 @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE11_S_max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
@@ -1891,29 +2060,29 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !64
+  store ptr %1, ptr %5, align 8, !tbaa !64
+  %6 = load ptr, ptr %4, align 8, !tbaa !64
+  %7 = load i64, ptr %6, align 8, !tbaa !42
+  %8 = load ptr, ptr %5, align 8, !tbaa !64
+  %9 = load i64, ptr %8, align 8, !tbaa !42
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !64
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !64
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -1927,65 +2096,69 @@ define linkonce_odr noundef i64 @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_E
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 384307168202282325, ptr %3, align 8
-  %5 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  store i64 384307168202282325, ptr %3, align 8, !tbaa !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  %5 = load ptr, ptr %2, align 8, !tbaa !54
   %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE8max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
-  store i64 %6, ptr %4, align 8
+  store i64 %6, ptr %4, align 8, !tbaa !42
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %10
 
 8:                                                ; preds = %1
-  %9 = load i64, ptr %7, align 8
+  %9 = load i64, ptr %7, align 8, !tbaa !42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
   ret i64 %9
 
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #12
+  call void @__clang_call_terminate(ptr %12) #16
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE8max_sizeERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   %4 = call noundef i64 @_ZNKSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   ret i64 %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load i64, ptr %8, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !64
+  store ptr %1, ptr %5, align 8, !tbaa !64
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
+  %7 = load i64, ptr %6, align 8, !tbaa !42
+  %8 = load ptr, ptr %4, align 8, !tbaa !64
+  %9 = load i64, ptr %8, align 8, !tbaa !42
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !64
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !64
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -1994,10 +2167,10 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImER
   ret ptr %16
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #12
+  call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -2008,7 +2181,7 @@ declare void @_ZSt9terminatev()
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef i64 @_ZNKSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   ret i64 %4
@@ -2017,145 +2190,153 @@ define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN5Ipopt17PiecewisePenEn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   ret i64 384307168202282325
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE8allocateERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #7 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE8allocateERS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store i64 %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %3, align 8, !tbaa !54
+  %6 = load i64, ptr %4, align 8, !tbaa !42
   %7 = call noundef ptr @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #7 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #9 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store i64 %1, ptr %5, align 8, !tbaa !42
+  store ptr %2, ptr %6, align 8, !tbaa !66
   %7 = load ptr, ptr %4, align 8
-  %8 = load i64, ptr %5, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !42
   %9 = call noundef i64 @_ZNKSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
   %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %16
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-11:                                               ; preds = %3
-  %12 = load i64, ptr %5, align 8
-  %13 = icmp ugt i64 %12, 768614336404564650
-  br i1 %13, label %14, label %15
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !42
+  %16 = icmp ugt i64 %15, 768614336404564650
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
-  call void @_ZSt28__throw_bad_array_new_lengthv() #13
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #17
   unreachable
 
-15:                                               ; preds = %11
-  call void @_ZSt17__throw_bad_allocv() #13
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #17
   unreachable
 
-16:                                               ; preds = %3
-  %17 = load i64, ptr %5, align 8
-  %18 = mul i64 %17, 24
-  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #14
-  ret ptr %19
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !42
+  %21 = mul i64 %20, 24
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #18
+  ret ptr %22
 }
 
-; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #8
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() #10
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #10
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) #13
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__relocate_aIPN5Ipopt17PiecewisePenEntryES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__relocate_aIPN5Ipopt17PiecewisePenEntryES2_SaIS1_EET0_T_S5_S4_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #8 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !26
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %5, align 8, !tbaa !26
   %10 = call noundef ptr @_ZSt12__niter_baseIPN5Ipopt17PiecewisePenEntryEET_S3_(ptr noundef %9) #3
-  %11 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !26
   %12 = call noundef ptr @_ZSt12__niter_baseIPN5Ipopt17PiecewisePenEntryEET_S3_(ptr noundef %11) #3
-  %13 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %7, align 8, !tbaa !26
   %14 = call noundef ptr @_ZSt12__niter_baseIPN5Ipopt17PiecewisePenEntryEET_S3_(ptr noundef %13) #3
-  %15 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %8, align 8, !tbaa !54
   %16 = call noundef ptr @_ZSt14__relocate_a_1IN5Ipopt17PiecewisePenEntryES1_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPS3_E4typeES4_S4_S4_RSaIT0_E(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #3
   ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IN5Ipopt17PiecewisePenEntryES1_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPS3_E4typeES4_S4_S4_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IN5Ipopt17PiecewisePenEntryES1_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPS3_E4typeES4_S4_S4_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #8 comdat {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !26
+  store ptr %1, ptr %6, align 8, !tbaa !26
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %10 = load ptr, ptr %6, align 8, !tbaa !26
+  %11 = load ptr, ptr %5, align 8, !tbaa !26
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 24
-  store i64 %15, ptr %9, align 8
-  %16 = load i64, ptr %9, align 8
+  store i64 %15, ptr %9, align 8, !tbaa !42
+  %16 = load i64, ptr %9, align 8, !tbaa !42
   %17 = icmp sgt i64 %16, 0
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i64, ptr %9, align 8
+  %19 = load ptr, ptr %7, align 8, !tbaa !26
+  %20 = load ptr, ptr %5, align 8, !tbaa !26
+  %21 = load i64, ptr %9, align 8, !tbaa !42
   %22 = mul i64 %21, 24
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %19, ptr align 8 %20, i64 %22, i1 false)
   br label %23
 
 23:                                               ; preds = %18, %4
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i64, ptr %9, align 8
+  %24 = load ptr, ptr %7, align 8, !tbaa !26
+  %25 = load i64, ptr %9, align 8, !tbaa !42
   %26 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %24, i64 %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret ptr %26
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_baseIPN5Ipopt17PiecewisePenEntryEET_S3_(ptr noundef %0) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPN5Ipopt17PiecewisePenEntryEET_S3_(ptr noundef %0) #8 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   ret ptr %3
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE10deallocateERS2_PS1_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #7 comdat align 2 {
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE10deallocateERS2_PS1_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #9 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !54
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store i64 %2, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %4, align 8, !tbaa !54
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load i64, ptr %6, align 8, !tbaa !42
   call void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE10deallocateEPS1_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
@@ -2165,27 +2346,29 @@ define linkonce_odr void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE10d
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %5, align 8
-  call void @_ZdlPv(ptr noundef %7) #15
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store i64 %2, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %5, align 8, !tbaa !26
+  %8 = load i64, ptr %6, align 8, !tbaa !42
+  %9 = mul i64 %8, 24
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #19
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #11
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #14
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryES1_EvT_S3_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #7 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryES1_EvT_S3_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #15 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
   call void @_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryEEvT_S3_(ptr noundef %7, ptr noundef %8)
   ret void
 }
@@ -2193,17 +2376,17 @@ define linkonce_odr void @_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryES1_EvT_S3_RS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = ptrtoint ptr %9 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -2212,26 +2395,26 @@ define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_E
           to label %17 unwind label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
   ret void
 
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #12
+  call void @__clang_call_terminate(ptr %21) #16
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryEEvT_S3_(ptr noundef %0, ptr noundef %1) #7 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryEEvT_S3_(ptr noundef %0, ptr noundef %1) #15 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %3, align 8, !tbaa !26
+  %6 = load ptr, ptr %4, align 8, !tbaa !26
   call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN5Ipopt17PiecewisePenEntryEEEvT_S5_(ptr noundef %5, ptr noundef %6)
   ret void
 }
@@ -2240,39 +2423,23 @@ define linkonce_odr void @_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryEEvT_S3_(ptr 
 define linkonce_odr void @_ZNSt12_Destroy_auxILb1EE9__destroyIPN5Ipopt17PiecewisePenEntryEEEvT_S5_(ptr noundef %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSaIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %3, align 8, !tbaa !67
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  %8 = load ptr, ptr %4, align 8, !tbaa !67
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = icmp eq ptr %7, %10
   ret i1 %11
 }
@@ -2281,12 +2448,12 @@ define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN5Ipopt17PiecewisePenE
 define linkonce_odr ptr @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %5, i32 0, i32 0
   call void @_ZN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -2295,12 +2462,12 @@ define linkonce_odr ptr @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5begin
 define linkonce_odr ptr @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %5, i32 0, i32 1
   call void @_ZN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %2, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -2308,9 +2475,9 @@ define linkonce_odr ptr @_ZNKSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE3endEv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
@@ -2318,13 +2485,13 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_c
 define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !69
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !69
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  store ptr %8, ptr %6, align 8, !tbaa !72
   ret void
 }
 
@@ -2333,46 +2500,48 @@ define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE15_M_e
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %4, align 8, !tbaa !26
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %10 = load ptr, ptr %4, align 8, !tbaa !26
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
-  store i64 %14, ptr %5, align 8
-  %15 = load i64, ptr %5, align 8
+  store i64 %14, ptr %5, align 8, !tbaa !42
+  %15 = load i64, ptr %5, align 8, !tbaa !42
   %16 = icmp ne i64 %15, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %20 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
+  %18 = load ptr, ptr %4, align 8, !tbaa !26
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !40
   %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   invoke void @_ZSt8_DestroyIPN5Ipopt17PiecewisePenEntryES1_EvT_S3_RSaIT0_E(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %23 unwind label %28
 
 23:                                               ; preds = %17
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
-  %26 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %25, i32 0, i32 1
-  store ptr %24, ptr %26, align 8
+  %24 = load ptr, ptr %4, align 8, !tbaa !26
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !40
   br label %27
 
 27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret void
 
 28:                                               ; preds = %17
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #12
+  call void @__clang_call_terminate(ptr %30) #16
   unreachable
 }
 
@@ -2380,52 +2549,52 @@ define linkonce_odr void @_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE15_M_e
 define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %4, align 8, !tbaa !69
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !69
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  store ptr %8, ptr %6, align 8, !tbaa !38
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !36
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIN5Ipopt17PiecewisePenEntryEES2_E17_S_select_on_copyERKS3_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #7 comdat align 2 {
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIN5Ipopt17PiecewisePenEntryEES2_E17_S_select_on_copyERKS3_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !54
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
   call void @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryEEE37select_on_container_copy_constructionERKS2_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !50
+  store i64 %1, ptr %5, align 8, !tbaa !42
+  store ptr %2, ptr %6, align 8, !tbaa !54
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !54
   call void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #3
-  %12 = load i64, ptr %5, align 8
+  %12 = load i64, ptr %5, align 8, !tbaa !42
   invoke void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
           to label %13 unwind label %14
 
@@ -2439,7 +2608,7 @@ define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_E
   store ptr %16, ptr %7, align 8
   %17 = extractvalue { ptr, i32 } %15, 1
   store i32 %17, ptr %8, align 4
-  call void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  call void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   br label %18
 
 18:                                               ; preds = %14
@@ -2451,34 +2620,32 @@ define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSaIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  store ptr %0, ptr %2, align 8, !tbaa !59
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #7 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #15 comdat {
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %10 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %6, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %6, i32 0, i32 0
   store ptr %1, ptr %12, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false)
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
+  store ptr %2, ptr %7, align 8, !tbaa !26
+  store ptr %3, ptr %8, align 8, !tbaa !54
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !25
+  %13 = load ptr, ptr %7, align 8, !tbaa !26
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %10, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %15, ptr %17, ptr noundef %13)
   ret ptr %18
@@ -2489,8 +2656,8 @@ define linkonce_odr void @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryE
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !54
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
   call void @_ZNSaIN5Ipopt17PiecewisePenEntryEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #3
   ret void
 }
@@ -2499,10 +2666,10 @@ define linkonce_odr void @_ZNSt16allocator_traitsISaIN5Ipopt17PiecewisePenEntryE
 define linkonce_odr void @_ZNSaIN5Ipopt17PiecewisePenEntryEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store ptr %1, ptr %4, align 8, !tbaa !54
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !54
   call void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   ret void
 }
@@ -2511,8 +2678,8 @@ define linkonce_odr void @_ZNSaIN5Ipopt17PiecewisePenEntryEEC2ERKS1_(ptr noundef
 define linkonce_odr void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !59
+  store ptr %1, ptr %4, align 8, !tbaa !59
   ret void
 }
 
@@ -2520,46 +2687,46 @@ define linkonce_odr void @_ZNSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEEC2E
 define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !52
+  store ptr %1, ptr %4, align 8, !tbaa !54
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !54
   call void @_ZNSaIN5Ipopt17PiecewisePenEntryEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   call void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #7 comdat align 2 {
+define linkonce_odr void @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store i64 %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  store i64 %1, ptr %4, align 8, !tbaa !42
   %5 = load ptr, ptr %3, align 8
-  %6 = load i64, ptr %4, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !42
   %7 = call noundef ptr @_ZNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6)
-  %8 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %9 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %8, i32 0, i32 0
-  store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %14 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %13, i32 0, i32 1
-  store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %16 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i64, ptr %4, align 8
-  %19 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %17, i64 %18
-  %20 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %20, i32 0, i32 2
-  store ptr %19, ptr %21, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8, !tbaa !41
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  store ptr %12, ptr %14, align 8, !tbaa !40
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %18 = load i64, ptr %4, align 8, !tbaa !42
+  %19 = getelementptr inbounds nuw %"struct.Ipopt::PiecewisePenEntry", ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<Ipopt::PiecewisePenEntry, std::allocator<Ipopt::PiecewisePenEntry>>::_Vector_impl_data", ptr %20, i32 0, i32 2
+  store ptr %19, ptr %21, align 8, !tbaa !58
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %0, ptr %1, ptr noundef %2) #7 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %0, ptr %1, ptr noundef %2) #15 comdat {
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %6 = alloca ptr, align 8
@@ -2567,49 +2734,53 @@ define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_
   %8 = alloca i8, align 1
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %10 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
   store ptr %1, ptr %12, align 8
-  store ptr %2, ptr %6, align 8
-  store i8 1, ptr %7, align 1
-  store i8 1, ptr %8, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false)
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #3
+  store i8 1, ptr %7, align 1, !tbaa !23
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  store i8 1, ptr %8, align 1, !tbaa !23
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !25
+  %13 = load ptr, ptr %6, align 8, !tbaa !26
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %10, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef ptr @_ZNSt20__uninitialized_copyILb1EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS5_SaIS5_EEEEPS5_EET0_T_SE_SD_(ptr %15, ptr %17, ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #3
   ret ptr %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt20__uninitialized_copyILb1EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS5_SaIS5_EEEEPS5_EET0_T_SE_SD_(ptr %0, ptr %1, ptr noundef %2) #7 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt20__uninitialized_copyILb1EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS5_SaIS5_EEEEPS5_EET0_T_SE_SD_(ptr %0, ptr %1, ptr noundef %2) #9 comdat align 2 {
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %8 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
   store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %7, i32 0, i32 0
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !25
+  %11 = load ptr, ptr %6, align 8, !tbaa !26
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %7, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef ptr @_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %13, ptr %15, ptr noundef %11)
   ret ptr %16
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %0, ptr %1, ptr noundef %2) #7 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %0, ptr %1, ptr noundef %2) #15 comdat {
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %6 = alloca ptr, align 8
@@ -2617,92 +2788,92 @@ define linkonce_odr noundef ptr @_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN5Ip
   %8 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %9 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %10 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
   store ptr %1, ptr %12, align 8
-  store ptr %2, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %4, i64 8, i1 false)
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !25
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEET_SA_(ptr %14)
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %7, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %7, i32 0, i32 0
   store ptr %15, ptr %16, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false)
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %10, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !25
+  %17 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %10, i32 0, i32 0
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEET_SA_(ptr %18)
-  %20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
   store ptr %19, ptr %20, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %7, i32 0, i32 0
+  %21 = load ptr, ptr %6, align 8, !tbaa !26
+  %22 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %7, i32 0, i32 0
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %9, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_ET1_T0_SC_SB_(ptr %23, ptr %25, ptr noundef %21)
   ret ptr %26
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_ET1_T0_SC_SB_(ptr %0, ptr %1, ptr noundef %2) #7 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEPS3_ET1_T0_SC_SB_(ptr %0, ptr %1, ptr noundef %2) #15 comdat {
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %8 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
-  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %4, i32 0, i32 0
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %5, i32 0, i32 0
   store ptr %1, ptr %10, align 8
-  store ptr %2, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %7, i32 0, i32 0
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !25
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %7, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef ptr @_ZSt12__niter_baseIPKN5Ipopt17PiecewisePenEntryESt6vectorIS1_SaIS1_EEET_N9__gnu_cxx17__normal_iteratorIS7_T0_EE(ptr %12) #3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !25
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %8, i32 0, i32 0
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef ptr @_ZSt12__niter_baseIPKN5Ipopt17PiecewisePenEntryESt6vectorIS1_SaIS1_EEET_N9__gnu_cxx17__normal_iteratorIS7_T0_EE(ptr %15) #3
-  %17 = load ptr, ptr %6, align 8
+  %17 = load ptr, ptr %6, align 8, !tbaa !26
   %18 = call noundef ptr @_ZSt12__niter_baseIPN5Ipopt17PiecewisePenEntryEET_S3_(ptr noundef %17) #3
   %19 = call noundef ptr @_ZSt14__copy_move_a1ILb0EPKN5Ipopt17PiecewisePenEntryEPS1_ET1_T0_S6_S5_(ptr noundef %13, ptr noundef %16, ptr noundef %18)
   %20 = call noundef ptr @_ZSt12__niter_wrapIPN5Ipopt17PiecewisePenEntryEET_RKS3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %19)
   ret ptr %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEET_SA_(ptr %0) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS3_SaIS3_EEEEET_SA_(ptr %0) #8 comdat {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %3, i32 0, i32 0
   store ptr %0, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false)
-  %5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %2, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !25
+  %5 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %2, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_wrapIPN5Ipopt17PiecewisePenEntryEET_RKS3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_wrapIPN5Ipopt17PiecewisePenEntryEET_RKS3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt14__copy_move_a1ILb0EPKN5Ipopt17PiecewisePenEntryEPS1_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt14__copy_move_a1ILb0EPKN5Ipopt17PiecewisePenEntryEPS1_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #15 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load ptr, ptr %6, align 8, !tbaa !26
   %10 = call noundef ptr @_ZSt14__copy_move_a2ILb0EPKN5Ipopt17PiecewisePenEntryEPS1_ET1_T0_S6_S5_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %10
 }
@@ -2710,24 +2881,24 @@ define linkonce_odr noundef ptr @_ZSt14__copy_move_a1ILb0EPKN5Ipopt17PiecewisePe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZSt12__niter_baseIPKN5Ipopt17PiecewisePenEntryESt6vectorIS1_SaIS1_EEET_N9__gnu_cxx17__normal_iteratorIS7_T0_EE(ptr %0) #4 comdat {
   %2 = alloca %"class.__gnu_cxx::__normal_iterator.5", align 8
-  %3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.5", ptr %2, i32 0, i32 0
+  %3 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.5", ptr %2, i32 0, i32 0
   store ptr %0, ptr %3, align 8
   %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt14__copy_move_a2ILb0EPKN5Ipopt17PiecewisePenEntryEPS1_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt14__copy_move_a2ILb0EPKN5Ipopt17PiecewisePenEntryEPS1_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #15 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load ptr, ptr %6, align 8, !tbaa !26
   %10 = call noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIN5Ipopt17PiecewisePenEntryEEEPT_PKS5_S8_S6_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %10
 }
@@ -2738,32 +2909,34 @@ define linkonce_odr noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random_access_it
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !26
+  store ptr %1, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %8 = load ptr, ptr %5, align 8, !tbaa !26
+  %9 = load ptr, ptr %4, align 8, !tbaa !26
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 24
-  store i64 %13, ptr %7, align 8
-  %14 = load i64, ptr %7, align 8
+  store i64 %13, ptr %7, align 8, !tbaa !42
+  %14 = load i64, ptr %7, align 8, !tbaa !42
   %15 = icmp ne i64 %14, 0
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = load i64, ptr %7, align 8
+  %17 = load ptr, ptr %6, align 8, !tbaa !26
+  %18 = load ptr, ptr %4, align 8, !tbaa !26
+  %19 = load i64, ptr %7, align 8, !tbaa !42
   %20 = mul i64 24, %19
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 %20, i1 false)
   br label %21
 
 21:                                               ; preds = %16, %3
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i64, ptr %7, align 8
+  %22 = load ptr, ptr %6, align 8, !tbaa !26
+  %23 = load i64, ptr %7, align 8, !tbaa !42
   %24 = getelementptr inbounds %"struct.Ipopt::PiecewisePenEntry", ptr %22, i64 %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret ptr %24
 }
 
@@ -2773,31 +2946,100 @@ define internal void @_GLOBAL__sub_I_IpPiecewisePenalty.cpp() #0 section ".text.
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { noreturn }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { noreturn }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN5Ipopt16PiecewisePenaltyE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !9, i64 0}
+!11 = !{!"_ZTSN5Ipopt16PiecewisePenaltyE", !9, i64 0, !12, i64 8, !9, i64 16, !13, i64 24}
+!12 = !{!"double", !6, i64 0}
+!13 = !{!"_ZTSSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE", !14, i64 0}
+!14 = !{!"_ZTSSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE", !15, i64 0}
+!15 = !{!"_ZTSNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implE", !16, i64 0}
+!16 = !{!"_ZTSNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE17_Vector_impl_dataE", !17, i64 0, !17, i64 8, !17, i64 16}
+!17 = !{!"p1 _ZTSN5Ipopt17PiecewisePenEntryE", !5, i64 0}
+!18 = !{!11, !12, i64 8}
+!19 = !{!11, !9, i64 16}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTSSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE", !5, i64 0}
+!22 = !{!12, !12, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"bool", !6, i64 0}
+!25 = !{i64 0, i64 8, !26}
+!26 = !{!17, !17, i64 0}
+!27 = !{!28, !12, i64 8}
+!28 = !{!"_ZTSN5Ipopt17PiecewisePenEntryE", !12, i64 0, !12, i64 8, !12, i64 16}
+!29 = !{!28, !12, i64 0}
+!30 = !{!28, !12, i64 16}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = distinct !{!33, !32}
+!34 = !{i8 0, i8 2}
+!35 = !{}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEE", !5, i64 0}
+!38 = !{!39, !17, i64 0}
+!39 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEE", !17, i64 0}
+!40 = !{!16, !17, i64 8}
+!41 = !{!16, !17, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"long", !6, i64 0}
+!44 = distinct !{!44, !32}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTSN5Ipopt10JournalistE", !5, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"vtable pointer", !7, i64 0}
+!49 = distinct !{!49, !32}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE", !5, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE12_Vector_implE", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTSSaIN5Ipopt17PiecewisePenEntryEE", !5, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSNSt12_Vector_baseIN5Ipopt17PiecewisePenEntryESaIS1_EE17_Vector_impl_dataE", !5, i64 0}
+!58 = !{!16, !17, i64 16}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSSt15__new_allocatorIN5Ipopt17PiecewisePenEntryEE", !5, i64 0}
+!61 = !{i64 0, i64 8, !22, i64 8, i64 8, !22, i64 16, i64 8, !22}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 omnipotent char", !5, i64 0}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 long", !5, i64 0}
+!66 = !{!5, !5, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEE", !5, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p2 _ZTSN5Ipopt17PiecewisePenEntryE", !71, i64 0}
+!71 = !{!"any p2 pointer", !5, i64 0}
+!72 = !{!73, !17, i64 0}
+!73 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKN5Ipopt17PiecewisePenEntryESt6vectorIS2_SaIS2_EEEE", !17, i64 0}

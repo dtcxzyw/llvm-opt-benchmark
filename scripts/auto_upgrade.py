@@ -96,6 +96,7 @@ supported_project = [
     "hyperscan",
     "icu",
     "imgui",
+    "ipopt",
 ]
 
 modify_only = [
@@ -128,6 +129,7 @@ modify_only = [
     "grpc",
     "hyperscan",
     "icu",
+    "ipopt",
 ]
 
 

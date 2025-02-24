@@ -8,35 +8,35 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @ipcreate_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 {
-  %15 = load i32, ptr %0, align 4
-  %16 = load i32, ptr %3, align 4
-  %17 = load i32, ptr %6, align 4
-  %18 = load i32, ptr %7, align 4
-  %19 = load i32, ptr %8, align 4
-  %20 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #6
-  %21 = tail call ptr @CreateIpoptProblem(i32 noundef %15, ptr noundef %1, ptr noundef %2, i32 noundef %16, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef nonnull @eval_f, ptr noundef nonnull @eval_g, ptr noundef nonnull @eval_grad_f, ptr noundef nonnull @eval_jac_g, ptr noundef nonnull @eval_h) #7
+  %15 = load i32, ptr %0, align 4, !tbaa !3
+  %16 = load i32, ptr %3, align 4, !tbaa !3
+  %17 = load i32, ptr %6, align 4, !tbaa !3
+  %18 = load i32, ptr %7, align 4, !tbaa !3
+  %19 = load i32, ptr %8, align 4, !tbaa !3
+  %20 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #7
+  %21 = tail call ptr @CreateIpoptProblem(i32 noundef %15, ptr noundef %1, ptr noundef %2, i32 noundef %16, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef nonnull @eval_f, ptr noundef nonnull @eval_g, ptr noundef nonnull @eval_grad_f, ptr noundef nonnull @eval_jac_g, ptr noundef nonnull @eval_h) #8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  store ptr %21, ptr %22, align 8
+  store ptr %21, ptr %22, align 8, !tbaa !7
   %23 = icmp eq ptr %21, null
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %20) #7
+  tail call void @free(ptr noundef nonnull %20) #8
   br label %32
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %9, ptr %26, align 8
+  store ptr %9, ptr %26, align 8, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr %10, ptr %27, align 8
+  store ptr %10, ptr %27, align 8, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %11, ptr %28, align 8
+  store ptr %11, ptr %28, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  store ptr %12, ptr %29, align 8
+  store ptr %12, ptr %29, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  store ptr %13, ptr %30, align 8
+  store ptr %13, ptr %30, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  store ptr null, ptr %31, align 8
+  store ptr null, ptr %31, align 8, !tbaa !18
   br label %32
 
 32:                                               ; preds = %25, %24
@@ -44,28 +44,37 @@ define noalias noundef ptr @ipcreate_(ptr noundef readonly captures(none) %0, pt
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @CreateIpoptProblem(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+
+declare ptr @CreateIpoptProblem(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @eval_f(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store i32 %0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  store i32 %0, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %9 = zext i1 %2 to i32
-  store i32 %9, ptr %7, align 4
-  %10 = load ptr, ptr %4, align 8
+  store i32 %9, ptr %7, align 4, !tbaa !3
+  %10 = load ptr, ptr %4, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load ptr, ptr %11, align 8
-  store i32 0, ptr %8, align 4
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %8) #7
-  %15 = load i32, ptr %8, align 4
+  %14 = load ptr, ptr %13, align 8, !tbaa !13
+  call void %14(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %8) #8
+  %15 = load i32, ptr %8, align 4, !tbaa !3
   %16 = icmp eq i32 %15, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   ret i1 %16
 }
 
@@ -75,19 +84,27 @@ define internal zeroext i1 @eval_g(i32 noundef %0, ptr noundef %1, i1 noundef ze
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  store i32 %0, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  store i32 %0, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %11 = zext i1 %2 to i32
-  store i32 %11, ptr %8, align 4
-  store i32 %3, ptr %9, align 4
-  %12 = load ptr, ptr %5, align 8
+  store i32 %11, ptr %8, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  store i32 %3, ptr %9, align 4, !tbaa !3
+  %12 = load ptr, ptr %5, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8
-  store i32 0, ptr %10, align 4
+  %14 = load ptr, ptr %13, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %16 = load ptr, ptr %15, align 8
-  call void %16(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %4, ptr noundef %12, ptr noundef %14, ptr noundef nonnull %10) #7
-  %17 = load i32, ptr %10, align 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
+  call void %16(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %4, ptr noundef %12, ptr noundef %14, ptr noundef nonnull %10) #8
+  %17 = load i32, ptr %10, align 4, !tbaa !3
   %18 = icmp eq i32 %17, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   ret i1 %18
 }
 
@@ -96,18 +113,24 @@ define internal zeroext i1 @eval_grad_f(i32 noundef %0, ptr noundef %1, i1 nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store i32 %0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  store i32 %0, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %9 = zext i1 %2 to i32
-  store i32 %9, ptr %7, align 4
-  %10 = load ptr, ptr %4, align 8
+  store i32 %9, ptr %7, align 4, !tbaa !3
+  %10 = load ptr, ptr %4, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load ptr, ptr %11, align 8
-  store i32 0, ptr %8, align 4
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %8) #7
-  %15 = load i32, ptr %8, align 4
+  %14 = load ptr, ptr %13, align 8, !tbaa !15
+  call void %14(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %8) #8
+  %15 = load i32, ptr %8, align 4, !tbaa !3
   %16 = icmp eq i32 %15, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   ret i1 %16
 }
 
@@ -119,15 +142,21 @@ define internal zeroext i1 @eval_jac_g(i32 noundef %0, ptr noundef %1, i1 nounde
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store i32 %0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  store i32 %0, ptr %10, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
   %16 = zext i1 %2 to i32
-  store i32 %16, ptr %11, align 4
-  store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  %17 = load ptr, ptr %8, align 8
+  store i32 %16, ptr %11, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #8
+  store i32 %3, ptr %12, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
+  store i32 %4, ptr %13, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
+  %17 = load ptr, ptr %8, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %19 = load ptr, ptr %18, align 8
-  store i32 0, ptr %15, align 4
+  %19 = load ptr, ptr %18, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #8
+  store i32 0, ptr %15, align 4, !tbaa !3
   %20 = icmp ne ptr %5, null
   %21 = icmp ne ptr %6, null
   %or.cond = and i1 %20, %21
@@ -149,16 +178,22 @@ define internal zeroext i1 @eval_jac_g(i32 noundef %0, ptr noundef %1, i1 nounde
 
 28:                                               ; preds = %23, %9
   %storemerge = phi i32 [ 0, %9 ], [ 1, %23 ]
-  store i32 %storemerge, ptr %14, align 4
+  store i32 %storemerge, ptr %14, align 4, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull %14, ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %17, ptr noundef %19, ptr noundef nonnull %15) #7
-  %31 = load i32, ptr %15, align 4
+  %30 = load ptr, ptr %29, align 8, !tbaa !16
+  call void %30(ptr noundef nonnull %14, ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %17, ptr noundef %19, ptr noundef nonnull %15) #8
+  %31 = load i32, ptr %15, align 4, !tbaa !3
   %32 = icmp eq i32 %31, 0
   br label %33
 
 33:                                               ; preds = %28, %27
   %.0 = phi i1 [ %32, %28 ], [ false, %27 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   ret i1 %.0
 }
 
@@ -172,18 +207,25 @@ define internal zeroext i1 @eval_h(i32 noundef %0, ptr noundef %1, i1 noundef ze
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
-  store double %3, ptr %13, align 8
-  store i32 %0, ptr %14, align 4
+  store double %3, ptr %13, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
+  store i32 %0, ptr %14, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #8
   %21 = zext i1 %2 to i32
-  store i32 %21, ptr %15, align 4
-  store i32 %4, ptr %16, align 4
+  store i32 %21, ptr %15, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #8
+  store i32 %4, ptr %16, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #8
   %22 = zext i1 %6 to i32
-  store i32 %22, ptr %17, align 4
-  store i32 %7, ptr %18, align 4
-  %23 = load ptr, ptr %11, align 8
+  store i32 %22, ptr %17, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #8
+  store i32 %7, ptr %18, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #8
+  %23 = load ptr, ptr %11, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %25 = load ptr, ptr %24, align 8
-  store i32 0, ptr %20, align 4
+  %25 = load ptr, ptr %24, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #8
+  store i32 0, ptr %20, align 4, !tbaa !3
   %26 = icmp ne ptr %8, null
   %27 = icmp ne ptr %9, null
   %or.cond = and i1 %26, %27
@@ -205,52 +247,62 @@ define internal zeroext i1 @eval_h(i32 noundef %0, ptr noundef %1, i1 noundef ze
 
 34:                                               ; preds = %29, %12
   %storemerge = phi i32 [ 0, %12 ], [ 1, %29 ]
-  store i32 %storemerge, ptr %19, align 4
+  store i32 %storemerge, ptr %19, align 4, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull %19, ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %5, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %23, ptr noundef %25, ptr noundef nonnull %20) #7
-  %37 = load i32, ptr %20, align 4
+  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  call void %36(ptr noundef nonnull %19, ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %5, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %23, ptr noundef %25, ptr noundef nonnull %20) #8
+  %37 = load i32, ptr %20, align 4, !tbaa !3
   %38 = icmp eq i32 %37, 0
   br label %39
 
 39:                                               ; preds = %34, %33
   %.0 = phi i1 [ %38, %34 ], [ false, %33 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @ipfree_(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4 = load ptr, ptr %3, align 8
-  tail call void @FreeIpoptProblem(ptr noundef %4) #7
-  tail call void @free(ptr noundef %2) #7
-  store ptr null, ptr %0, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !7
+  tail call void @FreeIpoptProblem(ptr noundef %4) #8
+  tail call void @free(ptr noundef %2) #8
+  store ptr null, ptr %0, align 8, !tbaa !23
   ret void
 }
 
-declare void @FreeIpoptProblem(ptr noundef) local_unnamed_addr #2
+declare void @FreeIpoptProblem(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @ipsolve_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
-  %10 = load ptr, ptr %0, align 8
-  store ptr %7, ptr %10, align 8
+  %10 = load ptr, ptr %0, align 8, !tbaa !23
+  store ptr %7, ptr %10, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %8, ptr %11, align 8
+  store ptr %8, ptr %11, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @IpoptSolve(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %10) #7
+  %13 = load ptr, ptr %12, align 8, !tbaa !7
+  %14 = tail call i32 @IpoptSolve(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %10) #8
   ret i32 %14
 }
 
-declare i32 @IpoptSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @IpoptSolve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipaddstroption_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = load ptr, ptr %0, align 8
+  %6 = load ptr, ptr %0, align 8, !tbaa !23
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
@@ -259,79 +311,79 @@ define range(i32 0, 2) i32 @ipaddstroption_(ptr noundef readonly captures(none) 
   %.014.i = phi i32 [ %11, %10 ], [ %3, %5 ]
   %8 = zext nneg i32 %.014.i to i64
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %8
-  %9 = load i8, ptr %gep.i, align 1
+  %9 = load i8, ptr %gep.i, align 1, !tbaa !24
   %.not.i = icmp eq i8 %9, 32
   br i1 %.not.i, label %10, label %._crit_edge.i
 
 10:                                               ; preds = %.lr.ph.i
   %11 = add nsw i32 %.014.i, -1
   %12 = icmp sgt i32 %.014.i, 1
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
+  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %10, %.lr.ph.i, %5
   %.0.lcssa.i = phi i32 [ %3, %5 ], [ 0, %10 ], [ %.014.i, %.lr.ph.i ]
   %13 = add nsw i32 %.0.lcssa.i, 1
   %14 = sext i32 %13 to i64
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #6
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #7
   %.not13.i = icmp eq ptr %15, null
   br i1 %.not13.i, label %f2cstr.exit, label %16
 
 16:                                               ; preds = %._crit_edge.i
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %1, i64 noundef %17) #7
-  %19 = getelementptr inbounds i8, ptr %15, i64 %17
-  store i8 0, ptr %19, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %1, i64 %17, i1 false)
+  %18 = getelementptr inbounds i8, ptr %15, i64 %17
+  store i8 0, ptr %18, align 1, !tbaa !24
   br label %f2cstr.exit
 
 f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
   %invariant.gep.i10 = getelementptr i8, ptr %2, i64 -1
-  %20 = icmp sgt i32 %4, 0
-  br i1 %20, label %.lr.ph.i14, label %._crit_edge.i11
+  %19 = icmp sgt i32 %4, 0
+  br i1 %19, label %.lr.ph.i14, label %._crit_edge.i11
 
-.lr.ph.i14:                                       ; preds = %f2cstr.exit, %23
-  %.014.i15 = phi i32 [ %24, %23 ], [ %4, %f2cstr.exit ]
-  %21 = zext nneg i32 %.014.i15 to i64
-  %gep.i16 = getelementptr i8, ptr %invariant.gep.i10, i64 %21
-  %22 = load i8, ptr %gep.i16, align 1
-  %.not.i17 = icmp eq i8 %22, 32
-  br i1 %.not.i17, label %23, label %._crit_edge.i11
+.lr.ph.i14:                                       ; preds = %f2cstr.exit, %22
+  %.014.i15 = phi i32 [ %23, %22 ], [ %4, %f2cstr.exit ]
+  %20 = zext nneg i32 %.014.i15 to i64
+  %gep.i16 = getelementptr i8, ptr %invariant.gep.i10, i64 %20
+  %21 = load i8, ptr %gep.i16, align 1, !tbaa !24
+  %.not.i17 = icmp eq i8 %21, 32
+  br i1 %.not.i17, label %22, label %._crit_edge.i11
 
-23:                                               ; preds = %.lr.ph.i14
-  %24 = add nsw i32 %.014.i15, -1
-  %25 = icmp sgt i32 %.014.i15, 1
-  br i1 %25, label %.lr.ph.i14, label %._crit_edge.i11, !llvm.loop !4
+22:                                               ; preds = %.lr.ph.i14
+  %23 = add nsw i32 %.014.i15, -1
+  %24 = icmp sgt i32 %.014.i15, 1
+  br i1 %24, label %.lr.ph.i14, label %._crit_edge.i11, !llvm.loop !25
 
-._crit_edge.i11:                                  ; preds = %23, %.lr.ph.i14, %f2cstr.exit
-  %.0.lcssa.i12 = phi i32 [ %4, %f2cstr.exit ], [ 0, %23 ], [ %.014.i15, %.lr.ph.i14 ]
-  %26 = add nsw i32 %.0.lcssa.i12, 1
-  %27 = sext i32 %26 to i64
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #6
-  %.not13.i13 = icmp eq ptr %28, null
-  br i1 %.not13.i13, label %f2cstr.exit18, label %29
+._crit_edge.i11:                                  ; preds = %22, %.lr.ph.i14, %f2cstr.exit
+  %.0.lcssa.i12 = phi i32 [ %4, %f2cstr.exit ], [ 0, %22 ], [ %.014.i15, %.lr.ph.i14 ]
+  %25 = add nsw i32 %.0.lcssa.i12, 1
+  %26 = sext i32 %25 to i64
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #7
+  %.not13.i13 = icmp eq ptr %27, null
+  br i1 %.not13.i13, label %f2cstr.exit18, label %28
 
-29:                                               ; preds = %._crit_edge.i11
-  %30 = sext i32 %.0.lcssa.i12 to i64
-  %31 = tail call ptr @strncpy(ptr noundef nonnull %28, ptr noundef readonly %2, i64 noundef %30) #7
-  %32 = getelementptr inbounds i8, ptr %28, i64 %30
-  store i8 0, ptr %32, align 1
+28:                                               ; preds = %._crit_edge.i11
+  %29 = sext i32 %.0.lcssa.i12 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %2, i64 %29, i1 false)
+  %30 = getelementptr inbounds i8, ptr %27, i64 %29
+  store i8 0, ptr %30, align 1, !tbaa !24
   br label %f2cstr.exit18
 
-f2cstr.exit18:                                    ; preds = %._crit_edge.i11, %29
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call zeroext i1 @AddIpoptStrOption(ptr noundef %34, ptr noundef %15, ptr noundef %28) #7
-  tail call void @free(ptr noundef %28) #7
-  tail call void @free(ptr noundef %15) #7
-  %not. = xor i1 %35, true
-  %36 = zext i1 %not. to i32
-  ret i32 %36
+f2cstr.exit18:                                    ; preds = %._crit_edge.i11, %28
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %32 = load ptr, ptr %31, align 8, !tbaa !7
+  %33 = tail call zeroext i1 @AddIpoptStrOption(ptr noundef %32, ptr noundef %15, ptr noundef %27) #8
+  tail call void @free(ptr noundef %27) #8
+  tail call void @free(ptr noundef %15) #8
+  %not. = xor i1 %33, true
+  %34 = zext i1 %not. to i32
+  ret i32 %34
 }
 
-declare zeroext i1 @AddIpoptStrOption(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @AddIpoptStrOption(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipaddnumoption_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr %0, align 8
+  %5 = load ptr, ptr %0, align 8, !tbaa !23
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.i, label %._crit_edge.i
@@ -340,47 +392,47 @@ define range(i32 0, 2) i32 @ipaddnumoption_(ptr noundef readonly captures(none) 
   %.014.i = phi i32 [ %10, %9 ], [ %3, %4 ]
   %7 = zext nneg i32 %.014.i to i64
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %7
-  %8 = load i8, ptr %gep.i, align 1
+  %8 = load i8, ptr %gep.i, align 1, !tbaa !24
   %.not.i = icmp eq i8 %8, 32
   br i1 %.not.i, label %9, label %._crit_edge.i
 
 9:                                                ; preds = %.lr.ph.i
   %10 = add nsw i32 %.014.i, -1
   %11 = icmp sgt i32 %.014.i, 1
-  br i1 %11, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
+  br i1 %11, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %9, %.lr.ph.i, %4
   %.0.lcssa.i = phi i32 [ %3, %4 ], [ 0, %9 ], [ %.014.i, %.lr.ph.i ]
   %12 = add nsw i32 %.0.lcssa.i, 1
   %13 = sext i32 %12 to i64
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #6
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #7
   %.not13.i = icmp eq ptr %14, null
   br i1 %.not13.i, label %f2cstr.exit, label %15
 
 15:                                               ; preds = %._crit_edge.i
   %16 = sext i32 %.0.lcssa.i to i64
-  %17 = tail call ptr @strncpy(ptr noundef nonnull %14, ptr noundef readonly %1, i64 noundef %16) #7
-  %18 = getelementptr inbounds i8, ptr %14, i64 %16
-  store i8 0, ptr %18, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr readonly align 1 %1, i64 %16, i1 false)
+  %17 = getelementptr inbounds i8, ptr %14, i64 %16
+  store i8 0, ptr %17, align 1, !tbaa !24
   br label %f2cstr.exit
 
 f2cstr.exit:                                      ; preds = %._crit_edge.i, %15
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %20 = load ptr, ptr %19, align 8
-  %21 = load double, ptr %2, align 8
-  %22 = tail call zeroext i1 @AddIpoptNumOption(ptr noundef %20, ptr noundef %14, double noundef %21) #7
-  tail call void @free(ptr noundef %14) #7
-  %not. = xor i1 %22, true
-  %23 = zext i1 %not. to i32
-  ret i32 %23
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %19 = load ptr, ptr %18, align 8, !tbaa !7
+  %20 = load double, ptr %2, align 8, !tbaa !21
+  %21 = tail call zeroext i1 @AddIpoptNumOption(ptr noundef %19, ptr noundef %14, double noundef %20) #8
+  tail call void @free(ptr noundef %14) #8
+  %not. = xor i1 %21, true
+  %22 = zext i1 %not. to i32
+  ret i32 %22
 }
 
-declare zeroext i1 @AddIpoptNumOption(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
+declare zeroext i1 @AddIpoptNumOption(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipaddintoption_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr %0, align 8
-  %6 = load i32, ptr %2, align 4
+  %5 = load ptr, ptr %0, align 8, !tbaa !23
+  %6 = load i32, ptr %2, align 4, !tbaa !3
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
@@ -389,46 +441,46 @@ define range(i32 0, 2) i32 @ipaddintoption_(ptr noundef readonly captures(none) 
   %.014.i = phi i32 [ %11, %10 ], [ %3, %4 ]
   %8 = zext nneg i32 %.014.i to i64
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %8
-  %9 = load i8, ptr %gep.i, align 1
+  %9 = load i8, ptr %gep.i, align 1, !tbaa !24
   %.not.i = icmp eq i8 %9, 32
   br i1 %.not.i, label %10, label %._crit_edge.i
 
 10:                                               ; preds = %.lr.ph.i
   %11 = add nsw i32 %.014.i, -1
   %12 = icmp sgt i32 %.014.i, 1
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
+  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %10, %.lr.ph.i, %4
   %.0.lcssa.i = phi i32 [ %3, %4 ], [ 0, %10 ], [ %.014.i, %.lr.ph.i ]
   %13 = add nsw i32 %.0.lcssa.i, 1
   %14 = sext i32 %13 to i64
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #6
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #7
   %.not13.i = icmp eq ptr %15, null
   br i1 %.not13.i, label %f2cstr.exit, label %16
 
 16:                                               ; preds = %._crit_edge.i
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %1, i64 noundef %17) #7
-  %19 = getelementptr inbounds i8, ptr %15, i64 %17
-  store i8 0, ptr %19, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %1, i64 %17, i1 false)
+  %18 = getelementptr inbounds i8, ptr %15, i64 %17
+  store i8 0, ptr %18, align 1, !tbaa !24
   br label %f2cstr.exit
 
 f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call zeroext i1 @AddIpoptIntOption(ptr noundef %21, ptr noundef %15, i32 noundef %6) #7
-  tail call void @free(ptr noundef %15) #7
-  %not. = xor i1 %22, true
-  %23 = zext i1 %not. to i32
-  ret i32 %23
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %20 = load ptr, ptr %19, align 8, !tbaa !7
+  %21 = tail call zeroext i1 @AddIpoptIntOption(ptr noundef %20, ptr noundef %15, i32 noundef %6) #8
+  tail call void @free(ptr noundef %15) #8
+  %not. = xor i1 %21, true
+  %22 = zext i1 %not. to i32
+  ret i32 %22
 }
 
-declare zeroext i1 @AddIpoptIntOption(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @AddIpoptIntOption(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipopenoutputfile_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr %0, align 8
-  %6 = load i32, ptr %2, align 4
+  %5 = load ptr, ptr %0, align 8, !tbaa !23
+  %6 = load i32, ptr %2, align 4, !tbaa !3
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
@@ -437,54 +489,54 @@ define range(i32 0, 2) i32 @ipopenoutputfile_(ptr noundef readonly captures(none
   %.014.i = phi i32 [ %11, %10 ], [ %3, %4 ]
   %8 = zext nneg i32 %.014.i to i64
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %8
-  %9 = load i8, ptr %gep.i, align 1
+  %9 = load i8, ptr %gep.i, align 1, !tbaa !24
   %.not.i = icmp eq i8 %9, 32
   br i1 %.not.i, label %10, label %._crit_edge.i
 
 10:                                               ; preds = %.lr.ph.i
   %11 = add nsw i32 %.014.i, -1
   %12 = icmp sgt i32 %.014.i, 1
-  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
+  br i1 %12, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %10, %.lr.ph.i, %4
   %.0.lcssa.i = phi i32 [ %3, %4 ], [ 0, %10 ], [ %.014.i, %.lr.ph.i ]
   %13 = add nsw i32 %.0.lcssa.i, 1
   %14 = sext i32 %13 to i64
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #6
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #7
   %.not13.i = icmp eq ptr %15, null
   br i1 %.not13.i, label %f2cstr.exit, label %16
 
 16:                                               ; preds = %._crit_edge.i
   %17 = sext i32 %.0.lcssa.i to i64
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %15, ptr noundef readonly %1, i64 noundef %17) #7
-  %19 = getelementptr inbounds i8, ptr %15, i64 %17
-  store i8 0, ptr %19, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr readonly align 1 %1, i64 %17, i1 false)
+  %18 = getelementptr inbounds i8, ptr %15, i64 %17
+  store i8 0, ptr %18, align 1, !tbaa !24
   br label %f2cstr.exit
 
 f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call zeroext i1 @OpenIpoptOutputFile(ptr noundef %21, ptr noundef %15, i32 noundef %6) #7
-  tail call void @free(ptr noundef %15) #7
-  %not. = xor i1 %22, true
-  %23 = zext i1 %not. to i32
-  ret i32 %23
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %20 = load ptr, ptr %19, align 8, !tbaa !7
+  %21 = tail call zeroext i1 @OpenIpoptOutputFile(ptr noundef %20, ptr noundef %15, i32 noundef %6) #8
+  tail call void @free(ptr noundef %15) #8
+  %not. = xor i1 %21, true
+  %22 = zext i1 %not. to i32
+  ret i32 %22
 }
 
-declare zeroext i1 @OpenIpoptOutputFile(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @OpenIpoptOutputFile(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @ipsetcallback_(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr %1, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %6 = load ptr, ptr %5, align 8
-  %7 = tail call zeroext i1 @SetIntermediateCallback(ptr noundef %6, ptr noundef nonnull @intermediate_cb) #7
+  %6 = load ptr, ptr %5, align 8, !tbaa !7
+  %7 = tail call zeroext i1 @SetIntermediateCallback(ptr noundef %6, ptr noundef nonnull @intermediate_cb) #8
   ret void
 }
 
-declare zeroext i1 @SetIntermediateCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SetIntermediateCallback(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @intermediate_cb(i32 noundef %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, i32 noundef %10, ptr noundef readonly captures(none) %11) #0 {
@@ -500,144 +552,190 @@ define internal zeroext i1 @intermediate_cb(i32 noundef %0, i32 noundef %1, doub
   %22 = alloca double, align 8
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
-  store i32 %0, ptr %13, align 4
-  store i32 %1, ptr %14, align 4
-  store double %2, ptr %15, align 8
-  store double %3, ptr %16, align 8
-  store double %4, ptr %17, align 8
-  store double %5, ptr %18, align 8
-  store double %6, ptr %19, align 8
-  store double %7, ptr %20, align 8
-  store double %8, ptr %21, align 8
-  store double %9, ptr %22, align 8
-  store i32 %10, ptr %23, align 4
-  %25 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
+  store i32 %0, ptr %13, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
+  store i32 %1, ptr %14, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
+  store double %2, ptr %15, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #8
+  store double %3, ptr %16, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #8
+  store double %4, ptr %17, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #8
+  store double %5, ptr %18, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #8
+  store double %6, ptr %19, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #8
+  store double %7, ptr %20, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #8
+  store double %8, ptr %21, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #8
+  store double %9, ptr %22, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #8
+  store i32 %10, ptr %23, align 4, !tbaa !3
+  %25 = load ptr, ptr %11, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %27 = load ptr, ptr %26, align 8
-  store i32 0, ptr %24, align 4
+  %27 = load ptr, ptr %26, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #8
+  store i32 0, ptr %24, align 4, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %33, label %30
 
 30:                                               ; preds = %12
-  call void %29(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %25, ptr noundef %27, ptr noundef nonnull %24) #7
-  %31 = load i32, ptr %24, align 4
+  call void %29(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %25, ptr noundef %27, ptr noundef nonnull %24) #8
+  %31 = load i32, ptr %24, align 4, !tbaa !3
   %32 = icmp eq i32 %31, 0
   br label %33
 
 33:                                               ; preds = %12, %30
   %.0 = phi i1 [ %32, %30 ], [ true, %12 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define void @ipunsetcallback_(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr null, ptr %3, align 8
+  store ptr null, ptr %3, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call zeroext i1 @SetIntermediateCallback(ptr noundef %5, ptr noundef null) #7
+  %5 = load ptr, ptr %4, align 8, !tbaa !7
+  %6 = tail call zeroext i1 @SetIntermediateCallback(ptr noundef %5, ptr noundef null) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipgetcurriterate_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef readonly captures(none) %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
-  %14 = load ptr, ptr %0, align 8
+  %14 = load ptr, ptr %0, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i32, ptr %1, align 4
+  %16 = load ptr, ptr %15, align 8, !tbaa !7
+  %17 = load i32, ptr %1, align 4, !tbaa !3
   %18 = icmp ne i32 %17, 0
-  %19 = load i32, ptr %6, align 4
-  %20 = load i32, ptr %2, align 4
+  %19 = load i32, ptr %6, align 4, !tbaa !3
+  %20 = load i32, ptr %2, align 4, !tbaa !3
   %.not = icmp eq i32 %20, 0
   %21 = select i1 %.not, ptr null, ptr %7
-  %22 = load i32, ptr %3, align 4
+  %22 = load i32, ptr %3, align 4, !tbaa !3
   %.not15 = icmp eq i32 %22, 0
   %23 = select i1 %.not15, ptr null, ptr %8
   %24 = select i1 %.not15, ptr null, ptr %9
-  %25 = load i32, ptr %10, align 4
-  %26 = load i32, ptr %4, align 4
+  %25 = load i32, ptr %10, align 4, !tbaa !3
+  %26 = load i32, ptr %4, align 4, !tbaa !3
   %.not16 = icmp eq i32 %26, 0
   %27 = select i1 %.not16, ptr null, ptr %11
-  %28 = load i32, ptr %5, align 4
+  %28 = load i32, ptr %5, align 4, !tbaa !3
   %.not17 = icmp eq i32 %28, 0
   %29 = select i1 %.not17, ptr null, ptr %12
-  %30 = tail call zeroext i1 @GetIpoptCurrentIterate(ptr noundef %16, i1 noundef zeroext %18, i32 noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %24, i32 noundef %25, ptr noundef %27, ptr noundef %29) #7
+  %30 = tail call zeroext i1 @GetIpoptCurrentIterate(ptr noundef %16, i1 noundef zeroext %18, i32 noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %24, i32 noundef %25, ptr noundef %27, ptr noundef %29) #8
   %not. = xor i1 %30, true
   %31 = zext i1 %not. to i32
   ret i32 %31
 }
 
-declare zeroext i1 @GetIpoptCurrentIterate(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @GetIpoptCurrentIterate(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipgetcurrviolations_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef readonly captures(none) %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 {
-  %16 = load ptr, ptr %0, align 8
+  %16 = load ptr, ptr %0, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %18 = load ptr, ptr %17, align 8
-  %19 = load i32, ptr %1, align 4
+  %18 = load ptr, ptr %17, align 8, !tbaa !7
+  %19 = load i32, ptr %1, align 4, !tbaa !3
   %20 = icmp ne i32 %19, 0
-  %21 = load i32, ptr %6, align 4
-  %22 = load i32, ptr %2, align 4
+  %21 = load i32, ptr %6, align 4, !tbaa !3
+  %22 = load i32, ptr %2, align 4, !tbaa !3
   %.not = icmp eq i32 %22, 0
   %23 = select i1 %.not, ptr null, ptr %7
   %24 = select i1 %.not, ptr null, ptr %8
-  %25 = load i32, ptr %3, align 4
+  %25 = load i32, ptr %3, align 4, !tbaa !3
   %.not19 = icmp eq i32 %25, 0
   %26 = select i1 %.not19, ptr null, ptr %9
   %27 = select i1 %.not19, ptr null, ptr %10
-  %28 = load i32, ptr %4, align 4
+  %28 = load i32, ptr %4, align 4, !tbaa !3
   %.not20 = icmp eq i32 %28, 0
   %29 = select i1 %.not20, ptr null, ptr %11
-  %30 = load i32, ptr %12, align 4
-  %31 = load i32, ptr %5, align 4
+  %30 = load i32, ptr %12, align 4, !tbaa !3
+  %31 = load i32, ptr %5, align 4, !tbaa !3
   %.not21 = icmp eq i32 %31, 0
   %32 = select i1 %.not21, ptr null, ptr %13
   %33 = select i1 %.not19, ptr null, ptr %14
-  %34 = tail call zeroext i1 @GetIpoptCurrentViolations(ptr noundef %18, i1 noundef zeroext %20, i32 noundef %21, ptr noundef %23, ptr noundef %24, ptr noundef %26, ptr noundef %27, ptr noundef %29, i32 noundef %30, ptr noundef %32, ptr noundef %33) #7
+  %34 = tail call zeroext i1 @GetIpoptCurrentViolations(ptr noundef %18, i1 noundef zeroext %20, i32 noundef %21, ptr noundef %23, ptr noundef %24, ptr noundef %26, ptr noundef %27, ptr noundef %29, i32 noundef %30, ptr noundef %32, ptr noundef %33) #8
   %not. = xor i1 %34, true
   %35 = zext i1 %not. to i32
   ret i32 %35
 }
 
-declare zeroext i1 @GetIpoptCurrentViolations(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @GetIpoptCurrentViolations(ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipsetproblemscaling_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr %0, align 8
+  %5 = load ptr, ptr %0, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %7 = load ptr, ptr %6, align 8
-  %8 = load double, ptr %1, align 8
-  %9 = tail call zeroext i1 @SetIpoptProblemScaling(ptr noundef %7, double noundef %8, ptr noundef %2, ptr noundef %3) #7
+  %7 = load ptr, ptr %6, align 8, !tbaa !7
+  %8 = load double, ptr %1, align 8, !tbaa !21
+  %9 = tail call zeroext i1 @SetIpoptProblemScaling(ptr noundef %7, double noundef %8, ptr noundef %2, ptr noundef %3) #8
   %not. = xor i1 %9, true
   %10 = zext i1 %not. to i32
   ret i32 %10
 }
 
-declare zeroext i1 @SetIpoptProblemScaling(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SetIpoptProblemScaling(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !12, i64 64}
+!8 = !{!"_FUserData", !9, i64 0, !11, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !12, i64 64}
+!9 = !{!"p1 int", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!"p1 double", !10, i64 0}
+!12 = !{!"p1 _ZTS16IpoptProblemInfo", !10, i64 0}
+!13 = !{!8, !10, i64 16}
+!14 = !{!8, !10, i64 24}
+!15 = !{!8, !10, i64 32}
+!16 = !{!8, !10, i64 40}
+!17 = !{!8, !10, i64 48}
+!18 = !{!8, !10, i64 56}
+!19 = !{!8, !9, i64 0}
+!20 = !{!8, !11, i64 8}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"double", !5, i64 0}
+!23 = !{!10, !10, i64 0}
+!24 = !{!5, !5, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}

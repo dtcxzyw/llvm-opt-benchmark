@@ -18,11 +18,9 @@ $_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_ = comdat any
 
 $_ZN5Ipopt16ReferencedObjectC2Ev = comdat any
 
-$_ZN5Ipopt19IpoptAdditionalDataD2Ev = comdat any
+$_ZN5Ipopt16ReferencedObjectD2Ev = comdat any
 
 $_ZN5Ipopt19IpoptAdditionalDataD0Ev = comdat any
-
-$_ZN5Ipopt16ReferencedObjectD2Ev = comdat any
 
 $_ZN5Ipopt16ReferencedObjectD0Ev = comdat any
 
@@ -38,13 +36,13 @@ $_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEE14SetFromRawPtr_EPS2_ = comdat any
 
 $_ZNK5Ipopt16ReferencedObject6AddRefEPKNS_10ReferencerE = comdat any
 
-$_ZTSN5Ipopt19IpoptAdditionalDataE = comdat any
+$_ZTIN5Ipopt19IpoptAdditionalDataE = comdat any
 
-$_ZTSN5Ipopt16ReferencedObjectE = comdat any
+$_ZTSN5Ipopt19IpoptAdditionalDataE = comdat any
 
 $_ZTIN5Ipopt16ReferencedObjectE = comdat any
 
-$_ZTIN5Ipopt19IpoptAdditionalDataE = comdat any
+$_ZTSN5Ipopt16ReferencedObjectE = comdat any
 
 $_ZTVN5Ipopt19IpoptAdditionalDataE = comdat any
 
@@ -53,15 +51,15 @@ $_ZTVN5Ipopt16ReferencedObjectE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN5Ipopt13CGPenaltyDataE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN5Ipopt13CGPenaltyDataE, ptr @_ZN5Ipopt13CGPenaltyDataD1Ev, ptr @_ZN5Ipopt13CGPenaltyDataD0Ev, ptr @_ZN5Ipopt13CGPenaltyData10InitializeERKNS_10JournalistERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN5Ipopt13CGPenaltyData24InitializeDataStructuresEv, ptr @_ZN5Ipopt13CGPenaltyData16AcceptTrialPointEv] }, align 8
+@_ZTIN5Ipopt13CGPenaltyDataE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt13CGPenaltyDataE, ptr @_ZTIN5Ipopt19IpoptAdditionalDataE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN5Ipopt13CGPenaltyDataE = constant [24 x i8] c"N5Ipopt13CGPenaltyDataE\00", align 1
+@_ZTIN5Ipopt19IpoptAdditionalDataE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt19IpoptAdditionalDataE, ptr @_ZTIN5Ipopt16ReferencedObjectE }, comdat, align 8
 @_ZTSN5Ipopt19IpoptAdditionalDataE = linkonce_odr constant [30 x i8] c"N5Ipopt19IpoptAdditionalDataE\00", comdat, align 1
+@_ZTIN5Ipopt16ReferencedObjectE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5Ipopt16ReferencedObjectE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN5Ipopt16ReferencedObjectE = linkonce_odr constant [27 x i8] c"N5Ipopt16ReferencedObjectE\00", comdat, align 1
-@_ZTIN5Ipopt16ReferencedObjectE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5Ipopt16ReferencedObjectE }, comdat, align 8
-@_ZTIN5Ipopt19IpoptAdditionalDataE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt19IpoptAdditionalDataE, ptr @_ZTIN5Ipopt16ReferencedObjectE }, comdat, align 8
-@_ZTIN5Ipopt13CGPenaltyDataE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt13CGPenaltyDataE, ptr @_ZTIN5Ipopt19IpoptAdditionalDataE }, align 8
-@_ZTVN5Ipopt19IpoptAdditionalDataE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN5Ipopt19IpoptAdditionalDataE, ptr @_ZN5Ipopt19IpoptAdditionalDataD2Ev, ptr @_ZN5Ipopt19IpoptAdditionalDataD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
+@_ZTVN5Ipopt19IpoptAdditionalDataE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN5Ipopt19IpoptAdditionalDataE, ptr @_ZN5Ipopt16ReferencedObjectD2Ev, ptr @_ZN5Ipopt19IpoptAdditionalDataD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTVN5Ipopt16ReferencedObjectE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN5Ipopt16ReferencedObjectE, ptr @_ZN5Ipopt16ReferencedObjectD2Ev, ptr @_ZN5Ipopt16ReferencedObjectD0Ev] }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_IpCGPenaltyData.cpp, ptr null }]
 
@@ -88,72 +86,70 @@ define void @_ZN5Ipopt13CGPenaltyDataC2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt19IpoptAdditionalDataC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5)
-  %6 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Ipopt13CGPenaltyDataE, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %5, i32 0, i32 2
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %8 unwind label %11
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5Ipopt13CGPenaltyDataE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !8
+  %6 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %5, i32 0, i32 2
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %7 unwind label %10
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %5, i32 0, i32 5
-  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %10 unwind label %15
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %5, i32 0, i32 5
+  invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %9 unwind label %14
 
-10:                                               ; preds = %8
+9:                                                ; preds = %7
   ret void
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %3, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %4, align 4
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %3, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %4, align 4
+  br label %18
+
+14:                                               ; preds = %7
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %3, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %4, align 4
+  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  br label %18
+
+18:                                               ; preds = %14, %10
+  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
   br label %19
 
-15:                                               ; preds = %8
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  %17 = extractvalue { ptr, i32 } %16, 0
-  store ptr %17, ptr %3, align 8
-  %18 = extractvalue { ptr, i32 } %16, 1
-  store i32 %18, ptr %4, align 4
-  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  br label %19
-
-19:                                               ; preds = %15, %11
-  call void @_ZN5Ipopt19IpoptAdditionalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
-  br label %20
-
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %3, align 8
-  %22 = load i32, ptr %4, align 4
-  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
-  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
-  resume { ptr, i32 } %24
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %3, align 8
+  %21 = load i32, ptr %4, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Ipopt19IpoptAdditionalDataC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Ipopt19IpoptAdditionalDataE, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5Ipopt19IpoptAdditionalDataE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
-  store ptr null, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !14
   ret void
 }
 
@@ -162,7 +158,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEE15ReleasePointer_Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %4 unwind label %5
@@ -174,37 +170,36 @@ define linkonce_odr void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noun
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
+  call void @__clang_call_terminate(ptr %7) #10
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt13CGPenaltyDataD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [7 x ptr] }, ptr @_ZTVN5Ipopt13CGPenaltyDataE, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 5
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN5Ipopt13CGPenaltyDataE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 5
+  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %5 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 2
   call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  %6 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 2
-  call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  call void @_ZN5Ipopt19IpoptAdditionalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
+  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt13CGPenaltyDataD0Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt13CGPenaltyDataD1Ev(ptr noundef nonnull align 8 dereferenceable(105) %3) #3
-  call void @_ZdlPv(ptr noundef %3) #10
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 112) #11
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData10InitializeERKNS_10JournalistERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #5 align 2 {
@@ -212,47 +207,47 @@ define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData10InitializeERKNS_10Journalis
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !17
+  store ptr %2, ptr %7, align 8, !tbaa !19
+  store ptr %3, ptr %8, align 8, !tbaa !21
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 3
-  store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 6
-  store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 19
-  store i8 1, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 12
-  store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 15
-  store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 17
-  store double 0.000000e+00, ptr %15, align 8
-  %16 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 18
-  store double 1.000000e+00, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 7
-  store i8 0, ptr %17, align 1
-  %18 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 9
-  store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 10
-  store double 0.000000e+00, ptr %19, align 8
+  %10 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 3
+  store i8 0, ptr %10, align 8, !tbaa !23
+  %11 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 6
+  store i8 0, ptr %11, align 8, !tbaa !30
+  %12 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 19
+  store i8 1, ptr %12, align 8, !tbaa !31
+  %13 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 12
+  store i8 0, ptr %13, align 8, !tbaa !32
+  %14 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 15
+  store i8 0, ptr %14, align 8, !tbaa !33
+  %15 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 17
+  store double 0.000000e+00, ptr %15, align 8, !tbaa !34
+  %16 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 18
+  store double 1.000000e+00, ptr %16, align 8, !tbaa !35
+  %17 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 7
+  store i8 0, ptr %17, align 1, !tbaa !36
+  %18 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 9
+  store i32 -1, ptr %18, align 4, !tbaa !37
+  %19 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %9, i32 0, i32 10
+  store double 0.000000e+00, ptr %19, align 8, !tbaa !38
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData24InitializeDataStructuresEv(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 2
   %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
-  %6 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 5
+  %6 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 5
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null)
-  %8 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 3
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 6
-  store i8 0, ptr %9, align 8
+  %8 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 3
+  store i8 0, ptr %8, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 6
+  store i8 0, ptr %9, align 8, !tbaa !30
   ret i1 true
 }
 
@@ -260,10 +255,10 @@ define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData24InitializeDataStructuresEv(
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !39
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !39
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEE14SetFromRawPtr_EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   ret ptr %7
 }
@@ -271,67 +266,56 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Ipopt8Sm
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt13CGPenaltyData16AcceptTrialPointEv(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 2
   %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
-  %6 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 5
+  %6 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 5
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null)
-  %8 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 3
-  store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 6
-  store i8 0, ptr %9, align 8
+  %8 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 3
+  store i8 0, ptr %8, align 8, !tbaa !23
+  %9 = getelementptr inbounds nuw %"class.Ipopt::CGPenaltyData", ptr %3, i32 0, i32 6
+  store i8 0, ptr %9, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 8, !tbaa !42
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Ipopt19IpoptAdditionalDataD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt19IpoptAdditionalDataD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #9
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.trap() #10
   unreachable
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
-  call void @_ZdlPv(ptr noundef %3) #10
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #11
   ret void
 }
 
@@ -341,50 +325,52 @@ declare void @llvm.trap() #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEE15ReleasePointer_Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %24
+  br i1 %6, label %7, label %25
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !14
   call void @_ZNK5Ipopt16ReferencedObject10ReleaseRefEPKNS_10ReferencerE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef %3)
-  %10 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
+  %10 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = call noundef i32 @_ZNK5Ipopt16ReferencedObject14ReferenceCountEv(ptr noundef nonnull align 8 dereferenceable(12) %11)
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %23
+  br i1 %13, label %14, label %24
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
+  %15 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %16, align 8
+  %19 = load ptr, ptr %16, align 8, !tbaa !8
   %20 = getelementptr inbounds ptr, ptr %19, i64 1
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(280) %16) #3
   br label %22
 
 22:                                               ; preds = %18, %14
-  br label %23
-
-23:                                               ; preds = %22, %7
+  %23 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
+  store ptr null, ptr %23, align 8, !tbaa !14
   br label %24
 
-24:                                               ; preds = %23, %1
+24:                                               ; preds = %22, %7
+  br label %25
+
+25:                                               ; preds = %24, %1
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #9
+  call void @_ZSt9terminatev() #10
   unreachable
 }
 
@@ -392,27 +378,27 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNK5Ipopt16ReferencedObject10ReleaseRefEPKNS_10ReferencerE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNK5Ipopt16ReferencedObject10ReleaseRefEPKNS_10ReferencerE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !43
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.Ipopt::ReferencedObject", ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 8, !tbaa !42
   %8 = add nsw i32 %7, -1
-  store i32 %8, ptr %6, align 8
+  store i32 %8, ptr %6, align 8, !tbaa !42
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5Ipopt16ReferencedObject14ReferenceCountEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK5Ipopt16ReferencedObject14ReferenceCountEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !42
   ret i32 %5
 }
 
@@ -420,37 +406,37 @@ define linkonce_odr noundef i32 @_ZNK5Ipopt16ReferencedObject14ReferenceCountEv(
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEE14SetFromRawPtr_EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !39
   %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !39
   %7 = icmp ne ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %4, align 8, !tbaa !39
   call void @_ZNK5Ipopt16ReferencedObject6AddRefEPKNS_10ReferencerE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef %5)
   br label %10
 
 10:                                               ; preds = %8, %2
   call void @_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEE15ReleasePointer_Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %"class.Ipopt::SmartPtr", ptr %5, i32 0, i32 0
-  store ptr %11, ptr %12, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !39
+  %12 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %5, i32 0, i32 0
+  store ptr %11, ptr %12, align 8, !tbaa !14
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNK5Ipopt16ReferencedObject6AddRefEPKNS_10ReferencerE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) #5 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNK5Ipopt16ReferencedObject6AddRefEPKNS_10ReferencerE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !40
+  store ptr %1, ptr %4, align 8, !tbaa !43
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %5, i32 0, i32 1
-  %7 = load i32, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.Ipopt::ReferencedObject", ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %6, align 8, !tbaa !42
   %8 = add nsw i32 %7, 1
-  store i32 %8, ptr %6, align 8
+  store i32 %8, ptr %6, align 8, !tbaa !42
   ret void
 }
 
@@ -460,21 +446,63 @@ define internal void @_GLOBAL__sub_I_IpCGPenaltyData.cpp() #0 section ".text.sta
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { builtin nounwind }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN5Ipopt13CGPenaltyDataE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"vtable pointer", !7, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN5Ipopt19IpoptAdditionalDataE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN5Ipopt8SmartPtrIKNS_14IteratesVectorEEE", !5, i64 0}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"_ZTSN5Ipopt8SmartPtrIKNS_14IteratesVectorEEE", !16, i64 0}
+!16 = !{!"p1 _ZTSN5Ipopt14IteratesVectorE", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTSN5Ipopt10JournalistE", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTSN5Ipopt11OptionsListE", !5, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!23 = !{!24, !28, i64 24}
+!24 = !{!"_ZTSN5Ipopt13CGPenaltyDataE", !25, i64 0, !15, i64 16, !28, i64 24, !15, i64 32, !28, i64 40, !28, i64 41, !27, i64 44, !29, i64 48, !29, i64 56, !28, i64 64, !29, i64 72, !28, i64 80, !29, i64 88, !29, i64 96, !28, i64 104}
+!25 = !{!"_ZTSN5Ipopt19IpoptAdditionalDataE", !26, i64 0}
+!26 = !{!"_ZTSN5Ipopt16ReferencedObjectE", !27, i64 8}
+!27 = !{!"int", !6, i64 0}
+!28 = !{!"bool", !6, i64 0}
+!29 = !{!"double", !6, i64 0}
+!30 = !{!24, !28, i64 40}
+!31 = !{!24, !28, i64 104}
+!32 = !{!24, !28, i64 64}
+!33 = !{!24, !28, i64 80}
+!34 = !{!24, !29, i64 88}
+!35 = !{!24, !29, i64 96}
+!36 = !{!24, !28, i64 41}
+!37 = !{!24, !27, i64 44}
+!38 = !{!24, !29, i64 48}
+!39 = !{!16, !16, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTSN5Ipopt16ReferencedObjectE", !5, i64 0}
+!42 = !{!26, !27, i64 8}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTSN5Ipopt10ReferencerE", !5, i64 0}

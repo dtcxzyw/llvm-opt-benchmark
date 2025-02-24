@@ -5,19 +5,19 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Ipopt::SolveStatistics" = type { %"class.Ipopt::ReferencedObject.base", i32, double, double, double, i32, i32, i32, i32, i32, double, double, double, double, double, double, double, double, double, double, double, double }
 %"class.Ipopt::ReferencedObject.base" = type <{ ptr, i32 }>
 %"class.Ipopt::ReferencedObject" = type <{ ptr, i32, [4 x i8] }>
-%"class.Ipopt::SmartPtr.3" = type { ptr }
-%"class.Ipopt::IpoptData" = type { %"class.Ipopt::ReferencedObject.base", %"class.Ipopt::SmartPtr", %"class.Ipopt::SmartPtr", %"class.Ipopt::SmartPtr.0", %"class.Ipopt::SmartPtr", i8, %"class.Ipopt::SmartPtr", i8, i32, double, i8, double, i8, i8, i8, double, i8, i8, double, double, i8, double, i32, i8, %"class.std::__cxx11::basic_string", double, i32, %"class.Ipopt::SmartPtr.1", %"class.Ipopt::TimingStatistics", %"class.Ipopt::SmartPtr.2", double, double, double, double }
-%"class.Ipopt::SmartPtr.0" = type { ptr }
 %"class.Ipopt::SmartPtr" = type { ptr }
+%"class.Ipopt::IpoptData" = type { %"class.Ipopt::ReferencedObject.base", %"class.Ipopt::SmartPtr.0", %"class.Ipopt::SmartPtr.0", %"class.Ipopt::SmartPtr.1", %"class.Ipopt::SmartPtr.0", i8, %"class.Ipopt::SmartPtr.0", i8, i32, double, i8, double, i8, i8, i8, double, i8, i8, double, double, i8, double, i32, i8, %"class.std::__cxx11::basic_string", double, i32, %"class.Ipopt::SmartPtr.2", %"class.Ipopt::TimingStatistics", %"class.Ipopt::SmartPtr.3", double, double, double, double }
+%"class.Ipopt::SmartPtr.1" = type { ptr }
+%"class.Ipopt::SmartPtr.0" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.Ipopt::SmartPtr.1" = type { ptr }
+%"class.Ipopt::SmartPtr.2" = type { ptr }
 %"class.Ipopt::TimingStatistics" = type { %"class.Ipopt::ReferencedObject.base", [4 x i8], %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask", %"class.Ipopt::TimedTask" }
 %"class.Ipopt::TimedTask" = type <{ double, double, double, double, double, double, i8, i8, i8, [5 x i8] }>
-%"class.Ipopt::SmartPtr.2" = type { ptr }
-%"class.Ipopt::SmartPtr.5" = type { ptr }
-%"class.Ipopt::SmartPtr.13" = type { ptr }
+%"class.Ipopt::SmartPtr.3" = type { ptr }
+%"class.Ipopt::SmartPtr.4" = type { ptr }
+%"class.Ipopt::SmartPtr.6" = type { ptr }
 
 $_ZN5Ipopt16ReferencedObjectC2Ev = comdat any
 
@@ -41,31 +41,29 @@ $_ZN5Ipopt3MaxIiEET_S1_S1_ = comdat any
 
 $_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv = comdat any
 
-$_ZN5Ipopt15SolveStatisticsD2Ev = comdat any
+$_ZN5Ipopt16ReferencedObjectD2Ev = comdat any
 
 $_ZN5Ipopt15SolveStatisticsD0Ev = comdat any
-
-$_ZN5Ipopt16ReferencedObjectD2Ev = comdat any
 
 $_ZN5Ipopt16ReferencedObjectD0Ev = comdat any
 
 $_ZSt3maxIiERKT_S2_S2_ = comdat any
 
-$_ZTSN5Ipopt16ReferencedObjectE = comdat any
-
 $_ZTIN5Ipopt16ReferencedObjectE = comdat any
+
+$_ZTSN5Ipopt16ReferencedObjectE = comdat any
 
 $_ZTVN5Ipopt16ReferencedObjectE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZTVN5Ipopt15SolveStatisticsE = unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTIN5Ipopt15SolveStatisticsE, ptr @_ZN5Ipopt15SolveStatisticsD2Ev, ptr @_ZN5Ipopt15SolveStatisticsD0Ev, ptr @_ZNK5Ipopt15SolveStatistics14IterationCountEv, ptr @_ZNK5Ipopt15SolveStatistics12TotalCpuTimeEv, ptr @_ZNK5Ipopt15SolveStatistics12TotalSysTimeEv, ptr @_ZNK5Ipopt15SolveStatistics18TotalWallclockTimeEv, ptr @_ZNK5Ipopt15SolveStatistics19NumberOfEvaluationsERiS1_S1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics15InfeasibilitiesERdS1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics15InfeasibilitiesERdS1_S1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics21ScaledInfeasibilitiesERdS1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics21ScaledInfeasibilitiesERdS1_S1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics14FinalObjectiveEv, ptr @_ZNK5Ipopt15SolveStatistics20FinalScaledObjectiveEv] }, align 8
+@_ZTVN5Ipopt15SolveStatisticsE = unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTIN5Ipopt15SolveStatisticsE, ptr @_ZN5Ipopt16ReferencedObjectD2Ev, ptr @_ZN5Ipopt15SolveStatisticsD0Ev, ptr @_ZNK5Ipopt15SolveStatistics14IterationCountEv, ptr @_ZNK5Ipopt15SolveStatistics12TotalCpuTimeEv, ptr @_ZNK5Ipopt15SolveStatistics12TotalSysTimeEv, ptr @_ZNK5Ipopt15SolveStatistics18TotalWallclockTimeEv, ptr @_ZNK5Ipopt15SolveStatistics19NumberOfEvaluationsERiS1_S1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics15InfeasibilitiesERdS1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics15InfeasibilitiesERdS1_S1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics21ScaledInfeasibilitiesERdS1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics21ScaledInfeasibilitiesERdS1_S1_S1_S1_, ptr @_ZNK5Ipopt15SolveStatistics14FinalObjectiveEv, ptr @_ZNK5Ipopt15SolveStatistics20FinalScaledObjectiveEv] }, align 8
+@_ZTIN5Ipopt15SolveStatisticsE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt15SolveStatisticsE, ptr @_ZTIN5Ipopt16ReferencedObjectE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN5Ipopt15SolveStatisticsE = constant [26 x i8] c"N5Ipopt15SolveStatisticsE\00", align 1
+@_ZTIN5Ipopt16ReferencedObjectE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5Ipopt16ReferencedObjectE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN5Ipopt16ReferencedObjectE = linkonce_odr constant [27 x i8] c"N5Ipopt16ReferencedObjectE\00", comdat, align 1
-@_ZTIN5Ipopt16ReferencedObjectE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5Ipopt16ReferencedObjectE }, comdat, align 8
-@_ZTIN5Ipopt15SolveStatisticsE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt15SolveStatisticsE, ptr @_ZTIN5Ipopt16ReferencedObjectE }, align 8
 @_ZTVN5Ipopt16ReferencedObjectE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN5Ipopt16ReferencedObjectE, ptr @_ZN5Ipopt16ReferencedObjectD2Ev, ptr @_ZN5Ipopt16ReferencedObjectD0Ev] }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_IpSolveStatistics.cpp, ptr null }]
 
@@ -94,391 +92,389 @@ define void @_ZN5Ipopt15SolveStatisticsC2ERKNS_8SmartPtrINS_8IpoptNLPEEERKNS1_IN
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !12
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11)
-  %12 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTVN5Ipopt15SolveStatisticsE, i32 0, i32 0, i32 2
-  store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 1
-  %14 = load ptr, ptr %7, align 8
-  %15 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_9IpoptDataEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %16 unwind label %222
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTVN5Ipopt15SolveStatisticsE, i32 0, i32 0, i32 2), ptr %11, align 8, !tbaa !14
+  %12 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8, !tbaa !10
+  %14 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_9IpoptDataEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %15 unwind label %221
 
-16:                                               ; preds = %4
-  %17 = invoke noundef i32 @_ZNK5Ipopt9IpoptData10iter_countEv(ptr noundef nonnull align 8 dereferenceable(2232) %15)
-          to label %18 unwind label %222
+15:                                               ; preds = %4
+  %16 = invoke noundef i32 @_ZNK5Ipopt9IpoptData10iter_countEv(ptr noundef nonnull align 8 dereferenceable(2232) %14)
+          to label %17 unwind label %221
 
-18:                                               ; preds = %16
-  store i32 %17, ptr %13, align 4
-  %19 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 2
-  %20 = load ptr, ptr %7, align 8
-  %21 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_9IpoptDataEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %22 unwind label %222
+17:                                               ; preds = %15
+  store i32 %16, ptr %12, align 4, !tbaa !16
+  %18 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 2
+  %19 = load ptr, ptr %7, align 8, !tbaa !10
+  %20 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_9IpoptDataEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %21 unwind label %221
 
-22:                                               ; preds = %18
-  %23 = invoke noundef nonnull align 8 dereferenceable(1976) ptr @_ZN5Ipopt9IpoptData11TimingStatsEv(ptr noundef nonnull align 8 dereferenceable(2232) %21)
-          to label %24 unwind label %222
+21:                                               ; preds = %17
+  %22 = invoke noundef nonnull align 8 dereferenceable(1976) ptr @_ZN5Ipopt9IpoptData11TimingStatsEv(ptr noundef nonnull align 8 dereferenceable(2232) %20)
+          to label %23 unwind label %221
 
-24:                                               ; preds = %22
-  %25 = invoke noundef nonnull align 8 dereferenceable(51) ptr @_ZN5Ipopt16TimingStatistics16OverallAlgorithmEv(ptr noundef nonnull align 8 dereferenceable(1976) %23)
-          to label %26 unwind label %222
+23:                                               ; preds = %21
+  %24 = invoke noundef nonnull align 8 dereferenceable(51) ptr @_ZN5Ipopt16TimingStatistics16OverallAlgorithmEv(ptr noundef nonnull align 8 dereferenceable(1976) %22)
+          to label %25 unwind label %221
 
-26:                                               ; preds = %24
-  %27 = invoke noundef double @_ZNK5Ipopt9TimedTask12TotalCpuTimeEv(ptr noundef nonnull align 8 dereferenceable(51) %25)
-          to label %28 unwind label %222
+25:                                               ; preds = %23
+  %26 = invoke noundef double @_ZNK5Ipopt9TimedTask12TotalCpuTimeEv(ptr noundef nonnull align 8 dereferenceable(51) %24)
+          to label %27 unwind label %221
 
-28:                                               ; preds = %26
-  store double %27, ptr %19, align 8
-  %29 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 3
-  %30 = load ptr, ptr %7, align 8
-  %31 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_9IpoptDataEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %30)
-          to label %32 unwind label %222
+27:                                               ; preds = %25
+  store double %26, ptr %18, align 8, !tbaa !21
+  %28 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 3
+  %29 = load ptr, ptr %7, align 8, !tbaa !10
+  %30 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_9IpoptDataEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %31 unwind label %221
 
-32:                                               ; preds = %28
-  %33 = invoke noundef nonnull align 8 dereferenceable(1976) ptr @_ZN5Ipopt9IpoptData11TimingStatsEv(ptr noundef nonnull align 8 dereferenceable(2232) %31)
-          to label %34 unwind label %222
+31:                                               ; preds = %27
+  %32 = invoke noundef nonnull align 8 dereferenceable(1976) ptr @_ZN5Ipopt9IpoptData11TimingStatsEv(ptr noundef nonnull align 8 dereferenceable(2232) %30)
+          to label %33 unwind label %221
 
-34:                                               ; preds = %32
-  %35 = invoke noundef nonnull align 8 dereferenceable(51) ptr @_ZN5Ipopt16TimingStatistics16OverallAlgorithmEv(ptr noundef nonnull align 8 dereferenceable(1976) %33)
-          to label %36 unwind label %222
+33:                                               ; preds = %31
+  %34 = invoke noundef nonnull align 8 dereferenceable(51) ptr @_ZN5Ipopt16TimingStatistics16OverallAlgorithmEv(ptr noundef nonnull align 8 dereferenceable(1976) %32)
+          to label %35 unwind label %221
 
-36:                                               ; preds = %34
-  %37 = invoke noundef double @_ZNK5Ipopt9TimedTask12TotalSysTimeEv(ptr noundef nonnull align 8 dereferenceable(51) %35)
-          to label %38 unwind label %222
+35:                                               ; preds = %33
+  %36 = invoke noundef double @_ZNK5Ipopt9TimedTask12TotalSysTimeEv(ptr noundef nonnull align 8 dereferenceable(51) %34)
+          to label %37 unwind label %221
 
-38:                                               ; preds = %36
-  store double %37, ptr %29, align 8
-  %39 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 4
-  %40 = load ptr, ptr %7, align 8
-  %41 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_9IpoptDataEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %40)
-          to label %42 unwind label %222
+37:                                               ; preds = %35
+  store double %36, ptr %28, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 4
+  %39 = load ptr, ptr %7, align 8, !tbaa !10
+  %40 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_9IpoptDataEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
+          to label %41 unwind label %221
 
-42:                                               ; preds = %38
-  %43 = invoke noundef nonnull align 8 dereferenceable(1976) ptr @_ZN5Ipopt9IpoptData11TimingStatsEv(ptr noundef nonnull align 8 dereferenceable(2232) %41)
-          to label %44 unwind label %222
+41:                                               ; preds = %37
+  %42 = invoke noundef nonnull align 8 dereferenceable(1976) ptr @_ZN5Ipopt9IpoptData11TimingStatsEv(ptr noundef nonnull align 8 dereferenceable(2232) %40)
+          to label %43 unwind label %221
 
-44:                                               ; preds = %42
-  %45 = invoke noundef nonnull align 8 dereferenceable(51) ptr @_ZN5Ipopt16TimingStatistics16OverallAlgorithmEv(ptr noundef nonnull align 8 dereferenceable(1976) %43)
-          to label %46 unwind label %222
+43:                                               ; preds = %41
+  %44 = invoke noundef nonnull align 8 dereferenceable(51) ptr @_ZN5Ipopt16TimingStatistics16OverallAlgorithmEv(ptr noundef nonnull align 8 dereferenceable(1976) %42)
+          to label %45 unwind label %221
 
-46:                                               ; preds = %44
-  %47 = invoke noundef double @_ZNK5Ipopt9TimedTask18TotalWallclockTimeEv(ptr noundef nonnull align 8 dereferenceable(51) %45)
-          to label %48 unwind label %222
+45:                                               ; preds = %43
+  %46 = invoke noundef double @_ZNK5Ipopt9TimedTask18TotalWallclockTimeEv(ptr noundef nonnull align 8 dereferenceable(51) %44)
+          to label %47 unwind label %221
 
-48:                                               ; preds = %46
-  store double %47, ptr %39, align 8
-  %49 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 5
-  %50 = load ptr, ptr %6, align 8
-  %51 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %50)
-          to label %52 unwind label %222
+47:                                               ; preds = %45
+  store double %46, ptr %38, align 8, !tbaa !23
+  %48 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 5
+  %49 = load ptr, ptr %6, align 8, !tbaa !8
+  %50 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %49)
+          to label %51 unwind label %221
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %51, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = invoke noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(24) %51)
-          to label %57 unwind label %222
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %50, align 8, !tbaa !14
+  %53 = getelementptr inbounds ptr, ptr %52, i64 24
+  %54 = load ptr, ptr %53, align 8
+  %55 = invoke noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(24) %50)
+          to label %56 unwind label %221
 
-57:                                               ; preds = %52
-  store i32 %56, ptr %49, align 8
-  %58 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 6
-  %59 = load ptr, ptr %6, align 8
-  %60 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
-          to label %61 unwind label %222
+56:                                               ; preds = %51
+  store i32 %55, ptr %48, align 8, !tbaa !24
+  %57 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 6
+  %58 = load ptr, ptr %6, align 8, !tbaa !8
+  %59 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %58)
+          to label %60 unwind label %221
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %60, align 8
-  %63 = getelementptr inbounds ptr, ptr %62, i64 26
-  %64 = load ptr, ptr %63, align 8
-  %65 = invoke noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(24) %60)
-          to label %66 unwind label %222
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %59, align 8, !tbaa !14
+  %62 = getelementptr inbounds ptr, ptr %61, i64 26
+  %63 = load ptr, ptr %62, align 8
+  %64 = invoke noundef i32 %63(ptr noundef nonnull align 8 dereferenceable(24) %59)
+          to label %65 unwind label %221
 
-66:                                               ; preds = %61
-  %67 = load ptr, ptr %6, align 8
-  %68 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %67)
-          to label %69 unwind label %222
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %6, align 8, !tbaa !8
+  %67 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %66)
+          to label %68 unwind label %221
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %68, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 28
-  %72 = load ptr, ptr %71, align 8
-  %73 = invoke noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(24) %68)
-          to label %74 unwind label %222
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %67, align 8, !tbaa !14
+  %70 = getelementptr inbounds ptr, ptr %69, i64 28
+  %71 = load ptr, ptr %70, align 8
+  %72 = invoke noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(24) %67)
+          to label %73 unwind label %221
 
-74:                                               ; preds = %69
-  %75 = invoke noundef i32 @_ZN5Ipopt3MaxIiEET_S1_S1_(i32 noundef %65, i32 noundef %73)
-          to label %76 unwind label %222
+73:                                               ; preds = %68
+  %74 = invoke noundef i32 @_ZN5Ipopt3MaxIiEET_S1_S1_(i32 noundef %64, i32 noundef %72)
+          to label %75 unwind label %221
 
-76:                                               ; preds = %74
-  store i32 %75, ptr %58, align 4
-  %77 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 7
-  %78 = load ptr, ptr %6, align 8
-  %79 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %78)
-          to label %80 unwind label %222
+75:                                               ; preds = %73
+  store i32 %74, ptr %57, align 4, !tbaa !25
+  %76 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 7
+  %77 = load ptr, ptr %6, align 8, !tbaa !8
+  %78 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %77)
+          to label %79 unwind label %221
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr %79, align 8
-  %82 = getelementptr inbounds ptr, ptr %81, i64 25
-  %83 = load ptr, ptr %82, align 8
-  %84 = invoke noundef i32 %83(ptr noundef nonnull align 8 dereferenceable(24) %79)
-          to label %85 unwind label %222
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %78, align 8, !tbaa !14
+  %81 = getelementptr inbounds ptr, ptr %80, i64 25
+  %82 = load ptr, ptr %81, align 8
+  %83 = invoke noundef i32 %82(ptr noundef nonnull align 8 dereferenceable(24) %78)
+          to label %84 unwind label %221
 
-85:                                               ; preds = %80
-  store i32 %84, ptr %77, align 8
-  %86 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 8
-  %87 = load ptr, ptr %6, align 8
-  %88 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %87)
-          to label %89 unwind label %222
+84:                                               ; preds = %79
+  store i32 %83, ptr %76, align 8, !tbaa !26
+  %85 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 8
+  %86 = load ptr, ptr %6, align 8, !tbaa !8
+  %87 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %86)
+          to label %88 unwind label %221
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %88, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 27
-  %92 = load ptr, ptr %91, align 8
-  %93 = invoke noundef i32 %92(ptr noundef nonnull align 8 dereferenceable(24) %88)
-          to label %94 unwind label %222
+88:                                               ; preds = %84
+  %89 = load ptr, ptr %87, align 8, !tbaa !14
+  %90 = getelementptr inbounds ptr, ptr %89, i64 27
+  %91 = load ptr, ptr %90, align 8
+  %92 = invoke noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(24) %87)
+          to label %93 unwind label %221
 
-94:                                               ; preds = %89
-  %95 = load ptr, ptr %6, align 8
-  %96 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %95)
-          to label %97 unwind label %222
+93:                                               ; preds = %88
+  %94 = load ptr, ptr %6, align 8, !tbaa !8
+  %95 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %94)
+          to label %96 unwind label %221
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %96, align 8
-  %99 = getelementptr inbounds ptr, ptr %98, i64 29
-  %100 = load ptr, ptr %99, align 8
-  %101 = invoke noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(24) %96)
-          to label %102 unwind label %222
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %95, align 8, !tbaa !14
+  %98 = getelementptr inbounds ptr, ptr %97, i64 29
+  %99 = load ptr, ptr %98, align 8
+  %100 = invoke noundef i32 %99(ptr noundef nonnull align 8 dereferenceable(24) %95)
+          to label %101 unwind label %221
 
-102:                                              ; preds = %97
-  %103 = invoke noundef i32 @_ZN5Ipopt3MaxIiEET_S1_S1_(i32 noundef %93, i32 noundef %101)
-          to label %104 unwind label %222
+101:                                              ; preds = %96
+  %102 = invoke noundef i32 @_ZN5Ipopt3MaxIiEET_S1_S1_(i32 noundef %92, i32 noundef %100)
+          to label %103 unwind label %221
 
-104:                                              ; preds = %102
-  store i32 %103, ptr %86, align 4
-  %105 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 9
-  %106 = load ptr, ptr %6, align 8
-  %107 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %106)
-          to label %108 unwind label %222
+103:                                              ; preds = %101
+  store i32 %102, ptr %85, align 4, !tbaa !27
+  %104 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 9
+  %105 = load ptr, ptr %6, align 8, !tbaa !8
+  %106 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %105)
+          to label %107 unwind label %221
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %107, align 8
-  %110 = getelementptr inbounds ptr, ptr %109, i64 30
-  %111 = load ptr, ptr %110, align 8
-  %112 = invoke noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(24) %107)
-          to label %113 unwind label %222
+107:                                              ; preds = %103
+  %108 = load ptr, ptr %106, align 8, !tbaa !14
+  %109 = getelementptr inbounds ptr, ptr %108, i64 30
+  %110 = load ptr, ptr %109, align 8
+  %111 = invoke noundef i32 %110(ptr noundef nonnull align 8 dereferenceable(24) %106)
+          to label %112 unwind label %221
 
-113:                                              ; preds = %108
-  store i32 %112, ptr %105, align 8
-  %114 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 10
-  %115 = load ptr, ptr %8, align 8
-  %116 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %115)
-          to label %117 unwind label %222
+112:                                              ; preds = %107
+  store i32 %111, ptr %104, align 8, !tbaa !28
+  %113 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 10
+  %114 = load ptr, ptr %8, align 8, !tbaa !12
+  %115 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %114)
+          to label %116 unwind label %221
 
-117:                                              ; preds = %113
-  %118 = load ptr, ptr %116, align 8
-  %119 = getelementptr inbounds ptr, ptr %118, i64 2
-  %120 = load ptr, ptr %119, align 8
-  %121 = invoke noundef double %120(ptr noundef nonnull align 8 dereferenceable(2185) %116)
-          to label %122 unwind label %222
+116:                                              ; preds = %112
+  %117 = load ptr, ptr %115, align 8, !tbaa !14
+  %118 = getelementptr inbounds ptr, ptr %117, i64 2
+  %119 = load ptr, ptr %118, align 8
+  %120 = invoke noundef double %119(ptr noundef nonnull align 8 dereferenceable(2185) %115)
+          to label %121 unwind label %221
 
-122:                                              ; preds = %117
-  store double %121, ptr %114, align 8
-  %123 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 11
-  %124 = load ptr, ptr %8, align 8
-  %125 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %124)
-          to label %126 unwind label %222
+121:                                              ; preds = %116
+  store double %120, ptr %113, align 8, !tbaa !29
+  %122 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 11
+  %123 = load ptr, ptr %8, align 8, !tbaa !12
+  %124 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %123)
+          to label %125 unwind label %221
 
-126:                                              ; preds = %122
-  %127 = load ptr, ptr %125, align 8
-  %128 = getelementptr inbounds ptr, ptr %127, i64 3
-  %129 = load ptr, ptr %128, align 8
-  %130 = invoke noundef double %129(ptr noundef nonnull align 8 dereferenceable(2185) %125)
-          to label %131 unwind label %222
+125:                                              ; preds = %121
+  %126 = load ptr, ptr %124, align 8, !tbaa !14
+  %127 = getelementptr inbounds ptr, ptr %126, i64 3
+  %128 = load ptr, ptr %127, align 8
+  %129 = invoke noundef double %128(ptr noundef nonnull align 8 dereferenceable(2185) %124)
+          to label %130 unwind label %221
 
-131:                                              ; preds = %126
-  store double %130, ptr %123, align 8
-  %132 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 12
-  %133 = load ptr, ptr %8, align 8
-  %134 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %133)
-          to label %135 unwind label %222
+130:                                              ; preds = %125
+  store double %129, ptr %122, align 8, !tbaa !30
+  %131 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 12
+  %132 = load ptr, ptr %8, align 8, !tbaa !12
+  %133 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %132)
+          to label %134 unwind label %221
 
-135:                                              ; preds = %131
-  %136 = load ptr, ptr %134, align 8
-  %137 = getelementptr inbounds ptr, ptr %136, i64 17
-  %138 = load ptr, ptr %137, align 8
-  %139 = invoke noundef double %138(ptr noundef nonnull align 8 dereferenceable(2185) %134, i32 noundef 2)
-          to label %140 unwind label %222
+134:                                              ; preds = %130
+  %135 = load ptr, ptr %133, align 8, !tbaa !14
+  %136 = getelementptr inbounds ptr, ptr %135, i64 17
+  %137 = load ptr, ptr %136, align 8
+  %138 = invoke noundef double %137(ptr noundef nonnull align 8 dereferenceable(2185) %133, i32 noundef 2)
+          to label %139 unwind label %221
 
-140:                                              ; preds = %135
-  store double %139, ptr %132, align 8
-  %141 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 13
-  %142 = load ptr, ptr %8, align 8
-  %143 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %142)
-          to label %144 unwind label %222
+139:                                              ; preds = %134
+  store double %138, ptr %131, align 8, !tbaa !31
+  %140 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 13
+  %141 = load ptr, ptr %8, align 8, !tbaa !12
+  %142 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %141)
+          to label %143 unwind label %221
 
-144:                                              ; preds = %140
-  %145 = load ptr, ptr %143, align 8
-  %146 = getelementptr inbounds ptr, ptr %145, i64 19
-  %147 = load ptr, ptr %146, align 8
-  %148 = invoke noundef double %147(ptr noundef nonnull align 8 dereferenceable(2185) %143, i32 noundef 2)
-          to label %149 unwind label %222
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %142, align 8, !tbaa !14
+  %145 = getelementptr inbounds ptr, ptr %144, i64 19
+  %146 = load ptr, ptr %145, align 8
+  %147 = invoke noundef double %146(ptr noundef nonnull align 8 dereferenceable(2185) %142, i32 noundef 2)
+          to label %148 unwind label %221
 
-149:                                              ; preds = %144
-  store double %148, ptr %141, align 8
-  %150 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 14
-  %151 = load ptr, ptr %8, align 8
-  %152 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %151)
-          to label %153 unwind label %222
+148:                                              ; preds = %143
+  store double %147, ptr %140, align 8, !tbaa !32
+  %149 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 14
+  %150 = load ptr, ptr %8, align 8, !tbaa !12
+  %151 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %150)
+          to label %152 unwind label %221
 
-153:                                              ; preds = %149
-  %154 = load ptr, ptr %152, align 8
-  %155 = getelementptr inbounds ptr, ptr %154, i64 10
-  %156 = load ptr, ptr %155, align 8
-  %157 = invoke noundef double %156(ptr noundef nonnull align 8 dereferenceable(2185) %152, i32 noundef 2)
-          to label %158 unwind label %222
+152:                                              ; preds = %148
+  %153 = load ptr, ptr %151, align 8, !tbaa !14
+  %154 = getelementptr inbounds ptr, ptr %153, i64 10
+  %155 = load ptr, ptr %154, align 8
+  %156 = invoke noundef double %155(ptr noundef nonnull align 8 dereferenceable(2185) %151, i32 noundef 2)
+          to label %157 unwind label %221
 
-158:                                              ; preds = %153
-  store double %157, ptr %150, align 8
-  %159 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 15
-  %160 = load ptr, ptr %8, align 8
-  %161 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %160)
-          to label %162 unwind label %222
+157:                                              ; preds = %152
+  store double %156, ptr %149, align 8, !tbaa !33
+  %158 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 15
+  %159 = load ptr, ptr %8, align 8, !tbaa !12
+  %160 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %159)
+          to label %161 unwind label %221
 
-162:                                              ; preds = %158
-  %163 = load ptr, ptr %161, align 8
-  %164 = getelementptr inbounds ptr, ptr %163, i64 11
-  %165 = load ptr, ptr %164, align 8
-  %166 = invoke noundef double %165(ptr noundef nonnull align 8 dereferenceable(2185) %161, i32 noundef 2)
-          to label %167 unwind label %222
+161:                                              ; preds = %157
+  %162 = load ptr, ptr %160, align 8, !tbaa !14
+  %163 = getelementptr inbounds ptr, ptr %162, i64 11
+  %164 = load ptr, ptr %163, align 8
+  %165 = invoke noundef double %164(ptr noundef nonnull align 8 dereferenceable(2185) %160, i32 noundef 2)
+          to label %166 unwind label %221
 
-167:                                              ; preds = %162
-  store double %166, ptr %159, align 8
-  %168 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 16
-  %169 = load ptr, ptr %8, align 8
-  %170 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %169)
-          to label %171 unwind label %222
+166:                                              ; preds = %161
+  store double %165, ptr %158, align 8, !tbaa !34
+  %167 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 16
+  %168 = load ptr, ptr %8, align 8, !tbaa !12
+  %169 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %168)
+          to label %170 unwind label %221
 
-171:                                              ; preds = %167
-  %172 = load ptr, ptr %170, align 8
-  %173 = getelementptr inbounds ptr, ptr %172, i64 14
-  %174 = load ptr, ptr %173, align 8
-  %175 = invoke noundef double %174(ptr noundef nonnull align 8 dereferenceable(2185) %170, i32 noundef 2)
-          to label %176 unwind label %222
+170:                                              ; preds = %166
+  %171 = load ptr, ptr %169, align 8, !tbaa !14
+  %172 = getelementptr inbounds ptr, ptr %171, i64 14
+  %173 = load ptr, ptr %172, align 8
+  %174 = invoke noundef double %173(ptr noundef nonnull align 8 dereferenceable(2185) %169, i32 noundef 2)
+          to label %175 unwind label %221
 
-176:                                              ; preds = %171
-  store double %175, ptr %168, align 8
-  %177 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 17
-  %178 = load ptr, ptr %8, align 8
-  %179 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %178)
-          to label %180 unwind label %222
+175:                                              ; preds = %170
+  store double %174, ptr %167, align 8, !tbaa !35
+  %176 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 17
+  %177 = load ptr, ptr %8, align 8, !tbaa !12
+  %178 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %177)
+          to label %179 unwind label %221
 
-180:                                              ; preds = %176
-  %181 = load ptr, ptr %179, align 8
-  %182 = getelementptr inbounds ptr, ptr %181, i64 13
-  %183 = load ptr, ptr %182, align 8
-  %184 = invoke noundef double %183(ptr noundef nonnull align 8 dereferenceable(2185) %179, i32 noundef 2)
-          to label %185 unwind label %222
+179:                                              ; preds = %175
+  %180 = load ptr, ptr %178, align 8, !tbaa !14
+  %181 = getelementptr inbounds ptr, ptr %180, i64 13
+  %182 = load ptr, ptr %181, align 8
+  %183 = invoke noundef double %182(ptr noundef nonnull align 8 dereferenceable(2185) %178, i32 noundef 2)
+          to label %184 unwind label %221
 
-185:                                              ; preds = %180
-  store double %184, ptr %177, align 8
-  %186 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 18
-  %187 = load ptr, ptr %8, align 8
-  %188 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %187)
-          to label %189 unwind label %222
+184:                                              ; preds = %179
+  store double %183, ptr %176, align 8, !tbaa !36
+  %185 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 18
+  %186 = load ptr, ptr %8, align 8, !tbaa !12
+  %187 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %186)
+          to label %188 unwind label %221
 
-189:                                              ; preds = %185
-  %190 = load ptr, ptr %188, align 8
-  %191 = getelementptr inbounds ptr, ptr %190, i64 20
-  %192 = load ptr, ptr %191, align 8
-  %193 = invoke noundef double %192(ptr noundef nonnull align 8 dereferenceable(2185) %188, double noundef 0.000000e+00, i32 noundef 2)
-          to label %194 unwind label %222
+188:                                              ; preds = %184
+  %189 = load ptr, ptr %187, align 8, !tbaa !14
+  %190 = getelementptr inbounds ptr, ptr %189, i64 20
+  %191 = load ptr, ptr %190, align 8
+  %192 = invoke noundef double %191(ptr noundef nonnull align 8 dereferenceable(2185) %187, double noundef 0.000000e+00, i32 noundef 2)
+          to label %193 unwind label %221
 
-194:                                              ; preds = %189
-  store double %193, ptr %186, align 8
-  %195 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 19
-  %196 = load ptr, ptr %8, align 8
-  %197 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %196)
-          to label %198 unwind label %222
+193:                                              ; preds = %188
+  store double %192, ptr %185, align 8, !tbaa !37
+  %194 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 19
+  %195 = load ptr, ptr %8, align 8, !tbaa !12
+  %196 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %195)
+          to label %197 unwind label %221
 
-198:                                              ; preds = %194
-  %199 = load ptr, ptr %197, align 8
-  %200 = getelementptr inbounds ptr, ptr %199, i64 22
-  %201 = load ptr, ptr %200, align 8
-  %202 = invoke noundef double %201(ptr noundef nonnull align 8 dereferenceable(2185) %197, double noundef 0.000000e+00, i32 noundef 2)
-          to label %203 unwind label %222
+197:                                              ; preds = %193
+  %198 = load ptr, ptr %196, align 8, !tbaa !14
+  %199 = getelementptr inbounds ptr, ptr %198, i64 22
+  %200 = load ptr, ptr %199, align 8
+  %201 = invoke noundef double %200(ptr noundef nonnull align 8 dereferenceable(2185) %196, double noundef 0.000000e+00, i32 noundef 2)
+          to label %202 unwind label %221
 
-203:                                              ; preds = %198
-  store double %202, ptr %195, align 8
-  %204 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 20
-  %205 = load ptr, ptr %8, align 8
-  %206 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %205)
-          to label %207 unwind label %222
+202:                                              ; preds = %197
+  store double %201, ptr %194, align 8, !tbaa !38
+  %203 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 20
+  %204 = load ptr, ptr %8, align 8, !tbaa !12
+  %205 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %204)
+          to label %206 unwind label %221
 
-207:                                              ; preds = %203
-  %208 = load ptr, ptr %206, align 8
-  %209 = getelementptr inbounds ptr, ptr %208, i64 24
-  %210 = load ptr, ptr %209, align 8
-  %211 = invoke noundef double %210(ptr noundef nonnull align 8 dereferenceable(2185) %206)
-          to label %212 unwind label %222
+206:                                              ; preds = %202
+  %207 = load ptr, ptr %205, align 8, !tbaa !14
+  %208 = getelementptr inbounds ptr, ptr %207, i64 24
+  %209 = load ptr, ptr %208, align 8
+  %210 = invoke noundef double %209(ptr noundef nonnull align 8 dereferenceable(2185) %205)
+          to label %211 unwind label %221
 
-212:                                              ; preds = %207
-  store double %211, ptr %204, align 8
-  %213 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 21
-  %214 = load ptr, ptr %8, align 8
-  %215 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %214)
-          to label %216 unwind label %222
+211:                                              ; preds = %206
+  store double %210, ptr %203, align 8, !tbaa !39
+  %212 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 21
+  %213 = load ptr, ptr %8, align 8, !tbaa !12
+  %214 = invoke noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %213)
+          to label %215 unwind label %221
 
-216:                                              ; preds = %212
-  %217 = load ptr, ptr %215, align 8
-  %218 = getelementptr inbounds ptr, ptr %217, i64 25
-  %219 = load ptr, ptr %218, align 8
-  %220 = invoke noundef double %219(ptr noundef nonnull align 8 dereferenceable(2185) %215)
-          to label %221 unwind label %222
+215:                                              ; preds = %211
+  %216 = load ptr, ptr %214, align 8, !tbaa !14
+  %217 = getelementptr inbounds ptr, ptr %216, i64 25
+  %218 = load ptr, ptr %217, align 8
+  %219 = invoke noundef double %218(ptr noundef nonnull align 8 dereferenceable(2185) %214)
+          to label %220 unwind label %221
 
-221:                                              ; preds = %216
-  store double %220, ptr %213, align 8
+220:                                              ; preds = %215
+  store double %219, ptr %212, align 8, !tbaa !40
   ret void
 
-222:                                              ; preds = %216, %212, %207, %203, %198, %194, %189, %185, %180, %176, %171, %167, %162, %158, %153, %149, %144, %140, %135, %131, %126, %122, %117, %113, %108, %104, %102, %97, %94, %89, %85, %80, %76, %74, %69, %66, %61, %57, %52, %48, %46, %44, %42, %38, %36, %34, %32, %28, %26, %24, %22, %18, %16, %4
-  %223 = landingpad { ptr, i32 }
+221:                                              ; preds = %215, %211, %206, %202, %197, %193, %188, %184, %179, %175, %170, %166, %161, %157, %152, %148, %143, %139, %134, %130, %125, %121, %116, %112, %107, %103, %101, %96, %93, %88, %84, %79, %75, %73, %68, %65, %60, %56, %51, %47, %45, %43, %41, %37, %35, %33, %31, %27, %25, %23, %21, %17, %15, %4
+  %222 = landingpad { ptr, i32 }
           cleanup
-  %224 = extractvalue { ptr, i32 } %223, 0
-  store ptr %224, ptr %9, align 8
-  %225 = extractvalue { ptr, i32 } %223, 1
-  store i32 %225, ptr %10, align 4
+  %223 = extractvalue { ptr, i32 } %222, 0
+  store ptr %223, ptr %9, align 8
+  %224 = extractvalue { ptr, i32 } %222, 1
+  store i32 %224, ptr %10, align 4
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #3
-  br label %226
+  br label %225
 
-226:                                              ; preds = %222
-  %227 = load ptr, ptr %9, align 8
-  %228 = load i32, ptr %10, align 4
-  %229 = insertvalue { ptr, i32 } poison, ptr %227, 0
-  %230 = insertvalue { ptr, i32 } %229, i32 %228, 1
-  resume { ptr, i32 } %230
+225:                                              ; preds = %221
+  %226 = load ptr, ptr %9, align 8
+  %227 = load i32, ptr %10, align 4
+  %228 = insertvalue { ptr, i32 } poison, ptr %226, 0
+  %229 = insertvalue { ptr, i32 } %228, i32 %227, 1
+  resume { ptr, i32 } %229
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
-  store i32 0, ptr %5, align 8
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !14
+  %4 = getelementptr inbounds nuw %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK5Ipopt8SmartPtrINS_9IpoptDataEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SmartPtr.3", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
   ret ptr %5
 }
 
@@ -487,129 +483,129 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK5Ipopt9IpoptData10iter_countEv(ptr noundef nonnull align 8 dereferenceable(2232) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 8
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 8
+  %5 = load i32, ptr %4, align 4, !tbaa !48
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(1976) ptr @_ZN5Ipopt9IpoptData11TimingStatsEv(ptr noundef nonnull align 8 dereferenceable(2232) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 28
+  %4 = getelementptr inbounds nuw %"class.Ipopt::IpoptData", ptr %3, i32 0, i32 28
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(51) ptr @_ZN5Ipopt16TimingStatistics16OverallAlgorithmEv(ptr noundef nonnull align 8 dereferenceable(1976) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::TimingStatistics", ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %"class.Ipopt::TimingStatistics", ptr %3, i32 0, i32 2
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef double @_ZNK5Ipopt9TimedTask12TotalCpuTimeEv(ptr noundef nonnull align 8 dereferenceable(51) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::TimedTask", ptr %3, i32 0, i32 1
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::TimedTask", ptr %3, i32 0, i32 1
+  %5 = load double, ptr %4, align 8, !tbaa !69
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef double @_ZNK5Ipopt9TimedTask12TotalSysTimeEv(ptr noundef nonnull align 8 dereferenceable(51) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::TimedTask", ptr %3, i32 0, i32 3
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::TimedTask", ptr %3, i32 0, i32 3
+  %5 = load double, ptr %4, align 8, !tbaa !70
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef double @_ZNK5Ipopt9TimedTask18TotalWallclockTimeEv(ptr noundef nonnull align 8 dereferenceable(51) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::TimedTask", ptr %3, i32 0, i32 5
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::TimedTask", ptr %3, i32 0, i32 5
+  %5 = load double, ptr %4, align 8, !tbaa !71
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK5Ipopt8SmartPtrINS_8IpoptNLPEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SmartPtr.5", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.4", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !72
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5Ipopt3MaxIiEET_S1_S1_(i32 noundef %0, i32 noundef %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef i32 @_ZN5Ipopt3MaxIiEET_S1_S1_(i32 noundef %0, i32 noundef %1) #6 comdat {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !75
+  store i32 %1, ptr %4, align 4, !tbaa !75
   %5 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !75
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SmartPtr.13", ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.6", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !76
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZNK5Ipopt15SolveStatistics14IterationCountEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !16
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef double @_ZNK5Ipopt15SolveStatistics12TotalCpuTimeEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 2
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 2
+  %5 = load double, ptr %4, align 8, !tbaa !21
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef double @_ZNK5Ipopt15SolveStatistics12TotalSysTimeEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 3
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 3
+  %5 = load double, ptr %4, align 8, !tbaa !22
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef double @_ZNK5Ipopt15SolveStatistics18TotalWallclockTimeEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 4
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 4
+  %5 = load double, ptr %4, align 8, !tbaa !23
   ret double %5
 }
 
@@ -621,33 +617,33 @@ define void @_ZNK5Ipopt15SolveStatistics19NumberOfEvaluationsERiS1_S1_S1_S1_(ptr
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !79
+  store ptr %2, ptr %9, align 8, !tbaa !79
+  store ptr %3, ptr %10, align 8, !tbaa !79
+  store ptr %4, ptr %11, align 8, !tbaa !79
+  store ptr %5, ptr %12, align 8, !tbaa !79
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 5
-  %15 = load i32, ptr %14, align 8
-  %16 = load ptr, ptr %8, align 8
-  store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 6
-  %18 = load i32, ptr %17, align 4
-  %19 = load ptr, ptr %9, align 8
-  store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 7
-  %21 = load i32, ptr %20, align 8
-  %22 = load ptr, ptr %10, align 8
-  store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 8
-  %24 = load i32, ptr %23, align 4
-  %25 = load ptr, ptr %11, align 8
-  store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 9
-  %27 = load i32, ptr %26, align 8
-  %28 = load ptr, ptr %12, align 8
-  store i32 %27, ptr %28, align 4
+  %14 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 5
+  %15 = load i32, ptr %14, align 8, !tbaa !24
+  %16 = load ptr, ptr %8, align 8, !tbaa !79
+  store i32 %15, ptr %16, align 4, !tbaa !75
+  %17 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 6
+  %18 = load i32, ptr %17, align 4, !tbaa !25
+  %19 = load ptr, ptr %9, align 8, !tbaa !79
+  store i32 %18, ptr %19, align 4, !tbaa !75
+  %20 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 7
+  %21 = load i32, ptr %20, align 8, !tbaa !26
+  %22 = load ptr, ptr %10, align 8, !tbaa !79
+  store i32 %21, ptr %22, align 4, !tbaa !75
+  %23 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 8
+  %24 = load i32, ptr %23, align 4, !tbaa !27
+  %25 = load ptr, ptr %11, align 8, !tbaa !79
+  store i32 %24, ptr %25, align 4, !tbaa !75
+  %26 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 9
+  %27 = load i32, ptr %26, align 8, !tbaa !28
+  %28 = load ptr, ptr %12, align 8, !tbaa !79
+  store i32 %27, ptr %28, align 4, !tbaa !75
   ret void
 }
 
@@ -658,28 +654,28 @@ define void @_ZNK5Ipopt15SolveStatistics15InfeasibilitiesERdS1_S1_S1_(ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !81
+  store ptr %2, ptr %8, align 8, !tbaa !81
+  store ptr %3, ptr %9, align 8, !tbaa !81
+  store ptr %4, ptr %10, align 8, !tbaa !81
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 13
-  %13 = load double, ptr %12, align 8
-  %14 = load ptr, ptr %7, align 8
-  store double %13, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 15
-  %16 = load double, ptr %15, align 8
-  %17 = load ptr, ptr %8, align 8
-  store double %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 19
-  %19 = load double, ptr %18, align 8
-  %20 = load ptr, ptr %9, align 8
-  store double %19, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 21
-  %22 = load double, ptr %21, align 8
-  %23 = load ptr, ptr %10, align 8
-  store double %22, ptr %23, align 8
+  %12 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 13
+  %13 = load double, ptr %12, align 8, !tbaa !32
+  %14 = load ptr, ptr %7, align 8, !tbaa !81
+  store double %13, ptr %14, align 8, !tbaa !83
+  %15 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 15
+  %16 = load double, ptr %15, align 8, !tbaa !34
+  %17 = load ptr, ptr %8, align 8, !tbaa !81
+  store double %16, ptr %17, align 8, !tbaa !83
+  %18 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 19
+  %19 = load double, ptr %18, align 8, !tbaa !38
+  %20 = load ptr, ptr %9, align 8, !tbaa !81
+  store double %19, ptr %20, align 8, !tbaa !83
+  %21 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 21
+  %22 = load double, ptr %21, align 8, !tbaa !40
+  %23 = load ptr, ptr %10, align 8, !tbaa !81
+  store double %22, ptr %23, align 8, !tbaa !83
   ret void
 }
 
@@ -691,33 +687,33 @@ define void @_ZNK5Ipopt15SolveStatistics15InfeasibilitiesERdS1_S1_S1_S1_(ptr nou
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !81
+  store ptr %2, ptr %9, align 8, !tbaa !81
+  store ptr %3, ptr %10, align 8, !tbaa !81
+  store ptr %4, ptr %11, align 8, !tbaa !81
+  store ptr %5, ptr %12, align 8, !tbaa !81
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 13
-  %15 = load double, ptr %14, align 8
-  %16 = load ptr, ptr %8, align 8
-  store double %15, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 15
-  %18 = load double, ptr %17, align 8
-  %19 = load ptr, ptr %9, align 8
-  store double %18, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 17
-  %21 = load double, ptr %20, align 8
-  %22 = load ptr, ptr %10, align 8
-  store double %21, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 19
-  %24 = load double, ptr %23, align 8
-  %25 = load ptr, ptr %11, align 8
-  store double %24, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 21
-  %27 = load double, ptr %26, align 8
-  %28 = load ptr, ptr %12, align 8
-  store double %27, ptr %28, align 8
+  %14 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 13
+  %15 = load double, ptr %14, align 8, !tbaa !32
+  %16 = load ptr, ptr %8, align 8, !tbaa !81
+  store double %15, ptr %16, align 8, !tbaa !83
+  %17 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 15
+  %18 = load double, ptr %17, align 8, !tbaa !34
+  %19 = load ptr, ptr %9, align 8, !tbaa !81
+  store double %18, ptr %19, align 8, !tbaa !83
+  %20 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 17
+  %21 = load double, ptr %20, align 8, !tbaa !36
+  %22 = load ptr, ptr %10, align 8, !tbaa !81
+  store double %21, ptr %22, align 8, !tbaa !83
+  %23 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 19
+  %24 = load double, ptr %23, align 8, !tbaa !38
+  %25 = load ptr, ptr %11, align 8, !tbaa !81
+  store double %24, ptr %25, align 8, !tbaa !83
+  %26 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 21
+  %27 = load double, ptr %26, align 8, !tbaa !40
+  %28 = load ptr, ptr %12, align 8, !tbaa !81
+  store double %27, ptr %28, align 8, !tbaa !83
   ret void
 }
 
@@ -728,28 +724,28 @@ define void @_ZNK5Ipopt15SolveStatistics21ScaledInfeasibilitiesERdS1_S1_S1_(ptr 
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store ptr %3, ptr %9, align 8
-  store ptr %4, ptr %10, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !81
+  store ptr %2, ptr %8, align 8, !tbaa !81
+  store ptr %3, ptr %9, align 8, !tbaa !81
+  store ptr %4, ptr %10, align 8, !tbaa !81
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 12
-  %13 = load double, ptr %12, align 8
-  %14 = load ptr, ptr %7, align 8
-  store double %13, ptr %14, align 8
-  %15 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 14
-  %16 = load double, ptr %15, align 8
-  %17 = load ptr, ptr %8, align 8
-  store double %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 18
-  %19 = load double, ptr %18, align 8
-  %20 = load ptr, ptr %9, align 8
-  store double %19, ptr %20, align 8
-  %21 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 20
-  %22 = load double, ptr %21, align 8
-  %23 = load ptr, ptr %10, align 8
-  store double %22, ptr %23, align 8
+  %12 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 12
+  %13 = load double, ptr %12, align 8, !tbaa !31
+  %14 = load ptr, ptr %7, align 8, !tbaa !81
+  store double %13, ptr %14, align 8, !tbaa !83
+  %15 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 14
+  %16 = load double, ptr %15, align 8, !tbaa !33
+  %17 = load ptr, ptr %8, align 8, !tbaa !81
+  store double %16, ptr %17, align 8, !tbaa !83
+  %18 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 18
+  %19 = load double, ptr %18, align 8, !tbaa !37
+  %20 = load ptr, ptr %9, align 8, !tbaa !81
+  store double %19, ptr %20, align 8, !tbaa !83
+  %21 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %11, i32 0, i32 20
+  %22 = load double, ptr %21, align 8, !tbaa !39
+  %23 = load ptr, ptr %10, align 8, !tbaa !81
+  store double %22, ptr %23, align 8, !tbaa !83
   ret void
 }
 
@@ -761,119 +757,109 @@ define void @_ZNK5Ipopt15SolveStatistics21ScaledInfeasibilitiesERdS1_S1_S1_S1_(p
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !81
+  store ptr %2, ptr %9, align 8, !tbaa !81
+  store ptr %3, ptr %10, align 8, !tbaa !81
+  store ptr %4, ptr %11, align 8, !tbaa !81
+  store ptr %5, ptr %12, align 8, !tbaa !81
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 12
-  %15 = load double, ptr %14, align 8
-  %16 = load ptr, ptr %8, align 8
-  store double %15, ptr %16, align 8
-  %17 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 14
-  %18 = load double, ptr %17, align 8
-  %19 = load ptr, ptr %9, align 8
-  store double %18, ptr %19, align 8
-  %20 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 16
-  %21 = load double, ptr %20, align 8
-  %22 = load ptr, ptr %10, align 8
-  store double %21, ptr %22, align 8
-  %23 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 18
-  %24 = load double, ptr %23, align 8
-  %25 = load ptr, ptr %11, align 8
-  store double %24, ptr %25, align 8
-  %26 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 20
-  %27 = load double, ptr %26, align 8
-  %28 = load ptr, ptr %12, align 8
-  store double %27, ptr %28, align 8
+  %14 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 12
+  %15 = load double, ptr %14, align 8, !tbaa !31
+  %16 = load ptr, ptr %8, align 8, !tbaa !81
+  store double %15, ptr %16, align 8, !tbaa !83
+  %17 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 14
+  %18 = load double, ptr %17, align 8, !tbaa !33
+  %19 = load ptr, ptr %9, align 8, !tbaa !81
+  store double %18, ptr %19, align 8, !tbaa !83
+  %20 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 16
+  %21 = load double, ptr %20, align 8, !tbaa !35
+  %22 = load ptr, ptr %10, align 8, !tbaa !81
+  store double %21, ptr %22, align 8, !tbaa !83
+  %23 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 18
+  %24 = load double, ptr %23, align 8, !tbaa !37
+  %25 = load ptr, ptr %11, align 8, !tbaa !81
+  store double %24, ptr %25, align 8, !tbaa !83
+  %26 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %13, i32 0, i32 20
+  %27 = load double, ptr %26, align 8, !tbaa !39
+  %28 = load ptr, ptr %12, align 8, !tbaa !81
+  store double %27, ptr %28, align 8, !tbaa !83
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef double @_ZNK5Ipopt15SolveStatistics14FinalObjectiveEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 11
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 11
+  %5 = load double, ptr %4, align 8, !tbaa !30
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef double @_ZNK5Ipopt15SolveStatistics20FinalScaledObjectiveEv(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 10
-  %5 = load double, ptr %4, align 8
+  %4 = getelementptr inbounds nuw %"class.Ipopt::SolveStatistics", ptr %3, i32 0, i32 10
+  %5 = load double, ptr %4, align 8, !tbaa !29
   ret double %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Ipopt15SolveStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt15SolveStatisticsD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN5Ipopt15SolveStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #3
-  call void @_ZdlPv(ptr noundef %3) #7
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
+  call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #3
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 160) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3
-  call void @_ZdlPv(ptr noundef %3) #7
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #9
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #5 comdat {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZSt3maxIiERKT_S2_S2_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #8 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = load i32, ptr %6, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i32, ptr %8, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !79
+  store ptr %1, ptr %5, align 8, !tbaa !79
+  %6 = load ptr, ptr %4, align 8, !tbaa !79
+  %7 = load i32, ptr %6, align 4, !tbaa !75
+  %8 = load ptr, ptr %5, align 8, !tbaa !79
+  %9 = load i32, ptr %8, align 4, !tbaa !75
   %10 = icmp slt i32 %7, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !79
   store ptr %12, ptr %3, align 8
   br label %15
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !79
   store ptr %14, ptr %3, align 8
   br label %15
 
@@ -888,18 +874,100 @@ define internal void @_GLOBAL__sub_I_IpSolveStatistics.cpp() #0 section ".text.s
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { builtin nounwind }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN5Ipopt15SolveStatisticsE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN5Ipopt8SmartPtrINS_8IpoptNLPEEE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN5Ipopt8SmartPtrINS_9IpoptDataEEE", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEE", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"vtable pointer", !7, i64 0}
+!16 = !{!17, !19, i64 12}
+!17 = !{!"_ZTSN5Ipopt15SolveStatisticsE", !18, i64 0, !19, i64 12, !20, i64 16, !20, i64 24, !20, i64 32, !19, i64 40, !19, i64 44, !19, i64 48, !19, i64 52, !19, i64 56, !20, i64 64, !20, i64 72, !20, i64 80, !20, i64 88, !20, i64 96, !20, i64 104, !20, i64 112, !20, i64 120, !20, i64 128, !20, i64 136, !20, i64 144, !20, i64 152}
+!18 = !{!"_ZTSN5Ipopt16ReferencedObjectE", !19, i64 8}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!"double", !6, i64 0}
+!21 = !{!17, !20, i64 16}
+!22 = !{!17, !20, i64 24}
+!23 = !{!17, !20, i64 32}
+!24 = !{!17, !19, i64 40}
+!25 = !{!17, !19, i64 44}
+!26 = !{!17, !19, i64 48}
+!27 = !{!17, !19, i64 52}
+!28 = !{!17, !19, i64 56}
+!29 = !{!17, !20, i64 64}
+!30 = !{!17, !20, i64 72}
+!31 = !{!17, !20, i64 80}
+!32 = !{!17, !20, i64 88}
+!33 = !{!17, !20, i64 96}
+!34 = !{!17, !20, i64 104}
+!35 = !{!17, !20, i64 112}
+!36 = !{!17, !20, i64 120}
+!37 = !{!17, !20, i64 128}
+!38 = !{!17, !20, i64 136}
+!39 = !{!17, !20, i64 144}
+!40 = !{!17, !20, i64 152}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSN5Ipopt16ReferencedObjectE", !5, i64 0}
+!43 = !{!18, !19, i64 8}
+!44 = !{!45, !46, i64 0}
+!45 = !{!"_ZTSN5Ipopt8SmartPtrINS_9IpoptDataEEE", !46, i64 0}
+!46 = !{!"p1 _ZTSN5Ipopt9IpoptDataE", !5, i64 0}
+!47 = !{!46, !46, i64 0}
+!48 = !{!49, !19, i64 68}
+!49 = !{!"_ZTSN5Ipopt9IpoptDataE", !18, i64 0, !50, i64 16, !50, i64 24, !52, i64 32, !50, i64 40, !54, i64 48, !50, i64 56, !54, i64 64, !19, i64 68, !20, i64 72, !54, i64 80, !20, i64 88, !54, i64 96, !54, i64 97, !54, i64 98, !20, i64 104, !54, i64 112, !54, i64 113, !20, i64 120, !20, i64 128, !6, i64 136, !20, i64 144, !19, i64 152, !54, i64 156, !55, i64 160, !20, i64 192, !19, i64 200, !59, i64 208, !61, i64 216, !63, i64 2192, !20, i64 2200, !20, i64 2208, !20, i64 2216, !20, i64 2224}
+!50 = !{!"_ZTSN5Ipopt8SmartPtrIKNS_14IteratesVectorEEE", !51, i64 0}
+!51 = !{!"p1 _ZTSN5Ipopt14IteratesVectorE", !5, i64 0}
+!52 = !{!"_ZTSN5Ipopt8SmartPtrIKNS_9SymMatrixEEE", !53, i64 0}
+!53 = !{!"p1 _ZTSN5Ipopt9SymMatrixE", !5, i64 0}
+!54 = !{!"bool", !6, i64 0}
+!55 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !56, i64 0, !58, i64 8, !6, i64 16}
+!56 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !57, i64 0}
+!57 = !{!"p1 omnipotent char", !5, i64 0}
+!58 = !{!"long", !6, i64 0}
+!59 = !{!"_ZTSN5Ipopt8SmartPtrINS_19IteratesVectorSpaceEEE", !60, i64 0}
+!60 = !{!"p1 _ZTSN5Ipopt19IteratesVectorSpaceE", !5, i64 0}
+!61 = !{!"_ZTSN5Ipopt16TimingStatisticsE", !18, i64 0, !62, i64 16, !62, i64 72, !62, i64 128, !62, i64 184, !62, i64 240, !62, i64 296, !62, i64 352, !62, i64 408, !62, i64 464, !62, i64 520, !62, i64 576, !62, i64 632, !62, i64 688, !62, i64 744, !62, i64 800, !62, i64 856, !62, i64 912, !62, i64 968, !62, i64 1024, !62, i64 1080, !62, i64 1136, !62, i64 1192, !62, i64 1248, !62, i64 1304, !62, i64 1360, !62, i64 1416, !62, i64 1472, !62, i64 1528, !62, i64 1584, !62, i64 1640, !62, i64 1696, !62, i64 1752, !62, i64 1808, !62, i64 1864, !62, i64 1920}
+!62 = !{!"_ZTSN5Ipopt9TimedTaskE", !20, i64 0, !20, i64 8, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !54, i64 48, !54, i64 49, !54, i64 50}
+!63 = !{!"_ZTSN5Ipopt8SmartPtrINS_19IpoptAdditionalDataEEE", !64, i64 0}
+!64 = !{!"p1 _ZTSN5Ipopt19IpoptAdditionalDataE", !5, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTSN5Ipopt16TimingStatisticsE", !5, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTSN5Ipopt9TimedTaskE", !5, i64 0}
+!69 = !{!62, !20, i64 8}
+!70 = !{!62, !20, i64 24}
+!71 = !{!62, !20, i64 40}
+!72 = !{!73, !74, i64 0}
+!73 = !{!"_ZTSN5Ipopt8SmartPtrINS_8IpoptNLPEEE", !74, i64 0}
+!74 = !{!"p1 _ZTSN5Ipopt8IpoptNLPE", !5, i64 0}
+!75 = !{!19, !19, i64 0}
+!76 = !{!77, !78, i64 0}
+!77 = !{!"_ZTSN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEE", !78, i64 0}
+!78 = !{!"p1 _ZTSN5Ipopt25IpoptCalculatedQuantitiesE", !5, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 int", !5, i64 0}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 double", !5, i64 0}
+!83 = !{!20, !20, i64 0}

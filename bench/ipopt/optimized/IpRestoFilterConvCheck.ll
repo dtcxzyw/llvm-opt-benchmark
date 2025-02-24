@@ -5,36 +5,36 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 
+$_ZTIN5Ipopt22BacktrackingLSAcceptorE = comdat any
+
 $_ZTSN5Ipopt22BacktrackingLSAcceptorE = comdat any
-
-$_ZTSN5Ipopt23AlgorithmStrategyObjectE = comdat any
-
-$_ZTSN5Ipopt16ReferencedObjectE = comdat any
-
-$_ZTIN5Ipopt16ReferencedObjectE = comdat any
 
 $_ZTIN5Ipopt23AlgorithmStrategyObjectE = comdat any
 
-$_ZTIN5Ipopt22BacktrackingLSAcceptorE = comdat any
+$_ZTSN5Ipopt23AlgorithmStrategyObjectE = comdat any
+
+$_ZTIN5Ipopt16ReferencedObjectE = comdat any
+
+$_ZTSN5Ipopt16ReferencedObjectE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN5Ipopt27RestoFilterConvergenceCheckE = unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN5Ipopt27RestoFilterConvergenceCheckE, ptr @_ZN5Ipopt27RestoFilterConvergenceCheckD1Ev, ptr @_ZN5Ipopt27RestoFilterConvergenceCheckD0Ev, ptr @_ZN5Ipopt27RestoFilterConvergenceCheck14InitializeImplERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN5Ipopt21RestoConvergenceCheck16CheckConvergenceEb, ptr @_ZN5Ipopt31OptimalityErrorConvergenceCheck19CurrentIsAcceptableEv, ptr @_ZN5Ipopt27RestoFilterConvergenceCheck17SetOrigLSAcceptorERKNS_22BacktrackingLSAcceptorE, ptr @_ZN5Ipopt27RestoFilterConvergenceCheck16TestOrigProgressEdd] }, align 8
+@_ZTIN5Ipopt22BacktrackingLSAcceptorE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt22BacktrackingLSAcceptorE, ptr @_ZTIN5Ipopt23AlgorithmStrategyObjectE }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN5Ipopt22BacktrackingLSAcceptorE = linkonce_odr constant [33 x i8] c"N5Ipopt22BacktrackingLSAcceptorE\00", comdat, align 1
+@_ZTIN5Ipopt23AlgorithmStrategyObjectE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt23AlgorithmStrategyObjectE, ptr @_ZTIN5Ipopt16ReferencedObjectE }, comdat, align 8
 @_ZTSN5Ipopt23AlgorithmStrategyObjectE = linkonce_odr constant [34 x i8] c"N5Ipopt23AlgorithmStrategyObjectE\00", comdat, align 1
+@_ZTIN5Ipopt16ReferencedObjectE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5Ipopt16ReferencedObjectE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN5Ipopt16ReferencedObjectE = linkonce_odr constant [27 x i8] c"N5Ipopt16ReferencedObjectE\00", comdat, align 1
-@_ZTIN5Ipopt16ReferencedObjectE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5Ipopt16ReferencedObjectE }, comdat, align 8
-@_ZTIN5Ipopt23AlgorithmStrategyObjectE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt23AlgorithmStrategyObjectE, ptr @_ZTIN5Ipopt16ReferencedObjectE }, comdat, align 8
-@_ZTIN5Ipopt22BacktrackingLSAcceptorE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt22BacktrackingLSAcceptorE, ptr @_ZTIN5Ipopt23AlgorithmStrategyObjectE }, comdat, align 8
 @_ZTIN5Ipopt16FilterLSAcceptorE = external constant ptr
 @.str = private unnamed_addr constant [49 x i8] c"Point is not acceptable to the original filter.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [56 x i8] c"Point is not acceptable to the original current point.\0A\00", align 1
 @.str.2 = private unnamed_addr constant [112 x i8] c"Restoration found a point that provides sufficient reduction in theta and is acceptable to the current filter.\0A\00", align 1
+@_ZTIN5Ipopt27RestoFilterConvergenceCheckE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt27RestoFilterConvergenceCheckE, ptr @_ZTIN5Ipopt21RestoConvergenceCheckE }, align 8
 @_ZTSN5Ipopt27RestoFilterConvergenceCheckE = constant [38 x i8] c"N5Ipopt27RestoFilterConvergenceCheckE\00", align 1
 @_ZTIN5Ipopt21RestoConvergenceCheckE = external constant ptr
-@_ZTIN5Ipopt27RestoFilterConvergenceCheckE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt27RestoFilterConvergenceCheckE, ptr @_ZTIN5Ipopt21RestoConvergenceCheckE }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_IpRestoFilterConvCheck.cpp, ptr null }]
 
 @_ZN5Ipopt27RestoFilterConvergenceCheckC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5Ipopt27RestoFilterConvergenceCheckC2Ev
@@ -51,9 +51,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt27RestoFilterConvergenceCheckC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5Ipopt21RestoConvergenceCheckC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Ipopt27RestoFilterConvergenceCheckE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5Ipopt27RestoFilterConvergenceCheckE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !6
   ret void
 }
 
@@ -61,7 +61,7 @@ declare void @_ZN5Ipopt21RestoConvergenceCheckC2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt27RestoFilterConvergenceCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Ipopt27RestoFilterConvergenceCheckE, i64 16), ptr %0, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5Ipopt27RestoFilterConvergenceCheckE, i64 16), ptr %0, align 8, !tbaa !3
   tail call void @_ZN5Ipopt21RestoConvergenceCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #10
   ret void
 }
@@ -72,18 +72,18 @@ declare void @_ZN5Ipopt21RestoConvergenceCheckD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Ipopt27RestoFilterConvergenceCheckD0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN5Ipopt27RestoFilterConvergenceCheckD1Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 232) #11
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
 define void @_ZN5Ipopt27RestoFilterConvergenceCheck17SetOrigLSAcceptorERKNS_22BacktrackingLSAcceptorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((224, 232)) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #6 align 2 {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5Ipopt22BacktrackingLSAcceptorE, ptr nonnull @_ZTIN5Ipopt16FilterLSAcceptorE, i64 0) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr %3, ptr %4, align 8
+  store ptr %3, ptr %4, align 8, !tbaa !6
   ret void
 }
 
@@ -106,25 +106,25 @@ declare noundef zeroext i1 @_ZN5Ipopt21RestoConvergenceCheck14InitializeImplERKN
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_ZN5Ipopt27RestoFilterConvergenceCheck16TestOrigProgressEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = tail call noundef zeroext i1 @_ZNK5Ipopt16FilterLSAcceptor27IsAcceptableToCurrentFilterEdd(ptr noundef nonnull align 8 dereferenceable(304) %5, double noundef %1, double noundef %2)
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %9, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, i32, ptr, ...) %12(ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str)
   br label %23
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !6
   %15 = tail call noundef zeroext i1 @_ZNK5Ipopt16FilterLSAcceptor28IsAcceptableToCurrentIterateEddb(ptr noundef nonnull align 8 dereferenceable(304) %14, double noundef %1, double noundef %2, i1 noundef zeroext true)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %17, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !27
+  %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   br i1 %15, label %22, label %21
@@ -157,22 +157,46 @@ define internal void @_GLOBAL__sub_I_IpRestoFilterConvCheck.cpp() #9 section ".t
   ret void
 }
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind }
 attributes #11 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"vtable pointer", !5, i64 0}
+!5 = !{!"Simple C++ TBAA"}
+!6 = !{!7, !26, i64 224}
+!7 = !{!"_ZTSN5Ipopt27RestoFilterConvergenceCheckE", !8, i64 0, !26, i64 224}
+!8 = !{!"_ZTSN5Ipopt21RestoConvergenceCheckE", !9, i64 0, !25, i64 192, !13, i64 200, !13, i64 204, !25, i64 208, !24, i64 216, !13, i64 220}
+!9 = !{!"_ZTSN5Ipopt31OptimalityErrorConvergenceCheckE", !10, i64 0, !13, i64 52, !25, i64 56, !25, i64 64, !25, i64 72, !13, i64 80, !25, i64 88, !25, i64 96, !25, i64 104, !25, i64 112, !25, i64 120, !25, i64 128, !25, i64 136, !25, i64 144, !25, i64 152, !13, i64 160, !25, i64 168, !25, i64 176, !13, i64 184}
+!10 = !{!"_ZTSN5Ipopt16ConvergenceCheckE", !11, i64 0}
+!11 = !{!"_ZTSN5Ipopt23AlgorithmStrategyObjectE", !12, i64 0, !15, i64 16, !18, i64 24, !20, i64 32, !22, i64 40, !24, i64 48}
+!12 = !{!"_ZTSN5Ipopt16ReferencedObjectE", !13, i64 8}
+!13 = !{!"int", !14, i64 0}
+!14 = !{!"omnipotent char", !5, i64 0}
+!15 = !{!"_ZTSN5Ipopt8SmartPtrIKNS_10JournalistEEE", !16, i64 0}
+!16 = !{!"p1 _ZTSN5Ipopt10JournalistE", !17, i64 0}
+!17 = !{!"any pointer", !14, i64 0}
+!18 = !{!"_ZTSN5Ipopt8SmartPtrINS_8IpoptNLPEEE", !19, i64 0}
+!19 = !{!"p1 _ZTSN5Ipopt8IpoptNLPE", !17, i64 0}
+!20 = !{!"_ZTSN5Ipopt8SmartPtrINS_9IpoptDataEEE", !21, i64 0}
+!21 = !{!"p1 _ZTSN5Ipopt9IpoptDataE", !17, i64 0}
+!22 = !{!"_ZTSN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEE", !23, i64 0}
+!23 = !{!"p1 _ZTSN5Ipopt25IpoptCalculatedQuantitiesE", !17, i64 0}
+!24 = !{!"bool", !14, i64 0}
+!25 = !{!"double", !14, i64 0}
+!26 = !{!"p1 _ZTSN5Ipopt16FilterLSAcceptorE", !17, i64 0}
+!27 = !{!15, !16, i64 0}
