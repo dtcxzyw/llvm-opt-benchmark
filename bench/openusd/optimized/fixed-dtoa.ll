@@ -761,161 +761,151 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
 
 57:                                               ; preds = %6
-  %.neg = add nsw i32 %1, 64
-  %58 = sub nsw i32 -64, %1
-  switch i32 %1, label %60 [
+  switch i32 %1, label %59 [
     i32 -64, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
-    i32 -128, label %59
+    i32 -128, label %58
   ]
 
+58:                                               ; preds = %57
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
+
 59:                                               ; preds = %57
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
-
-60:                                               ; preds = %57
-  %61 = icmp samesign ugt i32 %1, -65
-  br i1 %61, label %62, label %65
-
-62:                                               ; preds = %60
-  %63 = zext nneg i32 %.neg to i64
+  %60 = sub nsw i32 -64, %1
+  %61 = zext nneg i32 %60 to i64
+  %62 = add nsw i32 %1, 128
+  %63 = zext nneg i32 %62 to i64
   %64 = shl i64 %0, %63
+  %65 = lshr i64 %0, %61
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
 
-65:                                               ; preds = %60
-  %66 = zext nneg i32 %58 to i64
-  %67 = add nsw i32 %1, 128
-  %68 = zext nneg i32 %67 to i64
-  %69 = shl i64 %0, %68
-  %70 = lshr i64 %0, %66
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
-
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit: ; preds = %57, %59, %62, %65
-  %.sroa.15.1 = phi i64 [ 0, %62 ], [ %69, %65 ], [ %0, %59 ], [ 0, %57 ]
-  %.sroa.0.1 = phi i64 [ %64, %62 ], [ %70, %65 ], [ 0, %59 ], [ %0, %57 ]
-  %71 = icmp sgt i32 %2, 0
-  br i1 %71, label %.lr.ph.preheader, label %._crit_edge
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit: ; preds = %57, %58, %59
+  %.sroa.15.1 = phi i64 [ %64, %59 ], [ %0, %58 ], [ 0, %57 ]
+  %.sroa.0.1 = phi i64 [ %65, %59 ], [ 0, %58 ], [ %0, %57 ]
+  %66 = icmp sgt i32 %2, 0
+  br i1 %66, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
-  %72 = sub nuw nsw i32 128, %2
+  %67 = sub nuw nsw i32 128, %2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit
   %indvars.iv = phi i64 [ 128, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.04075 = phi i32 [ 0, %.lr.ph.preheader ], [ %99, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.sroa.0.074 = phi i64 [ %.sroa.0.1, %.lr.ph.preheader ], [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.sroa.15.073 = phi i64 [ %.sroa.15.1, %.lr.ph.preheader ], [ %84, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %73 = icmp eq i64 %.sroa.0.074, 0
-  %74 = icmp eq i64 %.sroa.15.073, 0
-  %75 = select i1 %73, i1 %74, i1 false
-  br i1 %75, label %._crit_edge.loopexit.split.loop.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit
+  %.04075 = phi i32 [ 0, %.lr.ph.preheader ], [ %94, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %.sroa.0.074 = phi i64 [ %.sroa.0.1, %.lr.ph.preheader ], [ %86, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %.sroa.15.073 = phi i64 [ %.sroa.15.1, %.lr.ph.preheader ], [ %79, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %68 = icmp eq i64 %.sroa.0.074, 0
+  %69 = icmp eq i64 %.sroa.15.073, 0
+  %70 = select i1 %68, i1 %69, i1 false
+  br i1 %70, label %._crit_edge.loopexit.split.loop.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %.lr.ph
-  %76 = and i64 %.sroa.15.073, 4294967295
-  %77 = mul nuw nsw i64 %76, 5
-  %78 = lshr i64 %77, 32
-  %79 = lshr i64 %.sroa.15.073, 32
-  %80 = mul nuw nsw i64 %79, 5
-  %81 = add nuw nsw i64 %78, %80
-  %82 = shl i64 %81, 32
-  %83 = and i64 %77, 4294967295
-  %84 = or disjoint i64 %82, %83
+  %71 = and i64 %.sroa.15.073, 4294967295
+  %72 = mul nuw nsw i64 %71, 5
+  %73 = lshr i64 %72, 32
+  %74 = lshr i64 %.sroa.15.073, 32
+  %75 = mul nuw nsw i64 %74, 5
+  %76 = add nuw nsw i64 %73, %75
+  %77 = shl i64 %76, 32
+  %78 = and i64 %72, 4294967295
+  %79 = or disjoint i64 %77, %78
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %85 = lshr i64 %81, 32
+  %80 = lshr i64 %76, 32
   %reass.mul.i = mul i64 %.sroa.0.074, 5
-  %86 = add i64 %85, %reass.mul.i
-  %87 = add nsw i64 %indvars.iv, -65
-  %88 = lshr i64 %86, %87
-  %sext.i = shl i64 %88, 32
-  %89 = ashr exact i64 %sext.i, 32
-  %90 = shl i64 %89, %87
-  %91 = sub i64 %86, %90
-  %92 = trunc i64 %88 to i8
-  %93 = add i8 %92, 48
-  %94 = load i32, ptr %4, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i8, ptr %3, i64 %95
-  store i8 %93, ptr %96, align 1
-  %97 = load i32, ptr %4, align 4
-  %98 = add nsw i32 %97, 1
-  store i32 %98, ptr %4, align 4
-  %99 = add nuw nsw i32 %.04075, 1
-  %exitcond.not = icmp eq i32 %99, %2
+  %81 = add i64 %80, %reass.mul.i
+  %82 = add nsw i64 %indvars.iv, -65
+  %83 = lshr i64 %81, %82
+  %sext.i = shl i64 %83, 32
+  %84 = ashr exact i64 %sext.i, 32
+  %85 = shl i64 %84, %82
+  %86 = sub i64 %81, %85
+  %87 = trunc i64 %83 to i8
+  %88 = add i8 %87, 48
+  %89 = load i32, ptr %4, align 4
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i8, ptr %3, i64 %90
+  store i8 %88, ptr %91, align 1
+  %92 = load i32, ptr %4, align 4
+  %93 = add nsw i32 %92, 1
+  store i32 %93, ptr %4, align 4
+  %94 = add nuw nsw i32 %.04075, 1
+  %exitcond.not = icmp eq i32 %94, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %100 = trunc nuw nsw i64 %indvars.iv to i32
+  %95 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit, %._crit_edge.loopexit.split.loop.exit, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit
-  %.sroa.15.0.lcssa = phi i64 [ %.sroa.15.1, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit ], [ 0, %._crit_edge.loopexit.split.loop.exit ], [ %84, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.1, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit ], [ 0, %._crit_edge.loopexit.split.loop.exit ], [ %91, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.039.lcssa = phi i32 [ 128, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit ], [ %100, %._crit_edge.loopexit.split.loop.exit ], [ %72, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %101 = icmp sgt i32 %.039.lcssa, 64
-  %.sink6.i.v = select i1 %101, i32 -65, i32 -1
+  %.sroa.15.0.lcssa = phi i64 [ %.sroa.15.1, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit ], [ 0, %._crit_edge.loopexit.split.loop.exit ], [ %79, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.1, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit ], [ 0, %._crit_edge.loopexit.split.loop.exit ], [ %86, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %.039.lcssa = phi i32 [ 128, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt1285ShiftEi.exit ], [ %95, %._crit_edge.loopexit.split.loop.exit ], [ %67, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %96 = icmp sgt i32 %.039.lcssa, 64
+  %.sink6.i.v = select i1 %96, i32 -65, i32 -1
   %.sink6.i = add nsw i32 %.sink6.i.v, %.039.lcssa
-  %.sink.i43 = select i1 %101, i64 %.sroa.0.0.lcssa, i64 %.sroa.15.0.lcssa
-  %102 = zext nneg i32 %.sink6.i to i64
-  %103 = shl nuw i64 1, %102
-  %104 = and i64 %103, %.sink.i43
-  %.not = icmp eq i64 %104, 0
-  br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit, label %105
+  %.sink.i43 = select i1 %96, i64 %.sroa.0.0.lcssa, i64 %.sroa.15.0.lcssa
+  %97 = zext nneg i32 %.sink6.i to i64
+  %98 = shl nuw i64 1, %97
+  %99 = and i64 %98, %.sink.i43
+  %.not = icmp eq i64 %99, 0
+  br i1 %.not, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit, label %100
 
-105:                                              ; preds = %._crit_edge
-  %106 = load i32, ptr %4, align 4
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %109
+100:                                              ; preds = %._crit_edge
+  %101 = load i32, ptr %4, align 4
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %104
 
-108:                                              ; preds = %105
+103:                                              ; preds = %100
   store i8 49, ptr %3, align 1
   store i32 1, ptr %5, align 4
   store i32 1, ptr %4, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
 
-109:                                              ; preds = %105
-  %110 = sext i32 %106 to i64
-  %111 = getelementptr i8, ptr %3, i64 %110
-  %112 = getelementptr i8, ptr %111, i64 -1
-  %113 = load i8, ptr %112, align 1
-  %114 = add i8 %113, 1
-  store i8 %114, ptr %112, align 1
-  %115 = load i32, ptr %4, align 4
+104:                                              ; preds = %100
+  %105 = sext i32 %101 to i64
+  %106 = getelementptr i8, ptr %3, i64 %105
+  %107 = getelementptr i8, ptr %106, i64 -1
+  %108 = load i8, ptr %107, align 1
+  %109 = add i8 %108, 1
+  store i8 %109, ptr %107, align 1
+  %110 = load i32, ptr %4, align 4
   %invariant.gep.i46 = getelementptr i8, ptr %3, i64 -2
-  %116 = icmp sgt i32 %115, 1
-  br i1 %116, label %.lr.ph.preheader.i48, label %._crit_edge.i47
+  %111 = icmp sgt i32 %110, 1
+  br i1 %111, label %.lr.ph.preheader.i48, label %._crit_edge.i47
 
-.lr.ph.preheader.i48:                             ; preds = %109
-  %117 = zext nneg i32 %115 to i64
+.lr.ph.preheader.i48:                             ; preds = %104
+  %112 = zext nneg i32 %110 to i64
   br label %.lr.ph.i49
 
-.lr.ph.i49:                                       ; preds = %120, %.lr.ph.preheader.i48
-  %indvars.iv.i50 = phi i64 [ %117, %.lr.ph.preheader.i48 ], [ %indvars.iv.next.i51, %120 ]
+.lr.ph.i49:                                       ; preds = %115, %.lr.ph.preheader.i48
+  %indvars.iv.i50 = phi i64 [ %112, %.lr.ph.preheader.i48 ], [ %indvars.iv.next.i51, %115 ]
   %indvars.iv.next.i51 = add nsw i64 %indvars.iv.i50, -1
-  %118 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i51
-  %119 = load i8, ptr %118, align 1
-  %.not.i52 = icmp eq i8 %119, 58
-  br i1 %.not.i52, label %120, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i51
+  %114 = load i8, ptr %113, align 1
+  %.not.i52 = icmp eq i8 %114, 58
+  br i1 %.not.i52, label %115, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
 
-120:                                              ; preds = %.lr.ph.i49
-  store i8 48, ptr %118, align 1
+115:                                              ; preds = %.lr.ph.i49
+  store i8 48, ptr %113, align 1
   %gep.i53 = getelementptr i8, ptr %invariant.gep.i46, i64 %indvars.iv.i50
-  %121 = load i8, ptr %gep.i53, align 1
-  %122 = add i8 %121, 1
-  store i8 %122, ptr %gep.i53, align 1
-  %123 = icmp samesign ugt i64 %indvars.iv.i50, 2
-  br i1 %123, label %.lr.ph.i49, label %._crit_edge.i47, !llvm.loop !12
+  %116 = load i8, ptr %gep.i53, align 1
+  %117 = add i8 %116, 1
+  store i8 %117, ptr %gep.i53, align 1
+  %118 = icmp samesign ugt i64 %indvars.iv.i50, 2
+  br i1 %118, label %.lr.ph.i49, label %._crit_edge.i47, !llvm.loop !12
 
-._crit_edge.i47:                                  ; preds = %120, %109
-  %124 = load i8, ptr %3, align 1
-  %125 = icmp eq i8 %124, 58
-  br i1 %125, label %126, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
+._crit_edge.i47:                                  ; preds = %115, %104
+  %119 = load i8, ptr %3, align 1
+  %120 = icmp eq i8 %119, 58
+  br i1 %120, label %121, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
 
-126:                                              ; preds = %._crit_edge.i47
+121:                                              ; preds = %._crit_edge.i47
   store i8 49, ptr %3, align 1
-  %127 = load i32, ptr %5, align 4
-  %128 = add nsw i32 %127, 1
-  store i32 %128, ptr %5, align 4
+  %122 = load i32, ptr %5, align 4
+  %123 = add nsw i32 %122, 1
+  store i32 %123, ptr %5, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit: ; preds = %.lr.ph.i49, %.lr.ph.i, %126, %._crit_edge.i47, %108, %54, %._crit_edge.i, %36, %._crit_edge, %._crit_edge88, %28
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit: ; preds = %.lr.ph.i49, %.lr.ph.i, %121, %._crit_edge.i47, %103, %54, %._crit_edge.i, %36, %._crit_edge, %._crit_edge88, %28
   ret void
 }
 

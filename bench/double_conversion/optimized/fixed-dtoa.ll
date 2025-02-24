@@ -757,161 +757,151 @@ define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6Vec
   br label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
 
 55:                                               ; preds = %6
-  %.neg = add nsw i32 %1, 64
-  %56 = sub nsw i32 -64, %1
-  switch i32 %1, label %58 [
+  switch i32 %1, label %57 [
     i32 -64, label %_ZN17double_conversion7UInt1285ShiftEi.exit
-    i32 -128, label %57
+    i32 -128, label %56
   ]
 
+56:                                               ; preds = %55
+  br label %_ZN17double_conversion7UInt1285ShiftEi.exit
+
 57:                                               ; preds = %55
-  br label %_ZN17double_conversion7UInt1285ShiftEi.exit
-
-58:                                               ; preds = %55
-  %59 = icmp samesign ugt i32 %1, -65
-  br i1 %59, label %60, label %63
-
-60:                                               ; preds = %58
-  %61 = zext nneg i32 %.neg to i64
+  %58 = sub nsw i32 -64, %1
+  %59 = zext nneg i32 %58 to i64
+  %60 = add nsw i32 %1, 128
+  %61 = zext nneg i32 %60 to i64
   %62 = shl i64 %0, %61
+  %63 = lshr i64 %0, %59
   br label %_ZN17double_conversion7UInt1285ShiftEi.exit
 
-63:                                               ; preds = %58
-  %64 = zext nneg i32 %56 to i64
-  %65 = add nsw i32 %1, 128
-  %66 = zext nneg i32 %65 to i64
-  %67 = shl i64 %0, %66
-  %68 = lshr i64 %0, %64
-  br label %_ZN17double_conversion7UInt1285ShiftEi.exit
-
-_ZN17double_conversion7UInt1285ShiftEi.exit:      ; preds = %55, %57, %60, %63
-  %.sroa.17.1 = phi i64 [ 0, %60 ], [ %67, %63 ], [ %0, %57 ], [ 0, %55 ]
-  %.sroa.0.1 = phi i64 [ %62, %60 ], [ %68, %63 ], [ 0, %57 ], [ %0, %55 ]
-  %69 = icmp sgt i32 %2, 0
-  br i1 %69, label %.lr.ph.preheader, label %._crit_edge
+_ZN17double_conversion7UInt1285ShiftEi.exit:      ; preds = %55, %56, %57
+  %.sroa.17.1 = phi i64 [ %62, %57 ], [ %0, %56 ], [ 0, %55 ]
+  %.sroa.0.1 = phi i64 [ %63, %57 ], [ 0, %56 ], [ %0, %55 ]
+  %64 = icmp sgt i32 %2, 0
+  br i1 %64, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN17double_conversion7UInt1285ShiftEi.exit
-  %70 = sub nuw nsw i32 128, %2
+  %65 = sub nuw nsw i32 128, %2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit
   %indvars.iv = phi i64 [ 128, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.03879 = phi i32 [ 0, %.lr.ph.preheader ], [ %97, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.sroa.0.077 = phi i64 [ %.sroa.0.1, %.lr.ph.preheader ], [ %89, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.sroa.17.076 = phi i64 [ %.sroa.17.1, %.lr.ph.preheader ], [ %82, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %71 = icmp eq i64 %.sroa.0.077, 0
-  %72 = icmp eq i64 %.sroa.17.076, 0
-  %73 = select i1 %71, i1 %72, i1 false
-  br i1 %73, label %._crit_edge.loopexit.split.loop.exit, label %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit
+  %.03879 = phi i32 [ 0, %.lr.ph.preheader ], [ %92, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %.sroa.0.077 = phi i64 [ %.sroa.0.1, %.lr.ph.preheader ], [ %84, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %.sroa.17.076 = phi i64 [ %.sroa.17.1, %.lr.ph.preheader ], [ %77, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %66 = icmp eq i64 %.sroa.0.077, 0
+  %67 = icmp eq i64 %.sroa.17.076, 0
+  %68 = select i1 %66, i1 %67, i1 false
+  br i1 %68, label %._crit_edge.loopexit.split.loop.exit, label %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit
 
 _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %.lr.ph
-  %74 = and i64 %.sroa.17.076, 4294967295
-  %75 = mul nuw nsw i64 %74, 5
-  %76 = lshr i64 %75, 32
-  %77 = lshr i64 %.sroa.17.076, 32
-  %78 = mul nuw nsw i64 %77, 5
-  %79 = add nuw nsw i64 %76, %78
-  %80 = shl i64 %79, 32
-  %81 = and i64 %75, 4294967295
-  %82 = or disjoint i64 %80, %81
+  %69 = and i64 %.sroa.17.076, 4294967295
+  %70 = mul nuw nsw i64 %69, 5
+  %71 = lshr i64 %70, 32
+  %72 = lshr i64 %.sroa.17.076, 32
+  %73 = mul nuw nsw i64 %72, 5
+  %74 = add nuw nsw i64 %71, %73
+  %75 = shl i64 %74, 32
+  %76 = and i64 %70, 4294967295
+  %77 = or disjoint i64 %75, %76
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %83 = lshr i64 %79, 32
+  %78 = lshr i64 %74, 32
   %reass.mul.i = mul i64 %.sroa.0.077, 5
-  %84 = add i64 %83, %reass.mul.i
-  %85 = add nsw i64 %indvars.iv, -65
-  %86 = lshr i64 %84, %85
-  %sext.i = shl i64 %86, 32
-  %87 = ashr exact i64 %sext.i, 32
-  %88 = shl i64 %87, %85
-  %89 = sub i64 %84, %88
-  %90 = trunc i64 %86 to i8
-  %91 = add i8 %90, 48
-  %92 = load i32, ptr %4, align 4, !tbaa !3
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %3, i64 %93
-  store i8 %91, ptr %94, align 1, !tbaa !7
-  %95 = load i32, ptr %4, align 4, !tbaa !3
-  %96 = add nsw i32 %95, 1
-  store i32 %96, ptr %4, align 4, !tbaa !3
-  %97 = add nuw nsw i32 %.03879, 1
-  %exitcond.not = icmp eq i32 %97, %2
+  %79 = add i64 %78, %reass.mul.i
+  %80 = add nsw i64 %indvars.iv, -65
+  %81 = lshr i64 %79, %80
+  %sext.i = shl i64 %81, 32
+  %82 = ashr exact i64 %sext.i, 32
+  %83 = shl i64 %82, %80
+  %84 = sub i64 %79, %83
+  %85 = trunc i64 %81 to i8
+  %86 = add i8 %85, 48
+  %87 = load i32, ptr %4, align 4, !tbaa !3
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i8, ptr %3, i64 %88
+  store i8 %86, ptr %89, align 1, !tbaa !7
+  %90 = load i32, ptr %4, align 4, !tbaa !3
+  %91 = add nsw i32 %90, 1
+  store i32 %91, ptr %4, align 4, !tbaa !3
+  %92 = add nuw nsw i32 %.03879, 1
+  %exitcond.not = icmp eq i32 %92, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %98 = trunc nuw nsw i64 %indvars.iv to i32
+  %93 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit, %._crit_edge.loopexit.split.loop.exit, %_ZN17double_conversion7UInt1285ShiftEi.exit
-  %.sroa.17.0.lcssa = phi i64 [ %.sroa.17.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ 0, %._crit_edge.loopexit.split.loop.exit ], [ %82, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ 0, %._crit_edge.loopexit.split.loop.exit ], [ %89, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %.039.lcssa = phi i32 [ 128, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ %98, %._crit_edge.loopexit.split.loop.exit ], [ %70, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
-  %99 = icmp sgt i32 %.039.lcssa, 64
-  %.sink6.i.v = select i1 %99, i32 -65, i32 -1
+  %.sroa.17.0.lcssa = phi i64 [ %.sroa.17.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ 0, %._crit_edge.loopexit.split.loop.exit ], [ %77, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.1, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ 0, %._crit_edge.loopexit.split.loop.exit ], [ %84, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %.039.lcssa = phi i32 [ 128, %_ZN17double_conversion7UInt1285ShiftEi.exit ], [ %93, %._crit_edge.loopexit.split.loop.exit ], [ %65, %_ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit ]
+  %94 = icmp sgt i32 %.039.lcssa, 64
+  %.sink6.i.v = select i1 %94, i32 -65, i32 -1
   %.sink6.i = add nsw i32 %.sink6.i.v, %.039.lcssa
-  %.sink.i42 = select i1 %99, i64 %.sroa.0.0.lcssa, i64 %.sroa.17.0.lcssa
-  %100 = zext nneg i32 %.sink6.i to i64
-  %101 = shl nuw i64 1, %100
-  %102 = and i64 %101, %.sink.i42
-  %.not70 = icmp eq i64 %102, 0
-  br i1 %.not70, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit, label %103
+  %.sink.i42 = select i1 %94, i64 %.sroa.0.0.lcssa, i64 %.sroa.17.0.lcssa
+  %95 = zext nneg i32 %.sink6.i to i64
+  %96 = shl nuw i64 1, %95
+  %97 = and i64 %96, %.sink.i42
+  %.not70 = icmp eq i64 %97, 0
+  br i1 %.not70, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit, label %98
 
-103:                                              ; preds = %._crit_edge
-  %104 = load i32, ptr %4, align 4, !tbaa !3
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %107
+98:                                               ; preds = %._crit_edge
+  %99 = load i32, ptr %4, align 4, !tbaa !3
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %102
 
-106:                                              ; preds = %103
+101:                                              ; preds = %98
   store i8 49, ptr %3, align 1, !tbaa !7
   store i32 1, ptr %5, align 4, !tbaa !3
   store i32 1, ptr %4, align 4, !tbaa !3
   br label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
 
-107:                                              ; preds = %103
-  %108 = sext i32 %104 to i64
-  %109 = getelementptr i8, ptr %3, i64 %108
-  %110 = getelementptr i8, ptr %109, i64 -1
-  %111 = load i8, ptr %110, align 1, !tbaa !7
-  %112 = add i8 %111, 1
-  store i8 %112, ptr %110, align 1, !tbaa !7
-  %113 = load i32, ptr %4, align 4, !tbaa !3
+102:                                              ; preds = %98
+  %103 = sext i32 %99 to i64
+  %104 = getelementptr i8, ptr %3, i64 %103
+  %105 = getelementptr i8, ptr %104, i64 -1
+  %106 = load i8, ptr %105, align 1, !tbaa !7
+  %107 = add i8 %106, 1
+  store i8 %107, ptr %105, align 1, !tbaa !7
+  %108 = load i32, ptr %4, align 4, !tbaa !3
   %invariant.gep.i45 = getelementptr i8, ptr %3, i64 -2
-  %114 = icmp sgt i32 %113, 1
-  br i1 %114, label %.lr.ph.preheader.i47, label %._crit_edge.i46
+  %109 = icmp sgt i32 %108, 1
+  br i1 %109, label %.lr.ph.preheader.i47, label %._crit_edge.i46
 
-.lr.ph.preheader.i47:                             ; preds = %107
-  %115 = zext nneg i32 %113 to i64
+.lr.ph.preheader.i47:                             ; preds = %102
+  %110 = zext nneg i32 %108 to i64
   br label %.lr.ph.i48
 
-.lr.ph.i48:                                       ; preds = %118, %.lr.ph.preheader.i47
-  %indvars.iv.i49 = phi i64 [ %115, %.lr.ph.preheader.i47 ], [ %indvars.iv.next.i50, %118 ]
+.lr.ph.i48:                                       ; preds = %113, %.lr.ph.preheader.i47
+  %indvars.iv.i49 = phi i64 [ %110, %.lr.ph.preheader.i47 ], [ %indvars.iv.next.i50, %113 ]
   %indvars.iv.next.i50 = add nsw i64 %indvars.iv.i49, -1
-  %116 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i50
-  %117 = load i8, ptr %116, align 1, !tbaa !7
-  %.not.i51 = icmp eq i8 %117, 58
-  br i1 %.not.i51, label %118, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i50
+  %112 = load i8, ptr %111, align 1, !tbaa !7
+  %.not.i51 = icmp eq i8 %112, 58
+  br i1 %.not.i51, label %113, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
 
-118:                                              ; preds = %.lr.ph.i48
-  store i8 48, ptr %116, align 1, !tbaa !7
+113:                                              ; preds = %.lr.ph.i48
+  store i8 48, ptr %111, align 1, !tbaa !7
   %gep.i52 = getelementptr i8, ptr %invariant.gep.i45, i64 %indvars.iv.i49
-  %119 = load i8, ptr %gep.i52, align 1, !tbaa !7
-  %120 = add i8 %119, 1
-  store i8 %120, ptr %gep.i52, align 1, !tbaa !7
-  %121 = icmp samesign ugt i64 %indvars.iv.i49, 2
-  br i1 %121, label %.lr.ph.i48, label %._crit_edge.i46, !llvm.loop !16
+  %114 = load i8, ptr %gep.i52, align 1, !tbaa !7
+  %115 = add i8 %114, 1
+  store i8 %115, ptr %gep.i52, align 1, !tbaa !7
+  %116 = icmp samesign ugt i64 %indvars.iv.i49, 2
+  br i1 %116, label %.lr.ph.i48, label %._crit_edge.i46, !llvm.loop !16
 
-._crit_edge.i46:                                  ; preds = %118, %107
-  %122 = load i8, ptr %3, align 1, !tbaa !7
-  %123 = icmp eq i8 %122, 58
-  br i1 %123, label %124, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
+._crit_edge.i46:                                  ; preds = %113, %102
+  %117 = load i8, ptr %3, align 1, !tbaa !7
+  %118 = icmp eq i8 %117, 58
+  br i1 %118, label %119, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
 
-124:                                              ; preds = %._crit_edge.i46
+119:                                              ; preds = %._crit_edge.i46
   store i8 49, ptr %3, align 1, !tbaa !7
-  %125 = load i32, ptr %5, align 4, !tbaa !3
-  %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %5, align 4, !tbaa !3
+  %120 = load i32, ptr %5, align 4, !tbaa !3
+  %121 = add nsw i32 %120, 1
+  store i32 %121, ptr %5, align 4, !tbaa !3
   br label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
 
-_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit: ; preds = %.lr.ph.i48, %.lr.ph89, %.lr.ph.i, %._crit_edge, %106, %._crit_edge.i46, %124, %52, %._crit_edge.i, %34, %._crit_edge90, %26
+_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit: ; preds = %.lr.ph.i48, %.lr.ph89, %.lr.ph.i, %._crit_edge, %101, %._crit_edge.i46, %119, %52, %._crit_edge.i, %34, %._crit_edge90, %26
   ret void
 }
 

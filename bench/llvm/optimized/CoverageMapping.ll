@@ -24404,11 +24404,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   br label %9
 
 9:                                                ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit"
-  %10 = phi i64 [ %6, %.lr.ph ], [ %146, %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit" ]
+  %10 = phi i64 [ %6, %.lr.ph ], [ %145, %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit" ]
   %.026 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit" ]
-  %.01725 = phi i64 [ %2, %.lr.ph ], [ %107, %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit" ]
+  %.01725 = phi i64 [ %2, %.lr.ph ], [ %106, %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit" ]
   %11 = icmp eq i64 %.01725, 0
-  br i1 %11, label %12, label %106
+  br i1 %11, label %12, label %105
 
 12:                                               ; preds = %9
   %13 = lshr i64 %10, 3
@@ -24427,7 +24427,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   br label %.split.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %12, %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i"
-  %.015.us.i.i.i = phi i64 [ %43, %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i" ], [ %15, %12 ]
+  %.015.us.i.i.i = phi i64 [ %42, %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i" ], [ %15, %12 ]
   %23 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.015.us.i.i.i
   %.sroa.02.0.copyload.us.i.i.i = load i64, ptr %23, align 4
   %24 = icmp slt i64 %.015.us.i.i.i, %17
@@ -24453,293 +24453,292 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
 
 ._crit_edge.i.us.i.i.i:                           ; preds = %.lr.ph.i.us.i.i.i
   %.sroa.0.0.extract.trunc.i.i.us.i.i.i = trunc i64 %.sroa.02.0.copyload.us.i.i.i to i32
-  %35 = icmp samesign ugt i64 %spec.select.i.us.i.i.i, %.015.us.i.i.i
-  br i1 %35, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i"
+  br label %.lr.ph.i.i.us.i.i.i
 
-.lr.ph.i.i.us.i.i.i:                              ; preds = %._crit_edge.i.us.i.i.i, %38
-  %.0133.i.i.us.i.i.i = phi i64 [ %.04.i.i.us.i.i.i, %38 ], [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ]
+.lr.ph.i.i.us.i.i.i:                              ; preds = %37, %._crit_edge.i.us.i.i.i
+  %.0133.i.i.us.i.i.i = phi i64 [ %.04.i.i.us.i.i.i, %37 ], [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ]
   %.04.in.i.i.us.i.i.i = add nsw i64 %.0133.i.i.us.i.i.i, -1
   %.04.i.i.us.i.i.i = sdiv i64 %.04.in.i.i.us.i.i.i, 2
-  %36 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i.us.i.i.i
-  %.val.i.i.us.i.i.i = load i32, ptr %36, align 4, !tbaa !51
-  %37 = icmp ult i32 %.val.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i.i.us.i.i.i
-  br i1 %37, label %38, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i"
+  %35 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i.us.i.i.i
+  %.val.i.i.us.i.i.i = load i32, ptr %35, align 4, !tbaa !51
+  %36 = icmp ult i32 %.val.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i.i.us.i.i.i
+  br i1 %36, label %37, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i"
 
-38:                                               ; preds = %.lr.ph.i.i.us.i.i.i
-  %39 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i.us.i.i.i
-  %40 = load i64, ptr %36, align 4
-  store i64 %40, ptr %39, align 4
-  %41 = icmp sgt i64 %.04.i.i.us.i.i.i, %.015.us.i.i.i
-  br i1 %41, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i", !llvm.loop !1044
+37:                                               ; preds = %.lr.ph.i.i.us.i.i.i
+  %38 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i.us.i.i.i
+  %39 = load i64, ptr %35, align 4
+  store i64 %39, ptr %38, align 4
+  %40 = icmp sgt i64 %.04.i.i.us.i.i.i, %.015.us.i.i.i
+  br i1 %40, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i", !llvm.loop !1044
 
-"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i": ; preds = %38, %.lr.ph.i.i.us.i.i.i, %._crit_edge.i.us.i.i.i, %.split.us.i.i.i
-  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ], [ %.015.us.i.i.i, %.split.us.i.i.i ], [ %.0133.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.04.i.i.us.i.i.i, %38 ]
-  %42 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
-  store i64 %.sroa.02.0.copyload.us.i.i.i, ptr %42, align 4
+"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i": ; preds = %37, %.lr.ph.i.i.us.i.i.i, %.split.us.i.i.i
+  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.015.us.i.i.i, %.split.us.i.i.i ], [ %.0133.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.04.i.i.us.i.i.i, %37 ]
+  %41 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
+  store i64 %.sroa.02.0.copyload.us.i.i.i, ptr %41, align 4
   %.not.us.i.i.i = icmp eq i64 %.015.us.i.i.i, 0
-  %43 = add nsw i64 %.015.us.i.i.i, -1
+  %42 = add nsw i64 %.015.us.i.i.i, -1
   br i1 %.not.us.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.us.i.i.i, !llvm.loop !1045
 
 .split.i.i.i:                                     ; preds = %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", %.split.preheader.i.i.i
-  %.015.i.i.i = phi i64 [ %68, %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i" ], [ %15, %.split.preheader.i.i.i ]
-  %44 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.015.i.i.i
-  %.sroa.02.0.copyload.i.i.i = load i64, ptr %44, align 4
-  %45 = icmp slt i64 %.015.i.i.i, %17
-  br i1 %45, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %.015.i.i.i = phi i64 [ %67, %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i" ], [ %15, %.split.preheader.i.i.i ]
+  %43 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.015.i.i.i
+  %.sroa.02.0.copyload.i.i.i = load i64, ptr %43, align 4
+  %44 = icmp slt i64 %.015.i.i.i, %17
+  br i1 %44, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.015.i.i.i, %.split.i.i.i ]
-  %46 = shl i64 %.030.i.i.i.i, 1
-  %47 = add i64 %46, 2
-  %48 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %47
-  %49 = or disjoint i64 %46, 1
-  %50 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %49
-  %.val.i.i.i.i = load i32, ptr %48, align 4, !tbaa !51
-  %.val29.i.i.i.i = load i32, ptr %50, align 4, !tbaa !51
-  %51 = icmp ult i32 %.val.i.i.i.i, %.val29.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %51, i64 %49, i64 %47
-  %52 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i.i.i.i
-  %53 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i.i.i.i
-  %54 = load i64, ptr %52, align 4
-  store i64 %54, ptr %53, align 4
-  %55 = icmp slt i64 %spec.select.i.i.i.i, %17
-  br i1 %55, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1043
+  %45 = shl i64 %.030.i.i.i.i, 1
+  %46 = add i64 %45, 2
+  %47 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %46
+  %48 = or disjoint i64 %45, 1
+  %49 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %48
+  %.val.i.i.i.i = load i32, ptr %47, align 4, !tbaa !51
+  %.val29.i.i.i.i = load i32, ptr %49, align 4, !tbaa !51
+  %50 = icmp ult i32 %.val.i.i.i.i, %.val29.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %50, i64 %48, i64 %46
+  %51 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i.i.i.i
+  %52 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i.i.i.i
+  %53 = load i64, ptr %51, align 4
+  store i64 %53, ptr %52, align 4
+  %54 = icmp slt i64 %spec.select.i.i.i.i, %17
+  br i1 %54, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1043
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.split.i.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ %.015.i.i.i, %.split.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %56 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
-  br i1 %56, label %57, label %59
+  %55 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %._crit_edge.i.i.i.i
-  %58 = load i64, ptr %21, align 4
-  store i64 %58, ptr %22, align 4
-  br label %59
+56:                                               ; preds = %._crit_edge.i.i.i.i
+  %57 = load i64, ptr %21, align 4
+  store i64 %57, ptr %22, align 4
+  br label %58
 
-59:                                               ; preds = %57, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %20, %57 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+58:                                               ; preds = %56, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %20, %56 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
-  %60 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
-  br i1 %60, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
+  %59 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
+  br i1 %59, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %59, %63
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %63 ], [ %.1.i.i.i.i, %59 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %58, %62
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %62 ], [ %.1.i.i.i.i, %58 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %61 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i.i.i.i
-  %.val.i.i.i.i.i = load i32, ptr %61, align 4, !tbaa !51
-  %62 = icmp ult i32 %.val.i.i.i.i.i, %.sroa.0.0.extract.trunc.i.i.i.i.i
-  br i1 %62, label %63, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
+  %60 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i.i.i.i
+  %.val.i.i.i.i.i = load i32, ptr %60, align 4, !tbaa !51
+  %61 = icmp ult i32 %.val.i.i.i.i.i, %.sroa.0.0.extract.trunc.i.i.i.i.i
+  br i1 %61, label %62, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
 
-63:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %64 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i.i.i.i
-  %65 = load i64, ptr %61, align 4
-  store i64 %65, ptr %64, align 4
-  %66 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
-  br i1 %66, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", !llvm.loop !1044
+62:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %63 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i.i.i.i
+  %64 = load i64, ptr %60, align 4
+  store i64 %64, ptr %63, align 4
+  %65 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
+  br i1 %65, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", !llvm.loop !1044
 
-"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i": ; preds = %63, %.lr.ph.i.i.i.i.i, %59
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %59 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %63 ]
-  %67 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i64 %.sroa.02.0.copyload.i.i.i, ptr %67, align 4
+"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i": ; preds = %62, %.lr.ph.i.i.i.i.i, %58
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %58 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %62 ]
+  %66 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i64 %.sroa.02.0.copyload.i.i.i, ptr %66, align 4
   %.not.i.i.i = icmp eq i64 %.015.i.i.i, 0
-  %68 = add nsw i64 %.015.i.i.i, -1
+  %67 = add nsw i64 %.015.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.i.i.i, !llvm.loop !1045
 
 .lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
   br label %.lr.ph.i5.i
 
 .lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i"
-  %.01.i.i = phi ptr [ %69, %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
-  %69 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %.sroa.02.0.copyload.i.i6.i = load i64, ptr %69, align 4
-  %70 = load i64, ptr %0, align 4
-  store i64 %70, ptr %69, align 4
-  %71 = ptrtoint ptr %69 to i64
-  %72 = sub i64 %71, %4
-  %73 = ashr exact i64 %72, 3
-  %74 = add nsw i64 %73, -1
-  %75 = sdiv i64 %74, 2
-  %76 = icmp sgt i64 %73, 2
-  br i1 %76, label %.lr.ph.i.i.i15.i, label %._crit_edge.i.i.i7.i
+  %.01.i.i = phi ptr [ %68, %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
+  %68 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
+  %.sroa.02.0.copyload.i.i6.i = load i64, ptr %68, align 4
+  %69 = load i64, ptr %0, align 4
+  store i64 %69, ptr %68, align 4
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %70, %4
+  %72 = ashr exact i64 %71, 3
+  %73 = add nsw i64 %72, -1
+  %74 = sdiv i64 %73, 2
+  %75 = icmp sgt i64 %72, 2
+  br i1 %75, label %.lr.ph.i.i.i15.i, label %._crit_edge.i.i.i7.i
 
 .lr.ph.i.i.i15.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i15.i
   %.030.i.i.i16.i = phi i64 [ %spec.select.i.i.i19.i, %.lr.ph.i.i.i15.i ], [ 0, %.lr.ph.i5.i ]
-  %77 = shl i64 %.030.i.i.i16.i, 1
-  %78 = add i64 %77, 2
-  %79 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %78
-  %80 = or disjoint i64 %77, 1
-  %81 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %80
-  %.val.i.i.i17.i = load i32, ptr %79, align 4, !tbaa !51
-  %.val29.i.i.i18.i = load i32, ptr %81, align 4, !tbaa !51
-  %82 = icmp ult i32 %.val.i.i.i17.i, %.val29.i.i.i18.i
-  %spec.select.i.i.i19.i = select i1 %82, i64 %80, i64 %78
-  %83 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i.i.i19.i
-  %84 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i.i.i16.i
-  %85 = load i64, ptr %83, align 4
-  store i64 %85, ptr %84, align 4
-  %86 = icmp slt i64 %spec.select.i.i.i19.i, %75
-  br i1 %86, label %.lr.ph.i.i.i15.i, label %._crit_edge.i.i.i7.i, !llvm.loop !1043
+  %76 = shl i64 %.030.i.i.i16.i, 1
+  %77 = add i64 %76, 2
+  %78 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %77
+  %79 = or disjoint i64 %76, 1
+  %80 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %79
+  %.val.i.i.i17.i = load i32, ptr %78, align 4, !tbaa !51
+  %.val29.i.i.i18.i = load i32, ptr %80, align 4, !tbaa !51
+  %81 = icmp ult i32 %.val.i.i.i17.i, %.val29.i.i.i18.i
+  %spec.select.i.i.i19.i = select i1 %81, i64 %79, i64 %77
+  %82 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i.i.i19.i
+  %83 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i.i.i16.i
+  %84 = load i64, ptr %82, align 4
+  store i64 %84, ptr %83, align 4
+  %85 = icmp slt i64 %spec.select.i.i.i19.i, %74
+  br i1 %85, label %.lr.ph.i.i.i15.i, label %._crit_edge.i.i.i7.i, !llvm.loop !1043
 
 ._crit_edge.i.i.i7.i:                             ; preds = %.lr.ph.i.i.i15.i, %.lr.ph.i5.i
   %.0.lcssa.i.i.i8.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i19.i, %.lr.ph.i.i.i15.i ]
-  %87 = and i64 %72, 8
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %89, label %98
+  %86 = and i64 %71, 8
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %88, label %97
 
-89:                                               ; preds = %._crit_edge.i.i.i7.i
-  %90 = add nsw i64 %73, -2
-  %91 = ashr exact i64 %90, 1
-  %92 = icmp eq i64 %.0.lcssa.i.i.i8.i, %91
-  br i1 %92, label %.thread.i.i.i, label %98
+88:                                               ; preds = %._crit_edge.i.i.i7.i
+  %89 = add nsw i64 %72, -2
+  %90 = ashr exact i64 %89, 1
+  %91 = icmp eq i64 %.0.lcssa.i.i.i8.i, %90
+  br i1 %91, label %.thread.i.i.i, label %97
 
-.thread.i.i.i:                                    ; preds = %89
-  %93 = shl nuw nsw i64 %.0.lcssa.i.i.i8.i, 1
-  %94 = or disjoint i64 %93, 1
-  %95 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %94
-  %96 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0.lcssa.i.i.i8.i
-  %97 = load i64, ptr %95, align 4
-  store i64 %97, ptr %96, align 4
+.thread.i.i.i:                                    ; preds = %88
+  %92 = shl nuw nsw i64 %.0.lcssa.i.i.i8.i, 1
+  %93 = or disjoint i64 %92, 1
+  %94 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %93
+  %95 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0.lcssa.i.i.i8.i
+  %96 = load i64, ptr %94, align 4
+  store i64 %96, ptr %95, align 4
   br label %.lr.ph.i.i.preheader.i.i.i
 
-98:                                               ; preds = %89, %._crit_edge.i.i.i7.i
+97:                                               ; preds = %88, %._crit_edge.i.i.i7.i
   %.not.i.i9.i = icmp eq i64 %.0.lcssa.i.i.i8.i, 0
   br i1 %.not.i.i9.i, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i", label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %98, %.thread.i.i.i
-  %.1.i7.i.i.i = phi i64 [ %94, %.thread.i.i.i ], [ %.0.lcssa.i.i.i8.i, %98 ]
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %97, %.thread.i.i.i
+  %.1.i7.i.i.i = phi i64 [ %93, %.thread.i.i.i ], [ %.0.lcssa.i.i.i8.i, %97 ]
   %.sroa.0.0.extract.trunc.i.i8.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i6.i to i32
   br label %.lr.ph.i.i.i.i10.i
 
-.lr.ph.i.i.i.i10.i:                               ; preds = %101, %.lr.ph.i.i.preheader.i.i.i
-  %.0133.i.i.i.i11.i = phi i64 [ %.04.i.i12.i.i.i, %101 ], [ %.1.i7.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
+.lr.ph.i.i.i.i10.i:                               ; preds = %100, %.lr.ph.i.i.preheader.i.i.i
+  %.0133.i.i.i.i11.i = phi i64 [ %.04.i.i12.i.i.i, %100 ], [ %.1.i7.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
   %.04.in.i.i.i.i12.i = add nsw i64 %.0133.i.i.i.i11.i, -1
   %.04.i.i12.i.i.i = lshr i64 %.04.in.i.i.i.i12.i, 1
-  %99 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i12.i.i.i
-  %.val.i.i.i.i13.i = load i32, ptr %99, align 4, !tbaa !51
-  %100 = icmp ult i32 %.val.i.i.i.i13.i, %.sroa.0.0.extract.trunc.i.i8.i.i.i
-  br i1 %100, label %101, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i"
+  %98 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i12.i.i.i
+  %.val.i.i.i.i13.i = load i32, ptr %98, align 4, !tbaa !51
+  %99 = icmp ult i32 %.val.i.i.i.i13.i, %.sroa.0.0.extract.trunc.i.i8.i.i.i
+  br i1 %99, label %100, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i"
 
-101:                                              ; preds = %.lr.ph.i.i.i.i10.i
-  %102 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i.i.i11.i
-  %103 = load i64, ptr %99, align 4
-  store i64 %103, ptr %102, align 4
+100:                                              ; preds = %.lr.ph.i.i.i.i10.i
+  %101 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i.i.i11.i
+  %102 = load i64, ptr %98, align 4
+  store i64 %102, ptr %101, align 4
   %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i12.i, 2
   br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i", label %.lr.ph.i.i.i.i10.i, !llvm.loop !1044
 
-"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i": ; preds = %101, %.lr.ph.i.i.i.i10.i, %98
-  %.013.lcssa.i.i.i.i14.i = phi i64 [ 0, %98 ], [ %.0133.i.i.i.i11.i, %.lr.ph.i.i.i.i10.i ], [ 0, %101 ]
-  %104 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.i.i14.i
-  store i64 %.sroa.02.0.copyload.i.i6.i, ptr %104, align 4
-  %105 = icmp sgt i64 %72, 8
-  br i1 %105, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !1046
+"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i": ; preds = %100, %.lr.ph.i.i.i.i10.i, %97
+  %.013.lcssa.i.i.i.i14.i = phi i64 [ 0, %97 ], [ %.0133.i.i.i.i11.i, %.lr.ph.i.i.i.i10.i ], [ 0, %100 ]
+  %103 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.i.i14.i
+  store i64 %.sroa.02.0.copyload.i.i6.i, ptr %103, align 4
+  %104 = icmp sgt i64 %71, 8
+  br i1 %104, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !1046
 
-106:                                              ; preds = %9
-  %107 = add nsw i64 %.01725, -1
-  %108 = lshr i64 %10, 4
-  %109 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %108
-  %110 = getelementptr inbounds i8, ptr %.026, i64 -8
+105:                                              ; preds = %9
+  %106 = add nsw i64 %.01725, -1
+  %107 = lshr i64 %10, 4
+  %108 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %107
+  %109 = getelementptr inbounds i8, ptr %.026, i64 -8
   %.val29.i.i = load i32, ptr %8, align 4, !tbaa !51
-  %.val30.i.i = load i32, ptr %109, align 4, !tbaa !51
-  %111 = icmp ult i32 %.val29.i.i, %.val30.i.i
-  %.val28.i.i = load i32, ptr %110, align 4, !tbaa !51
-  br i1 %111, label %112, label %124
+  %.val30.i.i = load i32, ptr %108, align 4, !tbaa !51
+  %110 = icmp ult i32 %.val29.i.i, %.val30.i.i
+  %.val28.i.i = load i32, ptr %109, align 4, !tbaa !51
+  br i1 %110, label %111, label %123
 
-112:                                              ; preds = %106
-  %113 = icmp ult i32 %.val30.i.i, %.val28.i.i
-  br i1 %113, label %114, label %117
+111:                                              ; preds = %105
+  %112 = icmp ult i32 %.val30.i.i, %.val28.i.i
+  br i1 %112, label %113, label %116
 
-114:                                              ; preds = %112
-  %115 = load i64, ptr %0, align 4
-  %116 = load i64, ptr %109, align 4
-  store i64 %116, ptr %0, align 4
-  store i64 %115, ptr %109, align 4
+113:                                              ; preds = %111
+  %114 = load i64, ptr %0, align 4
+  %115 = load i64, ptr %108, align 4
+  store i64 %115, ptr %0, align 4
+  store i64 %114, ptr %108, align 4
   br label %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader"
 
-117:                                              ; preds = %112
-  %118 = icmp ult i32 %.val29.i.i, %.val28.i.i
-  %119 = load i64, ptr %0, align 4
-  br i1 %118, label %120, label %122
+116:                                              ; preds = %111
+  %117 = icmp ult i32 %.val29.i.i, %.val28.i.i
+  %118 = load i64, ptr %0, align 4
+  br i1 %117, label %119, label %121
 
-120:                                              ; preds = %117
-  %121 = load i64, ptr %110, align 4
-  store i64 %121, ptr %0, align 4
-  store i64 %119, ptr %110, align 4
+119:                                              ; preds = %116
+  %120 = load i64, ptr %109, align 4
+  store i64 %120, ptr %0, align 4
+  store i64 %118, ptr %109, align 4
   br label %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader"
 
-122:                                              ; preds = %117
-  %123 = load i64, ptr %8, align 4
-  store i64 %123, ptr %0, align 4
-  store i64 %119, ptr %8, align 4
+121:                                              ; preds = %116
+  %122 = load i64, ptr %8, align 4
+  store i64 %122, ptr %0, align 4
+  store i64 %118, ptr %8, align 4
   br label %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader"
 
-124:                                              ; preds = %106
-  %125 = icmp ult i32 %.val29.i.i, %.val28.i.i
-  br i1 %125, label %126, label %129
+123:                                              ; preds = %105
+  %124 = icmp ult i32 %.val29.i.i, %.val28.i.i
+  br i1 %124, label %125, label %128
 
-126:                                              ; preds = %124
-  %127 = load i64, ptr %0, align 4
-  %128 = load i64, ptr %8, align 4
-  store i64 %128, ptr %0, align 4
-  store i64 %127, ptr %8, align 4
+125:                                              ; preds = %123
+  %126 = load i64, ptr %0, align 4
+  %127 = load i64, ptr %8, align 4
+  store i64 %127, ptr %0, align 4
+  store i64 %126, ptr %8, align 4
   br label %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader"
 
-129:                                              ; preds = %124
-  %130 = icmp ult i32 %.val30.i.i, %.val28.i.i
-  %131 = load i64, ptr %0, align 4
-  br i1 %130, label %132, label %134
+128:                                              ; preds = %123
+  %129 = icmp ult i32 %.val30.i.i, %.val28.i.i
+  %130 = load i64, ptr %0, align 4
+  br i1 %129, label %131, label %133
 
-132:                                              ; preds = %129
-  %133 = load i64, ptr %110, align 4
-  store i64 %133, ptr %0, align 4
-  store i64 %131, ptr %110, align 4
+131:                                              ; preds = %128
+  %132 = load i64, ptr %109, align 4
+  store i64 %132, ptr %0, align 4
+  store i64 %130, ptr %109, align 4
   br label %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader"
 
-134:                                              ; preds = %129
-  %135 = load i64, ptr %109, align 4
-  store i64 %135, ptr %0, align 4
-  store i64 %131, ptr %109, align 4
+133:                                              ; preds = %128
+  %134 = load i64, ptr %108, align 4
+  store i64 %134, ptr %0, align 4
+  store i64 %130, ptr %108, align 4
   br label %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader": ; preds = %134, %132, %126, %122, %120, %114
+"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader": ; preds = %133, %131, %125, %121, %119, %113
   br label %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader", %142
-  %.013.i.i = phi ptr [ %.114.i.i, %142 ], [ %.026, %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %138, %142 ], [ %8, %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader", %141
+  %.013.i.i = phi ptr [ %.114.i.i, %141 ], [ %.026, %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %137, %141 ], [ %8, %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i.preheader" ]
   %.val15.i.i = load i32, ptr %0, align 4, !tbaa !51
-  br label %136
+  br label %135
 
-136:                                              ; preds = %136, %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i"
-  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i" ], [ %138, %136 ]
+135:                                              ; preds = %135, %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i"
+  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i" ], [ %137, %135 ]
   %.1.val.i.i = load i32, ptr %.1.i.i, align 4, !tbaa !51
-  %137 = icmp ult i32 %.1.val.i.i, %.val15.i.i
-  %138 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %137, label %136, label %.preheader.i.i, !llvm.loop !1047
+  %136 = icmp ult i32 %.1.val.i.i, %.val15.i.i
+  %137 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %136, label %135, label %.preheader.i.i, !llvm.loop !1047
 
-.preheader.i.i:                                   ; preds = %136, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %136 ]
+.preheader.i.i:                                   ; preds = %135, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %135 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
   %.114.val.i.i = load i32, ptr %.114.i.i, align 4, !tbaa !51
-  %139 = icmp ult i32 %.val15.i.i, %.114.val.i.i
-  br i1 %139, label %.preheader.i.i, label %140, !llvm.loop !1048
+  %138 = icmp ult i32 %.val15.i.i, %.114.val.i.i
+  br i1 %138, label %.preheader.i.i, label %139, !llvm.loop !1048
 
-140:                                              ; preds = %.preheader.i.i
-  %141 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %141, label %142, label %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit"
+139:                                              ; preds = %.preheader.i.i
+  %140 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %140, label %141, label %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit"
 
-142:                                              ; preds = %140
-  %143 = load i64, ptr %.1.i.i, align 4
-  %144 = load i64, ptr %.114.i.i, align 4
-  store i64 %144, ptr %.1.i.i, align 4
-  store i64 %143, ptr %.114.i.i, align 4
+141:                                              ; preds = %139
+  %142 = load i64, ptr %.1.i.i, align 4
+  %143 = load i64, ptr %.114.i.i, align 4
+  store i64 %143, ptr %.1.i.i, align 4
+  store i64 %142, ptr %.114.i.i, align 4
   br label %"_ZSt22__move_median_to_firstIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_SB_T0_.exit.i", !llvm.loop !1049
 
-"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit": ; preds = %140
-  tail call fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterExpressionBuilder4TermElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.026, i64 noundef %107)
-  %145 = ptrtoint ptr %.1.i.i to i64
-  %146 = sub i64 %145, %4
-  %147 = icmp sgt i64 %146, 128
-  br i1 %147, label %9, label %"_ZSt14__partial_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !1050
+"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit": ; preds = %139
+  tail call fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterExpressionBuilder4TermElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.026, i64 noundef %106)
+  %144 = ptrtoint ptr %.1.i.i to i64
+  %145 = sub i64 %144, %4
+  %146 = icmp sgt i64 %145, 128
+  br i1 %146, label %9, label %"_ZSt14__partial_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !1050
 
 "_ZSt14__partial_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEET_SB_SB_T0_.exit", %"_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i", %3
   ret void

@@ -18924,10 +18924,9 @@ while.body.i.us.i.i.i:                            ; preds = %while.body.i.us.i.i
 
 while.end.i.us.i.i.i:                             ; preds = %while.body.i.us.i.i.i
   %inc.i24.i.us.i.i.i = add nsw i32 %inc.i13.i.us.i.i.i, 2
-  %cmp4.i.i.us.i.i.i = icmp samesign ugt i64 %spec.select.i.us.i.i.i, %__parent.0.us.i.i.i
-  br i1 %cmp4.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i
+  br label %land.rhs.i.i.us.i.i.i
 
-land.rhs.i.i.us.i.i.i:                            ; preds = %while.end.i.us.i.i.i, %while.body.i.i.us.i.i.i
+land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i.i.i, %while.end.i.us.i.i.i
   %__holeIndex.addr.06.i.i.us.i.i.i = phi i64 [ %__parent.07.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ], [ %spec.select.i.us.i.i.i, %while.end.i.us.i.i.i ]
   %inc.i15.i.i.us.i.i.i = phi i32 [ %inc.i.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ], [ %inc.i24.i.us.i.i.i, %while.end.i.us.i.i.i ]
   %__parent.07.in.i.i.us.i.i.i = add nsw i64 %__holeIndex.addr.06.i.i.us.i.i.i, -1
@@ -18944,9 +18943,9 @@ while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i
   %cmp.i.i.us.i.i.i = icmp sgt i64 %__parent.07.i.i.us.i.i.i, %__parent.0.us.i.i.i
   br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i, !llvm.loop !218
 
-_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i: ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.end.i.us.i.i.i, %while.end.i.us.thread.i.i.i
-  %1 = phi i32 [ %inc.i24.i.us.i.i.i, %while.end.i.us.i.i.i ], [ %inc.i24.i.us5.reass.i.i.i, %while.end.i.us.thread.i.i.i ], [ %inc.i15.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %inc.i.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
-  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.end.i.us.i.i.i ], [ %__parent.0.us.i.i.i, %while.end.i.us.thread.i.i.i ], [ %__holeIndex.addr.06.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %__parent.07.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
+_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i: ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.end.i.us.thread.i.i.i
+  %1 = phi i32 [ %inc.i24.i.us5.reass.i.i.i, %while.end.i.us.thread.i.i.i ], [ %inc.i15.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %inc.i.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.end.i.us.thread.i.i.i ], [ %__holeIndex.addr.06.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %__parent.07.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
   %add.ptr6.i.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
   %inc.i12.i.i.us.i.i.i = add nsw i32 %1, 1
   store i32 %add.ptr.val.us.i.i.i, ptr %add.ptr6.i.i.us.i.i.i, align 4
@@ -32532,10 +32531,9 @@ while.body.i.us.i.i.i:                            ; preds = %while.body.i.us.i.i
 
 while.end.i.us.i.i.i:                             ; preds = %while.body.i.us.i.i.i
   %inc.i24.i.us.i.i.i = add nsw i32 %inc.i13.i.us.i.i.i, 2
-  %cmp4.i.i.us.i.i.i = icmp samesign ugt i64 %spec.select.i.us.i.i.i, %__parent.0.us.i.i.i
-  br i1 %cmp4.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i
+  br label %land.rhs.i.i.us.i.i.i
 
-land.rhs.i.i.us.i.i.i:                            ; preds = %while.end.i.us.i.i.i, %while.body.i.i.us.i.i.i
+land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i.i.i, %while.end.i.us.i.i.i
   %__holeIndex.addr.06.i.i.us.i.i.i = phi i64 [ %__parent.07.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ], [ %spec.select.i.us.i.i.i, %while.end.i.us.i.i.i ]
   %inc.i15.i.i.us.i.i.i = phi i32 [ %inc.i.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ], [ %inc.i24.i.us.i.i.i, %while.end.i.us.i.i.i ]
   %__parent.07.in.i.i.us.i.i.i = add nsw i64 %__holeIndex.addr.06.i.i.us.i.i.i, -1
@@ -32552,9 +32550,9 @@ while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i
   %cmp.i.i.us.i.i.i = icmp sgt i64 %__parent.07.i.i.us.i.i.i, %__parent.0.us.i.i.i
   br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i, !llvm.loop !389
 
-_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i: ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.end.i.us.i.i.i, %while.end.i.us.thread.i.i.i
-  %1 = phi i32 [ %inc.i24.i.us.i.i.i, %while.end.i.us.i.i.i ], [ %inc.i24.i.us5.reass.i.i.i, %while.end.i.us.thread.i.i.i ], [ %inc.i15.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %inc.i.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
-  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.end.i.us.i.i.i ], [ %__parent.0.us.i.i.i, %while.end.i.us.thread.i.i.i ], [ %__holeIndex.addr.06.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %__parent.07.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
+_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i: ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.end.i.us.thread.i.i.i
+  %1 = phi i32 [ %inc.i24.i.us5.reass.i.i.i, %while.end.i.us.thread.i.i.i ], [ %inc.i15.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %inc.i.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.end.i.us.thread.i.i.i ], [ %__holeIndex.addr.06.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ], [ %__parent.07.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
   %add.ptr6.i.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
   %inc.i12.i.i.us.i.i.i = add nsw i32 %1, 1
   store i32 %add.ptr.val.us.i.i.i, ptr %add.ptr6.i.i.us.i.i.i, align 4
