@@ -18,11 +18,11 @@ define void @_Z10calc_rffacP8_IO_FILEfffPfS1_(ptr noundef %0, float noundef %1, 
   %12 = fmul float %3, %.sink33
   %13 = fmul float %3, %12
   %14 = fdiv float %.sink, %13
-  store float %14, ptr %4, align 4
+  store float %14, ptr %4, align 4, !tbaa !4
   %15 = fdiv float 1.000000e+00, %3
   %16 = fmul float %3, %14
   %17 = tail call float @llvm.fmuladd.f32(float %16, float %3, float %15)
-  store float %17, ptr %5, align 4
+  store float %17, ptr %5, align 4, !tbaa !4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %39, label %18
 
@@ -30,14 +30,14 @@ define void @_Z10calc_rffacP8_IO_FILEfffPfS1_(ptr noundef %0, float noundef %1, 
   %19 = tail call noundef ptr @_Z17enumValueToString22CoulombInteractionType(i32 noundef 1)
   %20 = fpext float %2 to double
   %21 = fpext float %3 to double
-  %22 = load float, ptr %4, align 4
+  %22 = load float, ptr %4, align 4, !tbaa !4
   %23 = fpext float %22 to double
-  %24 = load float, ptr %5, align 4
+  %24 = load float, ptr %5, align 4, !tbaa !4
   %25 = fpext float %24 to double
   %26 = fpext float %1 to double
   %27 = fdiv double 0x40615DEF44DEAD3D, %26
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef %19, double noundef %20, double noundef %21, double noundef %23, double noundef %25, double noundef %27) #5
-  %29 = load float, ptr %4, align 4
+  %29 = load float, ptr %4, align 4, !tbaa !4
   %30 = fcmp ogt float %29, 0.000000e+00
   br i1 %30, label %31, label %39
 
@@ -66,18 +66,21 @@ declare noundef ptr @_Z17enumValueToString22CoulombInteractionType(i32 noundef) 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare double @cbrt(double noundef) local_unnamed_addr #4
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"float", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}

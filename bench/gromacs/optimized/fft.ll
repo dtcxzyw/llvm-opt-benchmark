@@ -8,6 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [500 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %5) #4
   %6 = icmp slt i32 %2, 2
   %7 = icmp slt i32 %3, 2
   %or.cond = or i1 %6, %7
@@ -43,29 +44,29 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 18:                                               ; preds = %.preheader253.us, %18
   %indvars.iv = phi i64 [ 0, %.preheader253.us ], [ %indvars.iv.next, %18 ]
   %gep = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep, i64 %indvars.iv
-  %19 = load float, ptr %gep, align 4
+  %19 = load float, ptr %gep, align 4, !tbaa !4
   %20 = mul nuw nsw i64 %indvars.iv, %15
   %gep301 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep300, i64 %20
-  store float %19, ptr %gep301, align 4
+  store float %19, ptr %gep301, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %gep, i64 4
-  %22 = load float, ptr %21, align 4
+  %22 = load float, ptr %21, align 4, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %gep301, i64 4
-  store float %22, ptr %23, align 4
+  store float %22, ptr %23, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %18
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %15
-  br i1 %exitcond277.not, label %.thread246, label %.preheader253.us, !llvm.loop !7
+  br i1 %exitcond277.not, label %.thread246, label %.preheader253.us, !llvm.loop !12
 
 24:                                               ; preds = %14
   %25 = icmp eq i32 %2, %3
   br i1 %25, label %.lr.ph265.preheader, label %.preheader252.preheader
 
 .preheader252.preheader:                          ; preds = %24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(500) %5, i8 0, i64 500, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(500) %5, i8 0, i64 500, i1 false), !tbaa !13
   %26 = icmp samesign ugt i32 %2, 2
   %27 = icmp samesign ugt i32 %3, 2
   %or.cond3 = and i1 %26, %27
@@ -79,7 +80,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 .loopexit:                                        ; preds = %32, %.lr.ph265
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next292, %28
-  br i1 %exitcond295.not, label %.thread246, label %.lr.ph265, !llvm.loop !8
+  br i1 %exitcond295.not, label %.thread246, label %.lr.ph265, !llvm.loop !14
 
 .lr.ph265:                                        ; preds = %.lr.ph265.preheader, %.loopexit
   %indvars.iv291 = phi i64 [ 0, %.lr.ph265.preheader ], [ %indvars.iv.next292, %.loopexit ]
@@ -97,21 +98,21 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 32:                                               ; preds = %.lr.ph263, %32
   %indvars.iv286 = phi i64 [ %indvars.iv284, %.lr.ph263 ], [ %indvars.iv.next287, %32 ]
   %gep303 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep302, i64 %indvars.iv286
-  %33 = load float, ptr %gep303, align 4
+  %33 = load float, ptr %gep303, align 4, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %gep303, i64 4
-  %35 = load float, ptr %34, align 4
+  %35 = load float, ptr %34, align 4, !tbaa !9
   %36 = mul nuw nsw i64 %indvars.iv286, %28
   %gep305 = getelementptr inbounds nuw %struct.t_complex, ptr %invariant.gep304, i64 %36
-  %37 = load float, ptr %gep305, align 4
-  store float %37, ptr %gep303, align 4
+  %37 = load float, ptr %gep305, align 4, !tbaa !4
+  store float %37, ptr %gep303, align 4, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %gep305, i64 4
-  %39 = load float, ptr %38, align 4
-  store float %39, ptr %34, align 4
-  store float %33, ptr %gep305, align 4
-  store float %35, ptr %38, align 4
+  %39 = load float, ptr %38, align 4, !tbaa !9
+  store float %39, ptr %34, align 4, !tbaa !9
+  store float %33, ptr %gep305, align 4, !tbaa !4
+  store float %35, ptr %38, align 4, !tbaa !9
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %28
-  br i1 %exitcond290.not, label %.loopexit, label %32, !llvm.loop !9
+  br i1 %exitcond290.not, label %.loopexit, label %32, !llvm.loop !15
 
 40:                                               ; preds = %.preheader252.preheader
   %41 = add nsw i32 %2, -1
@@ -123,7 +124,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   %.3 = phi i32 [ %41, %40 ], [ %.2195, %43 ]
   %44 = urem i32 %.3, %.2195
   %.not225 = icmp eq i32 %44, 0
-  br i1 %.not225, label %45, label %43, !llvm.loop !10
+  br i1 %.not225, label %45, label %43, !llvm.loop !16
 
 45:                                               ; preds = %43
   %46 = add nuw nsw i32 %.2195, 1
@@ -146,14 +147,14 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   %51 = sub nsw i32 %49, %.4
   %52 = sext i32 %.4 to i64
   %53 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %52
-  %54 = load float, ptr %53, align 4
+  %54 = load float, ptr %53, align 4, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %56 = load float, ptr %55, align 4
+  %56 = load float, ptr %55, align 4, !tbaa !9
   %57 = sext i32 %51 to i64
   %58 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %57
-  %59 = load float, ptr %58, align 4
+  %59 = load float, ptr %58, align 4, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %61 = load float, ptr %60, align 4
+  %61 = load float, ptr %60, align 4, !tbaa !9
   br label %62
 
 62:                                               ; preds = %82, %.loopexit266
@@ -171,7 +172,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 69:                                               ; preds = %62
   %70 = sext i32 %.0208 to i64
   %71 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %70
-  store i8 1, ptr %71, align 1
+  store i8 1, ptr %71, align 1, !tbaa !13
   br label %72
 
 72:                                               ; preds = %69, %62
@@ -181,7 +182,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 74:                                               ; preds = %72
   %75 = sext i32 %.0206 to i64
   %76 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %75
-  store i8 1, ptr %76, align 1
+  store i8 1, ptr %76, align 1, !tbaa !13
   br label %77
 
 77:                                               ; preds = %74, %72
@@ -196,41 +197,41 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 82:                                               ; preds = %80
   %83 = sext i32 %66 to i64
   %84 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %83
-  %85 = load float, ptr %84, align 4
+  %85 = load float, ptr %84, align 4, !tbaa !4
   %86 = sext i32 %.0208 to i64
   %87 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %86
-  store float %85, ptr %87, align 4
+  store float %85, ptr %87, align 4, !tbaa !4
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %89 = load float, ptr %88, align 4
+  %89 = load float, ptr %88, align 4, !tbaa !9
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  store float %89, ptr %90, align 4
+  store float %89, ptr %90, align 4, !tbaa !9
   %91 = sext i32 %67 to i64
   %92 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %91
-  %93 = load float, ptr %92, align 4
+  %93 = load float, ptr %92, align 4, !tbaa !4
   %94 = sext i32 %.0206 to i64
   %95 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %94
-  store float %93, ptr %95, align 4
+  store float %93, ptr %95, align 4, !tbaa !4
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %97 = load float, ptr %96, align 4
+  %97 = load float, ptr %96, align 4, !tbaa !9
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  store float %97, ptr %98, align 4
+  store float %97, ptr %98, align 4, !tbaa !9
   br label %62
 
 99:                                               ; preds = %77, %80
-  %.sroa.6.1.ph = phi float [ %61, %80 ], [ %56, %77 ]
+  %.sroa.8.1.ph = phi float [ %61, %80 ], [ %56, %77 ]
   %.sroa.033.1.ph = phi float [ %59, %80 ], [ %54, %77 ]
-  %.sroa.4.1.ph = phi float [ %56, %80 ], [ %61, %77 ]
+  %.sroa.6.1.ph = phi float [ %56, %80 ], [ %61, %77 ]
   %.sroa.030.1.ph = phi float [ %54, %80 ], [ %59, %77 ]
   %100 = sext i32 %.0208 to i64
   %101 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %100
-  store float %.sroa.033.1.ph, ptr %101, align 4
+  store float %.sroa.033.1.ph, ptr %101, align 4, !tbaa !4
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  store float %.sroa.6.1.ph, ptr %102, align 4
+  store float %.sroa.8.1.ph, ptr %102, align 4, !tbaa !9
   %103 = sext i32 %.0206 to i64
   %104 = getelementptr inbounds %struct.t_complex, ptr %0, i64 %103
-  store float %.sroa.030.1.ph, ptr %104, align 4
+  store float %.sroa.030.1.ph, ptr %104, align 4, !tbaa !4
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  store float %.sroa.4.1.ph, ptr %105, align 4
+  store float %.sroa.6.1.ph, ptr %105, align 4, !tbaa !9
   %.not226 = icmp slt i32 %78, %48
   br i1 %.not226, label %.critedge, label %.thread246
 
@@ -268,50 +269,65 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   %121 = icmp slt i64 %indvars.iv.next282, %120
   %122 = icmp sgt i64 %106, %120
   %123 = select i1 %121, i1 %122, i1 false
-  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader250
   %.0205.lcssa = phi i32 [ %spec.select, %.preheader250 ], [ %119, %.lr.ph ]
   %124 = zext i32 %.0205.lcssa to i64
   %125 = icmp eq i64 %indvars.iv.next282, %124
-  br i1 %125, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !12
+  br i1 %125, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !18
 
 126:                                              ; preds = %110
   %127 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %indvars.iv.next282
-  %128 = load i8, ptr %127, align 1
+  %128 = load i8, ptr %127, align 1, !tbaa !13
   %.not229 = icmp eq i8 %128, 0
-  br i1 %.not229, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !12
+  br i1 %.not229, label %.loopexit266.loopexit, label %.critedge.backedge, !llvm.loop !18
 
 .critedge.backedge:                               ; preds = %._crit_edge, %126, %.critedge
-  br label %.critedge, !llvm.loop !13
+  br label %.critedge, !llvm.loop !19
 
 .thread246:                                       ; preds = %._crit_edge.us, %99, %.loopexit, %8, %9
+  call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %5) #4
   ret i32 0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_ZTS9t_complex", !6, i64 0, !6, i64 4}
+!6 = !{!"float", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!5, !6, i64 4}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = !{!7, !7, i64 0}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}

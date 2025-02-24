@@ -89,6 +89,7 @@ supported_project = [
     "folly",
     "g2o",
     "glog",
+    "gromacs",
 ]
 
 modify_only = [
@@ -117,6 +118,7 @@ modify_only = [
     "ceres",
     "csmith",
     "glog",
+    "gromacs",
 ]
 
 

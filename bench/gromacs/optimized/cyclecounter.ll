@@ -9,13 +9,13 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef double @_Z20gmx_cycles_calibrated(double noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
-  %4 = tail call { i32, i32, i64 } asm sideeffect "xchg %rbx, $2\0Acpuid\0Axchg %rbx, $2\0A", "={ax},={dx},=r,{ax},~{ecx},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 0) #3, !srcloc !5
+  %4 = tail call { i32, i32, i64 } asm sideeffect "xchg %rbx, $2\0Acpuid\0Axchg %rbx, $2\0A", "={ax},={dx},=r,{ax},~{ecx},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 0) #4, !srcloc !4
   %5 = extractvalue { i32, i32, i64 } %4, 0
   %6 = icmp sgt i32 %5, 21
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
-  %8 = tail call { i32, i32, i64 } asm sideeffect "xchg %rbx, $2\0Acpuid\0Axchg %rbx, $2\0A", "={ax},={dx},=r,{ax},~{ecx},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 22) #3, !srcloc !6
+  %8 = tail call { i32, i32, i64 } asm sideeffect "xchg %rbx, $2\0Acpuid\0Axchg %rbx, $2\0A", "={ax},={dx},=r,{ax},~{ecx},~{ebx},~{dirflag},~{fpsr},~{flags}"(i32 22) #4, !srcloc !5
   %9 = extractvalue { i32, i32, i64 } %8, 0
   %10 = sext i32 %9 to i64
   %11 = mul nsw i64 %10, 1000000
@@ -24,61 +24,65 @@ define noundef double @_Z20gmx_cycles_calibrated(double noundef %0) local_unname
   br label %52
 
 14:                                               ; preds = %1
-  %15 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #3
-  %16 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #3
-  %17 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
+  %15 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #4
+  %16 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #4
+  %17 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %18 = extractvalue { i32, i32 } %17, 1
-  %.neg26 = sub i32 0, %18
-  %.neg26.z = zext i32 %.neg26 to i64
+  %.neg27 = sub i32 0, %18
+  %.neg27.z = zext i32 %.neg27 to i64
   %19 = load i64, ptr %2, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i64, ptr %21, align 8
-  br label %23
+  br label %34
 
-23:                                               ; preds = %.backedge, %14
-  %.024 = phi i32 [ 0, %14 ], [ %.024.be, %.backedge ]
-  %.123 = phi double [ 1.000000e-01, %14 ], [ %26, %.backedge ]
-  %24 = add nuw nsw i32 %.024, 1
-  %25 = uitofp nneg i32 %24 to double
-  %26 = fdiv double %.123, %25
-  %exitcond.not = icmp eq i32 %24, 10000
-  br i1 %exitcond.not, label %27, label %.backedge
+23:                                               ; preds = %34
+  %24 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #4
+  %25 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  %26 = load i64, ptr %3, align 8, !tbaa !7
+  %27 = sub nsw i64 %26, %19
+  %28 = sitofp i64 %27 to double
+  %29 = load i64, ptr %20, align 8, !tbaa !12
+  %30 = sub nsw i64 %29, %22
+  %31 = sitofp i64 %30 to double
+  %32 = tail call double @llvm.fmuladd.f64(double %31, double 0x3EB0C6F7A0B5ED8D, double %28)
+  %33 = fcmp olt double %32, %0
+  br i1 %33, label %.backedge, label %38
 
-.backedge:                                        ; preds = %23, %27
-  %.024.be = phi i32 [ %24, %23 ], [ 0, %27 ]
-  br label %23, !llvm.loop !8
+34:                                               ; preds = %.backedge, %14
+  %.025 = phi i32 [ 0, %14 ], [ %.025.be, %.backedge ]
+  %.124 = phi double [ 1.000000e-01, %14 ], [ %37, %.backedge ]
+  %35 = add nuw nsw i32 %.025, 1
+  %36 = uitofp nneg i32 %35 to double
+  %37 = fdiv double %.124, %36
+  %exitcond.not = icmp eq i32 %35, 10000
+  br i1 %exitcond.not, label %23, label %.backedge
 
-27:                                               ; preds = %23
-  %28 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #3
-  %29 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %30 = load i64, ptr %3, align 8
-  %31 = sub nsw i64 %30, %19
-  %32 = sitofp i64 %31 to double
-  %33 = load i64, ptr %20, align 8
-  %34 = sub nsw i64 %33, %22
-  %35 = sitofp i64 %34 to double
-  %36 = tail call double @llvm.fmuladd.f64(double %35, double 0x3EB0C6F7A0B5ED8D, double %32)
-  %37 = fcmp olt double %36, %0
-  br i1 %37, label %.backedge, label %38
+.backedge:                                        ; preds = %34, %23
+  %.025.be = phi i32 [ %35, %34 ], [ 0, %23 ]
+  br label %34, !llvm.loop !13
 
-38:                                               ; preds = %27
+38:                                               ; preds = %23
   %39 = extractvalue { i32, i32 } %17, 0
   %40 = zext i32 %39 to i64
-  %.neg25 = shl nuw i64 %.neg26.z, 32
-  %41 = extractvalue { i32, i32 } %29, 1
+  %.neg26 = shl nuw i64 %.neg27.z, 32
+  %41 = extractvalue { i32, i32 } %25, 1
   %42 = zext i32 %41 to i64
   %43 = shl nuw i64 %42, 32
-  %44 = extractvalue { i32, i32 } %29, 0
+  %44 = extractvalue { i32, i32 } %25, 0
   %45 = zext i32 %44 to i64
-  %.neg21 = sub i64 %.neg25, %40
-  %46 = add i64 %.neg21, %45
+  %.neg22 = sub i64 %.neg26, %40
+  %46 = add i64 %.neg22, %45
   %47 = add i64 %46, %43
   %48 = uitofp i64 %47 to double
-  %49 = fcmp olt double %26, 1.000000e-30
-  %50 = fadd double %26, %36
-  %.018 = select i1 %49, double %50, double %36
-  %51 = fdiv double %.018, %48
+  %49 = fcmp olt double %37, 1.000000e-30
+  %50 = fadd double %37, %32
+  %.019 = select i1 %49, double %50, double %32
+  %51 = fdiv double %.019, %48
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
   br label %52
 
 52:                                               ; preds = %38, %7
@@ -86,26 +90,38 @@ define noundef double @_Z20gmx_cycles_calibrated(double noundef %0) local_unname
   ret double %.017
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 3711, i64 3743, i64 3765}
-!6 = !{i64 4045, i64 4081, i64 4107}
-!7 = !{i64 36026}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!4 = !{i64 3711, i64 3743, i64 3765}
+!5 = !{i64 4045, i64 4081, i64 4107}
+!6 = !{i64 40780}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"_ZTS7timeval", !9, i64 0, !9, i64 8}
+!9 = !{!"long", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C++ TBAA"}
+!12 = !{!8, !9, i64 8}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}

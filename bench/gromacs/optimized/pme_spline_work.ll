@@ -12,6 +12,7 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
 .preheader34.preheader:
   %2 = alloca [8 x float], align 32
   %.ptr28 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #3
   %3 = icmp slt i32 %1, 9
   br i1 %3, label %.preheader.lr.ph, label %._crit_edge
 
@@ -35,43 +36,56 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
   %10 = select i1 %9, float -1.000000e+00, float 1.000000e+00
   %11 = select i1 %.not, float 1.000000e+00, float %10
   %12 = getelementptr inbounds nuw [8 x float], ptr %2, i64 0, i64 %indvars.iv
-  store float %11, ptr %12, align 4
+  store float %11, ptr %12, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %13, label %8, !llvm.loop !5
+  br i1 %exitcond.not, label %13, label %8, !llvm.loop !8
 
 13:                                               ; preds = %8
-  %.val = load <4 x float>, ptr %2, align 32
-  %.val29 = load <4 x float>, ptr %5, align 16
+  %.val = load <4 x float>, ptr %2, align 32, !tbaa !10
+  %.val29 = load <4 x float>, ptr %5, align 16, !tbaa !10
   %14 = fcmp olt <4 x float> %.val, zeroinitializer
   %15 = sext <4 x i1> %14 to <4 x i32>
   %16 = getelementptr inbounds nuw [6 x %"class.gmx::Simd4FBool"], ptr %0, i64 0, i64 %indvars.iv38
-  store <4 x i32> %15, ptr %16, align 16
+  store <4 x i32> %15, ptr %16, align 16, !tbaa !10
   %17 = fcmp olt <4 x float> %.val29, zeroinitializer
   %18 = sext <4 x i1> %17 to <4 x i32>
   %19 = getelementptr inbounds nuw [6 x %"class.gmx::Simd4FBool"], ptr %.ptr28, i64 0, i64 %indvars.iv38
-  store <4 x i32> %18, ptr %19, align 16
+  store <4 x i32> %18, ptr %19, align 16, !tbaa !10
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
-  br i1 %exitcond41.not, label %._crit_edge, label %.preheader, !llvm.loop !7
+  br i1 %exitcond41.not, label %._crit_edge, label %.preheader, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %13, %.preheader34.preheader
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #3
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #1
+declare i32 @llvm.smax.i32(i32, i32) #2
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"float", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !9}

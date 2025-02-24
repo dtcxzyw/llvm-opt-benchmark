@@ -28,20 +28,20 @@ define void @_Z19_gmx_selvalue_clearP18gmx_ana_selvalue_t(ptr noundef writeonly 
 ; Function Attrs: mustprogress uwtable
 define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8
+  %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %5, label %21
+  br i1 %4, label %5, label %23
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 8
+  %6 = load i32, ptr %0, align 8, !tbaa !10
   %7 = icmp eq i32 %6, 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
-  br i1 %7, label %10, label %20
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  br i1 %7, label %10, label %22
 
 10:                                               ; preds = %5
   %11 = icmp eq ptr %9, null
-  br i1 %11, label %21, label %12
+  br i1 %11, label %23, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %9, i64 -8
@@ -61,17 +61,19 @@ define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr noundef captures(no
   br i1 %19, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %12
-  tail call void @_ZdaPv(ptr noundef nonnull %13) #11
-  br label %21
+  %20 = mul i64 %14, 152
+  %21 = add i64 %20, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %13, i64 noundef %21) #11
+  br label %23
 
-20:                                               ; preds = %5
+22:                                               ; preds = %5
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 67, ptr noundef %9)
-  br label %21
+  br label %23
 
-21:                                               ; preds = %20, %.loopexit, %10, %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %22, align 8
-  store i32 0, ptr %2, align 8
+23:                                               ; preds = %22, %.loopexit, %10, %1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %24, align 8, !tbaa !11
+  store i32 0, ptr %2, align 8, !tbaa !4
   ret void
 }
 
@@ -79,27 +81,27 @@ define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr noundef captures(no
 declare void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148)) unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZdaPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8
+  %4 = load i32, ptr %3, align 8, !tbaa !4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %57, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !11
   %.not = icmp eq ptr %8, null
   %9 = icmp slt i32 %4, %1
   %or.cond = or i1 %9, %.not
   br i1 %or.cond, label %10, label %57
 
 10:                                               ; preds = %6
-  %11 = load i32, ptr %0, align 8
+  %11 = load i32, ptr %0, align 8, !tbaa !10
   switch i32 %11, label %.loopexit [
     i32 1, label %12
     i32 2, label %15
@@ -121,8 +123,8 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
 18:                                               ; preds = %10
   %19 = sext i32 %1 to i64
   %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 8)
-  store ptr %20, ptr %7, align 8
-  %21 = load i32, ptr %3, align 8
+  store ptr %20, ptr %7, align 8, !tbaa !12
+  %21 = load i32, ptr %3, align 8, !tbaa !4
   %22 = icmp slt i32 %21, %1
   br i1 %22, label %.lr.ph47.preheader, label %.loopexit
 
@@ -132,12 +134,12 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv51 = phi i64 [ %23, %.lr.ph47.preheader ], [ %indvars.iv.next52, %.lr.ph47 ]
-  %24 = load ptr, ptr %7, align 8
+  %24 = load ptr, ptr %7, align 8, !tbaa !11
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv51
-  store ptr null, ptr %25, align 8
+  store ptr null, ptr %25, align 8, !tbaa !16
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, %19
-  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph47, !llvm.loop !5
+  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph47, !llvm.loop !18
 
 26:                                               ; preds = %10
   br i1 %.not, label %28, label %27
@@ -193,14 +195,14 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   br i1 %48, label %.loopexit41, label %.preheader
 
 .loopexit41:                                      ; preds = %.preheader, %45
-  tail call void @_ZdaPv(ptr noundef nonnull %38) #11
+  tail call void @_ZdaPvm(ptr noundef nonnull %38, i64 noundef %37) #11
   resume { ptr, i32 } %46
 
 49:                                               ; preds = %10
   %50 = sext i32 %1 to i64
   %51 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %50, i64 noundef 24)
-  store ptr %51, ptr %7, align 8
-  %52 = load i32, ptr %3, align 8
+  store ptr %51, ptr %7, align 8, !tbaa !20
+  %52 = load i32, ptr %3, align 8, !tbaa !4
   %53 = icmp slt i32 %52, %1
   br i1 %53, label %.lr.ph.preheader, label %.loopexit
 
@@ -210,24 +212,24 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %54, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %55 = load ptr, ptr %7, align 8
+  %55 = load ptr, ptr %7, align 8, !tbaa !11
   %56 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %55, i64 %indvars.iv
   tail call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef %56)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit.sink.split:                             ; preds = %43, %28, %12, %15
   %.ptr36.sink = phi ptr [ %17, %15 ], [ %14, %12 ], [ %.ptr36, %28 ], [ %.ptr36, %43 ]
-  store ptr %.ptr36.sink, ptr %7, align 8
+  store ptr %.ptr36.sink, ptr %7, align 8, !tbaa !11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph47, %.loopexit.sink.split, %49, %18, %10
-  store i32 %1, ptr %3, align 8
+  store i32 %1, ptr %3, align 8, !tbaa !4
   br label %57
 
-57:                                               ; preds = %6, %2, %.loopexit
+57:                                               ; preds = %.loopexit, %6, %2
   ret void
 }
 
@@ -254,61 +256,78 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z34_gmx_selvalue_getstore_and_releaseP18gmx_ana_selvalue_tPPvPi(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %1, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
+  store ptr %5, ptr %1, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8
-  store i32 %7, ptr %2, align 4
-  store ptr null, ptr %4, align 8
-  store i32 0, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !4
+  store i32 %7, ptr %2, align 4, !tbaa !24
+  store ptr null, ptr %4, align 8, !tbaa !11
+  store i32 0, ptr %6, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z22_gmx_selvalue_setstoreP18gmx_ana_selvalue_tPv(ptr noundef writeonly captures(none) initializes((8, 20)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !11
   %.not = icmp ne ptr %1, null
   %4 = sext i1 %.not to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %4, ptr %5, align 8
+  store i32 %4, ptr %5, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z28_gmx_selvalue_setstore_allocP18gmx_ana_selvalue_tPvi(ptr noundef writeonly captures(none) initializes((8, 20)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %5, align 8
+  store i32 %2, ptr %5, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { builtin nounwind }
 attributes #12 = { noreturn }
 attributes #13 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !9, i64 16}
+!5 = !{!"_ZTS18gmx_ana_selvalue_t", !6, i64 0, !9, i64 4, !7, i64 8, !9, i64 16}
+!6 = !{!"_ZTS12e_selvalue_t", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!5, !6, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p2 omnipotent char", !14, i64 0}
+!14 = !{!"any p2 pointer", !15, i64 0}
+!15 = !{!"any pointer", !7, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !15, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS15gmx_ana_index_t", !15, i64 0}
+!22 = distinct !{!22, !19}
+!23 = !{!15, !15, i64 0}
+!24 = !{!9, !9, i64 0}

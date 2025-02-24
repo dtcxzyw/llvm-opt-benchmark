@@ -176,34 +176,34 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z10clear_nrnbP6t_nrnb(ptr noundef writeonly captures(none) initializes((0, 928)) %0) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(928) %0, i8 0, i64 928, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(928) %0, i8 0, i64 928, i1 false), !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z10print_nrnbP8_IO_FILEP6t_nrnb(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
-  br label %3
+  br label %4
 
-3:                                                ; preds = %2, %11
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %4 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
-  %5 = load double, ptr %4, align 8
-  %6 = fcmp ogt double %5, 0.000000e+00
-  br i1 %6, label %7, label %11
+3:                                                ; preds = %12
+  ret void
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 16
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %9, double noundef %5) #10
-  br label %11
+4:                                                ; preds = %2, %12
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %12 ]
+  %5 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
+  %6 = load double, ptr %5, align 8, !tbaa !4
+  %7 = fcmp ogt double %6, 0.000000e+00
+  br i1 %7, label %8, label %12
 
-11:                                               ; preds = %3, %7
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 16, !tbaa !8
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %10, double noundef %6) #10
+  br label %12
+
+12:                                               ; preds = %4, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 116
-  br i1 %exitcond.not, label %12, label %3, !llvm.loop !5
-
-12:                                               ; preds = %11
-  ret void
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !13
 }
 
 ; Function Attrs: nofree nounwind
@@ -212,7 +212,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [116 x double], ptr %0, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [116 x double], ptr %0, i64 0, i64 %4
   %6 = sitofp i32 %2 to double
   %7 = atomicrmw fadd ptr %5, double %6 monotonic, align 8
   ret void
@@ -220,21 +220,21 @@ define void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef captures(none) %0, i3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
-  store double 0.000000e+00, ptr %2, align 8
+  store double 0.000000e+00, ptr %2, align 8, !tbaa !4
   br label %5
 
 5:                                                ; preds = %4, %34
   %6 = phi double [ 0.000000e+00, %4 ], [ %.sink, %34 ]
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %34 ]
   %7 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 16
+  %8 = load ptr, ptr %7, align 16, !tbaa !8
   %9 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.118) #11
   %.not92 = icmp eq ptr %9, null
   br i1 %.not92, label %14, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
-  %12 = load double, ptr %11, align 8
+  %12 = load double, ptr %11, align 8, !tbaa !4
   %13 = tail call double @llvm.fmuladd.f64(double %12, double 9.000000e-06, double %6)
   br label %34
 
@@ -245,7 +245,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
-  %18 = load double, ptr %17, align 8
+  %18 = load double, ptr %17, align 8, !tbaa !4
   %19 = tail call double @llvm.fmuladd.f64(double %18, double 3.000000e-06, double %6)
   br label %34
 
@@ -256,7 +256,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
-  %24 = load double, ptr %23, align 8
+  %24 = load double, ptr %23, align 8, !tbaa !4
   %25 = tail call double @llvm.fmuladd.f64(double %24, double 1.000000e-05, double %6)
   br label %34
 
@@ -264,7 +264,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
   %27 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.121) #11
   %.not95 = icmp eq ptr %27, null
   %28 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv
-  %29 = load double, ptr %28, align 8
+  %29 = load double, ptr %28, align 8, !tbaa !4
   br i1 %.not95, label %32, label %30
 
 30:                                               ; preds = %26
@@ -277,34 +277,34 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
 
 34:                                               ; preds = %10, %22, %32, %30, %16
   %.sink = phi double [ %13, %10 ], [ %25, %22 ], [ %33, %32 ], [ %31, %30 ], [ %19, %16 ]
-  store double %.sink, ptr %2, align 8
+  store double %.sink, ptr %2, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %.preheader97, label %5, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader97, label %5, !llvm.loop !15
+
+35:                                               ; preds = %.preheader97
+  %36 = fcmp oeq double %43, 0.000000e+00
+  br i1 %36, label %44, label %46
 
 .preheader97:                                     ; preds = %34, %.preheader97
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.preheader97 ], [ 0, %34 ]
-  %.08799 = phi double [ %41, %.preheader97 ], [ 0.000000e+00, %34 ]
-  %35 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv108
-  %36 = load double, ptr %35, align 8
-  %37 = fmul double %36, 0x3EB0C6F7A0B5ED8D
-  %38 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv108, i32 1
-  %39 = load i32, ptr %38, align 8
-  %40 = sitofp i32 %39 to double
-  %41 = tail call double @llvm.fmuladd.f64(double %37, double %40, double %.08799)
+  %.08799 = phi double [ %43, %.preheader97 ], [ 0.000000e+00, %34 ]
+  %37 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv108
+  %38 = load double, ptr %37, align 8, !tbaa !4
+  %39 = fmul double %38, 0x3EB0C6F7A0B5ED8D
+  %40 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv108, i32 1
+  %41 = load i32, ptr %40, align 8, !tbaa !16
+  %42 = sitofp i32 %41 to double
+  %43 = tail call double @llvm.fmuladd.f64(double %39, double %42, double %.08799)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, 116
-  br i1 %exitcond111.not, label %42, label %.preheader97, !llvm.loop !8
+  br i1 %exitcond111.not, label %35, label %.preheader97, !llvm.loop !17
 
-42:                                               ; preds = %.preheader97
-  %43 = fcmp oeq double %41, 0.000000e+00
-  br i1 %43, label %44, label %46
-
-44:                                               ; preds = %42
+44:                                               ; preds = %35
   %45 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 26, i64 1, ptr %0)
   br label %135
 
-46:                                               ; preds = %42
+46:                                               ; preds = %35
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge.split.us.critedge, label %.critedge
 
@@ -316,11 +316,11 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
   %51 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 58, i64 1, ptr nonnull %0)
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132) #10
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.117) #10
-  store double 0.000000e+00, ptr %3, align 8
+  store double 0.000000e+00, ptr %3, align 8, !tbaa !4
   br label %.critedge.split
 
 .critedge.split.us.critedge:                      ; preds = %46
-  store double 0.000000e+00, ptr %3, align 8
+  store double 0.000000e+00, ptr %3, align 8, !tbaa !4
   br label %54
 
 54:                                               ; preds = %85, %.critedge.split.us.critedge
@@ -328,7 +328,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %85 ], [ 0, %.critedge.split.us.critedge ]
   %.0105.us = phi double [ %.1.us, %85 ], [ 0.000000e+00, %.critedge.split.us.critedge ]
   %56 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv122
-  %57 = load double, ptr %56, align 8
+  %57 = load double, ptr %56, align 8, !tbaa !4
   %58 = fmul double %57, 0x3EB0C6F7A0B5ED8D
   %59 = fcmp ule double %58, 0.000000e+00
   %60 = trunc i64 %indvars.iv122 to i32
@@ -339,7 +339,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
 
 63:                                               ; preds = %54
   %gep = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr getelementptr inbounds nuw (i8, ptr @_ZL6nbdata, i64 8), i64 0, i64 %indvars.iv122
-  %64 = load i32, ptr %gep, align 8
+  %64 = load i32, ptr %gep, align 8, !tbaa !16
   %65 = trunc i64 %indvars.iv122 to i32
   %66 = add i32 %65, -26
   %67 = icmp ult i32 %66, 8
@@ -349,10 +349,10 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
   %.082.us = phi i32 [ %64, %63 ], [ %.2.us, %83 ]
   %68 = sitofp i32 %.082.us to double
   %69 = tail call double @llvm.fmuladd.f64(double %58, double %68, double %55)
-  store double %69, ptr %3, align 8
+  store double %69, ptr %3, align 8, !tbaa !4
   %70 = fmul double %58, 1.000000e+02
   %71 = fmul double %70, %68
-  %72 = fdiv double %71, %41
+  %72 = fdiv double %71, %43
   %73 = fadd double %.0105.us, %72
   br label %85
 
@@ -361,13 +361,13 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
   %.183101.us = phi i32 [ %64, %.preheader.us ], [ %.2.us, %83 ]
   %75 = or disjoint i64 %indvars.iv119, %87
   %76 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %75
-  %77 = load double, ptr %76, align 8
+  %77 = load double, ptr %76, align 8, !tbaa !4
   %78 = fcmp ogt double %77, 0.000000e+00
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %75, i32 1
-  %81 = load i32, ptr %80, align 8
+  %81 = load i32, ptr %80, align 8, !tbaa !16
   %82 = add nsw i32 %81, %.183101.us
   br label %83
 
@@ -375,24 +375,28 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
   %.2.us = phi i32 [ %82, %79 ], [ %.183101.us, %74 ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 2
   %84 = icmp samesign ult i64 %indvars.iv119, 43
-  br i1 %84, label %74, label %.loopexit.us, !llvm.loop !9
+  br i1 %84, label %74, label %.loopexit.us, !llvm.loop !18
 
 85:                                               ; preds = %.loopexit.us, %54
-  %86 = phi double [ %69, %.loopexit.us ], [ %55, %54 ]
-  %.1.us = phi double [ %73, %.loopexit.us ], [ %.0105.us, %54 ]
+  %86 = phi double [ %55, %54 ], [ %69, %.loopexit.us ]
+  %.1.us = phi double [ %.0105.us, %54 ], [ %73, %.loopexit.us ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 116
-  br i1 %exitcond125.not, label %.split.us, label %54, !llvm.loop !10
+  br i1 %exitcond125.not, label %.split.us, label %54, !llvm.loop !19
 
 .preheader.us:                                    ; preds = %63
   %87 = and i64 %indvars.iv122, 1
   br label %74
 
+.split.us:                                        ; preds = %124, %85
+  %.us-phi = phi double [ %.1.us, %85 ], [ %.1, %124 ]
+  br i1 %.not, label %135, label %125
+
 .critedge.split:                                  ; preds = %.critedge, %124
   %indvars.iv115 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next116, %124 ]
   %.0105 = phi double [ 0.000000e+00, %.critedge ], [ %.1, %124 ]
   %88 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %indvars.iv115
-  %89 = load double, ptr %88, align 8
+  %89 = load double, ptr %88, align 8, !tbaa !4
   %90 = fmul double %89, 0x3EB0C6F7A0B5ED8D
   %91 = fcmp ule double %90, 0.000000e+00
   %92 = trunc i64 %indvars.iv115 to i32
@@ -404,7 +408,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
 95:                                               ; preds = %.critedge.split
   %96 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv115
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = load i32, ptr %97, align 8
+  %98 = load i32, ptr %97, align 8, !tbaa !16
   %99 = trunc i64 %indvars.iv115 to i32
   %100 = add i32 %99, -26
   %101 = icmp ult i32 %100, 8
@@ -419,54 +423,50 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
   %.183101 = phi i32 [ %98, %.preheader ], [ %.2, %112 ]
   %104 = or disjoint i64 %indvars.iv112, %102
   %105 = getelementptr inbounds nuw [116 x double], ptr %1, i64 0, i64 %104
-  %106 = load double, ptr %105, align 8
+  %106 = load double, ptr %105, align 8, !tbaa !4
   %107 = fcmp ogt double %106, 0.000000e+00
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %103
   %109 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %104, i32 1
-  %110 = load i32, ptr %109, align 8
+  %110 = load i32, ptr %109, align 8, !tbaa !16
   %111 = add nsw i32 %110, %.183101
   br label %112
 
-112:                                              ; preds = %103, %108
+112:                                              ; preds = %108, %103
   %.2 = phi i32 [ %111, %108 ], [ %.183101, %103 ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 2
   %113 = icmp samesign ult i64 %indvars.iv112, 43
-  br i1 %113, label %103, label %.loopexit, !llvm.loop !9
+  br i1 %113, label %103, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %112, %95
   %.082 = phi i32 [ %98, %95 ], [ %.2, %112 ]
   %114 = sitofp i32 %.082 to double
-  %115 = load double, ptr %3, align 8
+  %115 = load double, ptr %3, align 8, !tbaa !4
   %116 = tail call double @llvm.fmuladd.f64(double %90, double %114, double %115)
-  store double %116, ptr %3, align 8
+  store double %116, ptr %3, align 8, !tbaa !4
   %117 = fmul double %90, 1.000000e+02
   %118 = fmul double %117, %114
-  %119 = fdiv double %118, %41
+  %119 = fdiv double %118, %43
   %120 = fadd double %.0105, %119
-  %121 = load ptr, ptr %96, align 16
+  %121 = load ptr, ptr %96, align 16, !tbaa !8
   %122 = fmul double %90, %114
   %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.134, ptr noundef %121, double noundef %90, double noundef %122, double noundef %119) #10
   br label %124
 
-124:                                              ; preds = %.critedge.split, %.loopexit
-  %.1 = phi double [ %120, %.loopexit ], [ %.0105, %.critedge.split ]
+124:                                              ; preds = %.loopexit, %.critedge.split
+  %.1 = phi double [ %.0105, %.critedge.split ], [ %120, %.loopexit ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 116
-  br i1 %exitcond118.not, label %.split.us, label %.critedge.split, !llvm.loop !10
-
-.split.us:                                        ; preds = %124, %85
-  %.us-phi = phi double [ %.1.us, %85 ], [ %.1, %124 ]
-  br i1 %.not, label %135, label %125
+  br i1 %exitcond118.not, label %.split.us, label %.critedge.split, !llvm.loop !19
 
 125:                                              ; preds = %.split.us
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.117) #10
-  %127 = load double, ptr %3, align 8
+  %127 = load double, ptr %3, align 8, !tbaa !4
   %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, double noundef %127, double noundef %.us-phi) #10
   %129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.117) #10
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %131 = load double, ptr %130, align 8
+  %131 = load double, ptr %130, align 8, !tbaa !4
   %132 = fcmp ogt double %131, 0.000000e+00
   br i1 %132, label %133, label %135
 
@@ -474,7 +474,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef r
   %134 = tail call i64 @fwrite(ptr nonnull @.str.139, i64 208, i64 1, ptr nonnull %0)
   br label %135
 
-135:                                              ; preds = %125, %133, %.split.us, %44
+135:                                              ; preds = %.split.us, %133, %125, %44
   ret void
 }
 
@@ -638,7 +638,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 define noundef i32 @_Z9cost_nrnbi(i32 noundef %0) local_unnamed_addr #7 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %2, i32 1
-  %4 = load i32, ptr %3, align 8
+  %4 = load i32, ptr %3, align 8, !tbaa !16
   ret i32 %4
 }
 
@@ -646,7 +646,7 @@ define noundef i32 @_Z9cost_nrnbi(i32 noundef %0) local_unnamed_addr #7 {
 define noundef ptr @_Z8nrnb_stri(i32 noundef %0) local_unnamed_addr #7 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %2
-  %4 = load ptr, ptr %3, align 16
+  %4 = load ptr, ptr %3, align 16, !tbaa !8
   ret ptr %4
 }
 
@@ -659,29 +659,38 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"double", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"_ZTS11t_nrnb_data", !10, i64 0, !12, i64 8}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"int", !6, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}
+!16 = !{!9, !12, i64 8}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = distinct !{!19, !14}

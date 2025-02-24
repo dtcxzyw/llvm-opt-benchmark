@@ -22,42 +22,42 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z19_gmx_selvalue_clearP18gmx_ana_selvalue_t(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %3, i32 0, i32 1
-  store i32 0, ptr %4, align 4
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %5, i32 0, i32 2
-  store ptr null, ptr %6, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %7, i32 0, i32 3
-  store i32 0, ptr %8, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %3, i32 0, i32 1
+  store i32 0, ptr %4, align 4, !tbaa !9
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %5, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !13
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %7, i32 0, i32 3
+  store i32 0, ptr %8, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %3, i32 0, i32 3
-  %5 = load i32, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %3, i32 0, i32 3
+  %5 = load i32, ptr %4, align 8, !tbaa !14
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %33
+  br i1 %6, label %7, label %35
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %8, i32 0, i32 0
-  %10 = load i32, ptr %9, align 8
+  %8 = load ptr, ptr %2, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %9, align 8, !tbaa !15
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %12, label %28
+  br i1 %11, label %12, label %30
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %13, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
+  %13 = load ptr, ptr %2, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %27, label %17
+  br i1 %16, label %29, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %15, i64 -8
@@ -69,34 +69,36 @@ define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr noundef %0) #1 {
 22:                                               ; preds = %22, %17
   %23 = phi ptr [ %20, %17 ], [ %24, %22 ]
   %24 = getelementptr inbounds %struct.gmx_ana_pos_t, ptr %23, i64 -1
-  call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %24) #8
+  call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %24) #10
   %25 = icmp eq ptr %24, %15
   br i1 %25, label %26, label %22
 
 26:                                               ; preds = %22, %17
-  call void @_ZdaPv(ptr noundef %18) #9
-  br label %27
+  %27 = mul i64 152, %19
+  %28 = add i64 %27, 8
+  call void @_ZdaPvm(ptr noundef %18, i64 noundef %28) #11
+  br label %29
 
-27:                                               ; preds = %26, %12
-  br label %32
+29:                                               ; preds = %26, %12
+  br label %34
 
-28:                                               ; preds = %7
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %29, i32 0, i32 2
-  %31 = load ptr, ptr %30, align 8
-  call void @_ZL14gmx_sfree_implIvEvPKcS1_iPT_(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 67, ptr noundef %31)
-  br label %32
+30:                                               ; preds = %7
+  %31 = load ptr, ptr %2, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !13
+  call void @_ZL14gmx_sfree_implIvEvPKcS1_iPT_(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 67, ptr noundef %33)
+  br label %34
 
-32:                                               ; preds = %28, %27
-  br label %33
+34:                                               ; preds = %30, %29
+  br label %35
 
-33:                                               ; preds = %32, %1
-  %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %34, i32 0, i32 2
-  store ptr null, ptr %35, align 8
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %36, i32 0, i32 3
-  store i32 0, ptr %37, align 8
+35:                                               ; preds = %34, %1
+  %36 = load ptr, ptr %2, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %36, i32 0, i32 2
+  store ptr null, ptr %37, align 8, !tbaa !13
+  %38 = load ptr, ptr %2, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %38, i32 0, i32 3
+  store i32 0, ptr %39, align 8, !tbaa !14
   ret void
 }
 
@@ -104,406 +106,430 @@ define void @_Z18_gmx_selvalue_freeP18gmx_ana_selvalue_t(ptr noundef %0) #1 {
 declare void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148)) unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) #3
+declare void @_ZdaPvm(ptr noundef, i64 noundef) #3
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL14gmx_sfree_implIvEvPKcS1_iPT_(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL14gmx_sfree_implIvEvPKcS1_iPT_(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #4 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !16
+  store ptr %1, ptr %6, align 8, !tbaa !16
+  store i32 %2, ptr %7, align 4, !tbaa !18
+  store ptr %3, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %5, align 8, !tbaa !16
+  %10 = load ptr, ptr %6, align 8, !tbaa !16
+  %11 = load i32, ptr %7, align 4, !tbaa !18
+  %12 = load ptr, ptr %8, align 8, !tbaa !19
   call void @_Z9save_freePKcS0_iPv(ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12)
   ret void
 }
 
-declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #4
+declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef %0, i32 noundef %1) #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = alloca %class.anon, align 1
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %9, i32 0, i32 3
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, -1
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %2
-  br label %131
+  %6 = alloca i32, align 4
+  %7 = alloca %class.anon, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %10, i32 0, i32 3
+  %12 = load i32, ptr %11, align 8, !tbaa !14
+  %13 = icmp eq i32 %12, -1
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %15, i32 0, i32 2
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %25
-
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %20, i32 0, i32 3
-  %22 = load i32, ptr %21, align 8
-  %23 = load i32, ptr %4, align 4
-  %24 = icmp slt i32 %22, %23
-  br i1 %24, label %25, label %131
-
-25:                                               ; preds = %19, %14
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %26, i32 0, i32 0
-  %28 = load i32, ptr %27, align 8
-  switch i32 %28, label %127 [
-    i32 1, label %29
-    i32 2, label %34
-    i32 3, label %39
-    i32 4, label %62
-    i32 5, label %103
-    i32 0, label %126
-  ]
-
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %30, i32 0, i32 2
-  %32 = load i32, ptr %4, align 4
-  %33 = sext i32 %32 to i64
-  call void @_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 88, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef %33)
-  br label %127
-
-34:                                               ; preds = %25
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %4, align 4
-  %38 = sext i32 %37 to i64
-  call void @_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 89, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef %38)
-  br label %127
-
-39:                                               ; preds = %25
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %40, i32 0, i32 2
-  %42 = load i32, ptr %4, align 4
-  %43 = sext i32 %42 to i64
-  call void @_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m(ptr noundef @.str.4, ptr noundef @.str.1, i32 noundef 91, ptr noundef nonnull align 8 dereferenceable(8) %41, i64 noundef %43)
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %44, i32 0, i32 3
-  %46 = load i32, ptr %45, align 8
-  store i32 %46, ptr %5, align 4
-  br label %47
-
-47:                                               ; preds = %58, %39
-  %48 = load i32, ptr %5, align 4
-  %49 = load i32, ptr %4, align 4
-  %50 = icmp slt i32 %48, %49
-  br i1 %50, label %51, label %61
-
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %52, i32 0, i32 2
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr %5, align 4
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %54, i64 %56
-  store ptr null, ptr %57, align 8
-  br label %58
-
-58:                                               ; preds = %51
-  %59 = load i32, ptr %5, align 4
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %5, align 4
-  br label %47, !llvm.loop !5
-
-61:                                               ; preds = %47
-  br label %127
-
-62:                                               ; preds = %25
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %63, i32 0, i32 2
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %67, label %68
-
-67:                                               ; preds = %62
-  br label %69
-
-68:                                               ; preds = %62
-  call void @"_ZZ21_gmx_selvalue_reserveP18gmx_ana_selvalue_tiENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %6)
-  br label %69
-
-69:                                               ; preds = %68, %67
-  %70 = load i32, ptr %4, align 4
-  %71 = sext i32 %70 to i64
-  %72 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %71, i64 152)
-  %73 = extractvalue { i64, i1 } %72, 1
-  %74 = extractvalue { i64, i1 } %72, 0
-  %75 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %74, i64 8)
-  %76 = extractvalue { i64, i1 } %75, 1
-  %77 = or i1 %73, %76
-  %78 = extractvalue { i64, i1 } %75, 0
-  %79 = select i1 %77, i64 -1, i64 %78
-  %80 = call noalias noundef nonnull ptr @_Znam(i64 noundef %79) #10
-  store i64 %71, ptr %80, align 16
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = icmp eq i64 %71, 0
-  br i1 %82, label %90, label %83
-
-83:                                               ; preds = %69
-  %84 = getelementptr inbounds %struct.gmx_ana_pos_t, ptr %81, i64 %71
-  br label %85
-
-85:                                               ; preds = %87, %83
-  %86 = phi ptr [ %81, %83 ], [ %88, %87 ]
-  invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %86)
-          to label %87 unwind label %93
-
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds %struct.gmx_ana_pos_t, ptr %86, i64 1
-  %89 = icmp eq ptr %88, %84
-  br i1 %89, label %90, label %85
-
-90:                                               ; preds = %87, %69
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %91, i32 0, i32 2
-  store ptr %81, ptr %92, align 8
-  br label %127
-
-93:                                               ; preds = %85
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  %95 = extractvalue { ptr, i32 } %94, 0
-  store ptr %95, ptr %7, align 8
-  %96 = extractvalue { ptr, i32 } %94, 1
-  store i32 %96, ptr %8, align 4
-  %97 = icmp eq ptr %81, %86
-  br i1 %97, label %102, label %98
-
-98:                                               ; preds = %98, %93
-  %99 = phi ptr [ %86, %93 ], [ %100, %98 ]
-  %100 = getelementptr inbounds %struct.gmx_ana_pos_t, ptr %99, i64 -1
-  call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %100) #8
-  %101 = icmp eq ptr %100, %81
-  br i1 %101, label %102, label %98
-
-102:                                              ; preds = %98, %93
-  call void @_ZdaPv(ptr noundef %80) #9
+  store i32 1, ptr %6, align 4
   br label %132
 
-103:                                              ; preds = %25
-  %104 = load ptr, ptr %3, align 8
-  %105 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %104, i32 0, i32 2
-  %106 = load i32, ptr %4, align 4
-  %107 = sext i32 %106 to i64
-  call void @_ZL15gmx_srenew_implI15gmx_ana_index_tEvPKcS2_iRPT_m(ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 103, ptr noundef nonnull align 8 dereferenceable(8) %105, i64 noundef %107)
-  %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %108, i32 0, i32 3
-  %110 = load i32, ptr %109, align 8
-  store i32 %110, ptr %5, align 4
-  br label %111
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %26
 
-111:                                              ; preds = %122, %103
-  %112 = load i32, ptr %5, align 4
-  %113 = load i32, ptr %4, align 4
-  %114 = icmp slt i32 %112, %113
-  br i1 %114, label %115, label %125
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %21, i32 0, i32 3
+  %23 = load i32, ptr %22, align 8, !tbaa !14
+  %24 = load i32, ptr %4, align 4, !tbaa !18
+  %25 = icmp slt i32 %23, %24
+  br i1 %25, label %26, label %131
 
-115:                                              ; preds = %111
-  %116 = load ptr, ptr %3, align 8
-  %117 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %116, i32 0, i32 2
-  %118 = load ptr, ptr %117, align 8
-  %119 = load i32, ptr %5, align 4
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %118, i64 %120
-  call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef %121)
-  br label %122
+26:                                               ; preds = %20, %15
+  %27 = load ptr, ptr %3, align 8, !tbaa !4
+  %28 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %27, i32 0, i32 0
+  %29 = load i32, ptr %28, align 8, !tbaa !15
+  switch i32 %29, label %127 [
+    i32 1, label %30
+    i32 2, label %35
+    i32 3, label %40
+    i32 4, label %63
+    i32 5, label %104
+    i32 0, label %127
+  ]
 
-122:                                              ; preds = %115
-  %123 = load i32, ptr %5, align 4
-  %124 = add nsw i32 %123, 1
-  store i32 %124, ptr %5, align 4
-  br label %111, !llvm.loop !7
-
-125:                                              ; preds = %111
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %31, i32 0, i32 2
+  %33 = load i32, ptr %4, align 4, !tbaa !18
+  %34 = sext i32 %33 to i64
+  call void @_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 88, ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef %34)
   br label %127
 
-126:                                              ; preds = %25
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %36, i32 0, i32 2
+  %38 = load i32, ptr %4, align 4, !tbaa !18
+  %39 = sext i32 %38 to i64
+  call void @_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m(ptr noundef @.str.3, ptr noundef @.str.1, i32 noundef 89, ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef %39)
   br label %127
 
-127:                                              ; preds = %126, %125, %90, %61, %34, %29, %25
-  %128 = load i32, ptr %4, align 4
-  %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %129, i32 0, i32 3
-  store i32 %128, ptr %130, align 8
+40:                                               ; preds = %26
+  %41 = load ptr, ptr %3, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %4, align 4, !tbaa !18
+  %44 = sext i32 %43 to i64
+  call void @_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m(ptr noundef @.str.4, ptr noundef @.str.1, i32 noundef 91, ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef %44)
+  %45 = load ptr, ptr %3, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %45, i32 0, i32 3
+  %47 = load i32, ptr %46, align 8, !tbaa !14
+  store i32 %47, ptr %5, align 4, !tbaa !18
+  br label %48
+
+48:                                               ; preds = %59, %40
+  %49 = load i32, ptr %5, align 4, !tbaa !18
+  %50 = load i32, ptr %4, align 4, !tbaa !18
+  %51 = icmp slt i32 %49, %50
+  br i1 %51, label %52, label %62
+
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %3, align 8, !tbaa !4
+  %54 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8, !tbaa !13
+  %56 = load i32, ptr %5, align 4, !tbaa !18
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds ptr, ptr %55, i64 %57
+  store ptr null, ptr %58, align 8, !tbaa !16
+  br label %59
+
+59:                                               ; preds = %52
+  %60 = load i32, ptr %5, align 4, !tbaa !18
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %5, align 4, !tbaa !18
+  br label %48, !llvm.loop !20
+
+62:                                               ; preds = %48
+  br label %127
+
+63:                                               ; preds = %26
+  %64 = load ptr, ptr %3, align 8, !tbaa !4
+  %65 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %64, i32 0, i32 2
+  %66 = load ptr, ptr %65, align 8, !tbaa !13
+  %67 = icmp eq ptr %66, null
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #10
+  br i1 %67, label %68, label %69
+
+68:                                               ; preds = %63
+  br label %70
+
+69:                                               ; preds = %63
+  call void @"_ZZ21_gmx_selvalue_reserveP18gmx_ana_selvalue_tiENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  br label %70
+
+70:                                               ; preds = %69, %68
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #10
+  %71 = load i32, ptr %4, align 4, !tbaa !18
+  %72 = sext i32 %71 to i64
+  %73 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %72, i64 152)
+  %74 = extractvalue { i64, i1 } %73, 1
+  %75 = extractvalue { i64, i1 } %73, 0
+  %76 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %75, i64 8)
+  %77 = extractvalue { i64, i1 } %76, 1
+  %78 = or i1 %74, %77
+  %79 = extractvalue { i64, i1 } %76, 0
+  %80 = select i1 %78, i64 -1, i64 %79
+  %81 = call noalias noundef nonnull ptr @_Znam(i64 noundef %80) #12
+  store i64 %72, ptr %81, align 16
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = icmp eq i64 %72, 0
+  br i1 %83, label %91, label %84
+
+84:                                               ; preds = %70
+  %85 = getelementptr inbounds %struct.gmx_ana_pos_t, ptr %82, i64 %72
+  br label %86
+
+86:                                               ; preds = %88, %84
+  %87 = phi ptr [ %82, %84 ], [ %89, %88 ]
+  invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %87)
+          to label %88 unwind label %94
+
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds %struct.gmx_ana_pos_t, ptr %87, i64 1
+  %90 = icmp eq ptr %89, %85
+  br i1 %90, label %91, label %86
+
+91:                                               ; preds = %70, %88
+  %92 = load ptr, ptr %3, align 8, !tbaa !4
+  %93 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %92, i32 0, i32 2
+  store ptr %82, ptr %93, align 8, !tbaa !13
+  br label %127
+
+94:                                               ; preds = %86
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %8, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %9, align 4
+  %98 = icmp eq ptr %82, %87
+  br i1 %98, label %103, label %99
+
+99:                                               ; preds = %99, %94
+  %100 = phi ptr [ %87, %94 ], [ %101, %99 ]
+  %101 = getelementptr inbounds %struct.gmx_ana_pos_t, ptr %100, i64 -1
+  call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %101) #10
+  %102 = icmp eq ptr %101, %82
+  br i1 %102, label %103, label %99
+
+103:                                              ; preds = %99, %94
+  call void @_ZdaPvm(ptr noundef %81, i64 noundef %80) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  br label %135
+
+104:                                              ; preds = %26
+  %105 = load ptr, ptr %3, align 8, !tbaa !4
+  %106 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %105, i32 0, i32 2
+  %107 = load i32, ptr %4, align 4, !tbaa !18
+  %108 = sext i32 %107 to i64
+  call void @_ZL15gmx_srenew_implI15gmx_ana_index_tEvPKcS2_iRPT_m(ptr noundef @.str.5, ptr noundef @.str.1, i32 noundef 103, ptr noundef nonnull align 8 dereferenceable(8) %106, i64 noundef %108)
+  %109 = load ptr, ptr %3, align 8, !tbaa !4
+  %110 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %109, i32 0, i32 3
+  %111 = load i32, ptr %110, align 8, !tbaa !14
+  store i32 %111, ptr %5, align 4, !tbaa !18
+  br label %112
+
+112:                                              ; preds = %123, %104
+  %113 = load i32, ptr %5, align 4, !tbaa !18
+  %114 = load i32, ptr %4, align 4, !tbaa !18
+  %115 = icmp slt i32 %113, %114
+  br i1 %115, label %116, label %126
+
+116:                                              ; preds = %112
+  %117 = load ptr, ptr %3, align 8, !tbaa !4
+  %118 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %117, i32 0, i32 2
+  %119 = load ptr, ptr %118, align 8, !tbaa !13
+  %120 = load i32, ptr %5, align 4, !tbaa !18
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %119, i64 %121
+  call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef %122)
+  br label %123
+
+123:                                              ; preds = %116
+  %124 = load i32, ptr %5, align 4, !tbaa !18
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %5, align 4, !tbaa !18
+  br label %112, !llvm.loop !22
+
+126:                                              ; preds = %112
+  br label %127
+
+127:                                              ; preds = %26, %26, %126, %91, %62, %35, %30
+  %128 = load i32, ptr %4, align 4, !tbaa !18
+  %129 = load ptr, ptr %3, align 8, !tbaa !4
+  %130 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %129, i32 0, i32 3
+  store i32 %128, ptr %130, align 8, !tbaa !14
   br label %131
 
-131:                                              ; preds = %127, %19, %13
+131:                                              ; preds = %127, %20
+  store i32 0, ptr %6, align 4
+  br label %132
+
+132:                                              ; preds = %131, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  %133 = load i32, ptr %6, align 4
+  switch i32 %133, label %140 [
+    i32 0, label %134
+    i32 1, label %134
+  ]
+
+134:                                              ; preds = %132, %132
   ret void
 
-132:                                              ; preds = %102
-  %133 = load ptr, ptr %7, align 8
-  %134 = load i32, ptr %8, align 4
-  %135 = insertvalue { ptr, i32 } poison, ptr %133, 0
-  %136 = insertvalue { ptr, i32 } %135, i32 %134, 1
-  resume { ptr, i32 } %136
-}
+135:                                              ; preds = %103
+  %136 = load ptr, ptr %8, align 8
+  %137 = load i32, ptr %9, align 4
+  %138 = insertvalue { ptr, i32 } poison, ptr %136, 0
+  %139 = insertvalue { ptr, i32 } %138, i32 %137, 1
+  resume { ptr, i32 } %139
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) #1 {
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  store i64 %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load i32, ptr %8, align 4
-  %14 = load ptr, ptr %9, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i64, ptr %10, align 8
-  %17 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %15, i64 noundef %16, i64 noundef 4)
-  %18 = load ptr, ptr %9, align 8
-  store ptr %17, ptr %18, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) #1 {
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  store i64 %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load i32, ptr %8, align 4
-  %14 = load ptr, ptr %9, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i64, ptr %10, align 8
-  %17 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %15, i64 noundef %16, i64 noundef 4)
-  %18 = load ptr, ptr %9, align 8
-  store ptr %17, ptr %18, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) #1 {
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  %10 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  store i64 %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load i32, ptr %8, align 4
-  %14 = load ptr, ptr %9, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i64, ptr %10, align 8
-  %17 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %15, i64 noundef %16, i64 noundef 8)
-  %18 = load ptr, ptr %9, align 8
-  store ptr %17, ptr %18, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZ21_gmx_selvalue_reserveP18gmx_ana_selvalue_tiENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef @"__PRETTY_FUNCTION__._ZZ21_gmx_selvalue_reserveP18gmx_ana_selvalue_tiENK3$_0clEv", ptr noundef @.str.1, i32 noundef 99) #11
+140:                                              ; preds = %132
   unreachable
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #5
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #5
-
-; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) #6
-
-declare void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148)) unnamed_addr #4
-
-declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL15gmx_srenew_implI15gmx_ana_index_tEvPKcS2_iRPT_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) #1 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) #4 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  store i64 %4, ptr %10, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load i32, ptr %8, align 4
-  %14 = load ptr, ptr %9, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i64, ptr %10, align 8
-  %17 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %15, i64 noundef %16, i64 noundef 24)
-  %18 = load ptr, ptr %9, align 8
-  store ptr %17, ptr %18, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !16
+  store ptr %1, ptr %7, align 8, !tbaa !16
+  store i32 %2, ptr %8, align 4, !tbaa !18
+  store ptr %3, ptr %9, align 8, !tbaa !23
+  store i64 %4, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %6, align 8, !tbaa !16
+  %12 = load ptr, ptr %7, align 8, !tbaa !16
+  %13 = load i32, ptr %8, align 4, !tbaa !18
+  %14 = load ptr, ptr %9, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %16 = load i64, ptr %10, align 8, !tbaa !26
+  %17 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %15, i64 noundef %16, i64 noundef 4)
+  %18 = load ptr, ptr %9, align 8, !tbaa !23
+  store ptr %17, ptr %18, align 8, !tbaa !28
   ret void
 }
 
-declare void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef) #4
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) #4 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !16
+  store ptr %1, ptr %7, align 8, !tbaa !16
+  store i32 %2, ptr %8, align 4, !tbaa !18
+  store ptr %3, ptr %9, align 8, !tbaa !30
+  store i64 %4, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %6, align 8, !tbaa !16
+  %12 = load ptr, ptr %7, align 8, !tbaa !16
+  %13 = load i32, ptr %8, align 4, !tbaa !18
+  %14 = load ptr, ptr %9, align 8, !tbaa !30
+  %15 = load ptr, ptr %14, align 8, !tbaa !32
+  %16 = load i64, ptr %10, align 8, !tbaa !26
+  %17 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %15, i64 noundef %16, i64 noundef 4)
+  %18 = load ptr, ptr %9, align 8, !tbaa !30
+  store ptr %17, ptr %18, align 8, !tbaa !32
+  ret void
+}
 
-declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) #4
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) #4 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !16
+  store ptr %1, ptr %7, align 8, !tbaa !16
+  store i32 %2, ptr %8, align 4, !tbaa !18
+  store ptr %3, ptr %9, align 8, !tbaa !34
+  store i64 %4, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %6, align 8, !tbaa !16
+  %12 = load ptr, ptr %7, align 8, !tbaa !16
+  %13 = load i32, ptr %8, align 4, !tbaa !18
+  %14 = load ptr, ptr %9, align 8, !tbaa !34
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
+  %16 = load i64, ptr %10, align 8, !tbaa !26
+  %17 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %15, i64 noundef %16, i64 noundef 8)
+  %18 = load ptr, ptr %9, align 8, !tbaa !34
+  store ptr %17, ptr %18, align 8, !tbaa !37
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZ21_gmx_selvalue_reserveP18gmx_ana_selvalue_tiENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef @"__PRETTY_FUNCTION__._ZZ21_gmx_selvalue_reserveP18gmx_ana_selvalue_tiENK3$_0clEv", ptr noundef @.str.1, i32 noundef 99) #13
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #7
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znam(i64 noundef) #8
+
+declare void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148)) unnamed_addr #5
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @_ZL15gmx_srenew_implI15gmx_ana_index_tEvPKcS2_iRPT_m(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) #4 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !16
+  store ptr %1, ptr %7, align 8, !tbaa !16
+  store i32 %2, ptr %8, align 4, !tbaa !18
+  store ptr %3, ptr %9, align 8, !tbaa !39
+  store i64 %4, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %6, align 8, !tbaa !16
+  %12 = load ptr, ptr %7, align 8, !tbaa !16
+  %13 = load i32, ptr %8, align 4, !tbaa !18
+  %14 = load ptr, ptr %9, align 8, !tbaa !39
+  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  %16 = load i64, ptr %10, align 8, !tbaa !26
+  %17 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %15, i64 noundef %16, i64 noundef 24)
+  %18 = load ptr, ptr %9, align 8, !tbaa !39
+  store ptr %17, ptr %18, align 8, !tbaa !41
+  ret void
+}
+
+declare void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef) #5
+
+declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) #5
 
 ; Function Attrs: noreturn
-declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #7
+declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z34_gmx_selvalue_getstore_and_releaseP18gmx_ana_selvalue_tPPvPi(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %11, i32 0, i32 3
-  %13 = load i32, ptr %12, align 8
-  %14 = load ptr, ptr %6, align 8
-  store i32 %13, ptr %14, align 4
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %15, i32 0, i32 2
-  store ptr null, ptr %16, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %17, i32 0, i32 3
-  store i32 0, ptr %18, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !43
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !43
+  store ptr %9, ptr %10, align 8, !tbaa !19
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %11, i32 0, i32 3
+  %13 = load i32, ptr %12, align 8, !tbaa !14
+  %14 = load ptr, ptr %6, align 8, !tbaa !28
+  store i32 %13, ptr %14, align 4, !tbaa !18
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %15, i32 0, i32 2
+  store ptr null, ptr %16, align 8, !tbaa !13
+  %17 = load ptr, ptr %4, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %17, i32 0, i32 3
+  store i32 0, ptr %18, align 8, !tbaa !14
   ret void
 }
 
@@ -511,18 +537,18 @@ define void @_Z34_gmx_selvalue_getstore_and_releaseP18gmx_ana_selvalue_tPPvPi(pt
 define void @_Z22_gmx_selvalue_setstoreP18gmx_ana_selvalue_tPv(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %6, i32 0, i32 2
-  store ptr %5, ptr %7, align 8
-  %8 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %6, i32 0, i32 2
+  store ptr %5, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %4, align 8, !tbaa !19
   %9 = icmp ne ptr %8, null
   %10 = select i1 %9, i32 -1, i32 0
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %11, i32 0, i32 3
-  store i32 %10, ptr %12, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %11, i32 0, i32 3
+  store i32 %10, ptr %12, align 8, !tbaa !14
   ret void
 }
 
@@ -531,40 +557,78 @@ define void @_Z28_gmx_selvalue_setstore_allocP18gmx_ana_selvalue_tPvi(ptr nounde
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %7 = load ptr, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %8, i32 0, i32 2
-  store ptr %7, ptr %9, align 8
-  %10 = load i32, ptr %6, align 4
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.gmx_ana_selvalue_t, ptr %11, i32 0, i32 3
-  store i32 %10, ptr %12, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !19
+  store i32 %2, ptr %6, align 4, !tbaa !18
+  %7 = load ptr, ptr %5, align 8, !tbaa !19
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %8, i32 0, i32 2
+  store ptr %7, ptr %9, align 8, !tbaa !13
+  %10 = load i32, ptr %6, align 4, !tbaa !18
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.gmx_ana_selvalue_t, ptr %11, i32 0, i32 3
+  store i32 %10, ptr %12, align 8, !tbaa !14
   ret void
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { builtin nounwind }
-attributes #10 = { builtin allocsize(0) }
-attributes #11 = { noreturn }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
+attributes #12 = { builtin allocsize(0) }
+attributes #13 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS18gmx_ana_selvalue_t", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !12, i64 4}
+!10 = !{!"_ZTS18gmx_ana_selvalue_t", !11, i64 0, !12, i64 4, !7, i64 8, !12, i64 16}
+!11 = !{!"_ZTS12e_selvalue_t", !7, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!7, !7, i64 0}
+!14 = !{!10, !12, i64 16}
+!15 = !{!10, !11, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !6, i64 0}
+!18 = !{!12, !12, i64 0}
+!19 = !{!6, !6, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}
+!22 = distinct !{!22, !21}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p2 int", !25, i64 0}
+!25 = !{!"any p2 pointer", !6, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"long", !7, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 int", !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p2 float", !25, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 float", !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p3 omnipotent char", !36, i64 0}
+!36 = !{!"any p3 pointer", !25, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p2 omnipotent char", !25, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p2 _ZTS15gmx_ana_index_t", !25, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS15gmx_ana_index_t", !6, i64 0}
+!43 = !{!25, !25, i64 0}

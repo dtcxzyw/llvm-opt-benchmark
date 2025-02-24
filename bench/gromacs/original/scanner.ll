@@ -10,6 +10,28 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::SelectionLocation" = type { i32, i32 }
 %struct.yy_buffer_state = type { ptr, ptr, ptr, i64, i64, i32, i32, i32, i32, i32, i32, i32 }
 
+$__clang_call_terminate = comdat any
+
+$_ZNSt15__new_allocatorIcED2Ev = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm = comdat any
+
+$_ZNSt15__new_allocatorIcE10deallocateEPcm = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIcEcE15_S_always_equalEv = comdat any
+
+$_ZStneRKSaIcES1_ = comdat any
+
+$_ZSt15__alloc_on_moveISaIcEEvRT_S2_ = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc = comdat any
+
+$_ZNSt11char_traitsIcE6assignERcRKc = comdat any
+
+$_ZNSt11char_traitsIcE4copyEPcPKcm = comdat any
+
 @stdin = external global ptr, align 8
 @stdout = external global ptr, align 8
 @_ZL5yy_ec = internal constant [256 x i8] c"\00\01\01\01\01\01\01\01\01\02\03\02\02\02\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\02\04\05\06\01\01\07\01\01\01\01\08\01\08\09\01\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\01\0B\0C\0D\0C\01\01\0E\0E\0E\0E\0F\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\01\10\01\01\11\01\12\0E\0E\13\14\15\16\0E\0E\0E\0E\0E\0E\17\18\19\0E\1A\1B\1C\1D\0E\0E\1E\1F\0E\01 \01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01", align 16
@@ -49,1136 +71,1225 @@ define noundef i32 @_Z14_gmx_sel_yylexP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr 
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
-  %15 = alloca i8, align 1
-  %16 = alloca %"class.std::__cxx11::basic_string", align 8
-  %17 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i8, align 1
+  %17 = alloca %"class.std::__cxx11::basic_string", align 8
   %18 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %19 = load ptr, ptr %7, align 8
-  store ptr %19, ptr %12, align 8
-  %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds %struct.yyguts_t, ptr %20, i32 0, i32 10
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %86, label %24
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %20 = load ptr, ptr %7, align 8, !tbaa !10
+  store ptr %20, ptr %12, align 8, !tbaa !11
+  %21 = load ptr, ptr %12, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %struct.yyguts_t, ptr %21, i32 0, i32 10
+  %23 = load i32, ptr %22, align 8, !tbaa !13
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %87, label %25
 
-24:                                               ; preds = %3
-  %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds %struct.yyguts_t, ptr %25, i32 0, i32 10
-  store i32 1, ptr %26, align 8
-  %27 = load ptr, ptr %12, align 8
-  %28 = getelementptr inbounds %struct.yyguts_t, ptr %27, i32 0, i32 11
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %34, label %31
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %12, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw %struct.yyguts_t, ptr %26, i32 0, i32 10
+  store i32 1, ptr %27, align 8, !tbaa !13
+  %28 = load ptr, ptr %12, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw %struct.yyguts_t, ptr %28, i32 0, i32 11
+  %30 = load i32, ptr %29, align 4, !tbaa !23
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %35, label %32
 
-31:                                               ; preds = %24
-  %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds %struct.yyguts_t, ptr %32, i32 0, i32 11
-  store i32 1, ptr %33, align 4
-  br label %34
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %12, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw %struct.yyguts_t, ptr %33, i32 0, i32 11
+  store i32 1, ptr %34, align 4, !tbaa !23
+  br label %35
 
-34:                                               ; preds = %31, %24
-  %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds %struct.yyguts_t, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %43, label %39
+35:                                               ; preds = %32, %25
+  %36 = load ptr, ptr %12, align 8, !tbaa !11
+  %37 = getelementptr inbounds nuw %struct.yyguts_t, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !24
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %44, label %40
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr @stdin, align 8
-  %41 = load ptr, ptr %12, align 8
-  %42 = getelementptr inbounds %struct.yyguts_t, ptr %41, i32 0, i32 1
-  store ptr %40, ptr %42, align 8
-  br label %43
+40:                                               ; preds = %35
+  %41 = load ptr, ptr @stdin, align 8, !tbaa !25
+  %42 = load ptr, ptr %12, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %struct.yyguts_t, ptr %42, i32 0, i32 1
+  store ptr %41, ptr %43, align 8, !tbaa !24
+  br label %44
 
-43:                                               ; preds = %39, %34
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds %struct.yyguts_t, ptr %44, i32 0, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %52, label %48
+44:                                               ; preds = %40, %35
+  %45 = load ptr, ptr %12, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.yyguts_t, ptr %45, i32 0, i32 2
+  %47 = load ptr, ptr %46, align 8, !tbaa !26
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %53, label %49
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr @stdout, align 8
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %struct.yyguts_t, ptr %50, i32 0, i32 2
-  store ptr %49, ptr %51, align 8
-  br label %52
+49:                                               ; preds = %44
+  %50 = load ptr, ptr @stdout, align 8, !tbaa !25
+  %51 = load ptr, ptr %12, align 8, !tbaa !11
+  %52 = getelementptr inbounds nuw %struct.yyguts_t, ptr %51, i32 0, i32 2
+  store ptr %50, ptr %52, align 8, !tbaa !26
+  br label %53
 
-52:                                               ; preds = %48, %43
-  %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr inbounds %struct.yyguts_t, ptr %53, i32 0, i32 5
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %66
+53:                                               ; preds = %49, %44
+  %54 = load ptr, ptr %12, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %struct.yyguts_t, ptr %54, i32 0, i32 5
+  %56 = load ptr, ptr %55, align 8, !tbaa !27
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %67
 
-57:                                               ; preds = %52
-  %58 = load ptr, ptr %12, align 8
-  %59 = getelementptr inbounds %struct.yyguts_t, ptr %58, i32 0, i32 5
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %12, align 8
-  %62 = getelementptr inbounds %struct.yyguts_t, ptr %61, i32 0, i32 3
-  %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds ptr, ptr %60, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  br label %67
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %12, align 8, !tbaa !11
+  %60 = getelementptr inbounds nuw %struct.yyguts_t, ptr %59, i32 0, i32 5
+  %61 = load ptr, ptr %60, align 8, !tbaa !27
+  %62 = load ptr, ptr %12, align 8, !tbaa !11
+  %63 = getelementptr inbounds nuw %struct.yyguts_t, ptr %62, i32 0, i32 3
+  %64 = load i64, ptr %63, align 8, !tbaa !28
+  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !29
+  br label %68
 
-66:                                               ; preds = %52
-  br label %67
+67:                                               ; preds = %53
+  br label %68
 
-67:                                               ; preds = %66, %57
-  %68 = phi ptr [ %65, %57 ], [ null, %66 ]
-  %69 = icmp ne ptr %68, null
-  br i1 %69, label %84, label %70
+68:                                               ; preds = %67, %58
+  %69 = phi ptr [ %66, %58 ], [ null, %67 ]
+  %70 = icmp ne ptr %69, null
+  br i1 %70, label %85, label %71
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %7, align 8
-  call void @_ZL30_gmx_sel_yyensure_buffer_stackPv(ptr noundef %71)
-  %72 = load ptr, ptr %12, align 8
-  %73 = getelementptr inbounds %struct.yyguts_t, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %7, align 8
-  %76 = call noundef ptr @_Z25_gmx_sel_yy_create_bufferP8_IO_FILEiPv(ptr noundef %74, i32 noundef 16384, ptr noundef %75)
-  %77 = load ptr, ptr %12, align 8
-  %78 = getelementptr inbounds %struct.yyguts_t, ptr %77, i32 0, i32 5
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %12, align 8
-  %81 = getelementptr inbounds %struct.yyguts_t, ptr %80, i32 0, i32 3
-  %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds ptr, ptr %79, i64 %82
-  store ptr %76, ptr %83, align 8
-  br label %84
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @_ZL30_gmx_sel_yyensure_buffer_stackPv(ptr noundef %72)
+  %73 = load ptr, ptr %12, align 8, !tbaa !11
+  %74 = getelementptr inbounds nuw %struct.yyguts_t, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8, !tbaa !24
+  %76 = load ptr, ptr %7, align 8, !tbaa !10
+  %77 = call noundef ptr @_Z25_gmx_sel_yy_create_bufferP8_IO_FILEiPv(ptr noundef %75, i32 noundef 16384, ptr noundef %76)
+  %78 = load ptr, ptr %12, align 8, !tbaa !11
+  %79 = getelementptr inbounds nuw %struct.yyguts_t, ptr %78, i32 0, i32 5
+  %80 = load ptr, ptr %79, align 8, !tbaa !27
+  %81 = load ptr, ptr %12, align 8, !tbaa !11
+  %82 = getelementptr inbounds nuw %struct.yyguts_t, ptr %81, i32 0, i32 3
+  %83 = load i64, ptr %82, align 8, !tbaa !28
+  %84 = getelementptr inbounds nuw ptr, ptr %80, i64 %83
+  store ptr %77, ptr %84, align 8, !tbaa !29
+  br label %85
 
-84:                                               ; preds = %70, %67
-  %85 = load ptr, ptr %7, align 8
-  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %85)
-  br label %86
+85:                                               ; preds = %71, %68
+  %86 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %86)
+  br label %87
 
-86:                                               ; preds = %84, %3
-  %87 = load ptr, ptr %7, align 8
-  %88 = call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %87)
-  store ptr %88, ptr %13, align 8
-  %89 = load ptr, ptr %5, align 8
-  %90 = load ptr, ptr %6, align 8
-  %91 = load ptr, ptr %13, align 8
-  %92 = call noundef i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYPEPN3gmx17SelectionLocationEP15gmx_sel_lexer_t(ptr noundef %89, ptr noundef %90, ptr noundef %91)
-  store i32 %92, ptr %14, align 4
-  %93 = load i32, ptr %14, align 4
-  %94 = icmp ne i32 %93, 0
-  br i1 %94, label %95, label %97
+87:                                               ; preds = %85, %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #17
+  %88 = load ptr, ptr %7, align 8, !tbaa !10
+  %89 = call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %88)
+  store ptr %89, ptr %13, align 8, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #17
+  %90 = load ptr, ptr %5, align 8, !tbaa !3
+  %91 = load ptr, ptr %6, align 8, !tbaa !8
+  %92 = load ptr, ptr %13, align 8, !tbaa !31
+  %93 = call noundef i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYPEPN3gmx17SelectionLocationEP15gmx_sel_lexer_t(ptr noundef %90, ptr noundef %91, ptr noundef %92)
+  store i32 %93, ptr %14, align 4, !tbaa !32
+  %94 = load i32, ptr %14, align 4, !tbaa !32
+  %95 = icmp ne i32 %94, 0
+  br i1 %95, label %96, label %98
 
-95:                                               ; preds = %86
-  %96 = load i32, ptr %14, align 4
-  store i32 %96, ptr %4, align 4
-  br label %705
+96:                                               ; preds = %87
+  %97 = load i32, ptr %14, align 4, !tbaa !32
+  store i32 %97, ptr %4, align 4
+  store i32 1, ptr %15, align 4
+  br label %709
 
-97:                                               ; preds = %86
-  %98 = load ptr, ptr %13, align 8
-  %99 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %98, i32 0, i32 16
-  %100 = load i8, ptr %99, align 4
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %102, label %107
+98:                                               ; preds = %87
+  %99 = load ptr, ptr %13, align 8, !tbaa !31
+  %100 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %99, i32 0, i32 16
+  %101 = load i8, ptr %100, align 4, !tbaa !33, !range !46, !noundef !47
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %108
 
-102:                                              ; preds = %97
-  %103 = load ptr, ptr %12, align 8
-  %104 = getelementptr inbounds %struct.yyguts_t, ptr %103, i32 0, i32 11
-  store i32 3, ptr %104, align 4
-  %105 = load ptr, ptr %13, align 8
-  %106 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %105, i32 0, i32 16
-  store i8 0, ptr %106, align 4
-  br label %132
-
-107:                                              ; preds = %97
-  %108 = load ptr, ptr %13, align 8
-  %109 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %108, i32 0, i32 17
-  %110 = load i8, ptr %109, align 1
-  %111 = trunc i8 %110 to i1
-  br i1 %111, label %112, label %117
-
-112:                                              ; preds = %107
-  %113 = load ptr, ptr %12, align 8
-  %114 = getelementptr inbounds %struct.yyguts_t, ptr %113, i32 0, i32 11
-  store i32 5, ptr %114, align 4
-  %115 = load ptr, ptr %13, align 8
-  %116 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %115, i32 0, i32 17
-  store i8 0, ptr %116, align 1
-  br label %131
-
-117:                                              ; preds = %107
-  %118 = load ptr, ptr %13, align 8
-  %119 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %118, i32 0, i32 18
-  %120 = load i8, ptr %119, align 2
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %122, label %127
-
-122:                                              ; preds = %117
-  %123 = load ptr, ptr %12, align 8
-  %124 = getelementptr inbounds %struct.yyguts_t, ptr %123, i32 0, i32 11
-  store i32 7, ptr %124, align 4
-  %125 = load ptr, ptr %13, align 8
-  %126 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %125, i32 0, i32 18
-  store i8 0, ptr %126, align 2
-  br label %130
-
-127:                                              ; preds = %117
-  %128 = load ptr, ptr %12, align 8
-  %129 = getelementptr inbounds %struct.yyguts_t, ptr %128, i32 0, i32 11
-  store i32 1, ptr %129, align 4
-  br label %130
-
-130:                                              ; preds = %127, %122
-  br label %131
-
-131:                                              ; preds = %130, %112
-  br label %132
-
-132:                                              ; preds = %131, %102
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %12, align 8, !tbaa !11
+  %105 = getelementptr inbounds nuw %struct.yyguts_t, ptr %104, i32 0, i32 11
+  store i32 3, ptr %105, align 4, !tbaa !23
+  %106 = load ptr, ptr %13, align 8, !tbaa !31
+  %107 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %106, i32 0, i32 16
+  store i8 0, ptr %107, align 4, !tbaa !33
   br label %133
 
-133:                                              ; preds = %704, %132
-  %134 = load ptr, ptr %12, align 8
-  %135 = getelementptr inbounds %struct.yyguts_t, ptr %134, i32 0, i32 9
-  %136 = load ptr, ptr %135, align 8
-  store ptr %136, ptr %9, align 8
-  %137 = load ptr, ptr %12, align 8
-  %138 = getelementptr inbounds %struct.yyguts_t, ptr %137, i32 0, i32 6
-  %139 = load i8, ptr %138, align 8
-  %140 = load ptr, ptr %9, align 8
-  store i8 %139, ptr %140, align 1
-  %141 = load ptr, ptr %9, align 8
-  store ptr %141, ptr %10, align 8
-  %142 = load ptr, ptr %12, align 8
-  %143 = getelementptr inbounds %struct.yyguts_t, ptr %142, i32 0, i32 11
-  %144 = load i32, ptr %143, align 4
-  store i32 %144, ptr %8, align 4
-  br label %145
+108:                                              ; preds = %98
+  %109 = load ptr, ptr %13, align 8, !tbaa !31
+  %110 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %109, i32 0, i32 17
+  %111 = load i8, ptr %110, align 1, !tbaa !48, !range !46, !noundef !47
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %118
 
-145:                                              ; preds = %656, %608, %133
-  br label %146
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %12, align 8, !tbaa !11
+  %115 = getelementptr inbounds nuw %struct.yyguts_t, ptr %114, i32 0, i32 11
+  store i32 5, ptr %115, align 4, !tbaa !23
+  %116 = load ptr, ptr %13, align 8, !tbaa !31
+  %117 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %116, i32 0, i32 17
+  store i8 0, ptr %117, align 1, !tbaa !48
+  br label %132
 
-146:                                              ; preds = %211, %145
-  %147 = load ptr, ptr %9, align 8
-  %148 = load i8, ptr %147, align 1
-  %149 = zext i8 %148 to i32
-  %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %150
-  %152 = load i8, ptr %151, align 1
-  store i8 %152, ptr %15, align 1
-  %153 = load i32, ptr %8, align 4
-  %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %154
-  %156 = load i16, ptr %155, align 2
-  %157 = icmp ne i16 %156, 0
-  br i1 %157, label %158, label %165
+118:                                              ; preds = %108
+  %119 = load ptr, ptr %13, align 8, !tbaa !31
+  %120 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %119, i32 0, i32 18
+  %121 = load i8, ptr %120, align 2, !tbaa !49, !range !46, !noundef !47
+  %122 = trunc i8 %121 to i1
+  br i1 %122, label %123, label %128
 
-158:                                              ; preds = %146
-  %159 = load i32, ptr %8, align 4
-  %160 = load ptr, ptr %12, align 8
-  %161 = getelementptr inbounds %struct.yyguts_t, ptr %160, i32 0, i32 16
-  store i32 %159, ptr %161, align 8
-  %162 = load ptr, ptr %9, align 8
-  %163 = load ptr, ptr %12, align 8
-  %164 = getelementptr inbounds %struct.yyguts_t, ptr %163, i32 0, i32 17
-  store ptr %162, ptr %164, align 8
-  br label %165
+123:                                              ; preds = %118
+  %124 = load ptr, ptr %12, align 8, !tbaa !11
+  %125 = getelementptr inbounds nuw %struct.yyguts_t, ptr %124, i32 0, i32 11
+  store i32 7, ptr %125, align 4, !tbaa !23
+  %126 = load ptr, ptr %13, align 8, !tbaa !31
+  %127 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %126, i32 0, i32 18
+  store i8 0, ptr %127, align 2, !tbaa !49
+  br label %131
 
-165:                                              ; preds = %158, %146
-  br label %166
+128:                                              ; preds = %118
+  %129 = load ptr, ptr %12, align 8, !tbaa !11
+  %130 = getelementptr inbounds nuw %struct.yyguts_t, ptr %129, i32 0, i32 11
+  store i32 1, ptr %130, align 4, !tbaa !23
+  br label %131
 
-166:                                              ; preds = %195, %165
-  %167 = load i32, ptr %8, align 4
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %168
-  %170 = load i16, ptr %169, align 2
-  %171 = zext i16 %170 to i32
-  %172 = load i8, ptr %15, align 1
-  %173 = zext i8 %172 to i32
-  %174 = add nsw i32 %171, %173
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_chk, i64 0, i64 %175
-  %177 = load i16, ptr %176, align 2
-  %178 = sext i16 %177 to i32
-  %179 = load i32, ptr %8, align 4
-  %180 = icmp ne i32 %178, %179
-  br i1 %180, label %181, label %196
+131:                                              ; preds = %128, %123
+  br label %132
 
-181:                                              ; preds = %166
-  %182 = load i32, ptr %8, align 4
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %183
-  %185 = load i16, ptr %184, align 2
-  %186 = sext i16 %185 to i32
-  store i32 %186, ptr %8, align 4
-  %187 = load i32, ptr %8, align 4
-  %188 = icmp sge i32 %187, 76
-  br i1 %188, label %189, label %195
+132:                                              ; preds = %131, %113
+  br label %133
 
-189:                                              ; preds = %181
-  %190 = load i8, ptr %15, align 1
-  %191 = zext i8 %190 to i32
-  %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds [33 x i8], ptr @_ZL7yy_meta, i64 0, i64 %192
-  %194 = load i8, ptr %193, align 1
-  store i8 %194, ptr %15, align 1
-  br label %195
+133:                                              ; preds = %132, %103
+  br label %134
 
-195:                                              ; preds = %189, %181
-  br label %166, !llvm.loop !4
+134:                                              ; preds = %708, %133
+  br label %135
 
-196:                                              ; preds = %166
-  %197 = load i32, ptr %8, align 4
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %198
-  %200 = load i16, ptr %199, align 2
-  %201 = zext i16 %200 to i32
-  %202 = load i8, ptr %15, align 1
-  %203 = zext i8 %202 to i32
-  %204 = add i32 %201, %203
-  %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %205
-  %207 = load i16, ptr %206, align 2
-  %208 = zext i16 %207 to i32
-  store i32 %208, ptr %8, align 4
-  %209 = load ptr, ptr %9, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i32 1
-  store ptr %210, ptr %9, align 8
-  br label %211
+135:                                              ; preds = %134
+  %136 = load ptr, ptr %12, align 8, !tbaa !11
+  %137 = getelementptr inbounds nuw %struct.yyguts_t, ptr %136, i32 0, i32 9
+  %138 = load ptr, ptr %137, align 8, !tbaa !50
+  store ptr %138, ptr %9, align 8, !tbaa !51
+  %139 = load ptr, ptr %12, align 8, !tbaa !11
+  %140 = getelementptr inbounds nuw %struct.yyguts_t, ptr %139, i32 0, i32 6
+  %141 = load i8, ptr %140, align 8, !tbaa !52
+  %142 = load ptr, ptr %9, align 8, !tbaa !51
+  store i8 %141, ptr %142, align 1, !tbaa !53
+  %143 = load ptr, ptr %9, align 8, !tbaa !51
+  store ptr %143, ptr %10, align 8, !tbaa !51
+  %144 = load ptr, ptr %12, align 8, !tbaa !11
+  %145 = getelementptr inbounds nuw %struct.yyguts_t, ptr %144, i32 0, i32 11
+  %146 = load i32, ptr %145, align 4, !tbaa !23
+  store i32 %146, ptr %8, align 4, !tbaa !32
+  br label %147
 
-211:                                              ; preds = %196
-  %212 = load i32, ptr %8, align 4
-  %213 = icmp ne i32 %212, 75
-  br i1 %213, label %146, label %214, !llvm.loop !6
+147:                                              ; preds = %704, %135
+  br label %148
 
-214:                                              ; preds = %211
-  %215 = load ptr, ptr %12, align 8
-  %216 = getelementptr inbounds %struct.yyguts_t, ptr %215, i32 0, i32 17
-  %217 = load ptr, ptr %216, align 8
-  store ptr %217, ptr %9, align 8
-  %218 = load ptr, ptr %12, align 8
-  %219 = getelementptr inbounds %struct.yyguts_t, ptr %218, i32 0, i32 16
-  %220 = load i32, ptr %219, align 8
-  store i32 %220, ptr %8, align 4
-  br label %221
+148:                                              ; preds = %213, %147
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #17
+  %149 = load ptr, ptr %9, align 8, !tbaa !51
+  %150 = load i8, ptr %149, align 1, !tbaa !53
+  %151 = zext i8 %150 to i32
+  %152 = zext i32 %151 to i64
+  %153 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %152
+  %154 = load i8, ptr %153, align 1, !tbaa !53
+  store i8 %154, ptr %16, align 1, !tbaa !53
+  %155 = load i32, ptr %8, align 4, !tbaa !32
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %156
+  %158 = load i16, ptr %157, align 2, !tbaa !54
+  %159 = icmp ne i16 %158, 0
+  br i1 %159, label %160, label %167
 
-221:                                              ; preds = %674, %614, %247, %214
-  %222 = load i32, ptr %8, align 4
-  %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %223
-  %225 = load i16, ptr %224, align 2
-  %226 = sext i16 %225 to i32
-  store i32 %226, ptr %11, align 4
-  %227 = load ptr, ptr %10, align 8
-  %228 = load ptr, ptr %12, align 8
-  %229 = getelementptr inbounds %struct.yyguts_t, ptr %228, i32 0, i32 20
-  store ptr %227, ptr %229, align 8
-  %230 = load ptr, ptr %9, align 8
-  %231 = load ptr, ptr %10, align 8
-  %232 = ptrtoint ptr %230 to i64
-  %233 = ptrtoint ptr %231 to i64
-  %234 = sub i64 %232, %233
-  %235 = load ptr, ptr %12, align 8
-  %236 = getelementptr inbounds %struct.yyguts_t, ptr %235, i32 0, i32 8
-  store i64 %234, ptr %236, align 8
-  %237 = load ptr, ptr %9, align 8
-  %238 = load i8, ptr %237, align 1
-  %239 = load ptr, ptr %12, align 8
-  %240 = getelementptr inbounds %struct.yyguts_t, ptr %239, i32 0, i32 6
-  store i8 %238, ptr %240, align 8
-  %241 = load ptr, ptr %9, align 8
-  store i8 0, ptr %241, align 1
-  %242 = load ptr, ptr %9, align 8
-  %243 = load ptr, ptr %12, align 8
-  %244 = getelementptr inbounds %struct.yyguts_t, ptr %243, i32 0, i32 9
-  store ptr %242, ptr %244, align 8
-  br label %245
+160:                                              ; preds = %148
+  %161 = load i32, ptr %8, align 4, !tbaa !32
+  %162 = load ptr, ptr %12, align 8, !tbaa !11
+  %163 = getelementptr inbounds nuw %struct.yyguts_t, ptr %162, i32 0, i32 16
+  store i32 %161, ptr %163, align 8, !tbaa !56
+  %164 = load ptr, ptr %9, align 8, !tbaa !51
+  %165 = load ptr, ptr %12, align 8, !tbaa !11
+  %166 = getelementptr inbounds nuw %struct.yyguts_t, ptr %165, i32 0, i32 17
+  store ptr %164, ptr %166, align 8, !tbaa !57
+  br label %167
 
-245:                                              ; preds = %630, %221
-  %246 = load i32, ptr %11, align 4
-  switch i32 %246, label %702 [
-    i32 0, label %247
-    i32 1, label %258
-    i32 2, label %259
-    i32 3, label %275
-    i32 4, label %291
-    i32 5, label %312
-    i32 6, label %315
-    i32 26, label %340
-    i32 23, label %343
-    i32 24, label %343
-    i32 25, label %343
-    i32 7, label %346
-    i32 8, label %357
-    i32 9, label %368
-    i32 10, label %378
-    i32 11, label %388
-    i32 12, label %400
-    i32 13, label %410
-    i32 14, label %420
-    i32 15, label %430
-    i32 16, label %440
-    i32 17, label %459
-    i32 18, label %470
-    i32 19, label %473
-    i32 20, label %492
-    i32 21, label %508
-    i32 22, label %510
+167:                                              ; preds = %160, %148
+  br label %168
+
+168:                                              ; preds = %197, %167
+  %169 = load i32, ptr %8, align 4, !tbaa !32
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %170
+  %172 = load i16, ptr %171, align 2, !tbaa !54
+  %173 = zext i16 %172 to i32
+  %174 = load i8, ptr %16, align 1, !tbaa !53
+  %175 = zext i8 %174 to i32
+  %176 = add nsw i32 %173, %175
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_chk, i64 0, i64 %177
+  %179 = load i16, ptr %178, align 2, !tbaa !54
+  %180 = sext i16 %179 to i32
+  %181 = load i32, ptr %8, align 4, !tbaa !32
+  %182 = icmp ne i32 %180, %181
+  br i1 %182, label %183, label %198
+
+183:                                              ; preds = %168
+  %184 = load i32, ptr %8, align 4, !tbaa !32
+  %185 = sext i32 %184 to i64
+  %186 = getelementptr inbounds [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %185
+  %187 = load i16, ptr %186, align 2, !tbaa !54
+  %188 = sext i16 %187 to i32
+  store i32 %188, ptr %8, align 4, !tbaa !32
+  %189 = load i32, ptr %8, align 4, !tbaa !32
+  %190 = icmp sge i32 %189, 76
+  br i1 %190, label %191, label %197
+
+191:                                              ; preds = %183
+  %192 = load i8, ptr %16, align 1, !tbaa !53
+  %193 = zext i8 %192 to i32
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds nuw [33 x i8], ptr @_ZL7yy_meta, i64 0, i64 %194
+  %196 = load i8, ptr %195, align 1, !tbaa !53
+  store i8 %196, ptr %16, align 1, !tbaa !53
+  br label %197
+
+197:                                              ; preds = %191, %183
+  br label %168, !llvm.loop !58
+
+198:                                              ; preds = %168
+  %199 = load i32, ptr %8, align 4, !tbaa !32
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %200
+  %202 = load i16, ptr %201, align 2, !tbaa !54
+  %203 = zext i16 %202 to i32
+  %204 = load i8, ptr %16, align 1, !tbaa !53
+  %205 = zext i8 %204 to i32
+  %206 = add i32 %203, %205
+  %207 = zext i32 %206 to i64
+  %208 = getelementptr inbounds nuw [151 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %207
+  %209 = load i16, ptr %208, align 2, !tbaa !54
+  %210 = zext i16 %209 to i32
+  store i32 %210, ptr %8, align 4, !tbaa !32
+  %211 = load ptr, ptr %9, align 8, !tbaa !51
+  %212 = getelementptr inbounds nuw i8, ptr %211, i32 1
+  store ptr %212, ptr %9, align 8, !tbaa !51
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #17
+  br label %213
+
+213:                                              ; preds = %198
+  %214 = load i32, ptr %8, align 4, !tbaa !32
+  %215 = icmp ne i32 %214, 75
+  br i1 %215, label %148, label %216, !llvm.loop !60
+
+216:                                              ; preds = %213
+  %217 = load ptr, ptr %12, align 8, !tbaa !11
+  %218 = getelementptr inbounds nuw %struct.yyguts_t, ptr %217, i32 0, i32 17
+  %219 = load ptr, ptr %218, align 8, !tbaa !57
+  store ptr %219, ptr %9, align 8, !tbaa !51
+  %220 = load ptr, ptr %12, align 8, !tbaa !11
+  %221 = getelementptr inbounds nuw %struct.yyguts_t, ptr %220, i32 0, i32 16
+  %222 = load i32, ptr %221, align 8, !tbaa !56
+  store i32 %222, ptr %8, align 4, !tbaa !32
+  br label %223
+
+223:                                              ; preds = %704, %249, %216
+  %224 = load i32, ptr %8, align 4, !tbaa !32
+  %225 = sext i32 %224 to i64
+  %226 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %225
+  %227 = load i16, ptr %226, align 2, !tbaa !54
+  %228 = sext i16 %227 to i32
+  store i32 %228, ptr %11, align 4, !tbaa !32
+  %229 = load ptr, ptr %10, align 8, !tbaa !51
+  %230 = load ptr, ptr %12, align 8, !tbaa !11
+  %231 = getelementptr inbounds nuw %struct.yyguts_t, ptr %230, i32 0, i32 20
+  store ptr %229, ptr %231, align 8, !tbaa !61
+  %232 = load ptr, ptr %9, align 8, !tbaa !51
+  %233 = load ptr, ptr %10, align 8, !tbaa !51
+  %234 = ptrtoint ptr %232 to i64
+  %235 = ptrtoint ptr %233 to i64
+  %236 = sub i64 %234, %235
+  %237 = load ptr, ptr %12, align 8, !tbaa !11
+  %238 = getelementptr inbounds nuw %struct.yyguts_t, ptr %237, i32 0, i32 8
+  store i64 %236, ptr %238, align 8, !tbaa !62
+  %239 = load ptr, ptr %9, align 8, !tbaa !51
+  %240 = load i8, ptr %239, align 1, !tbaa !53
+  %241 = load ptr, ptr %12, align 8, !tbaa !11
+  %242 = getelementptr inbounds nuw %struct.yyguts_t, ptr %241, i32 0, i32 6
+  store i8 %240, ptr %242, align 8, !tbaa !52
+  %243 = load ptr, ptr %9, align 8, !tbaa !51
+  store i8 0, ptr %243, align 1, !tbaa !53
+  %244 = load ptr, ptr %9, align 8, !tbaa !51
+  %245 = load ptr, ptr %12, align 8, !tbaa !11
+  %246 = getelementptr inbounds nuw %struct.yyguts_t, ptr %245, i32 0, i32 9
+  store ptr %244, ptr %246, align 8, !tbaa !50
+  br label %247
+
+247:                                              ; preds = %704, %223
+  %248 = load i32, ptr %11, align 4, !tbaa !32
+  switch i32 %248, label %706 [
+    i32 0, label %249
+    i32 1, label %708
+    i32 2, label %260
+    i32 3, label %276
+    i32 4, label %292
+    i32 5, label %313
+    i32 6, label %316
+    i32 26, label %341
+    i32 23, label %344
+    i32 24, label %344
+    i32 25, label %344
+    i32 7, label %347
+    i32 8, label %358
+    i32 9, label %369
+    i32 10, label %379
+    i32 11, label %389
+    i32 12, label %401
+    i32 13, label %411
+    i32 14, label %421
+    i32 15, label %431
+    i32 16, label %441
+    i32 17, label %460
+    i32 18, label %471
+    i32 19, label %474
+    i32 20, label %493
+    i32 21, label %509
+    i32 22, label %511
   ]
 
-247:                                              ; preds = %245
-  %248 = load ptr, ptr %12, align 8
-  %249 = getelementptr inbounds %struct.yyguts_t, ptr %248, i32 0, i32 6
-  %250 = load i8, ptr %249, align 8
-  %251 = load ptr, ptr %9, align 8
-  store i8 %250, ptr %251, align 1
-  %252 = load ptr, ptr %12, align 8
-  %253 = getelementptr inbounds %struct.yyguts_t, ptr %252, i32 0, i32 17
-  %254 = load ptr, ptr %253, align 8
-  store ptr %254, ptr %9, align 8
-  %255 = load ptr, ptr %12, align 8
-  %256 = getelementptr inbounds %struct.yyguts_t, ptr %255, i32 0, i32 16
-  %257 = load i32, ptr %256, align 8
-  store i32 %257, ptr %8, align 4
-  br label %221
+249:                                              ; preds = %247
+  %250 = load ptr, ptr %12, align 8, !tbaa !11
+  %251 = getelementptr inbounds nuw %struct.yyguts_t, ptr %250, i32 0, i32 6
+  %252 = load i8, ptr %251, align 8, !tbaa !52
+  %253 = load ptr, ptr %9, align 8, !tbaa !51
+  store i8 %252, ptr %253, align 1, !tbaa !53
+  %254 = load ptr, ptr %12, align 8, !tbaa !11
+  %255 = getelementptr inbounds nuw %struct.yyguts_t, ptr %254, i32 0, i32 17
+  %256 = load ptr, ptr %255, align 8, !tbaa !57
+  store ptr %256, ptr %9, align 8, !tbaa !51
+  %257 = load ptr, ptr %12, align 8, !tbaa !11
+  %258 = getelementptr inbounds nuw %struct.yyguts_t, ptr %257, i32 0, i32 16
+  %259 = load i32, ptr %258, align 8, !tbaa !56
+  store i32 %259, ptr %8, align 4, !tbaa !32
+  br label %223
 
-258:                                              ; preds = %245
-  br label %704
-
-259:                                              ; preds = %245
-  %260 = load ptr, ptr %12, align 8
-  %261 = getelementptr inbounds %struct.yyguts_t, ptr %260, i32 0, i32 20
-  %262 = load ptr, ptr %261, align 8
-  %263 = call i64 @strtol(ptr noundef %262, ptr noundef null, i32 noundef 10) #11
-  %264 = trunc i64 %263 to i32
-  %265 = load ptr, ptr %5, align 8
-  store i32 %264, ptr %265, align 8
-  %266 = load ptr, ptr %6, align 8
-  %267 = load ptr, ptr %12, align 8
-  %268 = getelementptr inbounds %struct.yyguts_t, ptr %267, i32 0, i32 20
-  %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr %12, align 8
-  %271 = getelementptr inbounds %struct.yyguts_t, ptr %270, i32 0, i32 8
-  %272 = load i64, ptr %271, align 8
-  %273 = trunc i64 %272 to i32
-  %274 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %266, ptr noundef %269, i32 noundef %273, ptr noundef %274)
+260:                                              ; preds = %247
+  %261 = load ptr, ptr %12, align 8, !tbaa !11
+  %262 = getelementptr inbounds nuw %struct.yyguts_t, ptr %261, i32 0, i32 20
+  %263 = load ptr, ptr %262, align 8, !tbaa !61
+  %264 = call i64 @strtol(ptr noundef %263, ptr noundef null, i32 noundef 10) #17
+  %265 = trunc i64 %264 to i32
+  %266 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 %265, ptr %266, align 8, !tbaa !53
+  %267 = load ptr, ptr %6, align 8, !tbaa !8
+  %268 = load ptr, ptr %12, align 8, !tbaa !11
+  %269 = getelementptr inbounds nuw %struct.yyguts_t, ptr %268, i32 0, i32 20
+  %270 = load ptr, ptr %269, align 8, !tbaa !61
+  %271 = load ptr, ptr %12, align 8, !tbaa !11
+  %272 = getelementptr inbounds nuw %struct.yyguts_t, ptr %271, i32 0, i32 8
+  %273 = load i64, ptr %272, align 8, !tbaa !62
+  %274 = trunc i64 %273 to i32
+  %275 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %267, ptr noundef %270, i32 noundef %274, ptr noundef %275)
   store i32 259, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-275:                                              ; preds = %245
-  %276 = load ptr, ptr %12, align 8
-  %277 = getelementptr inbounds %struct.yyguts_t, ptr %276, i32 0, i32 20
-  %278 = load ptr, ptr %277, align 8
-  %279 = call double @strtod(ptr noundef %278, ptr noundef null) #11
-  %280 = fptrunc double %279 to float
-  %281 = load ptr, ptr %5, align 8
-  store float %280, ptr %281, align 8
-  %282 = load ptr, ptr %6, align 8
-  %283 = load ptr, ptr %12, align 8
-  %284 = getelementptr inbounds %struct.yyguts_t, ptr %283, i32 0, i32 20
-  %285 = load ptr, ptr %284, align 8
-  %286 = load ptr, ptr %12, align 8
-  %287 = getelementptr inbounds %struct.yyguts_t, ptr %286, i32 0, i32 8
-  %288 = load i64, ptr %287, align 8
-  %289 = trunc i64 %288 to i32
-  %290 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %282, ptr noundef %285, i32 noundef %289, ptr noundef %290)
+276:                                              ; preds = %247
+  %277 = load ptr, ptr %12, align 8, !tbaa !11
+  %278 = getelementptr inbounds nuw %struct.yyguts_t, ptr %277, i32 0, i32 20
+  %279 = load ptr, ptr %278, align 8, !tbaa !61
+  %280 = call double @strtod(ptr noundef %279, ptr noundef null) #17
+  %281 = fptrunc double %280 to float
+  %282 = load ptr, ptr %5, align 8, !tbaa !3
+  store float %281, ptr %282, align 8, !tbaa !53
+  %283 = load ptr, ptr %6, align 8, !tbaa !8
+  %284 = load ptr, ptr %12, align 8, !tbaa !11
+  %285 = getelementptr inbounds nuw %struct.yyguts_t, ptr %284, i32 0, i32 20
+  %286 = load ptr, ptr %285, align 8, !tbaa !61
+  %287 = load ptr, ptr %12, align 8, !tbaa !11
+  %288 = getelementptr inbounds nuw %struct.yyguts_t, ptr %287, i32 0, i32 8
+  %289 = load i64, ptr %288, align 8, !tbaa !62
+  %290 = trunc i64 %289 to i32
+  %291 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %283, ptr noundef %286, i32 noundef %290, ptr noundef %291)
   store i32 260, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-291:                                              ; preds = %245
-  %292 = load ptr, ptr %12, align 8
-  %293 = getelementptr inbounds %struct.yyguts_t, ptr %292, i32 0, i32 20
-  %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 1
-  %296 = load ptr, ptr %12, align 8
-  %297 = getelementptr inbounds %struct.yyguts_t, ptr %296, i32 0, i32 8
-  %298 = load i64, ptr %297, align 8
-  %299 = sub i64 %298, 2
-  %300 = trunc i64 %299 to i32
-  %301 = call noundef ptr @_Z11gmx_strndupPKci(ptr noundef %295, i32 noundef %300)
-  %302 = load ptr, ptr %5, align 8
-  store ptr %301, ptr %302, align 8
-  %303 = load ptr, ptr %6, align 8
-  %304 = load ptr, ptr %12, align 8
-  %305 = getelementptr inbounds %struct.yyguts_t, ptr %304, i32 0, i32 20
-  %306 = load ptr, ptr %305, align 8
-  %307 = load ptr, ptr %12, align 8
-  %308 = getelementptr inbounds %struct.yyguts_t, ptr %307, i32 0, i32 8
-  %309 = load i64, ptr %308, align 8
-  %310 = trunc i64 %309 to i32
-  %311 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %303, ptr noundef %306, i32 noundef %310, ptr noundef %311)
+292:                                              ; preds = %247
+  %293 = load ptr, ptr %12, align 8, !tbaa !11
+  %294 = getelementptr inbounds nuw %struct.yyguts_t, ptr %293, i32 0, i32 20
+  %295 = load ptr, ptr %294, align 8, !tbaa !61
+  %296 = getelementptr inbounds i8, ptr %295, i64 1
+  %297 = load ptr, ptr %12, align 8, !tbaa !11
+  %298 = getelementptr inbounds nuw %struct.yyguts_t, ptr %297, i32 0, i32 8
+  %299 = load i64, ptr %298, align 8, !tbaa !62
+  %300 = sub i64 %299, 2
+  %301 = trunc i64 %300 to i32
+  %302 = call noundef ptr @_Z11gmx_strndupPKci(ptr noundef %296, i32 noundef %301)
+  %303 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %302, ptr %303, align 8, !tbaa !53
+  %304 = load ptr, ptr %6, align 8, !tbaa !8
+  %305 = load ptr, ptr %12, align 8, !tbaa !11
+  %306 = getelementptr inbounds nuw %struct.yyguts_t, ptr %305, i32 0, i32 20
+  %307 = load ptr, ptr %306, align 8, !tbaa !61
+  %308 = load ptr, ptr %12, align 8, !tbaa !11
+  %309 = getelementptr inbounds nuw %struct.yyguts_t, ptr %308, i32 0, i32 8
+  %310 = load i64, ptr %309, align 8, !tbaa !62
+  %311 = trunc i64 %310 to i32
+  %312 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %304, ptr noundef %307, i32 noundef %311, ptr noundef %312)
   store i32 261, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-312:                                              ; preds = %245
-  %313 = load ptr, ptr %6, align 8
-  %314 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %313, ptr noundef @.str, i32 noundef 1, ptr noundef %314)
-  br label %704
+313:                                              ; preds = %247
+  %314 = load ptr, ptr %6, align 8, !tbaa !8
+  %315 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %314, ptr noundef @.str, i32 noundef 1, ptr noundef %315)
+  br label %708
 
-315:                                              ; preds = %245
-  %316 = load ptr, ptr %12, align 8
-  %317 = getelementptr inbounds %struct.yyguts_t, ptr %316, i32 0, i32 20
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 0
-  %320 = load i8, ptr %319, align 1
-  %321 = sext i8 %320 to i32
-  %322 = icmp eq i32 %321, 59
-  br i1 %322, label %328, label %323
+316:                                              ; preds = %247
+  %317 = load ptr, ptr %12, align 8, !tbaa !11
+  %318 = getelementptr inbounds nuw %struct.yyguts_t, ptr %317, i32 0, i32 20
+  %319 = load ptr, ptr %318, align 8, !tbaa !61
+  %320 = getelementptr inbounds i8, ptr %319, i64 0
+  %321 = load i8, ptr %320, align 1, !tbaa !53
+  %322 = sext i8 %321 to i32
+  %323 = icmp eq i32 %322, 59
+  br i1 %323, label %329, label %324
 
-323:                                              ; preds = %315
-  %324 = load ptr, ptr %13, align 8
-  %325 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %324, i32 0, i32 5
-  %326 = load ptr, ptr %325, align 8
-  %327 = icmp ne ptr %326, null
-  br i1 %327, label %328, label %336
+324:                                              ; preds = %316
+  %325 = load ptr, ptr %13, align 8, !tbaa !31
+  %326 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %325, i32 0, i32 5
+  %327 = load ptr, ptr %326, align 8, !tbaa !63
+  %328 = icmp ne ptr %327, null
+  br i1 %328, label %329, label %337
 
-328:                                              ; preds = %323, %315
-  %329 = load ptr, ptr %13, align 8
-  %330 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %329, i32 0, i32 6
-  call void @_ZN3gmx11stripStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %330)
-  %331 = load ptr, ptr %13, align 8
-  %332 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %331, i32 0, i32 6
-  %333 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %332, ptr noundef nonnull align 8 dereferenceable(32) %16) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #11
-  %334 = load ptr, ptr %13, align 8
-  %335 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %334, i32 0, i32 18
-  store i8 1, ptr %335, align 2
+329:                                              ; preds = %324, %316
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #17
+  %330 = load ptr, ptr %13, align 8, !tbaa !31
+  %331 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %330, i32 0, i32 6
+  call void @_ZN3gmx11stripStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %331)
+  %332 = load ptr, ptr %13, align 8, !tbaa !31
+  %333 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %332, i32 0, i32 6
+  %334 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %333, ptr noundef nonnull align 8 dereferenceable(32) %17) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #17
+  %335 = load ptr, ptr %13, align 8, !tbaa !31
+  %336 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %335, i32 0, i32 18
+  store i8 1, ptr %336, align 2, !tbaa !49
   store i32 263, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-336:                                              ; preds = %323
-  %337 = load ptr, ptr %6, align 8
-  %338 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %337, ptr noundef @.str, i32 noundef 1, ptr noundef %338)
-  br label %339
+337:                                              ; preds = %324
+  %338 = load ptr, ptr %6, align 8, !tbaa !8
+  %339 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %338, ptr noundef @.str, i32 noundef 1, ptr noundef %339)
+  br label %340
 
-339:                                              ; preds = %336
-  br label %704
+340:                                              ; preds = %337
+  br label %708
 
-340:                                              ; preds = %245
-  %341 = load ptr, ptr %13, align 8
-  %342 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %341, i32 0, i32 18
-  store i8 1, ptr %342, align 2
+341:                                              ; preds = %247
+  %342 = load ptr, ptr %13, align 8, !tbaa !31
+  %343 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %342, i32 0, i32 18
+  store i8 1, ptr %343, align 2, !tbaa !49
   store i32 0, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-343:                                              ; preds = %245, %245, %245
-  %344 = load ptr, ptr %13, align 8
-  %345 = getelementptr inbounds %struct.gmx_sel_lexer_t, ptr %344, i32 0, i32 18
-  store i8 1, ptr %345, align 2
+344:                                              ; preds = %247, %247, %247
+  %345 = load ptr, ptr %13, align 8, !tbaa !31
+  %346 = getelementptr inbounds nuw %struct.gmx_sel_lexer_t, ptr %345, i32 0, i32 18
+  store i8 1, ptr %346, align 2, !tbaa !49
   store i32 263, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-346:                                              ; preds = %245
-  %347 = load ptr, ptr %6, align 8
-  %348 = load ptr, ptr %12, align 8
-  %349 = getelementptr inbounds %struct.yyguts_t, ptr %348, i32 0, i32 20
-  %350 = load ptr, ptr %349, align 8
-  %351 = load ptr, ptr %12, align 8
-  %352 = getelementptr inbounds %struct.yyguts_t, ptr %351, i32 0, i32 8
-  %353 = load i64, ptr %352, align 8
-  %354 = trunc i64 %353 to i32
-  %355 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %347, ptr noundef %350, i32 noundef %354, ptr noundef %355)
-  %356 = load ptr, ptr %5, align 8
-  store i32 1, ptr %356, align 8
+347:                                              ; preds = %247
+  %348 = load ptr, ptr %6, align 8, !tbaa !8
+  %349 = load ptr, ptr %12, align 8, !tbaa !11
+  %350 = getelementptr inbounds nuw %struct.yyguts_t, ptr %349, i32 0, i32 20
+  %351 = load ptr, ptr %350, align 8, !tbaa !61
+  %352 = load ptr, ptr %12, align 8, !tbaa !11
+  %353 = getelementptr inbounds nuw %struct.yyguts_t, ptr %352, i32 0, i32 8
+  %354 = load i64, ptr %353, align 8, !tbaa !62
+  %355 = trunc i64 %354 to i32
+  %356 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %348, ptr noundef %351, i32 noundef %355, ptr noundef %356)
+  %357 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 1, ptr %357, align 8, !tbaa !53
   store i32 259, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-357:                                              ; preds = %245
-  %358 = load ptr, ptr %6, align 8
-  %359 = load ptr, ptr %12, align 8
-  %360 = getelementptr inbounds %struct.yyguts_t, ptr %359, i32 0, i32 20
-  %361 = load ptr, ptr %360, align 8
-  %362 = load ptr, ptr %12, align 8
-  %363 = getelementptr inbounds %struct.yyguts_t, ptr %362, i32 0, i32 8
-  %364 = load i64, ptr %363, align 8
-  %365 = trunc i64 %364 to i32
-  %366 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %358, ptr noundef %361, i32 noundef %365, ptr noundef %366)
-  %367 = load ptr, ptr %5, align 8
-  store i32 0, ptr %367, align 8
+358:                                              ; preds = %247
+  %359 = load ptr, ptr %6, align 8, !tbaa !8
+  %360 = load ptr, ptr %12, align 8, !tbaa !11
+  %361 = getelementptr inbounds nuw %struct.yyguts_t, ptr %360, i32 0, i32 20
+  %362 = load ptr, ptr %361, align 8, !tbaa !61
+  %363 = load ptr, ptr %12, align 8, !tbaa !11
+  %364 = getelementptr inbounds nuw %struct.yyguts_t, ptr %363, i32 0, i32 8
+  %365 = load i64, ptr %364, align 8, !tbaa !62
+  %366 = trunc i64 %365 to i32
+  %367 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %359, ptr noundef %362, i32 noundef %366, ptr noundef %367)
+  %368 = load ptr, ptr %5, align 8, !tbaa !3
+  store i32 0, ptr %368, align 8, !tbaa !53
   store i32 259, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-368:                                              ; preds = %245
-  %369 = load ptr, ptr %6, align 8
-  %370 = load ptr, ptr %12, align 8
-  %371 = getelementptr inbounds %struct.yyguts_t, ptr %370, i32 0, i32 20
-  %372 = load ptr, ptr %371, align 8
-  %373 = load ptr, ptr %12, align 8
-  %374 = getelementptr inbounds %struct.yyguts_t, ptr %373, i32 0, i32 8
-  %375 = load i64, ptr %374, align 8
-  %376 = trunc i64 %375 to i32
-  %377 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %369, ptr noundef %372, i32 noundef %376, ptr noundef %377)
+369:                                              ; preds = %247
+  %370 = load ptr, ptr %6, align 8, !tbaa !8
+  %371 = load ptr, ptr %12, align 8, !tbaa !11
+  %372 = getelementptr inbounds nuw %struct.yyguts_t, ptr %371, i32 0, i32 20
+  %373 = load ptr, ptr %372, align 8, !tbaa !61
+  %374 = load ptr, ptr %12, align 8, !tbaa !11
+  %375 = getelementptr inbounds nuw %struct.yyguts_t, ptr %374, i32 0, i32 8
+  %376 = load i64, ptr %375, align 8, !tbaa !62
+  %377 = trunc i64 %376 to i32
+  %378 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %370, ptr noundef %373, i32 noundef %377, ptr noundef %378)
   store i32 264, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-378:                                              ; preds = %245
-  %379 = load ptr, ptr %6, align 8
-  %380 = load ptr, ptr %12, align 8
-  %381 = getelementptr inbounds %struct.yyguts_t, ptr %380, i32 0, i32 20
-  %382 = load ptr, ptr %381, align 8
-  %383 = load ptr, ptr %12, align 8
-  %384 = getelementptr inbounds %struct.yyguts_t, ptr %383, i32 0, i32 8
-  %385 = load i64, ptr %384, align 8
-  %386 = trunc i64 %385 to i32
-  %387 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %379, ptr noundef %382, i32 noundef %386, ptr noundef %387)
+379:                                              ; preds = %247
+  %380 = load ptr, ptr %6, align 8, !tbaa !8
+  %381 = load ptr, ptr %12, align 8, !tbaa !11
+  %382 = getelementptr inbounds nuw %struct.yyguts_t, ptr %381, i32 0, i32 20
+  %383 = load ptr, ptr %382, align 8, !tbaa !61
+  %384 = load ptr, ptr %12, align 8, !tbaa !11
+  %385 = getelementptr inbounds nuw %struct.yyguts_t, ptr %384, i32 0, i32 8
+  %386 = load i64, ptr %385, align 8, !tbaa !62
+  %387 = trunc i64 %386 to i32
+  %388 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %380, ptr noundef %383, i32 noundef %387, ptr noundef %388)
   store i32 265, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-388:                                              ; preds = %245
-  %389 = load ptr, ptr %6, align 8
-  %390 = load ptr, ptr %12, align 8
-  %391 = getelementptr inbounds %struct.yyguts_t, ptr %390, i32 0, i32 20
-  %392 = load ptr, ptr %391, align 8
-  %393 = load ptr, ptr %12, align 8
-  %394 = getelementptr inbounds %struct.yyguts_t, ptr %393, i32 0, i32 8
-  %395 = load i64, ptr %394, align 8
-  %396 = trunc i64 %395 to i32
-  %397 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %389, ptr noundef %392, i32 noundef %396, ptr noundef %397)
-  %398 = load ptr, ptr %12, align 8
-  %399 = getelementptr inbounds %struct.yyguts_t, ptr %398, i32 0, i32 11
-  store i32 1, ptr %399, align 4
+389:                                              ; preds = %247
+  %390 = load ptr, ptr %6, align 8, !tbaa !8
+  %391 = load ptr, ptr %12, align 8, !tbaa !11
+  %392 = getelementptr inbounds nuw %struct.yyguts_t, ptr %391, i32 0, i32 20
+  %393 = load ptr, ptr %392, align 8, !tbaa !61
+  %394 = load ptr, ptr %12, align 8, !tbaa !11
+  %395 = getelementptr inbounds nuw %struct.yyguts_t, ptr %394, i32 0, i32 8
+  %396 = load i64, ptr %395, align 8, !tbaa !62
+  %397 = trunc i64 %396 to i32
+  %398 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %390, ptr noundef %393, i32 noundef %397, ptr noundef %398)
+  %399 = load ptr, ptr %12, align 8, !tbaa !11
+  %400 = getelementptr inbounds nuw %struct.yyguts_t, ptr %399, i32 0, i32 11
+  store i32 1, ptr %400, align 4, !tbaa !23
   store i32 280, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-400:                                              ; preds = %245
-  %401 = load ptr, ptr %6, align 8
-  %402 = load ptr, ptr %12, align 8
-  %403 = getelementptr inbounds %struct.yyguts_t, ptr %402, i32 0, i32 20
-  %404 = load ptr, ptr %403, align 8
-  %405 = load ptr, ptr %12, align 8
-  %406 = getelementptr inbounds %struct.yyguts_t, ptr %405, i32 0, i32 8
-  %407 = load i64, ptr %406, align 8
-  %408 = trunc i64 %407 to i32
-  %409 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %401, ptr noundef %404, i32 noundef %408, ptr noundef %409)
+401:                                              ; preds = %247
+  %402 = load ptr, ptr %6, align 8, !tbaa !8
+  %403 = load ptr, ptr %12, align 8, !tbaa !11
+  %404 = getelementptr inbounds nuw %struct.yyguts_t, ptr %403, i32 0, i32 20
+  %405 = load ptr, ptr %404, align 8, !tbaa !61
+  %406 = load ptr, ptr %12, align 8, !tbaa !11
+  %407 = getelementptr inbounds nuw %struct.yyguts_t, ptr %406, i32 0, i32 8
+  %408 = load i64, ptr %407, align 8, !tbaa !62
+  %409 = trunc i64 %408 to i32
+  %410 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %402, ptr noundef %405, i32 noundef %409, ptr noundef %410)
   store i32 285, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-410:                                              ; preds = %245
-  %411 = load ptr, ptr %6, align 8
-  %412 = load ptr, ptr %12, align 8
-  %413 = getelementptr inbounds %struct.yyguts_t, ptr %412, i32 0, i32 20
-  %414 = load ptr, ptr %413, align 8
-  %415 = load ptr, ptr %12, align 8
-  %416 = getelementptr inbounds %struct.yyguts_t, ptr %415, i32 0, i32 8
-  %417 = load i64, ptr %416, align 8
-  %418 = trunc i64 %417 to i32
-  %419 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %411, ptr noundef %414, i32 noundef %418, ptr noundef %419)
+411:                                              ; preds = %247
+  %412 = load ptr, ptr %6, align 8, !tbaa !8
+  %413 = load ptr, ptr %12, align 8, !tbaa !11
+  %414 = getelementptr inbounds nuw %struct.yyguts_t, ptr %413, i32 0, i32 20
+  %415 = load ptr, ptr %414, align 8, !tbaa !61
+  %416 = load ptr, ptr %12, align 8, !tbaa !11
+  %417 = getelementptr inbounds nuw %struct.yyguts_t, ptr %416, i32 0, i32 8
+  %418 = load i64, ptr %417, align 8, !tbaa !62
+  %419 = trunc i64 %418 to i32
+  %420 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %412, ptr noundef %415, i32 noundef %419, ptr noundef %420)
   store i32 283, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-420:                                              ; preds = %245
-  %421 = load ptr, ptr %6, align 8
-  %422 = load ptr, ptr %12, align 8
-  %423 = getelementptr inbounds %struct.yyguts_t, ptr %422, i32 0, i32 20
-  %424 = load ptr, ptr %423, align 8
-  %425 = load ptr, ptr %12, align 8
-  %426 = getelementptr inbounds %struct.yyguts_t, ptr %425, i32 0, i32 8
-  %427 = load i64, ptr %426, align 8
-  %428 = trunc i64 %427 to i32
-  %429 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %421, ptr noundef %424, i32 noundef %428, ptr noundef %429)
+421:                                              ; preds = %247
+  %422 = load ptr, ptr %6, align 8, !tbaa !8
+  %423 = load ptr, ptr %12, align 8, !tbaa !11
+  %424 = getelementptr inbounds nuw %struct.yyguts_t, ptr %423, i32 0, i32 20
+  %425 = load ptr, ptr %424, align 8, !tbaa !61
+  %426 = load ptr, ptr %12, align 8, !tbaa !11
+  %427 = getelementptr inbounds nuw %struct.yyguts_t, ptr %426, i32 0, i32 8
+  %428 = load i64, ptr %427, align 8, !tbaa !62
+  %429 = trunc i64 %428 to i32
+  %430 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %422, ptr noundef %425, i32 noundef %429, ptr noundef %430)
   store i32 284, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-430:                                              ; preds = %245
-  %431 = load ptr, ptr %6, align 8
-  %432 = load ptr, ptr %12, align 8
-  %433 = getelementptr inbounds %struct.yyguts_t, ptr %432, i32 0, i32 20
-  %434 = load ptr, ptr %433, align 8
-  %435 = load ptr, ptr %12, align 8
-  %436 = getelementptr inbounds %struct.yyguts_t, ptr %435, i32 0, i32 8
-  %437 = load i64, ptr %436, align 8
-  %438 = trunc i64 %437 to i32
-  %439 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %431, ptr noundef %434, i32 noundef %438, ptr noundef %439)
+431:                                              ; preds = %247
+  %432 = load ptr, ptr %6, align 8, !tbaa !8
+  %433 = load ptr, ptr %12, align 8, !tbaa !11
+  %434 = getelementptr inbounds nuw %struct.yyguts_t, ptr %433, i32 0, i32 20
+  %435 = load ptr, ptr %434, align 8, !tbaa !61
+  %436 = load ptr, ptr %12, align 8, !tbaa !11
+  %437 = getelementptr inbounds nuw %struct.yyguts_t, ptr %436, i32 0, i32 8
+  %438 = load i64, ptr %437, align 8, !tbaa !62
+  %439 = trunc i64 %438 to i32
+  %440 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %432, ptr noundef %435, i32 noundef %439, ptr noundef %440)
   store i32 286, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-440:                                              ; preds = %245
-  %441 = load ptr, ptr %12, align 8
-  %442 = getelementptr inbounds %struct.yyguts_t, ptr %441, i32 0, i32 20
-  %443 = load ptr, ptr %442, align 8
-  %444 = load ptr, ptr %12, align 8
-  %445 = getelementptr inbounds %struct.yyguts_t, ptr %444, i32 0, i32 8
-  %446 = load i64, ptr %445, align 8
-  %447 = trunc i64 %446 to i32
-  %448 = call noundef ptr @_Z11gmx_strndupPKci(ptr noundef %443, i32 noundef %447)
-  %449 = load ptr, ptr %5, align 8
-  store ptr %448, ptr %449, align 8
-  %450 = load ptr, ptr %6, align 8
-  %451 = load ptr, ptr %12, align 8
-  %452 = getelementptr inbounds %struct.yyguts_t, ptr %451, i32 0, i32 20
-  %453 = load ptr, ptr %452, align 8
-  %454 = load ptr, ptr %12, align 8
-  %455 = getelementptr inbounds %struct.yyguts_t, ptr %454, i32 0, i32 8
-  %456 = load i64, ptr %455, align 8
-  %457 = trunc i64 %456 to i32
-  %458 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %450, ptr noundef %453, i32 noundef %457, ptr noundef %458)
+441:                                              ; preds = %247
+  %442 = load ptr, ptr %12, align 8, !tbaa !11
+  %443 = getelementptr inbounds nuw %struct.yyguts_t, ptr %442, i32 0, i32 20
+  %444 = load ptr, ptr %443, align 8, !tbaa !61
+  %445 = load ptr, ptr %12, align 8, !tbaa !11
+  %446 = getelementptr inbounds nuw %struct.yyguts_t, ptr %445, i32 0, i32 8
+  %447 = load i64, ptr %446, align 8, !tbaa !62
+  %448 = trunc i64 %447 to i32
+  %449 = call noundef ptr @_Z11gmx_strndupPKci(ptr noundef %444, i32 noundef %448)
+  %450 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %449, ptr %450, align 8, !tbaa !53
+  %451 = load ptr, ptr %6, align 8, !tbaa !8
+  %452 = load ptr, ptr %12, align 8, !tbaa !11
+  %453 = getelementptr inbounds nuw %struct.yyguts_t, ptr %452, i32 0, i32 20
+  %454 = load ptr, ptr %453, align 8, !tbaa !61
+  %455 = load ptr, ptr %12, align 8, !tbaa !11
+  %456 = getelementptr inbounds nuw %struct.yyguts_t, ptr %455, i32 0, i32 8
+  %457 = load i64, ptr %456, align 8, !tbaa !62
+  %458 = trunc i64 %457 to i32
+  %459 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %451, ptr noundef %454, i32 noundef %458, ptr noundef %459)
   store i32 281, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-459:                                              ; preds = %245
-  %460 = load ptr, ptr %5, align 8
-  %461 = load ptr, ptr %6, align 8
-  %462 = load ptr, ptr %12, align 8
-  %463 = getelementptr inbounds %struct.yyguts_t, ptr %462, i32 0, i32 20
-  %464 = load ptr, ptr %463, align 8
-  %465 = load ptr, ptr %12, align 8
-  %466 = getelementptr inbounds %struct.yyguts_t, ptr %465, i32 0, i32 8
-  %467 = load i64, ptr %466, align 8
-  %468 = load ptr, ptr %13, align 8
-  %469 = call noundef i32 @_Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t(ptr noundef %460, ptr noundef %461, ptr noundef %464, i64 noundef %467, ptr noundef %468)
-  store i32 %469, ptr %4, align 4
-  br label %705
+460:                                              ; preds = %247
+  %461 = load ptr, ptr %5, align 8, !tbaa !3
+  %462 = load ptr, ptr %6, align 8, !tbaa !8
+  %463 = load ptr, ptr %12, align 8, !tbaa !11
+  %464 = getelementptr inbounds nuw %struct.yyguts_t, ptr %463, i32 0, i32 20
+  %465 = load ptr, ptr %464, align 8, !tbaa !61
+  %466 = load ptr, ptr %12, align 8, !tbaa !11
+  %467 = getelementptr inbounds nuw %struct.yyguts_t, ptr %466, i32 0, i32 8
+  %468 = load i64, ptr %467, align 8, !tbaa !62
+  %469 = load ptr, ptr %13, align 8, !tbaa !31
+  %470 = call noundef i32 @_Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t(ptr noundef %461, ptr noundef %462, ptr noundef %465, i64 noundef %468, ptr noundef %469)
+  store i32 %470, ptr %4, align 4
+  store i32 1, ptr %15, align 4
+  br label %709
 
-470:                                              ; preds = %245
-  %471 = load ptr, ptr %6, align 8
-  %472 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %471, ptr noundef @.str, i32 noundef 1, ptr noundef %472)
-  br label %704
+471:                                              ; preds = %247
+  %472 = load ptr, ptr %6, align 8, !tbaa !8
+  %473 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %472, ptr noundef @.str, i32 noundef 1, ptr noundef %473)
+  br label %708
 
-473:                                              ; preds = %245
-  %474 = load ptr, ptr %12, align 8
-  %475 = getelementptr inbounds %struct.yyguts_t, ptr %474, i32 0, i32 20
-  %476 = load ptr, ptr %475, align 8
-  %477 = load ptr, ptr %12, align 8
-  %478 = getelementptr inbounds %struct.yyguts_t, ptr %477, i32 0, i32 8
-  %479 = load i64, ptr %478, align 8
-  %480 = trunc i64 %479 to i32
-  %481 = call noundef ptr @_Z11gmx_strndupPKci(ptr noundef %476, i32 noundef %480)
-  %482 = load ptr, ptr %5, align 8
-  store ptr %481, ptr %482, align 8
-  %483 = load ptr, ptr %6, align 8
-  %484 = load ptr, ptr %12, align 8
-  %485 = getelementptr inbounds %struct.yyguts_t, ptr %484, i32 0, i32 20
-  %486 = load ptr, ptr %485, align 8
-  %487 = load ptr, ptr %12, align 8
-  %488 = getelementptr inbounds %struct.yyguts_t, ptr %487, i32 0, i32 8
-  %489 = load i64, ptr %488, align 8
-  %490 = trunc i64 %489 to i32
-  %491 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %483, ptr noundef %486, i32 noundef %490, ptr noundef %491)
+474:                                              ; preds = %247
+  %475 = load ptr, ptr %12, align 8, !tbaa !11
+  %476 = getelementptr inbounds nuw %struct.yyguts_t, ptr %475, i32 0, i32 20
+  %477 = load ptr, ptr %476, align 8, !tbaa !61
+  %478 = load ptr, ptr %12, align 8, !tbaa !11
+  %479 = getelementptr inbounds nuw %struct.yyguts_t, ptr %478, i32 0, i32 8
+  %480 = load i64, ptr %479, align 8, !tbaa !62
+  %481 = trunc i64 %480 to i32
+  %482 = call noundef ptr @_Z11gmx_strndupPKci(ptr noundef %477, i32 noundef %481)
+  %483 = load ptr, ptr %5, align 8, !tbaa !3
+  store ptr %482, ptr %483, align 8, !tbaa !53
+  %484 = load ptr, ptr %6, align 8, !tbaa !8
+  %485 = load ptr, ptr %12, align 8, !tbaa !11
+  %486 = getelementptr inbounds nuw %struct.yyguts_t, ptr %485, i32 0, i32 20
+  %487 = load ptr, ptr %486, align 8, !tbaa !61
+  %488 = load ptr, ptr %12, align 8, !tbaa !11
+  %489 = getelementptr inbounds nuw %struct.yyguts_t, ptr %488, i32 0, i32 8
+  %490 = load i64, ptr %489, align 8, !tbaa !62
+  %491 = trunc i64 %490 to i32
+  %492 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %484, ptr noundef %487, i32 noundef %491, ptr noundef %492)
   store i32 261, ptr %4, align 4
-  br label %705
+  store i32 1, ptr %15, align 4
+  br label %709
 
-492:                                              ; preds = %245
-  %493 = load ptr, ptr %6, align 8
-  %494 = load ptr, ptr %12, align 8
-  %495 = getelementptr inbounds %struct.yyguts_t, ptr %494, i32 0, i32 20
-  %496 = load ptr, ptr %495, align 8
-  %497 = load ptr, ptr %12, align 8
-  %498 = getelementptr inbounds %struct.yyguts_t, ptr %497, i32 0, i32 8
-  %499 = load i64, ptr %498, align 8
-  %500 = trunc i64 %499 to i32
-  %501 = load ptr, ptr %13, align 8
-  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %493, ptr noundef %496, i32 noundef %500, ptr noundef %501)
-  %502 = load ptr, ptr %12, align 8
-  %503 = getelementptr inbounds %struct.yyguts_t, ptr %502, i32 0, i32 20
-  %504 = load ptr, ptr %503, align 8
-  %505 = getelementptr inbounds i8, ptr %504, i64 0
-  %506 = load i8, ptr %505, align 1
-  %507 = sext i8 %506 to i32
-  store i32 %507, ptr %4, align 4
-  br label %705
+493:                                              ; preds = %247
+  %494 = load ptr, ptr %6, align 8, !tbaa !8
+  %495 = load ptr, ptr %12, align 8, !tbaa !11
+  %496 = getelementptr inbounds nuw %struct.yyguts_t, ptr %495, i32 0, i32 20
+  %497 = load ptr, ptr %496, align 8, !tbaa !61
+  %498 = load ptr, ptr %12, align 8, !tbaa !11
+  %499 = getelementptr inbounds nuw %struct.yyguts_t, ptr %498, i32 0, i32 8
+  %500 = load i64, ptr %499, align 8, !tbaa !62
+  %501 = trunc i64 %500 to i32
+  %502 = load ptr, ptr %13, align 8, !tbaa !31
+  call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %494, ptr noundef %497, i32 noundef %501, ptr noundef %502)
+  %503 = load ptr, ptr %12, align 8, !tbaa !11
+  %504 = getelementptr inbounds nuw %struct.yyguts_t, ptr %503, i32 0, i32 20
+  %505 = load ptr, ptr %504, align 8, !tbaa !61
+  %506 = getelementptr inbounds i8, ptr %505, i64 0
+  %507 = load i8, ptr %506, align 1, !tbaa !53
+  %508 = sext i8 %507 to i32
+  store i32 %508, ptr %4, align 4
+  store i32 1, ptr %15, align 4
+  br label %709
 
-508:                                              ; preds = %245
-  %509 = load ptr, ptr %7, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.1, ptr noundef %509) #12
+509:                                              ; preds = %247
+  %510 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.1, ptr noundef %510) #18
   unreachable
 
-510:                                              ; preds = %245
-  %511 = load ptr, ptr %9, align 8
-  %512 = load ptr, ptr %12, align 8
-  %513 = getelementptr inbounds %struct.yyguts_t, ptr %512, i32 0, i32 20
-  %514 = load ptr, ptr %513, align 8
-  %515 = ptrtoint ptr %511 to i64
-  %516 = ptrtoint ptr %514 to i64
-  %517 = sub i64 %515, %516
-  %518 = trunc i64 %517 to i32
-  %519 = sub nsw i32 %518, 1
-  store i32 %519, ptr %17, align 4
-  %520 = load ptr, ptr %12, align 8
-  %521 = getelementptr inbounds %struct.yyguts_t, ptr %520, i32 0, i32 6
-  %522 = load i8, ptr %521, align 8
-  %523 = load ptr, ptr %9, align 8
-  store i8 %522, ptr %523, align 1
-  %524 = load ptr, ptr %12, align 8
-  %525 = getelementptr inbounds %struct.yyguts_t, ptr %524, i32 0, i32 5
-  %526 = load ptr, ptr %525, align 8
-  %527 = load ptr, ptr %12, align 8
-  %528 = getelementptr inbounds %struct.yyguts_t, ptr %527, i32 0, i32 3
-  %529 = load i64, ptr %528, align 8
-  %530 = getelementptr inbounds ptr, ptr %526, i64 %529
-  %531 = load ptr, ptr %530, align 8
-  %532 = getelementptr inbounds %struct.yy_buffer_state, ptr %531, i32 0, i32 11
-  %533 = load i32, ptr %532, align 8
-  %534 = icmp eq i32 %533, 0
-  br i1 %534, label %535, label %569
+511:                                              ; preds = %247
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #17
+  %512 = load ptr, ptr %9, align 8, !tbaa !51
+  %513 = load ptr, ptr %12, align 8, !tbaa !11
+  %514 = getelementptr inbounds nuw %struct.yyguts_t, ptr %513, i32 0, i32 20
+  %515 = load ptr, ptr %514, align 8, !tbaa !61
+  %516 = ptrtoint ptr %512 to i64
+  %517 = ptrtoint ptr %515 to i64
+  %518 = sub i64 %516, %517
+  %519 = trunc i64 %518 to i32
+  %520 = sub nsw i32 %519, 1
+  store i32 %520, ptr %18, align 4, !tbaa !32
+  %521 = load ptr, ptr %12, align 8, !tbaa !11
+  %522 = getelementptr inbounds nuw %struct.yyguts_t, ptr %521, i32 0, i32 6
+  %523 = load i8, ptr %522, align 8, !tbaa !52
+  %524 = load ptr, ptr %9, align 8, !tbaa !51
+  store i8 %523, ptr %524, align 1, !tbaa !53
+  %525 = load ptr, ptr %12, align 8, !tbaa !11
+  %526 = getelementptr inbounds nuw %struct.yyguts_t, ptr %525, i32 0, i32 5
+  %527 = load ptr, ptr %526, align 8, !tbaa !27
+  %528 = load ptr, ptr %12, align 8, !tbaa !11
+  %529 = getelementptr inbounds nuw %struct.yyguts_t, ptr %528, i32 0, i32 3
+  %530 = load i64, ptr %529, align 8, !tbaa !28
+  %531 = getelementptr inbounds nuw ptr, ptr %527, i64 %530
+  %532 = load ptr, ptr %531, align 8, !tbaa !29
+  %533 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %532, i32 0, i32 11
+  %534 = load i32, ptr %533, align 8, !tbaa !64
+  %535 = icmp eq i32 %534, 0
+  br i1 %535, label %536, label %570
 
-535:                                              ; preds = %510
-  %536 = load ptr, ptr %12, align 8
-  %537 = getelementptr inbounds %struct.yyguts_t, ptr %536, i32 0, i32 5
-  %538 = load ptr, ptr %537, align 8
-  %539 = load ptr, ptr %12, align 8
-  %540 = getelementptr inbounds %struct.yyguts_t, ptr %539, i32 0, i32 3
-  %541 = load i64, ptr %540, align 8
-  %542 = getelementptr inbounds ptr, ptr %538, i64 %541
-  %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds %struct.yy_buffer_state, ptr %543, i32 0, i32 4
-  %545 = load i64, ptr %544, align 8
-  %546 = load ptr, ptr %12, align 8
-  %547 = getelementptr inbounds %struct.yyguts_t, ptr %546, i32 0, i32 7
-  store i64 %545, ptr %547, align 8
-  %548 = load ptr, ptr %12, align 8
-  %549 = getelementptr inbounds %struct.yyguts_t, ptr %548, i32 0, i32 1
-  %550 = load ptr, ptr %549, align 8
-  %551 = load ptr, ptr %12, align 8
-  %552 = getelementptr inbounds %struct.yyguts_t, ptr %551, i32 0, i32 5
-  %553 = load ptr, ptr %552, align 8
-  %554 = load ptr, ptr %12, align 8
-  %555 = getelementptr inbounds %struct.yyguts_t, ptr %554, i32 0, i32 3
-  %556 = load i64, ptr %555, align 8
-  %557 = getelementptr inbounds ptr, ptr %553, i64 %556
-  %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds %struct.yy_buffer_state, ptr %558, i32 0, i32 0
-  store ptr %550, ptr %559, align 8
-  %560 = load ptr, ptr %12, align 8
-  %561 = getelementptr inbounds %struct.yyguts_t, ptr %560, i32 0, i32 5
-  %562 = load ptr, ptr %561, align 8
-  %563 = load ptr, ptr %12, align 8
-  %564 = getelementptr inbounds %struct.yyguts_t, ptr %563, i32 0, i32 3
-  %565 = load i64, ptr %564, align 8
-  %566 = getelementptr inbounds ptr, ptr %562, i64 %565
-  %567 = load ptr, ptr %566, align 8
-  %568 = getelementptr inbounds %struct.yy_buffer_state, ptr %567, i32 0, i32 11
-  store i32 1, ptr %568, align 8
-  br label %569
+536:                                              ; preds = %511
+  %537 = load ptr, ptr %12, align 8, !tbaa !11
+  %538 = getelementptr inbounds nuw %struct.yyguts_t, ptr %537, i32 0, i32 5
+  %539 = load ptr, ptr %538, align 8, !tbaa !27
+  %540 = load ptr, ptr %12, align 8, !tbaa !11
+  %541 = getelementptr inbounds nuw %struct.yyguts_t, ptr %540, i32 0, i32 3
+  %542 = load i64, ptr %541, align 8, !tbaa !28
+  %543 = getelementptr inbounds nuw ptr, ptr %539, i64 %542
+  %544 = load ptr, ptr %543, align 8, !tbaa !29
+  %545 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %544, i32 0, i32 4
+  %546 = load i64, ptr %545, align 8, !tbaa !66
+  %547 = load ptr, ptr %12, align 8, !tbaa !11
+  %548 = getelementptr inbounds nuw %struct.yyguts_t, ptr %547, i32 0, i32 7
+  store i64 %546, ptr %548, align 8, !tbaa !67
+  %549 = load ptr, ptr %12, align 8, !tbaa !11
+  %550 = getelementptr inbounds nuw %struct.yyguts_t, ptr %549, i32 0, i32 1
+  %551 = load ptr, ptr %550, align 8, !tbaa !24
+  %552 = load ptr, ptr %12, align 8, !tbaa !11
+  %553 = getelementptr inbounds nuw %struct.yyguts_t, ptr %552, i32 0, i32 5
+  %554 = load ptr, ptr %553, align 8, !tbaa !27
+  %555 = load ptr, ptr %12, align 8, !tbaa !11
+  %556 = getelementptr inbounds nuw %struct.yyguts_t, ptr %555, i32 0, i32 3
+  %557 = load i64, ptr %556, align 8, !tbaa !28
+  %558 = getelementptr inbounds nuw ptr, ptr %554, i64 %557
+  %559 = load ptr, ptr %558, align 8, !tbaa !29
+  %560 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %559, i32 0, i32 0
+  store ptr %551, ptr %560, align 8, !tbaa !68
+  %561 = load ptr, ptr %12, align 8, !tbaa !11
+  %562 = getelementptr inbounds nuw %struct.yyguts_t, ptr %561, i32 0, i32 5
+  %563 = load ptr, ptr %562, align 8, !tbaa !27
+  %564 = load ptr, ptr %12, align 8, !tbaa !11
+  %565 = getelementptr inbounds nuw %struct.yyguts_t, ptr %564, i32 0, i32 3
+  %566 = load i64, ptr %565, align 8, !tbaa !28
+  %567 = getelementptr inbounds nuw ptr, ptr %563, i64 %566
+  %568 = load ptr, ptr %567, align 8, !tbaa !29
+  %569 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %568, i32 0, i32 11
+  store i32 1, ptr %569, align 8, !tbaa !64
+  br label %570
 
-569:                                              ; preds = %535, %510
-  %570 = load ptr, ptr %12, align 8
-  %571 = getelementptr inbounds %struct.yyguts_t, ptr %570, i32 0, i32 9
-  %572 = load ptr, ptr %571, align 8
-  %573 = load ptr, ptr %12, align 8
-  %574 = getelementptr inbounds %struct.yyguts_t, ptr %573, i32 0, i32 5
-  %575 = load ptr, ptr %574, align 8
-  %576 = load ptr, ptr %12, align 8
-  %577 = getelementptr inbounds %struct.yyguts_t, ptr %576, i32 0, i32 3
-  %578 = load i64, ptr %577, align 8
-  %579 = getelementptr inbounds ptr, ptr %575, i64 %578
-  %580 = load ptr, ptr %579, align 8
-  %581 = getelementptr inbounds %struct.yy_buffer_state, ptr %580, i32 0, i32 1
-  %582 = load ptr, ptr %581, align 8
-  %583 = load ptr, ptr %12, align 8
-  %584 = getelementptr inbounds %struct.yyguts_t, ptr %583, i32 0, i32 7
-  %585 = load i64, ptr %584, align 8
-  %586 = getelementptr inbounds i8, ptr %582, i64 %585
-  %587 = icmp ule ptr %572, %586
-  br i1 %587, label %588, label %621
+570:                                              ; preds = %536, %511
+  %571 = load ptr, ptr %12, align 8, !tbaa !11
+  %572 = getelementptr inbounds nuw %struct.yyguts_t, ptr %571, i32 0, i32 9
+  %573 = load ptr, ptr %572, align 8, !tbaa !50
+  %574 = load ptr, ptr %12, align 8, !tbaa !11
+  %575 = getelementptr inbounds nuw %struct.yyguts_t, ptr %574, i32 0, i32 5
+  %576 = load ptr, ptr %575, align 8, !tbaa !27
+  %577 = load ptr, ptr %12, align 8, !tbaa !11
+  %578 = getelementptr inbounds nuw %struct.yyguts_t, ptr %577, i32 0, i32 3
+  %579 = load i64, ptr %578, align 8, !tbaa !28
+  %580 = getelementptr inbounds nuw ptr, ptr %576, i64 %579
+  %581 = load ptr, ptr %580, align 8, !tbaa !29
+  %582 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %581, i32 0, i32 1
+  %583 = load ptr, ptr %582, align 8, !tbaa !69
+  %584 = load ptr, ptr %12, align 8, !tbaa !11
+  %585 = getelementptr inbounds nuw %struct.yyguts_t, ptr %584, i32 0, i32 7
+  %586 = load i64, ptr %585, align 8, !tbaa !67
+  %587 = getelementptr inbounds nuw i8, ptr %583, i64 %586
+  %588 = icmp ule ptr %573, %587
+  br i1 %588, label %589, label %623
 
-588:                                              ; preds = %569
-  %589 = load ptr, ptr %12, align 8
-  %590 = getelementptr inbounds %struct.yyguts_t, ptr %589, i32 0, i32 20
-  %591 = load ptr, ptr %590, align 8
-  %592 = load i32, ptr %17, align 4
-  %593 = sext i32 %592 to i64
-  %594 = getelementptr inbounds i8, ptr %591, i64 %593
-  %595 = load ptr, ptr %12, align 8
-  %596 = getelementptr inbounds %struct.yyguts_t, ptr %595, i32 0, i32 9
-  store ptr %594, ptr %596, align 8
-  %597 = load ptr, ptr %7, align 8
-  %598 = call noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef %597)
-  store i32 %598, ptr %8, align 4
-  %599 = load i32, ptr %8, align 4
-  %600 = load ptr, ptr %7, align 8
-  %601 = call noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %599, ptr noundef %600)
-  store i32 %601, ptr %18, align 4
-  %602 = load ptr, ptr %12, align 8
-  %603 = getelementptr inbounds %struct.yyguts_t, ptr %602, i32 0, i32 20
-  %604 = load ptr, ptr %603, align 8
-  %605 = getelementptr inbounds i8, ptr %604, i64 0
-  store ptr %605, ptr %10, align 8
-  %606 = load i32, ptr %18, align 4
-  %607 = icmp ne i32 %606, 0
-  br i1 %607, label %608, label %614
+589:                                              ; preds = %570
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #17
+  %590 = load ptr, ptr %12, align 8, !tbaa !11
+  %591 = getelementptr inbounds nuw %struct.yyguts_t, ptr %590, i32 0, i32 20
+  %592 = load ptr, ptr %591, align 8, !tbaa !61
+  %593 = load i32, ptr %18, align 4, !tbaa !32
+  %594 = sext i32 %593 to i64
+  %595 = getelementptr inbounds i8, ptr %592, i64 %594
+  %596 = load ptr, ptr %12, align 8, !tbaa !11
+  %597 = getelementptr inbounds nuw %struct.yyguts_t, ptr %596, i32 0, i32 9
+  store ptr %595, ptr %597, align 8, !tbaa !50
+  %598 = load ptr, ptr %7, align 8, !tbaa !10
+  %599 = call noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef %598)
+  store i32 %599, ptr %8, align 4, !tbaa !32
+  %600 = load i32, ptr %8, align 4, !tbaa !32
+  %601 = load ptr, ptr %7, align 8, !tbaa !10
+  %602 = call noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %600, ptr noundef %601)
+  store i32 %602, ptr %19, align 4, !tbaa !32
+  %603 = load ptr, ptr %12, align 8, !tbaa !11
+  %604 = getelementptr inbounds nuw %struct.yyguts_t, ptr %603, i32 0, i32 20
+  %605 = load ptr, ptr %604, align 8, !tbaa !61
+  %606 = getelementptr inbounds i8, ptr %605, i64 0
+  store ptr %606, ptr %10, align 8, !tbaa !51
+  %607 = load i32, ptr %19, align 4, !tbaa !32
+  %608 = icmp ne i32 %607, 0
+  br i1 %608, label %609, label %615
 
-608:                                              ; preds = %588
-  %609 = load ptr, ptr %12, align 8
-  %610 = getelementptr inbounds %struct.yyguts_t, ptr %609, i32 0, i32 9
-  %611 = load ptr, ptr %610, align 8
-  %612 = getelementptr inbounds i8, ptr %611, i32 1
-  store ptr %612, ptr %610, align 8
-  store ptr %612, ptr %9, align 8
-  %613 = load i32, ptr %18, align 4
-  store i32 %613, ptr %8, align 4
-  br label %145
+609:                                              ; preds = %589
+  %610 = load ptr, ptr %12, align 8, !tbaa !11
+  %611 = getelementptr inbounds nuw %struct.yyguts_t, ptr %610, i32 0, i32 9
+  %612 = load ptr, ptr %611, align 8, !tbaa !50
+  %613 = getelementptr inbounds nuw i8, ptr %612, i32 1
+  store ptr %613, ptr %611, align 8, !tbaa !50
+  store ptr %613, ptr %9, align 8, !tbaa !51
+  %614 = load i32, ptr %19, align 4, !tbaa !32
+  store i32 %614, ptr %8, align 4, !tbaa !32
+  store i32 4, ptr %15, align 4
+  br label %622
 
-614:                                              ; preds = %588
-  %615 = load ptr, ptr %12, align 8
-  %616 = getelementptr inbounds %struct.yyguts_t, ptr %615, i32 0, i32 17
-  %617 = load ptr, ptr %616, align 8
-  store ptr %617, ptr %9, align 8
-  %618 = load ptr, ptr %12, align 8
-  %619 = getelementptr inbounds %struct.yyguts_t, ptr %618, i32 0, i32 16
-  %620 = load i32, ptr %619, align 8
-  store i32 %620, ptr %8, align 4
-  br label %221
+615:                                              ; preds = %589
+  %616 = load ptr, ptr %12, align 8, !tbaa !11
+  %617 = getelementptr inbounds nuw %struct.yyguts_t, ptr %616, i32 0, i32 17
+  %618 = load ptr, ptr %617, align 8, !tbaa !57
+  store ptr %618, ptr %9, align 8, !tbaa !51
+  %619 = load ptr, ptr %12, align 8, !tbaa !11
+  %620 = getelementptr inbounds nuw %struct.yyguts_t, ptr %619, i32 0, i32 16
+  %621 = load i32, ptr %620, align 8, !tbaa !56
+  store i32 %621, ptr %8, align 4, !tbaa !32
+  store i32 9, ptr %15, align 4
+  br label %622
 
-621:                                              ; preds = %569
-  %622 = load ptr, ptr %7, align 8
-  %623 = call noundef i32 @_ZL18yy_get_next_bufferPv(ptr noundef %622)
-  switch i32 %623, label %700 [
-    i32 1, label %624
-    i32 0, label %656
-    i32 2, label %674
+622:                                              ; preds = %615, %609
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #17
+  br label %704
+
+623:                                              ; preds = %570
+  %624 = load ptr, ptr %7, align 8, !tbaa !10
+  %625 = call noundef i32 @_ZL18yy_get_next_bufferPv(ptr noundef %624)
+  switch i32 %625, label %702 [
+    i32 1, label %626
+    i32 0, label %658
+    i32 2, label %676
   ]
 
-624:                                              ; preds = %621
-  %625 = load ptr, ptr %12, align 8
-  %626 = getelementptr inbounds %struct.yyguts_t, ptr %625, i32 0, i32 12
-  store i32 0, ptr %626, align 8
-  %627 = load ptr, ptr %7, align 8
-  %628 = call noundef i32 @_ZL15_gmx_sel_yywrapPv(ptr noundef %627)
-  %629 = icmp ne i32 %628, 0
-  br i1 %629, label %630, label %644
+626:                                              ; preds = %623
+  %627 = load ptr, ptr %12, align 8, !tbaa !11
+  %628 = getelementptr inbounds nuw %struct.yyguts_t, ptr %627, i32 0, i32 12
+  store i32 0, ptr %628, align 8, !tbaa !70
+  %629 = load ptr, ptr %7, align 8, !tbaa !10
+  %630 = call noundef i32 @_ZL15_gmx_sel_yywrapPv(ptr noundef %629)
+  %631 = icmp ne i32 %630, 0
+  br i1 %631, label %632, label %646
 
-630:                                              ; preds = %624
-  %631 = load ptr, ptr %12, align 8
-  %632 = getelementptr inbounds %struct.yyguts_t, ptr %631, i32 0, i32 20
-  %633 = load ptr, ptr %632, align 8
-  %634 = getelementptr inbounds i8, ptr %633, i64 0
-  %635 = load ptr, ptr %12, align 8
-  %636 = getelementptr inbounds %struct.yyguts_t, ptr %635, i32 0, i32 9
-  store ptr %634, ptr %636, align 8
-  %637 = load ptr, ptr %12, align 8
-  %638 = getelementptr inbounds %struct.yyguts_t, ptr %637, i32 0, i32 11
-  %639 = load i32, ptr %638, align 4
-  %640 = sub nsw i32 %639, 1
-  %641 = sdiv i32 %640, 2
-  %642 = add nsw i32 22, %641
-  %643 = add nsw i32 %642, 1
-  store i32 %643, ptr %11, align 4
-  br label %245
-
-644:                                              ; preds = %624
-  %645 = load ptr, ptr %12, align 8
-  %646 = getelementptr inbounds %struct.yyguts_t, ptr %645, i32 0, i32 12
-  %647 = load i32, ptr %646, align 8
-  %648 = icmp ne i32 %647, 0
-  br i1 %648, label %654, label %649
-
-649:                                              ; preds = %644
-  %650 = load ptr, ptr %12, align 8
-  %651 = getelementptr inbounds %struct.yyguts_t, ptr %650, i32 0, i32 1
-  %652 = load ptr, ptr %651, align 8
-  %653 = load ptr, ptr %7, align 8
-  call void @_Z18_gmx_sel_yyrestartP8_IO_FILEPv(ptr noundef %652, ptr noundef %653)
-  br label %654
-
-654:                                              ; preds = %649, %644
-  br label %655
-
-655:                                              ; preds = %654
-  br label %700
-
-656:                                              ; preds = %621
-  %657 = load ptr, ptr %12, align 8
-  %658 = getelementptr inbounds %struct.yyguts_t, ptr %657, i32 0, i32 20
-  %659 = load ptr, ptr %658, align 8
-  %660 = load i32, ptr %17, align 4
-  %661 = sext i32 %660 to i64
-  %662 = getelementptr inbounds i8, ptr %659, i64 %661
-  %663 = load ptr, ptr %12, align 8
-  %664 = getelementptr inbounds %struct.yyguts_t, ptr %663, i32 0, i32 9
-  store ptr %662, ptr %664, align 8
-  %665 = load ptr, ptr %7, align 8
-  %666 = call noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef %665)
-  store i32 %666, ptr %8, align 4
-  %667 = load ptr, ptr %12, align 8
-  %668 = getelementptr inbounds %struct.yyguts_t, ptr %667, i32 0, i32 9
-  %669 = load ptr, ptr %668, align 8
-  store ptr %669, ptr %9, align 8
-  %670 = load ptr, ptr %12, align 8
-  %671 = getelementptr inbounds %struct.yyguts_t, ptr %670, i32 0, i32 20
-  %672 = load ptr, ptr %671, align 8
-  %673 = getelementptr inbounds i8, ptr %672, i64 0
-  store ptr %673, ptr %10, align 8
-  br label %145
-
-674:                                              ; preds = %621
-  %675 = load ptr, ptr %12, align 8
-  %676 = getelementptr inbounds %struct.yyguts_t, ptr %675, i32 0, i32 5
-  %677 = load ptr, ptr %676, align 8
-  %678 = load ptr, ptr %12, align 8
-  %679 = getelementptr inbounds %struct.yyguts_t, ptr %678, i32 0, i32 3
-  %680 = load i64, ptr %679, align 8
-  %681 = getelementptr inbounds ptr, ptr %677, i64 %680
-  %682 = load ptr, ptr %681, align 8
-  %683 = getelementptr inbounds %struct.yy_buffer_state, ptr %682, i32 0, i32 1
-  %684 = load ptr, ptr %683, align 8
-  %685 = load ptr, ptr %12, align 8
-  %686 = getelementptr inbounds %struct.yyguts_t, ptr %685, i32 0, i32 7
-  %687 = load i64, ptr %686, align 8
-  %688 = getelementptr inbounds i8, ptr %684, i64 %687
-  %689 = load ptr, ptr %12, align 8
-  %690 = getelementptr inbounds %struct.yyguts_t, ptr %689, i32 0, i32 9
-  store ptr %688, ptr %690, align 8
-  %691 = load ptr, ptr %7, align 8
-  %692 = call noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef %691)
-  store i32 %692, ptr %8, align 4
-  %693 = load ptr, ptr %12, align 8
-  %694 = getelementptr inbounds %struct.yyguts_t, ptr %693, i32 0, i32 9
-  %695 = load ptr, ptr %694, align 8
-  store ptr %695, ptr %9, align 8
-  %696 = load ptr, ptr %12, align 8
-  %697 = getelementptr inbounds %struct.yyguts_t, ptr %696, i32 0, i32 20
-  %698 = load ptr, ptr %697, align 8
-  %699 = getelementptr inbounds i8, ptr %698, i64 0
-  store ptr %699, ptr %10, align 8
-  br label %221
-
-700:                                              ; preds = %655, %621
-  br label %701
-
-701:                                              ; preds = %700
+632:                                              ; preds = %626
+  %633 = load ptr, ptr %12, align 8, !tbaa !11
+  %634 = getelementptr inbounds nuw %struct.yyguts_t, ptr %633, i32 0, i32 20
+  %635 = load ptr, ptr %634, align 8, !tbaa !61
+  %636 = getelementptr inbounds i8, ptr %635, i64 0
+  %637 = load ptr, ptr %12, align 8, !tbaa !11
+  %638 = getelementptr inbounds nuw %struct.yyguts_t, ptr %637, i32 0, i32 9
+  store ptr %636, ptr %638, align 8, !tbaa !50
+  %639 = load ptr, ptr %12, align 8, !tbaa !11
+  %640 = getelementptr inbounds nuw %struct.yyguts_t, ptr %639, i32 0, i32 11
+  %641 = load i32, ptr %640, align 4, !tbaa !23
+  %642 = sub nsw i32 %641, 1
+  %643 = sdiv i32 %642, 2
+  %644 = add nsw i32 22, %643
+  %645 = add nsw i32 %644, 1
+  store i32 %645, ptr %11, align 4, !tbaa !32
+  store i32 10, ptr %15, align 4
   br label %704
 
-702:                                              ; preds = %245
-  %703 = load ptr, ptr %7, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.2, ptr noundef %703) #12
+646:                                              ; preds = %626
+  %647 = load ptr, ptr %12, align 8, !tbaa !11
+  %648 = getelementptr inbounds nuw %struct.yyguts_t, ptr %647, i32 0, i32 12
+  %649 = load i32, ptr %648, align 8, !tbaa !70
+  %650 = icmp ne i32 %649, 0
+  br i1 %650, label %656, label %651
+
+651:                                              ; preds = %646
+  %652 = load ptr, ptr %12, align 8, !tbaa !11
+  %653 = getelementptr inbounds nuw %struct.yyguts_t, ptr %652, i32 0, i32 1
+  %654 = load ptr, ptr %653, align 8, !tbaa !24
+  %655 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @_Z18_gmx_sel_yyrestartP8_IO_FILEPv(ptr noundef %654, ptr noundef %655)
+  br label %656
+
+656:                                              ; preds = %651, %646
+  br label %657
+
+657:                                              ; preds = %656
+  br label %702
+
+658:                                              ; preds = %623
+  %659 = load ptr, ptr %12, align 8, !tbaa !11
+  %660 = getelementptr inbounds nuw %struct.yyguts_t, ptr %659, i32 0, i32 20
+  %661 = load ptr, ptr %660, align 8, !tbaa !61
+  %662 = load i32, ptr %18, align 4, !tbaa !32
+  %663 = sext i32 %662 to i64
+  %664 = getelementptr inbounds i8, ptr %661, i64 %663
+  %665 = load ptr, ptr %12, align 8, !tbaa !11
+  %666 = getelementptr inbounds nuw %struct.yyguts_t, ptr %665, i32 0, i32 9
+  store ptr %664, ptr %666, align 8, !tbaa !50
+  %667 = load ptr, ptr %7, align 8, !tbaa !10
+  %668 = call noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef %667)
+  store i32 %668, ptr %8, align 4, !tbaa !32
+  %669 = load ptr, ptr %12, align 8, !tbaa !11
+  %670 = getelementptr inbounds nuw %struct.yyguts_t, ptr %669, i32 0, i32 9
+  %671 = load ptr, ptr %670, align 8, !tbaa !50
+  store ptr %671, ptr %9, align 8, !tbaa !51
+  %672 = load ptr, ptr %12, align 8, !tbaa !11
+  %673 = getelementptr inbounds nuw %struct.yyguts_t, ptr %672, i32 0, i32 20
+  %674 = load ptr, ptr %673, align 8, !tbaa !61
+  %675 = getelementptr inbounds i8, ptr %674, i64 0
+  store ptr %675, ptr %10, align 8, !tbaa !51
+  store i32 4, ptr %15, align 4
+  br label %704
+
+676:                                              ; preds = %623
+  %677 = load ptr, ptr %12, align 8, !tbaa !11
+  %678 = getelementptr inbounds nuw %struct.yyguts_t, ptr %677, i32 0, i32 5
+  %679 = load ptr, ptr %678, align 8, !tbaa !27
+  %680 = load ptr, ptr %12, align 8, !tbaa !11
+  %681 = getelementptr inbounds nuw %struct.yyguts_t, ptr %680, i32 0, i32 3
+  %682 = load i64, ptr %681, align 8, !tbaa !28
+  %683 = getelementptr inbounds nuw ptr, ptr %679, i64 %682
+  %684 = load ptr, ptr %683, align 8, !tbaa !29
+  %685 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %684, i32 0, i32 1
+  %686 = load ptr, ptr %685, align 8, !tbaa !69
+  %687 = load ptr, ptr %12, align 8, !tbaa !11
+  %688 = getelementptr inbounds nuw %struct.yyguts_t, ptr %687, i32 0, i32 7
+  %689 = load i64, ptr %688, align 8, !tbaa !67
+  %690 = getelementptr inbounds nuw i8, ptr %686, i64 %689
+  %691 = load ptr, ptr %12, align 8, !tbaa !11
+  %692 = getelementptr inbounds nuw %struct.yyguts_t, ptr %691, i32 0, i32 9
+  store ptr %690, ptr %692, align 8, !tbaa !50
+  %693 = load ptr, ptr %7, align 8, !tbaa !10
+  %694 = call noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef %693)
+  store i32 %694, ptr %8, align 4, !tbaa !32
+  %695 = load ptr, ptr %12, align 8, !tbaa !11
+  %696 = getelementptr inbounds nuw %struct.yyguts_t, ptr %695, i32 0, i32 9
+  %697 = load ptr, ptr %696, align 8, !tbaa !50
+  store ptr %697, ptr %9, align 8, !tbaa !51
+  %698 = load ptr, ptr %12, align 8, !tbaa !11
+  %699 = getelementptr inbounds nuw %struct.yyguts_t, ptr %698, i32 0, i32 20
+  %700 = load ptr, ptr %699, align 8, !tbaa !61
+  %701 = getelementptr inbounds i8, ptr %700, i64 0
+  store ptr %701, ptr %10, align 8, !tbaa !51
+  store i32 9, ptr %15, align 4
+  br label %704
+
+702:                                              ; preds = %623, %657
+  br label %703
+
+703:                                              ; preds = %702
+  store i32 11, ptr %15, align 4
+  br label %704
+
+704:                                              ; preds = %703, %676, %658, %632, %622
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #17
+  %705 = load i32, ptr %15, align 4
+  switch i32 %705, label %711 [
+    i32 4, label %147
+    i32 9, label %223
+    i32 10, label %247
+    i32 11, label %708
+  ]
+
+706:                                              ; preds = %247
+  %707 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.2, ptr noundef %707) #18
   unreachable
 
-704:                                              ; preds = %701, %470, %339, %312, %258
-  br label %133, !llvm.loop !7
+708:                                              ; preds = %704, %471, %247, %340, %313
+  br label %134, !llvm.loop !71
 
-705:                                              ; preds = %492, %473, %459, %440, %430, %420, %410, %400, %388, %378, %368, %357, %346, %343, %340, %328, %291, %275, %259, %95
-  %706 = load i32, ptr %4, align 4
-  ret i32 %706
+709:                                              ; preds = %493, %474, %460, %441, %431, %421, %411, %401, %389, %379, %369, %358, %347, %344, %341, %329, %292, %276, %260, %96
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #17
+  %710 = load i32, ptr %4, align 4
+  ret i32 %710
+
+711:                                              ; preds = %704
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL30_gmx_sel_yyensure_buffer_stackPv(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca i64, align 8
-  store ptr %0, ptr %2, align 8
-  %6 = load ptr, ptr %2, align 8
-  store ptr %6, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.yyguts_t, ptr %7, i32 0, i32 5
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %35, label %11
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
+  %7 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %7, ptr %4, align 8, !tbaa !11
+  %8 = load ptr, ptr %4, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.yyguts_t, ptr %8, i32 0, i32 5
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %36, label %12
 
-11:                                               ; preds = %1
-  store i64 1, ptr %3, align 8
-  %12 = load i64, ptr %3, align 8
-  %13 = mul i64 %12, 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef %13, ptr noundef %14)
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.yyguts_t, ptr %16, i32 0, i32 5
-  store ptr %15, ptr %17, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.yyguts_t, ptr %18, i32 0, i32 5
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %24, label %22
+12:                                               ; preds = %1
+  store i64 1, ptr %3, align 8, !tbaa !72
+  %13 = load i64, ptr %3, align 8, !tbaa !72
+  %14 = mul i64 %13, 8
+  %15 = load ptr, ptr %2, align 8, !tbaa !10
+  %16 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef %14, ptr noundef %15)
+  %17 = load ptr, ptr %4, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.yyguts_t, ptr %17, i32 0, i32 5
+  store ptr %16, ptr %18, align 8, !tbaa !27
+  %19 = load ptr, ptr %4, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %struct.yyguts_t, ptr %19, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %25, label %23
 
-22:                                               ; preds = %11
-  %23 = load ptr, ptr %2, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.13, ptr noundef %23) #12
+23:                                               ; preds = %12
+  %24 = load ptr, ptr %2, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.13, ptr noundef %24) #18
   unreachable
 
-24:                                               ; preds = %11
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.yyguts_t, ptr %25, i32 0, i32 5
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i64, ptr %3, align 8
-  %29 = mul i64 %28, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %27, i8 0, i64 %29, i1 false)
-  %30 = load i64, ptr %3, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.yyguts_t, ptr %31, i32 0, i32 4
-  store i64 %30, ptr %32, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.yyguts_t, ptr %33, i32 0, i32 3
-  store i64 0, ptr %34, align 8
-  br label %78
+25:                                               ; preds = %12
+  %26 = load ptr, ptr %4, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw %struct.yyguts_t, ptr %26, i32 0, i32 5
+  %28 = load ptr, ptr %27, align 8, !tbaa !27
+  %29 = load i64, ptr %3, align 8, !tbaa !72
+  %30 = mul i64 %29, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %28, i8 0, i64 %30, i1 false)
+  %31 = load i64, ptr %3, align 8, !tbaa !72
+  %32 = load ptr, ptr %4, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %struct.yyguts_t, ptr %32, i32 0, i32 4
+  store i64 %31, ptr %33, align 8, !tbaa !73
+  %34 = load ptr, ptr %4, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.yyguts_t, ptr %34, i32 0, i32 3
+  store i64 0, ptr %35, align 8, !tbaa !28
+  store i32 1, ptr %5, align 4
+  br label %80
 
-35:                                               ; preds = %1
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds %struct.yyguts_t, ptr %36, i32 0, i32 3
-  %38 = load i64, ptr %37, align 8
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.yyguts_t, ptr %39, i32 0, i32 4
-  %41 = load i64, ptr %40, align 8
-  %42 = sub i64 %41, 1
-  %43 = icmp uge i64 %38, %42
-  br i1 %43, label %44, label %78
+36:                                               ; preds = %1
+  %37 = load ptr, ptr %4, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.yyguts_t, ptr %37, i32 0, i32 3
+  %39 = load i64, ptr %38, align 8, !tbaa !28
+  %40 = load ptr, ptr %4, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.yyguts_t, ptr %40, i32 0, i32 4
+  %42 = load i64, ptr %41, align 8, !tbaa !73
+  %43 = sub i64 %42, 1
+  %44 = icmp uge i64 %39, %43
+  br i1 %44, label %45, label %79
 
-44:                                               ; preds = %35
-  store i64 8, ptr %5, align 8
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.yyguts_t, ptr %45, i32 0, i32 4
-  %47 = load i64, ptr %46, align 8
-  %48 = load i64, ptr %5, align 8
-  %49 = add i64 %47, %48
-  store i64 %49, ptr %3, align 8
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.yyguts_t, ptr %50, i32 0, i32 5
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i64, ptr %3, align 8
-  %54 = mul i64 %53, 8
-  %55 = load ptr, ptr %2, align 8
-  %56 = call noundef ptr @_Z18_gmx_sel_yyreallocPvmS_(ptr noundef %52, i64 noundef %54, ptr noundef %55)
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.yyguts_t, ptr %57, i32 0, i32 5
-  store ptr %56, ptr %58, align 8
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.yyguts_t, ptr %59, i32 0, i32 5
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %65, label %63
+45:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  store i64 8, ptr %6, align 8, !tbaa !72
+  %46 = load ptr, ptr %4, align 8, !tbaa !11
+  %47 = getelementptr inbounds nuw %struct.yyguts_t, ptr %46, i32 0, i32 4
+  %48 = load i64, ptr %47, align 8, !tbaa !73
+  %49 = load i64, ptr %6, align 8, !tbaa !72
+  %50 = add i64 %48, %49
+  store i64 %50, ptr %3, align 8, !tbaa !72
+  %51 = load ptr, ptr %4, align 8, !tbaa !11
+  %52 = getelementptr inbounds nuw %struct.yyguts_t, ptr %51, i32 0, i32 5
+  %53 = load ptr, ptr %52, align 8, !tbaa !27
+  %54 = load i64, ptr %3, align 8, !tbaa !72
+  %55 = mul i64 %54, 8
+  %56 = load ptr, ptr %2, align 8, !tbaa !10
+  %57 = call noundef ptr @_Z18_gmx_sel_yyreallocPvmS_(ptr noundef %53, i64 noundef %55, ptr noundef %56)
+  %58 = load ptr, ptr %4, align 8, !tbaa !11
+  %59 = getelementptr inbounds nuw %struct.yyguts_t, ptr %58, i32 0, i32 5
+  store ptr %57, ptr %59, align 8, !tbaa !27
+  %60 = load ptr, ptr %4, align 8, !tbaa !11
+  %61 = getelementptr inbounds nuw %struct.yyguts_t, ptr %60, i32 0, i32 5
+  %62 = load ptr, ptr %61, align 8, !tbaa !27
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %66, label %64
 
-63:                                               ; preds = %44
-  %64 = load ptr, ptr %2, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.13, ptr noundef %64) #12
+64:                                               ; preds = %45
+  %65 = load ptr, ptr %2, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.13, ptr noundef %65) #18
   unreachable
 
-65:                                               ; preds = %44
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds %struct.yyguts_t, ptr %66, i32 0, i32 5
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.yyguts_t, ptr %69, i32 0, i32 4
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds ptr, ptr %68, i64 %71
-  %73 = load i64, ptr %5, align 8
-  %74 = mul i64 %73, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %72, i8 0, i64 %74, i1 false)
-  %75 = load i64, ptr %3, align 8
-  %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.yyguts_t, ptr %76, i32 0, i32 4
-  store i64 %75, ptr %77, align 8
-  br label %78
+66:                                               ; preds = %45
+  %67 = load ptr, ptr %4, align 8, !tbaa !11
+  %68 = getelementptr inbounds nuw %struct.yyguts_t, ptr %67, i32 0, i32 5
+  %69 = load ptr, ptr %68, align 8, !tbaa !27
+  %70 = load ptr, ptr %4, align 8, !tbaa !11
+  %71 = getelementptr inbounds nuw %struct.yyguts_t, ptr %70, i32 0, i32 4
+  %72 = load i64, ptr %71, align 8, !tbaa !73
+  %73 = getelementptr inbounds nuw ptr, ptr %69, i64 %72
+  %74 = load i64, ptr %6, align 8, !tbaa !72
+  %75 = mul i64 %74, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %73, i8 0, i64 %75, i1 false)
+  %76 = load i64, ptr %3, align 8, !tbaa !72
+  %77 = load ptr, ptr %4, align 8, !tbaa !11
+  %78 = getelementptr inbounds nuw %struct.yyguts_t, ptr %77, i32 0, i32 4
+  store i64 %76, ptr %78, align 8, !tbaa !73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  br label %79
 
-78:                                               ; preds = %65, %35, %24
+79:                                               ; preds = %66, %36
+  store i32 0, ptr %5, align 4
+  br label %80
+
+80:                                               ; preds = %79, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  %81 = load i32, ptr %5, align 4
+  switch i32 %81, label %83 [
+    i32 0, label %82
+    i32 1, label %82
+  ]
+
+82:                                               ; preds = %80, %80
   ret void
+
+83:                                               ; preds = %80
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1187,211 +1298,426 @@ define noundef ptr @_Z25_gmx_sel_yy_create_bufferP8_IO_FILEiPv(ptr noundef %0, i
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !25
+  store i32 %1, ptr %5, align 4, !tbaa !32
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %8 = load ptr, ptr %6, align 8, !tbaa !10
   %9 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef 72, ptr noundef %8)
-  store ptr %9, ptr %7, align 8
-  %10 = load ptr, ptr %7, align 8
+  store ptr %9, ptr %7, align 8, !tbaa !29
+  %10 = load ptr, ptr %7, align 8, !tbaa !29
   %11 = icmp ne ptr %10, null
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %6, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.3, ptr noundef %13) #12
+  %13 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.3, ptr noundef %13) #18
   unreachable
 
 14:                                               ; preds = %3
-  %15 = load i32, ptr %5, align 4
+  %15 = load i32, ptr %5, align 4, !tbaa !32
   %16 = sext i32 %15 to i64
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct.yy_buffer_state, ptr %17, i32 0, i32 3
-  store i64 %16, ptr %18, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct.yy_buffer_state, ptr %19, i32 0, i32 3
-  %21 = load i64, ptr %20, align 8
+  %17 = load ptr, ptr %7, align 8, !tbaa !29
+  %18 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %17, i32 0, i32 3
+  store i64 %16, ptr %18, align 8, !tbaa !74
+  %19 = load ptr, ptr %7, align 8, !tbaa !29
+  %20 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %19, i32 0, i32 3
+  %21 = load i64, ptr %20, align 8, !tbaa !74
   %22 = add i64 %21, 2
-  %23 = load ptr, ptr %6, align 8
+  %23 = load ptr, ptr %6, align 8, !tbaa !10
   %24 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef %22, ptr noundef %23)
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct.yy_buffer_state, ptr %25, i32 0, i32 1
-  store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.yy_buffer_state, ptr %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
+  %25 = load ptr, ptr %7, align 8, !tbaa !29
+  %26 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !69
+  %27 = load ptr, ptr %7, align 8, !tbaa !29
+  %28 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8, !tbaa !69
   %30 = icmp ne ptr %29, null
   br i1 %30, label %33, label %31
 
 31:                                               ; preds = %14
-  %32 = load ptr, ptr %6, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.3, ptr noundef %32) #12
+  %32 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.3, ptr noundef %32) #18
   unreachable
 
 33:                                               ; preds = %14
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds %struct.yy_buffer_state, ptr %34, i32 0, i32 5
-  store i32 1, ptr %35, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = load ptr, ptr %6, align 8
+  %34 = load ptr, ptr %7, align 8, !tbaa !29
+  %35 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %34, i32 0, i32 5
+  store i32 1, ptr %35, align 8, !tbaa !75
+  %36 = load ptr, ptr %7, align 8, !tbaa !29
+  %37 = load ptr, ptr %4, align 8, !tbaa !25
+  %38 = load ptr, ptr %6, align 8, !tbaa !10
   call void @_ZL23_gmx_sel_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv(ptr noundef %36, ptr noundef %37, ptr noundef %38)
-  %39 = load ptr, ptr %7, align 8
+  %39 = load ptr, ptr %7, align 8, !tbaa !29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
   ret ptr %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %0) #1 {
+define internal void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.yyguts_t, ptr %5, i32 0, i32 5
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.yyguts_t, ptr %8, i32 0, i32 3
-  %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.yy_buffer_state, ptr %12, i32 0, i32 4
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.yyguts_t, ptr %15, i32 0, i32 7
-  store i64 %14, ptr %16, align 8
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.yyguts_t, ptr %17, i32 0, i32 5
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds %struct.yyguts_t, ptr %20, i32 0, i32 3
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds %struct.yy_buffer_state, ptr %24, i32 0, i32 2
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.yyguts_t, ptr %27, i32 0, i32 9
-  store ptr %26, ptr %28, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.yyguts_t, ptr %29, i32 0, i32 20
-  store ptr %26, ptr %30, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.yyguts_t, ptr %31, i32 0, i32 5
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds %struct.yyguts_t, ptr %34, i32 0, i32 3
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct.yy_buffer_state, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.yyguts_t, ptr %41, i32 0, i32 1
-  store ptr %40, ptr %42, align 8
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.yyguts_t, ptr %43, i32 0, i32 9
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i8, ptr %45, align 1
-  %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds %struct.yyguts_t, ptr %47, i32 0, i32 6
-  store i8 %46, ptr %48, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %4, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.yyguts_t, ptr %5, i32 0, i32 5
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load ptr, ptr %3, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.yyguts_t, ptr %8, i32 0, i32 3
+  %10 = load i64, ptr %9, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !29
+  %13 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %12, i32 0, i32 4
+  %14 = load i64, ptr %13, align 8, !tbaa !66
+  %15 = load ptr, ptr %3, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.yyguts_t, ptr %15, i32 0, i32 7
+  store i64 %14, ptr %16, align 8, !tbaa !67
+  %17 = load ptr, ptr %3, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.yyguts_t, ptr %17, i32 0, i32 5
+  %19 = load ptr, ptr %18, align 8, !tbaa !27
+  %20 = load ptr, ptr %3, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.yyguts_t, ptr %20, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8, !tbaa !28
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %24 = load ptr, ptr %23, align 8, !tbaa !29
+  %25 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %24, i32 0, i32 2
+  %26 = load ptr, ptr %25, align 8, !tbaa !76
+  %27 = load ptr, ptr %3, align 8, !tbaa !11
+  %28 = getelementptr inbounds nuw %struct.yyguts_t, ptr %27, i32 0, i32 9
+  store ptr %26, ptr %28, align 8, !tbaa !50
+  %29 = load ptr, ptr %3, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.yyguts_t, ptr %29, i32 0, i32 20
+  store ptr %26, ptr %30, align 8, !tbaa !61
+  %31 = load ptr, ptr %3, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.yyguts_t, ptr %31, i32 0, i32 5
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
+  %34 = load ptr, ptr %3, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.yyguts_t, ptr %34, i32 0, i32 3
+  %36 = load i64, ptr %35, align 8, !tbaa !28
+  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %38 = load ptr, ptr %37, align 8, !tbaa !29
+  %39 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !68
+  %41 = load ptr, ptr %3, align 8, !tbaa !11
+  %42 = getelementptr inbounds nuw %struct.yyguts_t, ptr %41, i32 0, i32 1
+  store ptr %40, ptr %42, align 8, !tbaa !24
+  %43 = load ptr, ptr %3, align 8, !tbaa !11
+  %44 = getelementptr inbounds nuw %struct.yyguts_t, ptr %43, i32 0, i32 9
+  %45 = load ptr, ptr %44, align 8, !tbaa !50
+  %46 = load i8, ptr %45, align 1, !tbaa !53
+  %47 = load ptr, ptr %3, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.yyguts_t, ptr %47, i32 0, i32 6
+  store i8 %46, ptr %48, align 8, !tbaa !52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0) #1 {
+define noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.yyguts_t, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %4, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.yyguts_t, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !77
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret ptr %7
 }
 
-declare noundef i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYPEPN3gmx17SelectionLocationEP15gmx_sel_lexer_t(ptr noundef, ptr noundef, ptr noundef) #2
+declare noundef i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYPEPN3gmx17SelectionLocationEP15gmx_sel_lexer_t(ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #3
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #4
 
-declare void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
-
-; Function Attrs: nounwind
-declare double @strtod(ptr noundef, ptr noundef) #3
-
-declare noundef ptr @_Z11gmx_strndupPKci(ptr noundef, i32 noundef) #2
-
-declare void @_ZN3gmx11stripStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) #2
+declare void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #3
+declare double @strtod(ptr noundef, ptr noundef) #4
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
+declare noundef ptr @_Z11gmx_strndupPKci(ptr noundef, i32 noundef) #3
 
-declare noundef i32 @_Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
+declare void @_ZN3gmx11stripStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) #3
 
-; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal void @_ZL14yy_fatal_errorPKcPv(ptr noundef %0, ptr noundef %1) #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.14, ptr noundef %8) #11
-  call void @exit(i32 noundef 2) #13
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
+  store ptr %1, ptr %4, align 8, !tbaa !78
+  %7 = load ptr, ptr %3, align 8
+  %8 = invoke noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %9 unwind label %91
+
+9:                                                ; preds = %2
+  br i1 %8, label %25, label %10
+
+10:                                               ; preds = %9
+  %11 = invoke noundef zeroext i1 @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE15_S_always_equalEv()
+          to label %12 unwind label %91
+
+12:                                               ; preds = %10
+  br i1 %11, label %25, label %13
+
+13:                                               ; preds = %12
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %15 = load ptr, ptr %4, align 8, !tbaa !78
+  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
+  %17 = call noundef zeroext i1 @_ZStneRKSaIcES1_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %16) #17
+  br i1 %17, label %18, label %25
+
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i32 0, i32 2
+  %20 = load i64, ptr %19, align 8, !tbaa !53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %20) #17
+  %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %22 unwind label %91
+
+22:                                               ; preds = %18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %21)
+          to label %23 unwind label %91
+
+23:                                               ; preds = %22
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0)
+          to label %24 unwind label %91
+
+24:                                               ; preds = %23
+  br label %25
+
+25:                                               ; preds = %24, %13, %12, %9
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %27 = load ptr, ptr %4, align 8, !tbaa !78
+  %28 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  invoke void @_ZSt15__alloc_on_moveISaIcEEvRT_S2_(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %28)
+          to label %29 unwind label %91
+
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %4, align 8, !tbaa !78
+  %31 = invoke noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
+          to label %32 unwind label %91
+
+32:                                               ; preds = %29
+  br i1 %31, label %33, label %55
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %4, align 8, !tbaa !78
+  %35 = icmp ne ptr %34, %7
+  %36 = zext i1 %35 to i64
+  %37 = call i64 @llvm.expect.i64(i64 %36, i64 1)
+  %38 = icmp ne i64 %37, 0
+  br i1 %38, label %39, label %54
+
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %4, align 8, !tbaa !78
+  %41 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #17
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %50
+
+43:                                               ; preds = %39
+  %44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %45 = load ptr, ptr %4, align 8, !tbaa !78
+  %46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %45)
+  %47 = load ptr, ptr %4, align 8, !tbaa !78
+  %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %44, ptr noundef %46, i64 noundef %48)
+          to label %49 unwind label %91
+
+49:                                               ; preds = %43
+  br label %50
+
+50:                                               ; preds = %49, %39
+  %51 = load ptr, ptr %4, align 8, !tbaa !78
+  %52 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %52)
+          to label %53 unwind label %91
+
+53:                                               ; preds = %50
+  br label %54
+
+54:                                               ; preds = %53, %33
+  br label %89
+
+55:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  store ptr null, ptr %5, align 8, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  %56 = invoke noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+          to label %57 unwind label %91
+
+57:                                               ; preds = %55
+  br i1 %56, label %62, label %58
+
+58:                                               ; preds = %57
+  %59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  store ptr %59, ptr %5, align 8, !tbaa !51
+  %60 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i32 0, i32 2
+  %61 = load i64, ptr %60, align 8, !tbaa !53
+  store i64 %61, ptr %6, align 8, !tbaa !72
+  br label %62
+
+62:                                               ; preds = %58, %57
+  %63 = load ptr, ptr %4, align 8, !tbaa !78
+  %64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %63)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %64)
+          to label %65 unwind label %91
+
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %4, align 8, !tbaa !78
+  %67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #17
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %67)
+          to label %68 unwind label %91
+
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %4, align 8, !tbaa !78
+  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %69, i32 0, i32 2
+  %71 = load i64, ptr %70, align 8, !tbaa !53
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %71)
+          to label %72 unwind label %91
+
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %5, align 8, !tbaa !51
+  %74 = icmp ne ptr %73, null
+  br i1 %74, label %75, label %82
+
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %4, align 8, !tbaa !78
+  %77 = load ptr, ptr %5, align 8, !tbaa !51
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef %77)
+          to label %78 unwind label %91
+
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %4, align 8, !tbaa !78
+  %80 = load i64, ptr %6, align 8, !tbaa !72
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %80)
+          to label %81 unwind label %91
+
+81:                                               ; preds = %78
+  br label %88
+
+82:                                               ; preds = %72
+  %83 = load ptr, ptr %4, align 8, !tbaa !78
+  %84 = load ptr, ptr %4, align 8, !tbaa !78
+  %85 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %84, i32 0, i32 2
+  %86 = getelementptr inbounds [16 x i8], ptr %85, i64 0, i64 0
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef %86)
+          to label %87 unwind label %91
+
+87:                                               ; preds = %82
+  br label %88
+
+88:                                               ; preds = %87, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  br label %89
+
+89:                                               ; preds = %88, %54
+  %90 = load ptr, ptr %4, align 8, !tbaa !78
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %90) #17
+  ret ptr %7
+
+91:                                               ; preds = %82, %78, %75, %68, %65, %62, %55, %50, %43, %29, %25, %23, %22, %18, %10, %2
+  %92 = landingpad { ptr, i32 }
+          catch ptr null
+  %93 = extractvalue { ptr, i32 } %92, 0
+  call void @__clang_call_terminate(ptr %93) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef %0) #1 {
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #19
+  unreachable
+}
+
+declare noundef i32 @_Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
+
+; Function Attrs: mustprogress noreturn nounwind uwtable
+define internal void @_ZL14yy_fatal_errorPKcPv(ptr noundef %0, ptr noundef %1) #5 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %8 = load ptr, ptr %3, align 8, !tbaa !51
+  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.14, ptr noundef %8) #17
+  call void @exit(i32 noundef 2) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
-  store ptr %0, ptr %2, align 8
-  %7 = load ptr, ptr %2, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.yyguts_t, ptr %8, i32 0, i32 11
-  %10 = load i32, ptr %9, align 4
-  store i32 %10, ptr %3, align 4
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.yyguts_t, ptr %11, i32 0, i32 20
-  %13 = load ptr, ptr %12, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %7 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %7, ptr %5, align 8, !tbaa !11
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.yyguts_t, ptr %8, i32 0, i32 11
+  %10 = load i32, ptr %9, align 4, !tbaa !23
+  store i32 %10, ptr %3, align 4, !tbaa !32
+  %11 = load ptr, ptr %5, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.yyguts_t, ptr %11, i32 0, i32 20
+  %13 = load ptr, ptr %12, align 8, !tbaa !61
   %14 = getelementptr inbounds i8, ptr %13, i64 0
-  store ptr %14, ptr %4, align 8
+  store ptr %14, ptr %4, align 8, !tbaa !51
   br label %15
 
 15:                                               ; preds = %93, %1
-  %16 = load ptr, ptr %4, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.yyguts_t, ptr %17, i32 0, i32 9
-  %19 = load ptr, ptr %18, align 8
+  %16 = load ptr, ptr %4, align 8, !tbaa !51
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.yyguts_t, ptr %17, i32 0, i32 9
+  %19 = load ptr, ptr %18, align 8, !tbaa !50
   %20 = icmp ult ptr %16, %19
   br i1 %20, label %21, label %96
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i8, ptr %22, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #17
+  %22 = load ptr, ptr %4, align 8, !tbaa !51
+  %23 = load i8, ptr %22, align 1, !tbaa !53
   %24 = icmp ne i8 %23, 0
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %4, align 8
-  %27 = load i8, ptr %26, align 1
+  %26 = load ptr, ptr %4, align 8, !tbaa !51
+  %27 = load i8, ptr %26, align 1, !tbaa !53
   %28 = zext i8 %27 to i32
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
+  %30 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !53
   %32 = zext i8 %31 to i32
   br label %34
 
@@ -1401,192 +1727,200 @@ define internal noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef %0) #1 {
 34:                                               ; preds = %33, %25
   %35 = phi i32 [ %32, %25 ], [ 1, %33 ]
   %36 = trunc i32 %35 to i8
-  store i8 %36, ptr %6, align 1
-  %37 = load i32, ptr %3, align 4
+  store i8 %36, ptr %6, align 1, !tbaa !53
+  %37 = load i32, ptr %3, align 4, !tbaa !32
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %38
-  %40 = load i16, ptr %39, align 2
+  %40 = load i16, ptr %39, align 2, !tbaa !54
   %41 = icmp ne i16 %40, 0
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %34
-  %43 = load i32, ptr %3, align 4
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.yyguts_t, ptr %44, i32 0, i32 16
-  store i32 %43, ptr %45, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.yyguts_t, ptr %47, i32 0, i32 17
-  store ptr %46, ptr %48, align 8
+  %43 = load i32, ptr %3, align 4, !tbaa !32
+  %44 = load ptr, ptr %5, align 8, !tbaa !11
+  %45 = getelementptr inbounds nuw %struct.yyguts_t, ptr %44, i32 0, i32 16
+  store i32 %43, ptr %45, align 8, !tbaa !56
+  %46 = load ptr, ptr %4, align 8, !tbaa !51
+  %47 = load ptr, ptr %5, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.yyguts_t, ptr %47, i32 0, i32 17
+  store ptr %46, ptr %48, align 8, !tbaa !57
   br label %49
 
 49:                                               ; preds = %42, %34
   br label %50
 
 50:                                               ; preds = %79, %49
-  %51 = load i32, ptr %3, align 4
+  %51 = load i32, ptr %3, align 4, !tbaa !32
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %52
-  %54 = load i16, ptr %53, align 2
+  %54 = load i16, ptr %53, align 2, !tbaa !54
   %55 = zext i16 %54 to i32
-  %56 = load i8, ptr %6, align 1
+  %56 = load i8, ptr %6, align 1, !tbaa !53
   %57 = zext i8 %56 to i32
   %58 = add nsw i32 %55, %57
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_chk, i64 0, i64 %59
-  %61 = load i16, ptr %60, align 2
+  %61 = load i16, ptr %60, align 2, !tbaa !54
   %62 = sext i16 %61 to i32
-  %63 = load i32, ptr %3, align 4
+  %63 = load i32, ptr %3, align 4, !tbaa !32
   %64 = icmp ne i32 %62, %63
   br i1 %64, label %65, label %80
 
 65:                                               ; preds = %50
-  %66 = load i32, ptr %3, align 4
+  %66 = load i32, ptr %3, align 4, !tbaa !32
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %67
-  %69 = load i16, ptr %68, align 2
+  %69 = load i16, ptr %68, align 2, !tbaa !54
   %70 = sext i16 %69 to i32
-  store i32 %70, ptr %3, align 4
-  %71 = load i32, ptr %3, align 4
+  store i32 %70, ptr %3, align 4, !tbaa !32
+  %71 = load i32, ptr %3, align 4, !tbaa !32
   %72 = icmp sge i32 %71, 76
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %65
-  %74 = load i8, ptr %6, align 1
+  %74 = load i8, ptr %6, align 1, !tbaa !53
   %75 = zext i8 %74 to i32
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds [33 x i8], ptr @_ZL7yy_meta, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1
-  store i8 %78, ptr %6, align 1
+  %77 = getelementptr inbounds nuw [33 x i8], ptr @_ZL7yy_meta, i64 0, i64 %76
+  %78 = load i8, ptr %77, align 1, !tbaa !53
+  store i8 %78, ptr %6, align 1, !tbaa !53
   br label %79
 
 79:                                               ; preds = %73, %65
-  br label %50, !llvm.loop !8
+  br label %50, !llvm.loop !80
 
 80:                                               ; preds = %50
-  %81 = load i32, ptr %3, align 4
+  %81 = load i32, ptr %3, align 4, !tbaa !32
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %82
-  %84 = load i16, ptr %83, align 2
+  %84 = load i16, ptr %83, align 2, !tbaa !54
   %85 = zext i16 %84 to i32
-  %86 = load i8, ptr %6, align 1
+  %86 = load i8, ptr %6, align 1, !tbaa !53
   %87 = zext i8 %86 to i32
   %88 = add i32 %85, %87
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %89
-  %91 = load i16, ptr %90, align 2
+  %90 = getelementptr inbounds nuw [151 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %89
+  %91 = load i16, ptr %90, align 2, !tbaa !54
   %92 = zext i16 %91 to i32
-  store i32 %92, ptr %3, align 4
+  store i32 %92, ptr %3, align 4, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #17
   br label %93
 
 93:                                               ; preds = %80
-  %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i32 1
-  store ptr %95, ptr %4, align 8
-  br label %15, !llvm.loop !9
+  %94 = load ptr, ptr %4, align 8, !tbaa !51
+  %95 = getelementptr inbounds nuw i8, ptr %94, i32 1
+  store ptr %95, ptr %4, align 8, !tbaa !51
+  br label %15, !llvm.loop !81
 
 96:                                               ; preds = %15
-  %97 = load i32, ptr %3, align 4
+  %97 = load i32, ptr %3, align 4, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #17
   ret i32 %97
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr noundef %1) #1 {
+define internal noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %9 = load ptr, ptr %4, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct.yyguts_t, ptr %10, i32 0, i32 9
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %7, align 8
-  store i8 1, ptr %8, align 1
-  %13 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  %9 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %9, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %10 = load ptr, ptr %6, align 8, !tbaa !11
+  %11 = getelementptr inbounds nuw %struct.yyguts_t, ptr %10, i32 0, i32 9
+  %12 = load ptr, ptr %11, align 8, !tbaa !50
+  store ptr %12, ptr %7, align 8, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #17
+  store i8 1, ptr %8, align 1, !tbaa !53
+  %13 = load i32, ptr %3, align 4, !tbaa !32
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %14
-  %16 = load i16, ptr %15, align 2
+  %16 = load i16, ptr %15, align 2, !tbaa !54
   %17 = icmp ne i16 %16, 0
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %2
-  %19 = load i32, ptr %3, align 4
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.yyguts_t, ptr %20, i32 0, i32 16
-  store i32 %19, ptr %21, align 8
-  %22 = load ptr, ptr %7, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.yyguts_t, ptr %23, i32 0, i32 17
-  store ptr %22, ptr %24, align 8
+  %19 = load i32, ptr %3, align 4, !tbaa !32
+  %20 = load ptr, ptr %6, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.yyguts_t, ptr %20, i32 0, i32 16
+  store i32 %19, ptr %21, align 8, !tbaa !56
+  %22 = load ptr, ptr %7, align 8, !tbaa !51
+  %23 = load ptr, ptr %6, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %struct.yyguts_t, ptr %23, i32 0, i32 17
+  store ptr %22, ptr %24, align 8, !tbaa !57
   br label %25
 
 25:                                               ; preds = %18, %2
   br label %26
 
 26:                                               ; preds = %55, %25
-  %27 = load i32, ptr %3, align 4
+  %27 = load i32, ptr %3, align 4, !tbaa !32
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %28
-  %30 = load i16, ptr %29, align 2
+  %30 = load i16, ptr %29, align 2, !tbaa !54
   %31 = zext i16 %30 to i32
-  %32 = load i8, ptr %8, align 1
+  %32 = load i8, ptr %8, align 1, !tbaa !53
   %33 = zext i8 %32 to i32
   %34 = add nsw i32 %31, %33
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_chk, i64 0, i64 %35
-  %37 = load i16, ptr %36, align 2
+  %37 = load i16, ptr %36, align 2, !tbaa !54
   %38 = sext i16 %37 to i32
-  %39 = load i32, ptr %3, align 4
+  %39 = load i32, ptr %3, align 4, !tbaa !32
   %40 = icmp ne i32 %38, %39
   br i1 %40, label %41, label %56
 
 41:                                               ; preds = %26
-  %42 = load i32, ptr %3, align 4
+  %42 = load i32, ptr %3, align 4, !tbaa !32
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %43
-  %45 = load i16, ptr %44, align 2
+  %45 = load i16, ptr %44, align 2, !tbaa !54
   %46 = sext i16 %45 to i32
-  store i32 %46, ptr %3, align 4
-  %47 = load i32, ptr %3, align 4
+  store i32 %46, ptr %3, align 4, !tbaa !32
+  %47 = load i32, ptr %3, align 4, !tbaa !32
   %48 = icmp sge i32 %47, 76
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %41
-  %50 = load i8, ptr %8, align 1
+  %50 = load i8, ptr %8, align 1, !tbaa !53
   %51 = zext i8 %50 to i32
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds [33 x i8], ptr @_ZL7yy_meta, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1
-  store i8 %54, ptr %8, align 1
+  %53 = getelementptr inbounds nuw [33 x i8], ptr @_ZL7yy_meta, i64 0, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !53
+  store i8 %54, ptr %8, align 1, !tbaa !53
   br label %55
 
 55:                                               ; preds = %49, %41
-  br label %26, !llvm.loop !10
+  br label %26, !llvm.loop !82
 
 56:                                               ; preds = %26
-  %57 = load i32, ptr %3, align 4
+  %57 = load i32, ptr %3, align 4, !tbaa !32
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %58
-  %60 = load i16, ptr %59, align 2
+  %60 = load i16, ptr %59, align 2, !tbaa !54
   %61 = zext i16 %60 to i32
-  %62 = load i8, ptr %8, align 1
+  %62 = load i8, ptr %8, align 1, !tbaa !53
   %63 = zext i8 %62 to i32
   %64 = add i32 %61, %63
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds [151 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %65
-  %67 = load i16, ptr %66, align 2
+  %66 = getelementptr inbounds nuw [151 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %65
+  %67 = load i16, ptr %66, align 2, !tbaa !54
   %68 = zext i16 %67 to i32
-  store i32 %68, ptr %3, align 4
-  %69 = load i32, ptr %3, align 4
+  store i32 %68, ptr %3, align 4, !tbaa !32
+  %69 = load i32, ptr %3, align 4, !tbaa !32
   %70 = icmp eq i32 %69, 75
   %71 = zext i1 %70 to i32
-  store i32 %71, ptr %5, align 4
-  %72 = load i32, ptr %5, align 4
+  store i32 %71, ptr %5, align 4, !tbaa !32
+  %72 = load i32, ptr %5, align 4, !tbaa !32
   %73 = icmp ne i32 %72, 0
   br i1 %73, label %74, label %75
 
@@ -1594,11 +1928,15 @@ define internal noundef i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr nounde
   br label %77
 
 75:                                               ; preds = %56
-  %76 = load i32, ptr %3, align 4
+  %76 = load i32, ptr %3, align 4, !tbaa !32
   br label %77
 
 77:                                               ; preds = %75, %74
   %78 = phi i32 [ 0, %74 ], [ %76, %75 ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #17
   ret i32 %78
 }
 
@@ -1612,691 +1950,721 @@ define internal noundef i32 @_ZL18yy_get_next_bufferPv(ptr noundef %0) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
-  %10 = alloca i64, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca i64, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
   %16 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  %17 = load ptr, ptr %3, align 8
-  store ptr %17, ptr %4, align 8
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.yyguts_t, ptr %18, i32 0, i32 5
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %struct.yyguts_t, ptr %21, i32 0, i32 3
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.yy_buffer_state, ptr %25, i32 0, i32 1
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %5, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.yyguts_t, ptr %28, i32 0, i32 20
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %6, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.yyguts_t, ptr %31, i32 0, i32 9
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.yyguts_t, ptr %34, i32 0, i32 5
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.yyguts_t, ptr %37, i32 0, i32 3
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct.yy_buffer_state, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.yyguts_t, ptr %44, i32 0, i32 7
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, 1
-  %48 = getelementptr inbounds i8, ptr %43, i64 %47
-  %49 = icmp ugt ptr %33, %48
-  br i1 %49, label %50, label %52
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
+  %18 = load ptr, ptr %3, align 8, !tbaa !10
+  store ptr %18, ptr %4, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %19 = load ptr, ptr %4, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %struct.yyguts_t, ptr %19, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  %22 = load ptr, ptr %4, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw %struct.yyguts_t, ptr %22, i32 0, i32 3
+  %24 = load i64, ptr %23, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !29
+  %27 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !69
+  store ptr %28, ptr %5, align 8, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #17
+  %29 = load ptr, ptr %4, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.yyguts_t, ptr %29, i32 0, i32 20
+  %31 = load ptr, ptr %30, align 8, !tbaa !61
+  store ptr %31, ptr %6, align 8, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #17
+  %32 = load ptr, ptr %4, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %struct.yyguts_t, ptr %32, i32 0, i32 9
+  %34 = load ptr, ptr %33, align 8, !tbaa !50
+  %35 = load ptr, ptr %4, align 8, !tbaa !11
+  %36 = getelementptr inbounds nuw %struct.yyguts_t, ptr %35, i32 0, i32 5
+  %37 = load ptr, ptr %36, align 8, !tbaa !27
+  %38 = load ptr, ptr %4, align 8, !tbaa !11
+  %39 = getelementptr inbounds nuw %struct.yyguts_t, ptr %38, i32 0, i32 3
+  %40 = load i64, ptr %39, align 8, !tbaa !28
+  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !29
+  %43 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8, !tbaa !69
+  %45 = load ptr, ptr %4, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.yyguts_t, ptr %45, i32 0, i32 7
+  %47 = load i64, ptr %46, align 8, !tbaa !67
+  %48 = add i64 %47, 1
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
+  %50 = icmp ugt ptr %34, %49
+  br i1 %50, label %51, label %53
 
-50:                                               ; preds = %1
-  %51 = load ptr, ptr %3, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.9, ptr noundef %51) #12
+51:                                               ; preds = %1
+  %52 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.9, ptr noundef %52) #18
   unreachable
 
-52:                                               ; preds = %1
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.yyguts_t, ptr %53, i32 0, i32 5
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.yyguts_t, ptr %56, i32 0, i32 3
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds ptr, ptr %55, i64 %58
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct.yy_buffer_state, ptr %60, i32 0, i32 10
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %78
+53:                                               ; preds = %1
+  %54 = load ptr, ptr %4, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %struct.yyguts_t, ptr %54, i32 0, i32 5
+  %56 = load ptr, ptr %55, align 8, !tbaa !27
+  %57 = load ptr, ptr %4, align 8, !tbaa !11
+  %58 = getelementptr inbounds nuw %struct.yyguts_t, ptr %57, i32 0, i32 3
+  %59 = load i64, ptr %58, align 8, !tbaa !28
+  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !29
+  %62 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %61, i32 0, i32 10
+  %63 = load i32, ptr %62, align 4, !tbaa !83
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %79
 
-64:                                               ; preds = %52
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.yyguts_t, ptr %65, i32 0, i32 9
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.yyguts_t, ptr %68, i32 0, i32 20
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %67 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = sub nsw i64 %73, 0
-  %75 = icmp eq i64 %74, 1
-  br i1 %75, label %76, label %77
+65:                                               ; preds = %53
+  %66 = load ptr, ptr %4, align 8, !tbaa !11
+  %67 = getelementptr inbounds nuw %struct.yyguts_t, ptr %66, i32 0, i32 9
+  %68 = load ptr, ptr %67, align 8, !tbaa !50
+  %69 = load ptr, ptr %4, align 8, !tbaa !11
+  %70 = getelementptr inbounds nuw %struct.yyguts_t, ptr %69, i32 0, i32 20
+  %71 = load ptr, ptr %70, align 8, !tbaa !61
+  %72 = ptrtoint ptr %68 to i64
+  %73 = ptrtoint ptr %71 to i64
+  %74 = sub i64 %72, %73
+  %75 = sub nsw i64 %74, 0
+  %76 = icmp eq i64 %75, 1
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %64
+77:                                               ; preds = %65
   store i32 1, ptr %2, align 4
-  br label %513
+  store i32 1, ptr %10, align 4
+  br label %514
 
-77:                                               ; preds = %64
+78:                                               ; preds = %65
   store i32 2, ptr %2, align 4
-  br label %513
+  store i32 1, ptr %10, align 4
+  br label %514
 
-78:                                               ; preds = %52
-  %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.yyguts_t, ptr %79, i32 0, i32 9
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.yyguts_t, ptr %82, i32 0, i32 20
-  %84 = load ptr, ptr %83, align 8
-  %85 = ptrtoint ptr %81 to i64
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %85, %86
-  %88 = sub i64 %87, 1
-  store i64 %88, ptr %7, align 8
-  store i64 0, ptr %8, align 8
-  br label %89
+79:                                               ; preds = %53
+  %80 = load ptr, ptr %4, align 8, !tbaa !11
+  %81 = getelementptr inbounds nuw %struct.yyguts_t, ptr %80, i32 0, i32 9
+  %82 = load ptr, ptr %81, align 8, !tbaa !50
+  %83 = load ptr, ptr %4, align 8, !tbaa !11
+  %84 = getelementptr inbounds nuw %struct.yyguts_t, ptr %83, i32 0, i32 20
+  %85 = load ptr, ptr %84, align 8, !tbaa !61
+  %86 = ptrtoint ptr %82 to i64
+  %87 = ptrtoint ptr %85 to i64
+  %88 = sub i64 %86, %87
+  %89 = sub i64 %88, 1
+  store i64 %89, ptr %7, align 8, !tbaa !72
+  store i64 0, ptr %8, align 8, !tbaa !72
+  br label %90
 
-89:                                               ; preds = %99, %78
-  %90 = load i64, ptr %8, align 8
-  %91 = load i64, ptr %7, align 8
-  %92 = icmp ult i64 %90, %91
-  br i1 %92, label %93, label %102
+90:                                               ; preds = %100, %79
+  %91 = load i64, ptr %8, align 8, !tbaa !72
+  %92 = load i64, ptr %7, align 8, !tbaa !72
+  %93 = icmp ult i64 %91, %92
+  br i1 %93, label %94, label %103
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i32 1
-  store ptr %95, ptr %6, align 8
-  %96 = load i8, ptr %94, align 1
-  %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i32 1
-  store ptr %98, ptr %5, align 8
-  store i8 %96, ptr %97, align 1
-  br label %99
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %6, align 8, !tbaa !51
+  %96 = getelementptr inbounds nuw i8, ptr %95, i32 1
+  store ptr %96, ptr %6, align 8, !tbaa !51
+  %97 = load i8, ptr %95, align 1, !tbaa !53
+  %98 = load ptr, ptr %5, align 8, !tbaa !51
+  %99 = getelementptr inbounds nuw i8, ptr %98, i32 1
+  store ptr %99, ptr %5, align 8, !tbaa !51
+  store i8 %97, ptr %98, align 1, !tbaa !53
+  br label %100
 
-99:                                               ; preds = %93
-  %100 = load i64, ptr %8, align 8
-  %101 = add i64 %100, 1
-  store i64 %101, ptr %8, align 8
-  br label %89, !llvm.loop !11
+100:                                              ; preds = %94
+  %101 = load i64, ptr %8, align 8, !tbaa !72
+  %102 = add i64 %101, 1
+  store i64 %102, ptr %8, align 8, !tbaa !72
+  br label %90, !llvm.loop !84
 
-102:                                              ; preds = %89
-  %103 = load ptr, ptr %4, align 8
-  %104 = getelementptr inbounds %struct.yyguts_t, ptr %103, i32 0, i32 5
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct.yyguts_t, ptr %106, i32 0, i32 3
-  %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds ptr, ptr %105, i64 %108
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %struct.yy_buffer_state, ptr %110, i32 0, i32 11
-  %112 = load i32, ptr %111, align 8
-  %113 = icmp eq i32 %112, 2
-  br i1 %113, label %114, label %126
+103:                                              ; preds = %90
+  %104 = load ptr, ptr %4, align 8, !tbaa !11
+  %105 = getelementptr inbounds nuw %struct.yyguts_t, ptr %104, i32 0, i32 5
+  %106 = load ptr, ptr %105, align 8, !tbaa !27
+  %107 = load ptr, ptr %4, align 8, !tbaa !11
+  %108 = getelementptr inbounds nuw %struct.yyguts_t, ptr %107, i32 0, i32 3
+  %109 = load i64, ptr %108, align 8, !tbaa !28
+  %110 = getelementptr inbounds nuw ptr, ptr %106, i64 %109
+  %111 = load ptr, ptr %110, align 8, !tbaa !29
+  %112 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %111, i32 0, i32 11
+  %113 = load i32, ptr %112, align 8, !tbaa !64
+  %114 = icmp eq i32 %113, 2
+  br i1 %114, label %115, label %127
 
-114:                                              ; preds = %102
-  %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds %struct.yyguts_t, ptr %115, i32 0, i32 7
-  store i64 0, ptr %116, align 8
-  %117 = load ptr, ptr %4, align 8
-  %118 = getelementptr inbounds %struct.yyguts_t, ptr %117, i32 0, i32 5
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds %struct.yyguts_t, ptr %120, i32 0, i32 3
-  %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds ptr, ptr %119, i64 %122
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds %struct.yy_buffer_state, ptr %124, i32 0, i32 4
-  store i64 0, ptr %125, align 8
-  br label %375
+115:                                              ; preds = %103
+  %116 = load ptr, ptr %4, align 8, !tbaa !11
+  %117 = getelementptr inbounds nuw %struct.yyguts_t, ptr %116, i32 0, i32 7
+  store i64 0, ptr %117, align 8, !tbaa !67
+  %118 = load ptr, ptr %4, align 8, !tbaa !11
+  %119 = getelementptr inbounds nuw %struct.yyguts_t, ptr %118, i32 0, i32 5
+  %120 = load ptr, ptr %119, align 8, !tbaa !27
+  %121 = load ptr, ptr %4, align 8, !tbaa !11
+  %122 = getelementptr inbounds nuw %struct.yyguts_t, ptr %121, i32 0, i32 3
+  %123 = load i64, ptr %122, align 8, !tbaa !28
+  %124 = getelementptr inbounds nuw ptr, ptr %120, i64 %123
+  %125 = load ptr, ptr %124, align 8, !tbaa !29
+  %126 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %125, i32 0, i32 4
+  store i64 0, ptr %126, align 8, !tbaa !66
+  br label %376
 
-126:                                              ; preds = %102
-  %127 = load ptr, ptr %4, align 8
-  %128 = getelementptr inbounds %struct.yyguts_t, ptr %127, i32 0, i32 5
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds %struct.yyguts_t, ptr %130, i32 0, i32 3
-  %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds ptr, ptr %129, i64 %132
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds %struct.yy_buffer_state, ptr %134, i32 0, i32 3
-  %136 = load i64, ptr %135, align 8
-  %137 = load i64, ptr %7, align 8
-  %138 = sub i64 %136, %137
-  %139 = sub i64 %138, 1
-  store i64 %139, ptr %10, align 8
-  br label %140
+127:                                              ; preds = %103
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #17
+  %128 = load ptr, ptr %4, align 8, !tbaa !11
+  %129 = getelementptr inbounds nuw %struct.yyguts_t, ptr %128, i32 0, i32 5
+  %130 = load ptr, ptr %129, align 8, !tbaa !27
+  %131 = load ptr, ptr %4, align 8, !tbaa !11
+  %132 = getelementptr inbounds nuw %struct.yyguts_t, ptr %131, i32 0, i32 3
+  %133 = load i64, ptr %132, align 8, !tbaa !28
+  %134 = getelementptr inbounds nuw ptr, ptr %130, i64 %133
+  %135 = load ptr, ptr %134, align 8, !tbaa !29
+  %136 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %135, i32 0, i32 3
+  %137 = load i64, ptr %136, align 8, !tbaa !74
+  %138 = load i64, ptr %7, align 8, !tbaa !72
+  %139 = sub i64 %137, %138
+  %140 = sub i64 %139, 1
+  store i64 %140, ptr %11, align 8, !tbaa !72
+  br label %141
 
-140:                                              ; preds = %209, %126
-  %141 = load i64, ptr %10, align 8
-  %142 = icmp ule i64 %141, 0
-  br i1 %142, label %143, label %231
+141:                                              ; preds = %210, %127
+  %142 = load i64, ptr %11, align 8, !tbaa !72
+  %143 = icmp ule i64 %142, 0
+  br i1 %143, label %144, label %232
 
-143:                                              ; preds = %140
-  %144 = load ptr, ptr %4, align 8
-  %145 = getelementptr inbounds %struct.yyguts_t, ptr %144, i32 0, i32 5
-  %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr %4, align 8
-  %148 = getelementptr inbounds %struct.yyguts_t, ptr %147, i32 0, i32 3
-  %149 = load i64, ptr %148, align 8
-  %150 = getelementptr inbounds ptr, ptr %146, i64 %149
-  %151 = load ptr, ptr %150, align 8
-  store ptr %151, ptr %11, align 8
-  %152 = load ptr, ptr %4, align 8
-  %153 = getelementptr inbounds %struct.yyguts_t, ptr %152, i32 0, i32 9
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %11, align 8
-  %156 = getelementptr inbounds %struct.yy_buffer_state, ptr %155, i32 0, i32 1
-  %157 = load ptr, ptr %156, align 8
-  %158 = ptrtoint ptr %154 to i64
-  %159 = ptrtoint ptr %157 to i64
-  %160 = sub i64 %158, %159
-  %161 = trunc i64 %160 to i32
-  store i32 %161, ptr %12, align 4
-  %162 = load ptr, ptr %11, align 8
-  %163 = getelementptr inbounds %struct.yy_buffer_state, ptr %162, i32 0, i32 5
-  %164 = load i32, ptr %163, align 8
-  %165 = icmp ne i32 %164, 0
-  br i1 %165, label %166, label %199
+144:                                              ; preds = %141
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #17
+  %145 = load ptr, ptr %4, align 8, !tbaa !11
+  %146 = getelementptr inbounds nuw %struct.yyguts_t, ptr %145, i32 0, i32 5
+  %147 = load ptr, ptr %146, align 8, !tbaa !27
+  %148 = load ptr, ptr %4, align 8, !tbaa !11
+  %149 = getelementptr inbounds nuw %struct.yyguts_t, ptr %148, i32 0, i32 3
+  %150 = load i64, ptr %149, align 8, !tbaa !28
+  %151 = getelementptr inbounds nuw ptr, ptr %147, i64 %150
+  %152 = load ptr, ptr %151, align 8, !tbaa !29
+  store ptr %152, ptr %12, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #17
+  %153 = load ptr, ptr %4, align 8, !tbaa !11
+  %154 = getelementptr inbounds nuw %struct.yyguts_t, ptr %153, i32 0, i32 9
+  %155 = load ptr, ptr %154, align 8, !tbaa !50
+  %156 = load ptr, ptr %12, align 8, !tbaa !29
+  %157 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8, !tbaa !69
+  %159 = ptrtoint ptr %155 to i64
+  %160 = ptrtoint ptr %158 to i64
+  %161 = sub i64 %159, %160
+  %162 = trunc i64 %161 to i32
+  store i32 %162, ptr %13, align 4, !tbaa !32
+  %163 = load ptr, ptr %12, align 8, !tbaa !29
+  %164 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %163, i32 0, i32 5
+  %165 = load i32, ptr %164, align 8, !tbaa !75
+  %166 = icmp ne i32 %165, 0
+  br i1 %166, label %167, label %200
 
-166:                                              ; preds = %143
-  %167 = load ptr, ptr %11, align 8
-  %168 = getelementptr inbounds %struct.yy_buffer_state, ptr %167, i32 0, i32 3
-  %169 = load i64, ptr %168, align 8
-  %170 = mul i64 %169, 2
-  store i64 %170, ptr %13, align 8
-  %171 = load i64, ptr %13, align 8
-  %172 = icmp ule i64 %171, 0
-  br i1 %172, label %173, label %182
+167:                                              ; preds = %144
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #17
+  %168 = load ptr, ptr %12, align 8, !tbaa !29
+  %169 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %168, i32 0, i32 3
+  %170 = load i64, ptr %169, align 8, !tbaa !74
+  %171 = mul i64 %170, 2
+  store i64 %171, ptr %14, align 8, !tbaa !72
+  %172 = load i64, ptr %14, align 8, !tbaa !72
+  %173 = icmp ule i64 %172, 0
+  br i1 %173, label %174, label %183
 
-173:                                              ; preds = %166
-  %174 = load ptr, ptr %11, align 8
-  %175 = getelementptr inbounds %struct.yy_buffer_state, ptr %174, i32 0, i32 3
-  %176 = load i64, ptr %175, align 8
-  %177 = udiv i64 %176, 8
-  %178 = load ptr, ptr %11, align 8
-  %179 = getelementptr inbounds %struct.yy_buffer_state, ptr %178, i32 0, i32 3
-  %180 = load i64, ptr %179, align 8
-  %181 = add i64 %180, %177
-  store i64 %181, ptr %179, align 8
-  br label %187
+174:                                              ; preds = %167
+  %175 = load ptr, ptr %12, align 8, !tbaa !29
+  %176 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %175, i32 0, i32 3
+  %177 = load i64, ptr %176, align 8, !tbaa !74
+  %178 = udiv i64 %177, 8
+  %179 = load ptr, ptr %12, align 8, !tbaa !29
+  %180 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %179, i32 0, i32 3
+  %181 = load i64, ptr %180, align 8, !tbaa !74
+  %182 = add i64 %181, %178
+  store i64 %182, ptr %180, align 8, !tbaa !74
+  br label %188
 
-182:                                              ; preds = %166
-  %183 = load ptr, ptr %11, align 8
-  %184 = getelementptr inbounds %struct.yy_buffer_state, ptr %183, i32 0, i32 3
-  %185 = load i64, ptr %184, align 8
-  %186 = mul i64 %185, 2
-  store i64 %186, ptr %184, align 8
-  br label %187
+183:                                              ; preds = %167
+  %184 = load ptr, ptr %12, align 8, !tbaa !29
+  %185 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %184, i32 0, i32 3
+  %186 = load i64, ptr %185, align 8, !tbaa !74
+  %187 = mul i64 %186, 2
+  store i64 %187, ptr %185, align 8, !tbaa !74
+  br label %188
 
-187:                                              ; preds = %182, %173
-  %188 = load ptr, ptr %11, align 8
-  %189 = getelementptr inbounds %struct.yy_buffer_state, ptr %188, i32 0, i32 1
-  %190 = load ptr, ptr %189, align 8
-  %191 = load ptr, ptr %11, align 8
-  %192 = getelementptr inbounds %struct.yy_buffer_state, ptr %191, i32 0, i32 3
-  %193 = load i64, ptr %192, align 8
-  %194 = add i64 %193, 2
-  %195 = load ptr, ptr %3, align 8
-  %196 = call noundef ptr @_Z18_gmx_sel_yyreallocPvmS_(ptr noundef %190, i64 noundef %194, ptr noundef %195)
-  %197 = load ptr, ptr %11, align 8
-  %198 = getelementptr inbounds %struct.yy_buffer_state, ptr %197, i32 0, i32 1
-  store ptr %196, ptr %198, align 8
-  br label %202
+188:                                              ; preds = %183, %174
+  %189 = load ptr, ptr %12, align 8, !tbaa !29
+  %190 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %189, i32 0, i32 1
+  %191 = load ptr, ptr %190, align 8, !tbaa !69
+  %192 = load ptr, ptr %12, align 8, !tbaa !29
+  %193 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %192, i32 0, i32 3
+  %194 = load i64, ptr %193, align 8, !tbaa !74
+  %195 = add i64 %194, 2
+  %196 = load ptr, ptr %3, align 8, !tbaa !10
+  %197 = call noundef ptr @_Z18_gmx_sel_yyreallocPvmS_(ptr noundef %191, i64 noundef %195, ptr noundef %196)
+  %198 = load ptr, ptr %12, align 8, !tbaa !29
+  %199 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %198, i32 0, i32 1
+  store ptr %197, ptr %199, align 8, !tbaa !69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #17
+  br label %203
 
-199:                                              ; preds = %143
-  %200 = load ptr, ptr %11, align 8
-  %201 = getelementptr inbounds %struct.yy_buffer_state, ptr %200, i32 0, i32 1
-  store ptr null, ptr %201, align 8
-  br label %202
+200:                                              ; preds = %144
+  %201 = load ptr, ptr %12, align 8, !tbaa !29
+  %202 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %201, i32 0, i32 1
+  store ptr null, ptr %202, align 8, !tbaa !69
+  br label %203
 
-202:                                              ; preds = %199, %187
-  %203 = load ptr, ptr %11, align 8
-  %204 = getelementptr inbounds %struct.yy_buffer_state, ptr %203, i32 0, i32 1
-  %205 = load ptr, ptr %204, align 8
-  %206 = icmp ne ptr %205, null
-  br i1 %206, label %209, label %207
+203:                                              ; preds = %200, %188
+  %204 = load ptr, ptr %12, align 8, !tbaa !29
+  %205 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %204, i32 0, i32 1
+  %206 = load ptr, ptr %205, align 8, !tbaa !69
+  %207 = icmp ne ptr %206, null
+  br i1 %207, label %210, label %208
 
-207:                                              ; preds = %202
-  %208 = load ptr, ptr %3, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.10, ptr noundef %208) #12
+208:                                              ; preds = %203
+  %209 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.10, ptr noundef %209) #18
   unreachable
 
-209:                                              ; preds = %202
-  %210 = load ptr, ptr %11, align 8
-  %211 = getelementptr inbounds %struct.yy_buffer_state, ptr %210, i32 0, i32 1
-  %212 = load ptr, ptr %211, align 8
-  %213 = load i32, ptr %12, align 4
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i8, ptr %212, i64 %214
-  %216 = load ptr, ptr %4, align 8
-  %217 = getelementptr inbounds %struct.yyguts_t, ptr %216, i32 0, i32 9
-  store ptr %215, ptr %217, align 8
-  %218 = load ptr, ptr %4, align 8
-  %219 = getelementptr inbounds %struct.yyguts_t, ptr %218, i32 0, i32 5
-  %220 = load ptr, ptr %219, align 8
-  %221 = load ptr, ptr %4, align 8
-  %222 = getelementptr inbounds %struct.yyguts_t, ptr %221, i32 0, i32 3
-  %223 = load i64, ptr %222, align 8
-  %224 = getelementptr inbounds ptr, ptr %220, i64 %223
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds %struct.yy_buffer_state, ptr %225, i32 0, i32 3
-  %227 = load i64, ptr %226, align 8
-  %228 = load i64, ptr %7, align 8
-  %229 = sub i64 %227, %228
-  %230 = sub i64 %229, 1
-  store i64 %230, ptr %10, align 8
-  br label %140, !llvm.loop !12
+210:                                              ; preds = %203
+  %211 = load ptr, ptr %12, align 8, !tbaa !29
+  %212 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %211, i32 0, i32 1
+  %213 = load ptr, ptr %212, align 8, !tbaa !69
+  %214 = load i32, ptr %13, align 4, !tbaa !32
+  %215 = sext i32 %214 to i64
+  %216 = getelementptr inbounds i8, ptr %213, i64 %215
+  %217 = load ptr, ptr %4, align 8, !tbaa !11
+  %218 = getelementptr inbounds nuw %struct.yyguts_t, ptr %217, i32 0, i32 9
+  store ptr %216, ptr %218, align 8, !tbaa !50
+  %219 = load ptr, ptr %4, align 8, !tbaa !11
+  %220 = getelementptr inbounds nuw %struct.yyguts_t, ptr %219, i32 0, i32 5
+  %221 = load ptr, ptr %220, align 8, !tbaa !27
+  %222 = load ptr, ptr %4, align 8, !tbaa !11
+  %223 = getelementptr inbounds nuw %struct.yyguts_t, ptr %222, i32 0, i32 3
+  %224 = load i64, ptr %223, align 8, !tbaa !28
+  %225 = getelementptr inbounds nuw ptr, ptr %221, i64 %224
+  %226 = load ptr, ptr %225, align 8, !tbaa !29
+  %227 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %226, i32 0, i32 3
+  %228 = load i64, ptr %227, align 8, !tbaa !74
+  %229 = load i64, ptr %7, align 8, !tbaa !72
+  %230 = sub i64 %228, %229
+  %231 = sub i64 %230, 1
+  store i64 %231, ptr %11, align 8, !tbaa !72
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #17
+  br label %141, !llvm.loop !85
 
-231:                                              ; preds = %140
-  %232 = load i64, ptr %10, align 8
-  %233 = icmp ugt i64 %232, 8192
-  br i1 %233, label %234, label %235
+232:                                              ; preds = %141
+  %233 = load i64, ptr %11, align 8, !tbaa !72
+  %234 = icmp ugt i64 %233, 8192
+  br i1 %234, label %235, label %236
 
-234:                                              ; preds = %231
-  store i64 8192, ptr %10, align 8
-  br label %235
+235:                                              ; preds = %232
+  store i64 8192, ptr %11, align 8, !tbaa !72
+  br label %236
 
-235:                                              ; preds = %234, %231
-  %236 = load ptr, ptr %4, align 8
-  %237 = getelementptr inbounds %struct.yyguts_t, ptr %236, i32 0, i32 5
-  %238 = load ptr, ptr %237, align 8
-  %239 = load ptr, ptr %4, align 8
-  %240 = getelementptr inbounds %struct.yyguts_t, ptr %239, i32 0, i32 3
-  %241 = load i64, ptr %240, align 8
-  %242 = getelementptr inbounds ptr, ptr %238, i64 %241
-  %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds %struct.yy_buffer_state, ptr %243, i32 0, i32 6
-  %245 = load i32, ptr %244, align 4
-  %246 = icmp ne i32 %245, 0
-  br i1 %246, label %247, label %319
+236:                                              ; preds = %235, %232
+  %237 = load ptr, ptr %4, align 8, !tbaa !11
+  %238 = getelementptr inbounds nuw %struct.yyguts_t, ptr %237, i32 0, i32 5
+  %239 = load ptr, ptr %238, align 8, !tbaa !27
+  %240 = load ptr, ptr %4, align 8, !tbaa !11
+  %241 = getelementptr inbounds nuw %struct.yyguts_t, ptr %240, i32 0, i32 3
+  %242 = load i64, ptr %241, align 8, !tbaa !28
+  %243 = getelementptr inbounds nuw ptr, ptr %239, i64 %242
+  %244 = load ptr, ptr %243, align 8, !tbaa !29
+  %245 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %244, i32 0, i32 6
+  %246 = load i32, ptr %245, align 4, !tbaa !86
+  %247 = icmp ne i32 %246, 0
+  br i1 %247, label %248, label %320
 
-247:                                              ; preds = %235
-  store i32 42, ptr %14, align 4
-  store i64 0, ptr %15, align 8
-  br label %248
+248:                                              ; preds = %236
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #17
+  store i32 42, ptr %15, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #17
+  store i64 0, ptr %16, align 8, !tbaa !72
+  br label %249
 
-248:                                              ; preds = %280, %247
-  %249 = load i64, ptr %15, align 8
-  %250 = load i64, ptr %10, align 8
-  %251 = icmp ult i64 %249, %250
-  br i1 %251, label %252, label %261
+249:                                              ; preds = %281, %248
+  %250 = load i64, ptr %16, align 8, !tbaa !72
+  %251 = load i64, ptr %11, align 8, !tbaa !72
+  %252 = icmp ult i64 %250, %251
+  br i1 %252, label %253, label %262
 
-252:                                              ; preds = %248
-  %253 = load ptr, ptr %4, align 8
-  %254 = getelementptr inbounds %struct.yyguts_t, ptr %253, i32 0, i32 1
-  %255 = load ptr, ptr %254, align 8
-  %256 = call i32 @getc(ptr noundef %255)
-  store i32 %256, ptr %14, align 4
-  %257 = icmp ne i32 %256, -1
-  br i1 %257, label %258, label %261
+253:                                              ; preds = %249
+  %254 = load ptr, ptr %4, align 8, !tbaa !11
+  %255 = getelementptr inbounds nuw %struct.yyguts_t, ptr %254, i32 0, i32 1
+  %256 = load ptr, ptr %255, align 8, !tbaa !24
+  %257 = call i32 @getc(ptr noundef %256)
+  store i32 %257, ptr %15, align 4, !tbaa !32
+  %258 = icmp ne i32 %257, -1
+  br i1 %258, label %259, label %262
 
-258:                                              ; preds = %252
-  %259 = load i32, ptr %14, align 4
-  %260 = icmp ne i32 %259, 10
-  br label %261
+259:                                              ; preds = %253
+  %260 = load i32, ptr %15, align 4, !tbaa !32
+  %261 = icmp ne i32 %260, 10
+  br label %262
 
-261:                                              ; preds = %258, %252, %248
-  %262 = phi i1 [ false, %252 ], [ false, %248 ], [ %260, %258 ]
-  br i1 %262, label %263, label %283
+262:                                              ; preds = %259, %253, %249
+  %263 = phi i1 [ false, %253 ], [ false, %249 ], [ %261, %259 ]
+  br i1 %263, label %264, label %284
 
-263:                                              ; preds = %261
-  %264 = load i32, ptr %14, align 4
-  %265 = trunc i32 %264 to i8
-  %266 = load ptr, ptr %4, align 8
-  %267 = getelementptr inbounds %struct.yyguts_t, ptr %266, i32 0, i32 5
-  %268 = load ptr, ptr %267, align 8
-  %269 = load ptr, ptr %4, align 8
-  %270 = getelementptr inbounds %struct.yyguts_t, ptr %269, i32 0, i32 3
-  %271 = load i64, ptr %270, align 8
-  %272 = getelementptr inbounds ptr, ptr %268, i64 %271
-  %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds %struct.yy_buffer_state, ptr %273, i32 0, i32 1
-  %275 = load ptr, ptr %274, align 8
-  %276 = load i64, ptr %7, align 8
-  %277 = getelementptr inbounds i8, ptr %275, i64 %276
-  %278 = load i64, ptr %15, align 8
-  %279 = getelementptr inbounds i8, ptr %277, i64 %278
-  store i8 %265, ptr %279, align 1
-  br label %280
+264:                                              ; preds = %262
+  %265 = load i32, ptr %15, align 4, !tbaa !32
+  %266 = trunc i32 %265 to i8
+  %267 = load ptr, ptr %4, align 8, !tbaa !11
+  %268 = getelementptr inbounds nuw %struct.yyguts_t, ptr %267, i32 0, i32 5
+  %269 = load ptr, ptr %268, align 8, !tbaa !27
+  %270 = load ptr, ptr %4, align 8, !tbaa !11
+  %271 = getelementptr inbounds nuw %struct.yyguts_t, ptr %270, i32 0, i32 3
+  %272 = load i64, ptr %271, align 8, !tbaa !28
+  %273 = getelementptr inbounds nuw ptr, ptr %269, i64 %272
+  %274 = load ptr, ptr %273, align 8, !tbaa !29
+  %275 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %274, i32 0, i32 1
+  %276 = load ptr, ptr %275, align 8, !tbaa !69
+  %277 = load i64, ptr %7, align 8, !tbaa !72
+  %278 = getelementptr inbounds nuw i8, ptr %276, i64 %277
+  %279 = load i64, ptr %16, align 8, !tbaa !72
+  %280 = getelementptr inbounds nuw i8, ptr %278, i64 %279
+  store i8 %266, ptr %280, align 1, !tbaa !53
+  br label %281
 
-280:                                              ; preds = %263
-  %281 = load i64, ptr %15, align 8
-  %282 = add i64 %281, 1
-  store i64 %282, ptr %15, align 8
-  br label %248, !llvm.loop !13
+281:                                              ; preds = %264
+  %282 = load i64, ptr %16, align 8, !tbaa !72
+  %283 = add i64 %282, 1
+  store i64 %283, ptr %16, align 8, !tbaa !72
+  br label %249, !llvm.loop !87
 
-283:                                              ; preds = %261
-  %284 = load i32, ptr %14, align 4
-  %285 = icmp eq i32 %284, 10
-  br i1 %285, label %286, label %304
+284:                                              ; preds = %262
+  %285 = load i32, ptr %15, align 4, !tbaa !32
+  %286 = icmp eq i32 %285, 10
+  br i1 %286, label %287, label %305
 
-286:                                              ; preds = %283
-  %287 = load i32, ptr %14, align 4
-  %288 = trunc i32 %287 to i8
-  %289 = load ptr, ptr %4, align 8
-  %290 = getelementptr inbounds %struct.yyguts_t, ptr %289, i32 0, i32 5
-  %291 = load ptr, ptr %290, align 8
-  %292 = load ptr, ptr %4, align 8
-  %293 = getelementptr inbounds %struct.yyguts_t, ptr %292, i32 0, i32 3
-  %294 = load i64, ptr %293, align 8
-  %295 = getelementptr inbounds ptr, ptr %291, i64 %294
-  %296 = load ptr, ptr %295, align 8
-  %297 = getelementptr inbounds %struct.yy_buffer_state, ptr %296, i32 0, i32 1
-  %298 = load ptr, ptr %297, align 8
-  %299 = load i64, ptr %7, align 8
-  %300 = getelementptr inbounds i8, ptr %298, i64 %299
-  %301 = load i64, ptr %15, align 8
-  %302 = add i64 %301, 1
-  store i64 %302, ptr %15, align 8
-  %303 = getelementptr inbounds i8, ptr %300, i64 %301
-  store i8 %288, ptr %303, align 1
-  br label %304
+287:                                              ; preds = %284
+  %288 = load i32, ptr %15, align 4, !tbaa !32
+  %289 = trunc i32 %288 to i8
+  %290 = load ptr, ptr %4, align 8, !tbaa !11
+  %291 = getelementptr inbounds nuw %struct.yyguts_t, ptr %290, i32 0, i32 5
+  %292 = load ptr, ptr %291, align 8, !tbaa !27
+  %293 = load ptr, ptr %4, align 8, !tbaa !11
+  %294 = getelementptr inbounds nuw %struct.yyguts_t, ptr %293, i32 0, i32 3
+  %295 = load i64, ptr %294, align 8, !tbaa !28
+  %296 = getelementptr inbounds nuw ptr, ptr %292, i64 %295
+  %297 = load ptr, ptr %296, align 8, !tbaa !29
+  %298 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %297, i32 0, i32 1
+  %299 = load ptr, ptr %298, align 8, !tbaa !69
+  %300 = load i64, ptr %7, align 8, !tbaa !72
+  %301 = getelementptr inbounds nuw i8, ptr %299, i64 %300
+  %302 = load i64, ptr %16, align 8, !tbaa !72
+  %303 = add i64 %302, 1
+  store i64 %303, ptr %16, align 8, !tbaa !72
+  %304 = getelementptr inbounds nuw i8, ptr %301, i64 %302
+  store i8 %289, ptr %304, align 1, !tbaa !53
+  br label %305
 
-304:                                              ; preds = %286, %283
-  %305 = load i32, ptr %14, align 4
-  %306 = icmp eq i32 %305, -1
-  br i1 %306, label %307, label %315
+305:                                              ; preds = %287, %284
+  %306 = load i32, ptr %15, align 4, !tbaa !32
+  %307 = icmp eq i32 %306, -1
+  br i1 %307, label %308, label %316
 
-307:                                              ; preds = %304
-  %308 = load ptr, ptr %4, align 8
-  %309 = getelementptr inbounds %struct.yyguts_t, ptr %308, i32 0, i32 1
-  %310 = load ptr, ptr %309, align 8
-  %311 = call i32 @ferror(ptr noundef %310) #11
-  %312 = icmp ne i32 %311, 0
-  br i1 %312, label %313, label %315
+308:                                              ; preds = %305
+  %309 = load ptr, ptr %4, align 8, !tbaa !11
+  %310 = getelementptr inbounds nuw %struct.yyguts_t, ptr %309, i32 0, i32 1
+  %311 = load ptr, ptr %310, align 8, !tbaa !24
+  %312 = call i32 @ferror(ptr noundef %311) #17
+  %313 = icmp ne i32 %312, 0
+  br i1 %313, label %314, label %316
 
-313:                                              ; preds = %307
-  %314 = load ptr, ptr %3, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.11, ptr noundef %314) #12
+314:                                              ; preds = %308
+  %315 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.11, ptr noundef %315) #18
   unreachable
 
-315:                                              ; preds = %307, %304
-  %316 = load i64, ptr %15, align 8
-  %317 = load ptr, ptr %4, align 8
-  %318 = getelementptr inbounds %struct.yyguts_t, ptr %317, i32 0, i32 7
-  store i64 %316, ptr %318, align 8
-  br label %362
+316:                                              ; preds = %308, %305
+  %317 = load i64, ptr %16, align 8, !tbaa !72
+  %318 = load ptr, ptr %4, align 8, !tbaa !11
+  %319 = getelementptr inbounds nuw %struct.yyguts_t, ptr %318, i32 0, i32 7
+  store i64 %317, ptr %319, align 8, !tbaa !67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #17
+  br label %363
 
-319:                                              ; preds = %235
-  %320 = call ptr @__errno_location() #14
-  store i32 0, ptr %320, align 4
-  br label %321
+320:                                              ; preds = %236
+  %321 = call ptr @__errno_location() #20
+  store i32 0, ptr %321, align 4, !tbaa !32
+  br label %322
 
-321:                                              ; preds = %356, %319
-  %322 = load ptr, ptr %4, align 8
-  %323 = getelementptr inbounds %struct.yyguts_t, ptr %322, i32 0, i32 5
-  %324 = load ptr, ptr %323, align 8
-  %325 = load ptr, ptr %4, align 8
-  %326 = getelementptr inbounds %struct.yyguts_t, ptr %325, i32 0, i32 3
-  %327 = load i64, ptr %326, align 8
-  %328 = getelementptr inbounds ptr, ptr %324, i64 %327
-  %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds %struct.yy_buffer_state, ptr %329, i32 0, i32 1
-  %331 = load ptr, ptr %330, align 8
-  %332 = load i64, ptr %7, align 8
-  %333 = getelementptr inbounds i8, ptr %331, i64 %332
-  %334 = load i64, ptr %10, align 8
-  %335 = load ptr, ptr %4, align 8
-  %336 = getelementptr inbounds %struct.yyguts_t, ptr %335, i32 0, i32 1
-  %337 = load ptr, ptr %336, align 8
-  %338 = call i64 @fread(ptr noundef %333, i64 noundef 1, i64 noundef %334, ptr noundef %337)
-  %339 = load ptr, ptr %4, align 8
-  %340 = getelementptr inbounds %struct.yyguts_t, ptr %339, i32 0, i32 7
-  store i64 %338, ptr %340, align 8
-  %341 = icmp eq i64 %338, 0
-  br i1 %341, label %342, label %348
+322:                                              ; preds = %357, %320
+  %323 = load ptr, ptr %4, align 8, !tbaa !11
+  %324 = getelementptr inbounds nuw %struct.yyguts_t, ptr %323, i32 0, i32 5
+  %325 = load ptr, ptr %324, align 8, !tbaa !27
+  %326 = load ptr, ptr %4, align 8, !tbaa !11
+  %327 = getelementptr inbounds nuw %struct.yyguts_t, ptr %326, i32 0, i32 3
+  %328 = load i64, ptr %327, align 8, !tbaa !28
+  %329 = getelementptr inbounds nuw ptr, ptr %325, i64 %328
+  %330 = load ptr, ptr %329, align 8, !tbaa !29
+  %331 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %330, i32 0, i32 1
+  %332 = load ptr, ptr %331, align 8, !tbaa !69
+  %333 = load i64, ptr %7, align 8, !tbaa !72
+  %334 = getelementptr inbounds nuw i8, ptr %332, i64 %333
+  %335 = load i64, ptr %11, align 8, !tbaa !72
+  %336 = load ptr, ptr %4, align 8, !tbaa !11
+  %337 = getelementptr inbounds nuw %struct.yyguts_t, ptr %336, i32 0, i32 1
+  %338 = load ptr, ptr %337, align 8, !tbaa !24
+  %339 = call i64 @fread(ptr noundef %334, i64 noundef 1, i64 noundef %335, ptr noundef %338)
+  %340 = load ptr, ptr %4, align 8, !tbaa !11
+  %341 = getelementptr inbounds nuw %struct.yyguts_t, ptr %340, i32 0, i32 7
+  store i64 %339, ptr %341, align 8, !tbaa !67
+  %342 = icmp eq i64 %339, 0
+  br i1 %342, label %343, label %349
 
-342:                                              ; preds = %321
-  %343 = load ptr, ptr %4, align 8
-  %344 = getelementptr inbounds %struct.yyguts_t, ptr %343, i32 0, i32 1
-  %345 = load ptr, ptr %344, align 8
-  %346 = call i32 @ferror(ptr noundef %345) #11
-  %347 = icmp ne i32 %346, 0
-  br label %348
+343:                                              ; preds = %322
+  %344 = load ptr, ptr %4, align 8, !tbaa !11
+  %345 = getelementptr inbounds nuw %struct.yyguts_t, ptr %344, i32 0, i32 1
+  %346 = load ptr, ptr %345, align 8, !tbaa !24
+  %347 = call i32 @ferror(ptr noundef %346) #17
+  %348 = icmp ne i32 %347, 0
+  br label %349
 
-348:                                              ; preds = %342, %321
-  %349 = phi i1 [ false, %321 ], [ %347, %342 ]
-  br i1 %349, label %350, label %361
+349:                                              ; preds = %343, %322
+  %350 = phi i1 [ false, %322 ], [ %348, %343 ]
+  br i1 %350, label %351, label %362
 
-350:                                              ; preds = %348
-  %351 = call ptr @__errno_location() #14
-  %352 = load i32, ptr %351, align 4
-  %353 = icmp ne i32 %352, 4
-  br i1 %353, label %354, label %356
+351:                                              ; preds = %349
+  %352 = call ptr @__errno_location() #20
+  %353 = load i32, ptr %352, align 4, !tbaa !32
+  %354 = icmp ne i32 %353, 4
+  br i1 %354, label %355, label %357
 
-354:                                              ; preds = %350
-  %355 = load ptr, ptr %3, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.11, ptr noundef %355) #12
+355:                                              ; preds = %351
+  %356 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.11, ptr noundef %356) #18
   unreachable
 
-356:                                              ; preds = %350
-  %357 = call ptr @__errno_location() #14
-  store i32 0, ptr %357, align 4
-  %358 = load ptr, ptr %4, align 8
-  %359 = getelementptr inbounds %struct.yyguts_t, ptr %358, i32 0, i32 1
-  %360 = load ptr, ptr %359, align 8
-  call void @clearerr(ptr noundef %360) #11
-  br label %321, !llvm.loop !14
+357:                                              ; preds = %351
+  %358 = call ptr @__errno_location() #20
+  store i32 0, ptr %358, align 4, !tbaa !32
+  %359 = load ptr, ptr %4, align 8, !tbaa !11
+  %360 = getelementptr inbounds nuw %struct.yyguts_t, ptr %359, i32 0, i32 1
+  %361 = load ptr, ptr %360, align 8, !tbaa !24
+  call void @clearerr(ptr noundef %361) #17
+  br label %322, !llvm.loop !88
 
-361:                                              ; preds = %348
-  br label %362
+362:                                              ; preds = %349
+  br label %363
 
-362:                                              ; preds = %361, %315
-  %363 = load ptr, ptr %4, align 8
-  %364 = getelementptr inbounds %struct.yyguts_t, ptr %363, i32 0, i32 7
-  %365 = load i64, ptr %364, align 8
-  %366 = load ptr, ptr %4, align 8
-  %367 = getelementptr inbounds %struct.yyguts_t, ptr %366, i32 0, i32 5
-  %368 = load ptr, ptr %367, align 8
-  %369 = load ptr, ptr %4, align 8
-  %370 = getelementptr inbounds %struct.yyguts_t, ptr %369, i32 0, i32 3
-  %371 = load i64, ptr %370, align 8
-  %372 = getelementptr inbounds ptr, ptr %368, i64 %371
-  %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds %struct.yy_buffer_state, ptr %373, i32 0, i32 4
-  store i64 %365, ptr %374, align 8
-  br label %375
+363:                                              ; preds = %362, %316
+  %364 = load ptr, ptr %4, align 8, !tbaa !11
+  %365 = getelementptr inbounds nuw %struct.yyguts_t, ptr %364, i32 0, i32 7
+  %366 = load i64, ptr %365, align 8, !tbaa !67
+  %367 = load ptr, ptr %4, align 8, !tbaa !11
+  %368 = getelementptr inbounds nuw %struct.yyguts_t, ptr %367, i32 0, i32 5
+  %369 = load ptr, ptr %368, align 8, !tbaa !27
+  %370 = load ptr, ptr %4, align 8, !tbaa !11
+  %371 = getelementptr inbounds nuw %struct.yyguts_t, ptr %370, i32 0, i32 3
+  %372 = load i64, ptr %371, align 8, !tbaa !28
+  %373 = getelementptr inbounds nuw ptr, ptr %369, i64 %372
+  %374 = load ptr, ptr %373, align 8, !tbaa !29
+  %375 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %374, i32 0, i32 4
+  store i64 %366, ptr %375, align 8, !tbaa !66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #17
+  br label %376
 
-375:                                              ; preds = %362, %114
-  %376 = load ptr, ptr %4, align 8
-  %377 = getelementptr inbounds %struct.yyguts_t, ptr %376, i32 0, i32 7
-  %378 = load i64, ptr %377, align 8
-  %379 = icmp eq i64 %378, 0
-  br i1 %379, label %380, label %399
+376:                                              ; preds = %363, %115
+  %377 = load ptr, ptr %4, align 8, !tbaa !11
+  %378 = getelementptr inbounds nuw %struct.yyguts_t, ptr %377, i32 0, i32 7
+  %379 = load i64, ptr %378, align 8, !tbaa !67
+  %380 = icmp eq i64 %379, 0
+  br i1 %380, label %381, label %400
 
-380:                                              ; preds = %375
-  %381 = load i64, ptr %7, align 8
-  %382 = icmp eq i64 %381, 0
-  br i1 %382, label %383, label %388
+381:                                              ; preds = %376
+  %382 = load i64, ptr %7, align 8, !tbaa !72
+  %383 = icmp eq i64 %382, 0
+  br i1 %383, label %384, label %389
 
-383:                                              ; preds = %380
-  store i32 1, ptr %9, align 4
-  %384 = load ptr, ptr %4, align 8
-  %385 = getelementptr inbounds %struct.yyguts_t, ptr %384, i32 0, i32 1
-  %386 = load ptr, ptr %385, align 8
-  %387 = load ptr, ptr %3, align 8
-  call void @_Z18_gmx_sel_yyrestartP8_IO_FILEPv(ptr noundef %386, ptr noundef %387)
-  br label %398
+384:                                              ; preds = %381
+  store i32 1, ptr %9, align 4, !tbaa !32
+  %385 = load ptr, ptr %4, align 8, !tbaa !11
+  %386 = getelementptr inbounds nuw %struct.yyguts_t, ptr %385, i32 0, i32 1
+  %387 = load ptr, ptr %386, align 8, !tbaa !24
+  %388 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @_Z18_gmx_sel_yyrestartP8_IO_FILEPv(ptr noundef %387, ptr noundef %388)
+  br label %399
 
-388:                                              ; preds = %380
-  store i32 2, ptr %9, align 4
-  %389 = load ptr, ptr %4, align 8
-  %390 = getelementptr inbounds %struct.yyguts_t, ptr %389, i32 0, i32 5
-  %391 = load ptr, ptr %390, align 8
-  %392 = load ptr, ptr %4, align 8
-  %393 = getelementptr inbounds %struct.yyguts_t, ptr %392, i32 0, i32 3
-  %394 = load i64, ptr %393, align 8
-  %395 = getelementptr inbounds ptr, ptr %391, i64 %394
-  %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr inbounds %struct.yy_buffer_state, ptr %396, i32 0, i32 11
-  store i32 2, ptr %397, align 8
-  br label %398
+389:                                              ; preds = %381
+  store i32 2, ptr %9, align 4, !tbaa !32
+  %390 = load ptr, ptr %4, align 8, !tbaa !11
+  %391 = getelementptr inbounds nuw %struct.yyguts_t, ptr %390, i32 0, i32 5
+  %392 = load ptr, ptr %391, align 8, !tbaa !27
+  %393 = load ptr, ptr %4, align 8, !tbaa !11
+  %394 = getelementptr inbounds nuw %struct.yyguts_t, ptr %393, i32 0, i32 3
+  %395 = load i64, ptr %394, align 8, !tbaa !28
+  %396 = getelementptr inbounds nuw ptr, ptr %392, i64 %395
+  %397 = load ptr, ptr %396, align 8, !tbaa !29
+  %398 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %397, i32 0, i32 11
+  store i32 2, ptr %398, align 8, !tbaa !64
+  br label %399
 
-398:                                              ; preds = %388, %383
-  br label %400
+399:                                              ; preds = %389, %384
+  br label %401
 
-399:                                              ; preds = %375
-  store i32 0, ptr %9, align 4
-  br label %400
+400:                                              ; preds = %376
+  store i32 0, ptr %9, align 4, !tbaa !32
+  br label %401
 
-400:                                              ; preds = %399, %398
-  %401 = load ptr, ptr %4, align 8
-  %402 = getelementptr inbounds %struct.yyguts_t, ptr %401, i32 0, i32 7
-  %403 = load i64, ptr %402, align 8
-  %404 = load i64, ptr %7, align 8
-  %405 = add i64 %403, %404
-  %406 = load ptr, ptr %4, align 8
-  %407 = getelementptr inbounds %struct.yyguts_t, ptr %406, i32 0, i32 5
-  %408 = load ptr, ptr %407, align 8
-  %409 = load ptr, ptr %4, align 8
-  %410 = getelementptr inbounds %struct.yyguts_t, ptr %409, i32 0, i32 3
-  %411 = load i64, ptr %410, align 8
-  %412 = getelementptr inbounds ptr, ptr %408, i64 %411
-  %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds %struct.yy_buffer_state, ptr %413, i32 0, i32 3
-  %415 = load i64, ptr %414, align 8
-  %416 = icmp ugt i64 %405, %415
-  br i1 %416, label %417, label %464
+401:                                              ; preds = %400, %399
+  %402 = load ptr, ptr %4, align 8, !tbaa !11
+  %403 = getelementptr inbounds nuw %struct.yyguts_t, ptr %402, i32 0, i32 7
+  %404 = load i64, ptr %403, align 8, !tbaa !67
+  %405 = load i64, ptr %7, align 8, !tbaa !72
+  %406 = add i64 %404, %405
+  %407 = load ptr, ptr %4, align 8, !tbaa !11
+  %408 = getelementptr inbounds nuw %struct.yyguts_t, ptr %407, i32 0, i32 5
+  %409 = load ptr, ptr %408, align 8, !tbaa !27
+  %410 = load ptr, ptr %4, align 8, !tbaa !11
+  %411 = getelementptr inbounds nuw %struct.yyguts_t, ptr %410, i32 0, i32 3
+  %412 = load i64, ptr %411, align 8, !tbaa !28
+  %413 = getelementptr inbounds nuw ptr, ptr %409, i64 %412
+  %414 = load ptr, ptr %413, align 8, !tbaa !29
+  %415 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %414, i32 0, i32 3
+  %416 = load i64, ptr %415, align 8, !tbaa !74
+  %417 = icmp ugt i64 %406, %416
+  br i1 %417, label %418, label %465
 
-417:                                              ; preds = %400
-  %418 = load ptr, ptr %4, align 8
-  %419 = getelementptr inbounds %struct.yyguts_t, ptr %418, i32 0, i32 7
-  %420 = load i64, ptr %419, align 8
-  %421 = load i64, ptr %7, align 8
-  %422 = add i64 %420, %421
-  %423 = load ptr, ptr %4, align 8
-  %424 = getelementptr inbounds %struct.yyguts_t, ptr %423, i32 0, i32 7
-  %425 = load i64, ptr %424, align 8
-  %426 = lshr i64 %425, 1
-  %427 = add i64 %422, %426
-  store i64 %427, ptr %16, align 8
-  %428 = load ptr, ptr %4, align 8
-  %429 = getelementptr inbounds %struct.yyguts_t, ptr %428, i32 0, i32 5
-  %430 = load ptr, ptr %429, align 8
-  %431 = load ptr, ptr %4, align 8
-  %432 = getelementptr inbounds %struct.yyguts_t, ptr %431, i32 0, i32 3
-  %433 = load i64, ptr %432, align 8
-  %434 = getelementptr inbounds ptr, ptr %430, i64 %433
-  %435 = load ptr, ptr %434, align 8
-  %436 = getelementptr inbounds %struct.yy_buffer_state, ptr %435, i32 0, i32 1
-  %437 = load ptr, ptr %436, align 8
-  %438 = load i64, ptr %16, align 8
-  %439 = load ptr, ptr %3, align 8
-  %440 = call noundef ptr @_Z18_gmx_sel_yyreallocPvmS_(ptr noundef %437, i64 noundef %438, ptr noundef %439)
-  %441 = load ptr, ptr %4, align 8
-  %442 = getelementptr inbounds %struct.yyguts_t, ptr %441, i32 0, i32 5
-  %443 = load ptr, ptr %442, align 8
-  %444 = load ptr, ptr %4, align 8
-  %445 = getelementptr inbounds %struct.yyguts_t, ptr %444, i32 0, i32 3
-  %446 = load i64, ptr %445, align 8
-  %447 = getelementptr inbounds ptr, ptr %443, i64 %446
-  %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds %struct.yy_buffer_state, ptr %448, i32 0, i32 1
-  store ptr %440, ptr %449, align 8
-  %450 = load ptr, ptr %4, align 8
-  %451 = getelementptr inbounds %struct.yyguts_t, ptr %450, i32 0, i32 5
-  %452 = load ptr, ptr %451, align 8
-  %453 = load ptr, ptr %4, align 8
-  %454 = getelementptr inbounds %struct.yyguts_t, ptr %453, i32 0, i32 3
-  %455 = load i64, ptr %454, align 8
-  %456 = getelementptr inbounds ptr, ptr %452, i64 %455
-  %457 = load ptr, ptr %456, align 8
-  %458 = getelementptr inbounds %struct.yy_buffer_state, ptr %457, i32 0, i32 1
-  %459 = load ptr, ptr %458, align 8
-  %460 = icmp ne ptr %459, null
-  br i1 %460, label %463, label %461
+418:                                              ; preds = %401
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #17
+  %419 = load ptr, ptr %4, align 8, !tbaa !11
+  %420 = getelementptr inbounds nuw %struct.yyguts_t, ptr %419, i32 0, i32 7
+  %421 = load i64, ptr %420, align 8, !tbaa !67
+  %422 = load i64, ptr %7, align 8, !tbaa !72
+  %423 = add i64 %421, %422
+  %424 = load ptr, ptr %4, align 8, !tbaa !11
+  %425 = getelementptr inbounds nuw %struct.yyguts_t, ptr %424, i32 0, i32 7
+  %426 = load i64, ptr %425, align 8, !tbaa !67
+  %427 = lshr i64 %426, 1
+  %428 = add i64 %423, %427
+  store i64 %428, ptr %17, align 8, !tbaa !72
+  %429 = load ptr, ptr %4, align 8, !tbaa !11
+  %430 = getelementptr inbounds nuw %struct.yyguts_t, ptr %429, i32 0, i32 5
+  %431 = load ptr, ptr %430, align 8, !tbaa !27
+  %432 = load ptr, ptr %4, align 8, !tbaa !11
+  %433 = getelementptr inbounds nuw %struct.yyguts_t, ptr %432, i32 0, i32 3
+  %434 = load i64, ptr %433, align 8, !tbaa !28
+  %435 = getelementptr inbounds nuw ptr, ptr %431, i64 %434
+  %436 = load ptr, ptr %435, align 8, !tbaa !29
+  %437 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %436, i32 0, i32 1
+  %438 = load ptr, ptr %437, align 8, !tbaa !69
+  %439 = load i64, ptr %17, align 8, !tbaa !72
+  %440 = load ptr, ptr %3, align 8, !tbaa !10
+  %441 = call noundef ptr @_Z18_gmx_sel_yyreallocPvmS_(ptr noundef %438, i64 noundef %439, ptr noundef %440)
+  %442 = load ptr, ptr %4, align 8, !tbaa !11
+  %443 = getelementptr inbounds nuw %struct.yyguts_t, ptr %442, i32 0, i32 5
+  %444 = load ptr, ptr %443, align 8, !tbaa !27
+  %445 = load ptr, ptr %4, align 8, !tbaa !11
+  %446 = getelementptr inbounds nuw %struct.yyguts_t, ptr %445, i32 0, i32 3
+  %447 = load i64, ptr %446, align 8, !tbaa !28
+  %448 = getelementptr inbounds nuw ptr, ptr %444, i64 %447
+  %449 = load ptr, ptr %448, align 8, !tbaa !29
+  %450 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %449, i32 0, i32 1
+  store ptr %441, ptr %450, align 8, !tbaa !69
+  %451 = load ptr, ptr %4, align 8, !tbaa !11
+  %452 = getelementptr inbounds nuw %struct.yyguts_t, ptr %451, i32 0, i32 5
+  %453 = load ptr, ptr %452, align 8, !tbaa !27
+  %454 = load ptr, ptr %4, align 8, !tbaa !11
+  %455 = getelementptr inbounds nuw %struct.yyguts_t, ptr %454, i32 0, i32 3
+  %456 = load i64, ptr %455, align 8, !tbaa !28
+  %457 = getelementptr inbounds nuw ptr, ptr %453, i64 %456
+  %458 = load ptr, ptr %457, align 8, !tbaa !29
+  %459 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %458, i32 0, i32 1
+  %460 = load ptr, ptr %459, align 8, !tbaa !69
+  %461 = icmp ne ptr %460, null
+  br i1 %461, label %464, label %462
 
-461:                                              ; preds = %417
-  %462 = load ptr, ptr %3, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.12, ptr noundef %462) #12
+462:                                              ; preds = %418
+  %463 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.12, ptr noundef %463) #18
   unreachable
 
-463:                                              ; preds = %417
-  br label %464
+464:                                              ; preds = %418
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #17
+  br label %465
 
-464:                                              ; preds = %463, %400
-  %465 = load i64, ptr %7, align 8
-  %466 = load ptr, ptr %4, align 8
-  %467 = getelementptr inbounds %struct.yyguts_t, ptr %466, i32 0, i32 7
-  %468 = load i64, ptr %467, align 8
-  %469 = add i64 %468, %465
-  store i64 %469, ptr %467, align 8
-  %470 = load ptr, ptr %4, align 8
-  %471 = getelementptr inbounds %struct.yyguts_t, ptr %470, i32 0, i32 5
-  %472 = load ptr, ptr %471, align 8
-  %473 = load ptr, ptr %4, align 8
-  %474 = getelementptr inbounds %struct.yyguts_t, ptr %473, i32 0, i32 3
-  %475 = load i64, ptr %474, align 8
-  %476 = getelementptr inbounds ptr, ptr %472, i64 %475
-  %477 = load ptr, ptr %476, align 8
-  %478 = getelementptr inbounds %struct.yy_buffer_state, ptr %477, i32 0, i32 1
-  %479 = load ptr, ptr %478, align 8
-  %480 = load ptr, ptr %4, align 8
-  %481 = getelementptr inbounds %struct.yyguts_t, ptr %480, i32 0, i32 7
-  %482 = load i64, ptr %481, align 8
-  %483 = getelementptr inbounds i8, ptr %479, i64 %482
-  store i8 0, ptr %483, align 1
-  %484 = load ptr, ptr %4, align 8
-  %485 = getelementptr inbounds %struct.yyguts_t, ptr %484, i32 0, i32 5
-  %486 = load ptr, ptr %485, align 8
-  %487 = load ptr, ptr %4, align 8
-  %488 = getelementptr inbounds %struct.yyguts_t, ptr %487, i32 0, i32 3
-  %489 = load i64, ptr %488, align 8
-  %490 = getelementptr inbounds ptr, ptr %486, i64 %489
-  %491 = load ptr, ptr %490, align 8
-  %492 = getelementptr inbounds %struct.yy_buffer_state, ptr %491, i32 0, i32 1
-  %493 = load ptr, ptr %492, align 8
-  %494 = load ptr, ptr %4, align 8
-  %495 = getelementptr inbounds %struct.yyguts_t, ptr %494, i32 0, i32 7
-  %496 = load i64, ptr %495, align 8
-  %497 = add i64 %496, 1
-  %498 = getelementptr inbounds i8, ptr %493, i64 %497
-  store i8 0, ptr %498, align 1
-  %499 = load ptr, ptr %4, align 8
-  %500 = getelementptr inbounds %struct.yyguts_t, ptr %499, i32 0, i32 5
-  %501 = load ptr, ptr %500, align 8
-  %502 = load ptr, ptr %4, align 8
-  %503 = getelementptr inbounds %struct.yyguts_t, ptr %502, i32 0, i32 3
-  %504 = load i64, ptr %503, align 8
-  %505 = getelementptr inbounds ptr, ptr %501, i64 %504
-  %506 = load ptr, ptr %505, align 8
-  %507 = getelementptr inbounds %struct.yy_buffer_state, ptr %506, i32 0, i32 1
-  %508 = load ptr, ptr %507, align 8
-  %509 = getelementptr inbounds i8, ptr %508, i64 0
-  %510 = load ptr, ptr %4, align 8
-  %511 = getelementptr inbounds %struct.yyguts_t, ptr %510, i32 0, i32 20
-  store ptr %509, ptr %511, align 8
-  %512 = load i32, ptr %9, align 4
-  store i32 %512, ptr %2, align 4
-  br label %513
+465:                                              ; preds = %464, %401
+  %466 = load i64, ptr %7, align 8, !tbaa !72
+  %467 = load ptr, ptr %4, align 8, !tbaa !11
+  %468 = getelementptr inbounds nuw %struct.yyguts_t, ptr %467, i32 0, i32 7
+  %469 = load i64, ptr %468, align 8, !tbaa !67
+  %470 = add i64 %469, %466
+  store i64 %470, ptr %468, align 8, !tbaa !67
+  %471 = load ptr, ptr %4, align 8, !tbaa !11
+  %472 = getelementptr inbounds nuw %struct.yyguts_t, ptr %471, i32 0, i32 5
+  %473 = load ptr, ptr %472, align 8, !tbaa !27
+  %474 = load ptr, ptr %4, align 8, !tbaa !11
+  %475 = getelementptr inbounds nuw %struct.yyguts_t, ptr %474, i32 0, i32 3
+  %476 = load i64, ptr %475, align 8, !tbaa !28
+  %477 = getelementptr inbounds nuw ptr, ptr %473, i64 %476
+  %478 = load ptr, ptr %477, align 8, !tbaa !29
+  %479 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %478, i32 0, i32 1
+  %480 = load ptr, ptr %479, align 8, !tbaa !69
+  %481 = load ptr, ptr %4, align 8, !tbaa !11
+  %482 = getelementptr inbounds nuw %struct.yyguts_t, ptr %481, i32 0, i32 7
+  %483 = load i64, ptr %482, align 8, !tbaa !67
+  %484 = getelementptr inbounds nuw i8, ptr %480, i64 %483
+  store i8 0, ptr %484, align 1, !tbaa !53
+  %485 = load ptr, ptr %4, align 8, !tbaa !11
+  %486 = getelementptr inbounds nuw %struct.yyguts_t, ptr %485, i32 0, i32 5
+  %487 = load ptr, ptr %486, align 8, !tbaa !27
+  %488 = load ptr, ptr %4, align 8, !tbaa !11
+  %489 = getelementptr inbounds nuw %struct.yyguts_t, ptr %488, i32 0, i32 3
+  %490 = load i64, ptr %489, align 8, !tbaa !28
+  %491 = getelementptr inbounds nuw ptr, ptr %487, i64 %490
+  %492 = load ptr, ptr %491, align 8, !tbaa !29
+  %493 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %492, i32 0, i32 1
+  %494 = load ptr, ptr %493, align 8, !tbaa !69
+  %495 = load ptr, ptr %4, align 8, !tbaa !11
+  %496 = getelementptr inbounds nuw %struct.yyguts_t, ptr %495, i32 0, i32 7
+  %497 = load i64, ptr %496, align 8, !tbaa !67
+  %498 = add i64 %497, 1
+  %499 = getelementptr inbounds nuw i8, ptr %494, i64 %498
+  store i8 0, ptr %499, align 1, !tbaa !53
+  %500 = load ptr, ptr %4, align 8, !tbaa !11
+  %501 = getelementptr inbounds nuw %struct.yyguts_t, ptr %500, i32 0, i32 5
+  %502 = load ptr, ptr %501, align 8, !tbaa !27
+  %503 = load ptr, ptr %4, align 8, !tbaa !11
+  %504 = getelementptr inbounds nuw %struct.yyguts_t, ptr %503, i32 0, i32 3
+  %505 = load i64, ptr %504, align 8, !tbaa !28
+  %506 = getelementptr inbounds nuw ptr, ptr %502, i64 %505
+  %507 = load ptr, ptr %506, align 8, !tbaa !29
+  %508 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %507, i32 0, i32 1
+  %509 = load ptr, ptr %508, align 8, !tbaa !69
+  %510 = getelementptr inbounds i8, ptr %509, i64 0
+  %511 = load ptr, ptr %4, align 8, !tbaa !11
+  %512 = getelementptr inbounds nuw %struct.yyguts_t, ptr %511, i32 0, i32 20
+  store ptr %510, ptr %512, align 8, !tbaa !61
+  %513 = load i32, ptr %9, align 4, !tbaa !32
+  store i32 %513, ptr %2, align 4
+  store i32 1, ptr %10, align 4
+  br label %514
 
-513:                                              ; preds = %464, %77, %76
-  %514 = load i32, ptr %2, align 4
-  ret i32 %514
+514:                                              ; preds = %465, %78, %77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  %515 = load i32, ptr %2, align 4
+  ret i32 %515
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL15_gmx_sel_yywrapPv(ptr noundef %0) #1 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal noundef i32 @_ZL15_gmx_sel_yywrapPv(ptr noundef %0) #6 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret i32 1
 }
 
@@ -2305,25 +2673,26 @@ define void @_Z18_gmx_sel_yyrestartP8_IO_FILEPv(ptr noundef %0, ptr noundef %1) 
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.yyguts_t, ptr %7, i32 0, i32 5
-  %9 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr %5, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.yyguts_t, ptr %7, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.yyguts_t, ptr %12, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.yyguts_t, ptr %15, i32 0, i32 3
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
-  %19 = load ptr, ptr %18, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.yyguts_t, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8, !tbaa !27
+  %15 = load ptr, ptr %5, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.yyguts_t, ptr %15, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
   br label %21
 
 20:                                               ; preds = %2
@@ -2335,39 +2704,39 @@ define void @_Z18_gmx_sel_yyrestartP8_IO_FILEPv(ptr noundef %0, ptr noundef %1) 
   br i1 %23, label %38, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %4, align 8
+  %25 = load ptr, ptr %4, align 8, !tbaa !10
   call void @_ZL30_gmx_sel_yyensure_buffer_stackPv(ptr noundef %25)
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.yyguts_t, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %5, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw %struct.yyguts_t, ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !24
+  %29 = load ptr, ptr %4, align 8, !tbaa !10
   %30 = call noundef ptr @_Z25_gmx_sel_yy_create_bufferP8_IO_FILEiPv(ptr noundef %28, i32 noundef 16384, ptr noundef %29)
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.yyguts_t, ptr %31, i32 0, i32 5
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.yyguts_t, ptr %34, i32 0, i32 3
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
-  store ptr %30, ptr %37, align 8
+  %31 = load ptr, ptr %5, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.yyguts_t, ptr %31, i32 0, i32 5
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
+  %34 = load ptr, ptr %5, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.yyguts_t, ptr %34, i32 0, i32 3
+  %36 = load i64, ptr %35, align 8, !tbaa !28
+  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  store ptr %30, ptr %37, align 8, !tbaa !29
   br label %38
 
 38:                                               ; preds = %24, %21
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.yyguts_t, ptr %39, i32 0, i32 5
-  %41 = load ptr, ptr %40, align 8
+  %39 = load ptr, ptr %5, align 8, !tbaa !11
+  %40 = getelementptr inbounds nuw %struct.yyguts_t, ptr %39, i32 0, i32 5
+  %41 = load ptr, ptr %40, align 8, !tbaa !27
   %42 = icmp ne ptr %41, null
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %38
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds %struct.yyguts_t, ptr %44, i32 0, i32 5
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.yyguts_t, ptr %47, i32 0, i32 3
-  %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
-  %51 = load ptr, ptr %50, align 8
+  %44 = load ptr, ptr %5, align 8, !tbaa !11
+  %45 = getelementptr inbounds nuw %struct.yyguts_t, ptr %44, i32 0, i32 5
+  %46 = load ptr, ptr %45, align 8, !tbaa !27
+  %47 = load ptr, ptr %5, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.yyguts_t, ptr %47, i32 0, i32 3
+  %49 = load i64, ptr %48, align 8, !tbaa !28
+  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !29
   br label %53
 
 52:                                               ; preds = %38
@@ -2375,11 +2744,12 @@ define void @_Z18_gmx_sel_yyrestartP8_IO_FILEPv(ptr noundef %0, ptr noundef %1) 
 
 53:                                               ; preds = %52, %43
   %54 = phi ptr [ %51, %43 ], [ null, %52 ]
-  %55 = load ptr, ptr %3, align 8
-  %56 = load ptr, ptr %4, align 8
+  %55 = load ptr, ptr %3, align 8, !tbaa !25
+  %56 = load ptr, ptr %4, align 8, !tbaa !10
   call void @_ZL23_gmx_sel_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv(ptr noundef %54, ptr noundef %55, ptr noundef %56)
-  %57 = load ptr, ptr %4, align 8
+  %57 = load ptr, ptr %4, align 8, !tbaa !10
   call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %57)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret void
 }
 
@@ -2390,40 +2760,42 @@ define internal void @_ZL23_gmx_sel_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %9 = call ptr @__errno_location() #14
-  %10 = load i32, ptr %9, align 4
-  store i32 %10, ptr %7, align 4
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %8, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !29
+  store ptr %1, ptr %5, align 8, !tbaa !25
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #17
+  %9 = call ptr @__errno_location() #20
+  %10 = load i32, ptr %9, align 4, !tbaa !32
+  store i32 %10, ptr %7, align 4, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %11 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %11, ptr %8, align 8, !tbaa !11
+  %12 = load ptr, ptr %4, align 8, !tbaa !29
+  %13 = load ptr, ptr %6, align 8, !tbaa !10
   call void @_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv(ptr noundef %12, ptr noundef %13)
-  %14 = load ptr, ptr %5, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.yy_buffer_state, ptr %15, i32 0, i32 0
-  store ptr %14, ptr %16, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct.yy_buffer_state, ptr %17, i32 0, i32 10
-  store i32 1, ptr %18, align 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.yyguts_t, ptr %20, i32 0, i32 5
-  %22 = load ptr, ptr %21, align 8
+  %14 = load ptr, ptr %5, align 8, !tbaa !25
+  %15 = load ptr, ptr %4, align 8, !tbaa !29
+  %16 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8, !tbaa !68
+  %17 = load ptr, ptr %4, align 8, !tbaa !29
+  %18 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %17, i32 0, i32 10
+  store i32 1, ptr %18, align 4, !tbaa !83
+  %19 = load ptr, ptr %4, align 8, !tbaa !29
+  %20 = load ptr, ptr %8, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw %struct.yyguts_t, ptr %20, i32 0, i32 5
+  %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = icmp ne ptr %22, null
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %3
-  %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds %struct.yyguts_t, ptr %25, i32 0, i32 5
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.yyguts_t, ptr %28, i32 0, i32 3
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
-  %32 = load ptr, ptr %31, align 8
+  %25 = load ptr, ptr %8, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.yyguts_t, ptr %25, i32 0, i32 5
+  %27 = load ptr, ptr %26, align 8, !tbaa !27
+  %28 = load ptr, ptr %8, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw %struct.yyguts_t, ptr %28, i32 0, i32 3
+  %30 = load i64, ptr %29, align 8, !tbaa !28
+  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !29
   br label %34
 
 33:                                               ; preds = %3
@@ -2435,21 +2807,23 @@ define internal void @_ZL23_gmx_sel_yy_init_bufferP15yy_buffer_stateP8_IO_FILEPv
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct.yy_buffer_state, ptr %38, i32 0, i32 8
-  store i32 1, ptr %39, align 4
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds %struct.yy_buffer_state, ptr %40, i32 0, i32 9
-  store i32 0, ptr %41, align 8
+  %38 = load ptr, ptr %4, align 8, !tbaa !29
+  %39 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %38, i32 0, i32 8
+  store i32 1, ptr %39, align 4, !tbaa !89
+  %40 = load ptr, ptr %4, align 8, !tbaa !29
+  %41 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %40, i32 0, i32 9
+  store i32 0, ptr %41, align 8, !tbaa !90
   br label %42
 
 42:                                               ; preds = %37, %34
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.yy_buffer_state, ptr %43, i32 0, i32 6
-  store i32 0, ptr %44, align 4
-  %45 = load i32, ptr %7, align 4
-  %46 = call ptr @__errno_location() #14
-  store i32 %45, ptr %46, align 4
+  %43 = load ptr, ptr %4, align 8, !tbaa !29
+  %44 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %43, i32 0, i32 6
+  store i32 0, ptr %44, align 4, !tbaa !86
+  %45 = load i32, ptr %7, align 4, !tbaa !32
+  %46 = call ptr @__errno_location() #20
+  store i32 %45, ptr %46, align 4, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #17
   ret void
 }
 
@@ -2458,135 +2832,152 @@ define void @_Z28_gmx_sel_yy_switch_to_bufferP15yy_buffer_statePv(ptr noundef %0
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZL30_gmx_sel_yyensure_buffer_stackPv(ptr noundef %7)
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.yyguts_t, ptr %8, i32 0, i32 5
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %21
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %7, ptr %5, align 8, !tbaa !11
+  %8 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZL30_gmx_sel_yyensure_buffer_stackPv(ptr noundef %8)
+  %9 = load ptr, ptr %5, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %struct.yyguts_t, ptr %9, i32 0, i32 5
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %22
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.yyguts_t, ptr %13, i32 0, i32 5
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.yyguts_t, ptr %16, i32 0, i32 3
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  br label %22
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %5, align 8, !tbaa !11
+  %15 = getelementptr inbounds nuw %struct.yyguts_t, ptr %14, i32 0, i32 5
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.yyguts_t, ptr %17, i32 0, i32 3
+  %19 = load i64, ptr %18, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  br label %23
 
-21:                                               ; preds = %2
-  br label %22
+22:                                               ; preds = %2
+  br label %23
 
-22:                                               ; preds = %21, %12
-  %23 = phi ptr [ %20, %12 ], [ null, %21 ]
-  %24 = load ptr, ptr %3, align 8
-  %25 = icmp eq ptr %23, %24
-  br i1 %25, label %26, label %27
+23:                                               ; preds = %22, %13
+  %24 = phi ptr [ %21, %13 ], [ null, %22 ]
+  %25 = load ptr, ptr %3, align 8, !tbaa !29
+  %26 = icmp eq ptr %24, %25
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %22
-  br label %88
+27:                                               ; preds = %23
+  store i32 1, ptr %6, align 4
+  br label %89
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.yyguts_t, ptr %28, i32 0, i32 5
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %41
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %5, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.yyguts_t, ptr %29, i32 0, i32 5
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %42
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.yyguts_t, ptr %33, i32 0, i32 5
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.yyguts_t, ptr %36, i32 0, i32 3
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  br label %42
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %5, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.yyguts_t, ptr %34, i32 0, i32 5
+  %36 = load ptr, ptr %35, align 8, !tbaa !27
+  %37 = load ptr, ptr %5, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.yyguts_t, ptr %37, i32 0, i32 3
+  %39 = load i64, ptr %38, align 8, !tbaa !28
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !29
+  br label %43
 
-41:                                               ; preds = %27
-  br label %42
+42:                                               ; preds = %28
+  br label %43
 
-42:                                               ; preds = %41, %32
-  %43 = phi ptr [ %40, %32 ], [ null, %41 ]
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %76
+43:                                               ; preds = %42, %33
+  %44 = phi ptr [ %41, %33 ], [ null, %42 ]
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %46, label %77
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct.yyguts_t, ptr %46, i32 0, i32 6
-  %48 = load i8, ptr %47, align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.yyguts_t, ptr %49, i32 0, i32 9
-  %51 = load ptr, ptr %50, align 8
-  store i8 %48, ptr %51, align 1
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds %struct.yyguts_t, ptr %52, i32 0, i32 9
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.yyguts_t, ptr %55, i32 0, i32 5
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.yyguts_t, ptr %58, i32 0, i32 3
-  %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds ptr, ptr %57, i64 %60
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.yy_buffer_state, ptr %62, i32 0, i32 2
-  store ptr %54, ptr %63, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.yyguts_t, ptr %64, i32 0, i32 7
-  %66 = load i64, ptr %65, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct.yyguts_t, ptr %67, i32 0, i32 5
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds %struct.yyguts_t, ptr %70, i32 0, i32 3
-  %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds ptr, ptr %69, i64 %72
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct.yy_buffer_state, ptr %74, i32 0, i32 4
-  store i64 %66, ptr %75, align 8
-  br label %76
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %5, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw %struct.yyguts_t, ptr %47, i32 0, i32 6
+  %49 = load i8, ptr %48, align 8, !tbaa !52
+  %50 = load ptr, ptr %5, align 8, !tbaa !11
+  %51 = getelementptr inbounds nuw %struct.yyguts_t, ptr %50, i32 0, i32 9
+  %52 = load ptr, ptr %51, align 8, !tbaa !50
+  store i8 %49, ptr %52, align 1, !tbaa !53
+  %53 = load ptr, ptr %5, align 8, !tbaa !11
+  %54 = getelementptr inbounds nuw %struct.yyguts_t, ptr %53, i32 0, i32 9
+  %55 = load ptr, ptr %54, align 8, !tbaa !50
+  %56 = load ptr, ptr %5, align 8, !tbaa !11
+  %57 = getelementptr inbounds nuw %struct.yyguts_t, ptr %56, i32 0, i32 5
+  %58 = load ptr, ptr %57, align 8, !tbaa !27
+  %59 = load ptr, ptr %5, align 8, !tbaa !11
+  %60 = getelementptr inbounds nuw %struct.yyguts_t, ptr %59, i32 0, i32 3
+  %61 = load i64, ptr %60, align 8, !tbaa !28
+  %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %61
+  %63 = load ptr, ptr %62, align 8, !tbaa !29
+  %64 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %63, i32 0, i32 2
+  store ptr %55, ptr %64, align 8, !tbaa !76
+  %65 = load ptr, ptr %5, align 8, !tbaa !11
+  %66 = getelementptr inbounds nuw %struct.yyguts_t, ptr %65, i32 0, i32 7
+  %67 = load i64, ptr %66, align 8, !tbaa !67
+  %68 = load ptr, ptr %5, align 8, !tbaa !11
+  %69 = getelementptr inbounds nuw %struct.yyguts_t, ptr %68, i32 0, i32 5
+  %70 = load ptr, ptr %69, align 8, !tbaa !27
+  %71 = load ptr, ptr %5, align 8, !tbaa !11
+  %72 = getelementptr inbounds nuw %struct.yyguts_t, ptr %71, i32 0, i32 3
+  %73 = load i64, ptr %72, align 8, !tbaa !28
+  %74 = getelementptr inbounds nuw ptr, ptr %70, i64 %73
+  %75 = load ptr, ptr %74, align 8, !tbaa !29
+  %76 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %75, i32 0, i32 4
+  store i64 %67, ptr %76, align 8, !tbaa !66
+  br label %77
 
-76:                                               ; preds = %45, %42
-  %77 = load ptr, ptr %3, align 8
-  %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds %struct.yyguts_t, ptr %78, i32 0, i32 5
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr inbounds %struct.yyguts_t, ptr %81, i32 0, i32 3
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds ptr, ptr %80, i64 %83
-  store ptr %77, ptr %84, align 8
-  %85 = load ptr, ptr %4, align 8
-  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %85)
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.yyguts_t, ptr %86, i32 0, i32 12
-  store i32 1, ptr %87, align 8
-  br label %88
+77:                                               ; preds = %46, %43
+  %78 = load ptr, ptr %3, align 8, !tbaa !29
+  %79 = load ptr, ptr %5, align 8, !tbaa !11
+  %80 = getelementptr inbounds nuw %struct.yyguts_t, ptr %79, i32 0, i32 5
+  %81 = load ptr, ptr %80, align 8, !tbaa !27
+  %82 = load ptr, ptr %5, align 8, !tbaa !11
+  %83 = getelementptr inbounds nuw %struct.yyguts_t, ptr %82, i32 0, i32 3
+  %84 = load i64, ptr %83, align 8, !tbaa !28
+  %85 = getelementptr inbounds nuw ptr, ptr %81, i64 %84
+  store ptr %78, ptr %85, align 8, !tbaa !29
+  %86 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %86)
+  %87 = load ptr, ptr %5, align 8, !tbaa !11
+  %88 = getelementptr inbounds nuw %struct.yyguts_t, ptr %87, i32 0, i32 12
+  store i32 1, ptr %88, align 8, !tbaa !70
+  store i32 0, ptr %6, align 4
+  br label %89
 
-88:                                               ; preds = %76, %26
+89:                                               ; preds = %77, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  %90 = load i32, ptr %6, align 4
+  switch i32 %90, label %92 [
+    i32 0, label %91
+    i32 1, label %91
+  ]
+
+91:                                               ; preds = %89, %89
   ret void
+
+92:                                               ; preds = %89
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef %0, ptr noundef %1) #1 {
+define noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef %0, ptr noundef %1) #2 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store i64 %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load i64, ptr %3, align 8
-  %8 = call noalias ptr @malloc(i64 noundef %7) #15
+  store i64 %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load i64, ptr %3, align 8, !tbaa !72
+  %8 = call noalias ptr @malloc(i64 noundef %7) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret ptr %8
 }
 
@@ -2595,91 +2986,108 @@ define void @_Z25_gmx_sel_yy_delete_bufferP15yy_buffer_statePv(ptr noundef %0, p
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  br label %50
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %7, ptr %5, align 8, !tbaa !11
+  %8 = load ptr, ptr %3, align 8, !tbaa !29
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.yyguts_t, ptr %12, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %25
+  store i32 1, ptr %6, align 4
+  br label %51
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.yyguts_t, ptr %17, i32 0, i32 5
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.yyguts_t, ptr %20, i32 0, i32 3
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  br label %26
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %3, align 8, !tbaa !29
+  %13 = load ptr, ptr %5, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.yyguts_t, ptr %13, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %26
 
-25:                                               ; preds = %10
-  br label %26
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %5, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.yyguts_t, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  %21 = load ptr, ptr %5, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %struct.yyguts_t, ptr %21, i32 0, i32 3
+  %23 = load i64, ptr %22, align 8, !tbaa !28
+  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  br label %27
 
-26:                                               ; preds = %25, %16
-  %27 = phi ptr [ %24, %16 ], [ null, %25 ]
-  %28 = icmp eq ptr %11, %27
-  br i1 %28, label %29, label %37
+26:                                               ; preds = %11
+  br label %27
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.yyguts_t, ptr %30, i32 0, i32 5
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.yyguts_t, ptr %33, i32 0, i32 3
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
-  store ptr null, ptr %36, align 8
-  br label %37
+27:                                               ; preds = %26, %17
+  %28 = phi ptr [ %25, %17 ], [ null, %26 ]
+  %29 = icmp eq ptr %12, %28
+  br i1 %29, label %30, label %38
 
-37:                                               ; preds = %29, %26
-  %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds %struct.yy_buffer_state, ptr %38, i32 0, i32 5
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %47
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %5, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.yyguts_t, ptr %31, i32 0, i32 5
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
+  %34 = load ptr, ptr %5, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.yyguts_t, ptr %34, i32 0, i32 3
+  %36 = load i64, ptr %35, align 8, !tbaa !28
+  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  store ptr null, ptr %37, align 8, !tbaa !29
+  br label %38
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.yy_buffer_state, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %4, align 8
-  call void @_Z15_gmx_sel_yyfreePvS_(ptr noundef %45, ptr noundef %46)
-  br label %47
+38:                                               ; preds = %30, %27
+  %39 = load ptr, ptr %3, align 8, !tbaa !29
+  %40 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %39, i32 0, i32 5
+  %41 = load i32, ptr %40, align 8, !tbaa !75
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %48
 
-47:                                               ; preds = %42, %37
-  %48 = load ptr, ptr %3, align 8
-  %49 = load ptr, ptr %4, align 8
-  call void @_Z15_gmx_sel_yyfreePvS_(ptr noundef %48, ptr noundef %49)
-  br label %50
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %3, align 8, !tbaa !29
+  %45 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !69
+  %47 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_Z15_gmx_sel_yyfreePvS_(ptr noundef %46, ptr noundef %47)
+  br label %48
 
-50:                                               ; preds = %47, %9
+48:                                               ; preds = %43, %38
+  %49 = load ptr, ptr %3, align 8, !tbaa !29
+  %50 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_Z15_gmx_sel_yyfreePvS_(ptr noundef %49, ptr noundef %50)
+  store i32 0, ptr %6, align 4
+  br label %51
+
+51:                                               ; preds = %48, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  %52 = load i32, ptr %6, align 4
+  switch i32 %52, label %54 [
+    i32 0, label %53
+    i32 1, label %53
+  ]
+
+53:                                               ; preds = %51, %51
   ret void
+
+54:                                               ; preds = %51
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z15_gmx_sel_yyfreePvS_(ptr noundef %0, ptr noundef %1) #1 {
+define void @_Z15_gmx_sel_yyfreePvS_(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %7) #11
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr %3, align 8, !tbaa !10
+  call void @free(ptr noundef %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret void
 }
 
@@ -2688,77 +3096,95 @@ define void @_Z24_gmx_sel_yy_flush_bufferP15yy_buffer_statePv(ptr noundef %0, pt
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  br label %51
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %7, ptr %5, align 8, !tbaa !11
+  %8 = load ptr, ptr %3, align 8, !tbaa !29
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.yy_buffer_state, ptr %11, i32 0, i32 4
-  store i64 0, ptr %12, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.yy_buffer_state, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 0
-  store i8 0, ptr %16, align 1
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.yy_buffer_state, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1
-  store i8 0, ptr %20, align 1
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.yy_buffer_state, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 0
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.yy_buffer_state, ptr %25, i32 0, i32 2
-  store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.yy_buffer_state, ptr %27, i32 0, i32 7
-  store i32 1, ptr %28, align 8
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.yy_buffer_state, ptr %29, i32 0, i32 11
-  store i32 0, ptr %30, align 8
-  %31 = load ptr, ptr %3, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.yyguts_t, ptr %32, i32 0, i32 5
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %36, label %45
+  store i32 1, ptr %6, align 4
+  br label %53
 
-36:                                               ; preds = %10
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.yyguts_t, ptr %37, i32 0, i32 5
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.yyguts_t, ptr %40, i32 0, i32 3
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %39, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  br label %46
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %3, align 8, !tbaa !29
+  %13 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %12, i32 0, i32 4
+  store i64 0, ptr %13, align 8, !tbaa !66
+  %14 = load ptr, ptr %3, align 8, !tbaa !29
+  %15 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !69
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  store i8 0, ptr %17, align 1, !tbaa !53
+  %18 = load ptr, ptr %3, align 8, !tbaa !29
+  %19 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !69
+  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  store i8 0, ptr %21, align 1, !tbaa !53
+  %22 = load ptr, ptr %3, align 8, !tbaa !29
+  %23 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !69
+  %25 = getelementptr inbounds i8, ptr %24, i64 0
+  %26 = load ptr, ptr %3, align 8, !tbaa !29
+  %27 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %26, i32 0, i32 2
+  store ptr %25, ptr %27, align 8, !tbaa !76
+  %28 = load ptr, ptr %3, align 8, !tbaa !29
+  %29 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %28, i32 0, i32 7
+  store i32 1, ptr %29, align 8, !tbaa !91
+  %30 = load ptr, ptr %3, align 8, !tbaa !29
+  %31 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %30, i32 0, i32 11
+  store i32 0, ptr %31, align 8, !tbaa !64
+  %32 = load ptr, ptr %3, align 8, !tbaa !29
+  %33 = load ptr, ptr %5, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw %struct.yyguts_t, ptr %33, i32 0, i32 5
+  %35 = load ptr, ptr %34, align 8, !tbaa !27
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %46
 
-45:                                               ; preds = %10
-  br label %46
+37:                                               ; preds = %11
+  %38 = load ptr, ptr %5, align 8, !tbaa !11
+  %39 = getelementptr inbounds nuw %struct.yyguts_t, ptr %38, i32 0, i32 5
+  %40 = load ptr, ptr %39, align 8, !tbaa !27
+  %41 = load ptr, ptr %5, align 8, !tbaa !11
+  %42 = getelementptr inbounds nuw %struct.yyguts_t, ptr %41, i32 0, i32 3
+  %43 = load i64, ptr %42, align 8, !tbaa !28
+  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !29
+  br label %47
 
-46:                                               ; preds = %45, %36
-  %47 = phi ptr [ %44, %36 ], [ null, %45 ]
-  %48 = icmp eq ptr %31, %47
-  br i1 %48, label %49, label %51
+46:                                               ; preds = %11
+  br label %47
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %4, align 8
-  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %50)
-  br label %51
+47:                                               ; preds = %46, %37
+  %48 = phi ptr [ %45, %37 ], [ null, %46 ]
+  %49 = icmp eq ptr %32, %48
+  br i1 %49, label %50, label %52
 
-51:                                               ; preds = %49, %46, %9
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %51)
+  br label %52
+
+52:                                               ; preds = %50, %47
+  store i32 0, ptr %6, align 4
+  br label %53
+
+53:                                               ; preds = %52, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  %54 = load i32, ptr %6, align 4
+  switch i32 %54, label %56 [
+    i32 0, label %55
+    i32 1, label %55
+  ]
+
+55:                                               ; preds = %53, %53
   ret void
+
+56:                                               ; preds = %53
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2766,254 +3192,287 @@ define void @_Z28_gmx_sel_yypush_buffer_stateP15yy_buffer_statePv(ptr noundef %0
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %2
-  br label %95
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %7, ptr %5, align 8, !tbaa !11
+  %8 = load ptr, ptr %3, align 8, !tbaa !29
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  call void @_ZL30_gmx_sel_yyensure_buffer_stackPv(ptr noundef %11)
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.yyguts_t, ptr %12, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %25
+  store i32 1, ptr %6, align 4
+  br label %96
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.yyguts_t, ptr %17, i32 0, i32 5
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.yyguts_t, ptr %20, i32 0, i32 3
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  br label %26
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZL30_gmx_sel_yyensure_buffer_stackPv(ptr noundef %12)
+  %13 = load ptr, ptr %5, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.yyguts_t, ptr %13, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %26
 
-25:                                               ; preds = %10
-  br label %26
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %5, align 8, !tbaa !11
+  %19 = getelementptr inbounds nuw %struct.yyguts_t, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  %21 = load ptr, ptr %5, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %struct.yyguts_t, ptr %21, i32 0, i32 3
+  %23 = load i64, ptr %22, align 8, !tbaa !28
+  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  br label %27
 
-26:                                               ; preds = %25, %16
-  %27 = phi ptr [ %24, %16 ], [ null, %25 ]
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %60
+26:                                               ; preds = %11
+  br label %27
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.yyguts_t, ptr %30, i32 0, i32 6
-  %32 = load i8, ptr %31, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.yyguts_t, ptr %33, i32 0, i32 9
-  %35 = load ptr, ptr %34, align 8
-  store i8 %32, ptr %35, align 1
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.yyguts_t, ptr %36, i32 0, i32 9
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.yyguts_t, ptr %39, i32 0, i32 5
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.yyguts_t, ptr %42, i32 0, i32 3
-  %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %struct.yy_buffer_state, ptr %46, i32 0, i32 2
-  store ptr %38, ptr %47, align 8
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.yyguts_t, ptr %48, i32 0, i32 7
-  %50 = load i64, ptr %49, align 8
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.yyguts_t, ptr %51, i32 0, i32 5
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.yyguts_t, ptr %54, i32 0, i32 3
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds ptr, ptr %53, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct.yy_buffer_state, ptr %58, i32 0, i32 4
-  store i64 %50, ptr %59, align 8
-  br label %60
+27:                                               ; preds = %26, %17
+  %28 = phi ptr [ %25, %17 ], [ null, %26 ]
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %61
 
-60:                                               ; preds = %29, %26
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.yyguts_t, ptr %61, i32 0, i32 5
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp ne ptr %63, null
-  br i1 %64, label %65, label %74
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %5, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.yyguts_t, ptr %31, i32 0, i32 6
+  %33 = load i8, ptr %32, align 8, !tbaa !52
+  %34 = load ptr, ptr %5, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw %struct.yyguts_t, ptr %34, i32 0, i32 9
+  %36 = load ptr, ptr %35, align 8, !tbaa !50
+  store i8 %33, ptr %36, align 1, !tbaa !53
+  %37 = load ptr, ptr %5, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw %struct.yyguts_t, ptr %37, i32 0, i32 9
+  %39 = load ptr, ptr %38, align 8, !tbaa !50
+  %40 = load ptr, ptr %5, align 8, !tbaa !11
+  %41 = getelementptr inbounds nuw %struct.yyguts_t, ptr %40, i32 0, i32 5
+  %42 = load ptr, ptr %41, align 8, !tbaa !27
+  %43 = load ptr, ptr %5, align 8, !tbaa !11
+  %44 = getelementptr inbounds nuw %struct.yyguts_t, ptr %43, i32 0, i32 3
+  %45 = load i64, ptr %44, align 8, !tbaa !28
+  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !29
+  %48 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %47, i32 0, i32 2
+  store ptr %39, ptr %48, align 8, !tbaa !76
+  %49 = load ptr, ptr %5, align 8, !tbaa !11
+  %50 = getelementptr inbounds nuw %struct.yyguts_t, ptr %49, i32 0, i32 7
+  %51 = load i64, ptr %50, align 8, !tbaa !67
+  %52 = load ptr, ptr %5, align 8, !tbaa !11
+  %53 = getelementptr inbounds nuw %struct.yyguts_t, ptr %52, i32 0, i32 5
+  %54 = load ptr, ptr %53, align 8, !tbaa !27
+  %55 = load ptr, ptr %5, align 8, !tbaa !11
+  %56 = getelementptr inbounds nuw %struct.yyguts_t, ptr %55, i32 0, i32 3
+  %57 = load i64, ptr %56, align 8, !tbaa !28
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
+  %59 = load ptr, ptr %58, align 8, !tbaa !29
+  %60 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %59, i32 0, i32 4
+  store i64 %51, ptr %60, align 8, !tbaa !66
+  br label %61
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %struct.yyguts_t, ptr %66, i32 0, i32 5
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds %struct.yyguts_t, ptr %69, i32 0, i32 3
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds ptr, ptr %68, i64 %71
-  %73 = load ptr, ptr %72, align 8
-  br label %75
+61:                                               ; preds = %30, %27
+  %62 = load ptr, ptr %5, align 8, !tbaa !11
+  %63 = getelementptr inbounds nuw %struct.yyguts_t, ptr %62, i32 0, i32 5
+  %64 = load ptr, ptr %63, align 8, !tbaa !27
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %66, label %75
 
-74:                                               ; preds = %60
-  br label %75
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %5, align 8, !tbaa !11
+  %68 = getelementptr inbounds nuw %struct.yyguts_t, ptr %67, i32 0, i32 5
+  %69 = load ptr, ptr %68, align 8, !tbaa !27
+  %70 = load ptr, ptr %5, align 8, !tbaa !11
+  %71 = getelementptr inbounds nuw %struct.yyguts_t, ptr %70, i32 0, i32 3
+  %72 = load i64, ptr %71, align 8, !tbaa !28
+  %73 = getelementptr inbounds nuw ptr, ptr %69, i64 %72
+  %74 = load ptr, ptr %73, align 8, !tbaa !29
+  br label %76
 
-75:                                               ; preds = %74, %65
-  %76 = phi ptr [ %73, %65 ], [ null, %74 ]
-  %77 = icmp ne ptr %76, null
-  br i1 %77, label %78, label %83
+75:                                               ; preds = %61
+  br label %76
 
-78:                                               ; preds = %75
-  %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds %struct.yyguts_t, ptr %79, i32 0, i32 3
-  %81 = load i64, ptr %80, align 8
-  %82 = add i64 %81, 1
-  store i64 %82, ptr %80, align 8
-  br label %83
+76:                                               ; preds = %75, %66
+  %77 = phi ptr [ %74, %66 ], [ null, %75 ]
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %84
 
-83:                                               ; preds = %78, %75
-  %84 = load ptr, ptr %3, align 8
-  %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds %struct.yyguts_t, ptr %85, i32 0, i32 5
-  %87 = load ptr, ptr %86, align 8
-  %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds %struct.yyguts_t, ptr %88, i32 0, i32 3
-  %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds ptr, ptr %87, i64 %90
-  store ptr %84, ptr %91, align 8
-  %92 = load ptr, ptr %4, align 8
-  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %92)
-  %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct.yyguts_t, ptr %93, i32 0, i32 12
-  store i32 1, ptr %94, align 8
-  br label %95
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %5, align 8, !tbaa !11
+  %81 = getelementptr inbounds nuw %struct.yyguts_t, ptr %80, i32 0, i32 3
+  %82 = load i64, ptr %81, align 8, !tbaa !28
+  %83 = add i64 %82, 1
+  store i64 %83, ptr %81, align 8, !tbaa !28
+  br label %84
 
-95:                                               ; preds = %83, %9
+84:                                               ; preds = %79, %76
+  %85 = load ptr, ptr %3, align 8, !tbaa !29
+  %86 = load ptr, ptr %5, align 8, !tbaa !11
+  %87 = getelementptr inbounds nuw %struct.yyguts_t, ptr %86, i32 0, i32 5
+  %88 = load ptr, ptr %87, align 8, !tbaa !27
+  %89 = load ptr, ptr %5, align 8, !tbaa !11
+  %90 = getelementptr inbounds nuw %struct.yyguts_t, ptr %89, i32 0, i32 3
+  %91 = load i64, ptr %90, align 8, !tbaa !28
+  %92 = getelementptr inbounds nuw ptr, ptr %88, i64 %91
+  store ptr %85, ptr %92, align 8, !tbaa !29
+  %93 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %93)
+  %94 = load ptr, ptr %5, align 8, !tbaa !11
+  %95 = getelementptr inbounds nuw %struct.yyguts_t, ptr %94, i32 0, i32 12
+  store i32 1, ptr %95, align 8, !tbaa !70
+  store i32 0, ptr %6, align 4
+  br label %96
+
+96:                                               ; preds = %84, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
+  %97 = load i32, ptr %6, align 4
+  switch i32 %97, label %99 [
+    i32 0, label %98
+    i32 1, label %98
+  ]
+
+98:                                               ; preds = %96, %96
   ret void
+
+99:                                               ; preds = %96
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z27_gmx_sel_yypop_buffer_statePv(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.yyguts_t, ptr %5, i32 0, i32 5
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %18
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %5 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %5, ptr %3, align 8, !tbaa !11
+  %6 = load ptr, ptr %3, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw %struct.yyguts_t, ptr %6, i32 0, i32 5
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %19
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.yyguts_t, ptr %10, i32 0, i32 5
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.yyguts_t, ptr %13, i32 0, i32 3
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  br label %19
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.yyguts_t, ptr %11, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %14 = load ptr, ptr %3, align 8, !tbaa !11
+  %15 = getelementptr inbounds nuw %struct.yyguts_t, ptr %14, i32 0, i32 3
+  %16 = load i64, ptr %15, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %16
+  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  br label %20
 
-18:                                               ; preds = %1
-  br label %19
+19:                                               ; preds = %1
+  br label %20
 
-19:                                               ; preds = %18, %9
-  %20 = phi ptr [ %17, %9 ], [ null, %18 ]
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %23, label %22
+20:                                               ; preds = %19, %10
+  %21 = phi ptr [ %18, %10 ], [ null, %19 ]
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %24, label %23
 
-22:                                               ; preds = %19
-  br label %79
+23:                                               ; preds = %20
+  store i32 1, ptr %4, align 4
+  br label %81
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.yyguts_t, ptr %24, i32 0, i32 5
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %37
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %3, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.yyguts_t, ptr %25, i32 0, i32 5
+  %27 = load ptr, ptr %26, align 8, !tbaa !27
+  %28 = icmp ne ptr %27, null
+  br i1 %28, label %29, label %38
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.yyguts_t, ptr %29, i32 0, i32 5
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.yyguts_t, ptr %32, i32 0, i32 3
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds ptr, ptr %31, i64 %34
-  %36 = load ptr, ptr %35, align 8
-  br label %38
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %3, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw %struct.yyguts_t, ptr %30, i32 0, i32 5
+  %32 = load ptr, ptr %31, align 8, !tbaa !27
+  %33 = load ptr, ptr %3, align 8, !tbaa !11
+  %34 = getelementptr inbounds nuw %struct.yyguts_t, ptr %33, i32 0, i32 3
+  %35 = load i64, ptr %34, align 8, !tbaa !28
+  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %35
+  %37 = load ptr, ptr %36, align 8, !tbaa !29
+  br label %39
 
-37:                                               ; preds = %23
-  br label %38
+38:                                               ; preds = %24
+  br label %39
 
-38:                                               ; preds = %37, %28
-  %39 = phi ptr [ %36, %28 ], [ null, %37 ]
-  %40 = load ptr, ptr %2, align 8
-  call void @_Z25_gmx_sel_yy_delete_bufferP15yy_buffer_statePv(ptr noundef %39, ptr noundef %40)
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.yyguts_t, ptr %41, i32 0, i32 5
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.yyguts_t, ptr %44, i32 0, i32 3
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
-  store ptr null, ptr %47, align 8
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.yyguts_t, ptr %48, i32 0, i32 3
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp ugt i64 %50, 0
-  br i1 %51, label %52, label %57
+39:                                               ; preds = %38, %29
+  %40 = phi ptr [ %37, %29 ], [ null, %38 ]
+  %41 = load ptr, ptr %2, align 8, !tbaa !10
+  call void @_Z25_gmx_sel_yy_delete_bufferP15yy_buffer_statePv(ptr noundef %40, ptr noundef %41)
+  %42 = load ptr, ptr %3, align 8, !tbaa !11
+  %43 = getelementptr inbounds nuw %struct.yyguts_t, ptr %42, i32 0, i32 5
+  %44 = load ptr, ptr %43, align 8, !tbaa !27
+  %45 = load ptr, ptr %3, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw %struct.yyguts_t, ptr %45, i32 0, i32 3
+  %47 = load i64, ptr %46, align 8, !tbaa !28
+  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  store ptr null, ptr %48, align 8, !tbaa !29
+  %49 = load ptr, ptr %3, align 8, !tbaa !11
+  %50 = getelementptr inbounds nuw %struct.yyguts_t, ptr %49, i32 0, i32 3
+  %51 = load i64, ptr %50, align 8, !tbaa !28
+  %52 = icmp ugt i64 %51, 0
+  br i1 %52, label %53, label %58
 
-52:                                               ; preds = %38
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.yyguts_t, ptr %53, i32 0, i32 3
-  %55 = load i64, ptr %54, align 8
-  %56 = add i64 %55, -1
-  store i64 %56, ptr %54, align 8
-  br label %57
+53:                                               ; preds = %39
+  %54 = load ptr, ptr %3, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %struct.yyguts_t, ptr %54, i32 0, i32 3
+  %56 = load i64, ptr %55, align 8, !tbaa !28
+  %57 = add i64 %56, -1
+  store i64 %57, ptr %55, align 8, !tbaa !28
+  br label %58
 
-57:                                               ; preds = %52, %38
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.yyguts_t, ptr %58, i32 0, i32 5
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %71
+58:                                               ; preds = %53, %39
+  %59 = load ptr, ptr %3, align 8, !tbaa !11
+  %60 = getelementptr inbounds nuw %struct.yyguts_t, ptr %59, i32 0, i32 5
+  %61 = load ptr, ptr %60, align 8, !tbaa !27
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %72
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds %struct.yyguts_t, ptr %63, i32 0, i32 5
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.yyguts_t, ptr %66, i32 0, i32 3
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds ptr, ptr %65, i64 %68
-  %70 = load ptr, ptr %69, align 8
-  br label %72
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %3, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw %struct.yyguts_t, ptr %64, i32 0, i32 5
+  %66 = load ptr, ptr %65, align 8, !tbaa !27
+  %67 = load ptr, ptr %3, align 8, !tbaa !11
+  %68 = getelementptr inbounds nuw %struct.yyguts_t, ptr %67, i32 0, i32 3
+  %69 = load i64, ptr %68, align 8, !tbaa !28
+  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %69
+  %71 = load ptr, ptr %70, align 8, !tbaa !29
+  br label %73
 
-71:                                               ; preds = %57
-  br label %72
+72:                                               ; preds = %58
+  br label %73
 
-72:                                               ; preds = %71, %62
-  %73 = phi ptr [ %70, %62 ], [ null, %71 ]
-  %74 = icmp ne ptr %73, null
-  br i1 %74, label %75, label %79
+73:                                               ; preds = %72, %63
+  %74 = phi ptr [ %71, %63 ], [ null, %72 ]
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %80
 
-75:                                               ; preds = %72
-  %76 = load ptr, ptr %2, align 8
-  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %76)
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.yyguts_t, ptr %77, i32 0, i32 12
-  store i32 1, ptr %78, align 8
-  br label %79
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %2, align 8, !tbaa !10
+  call void @_ZL29_gmx_sel_yy_load_buffer_statePv(ptr noundef %77)
+  %78 = load ptr, ptr %3, align 8, !tbaa !11
+  %79 = getelementptr inbounds nuw %struct.yyguts_t, ptr %78, i32 0, i32 12
+  store i32 1, ptr %79, align 8, !tbaa !70
+  br label %80
 
-79:                                               ; preds = %75, %72, %22
+80:                                               ; preds = %76, %73
+  store i32 0, ptr %4, align 4
+  br label %81
+
+81:                                               ; preds = %80, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
+  %82 = load i32, ptr %4, align 4
+  switch i32 %82, label %84 [
+    i32 0, label %83
+    i32 1, label %83
+  ]
+
+83:                                               ; preds = %81, %81
   ret void
+
+84:                                               ; preds = %81
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3023,109 +3482,114 @@ define noundef ptr @_Z23_gmx_sel_yy_scan_bufferPcmPv(ptr noundef %0, i64 noundef
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i64 %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %9 = load i64, ptr %6, align 8
-  %10 = icmp ult i64 %9, 2
-  br i1 %10, label %27, label %11
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !51
+  store i64 %1, ptr %6, align 8, !tbaa !72
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  %10 = load i64, ptr %6, align 8, !tbaa !72
+  %11 = icmp ult i64 %10, 2
+  br i1 %11, label %28, label %12
 
-11:                                               ; preds = %3
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i64, ptr %6, align 8
-  %14 = sub i64 %13, 2
-  %15 = getelementptr inbounds i8, ptr %12, i64 %14
-  %16 = load i8, ptr %15, align 1
-  %17 = sext i8 %16 to i32
-  %18 = icmp ne i32 %17, 0
-  br i1 %18, label %27, label %19
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !51
+  %14 = load i64, ptr %6, align 8, !tbaa !72
+  %15 = sub i64 %14, 2
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !53
+  %18 = sext i8 %17 to i32
+  %19 = icmp ne i32 %18, 0
+  br i1 %19, label %28, label %20
 
-19:                                               ; preds = %11
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i64, ptr %6, align 8
-  %22 = sub i64 %21, 1
-  %23 = getelementptr inbounds i8, ptr %20, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = sext i8 %24 to i32
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %28
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %5, align 8, !tbaa !51
+  %22 = load i64, ptr %6, align 8, !tbaa !72
+  %23 = sub i64 %22, 1
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !53
+  %26 = sext i8 %25 to i32
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %19, %11, %3
+28:                                               ; preds = %20, %12, %3
   store ptr null, ptr %4, align 8
-  br label %65
+  store i32 1, ptr %9, align 4
+  br label %66
 
-28:                                               ; preds = %19
-  %29 = load ptr, ptr %7, align 8
-  %30 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef 72, ptr noundef %29)
-  store ptr %30, ptr %8, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %35, label %33
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %7, align 8, !tbaa !10
+  %31 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef 72, ptr noundef %30)
+  store ptr %31, ptr %8, align 8, !tbaa !29
+  %32 = load ptr, ptr %8, align 8, !tbaa !29
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %36, label %34
 
-33:                                               ; preds = %28
-  %34 = load ptr, ptr %7, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.4, ptr noundef %34) #12
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.4, ptr noundef %35) #18
   unreachable
 
-35:                                               ; preds = %28
-  %36 = load i64, ptr %6, align 8
-  %37 = sub i64 %36, 2
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct.yy_buffer_state, ptr %38, i32 0, i32 3
-  store i64 %37, ptr %39, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.yy_buffer_state, ptr %41, i32 0, i32 1
-  store ptr %40, ptr %42, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds %struct.yy_buffer_state, ptr %43, i32 0, i32 2
-  store ptr %40, ptr %44, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.yy_buffer_state, ptr %45, i32 0, i32 5
-  store i32 0, ptr %46, align 8
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.yy_buffer_state, ptr %47, i32 0, i32 0
-  store ptr null, ptr %48, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.yy_buffer_state, ptr %49, i32 0, i32 3
-  %51 = load i64, ptr %50, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.yy_buffer_state, ptr %52, i32 0, i32 4
-  store i64 %51, ptr %53, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.yy_buffer_state, ptr %54, i32 0, i32 6
-  store i32 0, ptr %55, align 4
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.yy_buffer_state, ptr %56, i32 0, i32 7
-  store i32 1, ptr %57, align 8
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.yy_buffer_state, ptr %58, i32 0, i32 10
-  store i32 0, ptr %59, align 4
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.yy_buffer_state, ptr %60, i32 0, i32 11
-  store i32 0, ptr %61, align 8
-  %62 = load ptr, ptr %8, align 8
-  %63 = load ptr, ptr %7, align 8
-  call void @_Z28_gmx_sel_yy_switch_to_bufferP15yy_buffer_statePv(ptr noundef %62, ptr noundef %63)
-  %64 = load ptr, ptr %8, align 8
-  store ptr %64, ptr %4, align 8
-  br label %65
+36:                                               ; preds = %29
+  %37 = load i64, ptr %6, align 8, !tbaa !72
+  %38 = sub i64 %37, 2
+  %39 = load ptr, ptr %8, align 8, !tbaa !29
+  %40 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %39, i32 0, i32 3
+  store i64 %38, ptr %40, align 8, !tbaa !74
+  %41 = load ptr, ptr %5, align 8, !tbaa !51
+  %42 = load ptr, ptr %8, align 8, !tbaa !29
+  %43 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %42, i32 0, i32 1
+  store ptr %41, ptr %43, align 8, !tbaa !69
+  %44 = load ptr, ptr %8, align 8, !tbaa !29
+  %45 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %44, i32 0, i32 2
+  store ptr %41, ptr %45, align 8, !tbaa !76
+  %46 = load ptr, ptr %8, align 8, !tbaa !29
+  %47 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %46, i32 0, i32 5
+  store i32 0, ptr %47, align 8, !tbaa !75
+  %48 = load ptr, ptr %8, align 8, !tbaa !29
+  %49 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %48, i32 0, i32 0
+  store ptr null, ptr %49, align 8, !tbaa !68
+  %50 = load ptr, ptr %8, align 8, !tbaa !29
+  %51 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %50, i32 0, i32 3
+  %52 = load i64, ptr %51, align 8, !tbaa !74
+  %53 = load ptr, ptr %8, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %53, i32 0, i32 4
+  store i64 %52, ptr %54, align 8, !tbaa !66
+  %55 = load ptr, ptr %8, align 8, !tbaa !29
+  %56 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %55, i32 0, i32 6
+  store i32 0, ptr %56, align 4, !tbaa !86
+  %57 = load ptr, ptr %8, align 8, !tbaa !29
+  %58 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %57, i32 0, i32 7
+  store i32 1, ptr %58, align 8, !tbaa !91
+  %59 = load ptr, ptr %8, align 8, !tbaa !29
+  %60 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %59, i32 0, i32 10
+  store i32 0, ptr %60, align 4, !tbaa !83
+  %61 = load ptr, ptr %8, align 8, !tbaa !29
+  %62 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %61, i32 0, i32 11
+  store i32 0, ptr %62, align 8, !tbaa !64
+  %63 = load ptr, ptr %8, align 8, !tbaa !29
+  %64 = load ptr, ptr %7, align 8, !tbaa !10
+  call void @_Z28_gmx_sel_yy_switch_to_bufferP15yy_buffer_statePv(ptr noundef %63, ptr noundef %64)
+  %65 = load ptr, ptr %8, align 8, !tbaa !29
+  store ptr %65, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %66
 
-65:                                               ; preds = %35, %27
-  %66 = load ptr, ptr %4, align 8
-  ret ptr %66
+66:                                               ; preds = %36, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  %67 = load ptr, ptr %4, align 8
+  ret ptr %67
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z23_gmx_sel_yy_scan_stringPKcPv(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = call i64 @strlen(ptr noundef %6) #16
-  %8 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !51
+  %6 = load ptr, ptr %3, align 8, !tbaa !51
+  %7 = call i64 @strlen(ptr noundef %6) #22
+  %8 = load ptr, ptr %4, align 8, !tbaa !10
   %9 = call noundef ptr @_Z22_gmx_sel_yy_scan_bytesPKcmPv(ptr noundef %5, i64 noundef %7, ptr noundef %8)
   ret ptr %9
 }
@@ -3139,264 +3603,292 @@ define noundef ptr @_Z22_gmx_sel_yy_scan_bytesPKcmPv(ptr noundef %0, i64 noundef
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %11 = load i64, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !51
+  store i64 %1, ptr %5, align 8, !tbaa !72
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #17
+  %11 = load i64, ptr %5, align 8, !tbaa !72
   %12 = add i64 %11, 2
-  store i64 %12, ptr %9, align 8
-  %13 = load i64, ptr %9, align 8
-  %14 = load ptr, ptr %6, align 8
+  store i64 %12, ptr %9, align 8, !tbaa !72
+  %13 = load i64, ptr %9, align 8, !tbaa !72
+  %14 = load ptr, ptr %6, align 8, !tbaa !10
   %15 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef %13, ptr noundef %14)
-  store ptr %15, ptr %8, align 8
-  %16 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %8, align 8, !tbaa !51
+  %16 = load ptr, ptr %8, align 8, !tbaa !51
   %17 = icmp ne ptr %16, null
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr %6, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.5, ptr noundef %19) #12
+  %19 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.5, ptr noundef %19) #18
   unreachable
 
 20:                                               ; preds = %3
-  store i64 0, ptr %10, align 8
+  store i64 0, ptr %10, align 8, !tbaa !72
   br label %21
 
 21:                                               ; preds = %33, %20
-  %22 = load i64, ptr %10, align 8
-  %23 = load i64, ptr %5, align 8
+  %22 = load i64, ptr %10, align 8, !tbaa !72
+  %23 = load i64, ptr %5, align 8, !tbaa !72
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %4, align 8
-  %27 = load i64, ptr %10, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %30 = load ptr, ptr %8, align 8
-  %31 = load i64, ptr %10, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 %31
-  store i8 %29, ptr %32, align 1
+  %26 = load ptr, ptr %4, align 8, !tbaa !51
+  %27 = load i64, ptr %10, align 8, !tbaa !72
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !53
+  %30 = load ptr, ptr %8, align 8, !tbaa !51
+  %31 = load i64, ptr %10, align 8, !tbaa !72
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  store i8 %29, ptr %32, align 1, !tbaa !53
   br label %33
 
 33:                                               ; preds = %25
-  %34 = load i64, ptr %10, align 8
+  %34 = load i64, ptr %10, align 8, !tbaa !72
   %35 = add i64 %34, 1
-  store i64 %35, ptr %10, align 8
-  br label %21, !llvm.loop !15
+  store i64 %35, ptr %10, align 8, !tbaa !72
+  br label %21, !llvm.loop !92
 
 36:                                               ; preds = %21
-  %37 = load ptr, ptr %8, align 8
-  %38 = load i64, ptr %5, align 8
+  %37 = load ptr, ptr %8, align 8, !tbaa !51
+  %38 = load i64, ptr %5, align 8, !tbaa !72
   %39 = add i64 %38, 1
-  %40 = getelementptr inbounds i8, ptr %37, i64 %39
-  store i8 0, ptr %40, align 1
-  %41 = load ptr, ptr %8, align 8
-  %42 = load i64, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  store i8 0, ptr %43, align 1
-  %44 = load ptr, ptr %8, align 8
-  %45 = load i64, ptr %9, align 8
-  %46 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
+  store i8 0, ptr %40, align 1, !tbaa !53
+  %41 = load ptr, ptr %8, align 8, !tbaa !51
+  %42 = load i64, ptr %5, align 8, !tbaa !72
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %42
+  store i8 0, ptr %43, align 1, !tbaa !53
+  %44 = load ptr, ptr %8, align 8, !tbaa !51
+  %45 = load i64, ptr %9, align 8, !tbaa !72
+  %46 = load ptr, ptr %6, align 8, !tbaa !10
   %47 = call noundef ptr @_Z23_gmx_sel_yy_scan_bufferPcmPv(ptr noundef %44, i64 noundef %45, ptr noundef %46)
-  store ptr %47, ptr %7, align 8
-  %48 = load ptr, ptr %7, align 8
+  store ptr %47, ptr %7, align 8, !tbaa !29
+  %48 = load ptr, ptr %7, align 8, !tbaa !29
   %49 = icmp ne ptr %48, null
   br i1 %49, label %52, label %50
 
 50:                                               ; preds = %36
-  %51 = load ptr, ptr %6, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.6, ptr noundef %51) #12
+  %51 = load ptr, ptr %6, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.6, ptr noundef %51) #18
   unreachable
 
 52:                                               ; preds = %36
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct.yy_buffer_state, ptr %53, i32 0, i32 5
-  store i32 1, ptr %54, align 8
-  %55 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr %7, align 8, !tbaa !29
+  %54 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %53, i32 0, i32 5
+  store i32 1, ptr %54, align 8, !tbaa !75
+  %55 = load ptr, ptr %7, align 8, !tbaa !29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
   ret ptr %55
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #5
+declare i64 @strlen(ptr noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z21_gmx_sel_yyget_linenoPv(ptr noundef %0) #1 {
+define noundef i32 @_Z21_gmx_sel_yyget_linenoPv(ptr noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  store ptr %5, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.yyguts_t, ptr %6, i32 0, i32 5
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %19
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  store ptr %6, ptr %4, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.yyguts_t, ptr %7, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %20
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.yyguts_t, ptr %11, i32 0, i32 5
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.yyguts_t, ptr %14, i32 0, i32 3
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
-  %18 = load ptr, ptr %17, align 8
-  br label %20
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %4, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.yyguts_t, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8, !tbaa !27
+  %15 = load ptr, ptr %4, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.yyguts_t, ptr %15, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  br label %21
 
-19:                                               ; preds = %1
-  br label %20
+20:                                               ; preds = %1
+  br label %21
 
-20:                                               ; preds = %19, %10
-  %21 = phi ptr [ %18, %10 ], [ null, %19 ]
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %24, label %23
+21:                                               ; preds = %20, %11
+  %22 = phi ptr [ %19, %11 ], [ null, %20 ]
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %25, label %24
 
-23:                                               ; preds = %20
+24:                                               ; preds = %21
   store i32 0, ptr %2, align 4
-  br label %35
+  store i32 1, ptr %5, align 4
+  br label %36
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.yyguts_t, ptr %25, i32 0, i32 5
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.yyguts_t, ptr %28, i32 0, i32 3
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.yy_buffer_state, ptr %32, i32 0, i32 8
-  %34 = load i32, ptr %33, align 4
-  store i32 %34, ptr %2, align 4
-  br label %35
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %4, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw %struct.yyguts_t, ptr %26, i32 0, i32 5
+  %28 = load ptr, ptr %27, align 8, !tbaa !27
+  %29 = load ptr, ptr %4, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.yyguts_t, ptr %29, i32 0, i32 3
+  %31 = load i64, ptr %30, align 8, !tbaa !28
+  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !29
+  %34 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %33, i32 0, i32 8
+  %35 = load i32, ptr %34, align 4, !tbaa !89
+  store i32 %35, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %36
 
-35:                                               ; preds = %24, %23
-  %36 = load i32, ptr %2, align 4
-  ret i32 %36
+36:                                               ; preds = %25, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  %37 = load i32, ptr %2, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z21_gmx_sel_yyget_columnPv(ptr noundef %0) #1 {
+define noundef i32 @_Z21_gmx_sel_yyget_columnPv(ptr noundef %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  store ptr %5, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.yyguts_t, ptr %6, i32 0, i32 5
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %19
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #17
+  %6 = load ptr, ptr %3, align 8, !tbaa !10
+  store ptr %6, ptr %4, align 8, !tbaa !11
+  %7 = load ptr, ptr %4, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.yyguts_t, ptr %7, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %20
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.yyguts_t, ptr %11, i32 0, i32 5
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.yyguts_t, ptr %14, i32 0, i32 3
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
-  %18 = load ptr, ptr %17, align 8
-  br label %20
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %4, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.yyguts_t, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8, !tbaa !27
+  %15 = load ptr, ptr %4, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.yyguts_t, ptr %15, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  br label %21
 
-19:                                               ; preds = %1
-  br label %20
+20:                                               ; preds = %1
+  br label %21
 
-20:                                               ; preds = %19, %10
-  %21 = phi ptr [ %18, %10 ], [ null, %19 ]
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %24, label %23
+21:                                               ; preds = %20, %11
+  %22 = phi ptr [ %19, %11 ], [ null, %20 ]
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %25, label %24
 
-23:                                               ; preds = %20
+24:                                               ; preds = %21
   store i32 0, ptr %2, align 4
-  br label %35
+  store i32 1, ptr %5, align 4
+  br label %36
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.yyguts_t, ptr %25, i32 0, i32 5
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.yyguts_t, ptr %28, i32 0, i32 3
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds %struct.yy_buffer_state, ptr %32, i32 0, i32 9
-  %34 = load i32, ptr %33, align 8
-  store i32 %34, ptr %2, align 4
-  br label %35
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %4, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw %struct.yyguts_t, ptr %26, i32 0, i32 5
+  %28 = load ptr, ptr %27, align 8, !tbaa !27
+  %29 = load ptr, ptr %4, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.yyguts_t, ptr %29, i32 0, i32 3
+  %31 = load i64, ptr %30, align 8, !tbaa !28
+  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !29
+  %34 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %33, i32 0, i32 9
+  %35 = load i32, ptr %34, align 8, !tbaa !90
+  store i32 %35, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %36
 
-35:                                               ; preds = %24, %23
-  %36 = load i32, ptr %2, align 4
-  ret i32 %36
+36:                                               ; preds = %25, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #17
+  %37 = load i32, ptr %2, align 4
+  ret i32 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z17_gmx_sel_yyget_inPv(ptr noundef %0) #1 {
+define noundef ptr @_Z17_gmx_sel_yyget_inPv(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.yyguts_t, ptr %5, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %4, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.yyguts_t, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z18_gmx_sel_yyget_outPv(ptr noundef %0) #1 {
+define noundef ptr @_Z18_gmx_sel_yyget_outPv(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.yyguts_t, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %4, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.yyguts_t, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_Z19_gmx_sel_yyget_lengPv(ptr noundef %0) #1 {
+define noundef i64 @_Z19_gmx_sel_yyget_lengPv(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.yyguts_t, ptr %5, i32 0, i32 8
-  %7 = load i64, ptr %6, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %4, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.yyguts_t, ptr %5, i32 0, i32 8
+  %7 = load i64, ptr %6, align 8, !tbaa !62
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret i64 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z19_gmx_sel_yyget_textPv(ptr noundef %0) #1 {
+define noundef ptr @_Z19_gmx_sel_yyget_textPv(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.yyguts_t, ptr %5, i32 0, i32 20
-  %7 = load ptr, ptr %6, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %4, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.yyguts_t, ptr %5, i32 0, i32 20
+  %7 = load ptr, ptr %6, align 8, !tbaa !61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z20_gmx_sel_yyset_extraP15gmx_sel_lexer_tPv(ptr noundef %0, ptr noundef %1) #1 {
+define void @_Z20_gmx_sel_yyset_extraP15gmx_sel_lexer_tPv(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.yyguts_t, ptr %8, i32 0, i32 0
-  store ptr %7, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr %3, align 8, !tbaa !31
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.yyguts_t, ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8, !tbaa !77
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret void
 }
 
@@ -3405,25 +3897,26 @@ define void @_Z21_gmx_sel_yyset_linenoiPv(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.yyguts_t, ptr %7, i32 0, i32 5
-  %9 = load ptr, ptr %8, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr %5, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.yyguts_t, ptr %7, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.yyguts_t, ptr %12, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.yyguts_t, ptr %15, i32 0, i32 3
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
-  %19 = load ptr, ptr %18, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.yyguts_t, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8, !tbaa !27
+  %15 = load ptr, ptr %5, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.yyguts_t, ptr %15, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
   br label %21
 
 20:                                               ; preds = %2
@@ -3435,22 +3928,23 @@ define void @_Z21_gmx_sel_yyset_linenoiPv(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %4, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.7, ptr noundef %25) #12
+  %25 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.7, ptr noundef %25) #18
   unreachable
 
 26:                                               ; preds = %21
-  %27 = load i32, ptr %3, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.yyguts_t, ptr %28, i32 0, i32 5
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.yyguts_t, ptr %31, i32 0, i32 3
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds ptr, ptr %30, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct.yy_buffer_state, ptr %35, i32 0, i32 8
-  store i32 %27, ptr %36, align 4
+  %27 = load i32, ptr %3, align 4, !tbaa !32
+  %28 = load ptr, ptr %5, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw %struct.yyguts_t, ptr %28, i32 0, i32 5
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
+  %31 = load ptr, ptr %5, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.yyguts_t, ptr %31, i32 0, i32 3
+  %33 = load i64, ptr %32, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  %36 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %35, i32 0, i32 8
+  store i32 %27, ptr %36, align 4, !tbaa !89
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret void
 }
 
@@ -3459,25 +3953,26 @@ define void @_Z21_gmx_sel_yyset_columniPv(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct.yyguts_t, ptr %7, i32 0, i32 5
-  %9 = load ptr, ptr %8, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr %5, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.yyguts_t, ptr %7, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.yyguts_t, ptr %12, i32 0, i32 5
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct.yyguts_t, ptr %15, i32 0, i32 3
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
-  %19 = load ptr, ptr %18, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw %struct.yyguts_t, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8, !tbaa !27
+  %15 = load ptr, ptr %5, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.yyguts_t, ptr %15, i32 0, i32 3
+  %17 = load i64, ptr %16, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
   br label %21
 
 20:                                               ; preds = %2
@@ -3489,83 +3984,92 @@ define void @_Z21_gmx_sel_yyset_columniPv(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %4, align 8
-  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.8, ptr noundef %25) #12
+  %25 = load ptr, ptr %4, align 8, !tbaa !10
+  call void @_ZL14yy_fatal_errorPKcPv(ptr noundef @.str.8, ptr noundef %25) #18
   unreachable
 
 26:                                               ; preds = %21
-  %27 = load i32, ptr %3, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.yyguts_t, ptr %28, i32 0, i32 5
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.yyguts_t, ptr %31, i32 0, i32 3
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds ptr, ptr %30, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds %struct.yy_buffer_state, ptr %35, i32 0, i32 9
-  store i32 %27, ptr %36, align 8
+  %27 = load i32, ptr %3, align 4, !tbaa !32
+  %28 = load ptr, ptr %5, align 8, !tbaa !11
+  %29 = getelementptr inbounds nuw %struct.yyguts_t, ptr %28, i32 0, i32 5
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
+  %31 = load ptr, ptr %5, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw %struct.yyguts_t, ptr %31, i32 0, i32 3
+  %33 = load i64, ptr %32, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  %36 = getelementptr inbounds nuw %struct.yy_buffer_state, ptr %35, i32 0, i32 9
+  store i32 %27, ptr %36, align 8, !tbaa !90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z17_gmx_sel_yyset_inP8_IO_FILEPv(ptr noundef %0, ptr noundef %1) #1 {
+define void @_Z17_gmx_sel_yyset_inP8_IO_FILEPv(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.yyguts_t, ptr %8, i32 0, i32 1
-  store ptr %7, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr %3, align 8, !tbaa !25
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.yyguts_t, ptr %8, i32 0, i32 1
+  store ptr %7, ptr %9, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z18_gmx_sel_yyset_outP8_IO_FILEPv(ptr noundef %0, ptr noundef %1) #1 {
+define void @_Z18_gmx_sel_yyset_outP8_IO_FILEPv(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.yyguts_t, ptr %8, i32 0, i32 2
-  store ptr %7, ptr %9, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load ptr, ptr %3, align 8, !tbaa !25
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.yyguts_t, ptr %8, i32 0, i32 2
+  store ptr %7, ptr %9, align 8, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z20_gmx_sel_yyget_debugPv(ptr noundef %0) #1 {
+define noundef i32 @_Z20_gmx_sel_yyget_debugPv(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.yyguts_t, ptr %5, i32 0, i32 19
-  %7 = load i32, ptr %6, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %4, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.yyguts_t, ptr %5, i32 0, i32 19
+  %7 = load i32, ptr %6, align 4, !tbaa !93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z20_gmx_sel_yyset_debugiPv(i32 noundef %0, ptr noundef %1) #1 {
+define void @_Z20_gmx_sel_yyset_debugiPv(i32 noundef %0, ptr noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %4, align 8
-  store ptr %6, ptr %5, align 8
-  %7 = load i32, ptr %3, align 4
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.yyguts_t, ptr %8, i32 0, i32 19
-  store i32 %7, ptr %9, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #17
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  store ptr %6, ptr %5, align 8, !tbaa !11
+  %7 = load i32, ptr %3, align 4, !tbaa !32
+  %8 = load ptr, ptr %5, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw %struct.yyguts_t, ptr %8, i32 0, i32 19
+  store i32 %7, ptr %9, align 4, !tbaa !93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #17
   ret void
 }
 
@@ -3573,38 +4077,38 @@ define void @_Z20_gmx_sel_yyset_debugiPv(i32 noundef %0, ptr noundef %1) #1 {
 define noundef i32 @_Z19_gmx_sel_yylex_initPPv(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !94
+  %4 = load ptr, ptr %3, align 8, !tbaa !94
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = call ptr @__errno_location() #14
-  store i32 22, ptr %7, align 4
+  %7 = call ptr @__errno_location() #20
+  store i32 22, ptr %7, align 4, !tbaa !32
   store i32 1, ptr %2, align 4
   br label %22
 
 8:                                                ; preds = %1
   %9 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef 152, ptr noundef null)
-  %10 = load ptr, ptr %3, align 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %3, align 8, !tbaa !94
+  store ptr %9, ptr %10, align 8, !tbaa !10
+  %11 = load ptr, ptr %3, align 8, !tbaa !94
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %8
-  %15 = call ptr @__errno_location() #14
-  store i32 12, ptr %15, align 4
+  %15 = call ptr @__errno_location() #20
+  store i32 12, ptr %15, align 4, !tbaa !32
   store i32 1, ptr %2, align 4
   br label %22
 
 16:                                               ; preds = %8
-  %17 = load ptr, ptr %3, align 8
-  %18 = load ptr, ptr %17, align 8
+  %17 = load ptr, ptr %3, align 8, !tbaa !94
+  %18 = load ptr, ptr %17, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 152, i1 false)
-  %19 = load ptr, ptr %3, align 8
-  %20 = load ptr, ptr %19, align 8
+  %19 = load ptr, ptr %3, align 8, !tbaa !94
+  %20 = load ptr, ptr %19, align 8, !tbaa !10
   %21 = call noundef i32 @_ZL15yy_init_globalsPv(ptr noundef %20)
   store i32 %21, ptr %2, align 4
   br label %22
@@ -3615,51 +4119,53 @@ define noundef i32 @_Z19_gmx_sel_yylex_initPPv(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #6
+declare ptr @__errno_location() #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL15yy_init_globalsPv(ptr noundef %0) #1 {
+define internal noundef i32 @_ZL15yy_init_globalsPv(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.yyguts_t, ptr %5, i32 0, i32 5
-  store ptr null, ptr %6, align 8
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %struct.yyguts_t, ptr %7, i32 0, i32 3
-  store i64 0, ptr %8, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.yyguts_t, ptr %9, i32 0, i32 4
-  store i64 0, ptr %10, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.yyguts_t, ptr %11, i32 0, i32 9
-  store ptr null, ptr %12, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.yyguts_t, ptr %13, i32 0, i32 10
-  store i32 0, ptr %14, align 8
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.yyguts_t, ptr %15, i32 0, i32 11
-  store i32 0, ptr %16, align 4
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.yyguts_t, ptr %17, i32 0, i32 13
-  store i32 0, ptr %18, align 4
-  %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.yyguts_t, ptr %19, i32 0, i32 14
-  store i32 0, ptr %20, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.yyguts_t, ptr %21, i32 0, i32 15
-  store ptr null, ptr %22, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.yyguts_t, ptr %23, i32 0, i32 1
-  store ptr null, ptr %24, align 8
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.yyguts_t, ptr %25, i32 0, i32 2
-  store ptr null, ptr %26, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %4, ptr %3, align 8, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !11
+  %6 = getelementptr inbounds nuw %struct.yyguts_t, ptr %5, i32 0, i32 5
+  store ptr null, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %3, align 8, !tbaa !11
+  %8 = getelementptr inbounds nuw %struct.yyguts_t, ptr %7, i32 0, i32 3
+  store i64 0, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %3, align 8, !tbaa !11
+  %10 = getelementptr inbounds nuw %struct.yyguts_t, ptr %9, i32 0, i32 4
+  store i64 0, ptr %10, align 8, !tbaa !73
+  %11 = load ptr, ptr %3, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.yyguts_t, ptr %11, i32 0, i32 9
+  store ptr null, ptr %12, align 8, !tbaa !50
+  %13 = load ptr, ptr %3, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw %struct.yyguts_t, ptr %13, i32 0, i32 10
+  store i32 0, ptr %14, align 8, !tbaa !13
+  %15 = load ptr, ptr %3, align 8, !tbaa !11
+  %16 = getelementptr inbounds nuw %struct.yyguts_t, ptr %15, i32 0, i32 11
+  store i32 0, ptr %16, align 4, !tbaa !23
+  %17 = load ptr, ptr %3, align 8, !tbaa !11
+  %18 = getelementptr inbounds nuw %struct.yyguts_t, ptr %17, i32 0, i32 13
+  store i32 0, ptr %18, align 4, !tbaa !95
+  %19 = load ptr, ptr %3, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw %struct.yyguts_t, ptr %19, i32 0, i32 14
+  store i32 0, ptr %20, align 8, !tbaa !96
+  %21 = load ptr, ptr %3, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw %struct.yyguts_t, ptr %21, i32 0, i32 15
+  store ptr null, ptr %22, align 8, !tbaa !97
+  %23 = load ptr, ptr %3, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw %struct.yyguts_t, ptr %23, i32 0, i32 1
+  store ptr null, ptr %24, align 8, !tbaa !24
+  %25 = load ptr, ptr %3, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw %struct.yyguts_t, ptr %25, i32 0, i32 2
+  store ptr null, ptr %26, align 8, !tbaa !26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret i32 0
 }
 
@@ -3669,79 +4175,86 @@ define noundef i32 @_Z25_gmx_sel_yylex_init_extraP15gmx_sel_lexer_tPPv(ptr nound
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.yyguts_t, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  call void @_Z20_gmx_sel_yyset_extraP15gmx_sel_lexer_tPv(ptr noundef %7, ptr noundef %6)
-  %8 = load ptr, ptr %5, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %12
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !31
+  store ptr %1, ptr %5, align 8, !tbaa !94
+  call void @llvm.lifetime.start.p0(i64 152, ptr %6) #17
+  %8 = load ptr, ptr %4, align 8, !tbaa !31
+  call void @_Z20_gmx_sel_yyset_extraP15gmx_sel_lexer_tPv(ptr noundef %8, ptr noundef %6)
+  %9 = load ptr, ptr %5, align 8, !tbaa !94
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %2
-  %11 = call ptr @__errno_location() #14
-  store i32 22, ptr %11, align 4
+11:                                               ; preds = %2
+  %12 = call ptr @__errno_location() #20
+  store i32 22, ptr %12, align 4, !tbaa !32
   store i32 1, ptr %3, align 4
-  br label %29
+  store i32 1, ptr %7, align 4
+  br label %30
 
-12:                                               ; preds = %2
-  %13 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef 152, ptr noundef %6)
-  %14 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %14, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %20
+13:                                               ; preds = %2
+  %14 = call noundef ptr @_Z16_gmx_sel_yyallocmPv(i64 noundef 152, ptr noundef %6)
+  %15 = load ptr, ptr %5, align 8, !tbaa !94
+  store ptr %14, ptr %15, align 8, !tbaa !10
+  %16 = load ptr, ptr %5, align 8, !tbaa !94
+  %17 = load ptr, ptr %16, align 8, !tbaa !10
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %12
-  %19 = call ptr @__errno_location() #14
-  store i32 12, ptr %19, align 4
+19:                                               ; preds = %13
+  %20 = call ptr @__errno_location() #20
+  store i32 12, ptr %20, align 4, !tbaa !32
   store i32 1, ptr %3, align 4
-  br label %29
+  store i32 1, ptr %7, align 4
+  br label %30
 
-20:                                               ; preds = %12
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %21, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %22, i8 0, i64 152, i1 false)
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = load ptr, ptr %24, align 8
-  call void @_Z20_gmx_sel_yyset_extraP15gmx_sel_lexer_tPv(ptr noundef %23, ptr noundef %25)
-  %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = call noundef i32 @_ZL15yy_init_globalsPv(ptr noundef %27)
-  store i32 %28, ptr %3, align 4
-  br label %29
+21:                                               ; preds = %13
+  %22 = load ptr, ptr %5, align 8, !tbaa !94
+  %23 = load ptr, ptr %22, align 8, !tbaa !10
+  call void @llvm.memset.p0.i64(ptr align 1 %23, i8 0, i64 152, i1 false)
+  %24 = load ptr, ptr %4, align 8, !tbaa !31
+  %25 = load ptr, ptr %5, align 8, !tbaa !94
+  %26 = load ptr, ptr %25, align 8, !tbaa !10
+  call void @_Z20_gmx_sel_yyset_extraP15gmx_sel_lexer_tPv(ptr noundef %24, ptr noundef %26)
+  %27 = load ptr, ptr %5, align 8, !tbaa !94
+  %28 = load ptr, ptr %27, align 8, !tbaa !10
+  %29 = call noundef i32 @_ZL15yy_init_globalsPv(ptr noundef %28)
+  store i32 %29, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %30
 
-29:                                               ; preds = %20, %18, %10
-  %30 = load i32, ptr %3, align 4
-  ret i32 %30
+30:                                               ; preds = %21, %19, %11
+  call void @llvm.lifetime.end.p0(i64 152, ptr %6) #17
+  %31 = load i32, ptr %3, align 4
+  ret i32 %31
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z22_gmx_sel_yylex_destroyPv(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  store ptr %4, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #17
+  %4 = load ptr, ptr %2, align 8, !tbaa !10
+  store ptr %4, ptr %3, align 8, !tbaa !11
   br label %5
 
 5:                                                ; preds = %38, %1
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.yyguts_t, ptr %6, i32 0, i32 5
-  %8 = load ptr, ptr %7, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !11
+  %7 = getelementptr inbounds nuw %struct.yyguts_t, ptr %6, i32 0, i32 5
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = icmp ne ptr %8, null
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.yyguts_t, ptr %11, i32 0, i32 5
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct.yyguts_t, ptr %14, i32 0, i32 3
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
-  %18 = load ptr, ptr %17, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %struct.yyguts_t, ptr %11, i32 0, i32 5
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %14 = load ptr, ptr %3, align 8, !tbaa !11
+  %15 = getelementptr inbounds nuw %struct.yyguts_t, ptr %14, i32 0, i32 3
+  %16 = load i64, ptr %15, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %16
+  %18 = load ptr, ptr %17, align 8, !tbaa !29
   br label %20
 
 19:                                               ; preds = %5
@@ -3753,21 +4266,21 @@ define noundef i32 @_Z22_gmx_sel_yylex_destroyPv(ptr noundef %0) #0 {
   br i1 %22, label %23, label %49
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.yyguts_t, ptr %24, i32 0, i32 5
-  %26 = load ptr, ptr %25, align 8
+  %24 = load ptr, ptr %3, align 8, !tbaa !11
+  %25 = getelementptr inbounds nuw %struct.yyguts_t, ptr %24, i32 0, i32 5
+  %26 = load ptr, ptr %25, align 8, !tbaa !27
   %27 = icmp ne ptr %26, null
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.yyguts_t, ptr %29, i32 0, i32 5
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.yyguts_t, ptr %32, i32 0, i32 3
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds ptr, ptr %31, i64 %34
-  %36 = load ptr, ptr %35, align 8
+  %29 = load ptr, ptr %3, align 8, !tbaa !11
+  %30 = getelementptr inbounds nuw %struct.yyguts_t, ptr %29, i32 0, i32 5
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
+  %32 = load ptr, ptr %3, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %struct.yyguts_t, ptr %32, i32 0, i32 3
+  %34 = load i64, ptr %33, align 8, !tbaa !28
+  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
   br label %38
 
 37:                                               ; preds = %23
@@ -3775,123 +4288,612 @@ define noundef i32 @_Z22_gmx_sel_yylex_destroyPv(ptr noundef %0) #0 {
 
 38:                                               ; preds = %37, %28
   %39 = phi ptr [ %36, %28 ], [ null, %37 ]
-  %40 = load ptr, ptr %2, align 8
+  %40 = load ptr, ptr %2, align 8, !tbaa !10
   call void @_Z25_gmx_sel_yy_delete_bufferP15yy_buffer_statePv(ptr noundef %39, ptr noundef %40)
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.yyguts_t, ptr %41, i32 0, i32 5
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds %struct.yyguts_t, ptr %44, i32 0, i32 3
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
-  store ptr null, ptr %47, align 8
-  %48 = load ptr, ptr %2, align 8
+  %41 = load ptr, ptr %3, align 8, !tbaa !11
+  %42 = getelementptr inbounds nuw %struct.yyguts_t, ptr %41, i32 0, i32 5
+  %43 = load ptr, ptr %42, align 8, !tbaa !27
+  %44 = load ptr, ptr %3, align 8, !tbaa !11
+  %45 = getelementptr inbounds nuw %struct.yyguts_t, ptr %44, i32 0, i32 3
+  %46 = load i64, ptr %45, align 8, !tbaa !28
+  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %46
+  store ptr null, ptr %47, align 8, !tbaa !29
+  %48 = load ptr, ptr %2, align 8, !tbaa !10
   call void @_Z27_gmx_sel_yypop_buffer_statePv(ptr noundef %48)
-  br label %5, !llvm.loop !16
+  br label %5, !llvm.loop !98
 
 49:                                               ; preds = %20
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds %struct.yyguts_t, ptr %50, i32 0, i32 5
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %2, align 8
+  %50 = load ptr, ptr %3, align 8, !tbaa !11
+  %51 = getelementptr inbounds nuw %struct.yyguts_t, ptr %50, i32 0, i32 5
+  %52 = load ptr, ptr %51, align 8, !tbaa !27
+  %53 = load ptr, ptr %2, align 8, !tbaa !10
   call void @_Z15_gmx_sel_yyfreePvS_(ptr noundef %52, ptr noundef %53)
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.yyguts_t, ptr %54, i32 0, i32 5
-  store ptr null, ptr %55, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.yyguts_t, ptr %56, i32 0, i32 15
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %2, align 8
+  %54 = load ptr, ptr %3, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw %struct.yyguts_t, ptr %54, i32 0, i32 5
+  store ptr null, ptr %55, align 8, !tbaa !27
+  %56 = load ptr, ptr %3, align 8, !tbaa !11
+  %57 = getelementptr inbounds nuw %struct.yyguts_t, ptr %56, i32 0, i32 15
+  %58 = load ptr, ptr %57, align 8, !tbaa !97
+  %59 = load ptr, ptr %2, align 8, !tbaa !10
   call void @_Z15_gmx_sel_yyfreePvS_(ptr noundef %58, ptr noundef %59)
-  %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds %struct.yyguts_t, ptr %60, i32 0, i32 15
-  store ptr null, ptr %61, align 8
-  %62 = load ptr, ptr %2, align 8
+  %60 = load ptr, ptr %3, align 8, !tbaa !11
+  %61 = getelementptr inbounds nuw %struct.yyguts_t, ptr %60, i32 0, i32 15
+  store ptr null, ptr %61, align 8, !tbaa !97
+  %62 = load ptr, ptr %2, align 8, !tbaa !10
   %63 = call noundef i32 @_ZL15yy_init_globalsPv(ptr noundef %62)
-  %64 = load ptr, ptr %2, align 8
-  %65 = load ptr, ptr %2, align 8
+  %64 = load ptr, ptr %2, align 8, !tbaa !10
+  %65 = load ptr, ptr %2, align 8, !tbaa !10
   call void @_Z15_gmx_sel_yyfreePvS_(ptr noundef %64, ptr noundef %65)
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #17
   ret i32 0
 }
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #8
+declare noalias ptr @malloc(i64 noundef) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z18_gmx_sel_yyreallocPvmS_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #1 {
+define noundef ptr @_Z18_gmx_sel_yyreallocPvmS_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %6, align 8
-  store ptr %8, ptr %7, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = load i64, ptr %5, align 8
-  %11 = call ptr @realloc(ptr noundef %9, i64 noundef %10) #17
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store i64 %1, ptr %5, align 8, !tbaa !72
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #17
+  %8 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %8, ptr %7, align 8, !tbaa !11
+  %9 = load ptr, ptr %4, align 8, !tbaa !10
+  %10 = load i64, ptr %5, align 8, !tbaa !72
+  %11 = call ptr @realloc(ptr noundef %9, i64 noundef %10) #23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #17
   ret ptr %11
 }
 
 ; Function Attrs: nounwind allocsize(1)
-declare ptr @realloc(ptr noundef, i64 noundef) #9
+declare ptr @realloc(ptr noundef, i64 noundef) #11
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
-declare i32 @getc(ptr noundef) #2
-
-; Function Attrs: nounwind
-declare i32 @ferror(ptr noundef) #3
-
-declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #2
+declare i32 @getc(ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare void @clearerr(ptr noundef) #3
+declare i32 @ferror(ptr noundef) #4
+
+declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+declare void @clearerr(ptr noundef) #4
+
+; Function Attrs: nounwind
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) #10
+declare void @exit(i32 noundef) #12
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind allocsize(1) }
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %4, label %8, label %5
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8, !tbaa !53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %7) #17
+  br label %8
+
+8:                                                ; preds = %5, %1
+  ret void
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #17
+  call void @_ZSt9terminatev() #19
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %14
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !101
+  %11 = icmp ugt i64 %10, 15
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  unreachable
+
+13:                                               ; preds = %8
+  store i1 true, ptr %2, align 1
+  br label %15
+
+14:                                               ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %15
+
+15:                                               ; preds = %14, %13
+  %16 = load i1, ptr %2, align 1
+  ret i1 %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
+  store i64 %1, ptr %4, align 8, !tbaa !72
+  %5 = load ptr, ptr %3, align 8
+  %6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %7 unwind label %12
+
+7:                                                ; preds = %2
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  %9 = load i64, ptr %4, align 8, !tbaa !72
+  %10 = add i64 %9, 1
+  invoke void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8, i64 noundef %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %7
+  ret void
+
+12:                                               ; preds = %7, %2
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !102
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPKcS0_Lb0EE10pointer_toERS0_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE10deallocateERS0_Pcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !103
+  store ptr %1, ptr %5, align 8, !tbaa !51
+  store i64 %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %4, align 8, !tbaa !103
+  %8 = load ptr, ptr %5, align 8, !tbaa !51
+  %9 = load i64, ptr %6, align 8, !tbaa !72
+  call void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIcE10deallocateEPcm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !99
+  store ptr %1, ptr %5, align 8, !tbaa !51
+  store i64 %2, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %5, align 8, !tbaa !51
+  %8 = load i64, ptr %6, align 8, !tbaa !72
+  %9 = mul i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #24
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #14
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE15_S_always_equalEv() #2 comdat align 2 {
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZStneRKSaIcES1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !103
+  store ptr %1, ptr %4, align 8, !tbaa !103
+  ret i1 false
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
+  store ptr %1, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !51
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8, !tbaa !102
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 0
+  %6 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !78
+  store i64 %1, ptr %4, align 8, !tbaa !72
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8, !tbaa !72
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %7)
+  %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %9 = load i64, ptr %4, align 8, !tbaa !72
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #17
+  store i8 0, ptr %5, align 1, !tbaa !53
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #17
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt15__alloc_on_moveISaIcEEvRT_S2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #6 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !103
+  store ptr %1, ptr %4, align 8, !tbaa !103
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #15
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !101
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !51
+  store ptr %1, ptr %5, align 8, !tbaa !51
+  store i64 %2, ptr %6, align 8, !tbaa !72
+  %7 = load i64, ptr %6, align 8, !tbaa !72
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %3
+  %10 = load ptr, ptr %4, align 8, !tbaa !51
+  %11 = load ptr, ptr %5, align 8, !tbaa !51
+  call void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #17
+  br label %17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %4, align 8, !tbaa !51
+  %14 = load ptr, ptr %5, align 8, !tbaa !51
+  %15 = load i64, ptr %6, align 8, !tbaa !72
+  %16 = call noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %13, ptr noundef %14, i64 noundef %15)
+  br label %17
+
+17:                                               ; preds = %12, %9
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
+  store i64 %1, ptr %4, align 8, !tbaa !72
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !72
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8, !tbaa !101
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !101
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !78
+  store i64 %1, ptr %4, align 8, !tbaa !72
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !72
+  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i32 0, i32 2
+  store i64 %6, ptr %7, align 8, !tbaa !53
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !78
+  %3 = load ptr, ptr %2, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0)
+          to label %4 unwind label %5
+
+4:                                                ; preds = %1
+  ret void
+
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #19
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPccLb0EE10pointer_toERc(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt11char_traitsIcE6assignERcRKc(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %6 = load i8, ptr %5, align 1, !tbaa !53
+  %7 = load ptr, ptr %3, align 8, !tbaa !51
+  store i8 %6, ptr %7, align 1, !tbaa !53
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt11char_traitsIcE4copyEPcPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !51
+  store ptr %1, ptr %6, align 8, !tbaa !51
+  store i64 %2, ptr %7, align 8, !tbaa !72
+  %8 = load i64, ptr %7, align 8, !tbaa !72
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !51
+  store ptr %11, ptr %4, align 8
+  br label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !51
+  %14 = load ptr, ptr %6, align 8, !tbaa !51
+  %15 = load i64, ptr %7, align 8, !tbaa !72
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %15, i1 false)
+  store ptr %13, ptr %4, align 8
+  br label %16
+
+16:                                               ; preds = %12, %10
+  %17 = load ptr, ptr %4, align 8
+  ret ptr %17
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { nounwind allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { nounwind allocsize(1) }
+attributes #24 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS7YYSTYPE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN3gmx17SelectionLocationE", !5, i64 0}
+!10 = !{!5, !5, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS8yyguts_t", !5, i64 0}
+!13 = !{!14, !21, i64 80}
+!14 = !{!"_ZTS8yyguts_t", !15, i64 0, !16, i64 8, !16, i64 16, !17, i64 24, !17, i64 32, !18, i64 40, !6, i64 48, !17, i64 56, !17, i64 64, !20, i64 72, !21, i64 80, !21, i64 84, !21, i64 88, !21, i64 92, !21, i64 96, !22, i64 104, !21, i64 112, !20, i64 120, !21, i64 128, !21, i64 132, !20, i64 136, !21, i64 144, !21, i64 148}
+!15 = !{!"p1 _ZTS15gmx_sel_lexer_t", !5, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!"p2 _ZTS15yy_buffer_state", !19, i64 0}
+!19 = !{!"any p2 pointer", !5, i64 0}
+!20 = !{!"p1 omnipotent char", !5, i64 0}
+!21 = !{!"int", !6, i64 0}
+!22 = !{!"p1 int", !5, i64 0}
+!23 = !{!14, !21, i64 84}
+!24 = !{!14, !16, i64 8}
+!25 = !{!16, !16, i64 0}
+!26 = !{!14, !16, i64 16}
+!27 = !{!14, !18, i64 40}
+!28 = !{!14, !17, i64 24}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS15yy_buffer_state", !5, i64 0}
+!31 = !{!15, !15, i64 0}
+!32 = !{!21, !21, i64 0}
+!33 = !{!34, !37, i64 140}
+!34 = !{!"_ZTS15gmx_sel_lexer_t", !35, i64 0, !36, i64 8, !37, i64 16, !38, i64 24, !21, i64 32, !39, i64 40, !40, i64 48, !42, i64 80, !43, i64 88, !21, i64 96, !21, i64 100, !21, i64 104, !44, i64 112, !37, i64 120, !45, i64 128, !21, i64 136, !37, i64 140, !37, i64 141, !37, i64 142, !37, i64 143, !30, i64 144}
+!35 = !{!"p1 _ZTS23gmx_ana_selcollection_t", !5, i64 0}
+!36 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !5, i64 0}
+!37 = !{!"bool", !6, i64 0}
+!38 = !{!"p1 _ZTS19gmx_ana_indexgrps_t", !5, i64 0}
+!39 = !{!"p1 _ZTSN3gmx10TextWriterE", !5, i64 0}
+!40 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !41, i64 0, !17, i64 8, !6, i64 16}
+!41 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !20, i64 0}
+!42 = !{!"_ZTSN3gmx17SelectionLocationE", !21, i64 0, !21, i64 4}
+!43 = !{!"p2 _ZTS19gmx_ana_selmethod_t", !19, i64 0}
+!44 = !{!"p1 _ZTS18gmx_ana_selparam_t", !5, i64 0}
+!45 = !{!"p1 _ZTSN3gmx21SelectionParserSymbolE", !5, i64 0}
+!46 = !{i8 0, i8 2}
+!47 = !{}
+!48 = !{!34, !37, i64 141}
+!49 = !{!34, !37, i64 142}
+!50 = !{!14, !20, i64 72}
+!51 = !{!20, !20, i64 0}
+!52 = !{!14, !6, i64 48}
+!53 = !{!6, !6, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"short", !6, i64 0}
+!56 = !{!14, !21, i64 112}
+!57 = !{!14, !20, i64 120}
+!58 = distinct !{!58, !59}
+!59 = !{!"llvm.loop.mustprogress"}
+!60 = distinct !{!60, !59}
+!61 = !{!14, !20, i64 136}
+!62 = !{!14, !17, i64 64}
+!63 = !{!34, !39, i64 40}
+!64 = !{!65, !21, i64 64}
+!65 = !{!"_ZTS15yy_buffer_state", !16, i64 0, !20, i64 8, !20, i64 16, !17, i64 24, !17, i64 32, !21, i64 40, !21, i64 44, !21, i64 48, !21, i64 52, !21, i64 56, !21, i64 60, !21, i64 64}
+!66 = !{!65, !17, i64 32}
+!67 = !{!14, !17, i64 56}
+!68 = !{!65, !16, i64 0}
+!69 = !{!65, !20, i64 8}
+!70 = !{!14, !21, i64 88}
+!71 = distinct !{!71, !59}
+!72 = !{!17, !17, i64 0}
+!73 = !{!14, !17, i64 32}
+!74 = !{!65, !17, i64 24}
+!75 = !{!65, !21, i64 40}
+!76 = !{!65, !20, i64 16}
+!77 = !{!14, !15, i64 0}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!80 = distinct !{!80, !59}
+!81 = distinct !{!81, !59}
+!82 = distinct !{!82, !59}
+!83 = !{!65, !21, i64 60}
+!84 = distinct !{!84, !59}
+!85 = distinct !{!85, !59}
+!86 = !{!65, !21, i64 44}
+!87 = distinct !{!87, !59}
+!88 = distinct !{!88, !59}
+!89 = !{!65, !21, i64 52}
+!90 = !{!65, !21, i64 56}
+!91 = !{!65, !21, i64 48}
+!92 = distinct !{!92, !59}
+!93 = !{!14, !21, i64 132}
+!94 = !{!19, !19, i64 0}
+!95 = !{!14, !21, i64 92}
+!96 = !{!14, !21, i64 96}
+!97 = !{!14, !22, i64 104}
+!98 = distinct !{!98, !59}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTSSt15__new_allocatorIcE", !5, i64 0}
+!101 = !{!40, !17, i64 8}
+!102 = !{!40, !20, i64 0}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 _ZTSSaIcE", !5, i64 0}

@@ -52,20 +52,20 @@ $_ZNK3gmx8ArrayRefIKNS_17AnalysisDataValueEE4sizeEv = comdat any
 
 $_ZNK3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEmiES3_ = comdat any
 
-$_ZTSN3gmx19IAnalysisDataModuleE = comdat any
-
 $_ZTIN3gmx19IAnalysisDataModuleE = comdat any
+
+$_ZTSN3gmx19IAnalysisDataModuleE = comdat any
 
 $_ZTVN3gmx19IAnalysisDataModuleE = comdat any
 
 @_ZTVN3gmx17AnalysisDataProxyE = unnamed_addr constant { [15 x ptr], [12 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTIN3gmx17AnalysisDataProxyE, ptr @_ZN3gmx17AnalysisDataProxyD2Ev, ptr @_ZN3gmx17AnalysisDataProxyD0Ev, ptr @_ZNK3gmx17AnalysisDataProxy10frameCountEv, ptr @_ZNK3gmx17AnalysisDataProxy23tryGetDataFrameInternalEi, ptr @_ZN3gmx17AnalysisDataProxy22requestStorageInternalEi, ptr @_ZNK3gmx17AnalysisDataProxy5flagsEv, ptr @_ZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataE, ptr @_ZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE, ptr @_ZN3gmx17AnalysisDataProxy12frameStartedERKNS_23AnalysisDataFrameHeaderE, ptr @_ZN3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSetRefE, ptr @_ZN3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisDataFrameHeaderE, ptr @_ZN3gmx17AnalysisDataProxy19frameFinishedSerialEi, ptr @_ZN3gmx17AnalysisDataProxy12dataFinishedEv], [12 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN3gmx17AnalysisDataProxyE, ptr @_ZThn16_N3gmx17AnalysisDataProxyD1Ev, ptr @_ZThn16_N3gmx17AnalysisDataProxyD0Ev, ptr @_ZThn16_NK3gmx17AnalysisDataProxy5flagsEv, ptr @_ZThn16_N3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataE, ptr @_ZThn16_N3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE, ptr @_ZThn16_N3gmx17AnalysisDataProxy12frameStartedERKNS_23AnalysisDataFrameHeaderE, ptr @_ZThn16_N3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSetRefE, ptr @_ZThn16_N3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisDataFrameHeaderE, ptr @_ZThn16_N3gmx17AnalysisDataProxy19frameFinishedSerialEi, ptr @_ZThn16_N3gmx17AnalysisDataProxy12dataFinishedEv] }, align 8
+@_ZTIN3gmx17AnalysisDataProxyE = constant { ptr, ptr, i32, i32, ptr, i64, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN3gmx17AnalysisDataProxyE, i32 0, i32 2, ptr @_ZTIN3gmx20AbstractAnalysisDataE, i64 2, ptr @_ZTIN3gmx19IAnalysisDataModuleE, i64 4098 }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3gmx17AnalysisDataProxyE = constant [26 x i8] c"N3gmx17AnalysisDataProxyE\00", align 1
 @_ZTIN3gmx20AbstractAnalysisDataE = external constant ptr
+@_ZTIN3gmx19IAnalysisDataModuleE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3gmx19IAnalysisDataModuleE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN3gmx19IAnalysisDataModuleE = linkonce_odr constant [28 x i8] c"N3gmx19IAnalysisDataModuleE\00", comdat, align 1
-@_ZTIN3gmx19IAnalysisDataModuleE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3gmx19IAnalysisDataModuleE }, comdat, align 8
-@_ZTIN3gmx17AnalysisDataProxyE = constant { ptr, ptr, i32, i32, ptr, i64, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN3gmx17AnalysisDataProxyE, i32 0, i32 2, ptr @_ZTIN3gmx20AbstractAnalysisDataE, i64 2, ptr @_ZTIN3gmx19IAnalysisDataModuleE, i64 4098 }, align 8
 @_ZTVN3gmx19IAnalysisDataModuleE = linkonce_odr unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN3gmx19IAnalysisDataModuleE, ptr @_ZN3gmx19IAnalysisDataModuleD2Ev, ptr @_ZN3gmx19IAnalysisDataModuleD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
 @.str = private unnamed_addr constant [16 x i8] c"data != nullptr\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Source data must not be NULL\00", align 1
@@ -80,35 +80,35 @@ $_ZTVN3gmx19IAnalysisDataModuleE = comdat any
 
 @_ZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataE = unnamed_addr alias void (ptr, i32, i32, ptr), ptr @_ZN3gmx17AnalysisDataProxyC2EiiPNS_20AbstractAnalysisDataE
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17AnalysisDataProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @_ZN3gmx19IAnalysisDataModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #10
-  call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
+  call void @_ZN3gmx19IAnalysisDataModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
+  call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17AnalysisDataProxyD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN3gmx17AnalysisDataProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #10
-  call void @_ZdlPv(ptr noundef %3) #11
+  call void @_ZN3gmx17AnalysisDataProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #13
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 48) #14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK3gmx17AnalysisDataProxy10frameCountEv(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %3, i32 0, i32 2
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds ptr, ptr %6, i64 2
   %8 = load ptr, ptr %7, align 8
   %9 = call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -120,29 +120,34 @@ define void @_ZNK3gmx17AnalysisDataProxy23tryGetDataFrameInternalEi(ptr dead_on_
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.gmx::AnalysisDataFrameRef", align 8
-  store ptr %1, ptr %4, align 8
-  store i32 %2, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %7, i32 0, i32 2
-  %9 = load ptr, ptr %8, align 8
-  %10 = load i32, ptr %5, align 4
-  call void @_ZNK3gmx20AbstractAnalysisData15tryGetDataFrameEi(ptr dead_on_unwind writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %10)
-  %11 = call noundef zeroext i1 @_ZNK3gmx20AnalysisDataFrameRef7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
-  br i1 %11, label %13, label %12
-
-12:                                               ; preds = %3
-  call void @_ZN3gmx20AnalysisDataFrameRefC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  br label %18
+  %7 = alloca i32, align 4
+  store ptr %1, ptr %4, align 8, !tbaa !4
+  store i32 %2, ptr %5, align 4, !tbaa !25
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr %6) #13
+  %9 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !9
+  %11 = load i32, ptr %5, align 4, !tbaa !25
+  call void @_ZNK3gmx20AbstractAnalysisData15tryGetDataFrameEi(ptr dead_on_unwind writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11)
+  %12 = call noundef zeroext i1 @_ZNK3gmx20AnalysisDataFrameRef7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
+  br i1 %12, label %14, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %7, i32 0, i32 3
-  %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %7, i32 0, i32 4
-  %17 = load i32, ptr %16, align 4
-  call void @_ZN3gmx20AnalysisDataFrameRefC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %15, i32 noundef %17)
-  br label %18
+  call void @_ZN3gmx20AnalysisDataFrameRefC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  store i32 1, ptr %7, align 4
+  br label %19
 
-18:                                               ; preds = %13, %12
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %8, i32 0, i32 3
+  %16 = load i32, ptr %15, align 8, !tbaa !26
+  %17 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %8, i32 0, i32 4
+  %18 = load i32, ptr %17, align 4, !tbaa !27
+  call void @_ZN3gmx20AnalysisDataFrameRefC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %16, i32 noundef %18)
+  store i32 1, ptr %7, align 4
+  br label %19
+
+19:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 48, ptr %6) #13
   ret void
 }
 
@@ -150,20 +155,20 @@ define void @_ZNK3gmx17AnalysisDataProxy23tryGetDataFrameInternalEi(ptr dead_on_
 define noundef zeroext i1 @_ZN3gmx17AnalysisDataProxy22requestStorageInternalEi(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !25
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !9
+  %8 = load i32, ptr %4, align 4, !tbaa !25
   %9 = call noundef zeroext i1 @_ZN3gmx20AbstractAnalysisData14requestStorageEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8)
   ret i1 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK3gmx17AnalysisDataProxy5flagsEv(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK3gmx17AnalysisDataProxy5flagsEv(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   ret i32 29
 }
 
@@ -173,13 +178,14 @@ define void @_ZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataE
   %4 = alloca ptr, align 8
   %5 = alloca %class.anon.7, align 1
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !28
   %7 = load ptr, ptr %3, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %7, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %7, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = icmp eq ptr %8, %10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #13
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %2
@@ -190,35 +196,41 @@ define void @_ZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataE
   br label %14
 
 14:                                               ; preds = %13, %12
-  %15 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #13
+  %15 = load ptr, ptr %4, align 8, !tbaa !28
   %16 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
   call void @_ZN3gmx20AbstractAnalysisData15setDataSetCountEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %16)
-  store i32 0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #13
+  store i32 0, ptr %6, align 4, !tbaa !25
   br label %17
 
-17:                                               ; preds = %26, %14
-  %18 = load i32, ptr %6, align 4
-  %19 = load ptr, ptr %4, align 8
+17:                                               ; preds = %27, %14
+  %18 = load i32, ptr %6, align 4, !tbaa !25
+  %19 = load ptr, ptr %4, align 8, !tbaa !28
   %20 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
   %21 = icmp slt i32 %18, %20
-  br i1 %21, label %22, label %29
+  br i1 %21, label %23, label %22
 
 22:                                               ; preds = %17
-  %23 = load i32, ptr %6, align 4
-  %24 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %7, i32 0, i32 4
-  %25 = load i32, ptr %24, align 4
-  call void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %23, i32 noundef %25)
-  br label %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #13
+  br label %30
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr %6, align 4
-  %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %6, align 4
-  br label %17, !llvm.loop !5
+23:                                               ; preds = %17
+  %24 = load i32, ptr %6, align 4, !tbaa !25
+  %25 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %7, i32 0, i32 4
+  %26 = load i32, ptr %25, align 4, !tbaa !27
+  call void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %24, i32 noundef %26)
+  br label %27
 
-29:                                               ; preds = %17
-  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  call void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %7)
+27:                                               ; preds = %23
+  %28 = load i32, ptr %6, align 4, !tbaa !25
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %6, align 4, !tbaa !25
+  br label %17, !llvm.loop !29
+
+30:                                               ; preds = %22
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %7)
   ret void
 }
 
@@ -229,14 +241,15 @@ define noundef zeroext i1 @_ZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_2
   %6 = alloca ptr, align 8
   %7 = alloca %class.anon.17, align 1
   %8 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store ptr %2, ptr %6, align 8, !tbaa !31
   %9 = load ptr, ptr %4, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %9, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %5, align 8, !tbaa !28
+  %11 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %9, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = icmp eq ptr %10, %12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #13
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %3
@@ -247,69 +260,75 @@ define noundef zeroext i1 @_ZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_2
   br label %16
 
 16:                                               ; preds = %15, %14
-  %17 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #13
+  %17 = load ptr, ptr %5, align 8, !tbaa !28
   %18 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
   call void @_ZN3gmx20AbstractAnalysisData15setDataSetCountEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %18)
-  store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #13
+  store i32 0, ptr %8, align 4, !tbaa !25
   br label %19
 
-19:                                               ; preds = %28, %16
-  %20 = load i32, ptr %8, align 4
-  %21 = load ptr, ptr %5, align 8
+19:                                               ; preds = %29, %16
+  %20 = load i32, ptr %8, align 4, !tbaa !25
+  %21 = load ptr, ptr %5, align 8, !tbaa !28
   %22 = call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
   %23 = icmp slt i32 %20, %22
-  br i1 %23, label %24, label %31
+  br i1 %23, label %25, label %24
 
 24:                                               ; preds = %19
-  %25 = load i32, ptr %8, align 4
-  %26 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %9, i32 0, i32 4
-  %27 = load i32, ptr %26, align 4
-  call void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %25, i32 noundef %27)
-  br label %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #13
+  br label %32
 
-28:                                               ; preds = %24
-  %29 = load i32, ptr %8, align 4
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %8, align 4
-  br label %19, !llvm.loop !7
+25:                                               ; preds = %19
+  %26 = load i32, ptr %8, align 4, !tbaa !25
+  %27 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %9, i32 0, i32 4
+  %28 = load i32, ptr %27, align 4, !tbaa !27
+  call void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %26, i32 noundef %28)
+  br label %29
 
-31:                                               ; preds = %19
-  %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  %33 = load ptr, ptr %6, align 8
-  call void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %9, ptr noundef nonnull align 1 %33)
-  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  %35 = call noundef zeroext i1 @_ZNK3gmx25AnalysisDataModuleManager16hasSerialModulesEv(ptr noundef nonnull align 8 dereferenceable(8) %34)
-  %36 = xor i1 %35, true
-  %37 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %9, i32 0, i32 5
-  %38 = zext i1 %36 to i8
-  store i8 %38, ptr %37, align 8
-  %39 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %9, i32 0, i32 5
-  %40 = load i8, ptr %39, align 8
-  %41 = trunc i8 %40 to i1
-  ret i1 %41
+29:                                               ; preds = %25
+  %30 = load i32, ptr %8, align 4, !tbaa !25
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %8, align 4, !tbaa !25
+  br label %19, !llvm.loop !33
+
+32:                                               ; preds = %24
+  %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %34 = load ptr, ptr %6, align 8, !tbaa !31
+  call void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %9, ptr noundef nonnull align 1 %34)
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %36 = call noundef zeroext i1 @_ZNK3gmx25AnalysisDataModuleManager16hasSerialModulesEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %37 = xor i1 %36, true
+  %38 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %9, i32 0, i32 5
+  %39 = zext i1 %37 to i8
+  store i8 %39, ptr %38, align 8, !tbaa !34
+  %40 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %9, i32 0, i32 5
+  %41 = load i8, ptr %40, align 8, !tbaa !34, !range !35, !noundef !36
+  %42 = trunc i8 %41 to i1
+  ret i1 %42
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx17AnalysisDataProxy12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !37
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %5, i32 0, i32 5
-  %7 = load i8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %5, i32 0, i32 5
+  %7 = load i8, ptr %6, align 8, !tbaa !34, !range !35, !noundef !36
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !37
   call void @_ZNK3gmx25AnalysisDataModuleManager24notifyParallelFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(12) %11)
   br label %15
 
 12:                                               ; preds = %2
   %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !37
   call void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(12) %14)
   br label %15
 
@@ -322,22 +341,23 @@ define void @_ZN3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSet
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.gmx::AnalysisDataPointSetRef", align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !39
   %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %6, i32 0, i32 3
-  %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %6, i32 0, i32 4
-  %11 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 40, ptr %5) #13
+  %7 = load ptr, ptr %4, align 8, !tbaa !39
+  %8 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %6, i32 0, i32 3
+  %9 = load i32, ptr %8, align 8, !tbaa !26
+  %10 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %6, i32 0, i32 4
+  %11 = load i32, ptr %10, align 4, !tbaa !27
   call void @_ZN3gmx23AnalysisDataPointSetRefC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %9, i32 noundef %11)
   %12 = call noundef i32 @_ZNK3gmx23AnalysisDataPointSetRef11columnCountEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %6, i32 0, i32 5
-  %16 = load i8, ptr %15, align 8
+  %15 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %6, i32 0, i32 5
+  %16 = load i8, ptr %15, align 8, !tbaa !34, !range !35, !noundef !36
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %20
 
@@ -355,6 +375,7 @@ define void @_ZN3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSet
   br label %23
 
 23:                                               ; preds = %22, %2
+  call void @llvm.lifetime.end.p0(i64 40, ptr %5) #13
   ret void
 }
 
@@ -362,23 +383,23 @@ define void @_ZN3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSet
 define void @_ZN3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !37
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %5, i32 0, i32 5
-  %7 = load i8, ptr %6, align 8
+  %6 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %5, i32 0, i32 5
+  %7 = load i8, ptr %6, align 8, !tbaa !34, !range !35, !noundef !36
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %11 = load ptr, ptr %4, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !37
   call void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(12) %11)
   br label %15
 
 12:                                               ; preds = %2
   %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %14 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %4, align 8, !tbaa !37
   call void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(12) %14)
   br label %15
 
@@ -391,19 +412,21 @@ define void @_ZN3gmx17AnalysisDataProxy19frameFinishedSerialEi(ptr noundef nonnu
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.gmx::AnalysisDataFrameHeader", align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !25
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %6, i32 0, i32 5
-  %8 = load i8, ptr %7, align 8
+  %7 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %6, i32 0, i32 5
+  %8 = load i8, ptr %7, align 8, !tbaa !34, !range !35, !noundef !36
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 12, ptr %5) #13
+  %11 = load i32, ptr %4, align 4, !tbaa !25
   call void @_ZN3gmx23AnalysisDataFrameHeaderC1Eiff(ptr noundef nonnull align 4 dereferenceable(12) %5, i32 noundef %11, float noundef 0.000000e+00, float noundef 0.000000e+00)
   %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(12) %5)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %5) #13
   br label %13
 
 13:                                               ; preds = %10, %2
@@ -413,37 +436,37 @@ define void @_ZN3gmx17AnalysisDataProxy19frameFinishedSerialEi(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx17AnalysisDataProxy12dataFinishedEv(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn16_N3gmx17AnalysisDataProxyD1Ev(ptr noundef %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr void @_ZThn16_N3gmx17AnalysisDataProxyD1Ev(ptr noundef %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -16
-  tail call void @_ZN3gmx17AnalysisDataProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #10
+  tail call void @_ZN3gmx17AnalysisDataProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #13
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn16_N3gmx17AnalysisDataProxyD0Ev(ptr noundef %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint nounwind uwtable
+define linkonce_odr void @_ZThn16_N3gmx17AnalysisDataProxyD0Ev(ptr noundef %0) unnamed_addr #3 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -16
-  tail call void @_ZN3gmx17AnalysisDataProxyD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #10
+  tail call void @_ZN3gmx17AnalysisDataProxyD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %4) #13
   ret void
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn16_NK3gmx17AnalysisDataProxy5flagsEv(ptr noundef %0) unnamed_addr #3 align 2 {
+define noundef i32 @_ZThn16_NK3gmx17AnalysisDataProxy5flagsEv(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -16
   %5 = tail call noundef i32 @_ZNK3gmx17AnalysisDataProxy5flagsEv(ptr noundef nonnull align 8 dereferenceable(41) %4)
@@ -451,40 +474,40 @@ define noundef i32 @_ZThn16_NK3gmx17AnalysisDataProxy5flagsEv(ptr noundef %0) un
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZThn16_N3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataE(ptr noundef %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !28
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
   tail call void @_ZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(41) %6, ptr noundef %7)
   ret void
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZThn16_N3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 %2) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZThn16_N3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 %2) unnamed_addr #4 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  store ptr %2, ptr %6, align 8, !tbaa !31
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -16
-  %9 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8, !tbaa !28
   %10 = load ptr, ptr %6, align 8
   %11 = tail call noundef zeroext i1 @_ZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(41) %8, ptr noundef %9, ptr noundef nonnull align 1 %10)
   ret i1 %11
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx17AnalysisDataProxy12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #3 align 2 {
+define void @_ZThn16_N3gmx17AnalysisDataProxy12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !37
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
   %7 = load ptr, ptr %4, align 8
@@ -493,11 +516,11 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy12frameStartedERKNS_23AnalysisDataF
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
+define void @_ZThn16_N3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !39
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
   %7 = load ptr, ptr %4, align 8
@@ -506,11 +529,11 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy11pointsAddedERKNS_23AnalysisDataPo
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #3 align 2 {
+define void @_ZThn16_N3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !37
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
   %7 = load ptr, ptr %4, align 8
@@ -519,22 +542,22 @@ define void @_ZThn16_N3gmx17AnalysisDataProxy13frameFinishedERKNS_23AnalysisData
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx17AnalysisDataProxy19frameFinishedSerialEi(ptr noundef %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZThn16_N3gmx17AnalysisDataProxy19frameFinishedSerialEi(ptr noundef %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !25
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
-  %7 = load i32, ptr %4, align 4
+  %7 = load i32, ptr %4, align 4, !tbaa !25
   tail call void @_ZN3gmx17AnalysisDataProxy19frameFinishedSerialEi(ptr noundef nonnull align 8 dereferenceable(41) %6, i32 noundef %7)
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx17AnalysisDataProxy12dataFinishedEv(ptr noundef %0) unnamed_addr #3 align 2 {
+define void @_ZThn16_N3gmx17AnalysisDataProxy12dataFinishedEv(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -16
   tail call void @_ZN3gmx17AnalysisDataProxy12dataFinishedEv(ptr noundef nonnull align 8 dereferenceable(41) %4)
@@ -551,235 +574,265 @@ define void @_ZN3gmx17AnalysisDataProxyC2EiiPNS_20AbstractAnalysisDataE(ptr noun
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca %class.anon.5, align 1
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store i32 %1, ptr %6, align 4, !tbaa !25
+  store i32 %2, ptr %7, align 4, !tbaa !25
+  store ptr %3, ptr %8, align 8, !tbaa !28
   %13 = load ptr, ptr %5, align 8
   call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13)
   %14 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN3gmx19IAnalysisDataModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #10
-  %15 = getelementptr inbounds { [15 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx17AnalysisDataProxyE, i32 0, i32 0, i32 2
-  store ptr %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
-  %17 = getelementptr inbounds { [15 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx17AnalysisDataProxyE, i32 0, i32 1, i32 2
-  store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 2
-  %19 = load ptr, ptr %8, align 8
-  store ptr %19, ptr %18, align 8
-  %20 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 3
-  %21 = load i32, ptr %6, align 4
-  store i32 %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 4
-  %23 = load i32, ptr %7, align 4
-  store i32 %23, ptr %22, align 4
-  %24 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 5
-  store i8 0, ptr %24, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %27, label %28
+  call void @_ZN3gmx19IAnalysisDataModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #13
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx17AnalysisDataProxyE, i32 0, i32 0, i32 2), ptr %13, align 8, !tbaa !23
+  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr getelementptr inbounds inrange(-16, 80) ({ [15 x ptr], [12 x ptr] }, ptr @_ZTVN3gmx17AnalysisDataProxyE, i32 0, i32 1, i32 2), ptr %15, align 8, !tbaa !23
+  %16 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 2
+  %17 = load ptr, ptr %8, align 8, !tbaa !28
+  store ptr %17, ptr %16, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 3
+  %19 = load i32, ptr %6, align 4, !tbaa !25
+  store i32 %19, ptr %18, align 8, !tbaa !26
+  %20 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 4
+  %21 = load i32, ptr %7, align 4, !tbaa !25
+  store i32 %21, ptr %20, align 4, !tbaa !27
+  %22 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 5
+  store i8 0, ptr %22, align 8, !tbaa !34
+  %23 = load ptr, ptr %8, align 8, !tbaa !28
+  %24 = icmp ne ptr %23, null
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #13
+  br i1 %24, label %25, label %26
 
-27:                                               ; preds = %4
-  br label %30
+25:                                               ; preds = %4
+  br label %28
 
-28:                                               ; preds = %4
+26:                                               ; preds = %4
   invoke void @"_ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %29 unwind label %45
+          to label %27 unwind label %43
 
-29:                                               ; preds = %28
-  br label %30
+27:                                               ; preds = %26
+  br label %28
 
-30:                                               ; preds = %29, %27
-  %31 = load i32, ptr %6, align 4
-  %32 = icmp sge i32 %31, 0
-  br i1 %32, label %33, label %37
+28:                                               ; preds = %27, %25
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #13
+  %29 = load i32, ptr %6, align 4, !tbaa !25
+  %30 = icmp sge i32 %29, 0
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #13
+  br i1 %30, label %31, label %35
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %7, align 4
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %36, label %37
+31:                                               ; preds = %28
+  %32 = load i32, ptr %7, align 4, !tbaa !25
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %34, label %35
 
-36:                                               ; preds = %33
-  br label %39
+34:                                               ; preds = %31
+  br label %37
 
-37:                                               ; preds = %33, %30
+35:                                               ; preds = %31, %28
   invoke void @"_ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_1clEv"(ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %38 unwind label %45
+          to label %36 unwind label %47
 
-38:                                               ; preds = %37
-  br label %39
+36:                                               ; preds = %35
+  br label %37
 
-39:                                               ; preds = %38, %36
-  %40 = getelementptr inbounds %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 2
-  %41 = load ptr, ptr %40, align 8
-  %42 = invoke noundef zeroext i1 @_ZNK3gmx20AbstractAnalysisData12isMultipointEv(ptr noundef nonnull align 8 dereferenceable(16) %41)
-          to label %43 unwind label %45
+37:                                               ; preds = %36, %34
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #13
+  %38 = getelementptr inbounds nuw %"class.gmx::AnalysisDataProxy", ptr %13, i32 0, i32 2
+  %39 = load ptr, ptr %38, align 8, !tbaa !9
+  %40 = invoke noundef zeroext i1 @_ZNK3gmx20AbstractAnalysisData12isMultipointEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
+          to label %41 unwind label %51
 
-43:                                               ; preds = %39
-  invoke void @_ZN3gmx20AbstractAnalysisData13setMultipointEb(ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %42)
-          to label %44 unwind label %45
+41:                                               ; preds = %37
+  invoke void @_ZN3gmx20AbstractAnalysisData13setMultipointEb(ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext %40)
+          to label %42 unwind label %51
 
-44:                                               ; preds = %43
+42:                                               ; preds = %41
   ret void
 
-45:                                               ; preds = %43, %39, %37, %28
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %26
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %47 = extractvalue { ptr, i32 } %46, 0
-  store ptr %47, ptr %10, align 8
-  %48 = extractvalue { ptr, i32 } %46, 1
-  store i32 %48, ptr %11, align 4
-  %49 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @_ZN3gmx19IAnalysisDataModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #10
-  call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #10
-  br label %50
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %10, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #13
+  br label %55
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %10, align 8
-  %52 = load i32, ptr %11, align 4
-  %53 = insertvalue { ptr, i32 } poison, ptr %51, 0
-  %54 = insertvalue { ptr, i32 } %53, i32 %52, 1
-  resume { ptr, i32 } %54
+47:                                               ; preds = %35
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %10, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #13
+  br label %55
+
+51:                                               ; preds = %41, %37
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %10, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %11, align 4
+  br label %55
+
+55:                                               ; preds = %51, %47, %43
+  %56 = getelementptr inbounds i8, ptr %13, i64 16
+  call void @_ZN3gmx19IAnalysisDataModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %56) #13
+  call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #13
+  br label %57
+
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %10, align 8
+  %59 = load i32, ptr %11, align 4
+  %60 = insertvalue { ptr, i32 } poison, ptr %58, 0
+  %61 = insertvalue { ptr, i32 } %60, i32 %59, 1
+  resume { ptr, i32 } %61
 }
 
-declare void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
+declare void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx19IAnalysisDataModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [12 x ptr] }, ptr @_ZTVN3gmx19IAnalysisDataModuleE, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 80) ({ [12 x ptr] }, ptr @_ZTVN3gmx19IAnalysisDataModuleE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !23
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 align 2 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @"__PRETTY_FUNCTION__._ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_0clEv", ptr noundef @.str.2, i32 noundef 55) #12
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str, ptr noundef @.str.1, ptr noundef @"__PRETTY_FUNCTION__._ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_0clEv", ptr noundef @.str.2, i32 noundef 56) #15
   unreachable
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_1clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 align 2 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_1clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @"__PRETTY_FUNCTION__._ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_0clEv", ptr noundef @.str.2, i32 noundef 56) #12
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str.3, ptr noundef @.str.4, ptr noundef @"__PRETTY_FUNCTION__._ZZN3gmx17AnalysisDataProxyC1EiiPNS_20AbstractAnalysisDataEENK3$_0clEv", ptr noundef @.str.2, i32 noundef 57) #15
   unreachable
 }
 
-declare void @_ZN3gmx20AbstractAnalysisData13setMultipointEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) #4
+declare void @_ZN3gmx20AbstractAnalysisData13setMultipointEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) #5
 
-declare noundef zeroext i1 @_ZNK3gmx20AbstractAnalysisData12isMultipointEv(ptr noundef nonnull align 8 dereferenceable(16)) #4
+declare noundef zeroext i1 @_ZNK3gmx20AbstractAnalysisData12isMultipointEv(ptr noundef nonnull align 8 dereferenceable(16)) #5
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+declare void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx19IAnalysisDataModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr void @_ZN3gmx19IAnalysisDataModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !41
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx19IAnalysisDataModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+define linkonce_odr void @_ZN3gmx19IAnalysisDataModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @llvm.trap() #13
+  store ptr %0, ptr %2, align 8, !tbaa !41
+  call void @llvm.trap() #16
   unreachable
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
+declare void @llvm.trap() #9
 
 ; Function Attrs: noreturn
-declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #7
+declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #10
 
-declare void @_ZNK3gmx20AbstractAnalysisData15tryGetDataFrameEi(ptr dead_on_unwind writable sret(%"class.gmx::AnalysisDataFrameRef") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #4
+declare void @_ZNK3gmx20AbstractAnalysisData15tryGetDataFrameEi(ptr dead_on_unwind writable sret(%"class.gmx::AnalysisDataFrameRef") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3gmx20AnalysisDataFrameRef7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx20AnalysisDataFrameRef6headerEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %5 = call noundef zeroext i1 @_ZNK3gmx23AnalysisDataFrameHeader7isValidEv(ptr noundef nonnull align 4 dereferenceable(12) %4)
   ret i1 %5
 }
 
-declare void @_ZN3gmx20AnalysisDataFrameRefC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
+declare void @_ZN3gmx20AnalysisDataFrameRefC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #5
 
-declare void @_ZN3gmx20AnalysisDataFrameRefC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, i32 noundef) unnamed_addr #4
+declare void @_ZN3gmx20AnalysisDataFrameRefC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx20AnalysisDataFrameRef6headerEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+define linkonce_odr noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx20AnalysisDataFrameRef6headerEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !44
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.gmx::AnalysisDataFrameRef", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameRef", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK3gmx23AnalysisDataFrameHeader7isValidEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #0 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZNK3gmx23AnalysisDataFrameHeader7isValidEv(ptr noundef nonnull align 4 dereferenceable(12) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.gmx::AnalysisDataFrameHeader", ptr %3, i32 0, i32 0
-  %5 = load i32, ptr %4, align 4
+  %4 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameHeader", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 4, !tbaa !46
   %6 = icmp sge i32 %5, 0
   ret i1 %6
 }
 
-declare noundef zeroext i1 @_ZN3gmx20AbstractAnalysisData14requestStorageEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #4
+declare noundef zeroext i1 @_ZN3gmx20AbstractAnalysisData14requestStorageEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #5
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @"__PRETTY_FUNCTION__._ZZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataEENK3$_0clEv", ptr noundef @.str.2, i32 noundef 92) #12
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @"__PRETTY_FUNCTION__._ZZN3gmx17AnalysisDataProxy11dataStartedEPNS_20AbstractAnalysisDataEENK3$_0clEv", ptr noundef @.str.2, i32 noundef 93) #15
   unreachable
 }
 
-declare void @_ZN3gmx20AbstractAnalysisData15setDataSetCountEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #4
+declare void @_ZN3gmx20AbstractAnalysisData15setDataSetCountEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #5
 
-declare noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16)) #4
+declare noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16)) #5
 
-declare void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) #4
+declare void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) #5
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16)) #4
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16)) #5
 
-declare void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #4
+declare void @_ZN3gmx25AnalysisDataModuleManager15notifyDataStartEPNS_20AbstractAnalysisDataE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #5
 
-; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 align 2 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal void @"_ZZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsEENK3$_0clEv"(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @"__PRETTY_FUNCTION__._ZZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsEENK3$_0clEv", ptr noundef @.str.2, i32 noundef 105) #12
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @"__PRETTY_FUNCTION__._ZZN3gmx17AnalysisDataProxy19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsEENK3$_0clEv", ptr noundef @.str.2, i32 noundef 106) #15
   unreachable
 }
 
-declare void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1) #4
+declare void @_ZN3gmx25AnalysisDataModuleManager23notifyParallelDataStartEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1) #5
 
-declare noundef zeroext i1 @_ZNK3gmx25AnalysisDataModuleManager16hasSerialModulesEv(ptr noundef nonnull align 8 dereferenceable(8)) #4
+declare noundef zeroext i1 @_ZNK3gmx25AnalysisDataModuleManager16hasSerialModulesEv(ptr noundef nonnull align 8 dereferenceable(8)) #5
 
-declare void @_ZNK3gmx25AnalysisDataModuleManager24notifyParallelFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(12)) #4
+declare void @_ZNK3gmx25AnalysisDataModuleManager24notifyParallelFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(12)) #5
 
-declare void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(12)) #4
+declare void @_ZNK3gmx25AnalysisDataModuleManager16notifyFrameStartERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(12)) #5
 
-declare void @_ZN3gmx23AnalysisDataPointSetRefC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef) unnamed_addr #4
+declare void @_ZN3gmx23AnalysisDataPointSetRefC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZNK3gmx23AnalysisDataPointSetRef11columnCountEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
   %3 = load ptr, ptr %2, align 8
   %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx23AnalysisDataPointSetRef6valuesEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %5 = call noundef i64 @_ZN3gmx5ssizeINS_8ArrayRefIKNS_17AnalysisDataValueEEEEElRKT_(ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -787,55 +840,55 @@ define linkonce_odr noundef i32 @_ZNK3gmx23AnalysisDataPointSetRef11columnCountE
   ret i32 %6
 }
 
-declare void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(40)) #4
+declare void @_ZNK3gmx25AnalysisDataModuleManager23notifyParallelPointsAddERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(40)) #5
 
-declare void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(40)) #4
+declare void @_ZNK3gmx25AnalysisDataModuleManager15notifyPointsAddERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(40)) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN3gmx5ssizeINS_8ArrayRefIKNS_17AnalysisDataValueEEEEElRKT_(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8, !tbaa !49
   %4 = call noundef i64 @_ZNK3gmx8ArrayRefIKNS_17AnalysisDataValueEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx23AnalysisDataPointSetRef6valuesEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx23AnalysisDataPointSetRef6valuesEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !39
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.gmx::AnalysisDataPointSetRef", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %"class.gmx::AnalysisDataPointSetRef", ptr %3, i32 0, i32 3
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK3gmx8ArrayRefIKNS_17AnalysisDataValueEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNK3gmx8ArrayRefIKNS_17AnalysisDataValueEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"struct.gmx::ArrayRefIter", align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %"class.gmx::ArrayRef", ptr %4, i32 0, i32 1
-  %6 = getelementptr inbounds %"class.gmx::ArrayRef", ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.gmx::ArrayRef", ptr %4, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %"class.gmx::ArrayRef", ptr %4, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 8, i1 false)
-  %7 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
-  %9 = call noundef i64 @_ZNK3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEmiES3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %8) #10
+  %9 = call noundef i64 @_ZNK3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEmiES3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %8) #13
   ret i64 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEmiES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) #0 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNK3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEmiES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) #2 comdat align 2 {
   %3 = alloca %"struct.gmx::ArrayRefIter", align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
   store ptr %1, ptr %5, align 8
-  store ptr %0, ptr %4, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !51
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  %7 = getelementptr inbounds nuw %"struct.gmx::ArrayRefIter", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !53
+  %9 = getelementptr inbounds nuw %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !53
   %11 = ptrtoint ptr %8 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -844,41 +897,92 @@ define linkonce_odr noundef i64 @_ZNK3gmx12ArrayRefIterIKNS_17AnalysisDataValueE
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
-declare void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(12)) #4
+declare void @_ZNK3gmx25AnalysisDataModuleManager25notifyParallelFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(12)) #5
 
-declare void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(12)) #4
+declare void @_ZNK3gmx25AnalysisDataModuleManager17notifyFrameFinishERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(12)) #5
 
-declare void @_ZN3gmx23AnalysisDataFrameHeaderC1Eiff(ptr noundef nonnull align 4 dereferenceable(12), i32 noundef, float noundef, float noundef) unnamed_addr #4
+declare void @_ZN3gmx23AnalysisDataFrameHeaderC1Eiff(ptr noundef nonnull align 4 dereferenceable(12), i32 noundef, float noundef, float noundef) unnamed_addr #5
 
-declare void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr noundef nonnull align 8 dereferenceable(8)) #4
+declare void @_ZNK3gmx25AnalysisDataModuleManager16notifyDataFinishEv(ptr noundef nonnull align 8 dereferenceable(8)) #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #12
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { builtin nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { noreturn nounwind }
+attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
+attributes #15 = { noreturn }
+attributes #16 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN3gmx17AnalysisDataProxyE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !20, i64 24}
+!10 = !{!"_ZTSN3gmx17AnalysisDataProxyE", !11, i64 0, !19, i64 16, !20, i64 24, !21, i64 32, !21, i64 36, !22, i64 40}
+!11 = !{!"_ZTSN3gmx20AbstractAnalysisDataE", !12, i64 8}
+!12 = !{!"_ZTSSt10unique_ptrIN3gmx20AbstractAnalysisData4ImplESt14default_deleteIS2_EE", !13, i64 0}
+!13 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx20AbstractAnalysisData4ImplESt14default_deleteIS2_ELb1ELb1EE", !14, i64 0}
+!14 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx20AbstractAnalysisData4ImplESt14default_deleteIS2_EE", !15, i64 0}
+!15 = !{!"_ZTSSt5tupleIJPN3gmx20AbstractAnalysisData4ImplESt14default_deleteIS2_EEE", !16, i64 0}
+!16 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx20AbstractAnalysisData4ImplESt14default_deleteIS2_EEE", !17, i64 0}
+!17 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx20AbstractAnalysisData4ImplELb0EE", !18, i64 0}
+!18 = !{!"p1 _ZTSN3gmx20AbstractAnalysisData4ImplE", !6, i64 0}
+!19 = !{!"_ZTSN3gmx19IAnalysisDataModuleE"}
+!20 = !{!"p1 _ZTSN3gmx20AbstractAnalysisDataE", !6, i64 0}
+!21 = !{!"int", !7, i64 0}
+!22 = !{!"bool", !7, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"vtable pointer", !8, i64 0}
+!25 = !{!21, !21, i64 0}
+!26 = !{!10, !21, i64 32}
+!27 = !{!10, !21, i64 36}
+!28 = !{!20, !20, i64 0}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSN3gmx27AnalysisDataParallelOptionsE", !6, i64 0}
+!33 = distinct !{!33, !30}
+!34 = !{!10, !22, i64 40}
+!35 = !{i8 0, i8 2}
+!36 = !{}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTSN3gmx23AnalysisDataFrameHeaderE", !6, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTSN3gmx23AnalysisDataPointSetRefE", !6, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSN3gmx19IAnalysisDataModuleE", !6, i64 0}
+!43 = !{!6, !6, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTSN3gmx20AnalysisDataFrameRefE", !6, i64 0}
+!46 = !{!47, !21, i64 0}
+!47 = !{!"_ZTSN3gmx23AnalysisDataFrameHeaderE", !21, i64 0, !48, i64 4, !48, i64 8}
+!48 = !{!"float", !7, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTSN3gmx8ArrayRefIKNS_17AnalysisDataValueEEE", !6, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTSN3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEE", !6, i64 0}
+!53 = !{!54, !55, i64 0}
+!54 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEE", !55, i64 0}
+!55 = !{!"p1 _ZTSN3gmx17AnalysisDataValueE", !6, i64 0}

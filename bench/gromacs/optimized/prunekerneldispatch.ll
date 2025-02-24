@@ -6,23 +6,23 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ident_t = type { i32, i32, i32, i32, ptr }
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
-%struct.NbnxnPairlistCpu = type { %struct.gmx_cache_protect_t, i32, i32, float, %"class.std::vector.12", %"class.std::vector.12", %class.JClusterList, %"class.std::vector.17", i32, %"class.std::unique_ptr.23", %struct.gmx_cache_protect_t }
+%"struct.gmx::NbnxnPairlistCpu" = type { %"struct.gmx::gmx_cache_protect_t", i32, i32, float, %"class.std::vector.12", %"class.std::vector.12", %"class.gmx::JClusterList", %"class.std::vector.17", i32, %"class.std::unique_ptr.23", %"struct.gmx::gmx_cache_protect_t" }
 %"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<nbnxn_ci_t, gmx::DefaultInitializationAllocator<nbnxn_ci_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<nbnxn_ci_t, gmx::DefaultInitializationAllocator<nbnxn_ci_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<nbnxn_ci_t, gmx::DefaultInitializationAllocator<nbnxn_ci_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nbnxn_ci_t, gmx::DefaultInitializationAllocator<nbnxn_ci_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.JClusterList = type { %"class.std::vector.17" }
+%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl" }
+%"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.gmx::JClusterList" = type { %"class.std::vector.17" }
 %"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<nbnxn_cj_t, gmx::DefaultInitializationAllocator<nbnxn_cj_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<nbnxn_cj_t, gmx::DefaultInitializationAllocator<nbnxn_cj_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<nbnxn_cj_t, gmx::DefaultInitializationAllocator<nbnxn_cj_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nbnxn_cj_t, gmx::DefaultInitializationAllocator<nbnxn_cj_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl" }
+%"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr.23" = type { %"struct.std::__uniq_ptr_data.24" }
 %"struct.std::__uniq_ptr_data.24" = type { %"class.std::__uniq_ptr_impl.25" }
 %"class.std::__uniq_ptr_impl.25" = type { %"class.std::tuple.26" }
 %"class.std::tuple.26" = type { %"struct.std::_Tuple_impl.27" }
 %"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.30" }
 %"struct.std::_Head_base.30" = type { ptr }
-%struct.gmx_cache_protect_t = type { [16 x i32] }
+%"struct.gmx::gmx_cache_protect_t" = type { [16 x i32] }
 %struct.wallcc_t = type { i32, i64, i64 }
 
 $__clang_call_terminate = comdat any
@@ -32,14 +32,15 @@ $__clang_call_terminate = comdat any
 @2 = private unnamed_addr constant %struct.ident_t { i32 0, i32 2, i32 0, i32 22, ptr @0 }, align 8
 @.str = private unnamed_addr constant [6 x i8] c"false\00", align 1
 @.str.1 = private unnamed_addr constant [54 x i8] c"Expect 2-wide SIMD with 4x2 list and nbat SIMD layout\00", align 1
-@__PRETTY_FUNCTION__._ZZL28getClusterDistanceKernelType12PairlistTypeRK16nbnxn_atomdata_tENKUlvE_clEv = private unnamed_addr constant [119 x i8] c"auto getClusterDistanceKernelType(const PairlistType, const nbnxn_atomdata_t &)::(anonymous class)::operator()() const\00", align 1
+@__PRETTY_FUNCTION__._ZZN3gmxL28getClusterDistanceKernelTypeENS_12PairlistTypeERKNS_16nbnxn_atomdata_tEENKUlvE_clEv = private unnamed_addr constant [124 x i8] c"auto gmx::getClusterDistanceKernelType(const PairlistType, const nbnxn_atomdata_t &)::(anonymous class)::operator()() const\00", align 1
 @.str.2 = private unnamed_addr constant [139 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/gromacs/gromacs/src/gromacs/nbnxm/clusterdistancekerneltype.h\00", align 1
+@.str.3 = private unnamed_addr constant [44 x i8] c"We should have returned before getting here\00", align 1
 @.str.4 = private unnamed_addr constant [30 x i8] c"kernel type not handled (yet)\00", align 1
-@"__PRETTY_FUNCTION__._ZZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEENK3$_0clEv" = private unnamed_addr constant [135 x i8] c"auto PairlistSet::dispatchPruneKernel(const nbnxn_atomdata_t *, gmx::ArrayRef<const gmx::RVec>)::(anonymous class)::operator()() const\00", align 1
+@"__PRETTY_FUNCTION__._ZZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEENK3$_0clEv" = private unnamed_addr constant [130 x i8] c"auto gmx::PairlistSet::dispatchPruneKernel(const nbnxn_atomdata_t *, ArrayRef<const RVec>)::(anonymous class)::operator()() const\00", align 1
 @.str.5 = private unnamed_addr constant [135 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/gromacs/gromacs/src/gromacs/nbnxm/prunekerneldispatch.cpp\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12PairlistSets19dispatchPruneKernelEN3gmx19InteractionLocalityEPK16nbnxn_atomdata_tNS0_8ArrayRefIKNS0_11BasicVectorIfEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef %2, ptr %3, ptr %4) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx12PairlistSets19dispatchPruneKernelENS_19InteractionLocalityEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr noundef %2, ptr %3, ptr %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.gmx::ArrayRef", align 8
   %7 = alloca ptr, align 8
   %8 = alloca float, align 4
@@ -53,34 +54,34 @@ define void @_ZN12PairlistSets19dispatchPruneKernelEN3gmx19InteractionLocalityEP
   %15 = ptrtoint ptr %4 to i64
   %16 = ptrtoint ptr %3 to i64
   %17 = sub i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %3, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %19 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %3, ptr %6, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %18, ptr %20, align 8
-  store ptr %2, ptr %7, align 8
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %24 = load float, ptr %23, align 4
-  store float %24, ptr %8, align 4
+  %24 = load float, ptr %23, align 4, !tbaa !29
+  store float %24, ptr %8, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   %25 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
-  store i32 %25, ptr %9, align 4
+  store i32 %25, ptr %9, align 4, !tbaa !34
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %19, i32 %25)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %9, ptr nonnull align 8 dereferenceable(128) %.0.i, ptr nonnull %7, ptr nonnull %6, ptr nonnull %8)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %9, ptr nonnull align 8 dereferenceable(128) %.0.i, ptr nonnull %7, ptr nonnull %6, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr %2, ptr %3) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr %2, ptr %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.gmx::ArrayRef", align 8
   %6 = alloca ptr, align 8
   %7 = alloca float, align 4
@@ -89,45 +90,56 @@ define void @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8Arr
   store ptr %2, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %10, align 8
-  store ptr %1, ptr %6, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %14 = load float, ptr %13, align 4
-  store float %14, ptr %7, align 4
+  %14 = load float, ptr %13, align 4, !tbaa !29
+  store float %14, ptr %7, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
   %15 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
-  store i32 %15, ptr %8, align 4
+  store i32 %15, ptr %8, align 4, !tbaa !34
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %9, i32 %15)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %8, ptr nonnull %0, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %8, ptr nonnull %0, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   ret void
 }
 
-declare noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6) #2 personality ptr @__gxx_personality_v0 {
+declare noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: alwaysinline norecurse nounwind uwtable
+define internal void @_ZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEE.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6) #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = load i32, ptr %2, align 4
+  %12 = load i32, ptr %2, align 4, !tbaa !34
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %65
+  br i1 %13, label %14, label %74
 
 14:                                               ; preds = %7
   %15 = add nsw i32 %12, -1
-  store i32 0, ptr %8, align 4
-  store i32 %15, ptr %9, align 4
-  store i32 1, ptr %10, align 4
-  store i32 0, ptr %11, align 4
-  %16 = load i32, ptr %0, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  store i32 0, ptr %8, align 4, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  store i32 %15, ptr %9, align 4, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  store i32 1, ptr %10, align 4, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  store i32 0, ptr %11, align 4, !tbaa !34
+  %16 = load i32, ptr %0, align 4, !tbaa !34
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %16, i32 34, ptr nonnull %11, ptr nonnull %8, ptr nonnull %9, ptr nonnull %10, i32 1, i32 1)
-  %17 = load i32, ptr %9, align 4
+  %17 = load i32, ptr %9, align 4, !tbaa !34
   %18 = call i32 @llvm.smin.i32(i32 %17, i32 %15)
-  store i32 %18, ptr %9, align 4
-  %19 = load i32, ptr %8, align 4
-  %.not28 = icmp sgt i32 %19, %18
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  store i32 %18, ptr %9, align 4, !tbaa !34
+  %19 = load i32, ptr %8, align 4, !tbaa !34
+  %.not35 = icmp sgt i32 %19, %18
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -135,13 +147,13 @@ define internal void @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_t
   %22 = sext i32 %19 to i64
   br label %23
 
-23:                                               ; preds = %.lr.ph, %62
-  %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds %struct.NbnxnPairlistCpu, ptr %24, i64 %indvars.iv
-  %26 = load ptr, ptr %20, align 8
-  %27 = load i32, ptr %26, align 4
-  %28 = load ptr, ptr %4, align 8
+23:                                               ; preds = %.lr.ph, %71
+  %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %71 ]
+  %24 = load ptr, ptr %3, align 8, !tbaa !35
+  %25 = getelementptr inbounds nuw %"struct.gmx::NbnxnPairlistCpu", ptr %24, i64 %indvars.iv
+  %26 = load ptr, ptr %20, align 8, !tbaa !9
+  %27 = load i32, ptr %26, align 4, !tbaa !36
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
   %29 = icmp eq i32 %27, 3
   br i1 %29, label %.invoke, label %30
 
@@ -149,97 +161,121 @@ define internal void @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_t
   %31 = getelementptr i8, ptr %28, i64 224
   %.val = load i32, ptr %31, align 8
   %32 = icmp eq i32 %.val, 0
-  br i1 %32, label %54, label %33
+  br i1 %32, label %33, label %34
 
 33:                                               ; preds = %30
-  switch i32 %27, label %38 [
-    i32 0, label %.invoke
-    i32 1, label %46
+  switch i32 %27, label %.invoke [
+    i32 1, label %55
+    i32 4, label %63
   ]
 
-.invoke:                                          ; preds = %23, %33
-  %34 = phi ptr [ @.str.1, %33 ], [ @.str.4, %23 ]
-  %35 = phi ptr [ @__PRETTY_FUNCTION__._ZZL28getClusterDistanceKernelType12PairlistTypeRK16nbnxn_atomdata_tENKUlvE_clEv, %33 ], [ @"__PRETTY_FUNCTION__._ZZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEEENK3$_0clEv", %23 ]
-  %36 = phi ptr [ @.str.2, %33 ], [ @.str.5, %23 ]
-  %37 = phi i32 [ 79, %33 ], [ 88, %23 ]
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef %37) #9
+34:                                               ; preds = %30
+  switch i32 %27, label %39 [
+    i32 0, label %.invoke
+    i32 1, label %47
+  ]
+
+.invoke:                                          ; preds = %23, %33, %34
+  %35 = phi ptr [ @.str.1, %34 ], [ @.str.3, %33 ], [ @.str.4, %23 ]
+  %36 = phi ptr [ @__PRETTY_FUNCTION__._ZZN3gmxL28getClusterDistanceKernelTypeENS_12PairlistTypeERKNS_16nbnxn_atomdata_tEENKUlvE_clEv, %34 ], [ @__PRETTY_FUNCTION__._ZZN3gmxL28getClusterDistanceKernelTypeENS_12PairlistTypeERKNS_16nbnxn_atomdata_tEENKUlvE_clEv, %33 ], [ @"__PRETTY_FUNCTION__._ZZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEENK3$_0clEv", %23 ]
+  %37 = phi ptr [ @.str.2, %34 ], [ @.str.2, %33 ], [ @.str.5, %23 ]
+  %38 = phi i32 [ 90, %34 ], [ 116, %33 ], [ 107, %23 ]
+  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, i32 noundef %38) #9
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %5, align 8
-  %40 = load ptr, ptr %21, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = ptrtoint ptr %39 to i64
-  %43 = sub i64 %41, %42
-  %44 = getelementptr inbounds i8, ptr %39, i64 %43
-  %45 = load float, ptr %6, align 4
-  invoke void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairlistCpuRK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS6_11BasicVectorIfEEEEf(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(464) %28, ptr %39, ptr %44, float noundef %45)
-          to label %62 unwind label %.loopexit
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %5, align 8, !tbaa !37
+  %41 = load ptr, ptr %21, align 8, !tbaa !37
+  %42 = ptrtoint ptr %41 to i64
+  %43 = ptrtoint ptr %40 to i64
+  %44 = sub i64 %42, %43
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 %44
+  %46 = load float, ptr %6, align 4, !tbaa !33
+  invoke void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16NbnxnPairlistCpuERKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(464) %28, ptr %40, ptr %45, float noundef %46)
+          to label %71 unwind label %.loopexit
 
-46:                                               ; preds = %33
-  %47 = load ptr, ptr %5, align 8
-  %48 = load ptr, ptr %21, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %50 = ptrtoint ptr %47 to i64
-  %51 = sub i64 %49, %50
-  %52 = getelementptr inbounds i8, ptr %47, i64 %51
-  %53 = load float, ptr %6, align 4
-  invoke void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairlistCpuRK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS6_11BasicVectorIfEEEEf(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(464) %28, ptr %47, ptr %52, float noundef %53)
-          to label %62 unwind label %.loopexit
+47:                                               ; preds = %34
+  %48 = load ptr, ptr %5, align 8, !tbaa !37
+  %49 = load ptr, ptr %21, align 8, !tbaa !37
+  %50 = ptrtoint ptr %49 to i64
+  %51 = ptrtoint ptr %48 to i64
+  %52 = sub i64 %50, %51
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 %52
+  %54 = load float, ptr %6, align 4, !tbaa !33
+  invoke void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16NbnxnPairlistCpuERKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(464) %28, ptr %48, ptr %53, float noundef %54)
+          to label %71 unwind label %.loopexit
 
-54:                                               ; preds = %30
-  %55 = load ptr, ptr %5, align 8
-  %56 = load ptr, ptr %21, align 8
-  %57 = ptrtoint ptr %56 to i64
-  %58 = ptrtoint ptr %55 to i64
-  %59 = sub i64 %57, %58
-  %60 = getelementptr inbounds i8, ptr %55, i64 %59
-  %61 = load float, ptr %6, align 4
-  invoke void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS4_11BasicVectorIfEEEEf(ptr noundef nonnull %25, ptr noundef nonnull %28, ptr %55, ptr %60, float noundef %61)
-          to label %62 unwind label %.loopexit
+55:                                               ; preds = %33
+  %56 = load ptr, ptr %5, align 8, !tbaa !37
+  %57 = load ptr, ptr %21, align 8, !tbaa !37
+  %58 = ptrtoint ptr %57 to i64
+  %59 = ptrtoint ptr %56 to i64
+  %60 = sub i64 %58, %59
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 %60
+  %62 = load float, ptr %6, align 4, !tbaa !33
+  invoke void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf(ptr noundef nonnull %25, ptr noundef nonnull %28, ptr %56, ptr %61, float noundef %62)
+          to label %71 unwind label %.loopexit
 
-62:                                               ; preds = %54, %46, %38
+63:                                               ; preds = %33
+  %64 = load ptr, ptr %5, align 8, !tbaa !37
+  %65 = load ptr, ptr %21, align 8, !tbaa !37
+  %66 = ptrtoint ptr %65 to i64
+  %67 = ptrtoint ptr %64 to i64
+  %68 = sub i64 %66, %67
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %68
+  %70 = load float, ptr %6, align 4, !tbaa !33
+  invoke void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf(ptr noundef nonnull %25, ptr noundef nonnull %28, ptr %64, ptr %69, float noundef %70)
+          to label %71 unwind label %.loopexit
+
+71:                                               ; preds = %63, %55, %47, %39
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %63 = load i32, ptr %9, align 4
-  %64 = sext i32 %63 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %64
+  %72 = load i32, ptr %9, align 4, !tbaa !34
+  %73 = sext i32 %72 to i64
+  %.not.not = icmp slt i64 %indvars.iv, %73
   br i1 %.not.not, label %23, label %._crit_edge
 
-._crit_edge:                                      ; preds = %62, %14
+._crit_edge:                                      ; preds = %71, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
-  br label %65
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  br label %74
 
-65:                                               ; preds = %._crit_edge, %7
+74:                                               ; preds = %._crit_edge, %7
   ret void
 
-.loopexit:                                        ; preds = %38, %46, %54
+.loopexit:                                        ; preds = %39, %47, %55, %63
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %66
+  br label %75
 
 .loopexit.split-lp:                               ; preds = %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %66
+  br label %75
 
-66:                                               ; preds = %.loopexit.split-lp, %.loopexit
+75:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %67 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %67) #10
+  %76 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %76) #10
   unreachable
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i32) local_unnamed_addr #3
+declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i32) local_unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #3
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #4
   tail call void @_ZSt9terminatev() #10
   unreachable
 }
@@ -247,42 +283,44 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #5
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
-declare void @_Z20nbnxmSimdPruneKernelIL12KernelLayout0EEvP16NbnxnPairlistCpuRK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS6_11BasicVectorIfEEEEf(ptr noundef, ptr noundef nonnull align 8 dereferenceable(464), ptr, ptr, float noundef) local_unnamed_addr #1
+declare void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16NbnxnPairlistCpuERKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf(ptr noundef, ptr noundef nonnull align 8 dereferenceable(464), ptr, ptr, float noundef) local_unnamed_addr #2
 
-declare void @_Z20nbnxmSimdPruneKernelIL12KernelLayout1EEvP16NbnxnPairlistCpuRK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS6_11BasicVectorIfEEEEf(ptr noundef, ptr noundef nonnull align 8 dereferenceable(464), ptr, ptr, float noundef) local_unnamed_addr #1
+declare void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16NbnxnPairlistCpuERKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf(ptr noundef, ptr noundef nonnull align 8 dereferenceable(464), ptr, ptr, float noundef) local_unnamed_addr #2
 
-declare void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS4_11BasicVectorIfEEEEf(ptr noundef, ptr noundef, ptr, ptr, float noundef) local_unnamed_addr #1
+declare void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf(ptr noundef, ptr noundef, ptr, ptr, float noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind
-declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #3
-
-; Function Attrs: nounwind
-declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #3
+declare void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf(ptr noundef, ptr noundef, ptr, ptr, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #3
+declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare !callback !5 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #3
+declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare !callback !40 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18nonbonded_verlet_t22dispatchPruneKernelCpuEN3gmx19InteractionLocalityENS0_8ArrayRefIKNS0_11BasicVectorIfEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr %2, ptr %3) local_unnamed_addr #0 align 2 {
+define void @_ZNK3gmx18nonbonded_verlet_t22dispatchPruneKernelCpuENS_19InteractionLocalityENS_8ArrayRefIKNS_11BasicVectorIfEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, ptr %2, ptr %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.gmx::ArrayRef", align 8
   %6 = alloca ptr, align 8
   %7 = alloca float, align 4
   %8 = alloca i32, align 4
-  %9 = load ptr, ptr %0, align 8
+  %9 = load ptr, ptr %0, align 8, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %3 to i64
   %13 = ptrtoint ptr %2 to i64
   %14 = sub i64 %12, %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %14
   %16 = icmp eq i32 %1, 0
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = load ptr, ptr %17, align 8
@@ -291,39 +329,39 @@ define void @_ZNK18nonbonded_verlet_t22dispatchPruneKernelCpuEN3gmx19Interaction
   %.0.i.i = select i1 %16, ptr %18, ptr %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %21 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %2, ptr %5, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %15, ptr %22, align 8
-  store ptr %11, ptr %6, align 8
+  store ptr %11, ptr %6, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %26 = load float, ptr %25, align 4
-  store float %26, ptr %7, align 4
+  %26 = load float, ptr %25, align 4, !tbaa !29
+  store float %26, ptr %7, align 4, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
   %27 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
-  store i32 %27, ptr %8, align 4
+  store i32 %27, ptr %8, align 4, !tbaa !34
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %21, i32 %27)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %8, ptr nonnull align 8 dereferenceable(128) %.0.i.i, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN3gmx11PairlistSet19dispatchPruneKernelEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEE.omp_outlined, ptr nonnull %8, ptr nonnull align 8 dereferenceable(128) %.0.i.i, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18nonbonded_verlet_t22dispatchPruneKernelGpuEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx18nonbonded_verlet_t22dispatchPruneKernelGpuEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %6
 
 6:                                                ; preds = %2
   tail call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %4)
-  %7 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
+  %7 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !84
   %8 = extractvalue { i32, i32 } %7, 0
   %9 = extractvalue { i32, i32 } %7, 1
   %10 = zext i32 %8 to i64
@@ -331,140 +369,238 @@ define void @_ZN18nonbonded_verlet_t22dispatchPruneKernelGpuEl(ptr noundef nonnu
   %12 = shl nuw i64 %11, 32
   %13 = or disjoint i64 %12, %10
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2248
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 2256
-  %18 = load ptr, ptr %17, align 8
+  store i64 %13, ptr %14, align 8, !tbaa !85
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2584
+  %16 = load ptr, ptr %15, align 8, !tbaa !88
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 2592
+  %18 = load ptr, ptr %17, align 8, !tbaa !88
   %19 = icmp eq ptr %16, %18
   br i1 %19, label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit, label %20
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 2272
-  %22 = load i32, ptr %21, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 2608
+  %22 = load i32, ptr %21, align 8, !tbaa !90
   %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %21, align 8
+  store i32 %23, ptr %21, align 8, !tbaa !90
   %24 = icmp eq i32 %23, 3
   br i1 %24, label %25, label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 2276
-  %27 = load i32, ptr %26, align 4
-  %28 = mul nsw i32 %27, 52
-  %29 = add nsw i32 %28, 9
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.wallcc_t, ptr %16, i64 %30
-  %32 = load i32, ptr %31, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 2612
+  %27 = load i32, ptr %26, align 4, !tbaa !108
+  %28 = mul nsw i32 %27, 60
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr %struct.wallcc_t, ptr %16, i64 %29
+  %31 = getelementptr i8, ptr %30, i64 216
+  %32 = load i32, ptr %31, align 8, !tbaa !109
   %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %31, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 2280
-  %35 = load i64, ptr %34, align 8
+  store i32 %33, ptr %31, align 8, !tbaa !109
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 2616
+  %35 = load i64, ptr %34, align 8, !tbaa !110
   %36 = sub i64 %13, %35
-  %37 = load ptr, ptr %15, align 8
-  %38 = getelementptr inbounds %struct.wallcc_t, ptr %37, i64 %30, i32 1
-  %39 = load i64, ptr %38, align 8
-  %40 = add i64 %36, %39
-  store i64 %40, ptr %38, align 8
+  %37 = getelementptr i8, ptr %30, i64 224
+  %38 = load i64, ptr %37, align 8, !tbaa !111
+  %39 = add i64 %36, %38
+  store i64 %39, ptr %37, align 8, !tbaa !111
   br label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit
 
 _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %6, %20, %25
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  %42 = load i32, ptr %41, align 8
-  %43 = add nsw i32 %42, -1
-  store i32 %43, ptr %41, align 8
-  %.pre = load ptr, ptr %3, align 8
-  %44 = icmp eq ptr %.pre, null
-  br i1 %44, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %45
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 216
+  %41 = load i32, ptr %40, align 8, !tbaa !109
+  %42 = add nsw i32 %41, -1
+  store i32 %42, ptr %40, align 8, !tbaa !109
+  %.pre = load ptr, ptr %3, align 8, !tbaa !44
+  %43 = icmp eq ptr %.pre, null
+  br i1 %43, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %44
 
-45:                                               ; preds = %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit
+44:                                               ; preds = %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit
   tail call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %.pre)
-  %46 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %47 = extractvalue { i32, i32 } %46, 0
-  %48 = extractvalue { i32, i32 } %46, 1
+  %45 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !84
+  %46 = extractvalue { i32, i32 } %45, 0
+  %47 = extractvalue { i32, i32 } %45, 1
+  %48 = zext i32 %46 to i64
   %49 = zext i32 %47 to i64
-  %50 = zext i32 %48 to i64
-  %51 = shl nuw i64 %50, 32
-  %52 = or disjoint i64 %51, %49
-  %53 = getelementptr inbounds nuw i8, ptr %.pre, i64 216
-  %54 = getelementptr inbounds nuw i8, ptr %.pre, i64 232
-  %55 = load i64, ptr %54, align 8
-  %.not.i = icmp ult i64 %52, %55
-  br i1 %.not.i, label %58, label %56
+  %50 = shl nuw i64 %49, 32
+  %51 = or disjoint i64 %50, %48
+  %52 = getelementptr inbounds nuw i8, ptr %.pre, i64 216
+  %53 = getelementptr inbounds nuw i8, ptr %.pre, i64 232
+  %54 = load i64, ptr %53, align 8, !tbaa !85
+  %.not.i = icmp ult i64 %51, %54
+  br i1 %.not.i, label %57, label %55
 
-56:                                               ; preds = %45
-  %57 = sub nuw i64 %52, %55
-  br label %60
+55:                                               ; preds = %44
+  %56 = sub nuw i64 %51, %54
+  br label %59
 
-58:                                               ; preds = %45
-  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 2288
-  store i8 1, ptr %59, align 8
-  br label %60
+57:                                               ; preds = %44
+  %58 = getelementptr inbounds nuw i8, ptr %.pre, i64 2624
+  store i8 1, ptr %58, align 8, !tbaa !112
+  br label %59
 
-60:                                               ; preds = %58, %56
-  %.0.i = phi i64 [ %57, %56 ], [ 0, %58 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.pre, i64 224
-  %62 = load i64, ptr %61, align 8
-  %63 = add i64 %62, %.0.i
-  store i64 %63, ptr %61, align 8
-  %64 = load i32, ptr %53, align 8
-  %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %53, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %.pre, i64 2248
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.pre, i64 2256
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %67, %69
-  br i1 %70, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %71
+59:                                               ; preds = %57, %55
+  %.0.i = phi i64 [ %56, %55 ], [ 0, %57 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.pre, i64 224
+  %61 = load i64, ptr %60, align 8, !tbaa !111
+  %62 = add i64 %61, %.0.i
+  store i64 %62, ptr %60, align 8, !tbaa !111
+  %63 = load i32, ptr %52, align 8, !tbaa !109
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %52, align 8, !tbaa !109
+  %65 = getelementptr inbounds nuw i8, ptr %.pre, i64 2584
+  %66 = load ptr, ptr %65, align 8, !tbaa !88
+  %67 = getelementptr inbounds nuw i8, ptr %.pre, i64 2592
+  %68 = load ptr, ptr %67, align 8, !tbaa !88
+  %69 = icmp eq ptr %66, %68
+  br i1 %69, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %70
 
-71:                                               ; preds = %60
-  %72 = getelementptr inbounds nuw i8, ptr %.pre, i64 2272
-  %73 = load i32, ptr %72, align 8
-  %74 = add nsw i32 %73, -1
-  store i32 %74, ptr %72, align 8
-  %75 = icmp eq i32 %74, 2
-  br i1 %75, label %76, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
+70:                                               ; preds = %59
+  %71 = getelementptr inbounds nuw i8, ptr %.pre, i64 2608
+  %72 = load i32, ptr %71, align 8, !tbaa !90
+  %73 = add nsw i32 %72, -1
+  store i32 %73, ptr %71, align 8, !tbaa !90
+  %74 = icmp eq i32 %73, 2
+  br i1 %74, label %75, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-76:                                               ; preds = %71
-  %77 = getelementptr inbounds nuw i8, ptr %.pre, i64 2276
-  store i32 9, ptr %77, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %.pre, i64 2280
-  store i64 %52, ptr %78, align 8
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %.pre, i64 2612
+  store i32 9, ptr %76, align 4, !tbaa !108
+  %77 = getelementptr inbounds nuw i8, ptr %.pre, i64 2616
+  store i64 %51, ptr %77, align 8, !tbaa !110
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %2, %60, %71, %76, %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %2, %59, %70, %75, %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit
   ret void
 }
 
-declare void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef) local_unnamed_addr #1
+declare void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.smin.i32(i32, i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { noreturn }
 attributes #10 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6}
-!6 = !{i64 2, i64 -1, i64 -1, i1 true}
-!7 = !{i64 4194082}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN3gmx16nbnxn_atomdata_tE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !21, i64 72}
+!10 = !{!"_ZTSN3gmx11PairlistSetE", !11, i64 0, !11, i64 24, !16, i64 48, !21, i64 72, !22, i64 80, !22, i64 81, !23, i64 88, !28, i64 112, !28, i64 116, !28, i64 120, !28, i64 124}
+!11 = !{!"_ZTSSt6vectorIN3gmx16NbnxnPairlistCpuESaIS1_EE", !12, i64 0}
+!12 = !{!"_ZTSSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE", !13, i64 0}
+!13 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE12_Vector_implE", !14, i64 0}
+!14 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE17_Vector_impl_dataE", !15, i64 0, !15, i64 8, !15, i64 16}
+!15 = !{!"p1 _ZTSN3gmx16NbnxnPairlistCpuE", !6, i64 0}
+!16 = !{!"_ZTSSt6vectorIN3gmx16NbnxnPairlistGpuESaIS1_EE", !17, i64 0}
+!17 = !{!"_ZTSSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE", !18, i64 0}
+!18 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE12_Vector_implE", !19, i64 0}
+!19 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE17_Vector_impl_dataE", !20, i64 0, !20, i64 8, !20, i64 16}
+!20 = !{!"p1 _ZTSN3gmx16NbnxnPairlistGpuE", !6, i64 0}
+!21 = !{!"p1 _ZTSN3gmx14PairlistParamsE", !6, i64 0}
+!22 = !{!"bool", !7, i64 0}
+!23 = !{!"_ZTSSt6vectorISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE", !24, i64 0}
+!24 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE", !25, i64 0}
+!25 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE12_Vector_implE", !26, i64 0}
+!26 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE17_Vector_impl_dataE", !27, i64 0, !27, i64 8, !27, i64 16}
+!27 = !{!"p1 _ZTSSt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS1_EE", !6, i64 0}
+!28 = !{!"int", !7, i64 0}
+!29 = !{!30, !32, i64 12}
+!30 = !{!"_ZTSN3gmx14PairlistParamsE", !31, i64 0, !22, i64 4, !32, i64 8, !32, i64 12, !22, i64 16, !22, i64 17, !28, i64 20, !28, i64 24, !28, i64 28, !28, i64 32}
+!31 = !{!"_ZTSN3gmx12PairlistTypeE", !7, i64 0}
+!32 = !{!"float", !7, i64 0}
+!33 = !{!32, !32, i64 0}
+!34 = !{!28, !28, i64 0}
+!35 = !{!14, !15, i64 0}
+!36 = !{!30, !31, i64 0}
+!37 = !{!38, !39, i64 0}
+!38 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !39, i64 0}
+!39 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !6, i64 0}
+!40 = !{!41}
+!41 = !{i64 2, i64 -1, i64 -1, i1 true}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTSN3gmx12PairlistSetsE", !6, i64 0}
+!44 = !{!45, !82, i64 48}
+!45 = !{!"_ZTSN3gmx18nonbonded_verlet_tE", !46, i64 0, !52, i64 8, !59, i64 16, !65, i64 24, !68, i64 32, !75, i64 40, !82, i64 48, !83, i64 56}
+!46 = !{!"_ZTSSt10unique_ptrIN3gmx12PairlistSetsESt14default_deleteIS1_EE", !47, i64 0}
+!47 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx12PairlistSetsESt14default_deleteIS1_ELb1ELb1EE", !48, i64 0}
+!48 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx12PairlistSetsESt14default_deleteIS1_EE", !49, i64 0}
+!49 = !{!"_ZTSSt5tupleIJPN3gmx12PairlistSetsESt14default_deleteIS1_EEE", !50, i64 0}
+!50 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx12PairlistSetsESt14default_deleteIS1_EEE", !51, i64 0}
+!51 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx12PairlistSetsELb0EE", !43, i64 0}
+!52 = !{!"_ZTSSt10unique_ptrIN3gmx10PairSearchESt14default_deleteIS1_EE", !53, i64 0}
+!53 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx10PairSearchESt14default_deleteIS1_ELb1ELb1EE", !54, i64 0}
+!54 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx10PairSearchESt14default_deleteIS1_EE", !55, i64 0}
+!55 = !{!"_ZTSSt5tupleIJPN3gmx10PairSearchESt14default_deleteIS1_EEE", !56, i64 0}
+!56 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx10PairSearchESt14default_deleteIS1_EEE", !57, i64 0}
+!57 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx10PairSearchELb0EE", !58, i64 0}
+!58 = !{!"p1 _ZTSN3gmx10PairSearchE", !6, i64 0}
+!59 = !{!"_ZTSSt10unique_ptrIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EE", !60, i64 0}
+!60 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_ELb1ELb1EE", !61, i64 0}
+!61 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EE", !62, i64 0}
+!62 = !{!"_ZTSSt5tupleIJPN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EEE", !63, i64 0}
+!63 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EEE", !64, i64 0}
+!64 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx16nbnxn_atomdata_tELb0EE", !5, i64 0}
+!65 = !{!"_ZTSN3gmx16NbnxmKernelSetupE", !66, i64 0, !67, i64 4}
+!66 = !{!"_ZTSN3gmx15NbnxmKernelTypeE", !7, i64 0}
+!67 = !{!"_ZTSN3gmx18EwaldExclusionTypeE", !7, i64 0}
+!68 = !{!"_ZTSSt10unique_ptrIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EE", !69, i64 0}
+!69 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_ELb1ELb1EE", !70, i64 0}
+!70 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EE", !71, i64 0}
+!71 = !{!"_ZTSSt5tupleIJPN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EEE", !72, i64 0}
+!72 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EEE", !73, i64 0}
+!73 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx18FreeEnergyDispatchELb0EE", !74, i64 0}
+!74 = !{!"p1 _ZTSN3gmx18FreeEnergyDispatchE", !6, i64 0}
+!75 = !{!"_ZTSSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EE", !76, i64 0}
+!76 = !{!"_ZTSSt15__uniq_ptr_dataI16ExclusionCheckerSt14default_deleteIS0_ELb1ELb1EE", !77, i64 0}
+!77 = !{!"_ZTSSt15__uniq_ptr_implI16ExclusionCheckerSt14default_deleteIS0_EE", !78, i64 0}
+!78 = !{!"_ZTSSt5tupleIJP16ExclusionCheckerSt14default_deleteIS0_EEE", !79, i64 0}
+!79 = !{!"_ZTSSt11_Tuple_implILm0EJP16ExclusionCheckerSt14default_deleteIS0_EEE", !80, i64 0}
+!80 = !{!"_ZTSSt10_Head_baseILm0EP16ExclusionCheckerLb0EE", !81, i64 0}
+!81 = !{!"p1 _ZTS16ExclusionChecker", !6, i64 0}
+!82 = !{!"p1 _ZTS13gmx_wallcycle", !6, i64 0}
+!83 = !{!"p1 _ZTSN3gmx8NbnxmGpuE", !6, i64 0}
+!84 = !{i64 4472688}
+!85 = !{!86, !87, i64 16}
+!86 = !{!"_ZTS8wallcc_t", !28, i64 0, !87, i64 8, !87, i64 16}
+!87 = !{!"long long", !7, i64 0}
+!88 = !{!89, !89, i64 0}
+!89 = !{!"p1 _ZTS8wallcc_t", !6, i64 0}
+!90 = !{!91, !28, i64 2608}
+!91 = !{!"_ZTS13gmx_wallcycle", !92, i64 0, !93, i64 1440, !94, i64 1448, !95, i64 2552, !100, i64 2576, !101, i64 2584, !28, i64 2608, !105, i64 2612, !87, i64 2616, !22, i64 2624, !22, i64 2625, !106, i64 2626, !28, i64 2628, !22, i64 2632}
+!92 = !{!"_ZTSN3gmx16EnumerationArrayI16WallCycleCounter8wallcc_tLS1_60EEE", !7, i64 0}
+!93 = !{!"long", !7, i64 0}
+!94 = !{!"_ZTSN3gmx16EnumerationArrayI19WallCycleSubCounter8wallcc_tLS1_46EEE", !7, i64 0}
+!95 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !96, i64 0}
+!96 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !97, i64 0}
+!97 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !98, i64 0}
+!98 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !99, i64 0, !99, i64 8, !99, i64 16}
+!99 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}
+!100 = !{!"p1 _ZTS9t_commrec", !6, i64 0}
+!101 = !{!"_ZTSSt6vectorI8wallcc_tSaIS0_EE", !102, i64 0}
+!102 = !{!"_ZTSSt12_Vector_baseI8wallcc_tSaIS0_EE", !103, i64 0}
+!103 = !{!"_ZTSNSt12_Vector_baseI8wallcc_tSaIS0_EE12_Vector_implE", !104, i64 0}
+!104 = !{!"_ZTSNSt12_Vector_baseI8wallcc_tSaIS0_EE17_Vector_impl_dataE", !89, i64 0, !89, i64 8, !89, i64 16}
+!105 = !{!"_ZTS16WallCycleCounter", !7, i64 0}
+!106 = !{!"_ZTSSt5arrayI16WallCycleCounterLm0EE", !107, i64 0}
+!107 = !{!"_ZTSNSt14__array_traitsI16WallCycleCounterLm0EE5_TypeE"}
+!108 = !{!91, !105, i64 2612}
+!109 = !{!86, !28, i64 0}
+!110 = !{!91, !87, i64 2616}
+!111 = !{!86, !87, i64 8}
+!112 = !{!91, !22, i64 2624}

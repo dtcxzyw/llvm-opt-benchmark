@@ -17,50 +17,44 @@ define void @_Z11rotate_confiPA3_fS0_fff(i32 noundef %0, ptr noundef %1, ptr nou
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %8 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv.i
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %10 = load float, ptr %9, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load float, ptr %11, align 4
-  %13 = tail call noundef float @cosf(float noundef %3) #5
-  %14 = tail call noundef float @sinf(float noundef %3) #5
-  %15 = fneg float %12
-  %16 = fmul float %14, %15
-  %17 = tail call float @llvm.fmuladd.f32(float %13, float %10, float %16)
-  store float %17, ptr %9, align 4
-  %18 = tail call noundef float @sinf(float noundef %3) #5
-  %19 = tail call noundef float @cosf(float noundef %3) #5
-  %20 = fmul float %12, %19
-  %21 = tail call float @llvm.fmuladd.f32(float %18, float %10, float %20)
-  %22 = load float, ptr %8, align 4
-  %23 = load float, ptr %9, align 4
-  %24 = tail call noundef float @cosf(float noundef %4) #5
-  %25 = tail call noundef float @sinf(float noundef %4) #5
-  %26 = fmul float %21, %25
-  %27 = tail call float @llvm.fmuladd.f32(float %24, float %22, float %26)
-  store float %27, ptr %8, align 4
-  store float %23, ptr %9, align 4
-  %28 = tail call noundef float @sinf(float noundef %4) #5
-  %29 = fneg float %28
-  %30 = tail call noundef float @cosf(float noundef %4) #5
-  %31 = fmul float %21, %30
-  %32 = tail call float @llvm.fmuladd.f32(float %29, float %22, float %31)
-  %33 = load float, ptr %8, align 4
-  %34 = load float, ptr %9, align 4
-  %35 = tail call noundef float @cosf(float noundef %5) #5
-  %36 = tail call noundef float @sinf(float noundef %5) #5
-  %37 = fneg float %36
-  %38 = fmul float %34, %37
-  %39 = tail call float @llvm.fmuladd.f32(float %33, float %35, float %38)
-  store float %39, ptr %8, align 4
-  %40 = tail call noundef float @sinf(float noundef %5) #5
-  %41 = tail call noundef float @cosf(float noundef %5) #5
-  %42 = fmul float %34, %41
-  %43 = tail call float @llvm.fmuladd.f32(float %33, float %40, float %42)
-  store float %43, ptr %9, align 4
-  store float %32, ptr %11, align 4
+  %9 = load float, ptr %8, align 4, !tbaa !4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %13 = load float, ptr %12, align 4, !tbaa !4
+  %14 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
+  %15 = tail call noundef float @sinf(float noundef %3) #6, !tbaa !8
+  %16 = fneg float %13
+  %17 = fmul float %15, %16
+  %18 = tail call float @llvm.fmuladd.f32(float %14, float %11, float %17)
+  %19 = tail call noundef float @sinf(float noundef %3) #6, !tbaa !8
+  %20 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
+  %21 = fmul float %13, %20
+  %22 = tail call float @llvm.fmuladd.f32(float %19, float %11, float %21)
+  %23 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
+  %24 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
+  %25 = fmul float %22, %24
+  %26 = tail call float @llvm.fmuladd.f32(float %23, float %9, float %25)
+  %27 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
+  %28 = fneg float %27
+  %29 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
+  %30 = fmul float %22, %29
+  %31 = tail call float @llvm.fmuladd.f32(float %28, float %9, float %30)
+  %32 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
+  %33 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
+  %34 = fneg float %33
+  %35 = fmul float %18, %34
+  %36 = tail call float @llvm.fmuladd.f32(float %26, float %32, float %35)
+  store float %36, ptr %8, align 4, !tbaa !4
+  %37 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
+  %38 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
+  %39 = fmul float %18, %38
+  %40 = tail call float @llvm.fmuladd.f32(float %26, float %37, float %39)
+  store float %40, ptr %10, align 4, !tbaa !4
+  store float %31, ptr %12, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL15low_rotate_confiPA3_ffff.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %_ZL15low_rotate_confiPA3_ffff.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZL15low_rotate_confiPA3_ffff.exit:               ; preds = %.lr.ph.i, %6
   %.not12 = icmp ne ptr %2, null
@@ -73,72 +67,74 @@ _ZL15low_rotate_confiPA3_ffff.exit:               ; preds = %.lr.ph.i, %6
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %.lr.ph.preheader.i13
   %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.preheader.i13 ], [ %indvars.iv.next.i17, %.lr.ph.i15 ]
-  %44 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv.i16
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %46 = load float, ptr %45, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %48 = load float, ptr %47, align 4
-  %49 = tail call noundef float @cosf(float noundef %3) #5
-  %50 = tail call noundef float @sinf(float noundef %3) #5
-  %51 = fneg float %48
-  %52 = fmul float %50, %51
-  %53 = tail call float @llvm.fmuladd.f32(float %49, float %46, float %52)
-  store float %53, ptr %45, align 4
-  %54 = tail call noundef float @sinf(float noundef %3) #5
-  %55 = tail call noundef float @cosf(float noundef %3) #5
-  %56 = fmul float %48, %55
-  %57 = tail call float @llvm.fmuladd.f32(float %54, float %46, float %56)
-  %58 = load float, ptr %44, align 4
-  %59 = load float, ptr %45, align 4
-  %60 = tail call noundef float @cosf(float noundef %4) #5
-  %61 = tail call noundef float @sinf(float noundef %4) #5
-  %62 = fmul float %57, %61
-  %63 = tail call float @llvm.fmuladd.f32(float %60, float %58, float %62)
-  store float %63, ptr %44, align 4
-  store float %59, ptr %45, align 4
-  %64 = tail call noundef float @sinf(float noundef %4) #5
-  %65 = fneg float %64
-  %66 = tail call noundef float @cosf(float noundef %4) #5
-  %67 = fmul float %57, %66
-  %68 = tail call float @llvm.fmuladd.f32(float %65, float %58, float %67)
-  %69 = load float, ptr %44, align 4
-  %70 = load float, ptr %45, align 4
-  %71 = tail call noundef float @cosf(float noundef %5) #5
-  %72 = tail call noundef float @sinf(float noundef %5) #5
-  %73 = fneg float %72
-  %74 = fmul float %70, %73
-  %75 = tail call float @llvm.fmuladd.f32(float %69, float %71, float %74)
-  store float %75, ptr %44, align 4
-  %76 = tail call noundef float @sinf(float noundef %5) #5
-  %77 = tail call noundef float @cosf(float noundef %5) #5
-  %78 = fmul float %70, %77
-  %79 = tail call float @llvm.fmuladd.f32(float %69, float %76, float %78)
-  store float %79, ptr %45, align 4
-  store float %68, ptr %47, align 4
+  %41 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv.i16
+  %42 = load float, ptr %41, align 4, !tbaa !4
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %44 = load float, ptr %43, align 4, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %46 = load float, ptr %45, align 4, !tbaa !4
+  %47 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
+  %48 = tail call noundef float @sinf(float noundef %3) #6, !tbaa !8
+  %49 = fneg float %46
+  %50 = fmul float %48, %49
+  %51 = tail call float @llvm.fmuladd.f32(float %47, float %44, float %50)
+  %52 = tail call noundef float @sinf(float noundef %3) #6, !tbaa !8
+  %53 = tail call noundef float @cosf(float noundef %3) #6, !tbaa !8
+  %54 = fmul float %46, %53
+  %55 = tail call float @llvm.fmuladd.f32(float %52, float %44, float %54)
+  %56 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
+  %57 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
+  %58 = fmul float %55, %57
+  %59 = tail call float @llvm.fmuladd.f32(float %56, float %42, float %58)
+  %60 = tail call noundef float @sinf(float noundef %4) #6, !tbaa !8
+  %61 = fneg float %60
+  %62 = tail call noundef float @cosf(float noundef %4) #6, !tbaa !8
+  %63 = fmul float %55, %62
+  %64 = tail call float @llvm.fmuladd.f32(float %61, float %42, float %63)
+  %65 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
+  %66 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
+  %67 = fneg float %66
+  %68 = fmul float %51, %67
+  %69 = tail call float @llvm.fmuladd.f32(float %59, float %65, float %68)
+  store float %69, ptr %41, align 4, !tbaa !4
+  %70 = tail call noundef float @sinf(float noundef %5) #6, !tbaa !8
+  %71 = tail call noundef float @cosf(float noundef %5) #6, !tbaa !8
+  %72 = fmul float %51, %71
+  %73 = tail call float @llvm.fmuladd.f32(float %59, float %70, float %72)
+  store float %73, ptr %43, align 4, !tbaa !4
+  store float %64, ptr %45, align 4, !tbaa !4
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i14
-  br i1 %exitcond.not.i18, label %_ZL15low_rotate_confiPA3_ffff.exit19, label %.lr.ph.i15, !llvm.loop !5
+  br i1 %exitcond.not.i18, label %_ZL15low_rotate_confiPA3_ffff.exit19, label %.lr.ph.i15, !llvm.loop !10
 
 _ZL15low_rotate_confiPA3_ffff.exit19:             ; preds = %.lr.ph.i15, %_ZL15low_rotate_confiPA3_ffff.exit
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #1
+declare float @llvm.fmuladd.f32(float, float, float) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #2
+declare float @cosf(float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #2
+declare float @sinf(float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) local_unnamed_addr #3 {
+define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
 .preheader52:
   %5 = alloca [3 x float], align 4
   %6 = alloca [3 x float], align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa !4
   %7 = icmp sgt i32 %0, 1
   br i1 %7, label %.preheader51.preheader, label %.preheader50.preheader
 
@@ -154,24 +150,24 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr noundef captures(
   %indvars.iv = phi i64 [ 0, %.preheader51 ], [ %indvars.iv.next, %8 ]
   %9 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv61, i64 %indvars.iv
-  %11 = load float, ptr %10, align 4
-  %12 = load float, ptr %9, align 4
+  %11 = load float, ptr %10, align 4, !tbaa !4
+  %12 = load float, ptr %9, align 4, !tbaa !4
   %13 = fcmp olt float %11, %12
   %14 = select i1 %13, float %11, float %12
-  store float %14, ptr %9, align 4
+  store float %14, ptr %9, align 4, !tbaa !4
   %15 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
-  %16 = load float, ptr %15, align 4
+  %16 = load float, ptr %15, align 4, !tbaa !4
   %17 = fcmp olt float %16, %11
   %18 = select i1 %17, float %11, float %16
-  store float %18, ptr %15, align 4
+  store float %18, ptr %15, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %19, label %8, !llvm.loop !7
+  br i1 %exitcond.not, label %19, label %8, !llvm.loop !12
 
 19:                                               ; preds = %8
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond64.not, label %.preheader50.preheader, label %.preheader51, !llvm.loop !8
+  br i1 %exitcond64.not, label %.preheader50.preheader, label %.preheader51, !llvm.loop !13
 
 .preheader50.preheader:                           ; preds = %19, %.preheader52
   br label %.preheader50
@@ -179,18 +175,18 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr noundef captures(
 .preheader50:                                     ; preds = %.preheader50.preheader, %.preheader50
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.preheader50 ], [ 0, %.preheader50.preheader ]
   %20 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv65
-  %21 = load float, ptr %20, align 4
+  %21 = load float, ptr %20, align 4, !tbaa !4
   %22 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv65
-  %23 = load float, ptr %22, align 4
+  %23 = load float, ptr %22, align 4, !tbaa !4
   %24 = fsub float %21, %23
   %25 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv65
-  %26 = load float, ptr %25, align 4
+  %26 = load float, ptr %25, align 4, !tbaa !4
   %27 = tail call float @llvm.fmuladd.f32(float %26, float 2.000000e+00, float %24)
   %28 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv65, i64 %indvars.iv65
-  store float %27, ptr %28, align 4
+  store float %27, ptr %28, align 4, !tbaa !4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 3
-  br i1 %exitcond68.not, label %29, label %.preheader50, !llvm.loop !9
+  br i1 %exitcond68.not, label %29, label %.preheader50, !llvm.loop !14
 
 29:                                               ; preds = %.preheader50
   %30 = icmp sgt i32 %0, 0
@@ -208,57 +204,65 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr noundef captures(
 31:                                               ; preds = %.preheader, %31
   %indvars.iv69 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next70, %31 ]
   %32 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv69, i64 %indvars.iv69
-  %33 = load float, ptr %32, align 4
+  %33 = load float, ptr %32, align 4, !tbaa !4
   %34 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv69
-  %35 = load float, ptr %34, align 4
+  %35 = load float, ptr %34, align 4, !tbaa !4
   %36 = fsub float %33, %35
   %37 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv69
-  %38 = load float, ptr %37, align 4
+  %38 = load float, ptr %37, align 4, !tbaa !4
   %39 = fsub float %36, %38
   %40 = fpext float %39 to double
   %41 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv73, i64 %indvars.iv69
-  %42 = load float, ptr %41, align 4
+  %42 = load float, ptr %41, align 4, !tbaa !4
   %43 = fpext float %42 to double
   %44 = tail call double @llvm.fmuladd.f64(double %40, double 5.000000e-01, double %43)
   %45 = fptrunc double %44 to float
-  store float %45, ptr %41, align 4
+  store float %45, ptr %41, align 4, !tbaa !4
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 3
-  br i1 %exitcond72.not, label %46, label %31, !llvm.loop !10
+  br i1 %exitcond72.not, label %46, label %31, !llvm.loop !15
 
 46:                                               ; preds = %31
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond77.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %46, %29
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #1
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-attributes #0 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
+attributes #0 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"float", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}

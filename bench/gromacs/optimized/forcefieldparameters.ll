@@ -4,18 +4,18 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.t_interaction_function = type { ptr, ptr, i32, i32, i32, i32 }
-%union.t_iparams = type { %struct.anon.31 }
-%struct.anon.31 = type { [3 x float], [3 x float], [3 x float], [3 x float] }
 %struct.gmx_cmapdata_t = type { %"class.std::vector.43" }
 %"class.std::vector.43" = type { %"struct.std::_Vector_base.44" }
 %"struct.std::_Vector_base.44" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%union.t_iparams = type { %struct.anon.31 }
+%struct.anon.31 = type { [3 x float], [3 x float], [3 x float], [3 x float] }
 
 @.str = private unnamed_addr constant [9 x i8] c"atnr=%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"ntypes=%d\0A\00", align 1
 @.str.2 = private unnamed_addr constant [18 x i8] c"functype[%d]=%s, \00", align 1
-@interaction_function = external local_unnamed_addr global [94 x %struct.t_interaction_function], align 16
+@interaction_function = external local_unnamed_addr global [95 x %struct.t_interaction_function], align 16
 @.str.3 = private unnamed_addr constant [7 x i8] c"reppow\00", align 1
 @.str.4 = private unnamed_addr constant [8 x i8] c"fudgeQQ\00", align 1
 @.str.5 = private unnamed_addr constant [5 x i8] c"cmap\00", align 1
@@ -34,21 +34,21 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = tail call noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %7 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %6)
-  %8 = load i32, ptr %3, align 8
+  %8 = load i32, ptr %3, align 8, !tbaa !4
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %8) #5
   %10 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %6)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %14 = load ptr, ptr %11, align 8, !tbaa !29
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = lshr exact i64 %17, 2
   %19 = trunc i64 %18 to i32
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %19) #5
-  %21 = load ptr, ptr %12, align 8
-  %22 = load ptr, ptr %11, align 8
+  %21 = load ptr, ptr %12, align 8, !tbaa !28
+  %22 = load ptr, ptr %11, align 8, !tbaa !29
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -60,183 +60,183 @@ define void @_Z11pr_ffparamsP8_IO_FILEiPKcPK14gmx_ffparams_tb(ptr noundef %0, i3
 .lr.ph:                                           ; preds = %5
   %29 = add nsw i32 %6, 3
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br label %31
+  br label %126
 
-31:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %29)
-  %33 = trunc nuw nsw i64 %indvars.iv to i32
-  %34 = select i1 %4, i32 %33, i32 -1
-  %35 = load ptr, ptr %11, align 8
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %38
-  %40 = load ptr, ptr %39, align 16
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %34, ptr noundef %40) #5
-  %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
-  %44 = load i32, ptr %43, align 4
-  %45 = load ptr, ptr %30, align 8
-  %46 = getelementptr inbounds nuw %union.t_iparams, ptr %45, i64 %indvars.iv
-  tail call void @_Z10pr_iparamsP8_IO_FILEiRK9t_iparams(ptr noundef %0, i32 noundef %44, ptr noundef nonnull align 4 dereferenceable(48) %46)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = load ptr, ptr %12, align 8
-  %48 = load ptr, ptr %11, align 8
+._crit_edge:                                      ; preds = %126, %5
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %32 = load double, ptr %31, align 8, !tbaa !30
+  tail call void @_Z9pr_doubleP8_IO_FILEiPKcd(ptr noundef %0, i32 noundef %6, ptr noundef nonnull @.str.3, double noundef %32)
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %34 = load float, ptr %33, align 8, !tbaa !31
+  tail call void @_Z7pr_realP8_IO_FILEiPKcf(ptr noundef %0, i32 noundef %6, ptr noundef nonnull @.str.4, float noundef %34)
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %36 = load i32, ptr %35, align 8, !tbaa !32
+  %.fr8.i = freeze i32 %36
+  %.not.i = icmp eq i32 %.fr8.i, 0
+  %37 = sitofp i32 %.fr8.i to double
+  %38 = fdiv double 3.600000e+02, %37
+  %39 = fptrunc double %38 to float
+  %40 = select i1 %.not.i, float 0.000000e+00, float %39
+  %41 = mul i32 %.fr8.i, %.fr8.i
+  %42 = tail call noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef %0, ptr noundef nonnull %35, i32 noundef %6, ptr noundef nonnull @.str.5)
+  br i1 %42, label %43, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit
+
+43:                                               ; preds = %._crit_edge
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #5
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %47 = load ptr, ptr %46, align 8, !tbaa !33
+  %48 = load ptr, ptr %45, align 8, !tbaa !34
   %49 = ptrtoint ptr %47 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
-  %sext = shl i64 %51, 30
-  %52 = ashr i64 %sext, 32
-  %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %31, label %._crit_edge, !llvm.loop !5
+  %52 = icmp sgt i64 %51, 0
+  br i1 %52, label %.lr.ph5.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit
 
-._crit_edge:                                      ; preds = %31, %5
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %55 = load double, ptr %54, align 8
-  tail call void @_Z9pr_doubleP8_IO_FILEiPKcd(ptr noundef %0, i32 noundef %6, ptr noundef nonnull @.str.3, double noundef %55)
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %57 = load float, ptr %56, align 8
-  tail call void @_Z7pr_realP8_IO_FILEiPKcf(ptr noundef %0, i32 noundef %6, ptr noundef nonnull @.str.4, float noundef %57)
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %59 = load i32, ptr %58, align 8
-  %.fr8.i = freeze i32 %59
-  %.not.i = icmp eq i32 %.fr8.i, 0
-  %60 = sitofp i32 %.fr8.i to double
-  %61 = fdiv double 3.600000e+02, %60
-  %62 = fptrunc double %61 to float
-  %63 = select i1 %.not.i, float 0.000000e+00, float %62
-  %64 = mul i32 %.fr8.i, %.fr8.i
-  %65 = tail call noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef %0, ptr noundef nonnull %58, i32 noundef %6, ptr noundef nonnull @.str.5)
-  br i1 %65, label %66, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit
-
-66:                                               ; preds = %._crit_edge
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #5
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %68, align 8
-  %72 = ptrtoint ptr %70 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = icmp sgt i64 %74, 0
-  br i1 %75, label %.lr.ph5.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit
-
-.lr.ph5.i:                                        ; preds = %66
+.lr.ph5.i:                                        ; preds = %43
   br i1 %.not.i, label %.lr.ph5.split.i, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph5.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %64, i32 1)
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %41, i32 1)
   %wide.trip.count.i = zext i32 %umax.i to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
-  %.0433.us.i = phi i64 [ %121, %._crit_edge.us.i ], [ 0, %.lr.ph.us.preheader.i ]
-  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #5
-  %77 = select i1 %4, i64 %.0433.us.i, i64 -1
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef %77) #5
-  br label %79
+  %.0433.us.i = phi i64 [ %98, %._crit_edge.us.i ], [ 0, %.lr.ph.us.preheader.i ]
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #5
+  %54 = select i1 %4, i64 %.0433.us.i, i64 -1
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef %54) #5
+  br label %56
 
-79:                                               ; preds = %88, %.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %88 ]
-  %.0421.us.i = phi float [ -1.800000e+02, %.lr.ph.us.i ], [ %.1.us.i, %88 ]
-  %80 = load i32, ptr %58, align 8
-  %81 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %82 = srem i32 %81, %80
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %88
+56:                                               ; preds = %65, %.lr.ph.us.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %65 ]
+  %.0421.us.i = phi float [ -1.800000e+02, %.lr.ph.us.i ], [ %.1.us.i, %65 ]
+  %57 = load i32, ptr %35, align 8, !tbaa !32
+  %58 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %59 = srem i32 %58, %57
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %65
 
-84:                                               ; preds = %79
-  %85 = fpext float %.0421.us.i to double
-  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, double noundef %85) #5
-  %87 = fadd float %63, %.0421.us.i
-  br label %88
+61:                                               ; preds = %56
+  %62 = fpext float %.0421.us.i to double
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, double noundef %62) #5
+  %64 = fadd float %40, %.0421.us.i
+  br label %65
 
-88:                                               ; preds = %84, %79
-  %.1.us.i = phi float [ %87, %84 ], [ %.0421.us.i, %79 ]
-  %89 = load ptr, ptr %68, align 8
-  %90 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %89, i64 %.0433.us.i
-  %91 = shl nsw i64 %indvars.iv.i, 2
-  %92 = load ptr, ptr %90, align 8
-  %93 = getelementptr inbounds nuw float, ptr %92, i64 %91
-  %94 = load float, ptr %93, align 4
-  %95 = fpext float %94 to double
-  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %95) #5
-  %97 = load ptr, ptr %68, align 8
-  %98 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %97, i64 %.0433.us.i
-  %99 = or disjoint i64 %91, 1
-  %100 = load ptr, ptr %98, align 8
-  %101 = getelementptr inbounds nuw float, ptr %100, i64 %99
-  %102 = load float, ptr %101, align 4
-  %103 = fpext float %102 to double
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %103) #5
-  %105 = load ptr, ptr %68, align 8
-  %106 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %105, i64 %.0433.us.i
-  %107 = or disjoint i64 %91, 2
-  %108 = load ptr, ptr %106, align 8
-  %109 = getelementptr inbounds nuw float, ptr %108, i64 %107
-  %110 = load float, ptr %109, align 4
-  %111 = fpext float %110 to double
-  %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %111) #5
-  %113 = load ptr, ptr %68, align 8
-  %114 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %113, i64 %.0433.us.i
-  %115 = or disjoint i64 %91, 3
-  %116 = load ptr, ptr %114, align 8
-  %117 = getelementptr inbounds nuw float, ptr %116, i64 %115
-  %118 = load float, ptr %117, align 4
-  %119 = fpext float %118 to double
-  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, double noundef %119) #5
+65:                                               ; preds = %61, %56
+  %.1.us.i = phi float [ %64, %61 ], [ %.0421.us.i, %56 ]
+  %66 = load ptr, ptr %45, align 8, !tbaa !34
+  %67 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %66, i64 %.0433.us.i
+  %68 = shl nsw i64 %indvars.iv.i, 2
+  %69 = load ptr, ptr %67, align 8, !tbaa !35
+  %70 = getelementptr inbounds nuw float, ptr %69, i64 %68
+  %71 = load float, ptr %70, align 4, !tbaa !38
+  %72 = fpext float %71 to double
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %72) #5
+  %74 = load ptr, ptr %45, align 8, !tbaa !34
+  %75 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %74, i64 %.0433.us.i
+  %76 = or disjoint i64 %68, 1
+  %77 = load ptr, ptr %75, align 8, !tbaa !35
+  %78 = getelementptr inbounds nuw float, ptr %77, i64 %76
+  %79 = load float, ptr %78, align 4, !tbaa !38
+  %80 = fpext float %79 to double
+  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %80) #5
+  %82 = load ptr, ptr %45, align 8, !tbaa !34
+  %83 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %82, i64 %.0433.us.i
+  %84 = or disjoint i64 %68, 2
+  %85 = load ptr, ptr %83, align 8, !tbaa !35
+  %86 = getelementptr inbounds nuw float, ptr %85, i64 %84
+  %87 = load float, ptr %86, align 4, !tbaa !38
+  %88 = fpext float %87 to double
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %88) #5
+  %90 = load ptr, ptr %45, align 8, !tbaa !34
+  %91 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %90, i64 %.0433.us.i
+  %92 = or disjoint i64 %68, 3
+  %93 = load ptr, ptr %91, align 8, !tbaa !35
+  %94 = getelementptr inbounds nuw float, ptr %93, i64 %92
+  %95 = load float, ptr %94, align 4, !tbaa !38
+  %96 = fpext float %95 to double
+  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, double noundef %96) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %79, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %56, !llvm.loop !39
 
-._crit_edge.us.i:                                 ; preds = %88
+._crit_edge.us.i:                                 ; preds = %65
   %fputc.us.i = tail call i32 @fputc(i32 10, ptr %0)
-  %121 = add nuw nsw i64 %.0433.us.i, 1
-  %122 = load ptr, ptr %69, align 8
-  %123 = load ptr, ptr %68, align 8
-  %124 = ptrtoint ptr %122 to i64
-  %125 = ptrtoint ptr %123 to i64
-  %126 = sub i64 %124, %125
-  %127 = sdiv exact i64 %126, 24
-  %128 = icmp slt i64 %121, %127
-  br i1 %128, label %.lr.ph.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !8
+  %98 = add nuw nsw i64 %.0433.us.i, 1
+  %99 = load ptr, ptr %46, align 8, !tbaa !33
+  %100 = load ptr, ptr %45, align 8, !tbaa !34
+  %101 = ptrtoint ptr %99 to i64
+  %102 = ptrtoint ptr %100 to i64
+  %103 = sub i64 %101, %102
+  %104 = sdiv exact i64 %103, 24
+  %105 = icmp slt i64 %98, %104
+  br i1 %105, label %.lr.ph.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !41
 
 .lr.ph5.split.i:                                  ; preds = %.lr.ph5.i
   br i1 %4, label %.lr.ph5.split.split.us.i, label %.lr.ph5.split.split.i
 
 .lr.ph5.split.split.us.i:                         ; preds = %.lr.ph5.split.i, %.lr.ph5.split.split.us.i
-  %.0433.us6.i = phi i64 [ %131, %.lr.ph5.split.split.us.i ], [ 0, %.lr.ph5.split.i ]
-  %129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #5
-  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef %.0433.us6.i) #5
+  %.0433.us6.i = phi i64 [ %108, %.lr.ph5.split.split.us.i ], [ 0, %.lr.ph5.split.i ]
+  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #5
+  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef %.0433.us6.i) #5
   %fputc.us7.i = tail call i32 @fputc(i32 10, ptr %0)
-  %131 = add nuw nsw i64 %.0433.us6.i, 1
-  %132 = load ptr, ptr %69, align 8
-  %133 = load ptr, ptr %68, align 8
-  %134 = ptrtoint ptr %132 to i64
-  %135 = ptrtoint ptr %133 to i64
-  %136 = sub i64 %134, %135
-  %137 = sdiv exact i64 %136, 24
-  %138 = icmp slt i64 %131, %137
-  br i1 %138, label %.lr.ph5.split.split.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !8
+  %108 = add nuw nsw i64 %.0433.us6.i, 1
+  %109 = load ptr, ptr %46, align 8, !tbaa !33
+  %110 = load ptr, ptr %45, align 8, !tbaa !34
+  %111 = ptrtoint ptr %109 to i64
+  %112 = ptrtoint ptr %110 to i64
+  %113 = sub i64 %111, %112
+  %114 = sdiv exact i64 %113, 24
+  %115 = icmp slt i64 %108, %114
+  br i1 %115, label %.lr.ph5.split.split.us.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !41
 
 .lr.ph5.split.split.i:                            ; preds = %.lr.ph5.split.i, %.lr.ph5.split.split.i
-  %.0433.i = phi i64 [ %141, %.lr.ph5.split.split.i ], [ 0, %.lr.ph5.split.i ]
-  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #5
-  %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef -1) #5
+  %.0433.i = phi i64 [ %118, %.lr.ph5.split.split.i ], [ 0, %.lr.ph5.split.i ]
+  %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #5
+  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef -1) #5
   %fputc.i = tail call i32 @fputc(i32 10, ptr %0)
-  %141 = add nuw nsw i64 %.0433.i, 1
-  %142 = load ptr, ptr %69, align 8
-  %143 = load ptr, ptr %68, align 8
+  %118 = add nuw nsw i64 %.0433.i, 1
+  %119 = load ptr, ptr %46, align 8, !tbaa !33
+  %120 = load ptr, ptr %45, align 8, !tbaa !34
+  %121 = ptrtoint ptr %119 to i64
+  %122 = ptrtoint ptr %120 to i64
+  %123 = sub i64 %121, %122
+  %124 = sdiv exact i64 %123, 24
+  %125 = icmp slt i64 %118, %124
+  br i1 %125, label %.lr.ph5.split.split.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !41
+
+_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit:    ; preds = %._crit_edge.us.i, %.lr.ph5.split.split.i, %.lr.ph5.split.split.us.i, %._crit_edge, %43
+  ret void
+
+126:                                              ; preds = %.lr.ph, %126
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
+  %127 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %29)
+  %128 = trunc nuw nsw i64 %indvars.iv to i32
+  %129 = select i1 %4, i32 %128, i32 -1
+  %130 = load ptr, ptr %11, align 8, !tbaa !29
+  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv
+  %132 = load i32, ptr %131, align 4, !tbaa !42
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds [95 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %133
+  %135 = load ptr, ptr %134, align 16, !tbaa !43
+  %136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %129, ptr noundef %135) #5
+  %137 = load ptr, ptr %11, align 8, !tbaa !29
+  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv
+  %139 = load i32, ptr %138, align 4, !tbaa !42
+  %140 = load ptr, ptr %30, align 8, !tbaa !46
+  %141 = getelementptr inbounds nuw %union.t_iparams, ptr %140, i64 %indvars.iv
+  tail call void @_Z10pr_iparamsP8_IO_FILEiRK9t_iparams(ptr noundef %0, i32 noundef %139, ptr noundef nonnull align 4 dereferenceable(48) %141)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %142 = load ptr, ptr %12, align 8, !tbaa !28
+  %143 = load ptr, ptr %11, align 8, !tbaa !29
   %144 = ptrtoint ptr %142 to i64
   %145 = ptrtoint ptr %143 to i64
   %146 = sub i64 %144, %145
-  %147 = sdiv exact i64 %146, 24
-  %148 = icmp slt i64 %141, %147
-  br i1 %148, label %.lr.ph5.split.split.i, label %_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit, !llvm.loop !8
-
-_ZL7pr_cmapP8_IO_FILEiPKcPK10gmx_cmap_tb.exit:    ; preds = %._crit_edge.us.i, %.lr.ph5.split.split.i, %.lr.ph5.split.split.us.i, %._crit_edge, %66
-  ret void
+  %sext = shl i64 %146, 30
+  %147 = ashr i64 %sext, 32
+  %148 = icmp slt i64 %indvars.iv.next, %147
+  br i1 %148, label %126, label %._crit_edge, !llvm.loop !47
 }
 
 declare noundef i32 @_Z8pr_titleP8_IO_FILEiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -260,21 +260,60 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_ZTS14gmx_ffparams_t", !6, i64 0, !9, i64 8, !15, i64 32, !20, i64 56, !21, i64 64, !22, i64 72}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"_ZTSSt6vectorIiSaIiEE", !10, i64 0}
+!10 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !11, i64 0}
+!11 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !12, i64 0}
+!12 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !13, i64 0, !13, i64 8, !13, i64 16}
+!13 = !{!"p1 int", !14, i64 0}
+!14 = !{!"any pointer", !7, i64 0}
+!15 = !{!"_ZTSSt6vectorI9t_iparamsSaIS0_EE", !16, i64 0}
+!16 = !{!"_ZTSSt12_Vector_baseI9t_iparamsSaIS0_EE", !17, i64 0}
+!17 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE12_Vector_implE", !18, i64 0}
+!18 = !{!"_ZTSNSt12_Vector_baseI9t_iparamsSaIS0_EE17_Vector_impl_dataE", !19, i64 0, !19, i64 8, !19, i64 16}
+!19 = !{!"p1 _ZTS9t_iparams", !14, i64 0}
+!20 = !{!"double", !7, i64 0}
+!21 = !{!"float", !7, i64 0}
+!22 = !{!"_ZTS10gmx_cmap_t", !6, i64 0, !23, i64 8}
+!23 = !{!"_ZTSSt6vectorI14gmx_cmapdata_tSaIS0_EE", !24, i64 0}
+!24 = !{!"_ZTSSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE", !25, i64 0}
+!25 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE12_Vector_implE", !26, i64 0}
+!26 = !{!"_ZTSNSt12_Vector_baseI14gmx_cmapdata_tSaIS0_EE17_Vector_impl_dataE", !27, i64 0, !27, i64 8, !27, i64 16}
+!27 = !{!"p1 _ZTS14gmx_cmapdata_t", !14, i64 0}
+!28 = !{!12, !13, i64 8}
+!29 = !{!12, !13, i64 0}
+!30 = !{!5, !20, i64 56}
+!31 = !{!5, !21, i64 64}
+!32 = !{!22, !6, i64 0}
+!33 = !{!26, !27, i64 8}
+!34 = !{!26, !27, i64 0}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !37, i64 0, !37, i64 8, !37, i64 16}
+!37 = !{!"p1 float", !14, i64 0}
+!38 = !{!21, !21, i64 0}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.mustprogress"}
+!41 = distinct !{!41, !40}
+!42 = !{!6, !6, i64 0}
+!43 = !{!44, !45, i64 0}
+!44 = !{!"_ZTS22t_interaction_function", !45, i64 0, !45, i64 8, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28}
+!45 = !{!"p1 omnipotent char", !14, i64 0}
+!46 = !{!18, !19, i64 0}
+!47 = distinct !{!47, !40}

@@ -53,31 +53,33 @@ define void @_Z24tmpi_errors_are_fatal_fnPP10tmpi_comm_Pi(ptr noundef %0, ptr no
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [256 x i8], align 16
-  %6 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %7, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 256, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %7 = load ptr, ptr %4, align 8, !tbaa !9
+  %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  %10 = call noundef i32 @_Z17tMPI_Error_stringiPcPm(i32 noundef %8, ptr noundef %9, ptr noundef %6)
-  %11 = load ptr, ptr %3, align 8
+  %10 = call noundef i32 @_Z17tMPI_Error_stringiPcPi(i32 noundef %8, ptr noundef %9, ptr noundef %6)
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr @stderr, align 8
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !13
   %15 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.2, ptr noundef %15) #7
+  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.2, ptr noundef %15) #8
   br label %21
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr @stderr, align 8
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !13
   %19 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.3, ptr noundef %19) #7
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.3, ptr noundef %19) #8
   br label %21
 
 21:                                               ; preds = %17, %13
-  call void @abort() #8
+  call void @abort() #9
   unreachable
 }
 
@@ -86,30 +88,34 @@ define void @_Z21tmpi_errors_return_fnPP10tmpi_comm_Pi(ptr noundef %0, ptr nound
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [256 x i8], align 16
-  %6 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i32, ptr %7, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 256, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %7 = load ptr, ptr %4, align 8, !tbaa !9
+  %8 = load i32, ptr %7, align 4, !tbaa !11
   %9 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  %10 = call noundef i32 @_Z17tMPI_Error_stringiPcPm(i32 noundef %8, ptr noundef %9, ptr noundef %6)
-  %11 = load ptr, ptr %3, align 8
+  %10 = call noundef i32 @_Z17tMPI_Error_stringiPcPi(i32 noundef %8, ptr noundef %9, ptr noundef %6)
+  %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
-  %14 = load ptr, ptr @stderr, align 8
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !13
   %15 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.2, ptr noundef %15) #7
+  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef @.str.2, ptr noundef %15) #8
   br label %21
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr @stderr, align 8
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !13
   %19 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 0
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.3, ptr noundef %19) #7
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef @.str.3, ptr noundef %19) #8
   br label %21
 
 21:                                               ; preds = %17, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr %5) #8
   ret void
 }
 
@@ -117,24 +123,24 @@ define void @_Z21tmpi_errors_return_fnPP10tmpi_comm_Pi(ptr noundef %0, ptr nound
 define noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %0, i32 noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %5 = load ptr, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store i32 %1, ptr %4, align 4, !tbaa !11
+  %5 = load ptr, ptr %3, align 8, !tbaa !15
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %4, align 4
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.tmpi_comm_, ptr %9, i32 0, i32 15
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.tmpi_errhandler_, ptr %11, i32 0, i32 0
-  store i32 %8, ptr %12, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.tmpi_comm_, ptr %13, i32 0, i32 15
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.tmpi_errhandler_, ptr %15, i32 0, i32 1
-  %17 = load ptr, ptr %16, align 8
+  %8 = load i32, ptr %4, align 4, !tbaa !11
+  %9 = load ptr, ptr %3, align 8, !tbaa !15
+  %10 = getelementptr inbounds nuw %struct.tmpi_comm_, ptr %9, i32 0, i32 15
+  %11 = load ptr, ptr %10, align 8, !tbaa !17
+  %12 = getelementptr inbounds nuw %struct.tmpi_errhandler_, ptr %11, i32 0, i32 0
+  store i32 %8, ptr %12, align 8, !tbaa !34
+  %13 = load ptr, ptr %3, align 8, !tbaa !15
+  %14 = getelementptr inbounds nuw %struct.tmpi_comm_, ptr %13, i32 0, i32 15
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  %16 = getelementptr inbounds nuw %struct.tmpi_errhandler_, ptr %15, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8, !tbaa !36
   call void %17(ptr noundef %3, ptr noundef %4)
   br label %19
 
@@ -143,62 +149,63 @@ define noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %0, i32 noundef %1)
   br label %19
 
 19:                                               ; preds = %18, %7
-  %20 = load i32, ptr %4, align 4
+  %20 = load i32, ptr %4, align 4, !tbaa !11
   ret i32 %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z17tMPI_Error_stringiPcPm(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define noundef i32 @_Z17tMPI_Error_stringiPcPi(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load i32, ptr %4, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !37
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  %7 = load i32, ptr %4, align 4, !tbaa !11
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %3
-  %10 = load i32, ptr %4, align 4
+  %10 = load i32, ptr %4, align 4, !tbaa !11
   %11 = icmp sge i32 %10, 28
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9, %3
-  store i32 27, ptr %4, align 4
+  store i32 27, ptr %4, align 4, !tbaa !11
   br label %13
 
 13:                                               ; preds = %12, %9
-  %14 = load i32, ptr %4, align 4
+  %14 = load i32, ptr %4, align 4, !tbaa !11
   %15 = icmp ne i32 %14, 2
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %5, align 8
-  %18 = load i32, ptr %4, align 4
+  %17 = load ptr, ptr %5, align 8, !tbaa !37
+  %18 = load i32, ptr %4, align 4, !tbaa !11
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  %22 = call ptr @strncpy(ptr noundef %17, ptr noundef %21, i64 noundef 256) #7
+  %21 = load ptr, ptr %20, align 8, !tbaa !37
+  %22 = call ptr @strncpy(ptr noundef %17, ptr noundef %21, i64 noundef 256) #8
   br label %33
 
 23:                                               ; preds = %13
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %4, align 4
+  %24 = load ptr, ptr %5, align 8, !tbaa !37
+  %25 = load i32, ptr %4, align 4, !tbaa !11
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 %26
-  %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @__errno_location() #9
-  %30 = load i32, ptr %29, align 4
-  %31 = call ptr @strerror(i32 noundef %30) #7
-  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %24, i64 noundef 256, ptr noundef @.str, ptr noundef %28, ptr noundef %31) #7
+  %28 = load ptr, ptr %27, align 8, !tbaa !37
+  %29 = call ptr @__errno_location() #10
+  %30 = load i32, ptr %29, align 4, !tbaa !11
+  %31 = call ptr @strerror(i32 noundef %30) #8
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %24, i64 noundef 256, ptr noundef @.str, ptr noundef %28, ptr noundef %31) #8
   br label %33
 
 33:                                               ; preds = %23, %16
-  %34 = load ptr, ptr %5, align 8
-  %35 = call i64 @strlen(ptr noundef %34) #10
-  %36 = load ptr, ptr %6, align 8
-  store i64 %35, ptr %36, align 8
+  %34 = load ptr, ptr %5, align 8, !tbaa !37
+  %35 = call i64 @strlen(ptr noundef %34) #11
+  %36 = trunc i64 %35 to i32
+  %37 = load ptr, ptr %6, align 8, !tbaa !9
+  store i32 %36, ptr %37, align 4, !tbaa !11
   ret i32 0
 }
 
@@ -221,35 +228,34 @@ declare i64 @strlen(ptr noundef) #4
 define noundef i32 @_Z22tMPI_Create_errhandlerPPFvPP10tmpi_comm_PiEPP16tmpi_errhandler_(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = call noalias ptr @malloc(i64 noundef 16) #11
-  %6 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !39
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = call noalias ptr @malloc(i64 noundef 16) #12
+  %6 = load ptr, ptr %4, align 8, !tbaa !40
+  store ptr %5, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %4, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %15, label %10
+  br i1 %9, label %14, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = getelementptr inbounds [28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.1, ptr noundef %13) #7
-  call void @abort() #8
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %12 = load ptr, ptr getelementptr inbounds nuw ([28 x ptr], ptr @_ZL11tmpi_errmsg, i64 0, i64 1), align 8, !tbaa !37
+  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str.1, ptr noundef %12) #8
+  call void @abort() #9
   unreachable
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %4, align 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.tmpi_errhandler_, ptr %17, i32 0, i32 0
-  store i32 0, ptr %18, align 8
-  %19 = load ptr, ptr %3, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %4, align 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.tmpi_errhandler_, ptr %22, i32 0, i32 1
-  store ptr %20, ptr %23, align 8
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !40
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
+  %17 = getelementptr inbounds nuw %struct.tmpi_errhandler_, ptr %16, i32 0, i32 0
+  store i32 0, ptr %17, align 8, !tbaa !34
+  %18 = load ptr, ptr %3, align 8, !tbaa !39
+  %19 = load ptr, ptr %18, align 8, !tbaa !43
+  %20 = load ptr, ptr %4, align 8, !tbaa !40
+  %21 = load ptr, ptr %20, align 8, !tbaa !42
+  %22 = getelementptr inbounds nuw %struct.tmpi_errhandler_, ptr %21, i32 0, i32 1
+  store ptr %19, ptr %22, align 8, !tbaa !36
   ret i32 0
 }
 
@@ -265,10 +271,10 @@ declare void @abort() #6
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_Z20tMPI_Errhandler_freePP16tmpi_errhandler_(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %4) #7
+  store ptr %0, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  call void @free(ptr noundef %4) #8
   ret i32 0
 }
 
@@ -279,12 +285,12 @@ declare void @free(ptr noundef) #2
 define noundef i32 @_Z24tMPI_Comm_set_errhandlerP10tmpi_comm_P16tmpi_errhandler_(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.tmpi_comm_, ptr %6, i32 0, i32 15
-  store ptr %5, ptr %7, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store ptr %1, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %6 = load ptr, ptr %3, align 8, !tbaa !15
+  %7 = getelementptr inbounds nuw %struct.tmpi_comm_, ptr %6, i32 0, i32 15
+  store ptr %5, ptr %7, align 8, !tbaa !17
   ret i32 0
 }
 
@@ -292,32 +298,79 @@ define noundef i32 @_Z24tMPI_Comm_set_errhandlerP10tmpi_comm_P16tmpi_errhandler_
 define noundef i32 @_Z24tMPI_Comm_get_errhandlerP10tmpi_comm_PP16tmpi_errhandler_(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.tmpi_comm_, ptr %5, i32 0, i32 15
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %8, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !15
+  store ptr %1, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %3, align 8, !tbaa !15
+  %6 = getelementptr inbounds nuw %struct.tmpi_comm_, ptr %5, i32 0, i32 15
+  %7 = load ptr, ptr %6, align 8, !tbaa !17
+  %8 = load ptr, ptr %4, align 8, !tbaa !40
+  store ptr %7, ptr %8, align 8, !tbaa !42
   ret i32 0
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind allocsize(0) }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p2 _ZTS10tmpi_comm_", !5, i64 0}
+!5 = !{!"any p2 pointer", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 int", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS10tmpi_comm_", !6, i64 0}
+!17 = !{!18, !33, i64 448}
+!18 = !{!"_ZTS10tmpi_comm_", !19, i64 0, !21, i64 16, !23, i64 152, !10, i64 160, !12, i64 168, !24, i64 176, !25, i64 184, !26, i64 192, !26, i64 200, !27, i64 208, !29, i64 280, !29, i64 352, !4, i64 424, !31, i64 432, !32, i64 440, !33, i64 448, !16, i64 456, !16, i64 464, !22, i64 472}
+!19 = !{!"_ZTS11tmpi_group_", !12, i64 0, !20, i64 8}
+!20 = !{!"p2 _ZTS11tmpi_thread", !5, i64 0}
+!21 = !{!"_ZTS14tMPI_Barrier_t", !22, i64 0, !12, i64 64, !22, i64 68}
+!22 = !{!"_ZTS11tMPI_Atomic", !12, i64 0, !7, i64 4}
+!23 = !{!"p2 _ZTS14tMPI_Barrier_t", !5, i64 0}
+!24 = !{!"p1 _ZTS8coll_env", !6, i64 0}
+!25 = !{!"p1 _ZTS9coll_sync", !6, i64 0}
+!26 = !{!"p1 _ZTS15tMPI_Atomic_ptr", !6, i64 0}
+!27 = !{!"_ZTS19tMPI_Thread_mutex_t", !22, i64 0, !28, i64 64}
+!28 = !{!"p1 _ZTS10tMPI_Mutex", !6, i64 0}
+!29 = !{!"_ZTS18tMPI_Thread_cond_t", !22, i64 0, !30, i64 64}
+!30 = !{!"p1 _ZTS16tMPI_Thread_cond", !6, i64 0}
+!31 = !{!"p1 _ZTS10tmpi_split", !6, i64 0}
+!32 = !{!"p1 _ZTS10cart_topol", !6, i64 0}
+!33 = !{!"p1 _ZTS16tmpi_errhandler_", !6, i64 0}
+!34 = !{!35, !12, i64 0}
+!35 = !{!"_ZTS16tmpi_errhandler_", !12, i64 0, !6, i64 8}
+!36 = !{!35, !6, i64 8}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 omnipotent char", !6, i64 0}
+!39 = !{!5, !5, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p2 _ZTS16tmpi_errhandler_", !5, i64 0}
+!42 = !{!33, !33, i64 0}
+!43 = !{!6, !6, i64 0}

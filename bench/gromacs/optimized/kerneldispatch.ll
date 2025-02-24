@@ -29,113 +29,112 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%"class.std::allocator" = type { i8 }
-%struct._Guard = type { ptr }
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
-%"class.gmx::ArrayRef.5" = type { %"struct.gmx::ArrayRefIter.6", %"struct.gmx::ArrayRefIter.6" }
-%"struct.gmx::ArrayRefIter.6" = type { ptr }
-%"class.gmx::ArrayRef.140" = type { %"struct.gmx::ArrayRefIter.141", %"struct.gmx::ArrayRefIter.141" }
-%"struct.gmx::ArrayRefIter.141" = type { ptr }
-%struct.nbnxn_atomdata_output_t = type { %"class.std::vector.87", %"class.std::vector.87", %"class.std::vector.87", %"class.std::vector.87", %"class.std::unique_ptr.122", %"class.std::unique_ptr.130" }
-%"class.std::vector.87" = type { %"struct.std::_Vector_base.88" }
-%"struct.std::_Vector_base.88" = type { %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl" = type { %"class.gmx::Allocator", %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl_data" }
-%"class.gmx::Allocator" = type { %"class.gmx::HostAllocationPolicy" }
-%"class.gmx::HostAllocationPolicy" = type { i32 }
+%"class.gmx::ArrayRef.6" = type { %"struct.gmx::ArrayRefIter.7", %"struct.gmx::ArrayRefIter.7" }
+%"struct.gmx::ArrayRefIter.7" = type { ptr }
+%"class.gmx::ArrayRef.143" = type { %"struct.gmx::ArrayRefIter.144", %"struct.gmx::ArrayRefIter.144" }
+%"struct.gmx::ArrayRefIter.144" = type { ptr }
+%"struct.gmx::nbnxn_atomdata_output_t" = type { %"class.std::vector.88", %"class.std::vector.88", %"class.std::vector.88", %"class.std::vector.88", %"class.std::unique_ptr.125", %"class.std::unique_ptr.133" }
+%"class.std::vector.88" = type { %"struct.std::_Vector_base.89" }
+%"struct.std::_Vector_base.89" = type { %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl" }
+%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl" = type { %"class.gmx::Allocator.base", %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl_data" }
+%"class.gmx::Allocator.base" = type { %"class.gmx::HostAllocationPolicy.base" }
+%"class.gmx::HostAllocationPolicy.base" = type <{ i32, i8 }>
 %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::HostAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.122" = type { %"struct.std::__uniq_ptr_data.123" }
-%"struct.std::__uniq_ptr_data.123" = type { %"class.std::__uniq_ptr_impl.124" }
-%"class.std::__uniq_ptr_impl.124" = type { %"class.std::tuple.125" }
-%"class.std::tuple.125" = type { %"struct.std::_Tuple_impl.126" }
-%"struct.std::_Tuple_impl.126" = type { %"struct.std::_Head_base.129" }
-%"struct.std::_Head_base.129" = type { ptr }
-%"class.std::unique_ptr.130" = type { %"struct.std::__uniq_ptr_data.131" }
-%"struct.std::__uniq_ptr_data.131" = type { %"class.std::__uniq_ptr_impl.132" }
-%"class.std::__uniq_ptr_impl.132" = type { %"class.std::tuple.133" }
-%"class.std::tuple.133" = type { %"struct.std::_Tuple_impl.134" }
-%"struct.std::_Tuple_impl.134" = type { %"struct.std::_Head_base.137" }
-%"struct.std::_Head_base.137" = type { ptr }
-%struct.NbnxnPairlistCpu = type { %struct.gmx_cache_protect_t, i32, i32, float, %"class.std::vector.143", %"class.std::vector.143", %class.JClusterList, %"class.std::vector.148", i32, %"class.std::unique_ptr.154", %struct.gmx_cache_protect_t }
-%"class.std::vector.143" = type { %"struct.std::_Vector_base.144" }
-%"struct.std::_Vector_base.144" = type { %"struct.std::_Vector_base<nbnxn_ci_t, gmx::DefaultInitializationAllocator<nbnxn_ci_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<nbnxn_ci_t, gmx::DefaultInitializationAllocator<nbnxn_ci_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<nbnxn_ci_t, gmx::DefaultInitializationAllocator<nbnxn_ci_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nbnxn_ci_t, gmx::DefaultInitializationAllocator<nbnxn_ci_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.JClusterList = type { %"class.std::vector.148" }
-%"class.std::vector.148" = type { %"struct.std::_Vector_base.149" }
-%"struct.std::_Vector_base.149" = type { %"struct.std::_Vector_base<nbnxn_cj_t, gmx::DefaultInitializationAllocator<nbnxn_cj_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<nbnxn_cj_t, gmx::DefaultInitializationAllocator<nbnxn_cj_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<nbnxn_cj_t, gmx::DefaultInitializationAllocator<nbnxn_cj_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nbnxn_cj_t, gmx::DefaultInitializationAllocator<nbnxn_cj_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.154" = type { %"struct.std::__uniq_ptr_data.155" }
-%"struct.std::__uniq_ptr_data.155" = type { %"class.std::__uniq_ptr_impl.156" }
-%"class.std::__uniq_ptr_impl.156" = type { %"class.std::tuple.157" }
-%"class.std::tuple.157" = type { %"struct.std::_Tuple_impl.158" }
-%"struct.std::_Tuple_impl.158" = type { %"struct.std::_Head_base.161" }
-%"struct.std::_Head_base.161" = type { ptr }
-%struct.gmx_cache_protect_t = type { [16 x i32] }
+%"class.std::unique_ptr.125" = type { %"struct.std::__uniq_ptr_data.126" }
+%"struct.std::__uniq_ptr_data.126" = type { %"class.std::__uniq_ptr_impl.127" }
+%"class.std::__uniq_ptr_impl.127" = type { %"class.std::tuple.128" }
+%"class.std::tuple.128" = type { %"struct.std::_Tuple_impl.129" }
+%"struct.std::_Tuple_impl.129" = type { %"struct.std::_Head_base.132" }
+%"struct.std::_Head_base.132" = type { ptr }
+%"class.std::unique_ptr.133" = type { %"struct.std::__uniq_ptr_data.134" }
+%"struct.std::__uniq_ptr_data.134" = type { %"class.std::__uniq_ptr_impl.135" }
+%"class.std::__uniq_ptr_impl.135" = type { %"class.std::tuple.136" }
+%"class.std::tuple.136" = type { %"struct.std::_Tuple_impl.137" }
+%"struct.std::_Tuple_impl.137" = type { %"struct.std::_Head_base.140" }
+%"struct.std::_Head_base.140" = type { ptr }
+%"struct.gmx::NbnxnPairlistCpu" = type { %"struct.gmx::gmx_cache_protect_t", i32, i32, float, %"class.std::vector.146", %"class.std::vector.146", %"class.gmx::JClusterList", %"class.std::vector.151", i32, %"class.std::unique_ptr.157", %"struct.gmx::gmx_cache_protect_t" }
+%"class.std::vector.146" = type { %"struct.std::_Vector_base.147" }
+%"struct.std::_Vector_base.147" = type { %"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl" }
+%"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<gmx::nbnxn_ci_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_ci_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.gmx::JClusterList" = type { %"class.std::vector.151" }
+%"class.std::vector.151" = type { %"struct.std::_Vector_base.152" }
+%"struct.std::_Vector_base.152" = type { %"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl" }
+%"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<gmx::nbnxn_cj_t, gmx::DefaultInitializationAllocator<gmx::nbnxn_cj_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::unique_ptr.157" = type { %"struct.std::__uniq_ptr_data.158" }
+%"struct.std::__uniq_ptr_data.158" = type { %"class.std::__uniq_ptr_impl.159" }
+%"class.std::__uniq_ptr_impl.159" = type { %"class.std::tuple.160" }
+%"class.std::tuple.160" = type { %"struct.std::_Tuple_impl.161" }
+%"struct.std::_Tuple_impl.161" = type { %"struct.std::_Head_base.164" }
+%"struct.std::_Head_base.164" = type { ptr }
+%"struct.gmx::gmx_cache_protect_t" = type { [16 x i32] }
 
-$_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE = comdat any
+$_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE = comdat any
 
 $_ZN3gmx20ExceptionInitializerC2EPKc = comdat any
 
-$_ZN3gmx17InvalidInputErrorD2Ev = comdat any
-
-$_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED2Ev = comdat any
+$_ZN3gmx16GromacsExceptionD2Ev = comdat any
 
 $_ZN3gmx20ExceptionInitializerD2Ev = comdat any
+
+$_ZN3gmx20ExceptionInitializerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 
 $_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev = comdat any
 
 $__clang_call_terminate = comdat any
 
-$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
-
-$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
-
-$_ZTSN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = comdat any
+$_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
 $_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = comdat any
+
+$_ZTSN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = comdat any
 
 $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = comdat any
 
 @.str = private unnamed_addr constant [25 x i8] c"Unknown combination rule\00", align 1
-@__PRETTY_FUNCTION__._Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW = private unnamed_addr constant [142 x i8] c"int getVdwKernelType(const Nbnxm::KernelType, const LJCombinationRule, const VanDerWaalsType, const InteractionModifiers, const LongRangeVdW)\00", align 1
+@__PRETTY_FUNCTION__._ZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTypeENS_17LJCombinationRuleE15VanDerWaalsType20InteractionModifiers12LongRangeVdW = private unnamed_addr constant [145 x i8] c"int gmx::getVdwKernelType(const NbnxmKernelType, const LJCombinationRule, const VanDerWaalsType, const InteractionModifiers, const LongRangeVdW)\00", align 1
 @.str.1 = private unnamed_addr constant [130 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/gromacs/gromacs/src/gromacs/nbnxm/kerneldispatch.cpp\00", align 1
 @_ZTIN3gmx17InvalidInputErrorE = external constant ptr
 @.str.2 = private unnamed_addr constant [45 x i8] c"Unsupported VdW interaction modifier %s (%d)\00", align 1
 @.str.3 = private unnamed_addr constant [41 x i8] c"Unsupported VdW interaction type %s (%d)\00", align 1
+@_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr @_ZTIN3gmx8internal14IExceptionInfoE }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = linkonce_odr constant [71 x i8] c"N3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE\00", comdat, align 1
 @_ZTIN3gmx8internal14IExceptionInfoE = external constant ptr
-@_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr @_ZTIN3gmx8internal14IExceptionInfoE }, comdat, align 8
-@_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED2Ev, ptr @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev] }, comdat, align 8
+@_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr @_ZN3gmx8internal14IExceptionInfoD2Ev, ptr @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev] }, comdat, align 8
 @_ZTVN3gmx17InvalidInputErrorE = external unnamed_addr constant { [6 x ptr] }, align 8
 @_ZTVN3gmx16GromacsExceptionE = external unnamed_addr constant { [6 x ptr] }, align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @.str.4 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@.str.5 = private unnamed_addr constant [47 x i8] c"kernelType == Nbnxm::KernelType::Cpu4x4_PlainC\00", align 1
+@.str.5 = private unnamed_addr constant [45 x i8] c"kernelType == NbnxmKernelType::Cpu4x4_PlainC\00", align 1
 @.str.6 = private unnamed_addr constant [81 x i8] c"Only the C reference nbnxn SIMD kernel supports LJ-PME with LB combination rules\00", align 1
-@"__PRETTY_FUNCTION__._ZZ16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdWENK3$_0clEv" = private unnamed_addr constant [182 x i8] c"auto getVdwKernelType(const Nbnxm::KernelType, const LJCombinationRule, const VanDerWaalsType, const InteractionModifiers, const LongRangeVdW)::(anonymous class)::operator()() const\00", align 1
+@"__PRETTY_FUNCTION__._ZZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTypeENS_17LJCombinationRuleE15VanDerWaalsType20InteractionModifiers12LongRangeVdWENK3$_0clEv" = private unnamed_addr constant [185 x i8] c"auto gmx::getVdwKernelType(const NbnxmKernelType, const LJCombinationRule, const VanDerWaalsType, const InteractionModifiers, const LongRangeVdW)::(anonymous class)::operator()() const\00", align 1
 @0 = private unnamed_addr constant [23 x i8] c";unknown;unknown;0;0;;\00", align 1
 @1 = private unnamed_addr constant %struct.ident_t { i32 0, i32 514, i32 0, i32 22, ptr @0 }, align 8
-@_ZL23nbnxn_kernel_noener_ref = internal unnamed_addr constant [5 x [7 x ptr]] [[7 x ptr] [ptr @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t]], align 16
-@_ZN3gmxL25nbnxmKernelNoenerSimd2xmmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t]], align 16
-@_ZN3gmxL24nbnxmKernelNoenerSimd4xmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t]], align 16
-@_ZL21nbnxn_kernel_ener_ref = internal unnamed_addr constant [5 x [7 x ptr]] [[7 x ptr] [ptr @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t]], align 16
-@_ZN3gmxL23nbnxmKernelEnerSimd2xmmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t]], align 16
-@_ZN3gmxL22nbnxmKernelEnerSimd4xmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t]], align 16
-@_ZL24nbnxn_kernel_energrp_ref = internal unnamed_addr constant [5 x [7 x ptr]] [[7 x ptr] [ptr @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [7 x ptr] [ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t]], align 16
-@_ZN3gmxL26nbnxmKernelEnergrpSimd2xmmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t]], align 16
-@_ZN3gmxL25nbnxmKernelEnergrpSimd4xmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t]], align 16
+@_ZN3gmxL27nbnxn_kernel_4x4_noener_refE = internal unnamed_addr constant [5 x [7 x ptr]] [[7 x ptr] [ptr @_ZN3gmx35nbnxn_kernel_4x4_ElecRF_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx35nbnxn_kernel_4x4_ElecRF_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx35nbnxn_kernel_4x4_ElecRF_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx38nbnxn_kernel_4x4_ElecRF_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx38nbnxn_kernel_4x4_ElecRF_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecRF_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx43nbnxn_kernel_4x4_ElecRF_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx38nbnxn_kernel_4x4_ElecQSTab_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx38nbnxn_kernel_4x4_ElecQSTab_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx38nbnxn_kernel_4x4_ElecQSTab_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx41nbnxn_kernel_4x4_ElecQSTab_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx41nbnxn_kernel_4x4_ElecQSTab_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx55nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx53nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx55nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx53nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx55nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx53nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL25nbnxmKernelNoenerSimd2xmmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL24nbnxmKernelNoenerSimd4xmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL27nbnxn_kernel_1x1_noener_refE = internal unnamed_addr constant [5 x [7 x ptr]] [[7 x ptr] [ptr @_ZN3gmx35nbnxn_kernel_1x1_ElecRF_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx35nbnxn_kernel_1x1_ElecRF_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx35nbnxn_kernel_1x1_ElecRF_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx38nbnxn_kernel_1x1_ElecRF_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx38nbnxn_kernel_1x1_ElecRF_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecRF_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx43nbnxn_kernel_1x1_ElecRF_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx38nbnxn_kernel_1x1_ElecQSTab_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx38nbnxn_kernel_1x1_ElecQSTab_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx38nbnxn_kernel_1x1_ElecQSTab_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx41nbnxn_kernel_1x1_ElecQSTab_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx41nbnxn_kernel_1x1_ElecQSTab_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx55nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx53nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx55nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx53nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx55nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx53nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL25nbnxn_kernel_4x4_ener_refE = internal unnamed_addr constant [5 x [7 x ptr]] [[7 x ptr] [ptr @_ZN3gmx36nbnxn_kernel_4x4_ElecRF_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx36nbnxn_kernel_4x4_ElecRF_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx36nbnxn_kernel_4x4_ElecRF_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_4x4_ElecRF_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_4x4_ElecRF_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecRF_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx44nbnxn_kernel_4x4_ElecRF_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx39nbnxn_kernel_4x4_ElecQSTab_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_4x4_ElecQSTab_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_4x4_ElecQSTab_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_4x4_ElecQSTab_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_4x4_ElecQSTab_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx47nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx56nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx54nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx56nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx54nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx56nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx54nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL23nbnxmKernelEnerSimd2xmmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL22nbnxmKernelEnerSimd4xmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL25nbnxn_kernel_1x1_ener_refE = internal unnamed_addr constant [5 x [7 x ptr]] [[7 x ptr] [ptr @_ZN3gmx36nbnxn_kernel_1x1_ElecRF_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx36nbnxn_kernel_1x1_ElecRF_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx36nbnxn_kernel_1x1_ElecRF_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_1x1_ElecRF_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_1x1_ElecRF_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecRF_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx44nbnxn_kernel_1x1_ElecRF_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx39nbnxn_kernel_1x1_ElecQSTab_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_1x1_ElecQSTab_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_1x1_ElecQSTab_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_1x1_ElecQSTab_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_1x1_ElecQSTab_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx47nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx56nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx54nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx56nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx54nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx56nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx54nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL28nbnxn_kernel_4x4_energrp_refE = internal unnamed_addr constant [5 x [7 x ptr]] [[7 x ptr] [ptr @_ZN3gmx39nbnxn_kernel_4x4_ElecRF_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_4x4_ElecRF_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_4x4_ElecRF_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_4x4_ElecRF_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_4x4_ElecRF_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecRF_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx47nbnxn_kernel_4x4_ElecRF_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx42nbnxn_kernel_4x4_ElecQSTab_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_4x4_ElecQSTab_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_4x4_ElecQSTab_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTab_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTab_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx50nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx59nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx57nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx59nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx57nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx59nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx57nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL26nbnxmKernelEnergrpSimd2xmmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL25nbnxmKernelEnergrpSimd4xmE = internal unnamed_addr constant [5 x [6 x ptr]] [[6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [6 x ptr] [ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
+@_ZN3gmxL28nbnxn_kernel_1x1_energrp_refE = internal unnamed_addr constant [5 x [7 x ptr]] [[7 x ptr] [ptr @_ZN3gmx39nbnxn_kernel_1x1_ElecRF_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_1x1_ElecRF_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx39nbnxn_kernel_1x1_ElecRF_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_1x1_ElecRF_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_1x1_ElecRF_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecRF_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx47nbnxn_kernel_1x1_ElecRF_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx42nbnxn_kernel_1x1_ElecQSTab_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_1x1_ElecQSTab_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx42nbnxn_kernel_1x1_ElecQSTab_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTab_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTab_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx50nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx59nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx57nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx59nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx57nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE], [7 x ptr] [ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx59nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE, ptr @_ZN3gmx57nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE]], align 16
 @2 = private unnamed_addr constant %struct.ident_t { i32 0, i32 2, i32 0, i32 22, ptr @0 }, align 8
 @.str.7 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 @.str.8 = private unnamed_addr constant [32 x i8] c"Unsupported kernel architecture\00", align 1
-@"__PRETTY_FUNCTION__._ZZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycleENK3$_0clEv" = private unnamed_addr constant [256 x i8] c"auto nbnxn_kernel_cpu(const PairlistSet &, const Nbnxm::KernelSetup &, nbnxn_atomdata_t *, const interaction_const_t &, gmx::ArrayRef<const gmx::RVec>, const gmx::StepWorkload &, int, real *, real *, gmx_wallcycle *)::(anonymous class)::operator()() const\00", align 1
+@"__PRETTY_FUNCTION__._ZZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycleENK3$_0clEv" = private unnamed_addr constant [259 x i8] c"auto gmx::nbnxn_kernel_cpu(const PairlistSet &, const NbnxmKernelSetup &, nbnxn_atomdata_t *, const interaction_const_t &, gmx::ArrayRef<const gmx::RVec>, const gmx::StepWorkload &, int, real *, real *, gmx_wallcycle *)::(anonymous class)::operator()() const\00", align 1
 @.str.9 = private unnamed_addr constant [38 x i8] c"Invalid nonbonded kernel type passed!\00", align 1
-@"__PRETTY_FUNCTION__._ZZNK18nonbonded_verlet_t23dispatchNonbondedKernelEN3gmx19InteractionLocalityERK19interaction_const_tRKNS0_12StepWorkloadEiNS0_8ArrayRefIKNS0_11BasicVectorIfEEEENS8_IfEESD_P6t_nrnbENK3$_0clEv" = private unnamed_addr constant [259 x i8] c"auto nonbonded_verlet_t::dispatchNonbondedKernel(gmx::InteractionLocality, const interaction_const_t &, const gmx::StepWorkload &, int, gmx::ArrayRef<const gmx::RVec>, gmx::ArrayRef<real>, gmx::ArrayRef<real>, t_nrnb *)::(anonymous class)::operator()() const\00", align 1
+@"__PRETTY_FUNCTION__._ZZNK3gmx18nonbonded_verlet_t23dispatchNonbondedKernelENS_19InteractionLocalityERK19interaction_const_tRKNS_12StepWorkloadEiNS_8ArrayRefIKNS_11BasicVectorIfEEEENS8_IfEESD_P6t_nrnbENK3$_0clEv" = private unnamed_addr constant [264 x i8] c"auto gmx::nonbonded_verlet_t::dispatchNonbondedKernel(gmx::InteractionLocality, const interaction_const_t &, const gmx::StepWorkload &, int, gmx::ArrayRef<const gmx::RVec>, gmx::ArrayRef<real>, gmx::ArrayRef<real>, t_nrnb *)::(anonymous class)::operator()() const\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, 5) i32 @_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 5) i32 @_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   switch i32 %1, label %4 [
     i32 1, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
     i32 2, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread
@@ -162,7 +161,7 @@ _ZL7usingRFRK22CoulombInteractionType.exit.thread: ; preds = %3, %3, %3, %3, %3,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 7) i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 7) i32 @_ZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTypeENS_17LJCombinationRuleE15VanDerWaalsType20InteractionModifiers12LongRangeVdW(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.gmx::InvalidInputError", align 8
   %7 = alloca %"class.gmx::ExceptionInitializer", align 8
   %8 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -174,9 +173,9 @@ define noundef range(i32 0, 7) i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJ
   %14 = alloca %"class.gmx::InvalidInputError", align 8
   %15 = alloca %"class.gmx::ExceptionInitializer", align 8
   %16 = alloca %"class.gmx::ExceptionInfo", align 8
-  switch i32 %2, label %51 [
+  switch i32 %2, label %58 [
     i32 0, label %17
-    i32 5, label %46
+    i32 5, label %53
   ]
 
 17:                                               ; preds = %5
@@ -192,433 +191,481 @@ define noundef range(i32 0, 7) i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJ
   br i1 %19, label %switch.lookup, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @__cxa_allocate_exception(i64 24) #14
+  %21 = tail call ptr @__cxa_allocate_exception(i64 24) #18
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #18
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str)
           to label %22 unwind label %.thread
 
 22:                                               ; preds = %20
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(56) %7)
-          to label %23 unwind label %.thread56
+          to label %23 unwind label %.thread59
 
 23:                                               ; preds = %22
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %6, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %6, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @__PRETTY_FUNCTION__._Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW, ptr %24, align 8
-  %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @.str.1, ptr %.sroa.250.0..sroa_idx, align 8
-  %.sroa.351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 132, ptr %.sroa.351.0..sroa_idx, align 8
-  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %21, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTypeENS_17LJCombinationRuleE15VanDerWaalsType20InteractionModifiers12LongRangeVdW, ptr %24, align 8, !tbaa !7
+  %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @.str.1, ptr %.sroa.453.0..sroa_idx, align 8, !tbaa !7
+  %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i32 148, ptr %.sroa.554.0..sroa_idx, align 8, !tbaa !11
+  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %21, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %25 unwind label %28
 
 25:                                               ; preds = %23
-  invoke void @__cxa_throw(ptr %21, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #18
-          to label %66 unwind label %28
+  invoke void @__cxa_throw(ptr %21, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #22
+          to label %80 unwind label %28
 
 .thread:                                          ; preds = %20
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %30
+  br label %.sink.split
 
-.thread56:                                        ; preds = %22
+.thread59:                                        ; preds = %22
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #14
-  br label %30
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #18
+  br label %.sink.split
 
 28:                                               ; preds = %23, %25
   %.018 = phi i1 [ false, %25 ], [ true, %23 ]
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #14
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #14
-  br i1 %.018, label %30, label %65
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #18
+  call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #18
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #18
+  br i1 %.018, label %30, label %79
 
-30:                                               ; preds = %.thread56, %.thread, %28
-  %.pn35.pn55 = phi { ptr, i32 } [ %26, %.thread ], [ %29, %28 ], [ %27, %.thread56 ]
-  call void @__cxa_free_exception(ptr %21) #14
-  br label %65
+.sink.split:                                      ; preds = %.thread, %.thread59
+  %.pn35.pn58.ph = phi { ptr, i32 } [ %27, %.thread59 ], [ %26, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #18
+  br label %30
+
+30:                                               ; preds = %.sink.split, %28
+  %.pn35.pn58 = phi { ptr, i32 } [ %29, %28 ], [ %.pn35.pn58.ph, %.sink.split ]
+  call void @__cxa_free_exception(ptr %21) #18
+  br label %79
 
 31:                                               ; preds = %17
   br label %switch.lookup
 
 32:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #18
   %33 = tail call noundef ptr @_Z17enumValueToString20InteractionModifiers(i32 noundef %3)
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.2, ptr noundef %33, i32 noundef %3)
-  %34 = call ptr @__cxa_allocate_exception(i64 24) #14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %35 unwind label %.thread59
+  %34 = call ptr @__cxa_allocate_exception(i64 24) #18
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #18
+  invoke void @_ZN3gmx20ExceptionInitializerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %35 unwind label %.thread62
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(56) %11)
-          to label %37 unwind label %.thread64
+          to label %36 unwind label %.thread67
 
-37:                                               ; preds = %35
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %10, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @__PRETTY_FUNCTION__._Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW, ptr %38, align 8
-  %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr @.str.1, ptr %.sroa.246.0..sroa_idx, align 8
-  %.sroa.347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 141, ptr %.sroa.347.0..sroa_idx, align 8
-  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %34, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %39 unwind label %42
+36:                                               ; preds = %35
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %10, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #18
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %12, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTypeENS_17LJCombinationRuleE15VanDerWaalsType20InteractionModifiers12LongRangeVdW, ptr %37, align 8, !tbaa !7
+  %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr @.str.1, ptr %.sroa.449.0..sroa_idx, align 8, !tbaa !7
+  %.sroa.550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i32 157, ptr %.sroa.550.0..sroa_idx, align 8, !tbaa !11
+  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %34, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %38 unwind label %41
 
-39:                                               ; preds = %37
-  invoke void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #18
-          to label %66 unwind label %42
+38:                                               ; preds = %36
+  invoke void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #22
+          to label %80 unwind label %41
 
-.thread59:                                        ; preds = %32
+.thread62:                                        ; preds = %32
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  br label %.sink.split78
+
+.thread67:                                        ; preds = %35
   %40 = landingpad { ptr, i32 }
           cleanup
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #18
+  br label %.sink.split78
+
+41:                                               ; preds = %36, %38
+  %.015 = phi i1 [ false, %38 ], [ true, %36 ]
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #18
+  call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #18
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #18
+  br i1 %.015, label %43, label %44
+
+.sink.split78:                                    ; preds = %.thread62, %.thread67
+  %.pn38.pn66.ph = phi { ptr, i32 } [ %40, %.thread67 ], [ %39, %.thread62 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #18
+  br label %43
+
+43:                                               ; preds = %.sink.split78, %41
+  %.pn38.pn66 = phi { ptr, i32 } [ %42, %41 ], [ %.pn38.pn66.ph, %.sink.split78 ]
+  call void @__cxa_free_exception(ptr %34) #18
   br label %44
 
-.thread64:                                        ; preds = %35
-  %41 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #14
-  br label %44
+44:                                               ; preds = %43, %41
+  %.pn38.pn65 = phi { ptr, i32 } [ %.pn38.pn66, %43 ], [ %42, %41 ]
+  %45 = load ptr, ptr %9, align 8, !tbaa !13
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %47 = icmp eq ptr %45, %46
+  br i1 %47, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-42:                                               ; preds = %37, %39
-  %.015 = phi i1 [ false, %39 ], [ true, %37 ]
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #14
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #14
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #14
-  br i1 %.015, label %44, label %45
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !17
+  %50 = icmp ult i64 %49, 16
+  call void @llvm.assume(i1 %50)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-44:                                               ; preds = %.thread64, %.thread59, %42
-  %.pn38.pn63 = phi { ptr, i32 } [ %40, %.thread59 ], [ %43, %42 ], [ %41, %.thread64 ]
-  call void @__cxa_free_exception(ptr %34) #14
-  br label %45
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %44
+  %51 = load i64, ptr %46, align 8, !tbaa !18
+  %52 = add i64 %51, 1
+  call void @_ZdlPvm(ptr noundef %45, i64 noundef %52) #23
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-45:                                               ; preds = %44, %42
-  %.pn38.pn62 = phi { ptr, i32 } [ %.pn38.pn63, %44 ], [ %43, %42 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
-  br label %65
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #18
+  br label %79
 
-46:                                               ; preds = %5
-  %47 = icmp eq i32 %4, 0
-  br i1 %47, label %switch.lookup, label %48
+53:                                               ; preds = %5
+  %54 = icmp eq i32 %4, 0
+  br i1 %54, label %switch.lookup, label %55
 
-48:                                               ; preds = %46
-  %49 = icmp eq i32 %0, 1
-  br i1 %49, label %switch.lookup, label %50
+55:                                               ; preds = %53
+  %56 = icmp eq i32 %0, 1
+  br i1 %56, label %switch.lookup, label %57
 
-50:                                               ; preds = %48
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdWENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 155) #18
+57:                                               ; preds = %55
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTypeENS_17LJCombinationRuleE15VanDerWaalsType20InteractionModifiers12LongRangeVdWENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 171) #22
   unreachable
 
-51:                                               ; preds = %5
-  %52 = tail call noundef ptr @_Z17enumValueToString15VanDerWaalsType(i32 noundef %2)
-  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str.3, ptr noundef %52, i32 noundef %2)
-  %53 = call ptr @__cxa_allocate_exception(i64 24) #14
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %54 unwind label %.thread67
+58:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #18
+  %59 = tail call noundef ptr @_Z17enumValueToString15VanDerWaalsType(i32 noundef %2)
+  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str.3, ptr noundef %59, i32 noundef %2)
+  %60 = call ptr @__cxa_allocate_exception(i64 24) #18
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15) #18
+  invoke void @_ZN3gmx20ExceptionInitializerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %61 unwind label %.thread70
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+61:                                               ; preds = %58
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(56) %15)
-          to label %56 unwind label %.thread72
+          to label %62 unwind label %.thread75
 
-56:                                               ; preds = %54
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %14, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %16, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr @__PRETTY_FUNCTION__._Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW, ptr %57, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i32 164, ptr %.sroa.3.0..sroa_idx, align 8
-  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %53, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %58 unwind label %61
+62:                                               ; preds = %61
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %14, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #18
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %16, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTypeENS_17LJCombinationRuleE15VanDerWaalsType20InteractionModifiers12LongRangeVdW, ptr %63, align 8, !tbaa !7
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr @.str.1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !7
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store i32 180, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !11
+  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %60, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %64 unwind label %67
 
-58:                                               ; preds = %56
-  invoke void @__cxa_throw(ptr %53, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #18
-          to label %66 unwind label %61
+64:                                               ; preds = %62
+  invoke void @__cxa_throw(ptr %60, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #22
+          to label %80 unwind label %67
 
-.thread67:                                        ; preds = %51
-  %59 = landingpad { ptr, i32 }
+.thread70:                                        ; preds = %58
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %.sink.split79
 
-.thread72:                                        ; preds = %54
-  %60 = landingpad { ptr, i32 }
+.thread75:                                        ; preds = %61
+  %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #14
-  br label %63
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #18
+  br label %.sink.split79
 
-61:                                               ; preds = %56, %58
-  %.0 = phi i1 [ false, %58 ], [ true, %56 ]
-  %62 = landingpad { ptr, i32 }
+67:                                               ; preds = %62, %64
+  %.0 = phi i1 [ false, %64 ], [ true, %62 ]
+  %68 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
-  call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #14
-  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #14
-  br i1 %.0, label %63, label %64
+  call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #18
+  call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #18
+  call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #18
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15) #18
+  br i1 %.0, label %69, label %70
 
-63:                                               ; preds = %.thread72, %.thread67, %61
-  %.pn.pn71 = phi { ptr, i32 } [ %59, %.thread67 ], [ %62, %61 ], [ %60, %.thread72 ]
-  call void @__cxa_free_exception(ptr %53) #14
-  br label %64
+.sink.split79:                                    ; preds = %.thread70, %.thread75
+  %.pn.pn74.ph = phi { ptr, i32 } [ %66, %.thread75 ], [ %65, %.thread70 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15) #18
+  br label %69
 
-64:                                               ; preds = %63, %61
-  %.pn.pn70 = phi { ptr, i32 } [ %.pn.pn71, %63 ], [ %62, %61 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
-  br label %65
+69:                                               ; preds = %.sink.split79, %67
+  %.pn.pn74 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn74.ph, %.sink.split79 ]
+  call void @__cxa_free_exception(ptr %60) #18
+  br label %70
 
-switch.lookup:                                    ; preds = %18, %48, %46, %17, %31
-  %.031 = phi i32 [ 4, %31 ], [ 3, %17 ], [ 5, %46 ], [ 6, %48 ], [ %1, %18 ]
+70:                                               ; preds = %69, %67
+  %.pn.pn73 = phi { ptr, i32 } [ %.pn.pn74, %69 ], [ %68, %67 ]
+  %71 = load ptr, ptr %13, align 8, !tbaa !13
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %73 = icmp eq ptr %71, %72
+  br i1 %73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45: ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %75 = load i64, ptr %74, align 8, !tbaa !17
+  %76 = icmp ult i64 %75, 16
+  call void @llvm.assume(i1 %76)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44: ; preds = %70
+  %77 = load i64, ptr %72, align 8, !tbaa !18
+  %78 = add i64 %77, 1
+  call void @_ZdlPvm(ptr noundef %71, i64 noundef %78) #23
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #18
+  br label %79
+
+switch.lookup:                                    ; preds = %18, %55, %53, %17, %31
+  %.031 = phi i32 [ 4, %31 ], [ 3, %17 ], [ 5, %53 ], [ 6, %55 ], [ %1, %18 ]
   ret i32 %.031
 
-65:                                               ; preds = %28, %30, %64, %45
-  %.pn38.pn.pn = phi { ptr, i32 } [ %.pn38.pn62, %45 ], [ %.pn35.pn55, %30 ], [ %29, %28 ], [ %.pn.pn70, %64 ]
+79:                                               ; preds = %28, %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn38.pn.pn = phi { ptr, i32 } [ %.pn38.pn65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn35.pn58, %30 ], [ %29, %28 ], [ %.pn.pn73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ]
   resume { ptr, i32 } %.pn38.pn.pn
 
-66:                                               ; preds = %58, %39, %25
+80:                                               ; preds = %64, %38, %25
   unreachable
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind noalias writable sret(%"class.gmx::InvalidInputError") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind noalias writable sret(%"class.gmx::InvalidInputError") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"struct.std::type_index", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  store ptr %6, ptr %4, align 8
-  store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !19
+  store ptr %6, ptr %4, align 8, !tbaa !20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8, !tbaa !22
   invoke void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrINS_8internal14IExceptionInfoESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %9 unwind label %14
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  %10 = load ptr, ptr %4, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit, label %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #14
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
 
 14:                                               ; preds = %3
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  %16 = load ptr, ptr %4, align 8, !tbaa !20
   %.not.i3.i = icmp eq ptr %16, null
   br i1 %.not.i3.i, label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i, label %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #14
+  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #18
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
 
 _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i: ; preds = %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   resume { ptr, i32 } %15
 
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  store ptr %22, ptr %20, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load ptr, ptr %24, align 8
-  store ptr null, ptr %24, align 8
-  store ptr %25, ptr %23, align 8
-  store ptr null, ptr %21, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %0, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
+  store ptr null, ptr %24, align 8, !tbaa !30
+  store ptr %25, ptr %23, align 8, !tbaa !30
+  store ptr null, ptr %21, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %0, align 8, !tbaa !4
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %.noexc unwind label %14
+  %3 = alloca i64, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %4, ptr %0, align 8, !tbaa !31
+  %5 = icmp eq ptr %1, null
+  br i1 %5, label %.noexc, label %6
 
 .noexc:                                           ; preds = %2
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %.noexc3 unwind label %14
-
-.noexc3:                                          ; preds = %.noexc
-  %5 = icmp eq ptr %1, null
-  br i1 %5, label %6, label %10
-
-6:                                                ; preds = %.noexc3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #18
-          to label %7 unwind label %8
-
-7:                                                ; preds = %6
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #22
   unreachable
 
-8:                                                ; preds = %10, %6
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
-  br label %.body
+6:                                                ; preds = %2
+  %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  store i64 %7, ptr %3, align 8, !tbaa !32
+  %8 = icmp ugt i64 %7, 15
+  br i1 %8, label %.noexc.i, label %._crit_edge.i.i
 
-10:                                               ; preds = %.noexc3
-  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
-  %12 = getelementptr inbounds i8, ptr %1, i64 %11
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull %12)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
+.noexc.i:                                         ; preds = %6
+  %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %9, ptr %0, align 8, !tbaa !13
+  %10 = load i64, ptr %3, align 8, !tbaa !32
+  store i64 %10, ptr %4, align 8, !tbaa !18
+  br label %._crit_edge.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
+._crit_edge.i.i:                                  ; preds = %.noexc.i, %6
+  %11 = phi ptr [ %9, %.noexc.i ], [ %4, %6 ]
+  switch i64 %7, label %14 [
+    i64 1, label %12
+    i64 0, label %15
+  ]
+
+12:                                               ; preds = %._crit_edge.i.i
+  %13 = load i8, ptr %1, align 1, !tbaa !18
+  store i8 %13, ptr %11, align 1, !tbaa !18
+  br label %15
+
+14:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull align 1 %1, i64 %7, i1 false)
+  br label %15
+
+15:                                               ; preds = %14, %12, %._crit_edge.i.i
+  %16 = load i64, ptr %3, align 8, !tbaa !32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %16, ptr %17, align 8, !tbaa !17
+  %18 = load ptr, ptr %0, align 8, !tbaa !13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
+  store i8 0, ptr %19, align 1, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   ret void
-
-14:                                               ; preds = %.noexc, %2
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
-
-.body:                                            ; preds = %8, %14
-  %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %9, %8 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  resume { ptr, i32 } %eh.lpad-body
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
+define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i.i.i, label %_ZN3gmx14UserInputErrorD2Ev.exit, label %4
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %.not.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
-  br i1 %7, label %9, label %14
+  br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8
+  store i32 0, ptr %5, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4
-  %11 = load ptr, ptr %3, align 8
+  store i32 0, ptr %10, align 4, !tbaa !35
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  br label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-14:                                               ; preds = %4
-  %15 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i.i.i.i.i, label %18, label %16
+17:                                               ; preds = %4
+  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !18
+  %.not.i.i.i = icmp eq i8 %18, 0
+  br i1 %.not.i.i.i, label %21, label %19
 
-16:                                               ; preds = %14
-  %17 = add nsw i32 %8, -1
-  store i32 %17, ptr %5, align 4
-  br label %20
+19:                                               ; preds = %17
+  %20 = add nsw i32 %8, -1
+  store i32 %20, ptr %5, align 4, !tbaa !11
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-18:                                               ; preds = %14
-  %19 = atomicrmw volatile add ptr %5, i32 -1 acq_rel, align 4
-  br label %20
+21:                                               ; preds = %17
+  %22 = atomicrmw volatile add ptr %5, i32 -1 acq_rel, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-20:                                               ; preds = %18, %16
-  %.0.i.i.i.i.i.i = phi i32 [ %8, %16 ], [ %19, %18 ]
-  %21 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %21, label %22, label %_ZN3gmx14UserInputErrorD2Ev.exit
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
+  %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
+  %23 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !36
 
-22:                                               ; preds = %20
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %27 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %31, label %28
+24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  br label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-28:                                               ; preds = %22
-  %29 = load i32, ptr %26, align 4
-  %30 = add nsw i32 %29, -1
-  store i32 %30, ptr %26, align 4
-  br label %33
-
-31:                                               ; preds = %22
-  %32 = atomicrmw volatile add ptr %26, i32 -1 acq_rel, align 4
-  br label %33
-
-33:                                               ; preds = %31, %28
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %29, %28 ], [ %32, %31 ]
-  %34 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %34, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %_ZN3gmx14UserInputErrorD2Ev.exit
-
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  br label %_ZN3gmx14UserInputErrorD2Ev.exit
-
-_ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
+_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %24
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  ret void
-}
+; Function Attrs: nounwind
+declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %8, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i ], [ %3, %1 ]
-  %6 = load ptr, ptr %.05.i.i.i.i, align 8
+  %6 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !41
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i.i
-  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i) #14
+  tail call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i) #18
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !43
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !37
   br label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %1
@@ -627,189 +674,192 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
+  %13 = ptrtoint ptr %12 to i64
+  %14 = ptrtoint ptr %9 to i64
+  %15 = sub i64 %13, %14
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %15) #23
   br label %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
 
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, %10
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
+  %16 = load ptr, ptr %0, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = icmp eq ptr %16, %17
+  br i1 %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !17
+  %21 = icmp ult i64 %20, 16
+  tail call void @llvm.assume(i1 %21)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
+  %22 = load i64, ptr %17, align 8, !tbaa !18
+  %23 = add i64 %22, 1
+  tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %23) #23
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   ret void
 }
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
-declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #4
+declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #8
 
-declare noundef ptr @_Z17enumValueToString20InteractionModifiers(i32 noundef) local_unnamed_addr #4
+declare noundef ptr @_Z17enumValueToString20InteractionModifiers(i32 noundef) local_unnamed_addr #8
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i64, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %4, ptr %0, align 8, !tbaa !31
+  %5 = load ptr, ptr %1, align 8, !tbaa !13
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  store i64 %7, ptr %3, align 8, !tbaa !32
+  %8 = icmp ugt i64 %7, 15
+  br i1 %8, label %.noexc.i, label %._crit_edge.i.i
 
-declare noundef ptr @_Z17enumValueToString15VanDerWaalsType(i32 noundef) local_unnamed_addr #4
+.noexc.i:                                         ; preds = %2
+  %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %9, ptr %0, align 8, !tbaa !13
+  %10 = load i64, ptr %3, align 8, !tbaa !32
+  store i64 %10, ptr %4, align 8, !tbaa !18
+  br label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %.noexc.i, %2
+  %11 = phi ptr [ %9, %.noexc.i ], [ %4, %2 ]
+  switch i64 %7, label %14 [
+    i64 1, label %12
+    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
+  ]
+
+12:                                               ; preds = %._crit_edge.i.i
+  %13 = load i8, ptr %5, align 1, !tbaa !18
+  store i8 %13, ptr %11, align 1, !tbaa !18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
+
+14:                                               ; preds = %._crit_edge.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %5, i64 %7, i1 false)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i, %12, %14
+  %15 = load i64, ptr %3, align 8, !tbaa !32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %15, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %0, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %15
+  store i8 0, ptr %18, align 1, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  ret void
+}
+
+declare noundef ptr @_Z17enumValueToString15VanDerWaalsType(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
-declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrINS_8internal14IExceptionInfoESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
+declare void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrINS_8internal14IExceptionInfoESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #20
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
+  tail call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #21
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #10
+declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
+; Function Attrs: mustprogress noinline nounwind uwtable
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = load ptr, ptr %3, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !18
+  %.not.i = icmp eq i8 %6, 0
+  br i1 %.not.i, label %10, label %7
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
+7:                                                ; preds = %1
+  %8 = load i32, ptr %5, align 4, !tbaa !11
+  %9 = add nsw i32 %8, -1
+  store i32 %9, ptr %5, align 4, !tbaa !11
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+10:                                               ; preds = %1
+  %11 = atomicrmw volatile add ptr %5, i32 -1 acq_rel, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
+  %.0.i.i = phi i32 [ %8, %7 ], [ %11, %10 ]
+  %12 = icmp eq i32 %.0.i.i, 1
+  br i1 %12, label %13, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
+
+13:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
+  %14 = load ptr, ptr %0, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
+
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
+  ret void
+}
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca i64, align 8
-  %5 = alloca %struct._Guard, align 8
-  %6 = ptrtoint ptr %2 to i64
-  %7 = ptrtoint ptr %1 to i64
-  %8 = sub i64 %6, %7
-  store i64 %8, ptr %4, align 8
-  %9 = icmp ugt i64 %8, 15
-  br i1 %9, label %10, label %13
-
-10:                                               ; preds = %3
-  %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11)
-  %12 = load i64, ptr %4, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %12)
-  br label %18
-
-13:                                               ; preds = %3
-  %14 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %18 unwind label %15
-
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
-          catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #21
-  unreachable
-
-18:                                               ; preds = %13, %10
-  store ptr %0, ptr %5, align 8
-  %19 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %20 unwind label %22
-
-20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #14
-  store ptr null, ptr %5, align 8
-  %21 = load i64, ptr %4, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
-          to label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit unwind label %22
-
-_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit: ; preds = %20
-  ret void
-
-22:                                               ; preds = %20, %18
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
-  resume { ptr, i32 } %23
-}
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #8
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #4
+declare void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
-
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %2, null
-  br i1 %.not, label %4, label %3
-
-3:                                                ; preds = %1
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %4 unwind label %5
-
-4:                                                ; preds = %3, %1
-  ret void
-
-5:                                                ; preds = %3
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #21
-  unreachable
-}
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
-
-declare void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #4
-
-; Function Attrs: nounwind
-declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
-
-; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
+declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
+declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18nonbonded_verlet_t23dispatchNonbondedKernelEN3gmx19InteractionLocalityERK19interaction_const_tRKNS0_12StepWorkloadEiNS0_8ArrayRefIKNS0_11BasicVectorIfEEEENS8_IfEESD_P6t_nrnb(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 1 dereferenceable(20) %3, i32 noundef %4, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %5, ptr noundef readonly byval(%"class.gmx::ArrayRef.5") align 8 captures(none) %6, ptr noundef readonly byval(%"class.gmx::ArrayRef.5") align 8 captures(none) %7, ptr noundef %8) local_unnamed_addr #1 align 2 {
+define void @_ZNK3gmx18nonbonded_verlet_t23dispatchNonbondedKernelENS_19InteractionLocalityERK19interaction_const_tRKNS_12StepWorkloadEiNS_8ArrayRefIKNS_11BasicVectorIfEEEENS8_IfEESD_P6t_nrnb(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 1 dereferenceable(20) %3, i32 noundef %4, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %5, ptr noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 captures(none) %6, ptr noundef readonly byval(%"class.gmx::ArrayRef.6") align 8 captures(none) %7, ptr noundef %8) local_unnamed_addr #1 align 2 {
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i8, align 1
-  %16 = alloca %"class.gmx::ArrayRef.140", align 8
+  %16 = alloca %"class.gmx::ArrayRef.143", align 8
   %17 = alloca ptr, align 8
-  %18 = alloca %"class.gmx::ArrayRef.5", align 8
-  %19 = load ptr, ptr %0, align 8
+  %18 = alloca %"class.gmx::ArrayRef.6", align 8
+  %19 = load ptr, ptr %0, align 8, !tbaa !46
   %20 = icmp eq i32 %1, 0
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %22 = load ptr, ptr %21, align 8
@@ -817,171 +867,175 @@ define void @_ZNK18nonbonded_verlet_t23dispatchNonbondedKernelEN3gmx19Interactio
   %24 = load ptr, ptr %23, align 8
   %.0.i = select i1 %20, ptr %22, ptr %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load i32, ptr %25, align 8
-  switch i32 %26, label %111 [
+  %26 = load i32, ptr %25, align 8, !tbaa !48
+  switch i32 %26, label %112 [
     i32 1, label %27
     i32 2, label %27
     i32 3, label %27
-    i32 4, label %112
-    i32 5, label %81
+    i32 6, label %27
+    i32 4, label %113
+    i32 5, label %82
   ]
 
-27:                                               ; preds = %9, %9, %9
+27:                                               ; preds = %9, %9, %9, %9
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = load ptr, ptr %7, align 8
-  %32 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !52
+  %30 = load ptr, ptr %5, align 8, !tbaa !54
+  %31 = load ptr, ptr %7, align 8, !tbaa !57
+  %32 = load ptr, ptr %6, align 8, !tbaa !57
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load ptr, ptr %33, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   %35 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store ptr %29, ptr %10, align 8
-  store i32 %4, ptr %11, align 4
-  store ptr %34, ptr %12, align 8
+  store ptr %29, ptr %10, align 8, !tbaa !52
+  store i32 %4, ptr %11, align 4, !tbaa !11
+  store ptr %34, ptr %12, align 8, !tbaa !97
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #18
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %37 = load i32, ptr %36, align 4
+  %37 = load i32, ptr %36, align 4, !tbaa !98
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %39 = load float, ptr %38, align 4
+  %39 = load float, ptr %38, align 4, !tbaa !123
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %41 = load float, ptr %40, align 8
+  %41 = load float, ptr %40, align 8, !tbaa !124
   %42 = fcmp oeq float %39, %41
   switch i32 %37, label %43 [
-    i32 1, label %_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
-    i32 2, label %_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
-    i32 11, label %_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
-    i32 16, label %_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
-    i32 0, label %_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
+    i32 1, label %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
+    i32 2, label %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
+    i32 11, label %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
+    i32 16, label %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
+    i32 0, label %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
   ]
 
 43:                                               ; preds = %27
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %45 = load i32, ptr %44, align 4
+  %45 = load i32, ptr %44, align 4, !tbaa !125
   %46 = icmp eq i32 %45, 1
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %43
   %..i.i = select i1 %42, i32 1, i32 2
-  br label %_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
+  br label %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
 
 48:                                               ; preds = %43
   %.5.i.i = select i1 %42, i32 3, i32 4
-  br label %_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
+  br label %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
 
-_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i: ; preds = %48, %47, %27, %27, %27, %27, %27
+_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i: ; preds = %48, %47, %27, %27, %27, %27, %27
   %.0.i.i = phi i32 [ %..i.i, %47 ], [ %.5.i.i, %48 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ]
-  store i32 %.0.i.i, ptr %13, align 4
-  %49 = load i32, ptr %25, align 8
+  store i32 %.0.i.i, ptr %13, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #18
+  %49 = load i32, ptr %25, align 8, !tbaa !48
   %50 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %51 = load i32, ptr %50, align 8
-  %52 = load i32, ptr %2, align 8
+  %51 = load i32, ptr %50, align 8, !tbaa !126
+  %52 = load i32, ptr %2, align 8, !tbaa !153
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %54 = load i32, ptr %53, align 4
+  %54 = load i32, ptr %53, align 4, !tbaa !154
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 92
-  %56 = load i32, ptr %55, align 4
-  %57 = tail call noundef i32 @_Z16getVdwKernelTypeN5Nbnxm10KernelTypeE17LJCombinationRule15VanDerWaalsType20InteractionModifiers12LongRangeVdW(i32 noundef %49, i32 noundef %51, i32 noundef %52, i32 noundef %54, i32 noundef %56)
-  store i32 %57, ptr %14, align 4
-  %58 = load i32, ptr %25, align 8
-  %59 = icmp ne i32 %58, 1
-  %60 = zext i1 %59 to i8
-  store i8 %60, ptr %15, align 1
-  %61 = load ptr, ptr %.0.i, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = ptrtoint ptr %61 to i64
-  %66 = sub i64 %64, %65
-  %67 = getelementptr inbounds i8, ptr %61, i64 %66
-  store ptr %61, ptr %16, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %67, ptr %68, align 8
-  store ptr %30, ptr %17, align 8
-  %69 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
-  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %35, i32 %69)
-  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycle.omp_outlined, ptr nonnull %16, ptr nonnull %10, ptr nonnull %11, ptr nonnull %12, ptr nonnull align 1 dereferenceable(20) %3, ptr nonnull align 4 dereferenceable(8) %25, ptr nonnull %13, ptr nonnull %14, ptr nonnull align 8 dereferenceable(152) %2, ptr nonnull %17, ptr nonnull %15, ptr nonnull %29)
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %71 = load i8, ptr %70, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycle.exit
+  %56 = load i32, ptr %55, align 4, !tbaa !155
+  %57 = tail call noundef i32 @_ZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTypeENS_17LJCombinationRuleE15VanDerWaalsType20InteractionModifiers12LongRangeVdW(i32 noundef %49, i32 noundef %51, i32 noundef %52, i32 noundef %54, i32 noundef %56)
+  store i32 %57, ptr %14, align 4, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #18
+  %58 = load i32, ptr %25, align 8, !tbaa !48
+  %59 = and i32 %58, -2
+  %60 = icmp eq i32 %59, 2
+  %61 = zext i1 %60 to i8
+  store i8 %61, ptr %15, align 1, !tbaa !156
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #18
+  %62 = load ptr, ptr %.0.i, align 8, !tbaa !157
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !160
+  %65 = ptrtoint ptr %64 to i64
+  %66 = ptrtoint ptr %62 to i64
+  %67 = sub i64 %65, %66
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 %67
+  store ptr %62, ptr %16, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %68, ptr %69, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #18
+  store ptr %30, ptr %17, align 8, !tbaa !161
+  %70 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
+  tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %35, i32 %70)
+  call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycle.omp_outlined, ptr nonnull %16, ptr nonnull %10, ptr nonnull %11, ptr nonnull %12, ptr nonnull align 1 dereferenceable(20) %3, ptr nonnull align 4 dereferenceable(8) %25, ptr nonnull %13, ptr nonnull %14, ptr nonnull align 8 dereferenceable(152) %2, ptr nonnull %17, ptr nonnull %15, ptr nonnull %29)
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %72 = load i8, ptr %71, align 1, !tbaa !162, !range !164, !noundef !165
+  %73 = trunc nuw i8 %72 to i1
+  br i1 %73, label %74, label %_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycle.exit
 
-73:                                               ; preds = %_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
-  %74 = load ptr, ptr %10, align 8
+74:                                               ; preds = %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
+  %75 = load ptr, ptr %10, align 8, !tbaa !52
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %16, align 8
-  %75 = load ptr, ptr %68, align 8
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i to i64
-  %78 = sub i64 %76, %77
-  %79 = lshr exact i64 %78, 8
-  %80 = trunc i64 %79 to i32
-  call void @_Z26reduce_energies_over_listsPK16nbnxn_atomdata_tiPfS2_(ptr noundef %74, i32 noundef %80, ptr noundef %32, ptr noundef %31)
-  br label %_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycle.exit
+  %76 = load ptr, ptr %69, align 8, !tbaa !166
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i to i64
+  %79 = sub i64 %77, %78
+  %80 = lshr exact i64 %79, 8
+  %81 = trunc i64 %80 to i32
+  call void @_ZN3gmx26reduce_energies_over_listsEPKNS_16nbnxn_atomdata_tEiPfS3_(ptr noundef %75, i32 noundef %81, ptr noundef %32, ptr noundef %31)
+  br label %_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycle.exit
 
-_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycle.exit: ; preds = %_Z20getCoulombKernelTypeN5Nbnxm18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i, %73
+_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycle.exit: ; preds = %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i, %74
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  br label %112
+  br label %113
 
-81:                                               ; preds = %9
-  %82 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %83, %85
-  %spec.select.i = select i1 %86, ptr null, ptr %83
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = ptrtoint ptr %91 to i64
-  %93 = ptrtoint ptr %89 to i64
-  %94 = sub i64 %92, %93
-  %95 = getelementptr inbounds i8, ptr %89, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %88, i64 408
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %99 = load ptr, ptr %98, align 8
-  store ptr %99, ptr %18, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %102 = load ptr, ptr %101, align 8
-  %103 = ptrtoint ptr %102 to i64
-  %104 = ptrtoint ptr %99 to i64
-  %105 = sub i64 %103, %104
-  %106 = getelementptr inbounds i8, ptr %99, i64 %105
-  store ptr %106, ptr %100, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %7, align 8
-  %110 = load ptr, ptr %6, align 8
-  tail call void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK19interaction_const_tN3gmx8ArrayRefIKNS8_11BasicVectorIfEEEERKNS8_12StepWorkloadEiNS9_IfEEPfSI_SI_(ptr noundef %spec.select.i, ptr noundef %88, ptr noundef nonnull %2, ptr %89, ptr %95, ptr noundef nonnull align 1 dereferenceable(20) %3, i32 noundef %4, ptr noundef nonnull byval(%"class.gmx::ArrayRef.5") align 8 %18, ptr noundef %108, ptr noundef %109, ptr noundef %110)
-  br label %112
+82:                                               ; preds = %9
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
+  %84 = load ptr, ptr %83, align 8, !tbaa !168
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
+  %86 = load ptr, ptr %85, align 8, !tbaa !168
+  %87 = icmp eq ptr %84, %86
+  %spec.select.i = select i1 %87, ptr null, ptr %84
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %89 = load ptr, ptr %88, align 8, !tbaa !52
+  %90 = load ptr, ptr %5, align 8, !tbaa !54
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !54
+  %93 = ptrtoint ptr %92 to i64
+  %94 = ptrtoint ptr %90 to i64
+  %95 = sub i64 %93, %94
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %89, i64 408
+  %98 = load ptr, ptr %97, align 8, !tbaa !170
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !173
+  store ptr %100, ptr %18, align 8, !tbaa !57
+  %101 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !174
+  %104 = ptrtoint ptr %103 to i64
+  %105 = ptrtoint ptr %100 to i64
+  %106 = sub i64 %104, %105
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 %106
+  store ptr %107, ptr %101, align 8, !tbaa !57
+  %108 = getelementptr inbounds nuw i8, ptr %98, i64 40
+  %109 = load ptr, ptr %108, align 8, !tbaa !173
+  %110 = load ptr, ptr %7, align 8, !tbaa !57
+  %111 = load ptr, ptr %6, align 8, !tbaa !57
+  tail call void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiNS9_IfEEPfSI_SI_(ptr noundef %spec.select.i, ptr noundef %89, ptr noundef nonnull %2, ptr %90, ptr %96, ptr noundef nonnull align 1 dereferenceable(20) %3, i32 noundef %4, ptr noundef nonnull byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr noundef %109, ptr noundef %110, ptr noundef %111)
+  br label %113
 
-111:                                              ; preds = %9
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZNK18nonbonded_verlet_t23dispatchNonbondedKernelEN3gmx19InteractionLocalityERK19interaction_const_tRKNS0_12StepWorkloadEiNS0_8ArrayRefIKNS0_11BasicVectorIfEEEENS8_IfEESD_P6t_nrnbENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 453) #18
+112:                                              ; preds = %9
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZNK3gmx18nonbonded_verlet_t23dispatchNonbondedKernelENS_19InteractionLocalityERK19interaction_const_tRKNS_12StepWorkloadEiNS_8ArrayRefIKNS_11BasicVectorIfEEEENS8_IfEESD_P6t_nrnbENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 477) #22
   unreachable
 
-112:                                              ; preds = %9, %81, %_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycle.exit
+113:                                              ; preds = %9, %82, %_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycle.exit
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZL12accountFlopsP6t_nrnbRK11PairlistSetRK18nonbonded_verlet_tRK19interaction_const_tRKN3gmx12StepWorkloadE.exit, label %113
+  br i1 %.not, label %_ZN3gmxL12accountFlopsEP6t_nrnbRKNS_11PairlistSetERKNS_18nonbonded_verlet_tERK19interaction_const_tRKNS_12StepWorkloadE.exit, label %114
 
-113:                                              ; preds = %112
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %.val.i = load i32, ptr %114, align 4
-  switch i32 %.val.i, label %115 [
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %.val = load i8, ptr %115, align 1
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %.val.i = load i32, ptr %116, align 4, !tbaa !175
+  switch i32 %.val.i, label %117 [
     i32 1, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
     i32 2, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
     i32 11, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
@@ -989,987 +1043,1286 @@ _ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK
     i32 0, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
   ]
 
-115:                                              ; preds = %113
-  %116 = load i32, ptr %25, align 8
-  %117 = icmp eq i32 %116, 4
-  br i1 %117, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i, label %118
+117:                                              ; preds = %114
+  %118 = load i32, ptr %25, align 8, !tbaa !176
+  %119 = icmp eq i32 %118, 4
+  br i1 %119, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i, label %120
 
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %120 = load i32, ptr %119, align 4
-  %121 = icmp eq i32 %120, 2
-  %.mux.i = select i1 %121, i32 30, i32 28
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %122 = load i32, ptr %121, align 4, !tbaa !125
+  %123 = icmp eq i32 %122, 2
+  %.mux.i = select i1 %123, i32 30, i32 28
   br label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
 
-_ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %118, %115, %113, %113, %113, %113, %113
-  %.033.i = phi i32 [ %.mux.i, %118 ], [ 26, %113 ], [ 26, %113 ], [ 26, %113 ], [ 26, %113 ], [ 26, %113 ], [ 28, %115 ]
-  %122 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %123 = load i8, ptr %122, align 1
-  %124 = trunc i8 %123 to i1
-  %.mask.i = and i8 %123, 1
-  %125 = zext nneg i8 %.mask.i to i32
+_ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %120, %117, %114, %114, %114, %114, %114
+  %.033.i = phi i32 [ %.mux.i, %120 ], [ 26, %114 ], [ 26, %114 ], [ 26, %114 ], [ 26, %114 ], [ 26, %114 ], [ 28, %117 ]
+  %124 = trunc nuw i8 %.val to i1
+  %125 = zext i8 %.val to i32
   %spec.select.i16 = or disjoint i32 %.033.i, %125
   %126 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
-  %127 = load i32, ptr %126, align 4
+  %127 = load i32, ptr %126, align 4, !tbaa !177
   %128 = sitofp i32 %127 to double
   %129 = zext nneg i32 %spec.select.i16 to i64
   %130 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %129
-  %131 = load double, ptr %130, align 8
+  %131 = load double, ptr %130, align 8, !tbaa !192
   %132 = fadd double %131, %128
-  store double %132, ptr %130, align 8
+  store double %132, ptr %130, align 8, !tbaa !192
   %133 = getelementptr inbounds nuw i8, ptr %.0.i, i64 120
-  %134 = load i32, ptr %133, align 8
+  %134 = load i32, ptr %133, align 8, !tbaa !193
   %135 = sitofp i32 %134 to double
   %136 = select i1 %124, i64 33, i64 32
   %137 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %136
-  %138 = load double, ptr %137, align 8
+  %138 = load double, ptr %137, align 8, !tbaa !192
   %139 = fadd double %138, %135
-  store double %139, ptr %137, align 8
+  store double %139, ptr %137, align 8, !tbaa !192
   %140 = add nuw nsw i32 %spec.select.i16, 8
   %141 = getelementptr inbounds nuw i8, ptr %.0.i, i64 124
-  %142 = load i32, ptr %141, align 4
+  %142 = load i32, ptr %141, align 4, !tbaa !194
   %143 = sitofp i32 %142 to double
   %144 = zext nneg i32 %140 to i64
   %145 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %144
-  %146 = load double, ptr %145, align 8
+  %146 = load double, ptr %145, align 8, !tbaa !192
   %147 = fadd double %146, %143
-  store double %147, ptr %145, align 8
+  store double %147, ptr %145, align 8, !tbaa !192
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp eq i32 %149, 5
-  br i1 %150, label %151, label %163
+  %149 = load i32, ptr %148, align 4, !tbaa !154
+  switch i32 %149, label %158 [
+    i32 5, label %.sink.split.i
+    i32 3, label %150
+  ]
 
-151:                                              ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
-  %152 = load i8, ptr %122, align 1
-  %153 = and i8 %152, 1
-  %154 = or disjoint i8 %153, 40
-  %155 = load i32, ptr %126, align 4
-  %156 = load i32, ptr %133, align 8
-  %157 = add nsw i32 %156, %155
-  %158 = sitofp i32 %157 to double
-  %159 = zext nneg i8 %154 to i64
-  %160 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %159
-  %161 = load double, ptr %160, align 8
-  %162 = fadd double %161, %158
-  store double %162, ptr %160, align 8
-  %.pr.i = load i32, ptr %148, align 4
-  br label %163
+150:                                              ; preds = %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
+  br label %.sink.split.i
 
-163:                                              ; preds = %151, %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
-  %164 = phi i32 [ %.pr.i, %151 ], [ %149, %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i ]
-  %165 = icmp eq i32 %164, 3
-  br i1 %165, label %166, label %178
+.sink.split.i:                                    ; preds = %150, %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
+  %.sink7.i = phi i8 [ 42, %150 ], [ 40, %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i ]
+  %151 = or disjoint i8 %.sink7.i, %.val
+  %152 = add nsw i32 %134, %127
+  %153 = sitofp i32 %152 to double
+  %154 = zext i8 %151 to i64
+  %155 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %154
+  %156 = load double, ptr %155, align 8, !tbaa !192
+  %157 = fadd double %156, %153
+  store double %157, ptr %155, align 8, !tbaa !192
+  br label %158
 
-166:                                              ; preds = %163
-  %167 = load i8, ptr %122, align 1
-  %168 = and i8 %167, 1
-  %169 = or disjoint i8 %168, 42
-  %170 = load i32, ptr %126, align 4
-  %171 = load i32, ptr %133, align 8
-  %172 = add nsw i32 %171, %170
-  %173 = sitofp i32 %172 to double
-  %174 = zext nneg i8 %169 to i64
-  %175 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %174
-  %176 = load double, ptr %175, align 8
-  %177 = fadd double %176, %173
-  store double %177, ptr %175, align 8
-  br label %178
+158:                                              ; preds = %.sink.split.i, %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
+  %159 = load i32, ptr %2, align 8, !tbaa !153
+  %160 = icmp eq i32 %159, 5
+  br i1 %160, label %161, label %_ZN3gmxL12accountFlopsEP6t_nrnbRKNS_11PairlistSetERKNS_18nonbonded_verlet_tERK19interaction_const_tRKNS_12StepWorkloadE.exit
 
-178:                                              ; preds = %166, %163
-  %179 = load i32, ptr %2, align 8
-  %180 = icmp eq i32 %179, 5
-  br i1 %180, label %181, label %_ZL12accountFlopsP6t_nrnbRK11PairlistSetRK18nonbonded_verlet_tRK19interaction_const_tRKN3gmx12StepWorkloadE.exit
+161:                                              ; preds = %158
+  %162 = or disjoint i8 %.val, 44
+  %163 = add nsw i32 %134, %127
+  %164 = sitofp i32 %163 to double
+  %165 = zext i8 %162 to i64
+  %166 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %165
+  %167 = load double, ptr %166, align 8, !tbaa !192
+  %168 = fadd double %167, %164
+  store double %168, ptr %166, align 8, !tbaa !192
+  br label %_ZN3gmxL12accountFlopsEP6t_nrnbRKNS_11PairlistSetERKNS_18nonbonded_verlet_tERK19interaction_const_tRKNS_12StepWorkloadE.exit
 
-181:                                              ; preds = %178
-  %182 = load i8, ptr %122, align 1
-  %183 = and i8 %182, 1
-  %184 = or disjoint i8 %183, 44
-  %185 = load i32, ptr %126, align 4
-  %186 = load i32, ptr %133, align 8
-  %187 = add nsw i32 %186, %185
-  %188 = sitofp i32 %187 to double
-  %189 = zext nneg i8 %184 to i64
-  %190 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %189
-  %191 = load double, ptr %190, align 8
-  %192 = fadd double %191, %188
-  store double %192, ptr %190, align 8
-  br label %_ZL12accountFlopsP6t_nrnbRK11PairlistSetRK18nonbonded_verlet_tRK19interaction_const_tRKN3gmx12StepWorkloadE.exit
-
-_ZL12accountFlopsP6t_nrnbRK11PairlistSetRK18nonbonded_verlet_tRK19interaction_const_tRKN3gmx12StepWorkloadE.exit: ; preds = %181, %178, %112
+_ZN3gmxL12accountFlopsEP6t_nrnbRKNS_11PairlistSetERKNS_18nonbonded_verlet_tERK19interaction_const_tRKNS_12StepWorkloadE.exit: ; preds = %161, %158, %113
   ret void
 }
 
-declare void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK19interaction_const_tN3gmx8ArrayRefIKNS8_11BasicVectorIfEEEERKNS8_12StepWorkloadEiNS9_IfEEPfSI_SI_(ptr noundef, ptr noundef, ptr noundef, ptr, ptr, ptr noundef nonnull align 1 dereferenceable(20), i32 noundef, ptr noundef byval(%"class.gmx::ArrayRef.5") align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiNS9_IfEEPfSI_SI_(ptr noundef, ptr noundef, ptr noundef, ptr, ptr, ptr noundef nonnull align 1 dereferenceable(20), i32 noundef, ptr noundef byval(%"class.gmx::ArrayRef.6") align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef) local_unnamed_addr #4
+declare noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef) local_unnamed_addr #8
 
-; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycle.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr nonnull readonly align 8 captures(none) %5, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(20) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %13) #13 personality ptr @__gxx_personality_v0 {
+; Function Attrs: alwaysinline norecurse nounwind uwtable
+define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycle.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr nonnull readonly align 8 captures(none) %5, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(20) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %8, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %13) #17 personality ptr @__gxx_personality_v0 {
   %15 = alloca i64, align 8
   %16 = alloca i64, align 8
   %17 = alloca i64, align 8
   %18 = alloca i32, align 4
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !166
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 8
   %25 = icmp sgt i64 %24, 0
-  br i1 %25, label %26, label %205
+  br i1 %25, label %26, label %223
 
 26:                                               ; preds = %14
   %27 = add nsw i64 %24, -1
-  store i64 0, ptr %15, align 8
-  store i64 %27, ptr %16, align 8
-  store i64 1, ptr %17, align 8
-  store i32 0, ptr %18, align 4
-  %28 = load i32, ptr %0, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #18
+  store i64 0, ptr %15, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #18
+  store i64 %27, ptr %16, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #18
+  store i64 1, ptr %17, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #18
+  store i32 0, ptr %18, align 4, !tbaa !11
+  %28 = load i32, ptr %0, align 4, !tbaa !11
   call void @__kmpc_for_static_init_8(ptr nonnull @1, i32 %28, i32 34, ptr nonnull %18, ptr nonnull %15, ptr nonnull %16, ptr nonnull %17, i64 1, i64 1)
-  %29 = load i64, ptr %16, align 8
+  %29 = load i64, ptr %16, align 8, !tbaa !32
   %30 = call i64 @llvm.smin.i64(i64 %29, i64 %27)
-  store i64 %30, ptr %16, align 8
-  %31 = load i64, ptr %15, align 8
-  %.not92 = icmp sgt i64 %31, %30
-  br i1 %.not92, label %._crit_edge, label %.lr.ph
+  store i64 %30, ptr %16, align 8, !tbaa !32
+  %31 = load i64, ptr %15, align 8, !tbaa !32
+  %.not104 = icmp sgt i64 %31, %30
+  br i1 %.not104, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 208
   br label %34
 
-34:                                               ; preds = %.lr.ph, %202
-  %.093 = phi i64 [ %31, %.lr.ph ], [ %203, %202 ]
-  %35 = load ptr, ptr %3, align 8
+34:                                               ; preds = %.lr.ph, %220
+  %.0105 = phi i64 [ %31, %.lr.ph ], [ %221, %220 ]
+  %35 = load ptr, ptr %3, align 8, !tbaa !52
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 408
-  %sext = shl i64 %.093, 32
+  %sext = shl i64 %.0105, 32
   %37 = ashr exact i64 %sext, 32
-  %38 = load ptr, ptr %36, align 8
-  %39 = getelementptr inbounds %struct.nbnxn_atomdata_output_t, ptr %38, i64 %37
-  %40 = load i32, ptr %4, align 4
+  %38 = load ptr, ptr %36, align 8, !tbaa !170
+  %39 = getelementptr inbounds nuw %"struct.gmx::nbnxn_atomdata_output_t", ptr %38, i64 %37
+  %40 = load i32, ptr %4, align 4, !tbaa !11
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %34
-  %43 = trunc i64 %.093 to i32
-  invoke void @_ZN16nbnxn_atomdata_t16clearForceBufferEi(ptr noundef nonnull align 8 dereferenceable(464) %35, i32 noundef %43)
+  %43 = trunc i64 %.0105 to i32
+  invoke void @_ZN3gmx16nbnxn_atomdata_t16clearForceBufferEi(ptr noundef nonnull align 8 dereferenceable(464) %35, i32 noundef %43)
           to label %44 unwind label %.loopexit
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %46 = load ptr, ptr %45, align 8
-  invoke void @_Z12clear_fshiftPf(ptr noundef %46)
+  %46 = load ptr, ptr %45, align 8, !tbaa !173
+  invoke void @_ZN3gmx12clear_fshiftEPf(ptr noundef %46)
           to label %47 unwind label %.loopexit
 
 47:                                               ; preds = %44, %34
   %48 = load i64, ptr %2, align 8
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds %struct.NbnxnPairlistCpu, ptr %49, i64 %.093
-  %51 = load i8, ptr %32, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %77, label %53
+  %50 = getelementptr inbounds %"struct.gmx::NbnxnPairlistCpu", ptr %49, i64 %.0105
+  %51 = load i8, ptr %32, align 1, !tbaa !162, !range !164, !noundef !165
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %83, label %53
 
 53:                                               ; preds = %47
-  %54 = load i32, ptr %7, align 4
-  switch i32 %54, label %.invoke96 [
+  %54 = load i32, ptr %7, align 4, !tbaa !48
+  switch i32 %54, label %.invoke108 [
     i32 1, label %55
     i32 3, label %64
     i32 2, label %70
+    i32 6, label %76
   ]
 
 55:                                               ; preds = %53
-  %56 = load i32, ptr %8, align 4
+  %56 = load i32, ptr %8, align 4, !tbaa !11
   %57 = sext i32 %56 to i64
-  %58 = load i32, ptr %9, align 4
+  %58 = load i32, ptr %9, align 4, !tbaa !11
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [5 x [7 x ptr]], ptr @_ZL23nbnxn_kernel_noener_ref, i64 0, i64 %57, i64 %59
+  %60 = getelementptr inbounds [5 x [7 x ptr]], ptr @_ZN3gmxL27nbnxn_kernel_4x4_noener_refE, i64 0, i64 %57, i64 %59
   br label %.invoke
 
-.invoke:                                          ; preds = %70, %64, %55
-  %.in = phi ptr [ %60, %55 ], [ %69, %64 ], [ %75, %70 ]
-  %61 = load ptr, ptr %.in, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = load ptr, ptr %11, align 8
+.invoke:                                          ; preds = %76, %70, %64, %55
+  %.in = phi ptr [ %60, %55 ], [ %69, %64 ], [ %75, %70 ], [ %81, %76 ]
+  %61 = load ptr, ptr %.in, align 8, !tbaa !195
+  %62 = load ptr, ptr %3, align 8, !tbaa !52
+  %63 = load ptr, ptr %11, align 8, !tbaa !161
   invoke void %61(ptr noundef nonnull %50, ptr noundef %62, ptr noundef nonnull %10, ptr noundef %63, ptr noundef nonnull %39)
-          to label %202 unwind label %.loopexit
+          to label %220 unwind label %.loopexit
 
 64:                                               ; preds = %53
-  %65 = load i32, ptr %8, align 4
+  %65 = load i32, ptr %8, align 4, !tbaa !11
   %66 = sext i32 %65 to i64
-  %67 = load i32, ptr %9, align 4
+  %67 = load i32, ptr %9, align 4, !tbaa !11
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL25nbnxmKernelNoenerSimd2xmmE, i64 0, i64 %66, i64 %68
   br label %.invoke
 
 70:                                               ; preds = %53
-  %71 = load i32, ptr %8, align 4
+  %71 = load i32, ptr %8, align 4, !tbaa !11
   %72 = sext i32 %71 to i64
-  %73 = load i32, ptr %9, align 4
+  %73 = load i32, ptr %9, align 4, !tbaa !11
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL24nbnxmKernelNoenerSimd4xmE, i64 0, i64 %72, i64 %74
   br label %.invoke
 
-.invoke96:                                        ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit83, %97, %53
-  %76 = phi i32 [ 261, %53 ], [ 293, %97 ], [ 333, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit83 ]
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL16nbnxn_kernel_cpuRK11PairlistSetRKN5Nbnxm11KernelSetupEP16nbnxn_atomdata_tRK19interaction_const_tN3gmx8ArrayRefIKNSB_11BasicVectorIfEEEERKNSB_12StepWorkloadEiPfSK_P13gmx_wallcycleENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef %76) #18
+76:                                               ; preds = %53
+  %77 = load i32, ptr %8, align 4, !tbaa !11
+  %78 = sext i32 %77 to i64
+  %79 = load i32, ptr %9, align 4, !tbaa !11
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds [5 x [7 x ptr]], ptr @_ZN3gmxL27nbnxn_kernel_1x1_noener_refE, i64 0, i64 %78, i64 %80
+  br label %.invoke
+
+.invoke108:                                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92, %103, %53
+  %82 = phi i32 [ 280, %53 ], [ 315, %103 ], [ 358, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92 ]
+  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycleENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef %82) #22
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke96
+.cont:                                            ; preds = %.invoke108
   unreachable
 
-77:                                               ; preds = %47
-  %78 = getelementptr inbounds nuw i8, ptr %39, i64 72
-  %79 = getelementptr inbounds nuw i8, ptr %39, i64 80
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %78, align 8
-  %82 = ptrtoint ptr %80 to i64
-  %83 = ptrtoint ptr %81 to i64
-  %84 = sub i64 %82, %83
-  %85 = icmp eq i64 %84, 4
-  %86 = load i8, ptr %12, align 1
-  %87 = trunc i8 %86 to i1
-  br i1 %85, label %88, label %140
+83:                                               ; preds = %47
+  %84 = getelementptr inbounds nuw i8, ptr %39, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %39, i64 80
+  %86 = load ptr, ptr %85, align 8, !tbaa !174
+  %87 = load ptr, ptr %84, align 8, !tbaa !173
+  %88 = ptrtoint ptr %86 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = icmp eq i64 %90, 4
+  %92 = load i8, ptr %12, align 1, !tbaa !156, !range !164, !noundef !165
+  %93 = trunc nuw i8 %92 to i1
+  br i1 %91, label %94, label %152
 
-88:                                               ; preds = %77
-  br i1 %87, label %89, label %94
+94:                                               ; preds = %83
+  br i1 %93, label %95, label %100
 
-89:                                               ; preds = %88
-  %90 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
-  store float 0.000000e+00, ptr %92, align 32
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 68
-  store float 0.000000e+00, ptr %93, align 4
-  br label %97
+95:                                               ; preds = %94
+  %96 = getelementptr inbounds nuw i8, ptr %39, i64 128
+  %97 = load ptr, ptr %96, align 8, !tbaa !196
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
+  store float 0.000000e+00, ptr %98, align 32, !tbaa !198
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 68
+  store float 0.000000e+00, ptr %99, align 4, !tbaa !201
+  br label %103
 
-94:                                               ; preds = %88
-  store float 0.000000e+00, ptr %81, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %96 = load ptr, ptr %95, align 8
-  store float 0.000000e+00, ptr %96, align 4
-  br label %97
+100:                                              ; preds = %94
+  store float 0.000000e+00, ptr %87, align 4, !tbaa !202
+  %101 = getelementptr inbounds nuw i8, ptr %39, i64 104
+  %102 = load ptr, ptr %101, align 8, !tbaa !173
+  store float 0.000000e+00, ptr %102, align 4, !tbaa !202
+  br label %103
 
-97:                                               ; preds = %94, %89
-  %98 = load i32, ptr %7, align 4
-  switch i32 %98, label %.invoke96 [
-    i32 1, label %99
-    i32 3, label %108
-    i32 2, label %114
+103:                                              ; preds = %100, %95
+  %104 = load i32, ptr %7, align 4, !tbaa !48
+  switch i32 %104, label %.invoke108 [
+    i32 1, label %105
+    i32 3, label %114
+    i32 2, label %120
+    i32 6, label %126
   ]
 
-99:                                               ; preds = %97
-  %100 = load i32, ptr %8, align 4
-  %101 = sext i32 %100 to i64
-  %102 = load i32, ptr %9, align 4
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [5 x [7 x ptr]], ptr @_ZL21nbnxn_kernel_ener_ref, i64 0, i64 %101, i64 %103
-  br label %.invoke94
+105:                                              ; preds = %103
+  %106 = load i32, ptr %8, align 4, !tbaa !11
+  %107 = sext i32 %106 to i64
+  %108 = load i32, ptr %9, align 4, !tbaa !11
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds [5 x [7 x ptr]], ptr @_ZN3gmxL25nbnxn_kernel_4x4_ener_refE, i64 0, i64 %107, i64 %109
+  br label %.invoke106
 
-.invoke94:                                        ; preds = %114, %108, %99
-  %.in98 = phi ptr [ %104, %99 ], [ %113, %108 ], [ %119, %114 ]
-  %105 = load ptr, ptr %.in98, align 8
-  %106 = load ptr, ptr %3, align 8
-  %107 = load ptr, ptr %11, align 8
-  invoke void %105(ptr noundef nonnull %50, ptr noundef %106, ptr noundef nonnull %10, ptr noundef %107, ptr noundef nonnull %39)
-          to label %120 unwind label %.loopexit
+.invoke106:                                       ; preds = %126, %120, %114, %105
+  %.in110 = phi ptr [ %110, %105 ], [ %119, %114 ], [ %125, %120 ], [ %131, %126 ]
+  %111 = load ptr, ptr %.in110, align 8, !tbaa !195
+  %112 = load ptr, ptr %3, align 8, !tbaa !52
+  %113 = load ptr, ptr %11, align 8, !tbaa !161
+  invoke void %111(ptr noundef nonnull %50, ptr noundef %112, ptr noundef nonnull %10, ptr noundef %113, ptr noundef nonnull %39)
+          to label %132 unwind label %.loopexit
 
-108:                                              ; preds = %97
-  %109 = load i32, ptr %8, align 4
-  %110 = sext i32 %109 to i64
-  %111 = load i32, ptr %9, align 4
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL23nbnxmKernelEnerSimd2xmmE, i64 0, i64 %110, i64 %112
-  br label %.invoke94
-
-114:                                              ; preds = %97
-  %115 = load i32, ptr %8, align 4
+114:                                              ; preds = %103
+  %115 = load i32, ptr %8, align 4, !tbaa !11
   %116 = sext i32 %115 to i64
-  %117 = load i32, ptr %9, align 4
+  %117 = load i32, ptr %9, align 4, !tbaa !11
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL22nbnxmKernelEnerSimd4xmE, i64 0, i64 %116, i64 %118
-  br label %.invoke94
+  %119 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL23nbnxmKernelEnerSimd2xmmE, i64 0, i64 %116, i64 %118
+  br label %.invoke106
 
-120:                                              ; preds = %.invoke94
-  %121 = load i8, ptr %12, align 1
-  %122 = trunc i8 %121 to i1
-  br i1 %122, label %123, label %202
+120:                                              ; preds = %103
+  %121 = load i32, ptr %8, align 4, !tbaa !11
+  %122 = sext i32 %121 to i64
+  %123 = load i32, ptr %9, align 4, !tbaa !11
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL22nbnxmKernelEnerSimd4xmE, i64 0, i64 %122, i64 %124
+  br label %.invoke106
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %39, i64 112
-  %129 = load ptr, ptr %128, align 8
-  %130 = ptrtoint ptr %129 to i64
-  %131 = ptrtoint ptr %127 to i64
-  %132 = sub i64 %130, %131
-  %133 = getelementptr inbounds i8, ptr %127, i64 %132
-  %134 = load ptr, ptr %78, align 8
-  %135 = load ptr, ptr %79, align 8
-  %136 = ptrtoint ptr %135 to i64
-  %137 = ptrtoint ptr %134 to i64
-  %138 = sub i64 %136, %137
-  %139 = getelementptr inbounds i8, ptr %134, i64 %138
-  invoke void @_ZNK3gmx17EnergyAccumulatorILb0ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr noundef nonnull align 32 dereferenceable(72) %125, ptr %127, ptr %133, ptr %134, ptr %139)
-          to label %202 unwind label %.loopexit
+126:                                              ; preds = %103
+  %127 = load i32, ptr %8, align 4, !tbaa !11
+  %128 = sext i32 %127 to i64
+  %129 = load i32, ptr %9, align 4, !tbaa !11
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds [5 x [7 x ptr]], ptr @_ZN3gmxL25nbnxn_kernel_1x1_ener_refE, i64 0, i64 %128, i64 %130
+  br label %.invoke106
 
-140:                                              ; preds = %77
-  br i1 %87, label %141, label %145
+132:                                              ; preds = %.invoke106
+  %133 = load i8, ptr %12, align 1, !tbaa !156, !range !164, !noundef !165
+  %134 = trunc nuw i8 %133 to i1
+  br i1 %134, label %135, label %220
 
-141:                                              ; preds = %140
-  %142 = getelementptr inbounds nuw i8, ptr %39, i64 136
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr %33, align 8
-  invoke void @_ZN3gmx17EnergyAccumulatorILb1ELb1EE43clearEnergiesAndSetEnergyGroupsForJClustersERKNS_22EnergyGroupsPerClusterE(ptr noundef nonnull align 8 dereferenceable(148) %143, ptr noundef nonnull align 8 dereferenceable(40) %144)
-          to label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit83 unwind label %.loopexit
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %39, i64 128
+  %137 = load ptr, ptr %136, align 8, !tbaa !196
+  %138 = getelementptr inbounds nuw i8, ptr %39, i64 104
+  %139 = load ptr, ptr %138, align 8, !tbaa !173
+  %140 = getelementptr inbounds nuw i8, ptr %39, i64 112
+  %141 = load ptr, ptr %140, align 8, !tbaa !174
+  %142 = ptrtoint ptr %141 to i64
+  %143 = ptrtoint ptr %139 to i64
+  %144 = sub i64 %142, %143
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 %144
+  %146 = load ptr, ptr %84, align 8, !tbaa !173
+  %147 = load ptr, ptr %85, align 8, !tbaa !174
+  %148 = ptrtoint ptr %147 to i64
+  %149 = ptrtoint ptr %146 to i64
+  %150 = sub i64 %148, %149
+  %151 = getelementptr inbounds nuw i8, ptr %146, i64 %150
+  invoke void @_ZNK3gmx17EnergyAccumulatorILb0ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr noundef nonnull align 32 dereferenceable(72) %137, ptr %139, ptr %145, ptr %146, ptr %151)
+          to label %220 unwind label %.loopexit
 
-145:                                              ; preds = %140
-  %.not6.i.i.i.i = icmp eq ptr %81, %80
+152:                                              ; preds = %83
+  br i1 %93, label %153, label %157
+
+153:                                              ; preds = %152
+  %154 = getelementptr inbounds nuw i8, ptr %39, i64 136
+  %155 = load ptr, ptr %154, align 8, !tbaa !203
+  %156 = load ptr, ptr %33, align 8, !tbaa !205
+  invoke void @_ZN3gmx17EnergyAccumulatorILb1ELb1EE43clearEnergiesAndSetEnergyGroupsForJClustersERKNS_22EnergyGroupsPerClusterE(ptr noundef nonnull align 8 dereferenceable(148) %155, ptr noundef nonnull align 8 dereferenceable(40) %156)
+          to label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92 unwind label %.loopexit
+
+157:                                              ; preds = %152
+  %.not6.i.i.i.i = icmp eq ptr %87, %86
   br i1 %.not6.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %145
-  %146 = add i64 %82, -4
-  %147 = sub i64 %146, %83
-  %148 = and i64 %147, -4
-  %149 = add i64 %148, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %81, i8 0, i64 %149, i1 false)
+.lr.ph.i.i.i.i.preheader:                         ; preds = %157
+  %158 = add i64 %88, -4
+  %159 = sub i64 %158, %89
+  %160 = and i64 %159, -4
+  %161 = add i64 %160, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %87, i8 0, i64 %161, i1 false), !tbaa !202
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %145
-  %150 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %39, i64 112
-  %153 = load ptr, ptr %152, align 8
-  %.not6.i.i.i.i79 = icmp eq ptr %151, %153
-  br i1 %.not6.i.i.i.i79, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit83, label %.lr.ph.i.i.i.i80.preheader
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %157
+  %162 = getelementptr inbounds nuw i8, ptr %39, i64 104
+  %163 = load ptr, ptr %162, align 8, !tbaa !161
+  %164 = getelementptr inbounds nuw i8, ptr %39, i64 112
+  %165 = load ptr, ptr %164, align 8, !tbaa !161
+  %.not6.i.i.i.i88 = icmp eq ptr %163, %165
+  br i1 %.not6.i.i.i.i88, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92, label %.lr.ph.i.i.i.i89.preheader
 
-.lr.ph.i.i.i.i80.preheader:                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit
-  %154 = ptrtoint ptr %153 to i64
-  %155 = ptrtoint ptr %151 to i64
-  %156 = add i64 %154, -4
-  %157 = sub i64 %156, %155
-  %158 = and i64 %157, -4
-  %159 = add i64 %158, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %151, i8 0, i64 %159, i1 false)
-  br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit83
+.lr.ph.i.i.i.i89.preheader:                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit
+  %166 = ptrtoint ptr %165 to i64
+  %167 = ptrtoint ptr %163 to i64
+  %168 = add i64 %166, -4
+  %169 = sub i64 %168, %167
+  %170 = and i64 %169, -4
+  %171 = add i64 %170, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %163, i8 0, i64 %171, i1 false), !tbaa !202
+  br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit83: ; preds = %.lr.ph.i.i.i.i80.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit, %141
-  %160 = load i32, ptr %7, align 4
-  switch i32 %160, label %.invoke96 [
-    i32 1, label %161
-    i32 3, label %170
-    i32 2, label %176
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92: ; preds = %.lr.ph.i.i.i.i89.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit, %153
+  %172 = load i32, ptr %7, align 4, !tbaa !48
+  switch i32 %172, label %.invoke108 [
+    i32 1, label %173
+    i32 3, label %182
+    i32 2, label %188
+    i32 6, label %194
   ]
 
-161:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit83
-  %162 = load i32, ptr %8, align 4
-  %163 = sext i32 %162 to i64
-  %164 = load i32, ptr %9, align 4
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds [5 x [7 x ptr]], ptr @_ZL24nbnxn_kernel_energrp_ref, i64 0, i64 %163, i64 %165
-  br label %.invoke95
+173:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
+  %174 = load i32, ptr %8, align 4, !tbaa !11
+  %175 = sext i32 %174 to i64
+  %176 = load i32, ptr %9, align 4, !tbaa !11
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds [5 x [7 x ptr]], ptr @_ZN3gmxL28nbnxn_kernel_4x4_energrp_refE, i64 0, i64 %175, i64 %177
+  br label %.invoke107
 
-.invoke95:                                        ; preds = %176, %170, %161
-  %.in97 = phi ptr [ %166, %161 ], [ %175, %170 ], [ %181, %176 ]
-  %167 = load ptr, ptr %.in97, align 8
-  %168 = load ptr, ptr %3, align 8
-  %169 = load ptr, ptr %11, align 8
-  invoke void %167(ptr noundef nonnull %50, ptr noundef %168, ptr noundef nonnull %10, ptr noundef %169, ptr noundef nonnull %39)
-          to label %182 unwind label %.loopexit
+.invoke107:                                       ; preds = %194, %188, %182, %173
+  %.in109 = phi ptr [ %178, %173 ], [ %187, %182 ], [ %193, %188 ], [ %199, %194 ]
+  %179 = load ptr, ptr %.in109, align 8, !tbaa !195
+  %180 = load ptr, ptr %3, align 8, !tbaa !52
+  %181 = load ptr, ptr %11, align 8, !tbaa !161
+  invoke void %179(ptr noundef nonnull %50, ptr noundef %180, ptr noundef nonnull %10, ptr noundef %181, ptr noundef nonnull %39)
+          to label %200 unwind label %.loopexit
 
-170:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit83
-  %171 = load i32, ptr %8, align 4
-  %172 = sext i32 %171 to i64
-  %173 = load i32, ptr %9, align 4
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL26nbnxmKernelEnergrpSimd2xmmE, i64 0, i64 %172, i64 %174
-  br label %.invoke95
+182:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
+  %183 = load i32, ptr %8, align 4, !tbaa !11
+  %184 = sext i32 %183 to i64
+  %185 = load i32, ptr %9, align 4, !tbaa !11
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL26nbnxmKernelEnergrpSimd2xmmE, i64 0, i64 %184, i64 %186
+  br label %.invoke107
 
-176:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit83
-  %177 = load i32, ptr %8, align 4
-  %178 = sext i32 %177 to i64
-  %179 = load i32, ptr %9, align 4
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL25nbnxmKernelEnergrpSimd4xmE, i64 0, i64 %178, i64 %180
-  br label %.invoke95
+188:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
+  %189 = load i32, ptr %8, align 4, !tbaa !11
+  %190 = sext i32 %189 to i64
+  %191 = load i32, ptr %9, align 4, !tbaa !11
+  %192 = sext i32 %191 to i64
+  %193 = getelementptr inbounds [5 x [6 x ptr]], ptr @_ZN3gmxL25nbnxmKernelEnergrpSimd4xmE, i64 0, i64 %190, i64 %192
+  br label %.invoke107
 
-182:                                              ; preds = %.invoke95
-  %183 = load i8, ptr %12, align 1
-  %184 = trunc i8 %183 to i1
-  br i1 %184, label %185, label %202
+194:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
+  %195 = load i32, ptr %8, align 4, !tbaa !11
+  %196 = sext i32 %195 to i64
+  %197 = load i32, ptr %9, align 4, !tbaa !11
+  %198 = sext i32 %197 to i64
+  %199 = getelementptr inbounds [5 x [7 x ptr]], ptr @_ZN3gmxL28nbnxn_kernel_1x1_energrp_refE, i64 0, i64 %196, i64 %198
+  br label %.invoke107
 
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds nuw i8, ptr %39, i64 136
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %39, i64 112
-  %191 = load ptr, ptr %190, align 8
-  %192 = ptrtoint ptr %191 to i64
-  %193 = ptrtoint ptr %189 to i64
-  %194 = sub i64 %192, %193
-  %195 = getelementptr inbounds i8, ptr %189, i64 %194
-  %196 = load ptr, ptr %78, align 8
-  %197 = load ptr, ptr %79, align 8
-  %198 = ptrtoint ptr %197 to i64
-  %199 = ptrtoint ptr %196 to i64
-  %200 = sub i64 %198, %199
-  %201 = getelementptr inbounds i8, ptr %196, i64 %200
-  invoke void @_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr noundef nonnull align 8 dereferenceable(148) %187, ptr %189, ptr %195, ptr %196, ptr %201)
-          to label %202 unwind label %.loopexit
+200:                                              ; preds = %.invoke107
+  %201 = load i8, ptr %12, align 1, !tbaa !156, !range !164, !noundef !165
+  %202 = trunc nuw i8 %201 to i1
+  br i1 %202, label %203, label %220
 
-202:                                              ; preds = %.invoke, %123, %120, %185, %182
-  %203 = add nsw i64 %.093, 1
-  %204 = load i64, ptr %16, align 8
-  %.not.not = icmp slt i64 %.093, %204
+203:                                              ; preds = %200
+  %204 = getelementptr inbounds nuw i8, ptr %39, i64 136
+  %205 = load ptr, ptr %204, align 8, !tbaa !203
+  %206 = getelementptr inbounds nuw i8, ptr %39, i64 104
+  %207 = load ptr, ptr %206, align 8, !tbaa !173
+  %208 = getelementptr inbounds nuw i8, ptr %39, i64 112
+  %209 = load ptr, ptr %208, align 8, !tbaa !174
+  %210 = ptrtoint ptr %209 to i64
+  %211 = ptrtoint ptr %207 to i64
+  %212 = sub i64 %210, %211
+  %213 = getelementptr inbounds nuw i8, ptr %207, i64 %212
+  %214 = load ptr, ptr %84, align 8, !tbaa !173
+  %215 = load ptr, ptr %85, align 8, !tbaa !174
+  %216 = ptrtoint ptr %215 to i64
+  %217 = ptrtoint ptr %214 to i64
+  %218 = sub i64 %216, %217
+  %219 = getelementptr inbounds nuw i8, ptr %214, i64 %218
+  invoke void @_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr noundef nonnull align 8 dereferenceable(148) %205, ptr %207, ptr %213, ptr %214, ptr %219)
+          to label %220 unwind label %.loopexit
+
+220:                                              ; preds = %.invoke, %135, %132, %203, %200
+  %221 = add nsw i64 %.0105, 1
+  %222 = load i64, ptr %16, align 8, !tbaa !32
+  %.not.not = icmp slt i64 %.0105, %222
   br i1 %.not.not, label %34, label %._crit_edge
 
-._crit_edge:                                      ; preds = %202, %26
+._crit_edge:                                      ; preds = %220, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %28)
-  br label %205
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
+  br label %223
 
-205:                                              ; preds = %._crit_edge, %14
+223:                                              ; preds = %._crit_edge, %14
   ret void
 
-.loopexit:                                        ; preds = %.invoke95, %.invoke94, %.invoke, %42, %44, %123, %141, %185
+.loopexit:                                        ; preds = %.invoke107, %.invoke106, %.invoke, %42, %44, %135, %153, %203
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %206
+  br label %224
 
-.loopexit.split-lp:                               ; preds = %.invoke96
+.loopexit.split-lp:                               ; preds = %.invoke108
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %206
+  br label %224
 
-206:                                              ; preds = %.loopexit.split-lp, %.loopexit
+224:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %207 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %207) #21
+  %225 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %225) #25
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #14
+declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i64) local_unnamed_addr #18
 
-declare void @_ZN16nbnxn_atomdata_t16clearForceBufferEi(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef) local_unnamed_addr #4
+declare void @_ZN3gmx16nbnxn_atomdata_t16clearForceBufferEi(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef) local_unnamed_addr #8
 
-declare void @_Z12clear_fshiftPf(ptr noundef) local_unnamed_addr #4
+declare void @_ZN3gmx12clear_fshiftEPf(ptr noundef) local_unnamed_addr #8
 
-declare void @_ZNK3gmx17EnergyAccumulatorILb0ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr noundef nonnull align 32 dereferenceable(72), ptr, ptr, ptr, ptr) local_unnamed_addr #4
+declare void @_ZNK3gmx17EnergyAccumulatorILb0ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr noundef nonnull align 32 dereferenceable(72), ptr, ptr, ptr, ptr) local_unnamed_addr #8
 
-declare void @_ZN3gmx17EnergyAccumulatorILb1ELb1EE43clearEnergiesAndSetEnergyGroupsForJClustersERKNS_22EnergyGroupsPerClusterE(ptr noundef nonnull align 8 dereferenceable(148), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
+declare void @_ZN3gmx17EnergyAccumulatorILb1ELb1EE43clearEnergiesAndSetEnergyGroupsForJClustersERKNS_22EnergyGroupsPerClusterE(ptr noundef nonnull align 8 dereferenceable(148), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #8
 
-declare void @_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr noundef nonnull align 8 dereferenceable(148), ptr, ptr, ptr, ptr) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #14
+declare void @_ZNK3gmx17EnergyAccumulatorILb1ELb1EE11getEnergiesENS_8ArrayRefIfEES3_(ptr noundef nonnull align 8 dereferenceable(148), ptr, ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #14
+declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
-declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #14
+declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
-declare !callback !7 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #14
+declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #18
 
-declare void @_Z26reduce_energies_over_listsPK16nbnxn_atomdata_tiPfS2_(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: nounwind
+declare !callback !206 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #18
 
-declare void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx26reduce_energies_over_listsEPKNS_16nbnxn_atomdata_tEiPfS3_(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx35nbnxn_kernel_4x4_ElecRF_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx38nbnxn_kernel_4x4_ElecRF_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx38nbnxn_kernel_4x4_ElecRF_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx45nbnxn_kernel_4x4_ElecRF_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx43nbnxn_kernel_4x4_ElecRF_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx38nbnxn_kernel_4x4_ElecQSTab_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx41nbnxn_kernel_4x4_ElecQSTab_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx41nbnxn_kernel_4x4_ElecQSTab_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx48nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx55nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx53nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput0EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx35nbnxn_kernel_1x1_ElecRF_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx38nbnxn_kernel_1x1_ElecRF_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx38nbnxn_kernel_1x1_ElecRF_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx45nbnxn_kernel_1x1_ElecRF_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx43nbnxn_kernel_1x1_ElecRF_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx38nbnxn_kernel_1x1_ElecQSTab_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx41nbnxn_kernel_1x1_ElecQSTab_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx41nbnxn_kernel_1x1_ElecQSTab_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx48nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx55nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx53nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_F_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx36nbnxn_kernel_4x4_ElecRF_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx39nbnxn_kernel_4x4_ElecRF_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx39nbnxn_kernel_4x4_ElecRF_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx46nbnxn_kernel_4x4_ElecRF_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx44nbnxn_kernel_4x4_ElecRF_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx39nbnxn_kernel_4x4_ElecQSTab_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx42nbnxn_kernel_4x4_ElecQSTab_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx42nbnxn_kernel_4x4_ElecQSTab_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx47nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx46nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx56nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx54nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput1EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx36nbnxn_kernel_1x1_ElecRF_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx39nbnxn_kernel_1x1_ElecRF_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx39nbnxn_kernel_1x1_ElecRF_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx46nbnxn_kernel_1x1_ElecRF_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx44nbnxn_kernel_1x1_ElecRF_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx39nbnxn_kernel_1x1_ElecQSTab_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx42nbnxn_kernel_1x1_ElecQSTab_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx42nbnxn_kernel_1x1_ElecQSTab_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx47nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx46nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx56nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx54nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx39nbnxn_kernel_4x4_ElecRF_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx42nbnxn_kernel_4x4_ElecRF_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx42nbnxn_kernel_4x4_ElecRF_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx49nbnxn_kernel_4x4_ElecRF_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx47nbnxn_kernel_4x4_ElecRF_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx42nbnxn_kernel_4x4_ElecQSTab_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTab_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx45nbnxn_kernel_4x4_ElecQSTab_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx50nbnxn_kernel_4x4_ElecQSTab_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx49nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx52nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx59nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx57nbnxn_kernel_4x4_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
 
-declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1EL17LJCombinationRule2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPK16NbnxnPairlistCpuPK16nbnxn_atomdata_tPK19interaction_const_tPA3_KfP23nbnxn_atomdata_output_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE0EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE2EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck0ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE0EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE1EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers5EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers3EL7LJEwald0EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout0ELNS_17KernelCoulombTypeE1EL14VdwCutoffCheck1ELNS_17LJCombinationRuleE2EL20InteractionModifiers1EL7LJEwald1EL12EnergyOutput2EEEvPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx39nbnxn_kernel_1x1_ElecRF_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx42nbnxn_kernel_1x1_ElecRF_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx42nbnxn_kernel_1x1_ElecRF_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx49nbnxn_kernel_1x1_ElecRF_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx47nbnxn_kernel_1x1_ElecRF_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx42nbnxn_kernel_1x1_ElecQSTab_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTab_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx45nbnxn_kernel_1x1_ElecQSTab_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx50nbnxn_kernel_1x1_ElecQSTab_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx49nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJ_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx52nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx59nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+declare void @_ZN3gmx57nbnxn_kernel_1x1_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refEPKNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tPA3_KfPNS_23nbnxn_atomdata_output_tE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #15
+declare i64 @llvm.smin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn }
+attributes #14 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { alwaysinline norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { nounwind }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #22 = { noreturn }
+attributes #23 = { builtin nounwind }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { noreturn nounwind }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { cold noreturn }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { nounwind }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { noreturn }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { builtin nounwind }
-attributes #21 = { noreturn nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!8}
-!8 = !{i64 2, i64 -1, i64 -1, i1 true}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"vtable pointer", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !10, i64 0}
+!13 = !{!14, !8, i64 0}
+!14 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !15, i64 0, !16, i64 8, !10, i64 16}
+!15 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !8, i64 0}
+!16 = !{!"long", !10, i64 0}
+!17 = !{!14, !16, i64 8}
+!18 = !{!10, !10, i64 0}
+!19 = !{i64 0, i64 8, !7, i64 8, i64 8, !7, i64 16, i64 4, !11}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTSN3gmx8internal14IExceptionInfoE", !9, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"_ZTSSt10type_index", !24, i64 0}
+!24 = !{!"p1 _ZTSSt9type_info", !9, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTSSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EE", !27, i64 0, !28, i64 8}
+!27 = !{!"p1 _ZTSN3gmx8internal13ExceptionDataE", !9, i64 0}
+!28 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !29, i64 0}
+!29 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0}
+!30 = !{!28, !29, i64 0}
+!31 = !{!15, !8, i64 0}
+!32 = !{!16, !16, i64 0}
+!33 = !{!34, !12, i64 8}
+!34 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !12, i64 8, !12, i64 12}
+!35 = !{!34, !12, i64 12}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = !{!38, !39, i64 0}
+!38 = !{!"_ZTSNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EE17_Vector_impl_dataE", !39, i64 0, !39, i64 8, !39, i64 16}
+!39 = !{!"p1 _ZTSNSt15__exception_ptr13exception_ptrE", !9, i64 0}
+!40 = !{!38, !39, i64 8}
+!41 = !{!42, !9, i64 0}
+!42 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !9, i64 0}
+!43 = distinct !{!43, !44}
+!44 = !{!"llvm.loop.mustprogress"}
+!45 = !{!38, !39, i64 16}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSN3gmx12PairlistSetsE", !9, i64 0}
+!48 = !{!49, !50, i64 0}
+!49 = !{!"_ZTSN3gmx16NbnxmKernelSetupE", !50, i64 0, !51, i64 4}
+!50 = !{!"_ZTSN3gmx15NbnxmKernelTypeE", !10, i64 0}
+!51 = !{!"_ZTSN3gmx18EwaldExclusionTypeE", !10, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSN3gmx16nbnxn_atomdata_tE", !9, i64 0}
+!54 = !{!55, !56, i64 0}
+!55 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !56, i64 0}
+!56 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !9, i64 0}
+!57 = !{!58, !59, i64 0}
+!58 = !{!"_ZTSN3gmx12ArrayRefIterIfEE", !59, i64 0}
+!59 = !{!"p1 float", !9, i64 0}
+!60 = !{!61, !95, i64 48}
+!61 = !{!"_ZTSN3gmx18nonbonded_verlet_tE", !62, i64 0, !68, i64 8, !75, i64 16, !49, i64 24, !81, i64 32, !88, i64 40, !95, i64 48, !96, i64 56}
+!62 = !{!"_ZTSSt10unique_ptrIN3gmx12PairlistSetsESt14default_deleteIS1_EE", !63, i64 0}
+!63 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx12PairlistSetsESt14default_deleteIS1_ELb1ELb1EE", !64, i64 0}
+!64 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx12PairlistSetsESt14default_deleteIS1_EE", !65, i64 0}
+!65 = !{!"_ZTSSt5tupleIJPN3gmx12PairlistSetsESt14default_deleteIS1_EEE", !66, i64 0}
+!66 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx12PairlistSetsESt14default_deleteIS1_EEE", !67, i64 0}
+!67 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx12PairlistSetsELb0EE", !47, i64 0}
+!68 = !{!"_ZTSSt10unique_ptrIN3gmx10PairSearchESt14default_deleteIS1_EE", !69, i64 0}
+!69 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx10PairSearchESt14default_deleteIS1_ELb1ELb1EE", !70, i64 0}
+!70 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx10PairSearchESt14default_deleteIS1_EE", !71, i64 0}
+!71 = !{!"_ZTSSt5tupleIJPN3gmx10PairSearchESt14default_deleteIS1_EEE", !72, i64 0}
+!72 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx10PairSearchESt14default_deleteIS1_EEE", !73, i64 0}
+!73 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx10PairSearchELb0EE", !74, i64 0}
+!74 = !{!"p1 _ZTSN3gmx10PairSearchE", !9, i64 0}
+!75 = !{!"_ZTSSt10unique_ptrIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EE", !76, i64 0}
+!76 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_ELb1ELb1EE", !77, i64 0}
+!77 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EE", !78, i64 0}
+!78 = !{!"_ZTSSt5tupleIJPN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EEE", !79, i64 0}
+!79 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EEE", !80, i64 0}
+!80 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx16nbnxn_atomdata_tELb0EE", !53, i64 0}
+!81 = !{!"_ZTSSt10unique_ptrIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EE", !82, i64 0}
+!82 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_ELb1ELb1EE", !83, i64 0}
+!83 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EE", !84, i64 0}
+!84 = !{!"_ZTSSt5tupleIJPN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EEE", !85, i64 0}
+!85 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EEE", !86, i64 0}
+!86 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx18FreeEnergyDispatchELb0EE", !87, i64 0}
+!87 = !{!"p1 _ZTSN3gmx18FreeEnergyDispatchE", !9, i64 0}
+!88 = !{!"_ZTSSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EE", !89, i64 0}
+!89 = !{!"_ZTSSt15__uniq_ptr_dataI16ExclusionCheckerSt14default_deleteIS0_ELb1ELb1EE", !90, i64 0}
+!90 = !{!"_ZTSSt15__uniq_ptr_implI16ExclusionCheckerSt14default_deleteIS0_EE", !91, i64 0}
+!91 = !{!"_ZTSSt5tupleIJP16ExclusionCheckerSt14default_deleteIS0_EEE", !92, i64 0}
+!92 = !{!"_ZTSSt11_Tuple_implILm0EJP16ExclusionCheckerSt14default_deleteIS0_EEE", !93, i64 0}
+!93 = !{!"_ZTSSt10_Head_baseILm0EP16ExclusionCheckerLb0EE", !94, i64 0}
+!94 = !{!"p1 _ZTS16ExclusionChecker", !9, i64 0}
+!95 = !{!"p1 _ZTS13gmx_wallcycle", !9, i64 0}
+!96 = !{!"p1 _ZTSN3gmx8NbnxmGpuE", !9, i64 0}
+!97 = !{!95, !95, i64 0}
+!98 = !{!99, !107, i64 68}
+!99 = !{!"_ZTS19interaction_const_t", !100, i64 0, !101, i64 4, !102, i64 8, !103, i64 16, !103, i64 20, !104, i64 24, !104, i64 36, !105, i64 48, !106, i64 60, !103, i64 64, !107, i64 68, !101, i64 72, !103, i64 76, !103, i64 80, !103, i64 84, !103, i64 88, !108, i64 92, !103, i64 96, !103, i64 100, !103, i64 104, !103, i64 108, !103, i64 112, !103, i64 116, !103, i64 120, !109, i64 128, !109, i64 136, !116, i64 144}
+!100 = !{!"_ZTS15VanDerWaalsType", !10, i64 0}
+!101 = !{!"_ZTS20InteractionModifiers", !10, i64 0}
+!102 = !{!"double", !10, i64 0}
+!103 = !{!"float", !10, i64 0}
+!104 = !{!"_ZTS14shift_consts_t", !103, i64 0, !103, i64 4, !103, i64 8}
+!105 = !{!"_ZTS15switch_consts_t", !103, i64 0, !103, i64 4, !103, i64 8}
+!106 = !{!"bool", !10, i64 0}
+!107 = !{!"_ZTS22CoulombInteractionType", !10, i64 0}
+!108 = !{!"_ZTS12LongRangeVdW", !10, i64 0}
+!109 = !{!"_ZTSSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EE", !110, i64 0}
+!110 = !{!"_ZTSSt15__uniq_ptr_dataI21EwaldCorrectionTablesSt14default_deleteIS0_ELb1ELb1EE", !111, i64 0}
+!111 = !{!"_ZTSSt15__uniq_ptr_implI21EwaldCorrectionTablesSt14default_deleteIS0_EE", !112, i64 0}
+!112 = !{!"_ZTSSt5tupleIJP21EwaldCorrectionTablesSt14default_deleteIS0_EEE", !113, i64 0}
+!113 = !{!"_ZTSSt11_Tuple_implILm0EJP21EwaldCorrectionTablesSt14default_deleteIS0_EEE", !114, i64 0}
+!114 = !{!"_ZTSSt10_Head_baseILm0EP21EwaldCorrectionTablesLb0EE", !115, i64 0}
+!115 = !{!"p1 _ZTS21EwaldCorrectionTables", !9, i64 0}
+!116 = !{!"_ZTSSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EE", !117, i64 0}
+!117 = !{!"_ZTSSt15__uniq_ptr_dataIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_ELb1ELb1EE", !118, i64 0}
+!118 = !{!"_ZTSSt15__uniq_ptr_implIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EE", !119, i64 0}
+!119 = !{!"_ZTSSt5tupleIJPN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EEE", !120, i64 0}
+!120 = !{!"_ZTSSt11_Tuple_implILm0EJPN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EEE", !121, i64 0}
+!121 = !{!"_ZTSSt10_Head_baseILm0EPN19interaction_const_t18SoftCoreParametersELb0EE", !122, i64 0}
+!122 = !{!"p1 _ZTSN19interaction_const_t18SoftCoreParametersE", !9, i64 0}
+!123 = !{!99, !103, i64 76}
+!124 = !{!99, !103, i64 16}
+!125 = !{!49, !51, i64 4}
+!126 = !{!127, !135, i64 40}
+!127 = !{!"_ZTSN3gmx16nbnxn_atomdata_t6ParamsE", !12, i64 0, !128, i64 8, !135, i64 40, !128, i64 48, !136, i64 80, !140, i64 104, !128, i64 136, !128, i64 168, !12, i64 200, !146, i64 208}
+!128 = !{!"_ZTSSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE", !129, i64 0}
+!129 = !{!"_ZTSSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE", !130, i64 0}
+!130 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE12_Vector_implE", !131, i64 0, !134, i64 8}
+!131 = !{!"_ZTSN3gmx9AllocatorIfNS_20HostAllocationPolicyEEE", !132, i64 0}
+!132 = !{!"_ZTSN3gmx20HostAllocationPolicyE", !133, i64 0, !106, i64 4}
+!133 = !{!"_ZTSN3gmx13PinningPolicyE", !10, i64 0}
+!134 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_Vector_impl_dataE", !59, i64 0, !59, i64 8, !59, i64 16}
+!135 = !{!"_ZTSN3gmx17LJCombinationRuleE", !10, i64 0}
+!136 = !{!"_ZTSSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !137, i64 0}
+!137 = !{!"_ZTSSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !138, i64 0}
+!138 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE12_Vector_implE", !139, i64 0}
+!139 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_Vector_impl_dataE", !59, i64 0, !59, i64 8, !59, i64 16}
+!140 = !{!"_ZTSSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE", !141, i64 0}
+!141 = !{!"_ZTSSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE", !142, i64 0}
+!142 = !{!"_ZTSNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE12_Vector_implE", !143, i64 0, !144, i64 8}
+!143 = !{!"_ZTSN3gmx9AllocatorIiNS_20HostAllocationPolicyEEE", !132, i64 0}
+!144 = !{!"_ZTSNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_Vector_impl_dataE", !145, i64 0, !145, i64 8, !145, i64 16}
+!145 = !{!"p1 int", !9, i64 0}
+!146 = !{!"_ZTSSt10unique_ptrIN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EE", !147, i64 0}
+!147 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_ELb1ELb1EE", !148, i64 0}
+!148 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EE", !149, i64 0}
+!149 = !{!"_ZTSSt5tupleIJPN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EEE", !150, i64 0}
+!150 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EEE", !151, i64 0}
+!151 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx22EnergyGroupsPerClusterELb0EE", !152, i64 0}
+!152 = !{!"p1 _ZTSN3gmx22EnergyGroupsPerClusterE", !9, i64 0}
+!153 = !{!99, !100, i64 0}
+!154 = !{!99, !101, i64 4}
+!155 = !{!99, !108, i64 92}
+!156 = !{!106, !106, i64 0}
+!157 = !{!158, !159, i64 0}
+!158 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE17_Vector_impl_dataE", !159, i64 0, !159, i64 8, !159, i64 16}
+!159 = !{!"p1 _ZTSN3gmx16NbnxnPairlistCpuE", !9, i64 0}
+!160 = !{!158, !159, i64 8}
+!161 = !{!59, !59, i64 0}
+!162 = !{!163, !106, i64 5}
+!163 = !{!"_ZTSN3gmx12StepWorkloadE", !106, i64 0, !106, i64 1, !106, i64 2, !106, i64 3, !106, i64 4, !106, i64 5, !106, i64 6, !106, i64 7, !106, i64 8, !106, i64 9, !106, i64 10, !106, i64 11, !106, i64 12, !106, i64 13, !106, i64 14, !106, i64 15, !106, i64 16, !106, i64 17, !106, i64 18, !106, i64 19}
+!164 = !{i8 0, i8 2}
+!165 = !{}
+!166 = !{!167, !159, i64 0}
+!167 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_16NbnxnPairlistCpuEEE", !159, i64 0}
+!168 = !{!169, !169, i64 0}
+!169 = !{!"p1 _ZTSN3gmx16NbnxnPairlistGpuE", !9, i64 0}
+!170 = !{!171, !172, i64 0}
+!171 = !{!"_ZTSNSt12_Vector_baseIN3gmx23nbnxn_atomdata_output_tESaIS1_EE17_Vector_impl_dataE", !172, i64 0, !172, i64 8, !172, i64 16}
+!172 = !{!"p1 _ZTSN3gmx23nbnxn_atomdata_output_tE", !9, i64 0}
+!173 = !{!134, !59, i64 0}
+!174 = !{!134, !59, i64 8}
+!175 = !{!107, !107, i64 0}
+!176 = !{!61, !50, i64 24}
+!177 = !{!178, !12, i64 116}
+!178 = !{!"_ZTSN3gmx11PairlistSetE", !179, i64 0, !179, i64 24, !182, i64 48, !186, i64 72, !106, i64 80, !106, i64 81, !187, i64 88, !12, i64 112, !12, i64 116, !12, i64 120, !12, i64 124}
+!179 = !{!"_ZTSSt6vectorIN3gmx16NbnxnPairlistCpuESaIS1_EE", !180, i64 0}
+!180 = !{!"_ZTSSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE", !181, i64 0}
+!181 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE12_Vector_implE", !158, i64 0}
+!182 = !{!"_ZTSSt6vectorIN3gmx16NbnxnPairlistGpuESaIS1_EE", !183, i64 0}
+!183 = !{!"_ZTSSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE", !184, i64 0}
+!184 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE12_Vector_implE", !185, i64 0}
+!185 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE17_Vector_impl_dataE", !169, i64 0, !169, i64 8, !169, i64 16}
+!186 = !{!"p1 _ZTSN3gmx14PairlistParamsE", !9, i64 0}
+!187 = !{!"_ZTSSt6vectorISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE", !188, i64 0}
+!188 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE", !189, i64 0}
+!189 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE12_Vector_implE", !190, i64 0}
+!190 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE17_Vector_impl_dataE", !191, i64 0, !191, i64 8, !191, i64 16}
+!191 = !{!"p1 _ZTSSt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS1_EE", !9, i64 0}
+!192 = !{!102, !102, i64 0}
+!193 = !{!178, !12, i64 120}
+!194 = !{!178, !12, i64 124}
+!195 = !{!9, !9, i64 0}
+!196 = !{!197, !197, i64 0}
+!197 = !{!"p1 _ZTSN3gmx17EnergyAccumulatorILb0ELb1EEE", !9, i64 0}
+!198 = !{!199, !103, i64 64}
+!199 = !{!"_ZTSN3gmx17EnergyAccumulatorILb0ELb1EEE", !200, i64 0, !200, i64 32, !103, i64 64, !103, i64 68}
+!200 = !{!"_ZTSN3gmx9SimdFloatE", !10, i64 0}
+!201 = !{!199, !103, i64 68}
+!202 = !{!103, !103, i64 0}
+!203 = !{!204, !204, i64 0}
+!204 = !{!"p1 _ZTSN3gmx17EnergyAccumulatorILb1ELb1EEE", !9, i64 0}
+!205 = !{!152, !152, i64 0}
+!206 = !{!207}
+!207 = !{i64 2, i64 -1, i64 -1, i1 true}

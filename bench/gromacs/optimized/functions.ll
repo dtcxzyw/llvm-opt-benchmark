@@ -49,7 +49,7 @@ define noundef i64 @_ZN3gmx21greatestCommonDivisorEll(i64 noundef %0, i64 nounde
   %.068 = phi i64 [ %3, %.lr.ph ], [ %1, %2 ]
   %3 = srem i64 %.09, %.068
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ %0, %2 ], [ %.068, %.lr.ph ]
@@ -125,18 +125,18 @@ define noundef double @_ZN3gmx6erfinvEd(double noundef %0) local_unnamed_addr #2
   %52 = tail call double @llvm.fmuladd.f64(double %51, double %38, double 0x400FC54FE55111D6)
   %53 = tail call double @llvm.fmuladd.f64(double %52, double %38, double 0x4018F876F28C9A27)
   %54 = tail call double @llvm.fmuladd.f64(double %53, double %38, double 1.000000e+00)
-  %55 = tail call double @log(double noundef %11) #4
+  %55 = tail call double @log(double noundef %11) #4, !tbaa !6
   %56 = fmul double %55, -2.000000e+00
-  %57 = tail call double @sqrt(double noundef %56) #4
+  %57 = tail call double @sqrt(double noundef %56) #4, !tbaa !6
   %58 = fdiv double %46, %54
   %59 = fadd double %58, 0x4001FEF000000000
   %60 = fdiv double %57, %59
   br label %107
 
 61:                                               ; preds = %35
-  %62 = tail call double @log(double noundef %11) #4
+  %62 = tail call double @log(double noundef %11) #4, !tbaa !6
   %63 = fneg double %62
-  %64 = tail call double @sqrt(double noundef %63) #4
+  %64 = tail call double @sqrt(double noundef %63) #4, !tbaa !6
   %65 = fcmp olt double %64, 3.000000e+00
   br i1 %65, label %66, label %88
 
@@ -185,7 +185,7 @@ define noundef double @_ZN3gmx6erfinvEd(double noundef %0) local_unnamed_addr #2
   %106 = tail call double @llvm.fmuladd.f64(double %64, double 0x3FEE141E00000000, double %105)
   br label %107
 
-107:                                              ; preds = %37, %88, %66, %13
+107:                                              ; preds = %66, %88, %37, %13
   %.0160 = phi double [ %34, %13 ], [ %60, %37 ], [ %87, %66 ], [ %106, %88 ]
   %108 = tail call double @llvm.copysign.f64(double %.0160, double %0)
   br label %109
@@ -279,18 +279,18 @@ define noundef float @_ZN3gmx6erfinvEf(float noundef %0) local_unnamed_addr #2 {
   %52 = tail call float @llvm.fmuladd.f32(float %51, float %38, float 0x400FC54FE0000000)
   %53 = tail call float @llvm.fmuladd.f32(float %52, float %38, float 0x4018F87700000000)
   %54 = tail call float @llvm.fmuladd.f32(float %53, float %38, float 1.000000e+00)
-  %55 = tail call noundef float @logf(float noundef %11) #4
+  %55 = tail call noundef float @logf(float noundef %11) #4, !tbaa !6
   %56 = fmul float %55, -2.000000e+00
-  %57 = tail call noundef float @sqrtf(float noundef %56) #4
+  %57 = tail call noundef float @sqrtf(float noundef %56) #4, !tbaa !6
   %58 = fdiv float %46, %54
   %59 = fadd float %58, 0x4001FEF000000000
   %60 = fdiv float %57, %59
   br label %107
 
 61:                                               ; preds = %35
-  %62 = tail call noundef float @logf(float noundef %11) #4
+  %62 = tail call noundef float @logf(float noundef %11) #4, !tbaa !6
   %63 = fneg float %62
-  %64 = tail call noundef float @sqrtf(float noundef %63) #4
+  %64 = tail call noundef float @sqrtf(float noundef %63) #4, !tbaa !6
   %65 = fcmp olt float %64, 3.000000e+00
   br i1 %65, label %66, label %88
 
@@ -339,7 +339,7 @@ define noundef float @_ZN3gmx6erfinvEf(float noundef %0) local_unnamed_addr #2 {
   %106 = tail call float @llvm.fmuladd.f32(float %64, float 0x3FEE141E00000000, float %105)
   br label %107
 
-107:                                              ; preds = %37, %88, %66, %13
+107:                                              ; preds = %66, %88, %37, %13
   %.0160 = phi float [ %34, %13 ], [ %60, %37 ], [ %87, %66 ], [ %106, %88 ]
   %108 = tail call noundef float @llvm.copysign.f32(float %.0160, float %0)
   br label %109
@@ -364,18 +364,21 @@ declare float @logf(float noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.copysign.f32(float, float) #1
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}

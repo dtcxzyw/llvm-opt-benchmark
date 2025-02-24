@@ -11,13 +11,13 @@ define void @Ptngc_comp_canonical_dict(ptr noundef writeonly captures(none) %0, 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %5 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %5, ptr %4, align 4
+  store i32 %5, ptr %4, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 131076
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !4
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !7
 
 6:                                                ; preds = %3
-  store i32 131076, ptr %1, align 4
+  store i32 131076, ptr %1, align 4, !tbaa !3
   ret void
 }
 
@@ -34,15 +34,15 @@ define void @Ptngc_comp_make_dict_hist(ptr noundef readonly captures(none) %0, i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i32, ptr %4, i64 %9
-  %11 = load i32, ptr %10, align 4
+  %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = add i32 %11, 1
-  store i32 %12, ptr %10, align 4
+  store i32 %12, ptr %10, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !9
 
 .preheader.preheader:                             ; preds = %.lr.ph, %5
   br label %.preheader
@@ -51,17 +51,17 @@ define void @Ptngc_comp_make_dict_hist(ptr noundef readonly captures(none) %0, i
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %22 ], [ 0, %.preheader.preheader ]
   %.030 = phi i32 [ %.2, %22 ], [ 0, %.preheader.preheader ]
   %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv32
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !3
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %.preheader
   %16 = sext i32 %.030 to i64
   %17 = getelementptr inbounds i32, ptr %4, i64 %16
-  store i32 %14, ptr %17, align 4
+  store i32 %14, ptr %17, align 4, !tbaa !3
   %18 = getelementptr inbounds i32, ptr %2, i64 %16
   %19 = trunc nuw nsw i64 %indvars.iv32 to i32
-  store i32 %19, ptr %18, align 4
+  store i32 %19, ptr %18, align 4, !tbaa !3
   %20 = add nsw i32 %.030, 1
   %21 = icmp eq i32 %20, %1
   br i1 %21, label %23, label %22
@@ -70,28 +70,31 @@ define void @Ptngc_comp_make_dict_hist(ptr noundef readonly captures(none) %0, i
   %.2 = phi i32 [ %20, %15 ], [ %.030, %.preheader ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 131076
-  br i1 %exitcond35.not, label %23, label %.preheader, !llvm.loop !7
+  br i1 %exitcond35.not, label %23, label %.preheader, !llvm.loop !10
 
 23:                                               ; preds = %15, %22
   %.1 = phi i32 [ %1, %15 ], [ %.2, %22 ]
-  store i32 %.1, ptr %3, align 4
+  store i32 %.1, ptr %3, align 4, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

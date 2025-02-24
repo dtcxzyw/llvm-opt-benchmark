@@ -23,21 +23,23 @@ target triple = "x86_64-pc-linux-gnu"
 
 $__clang_call_terminate = comdat any
 
+$_ZN3gmx18ICommandLineModuleD2Ev = comdat any
+
 $_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data = comdat any
 
 $_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation = comdat any
 
+$_ZTIN3gmx18ICommandLineModuleE = comdat any
+
 $_ZTSN3gmx18ICommandLineModuleE = comdat any
 
-$_ZTIN3gmx18ICommandLineModuleE = comdat any
+$_ZTIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = comdat any
 
 $_ZTSPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = comdat any
 
-$_ZTSFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = comdat any
-
 $_ZTIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = comdat any
 
-$_ZTIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = comdat any
+$_ZTSFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = comdat any
 
 @.str = private unnamed_addr constant [6 x i8] c"check\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"Check and compare files\00", align 1
@@ -241,21 +243,21 @@ $_ZTIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEv
 @.str.189 = private unnamed_addr constant [13 x i8] c"Normal modes\00", align 1
 @.str.190 = private unnamed_addr constant [25 x i8] c"Analyze the normal modes\00", align 1
 @.str.191 = private unnamed_addr constant [58 x i8] c"Find a potential energy minimum and calculate the Hessian\00", align 1
-@_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE = internal unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_118ObsoleteToolModuleE, ptr @_ZN12_GLOBAL__N_118ObsoleteToolModuleD2Ev, ptr @_ZN12_GLOBAL__N_118ObsoleteToolModuleD0Ev, ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule4nameEv, ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule16shortDescriptionEv, ptr @_ZN12_GLOBAL__N_118ObsoleteToolModule4initEPN3gmx25CommandLineModuleSettingsE, ptr @_ZN12_GLOBAL__N_118ObsoleteToolModule3runEiPPc, ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule9writeHelpERKN3gmx22CommandLineHelpContextE] }, align 8
+@_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE = internal unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_118ObsoleteToolModuleE, ptr @_ZN3gmx18ICommandLineModuleD2Ev, ptr @_ZN12_GLOBAL__N_118ObsoleteToolModuleD0Ev, ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule4nameEv, ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule16shortDescriptionEv, ptr @_ZN12_GLOBAL__N_118ObsoleteToolModule4initEPN3gmx25CommandLineModuleSettingsE, ptr @_ZN12_GLOBAL__N_118ObsoleteToolModule3runEiPPc, ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule9writeHelpERKN3gmx22CommandLineHelpContextE] }, align 8
+@_ZTIN12_GLOBAL__N_118ObsoleteToolModuleE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN12_GLOBAL__N_118ObsoleteToolModuleE, ptr @_ZTIN3gmx18ICommandLineModuleE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN12_GLOBAL__N_118ObsoleteToolModuleE = internal constant [37 x i8] c"N12_GLOBAL__N_118ObsoleteToolModuleE\00", align 1
+@_ZTIN3gmx18ICommandLineModuleE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3gmx18ICommandLineModuleE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN3gmx18ICommandLineModuleE = linkonce_odr dso_local constant [27 x i8] c"N3gmx18ICommandLineModuleE\00", comdat, align 1
-@_ZTIN3gmx18ICommandLineModuleE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3gmx18ICommandLineModuleE }, comdat, align 8
-@_ZTIN12_GLOBAL__N_118ObsoleteToolModuleE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN12_GLOBAL__N_118ObsoleteToolModuleE, ptr @_ZTIN3gmx18ICommandLineModuleE }, align 8
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.192 = private unnamed_addr constant [209 x i8] c"This tool is no longer present in GROMACS. Please see\0A  https://manual.gromacs.org/current/user-guide/cmdline.html#command-changes-between-versions\0Afor ideas how to perform the same tasks with the new tools.\0A\00", align 1
+@_ZTIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = linkonce_odr dso_local constant { ptr, ptr, i32, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv119__pointer_type_infoE, i64 2), ptr @_ZTSPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE, i32 0, ptr @_ZTIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE }, comdat, align 8
 @_ZTVN10__cxxabiv119__pointer_type_infoE = external global [0 x ptr]
 @_ZTSPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = linkonce_odr dso_local constant [77 x i8] c"PFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE\00", comdat, align 1
+@_ZTIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__function_type_infoE, i64 2), ptr @_ZTSFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE }, comdat, align 8
 @_ZTVN10__cxxabiv120__function_type_infoE = external global [0 x ptr]
 @_ZTSFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = linkonce_odr dso_local constant [76 x i8] c"FSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE\00", comdat, align 1
-@_ZTIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = linkonce_odr dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__function_type_infoE, i64 2), ptr @_ZTSFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE }, comdat, align 8
-@_ZTIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE = linkonce_odr dso_local constant { ptr, ptr, i32, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv119__pointer_type_infoE, i64 2), ptr @_ZTSPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE, i32 0, ptr @_ZTIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z21registerLegacyModulesPN3gmx24CommandLineModuleManagerE(ptr noundef nonnull %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -294,93 +296,93 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   store i64 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @_ZN3gmx8DumpInfo6createEv, ptr %7, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %31, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %32, align 8
+  store ptr @_ZN3gmx8DumpInfo6createEv, ptr %7, align 8, !tbaa !4
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %31, align 8, !tbaa !8
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %32, align 8, !tbaa !11
   invoke void @_ZN3gmx25ICommandLineOptionsModule21registerModuleFactoryEPNS_24CommandLineModuleManagerEPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3gmx8DumpInfo4nameE, ptr noundef nonnull @_ZN3gmx8DumpInfo16shortDescriptionE, ptr noundef nonnull %7)
           to label %33 unwind label %178
 
 33:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit
-  %34 = load ptr, ptr %32, align 8
-  %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit112, label %35
+  %34 = load ptr, ptr %32, align 8, !tbaa !11
+  %.not.i111 = icmp eq ptr %34, null
+  br i1 %.not.i111, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit113, label %35
 
 35:                                               ; preds = %33
   %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
-          to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit112 unwind label %37
+          to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit113 unwind label %37
 
 37:                                               ; preds = %35
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #12
+  call void @__clang_call_terminate(ptr %39) #13
   unreachable
 
-_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit112: ; preds = %33, %35
+_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit113: ; preds = %33, %35
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @_Z10gmx_gromppiPPc)
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @_ZN3gmx14ConvertTprInfo6createEv, ptr %8, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %41, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %42, align 8
+  store ptr @_ZN3gmx14ConvertTprInfo6createEv, ptr %8, align 8, !tbaa !4
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %41, align 8, !tbaa !8
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %42, align 8, !tbaa !11
   invoke void @_ZN3gmx25ICommandLineOptionsModule21registerModuleFactoryEPNS_24CommandLineModuleManagerEPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3gmx14ConvertTprInfo4nameE, ptr noundef nonnull @_ZN3gmx14ConvertTprInfo16shortDescriptionE, ptr noundef nonnull %8)
           to label %43 unwind label %186
 
-43:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit112
-  %44 = load ptr, ptr %42, align 8
-  %.not.i.i113 = icmp eq ptr %44, null
-  br i1 %.not.i.i113, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit114, label %45
+43:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit113
+  %44 = load ptr, ptr %42, align 8, !tbaa !11
+  %.not.i114 = icmp eq ptr %44, null
+  br i1 %.not.i114, label %_ZNSt14_Function_baseD2Ev.exit115, label %45
 
 45:                                               ; preds = %43
   %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
-          to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit114 unwind label %47
+          to label %_ZNSt14_Function_baseD2Ev.exit115 unwind label %47
 
 47:                                               ; preds = %45
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #12
+  call void @__clang_call_terminate(ptr %49) #13
   unreachable
 
-_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit114: ; preds = %43, %45
+_ZNSt14_Function_baseD2Ev.exit115:                ; preds = %43, %45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %50 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %50, align 8
+  %50 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %50, align 8, !tbaa !12
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr @.str.4, ptr %51, align 8
+  store ptr @.str.4, ptr %51, align 8, !tbaa !14
   %52 = ptrtoint ptr %50 to i64
-  store i64 %52, ptr %6, align 8
+  store i64 %52, ptr %6, align 8, !tbaa !18
   invoke void @_ZN3gmx24CommandLineModuleManager9addModuleESt10unique_ptrINS_18ICommandLineModuleESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6)
           to label %53 unwind label %58
 
-53:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit114
-  %54 = load ptr, ptr %6, align 8
-  %.not.i.i115 = icmp eq ptr %54, null
-  br i1 %.not.i.i115, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit117, label %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i
+53:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit115
+  %54 = load ptr, ptr %6, align 8, !tbaa !18
+  %.not.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit117, label %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i: ; preds = %53
-  %55 = load ptr, ptr %54, align 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !12
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(8) %54) #14
+  call void %57(ptr noundef nonnull align 8 dereferenceable(8) %54) #15
   br label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit117
 
-58:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit114
+58:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit115
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = load ptr, ptr %6, align 8
+  %60 = load ptr, ptr %6, align 8, !tbaa !18
   %.not.i6.i = icmp eq ptr %60, null
   br i1 %.not.i6.i, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %58, %158, %147, %136, %125, %114
   %.sink182 = phi ptr [ %116, %114 ], [ %127, %125 ], [ %138, %136 ], [ %149, %147 ], [ %160, %158 ], [ %60, %58 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %115, %114 ], [ %126, %125 ], [ %137, %136 ], [ %148, %147 ], [ %159, %158 ], [ %59, %58 ]
-  %61 = load ptr, ptr %.sink182, align 8
+  %61 = load ptr, ptr %.sink182, align 8, !tbaa !12
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(8) %.sink182) #14
+  call void %63(ptr noundef nonnull align 8 dereferenceable(8) %.sink182) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %178, %181, %186, %189, %194, %197, %202, %205, %210, %213, %218, %221, %158, %147, %136, %125, %114, %58
@@ -395,16 +397,16 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   store i64 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr @_ZN3gmx22NonbondedBenchmarkInfo6createEv, ptr %9, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %65, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %66, align 8
+  store ptr @_ZN3gmx22NonbondedBenchmarkInfo6createEv, ptr %9, align 8, !tbaa !4
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %65, align 8, !tbaa !8
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %66, align 8, !tbaa !11
   invoke void @_ZN3gmx25ICommandLineOptionsModule21registerModuleFactoryEPNS_24CommandLineModuleManagerEPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3gmx22NonbondedBenchmarkInfo4nameE, ptr noundef nonnull @_ZN3gmx22NonbondedBenchmarkInfo16shortDescriptionE, ptr noundef nonnull %9)
           to label %67 unwind label %194
 
 67:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit117
-  %68 = load ptr, ptr %66, align 8
-  %.not.i.i118 = icmp eq ptr %68, null
-  br i1 %.not.i.i118, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit121, label %69
+  %68 = load ptr, ptr %66, align 8, !tbaa !11
+  %.not.i118 = icmp eq ptr %68, null
+  br i1 %.not.i118, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit121, label %69
 
 69:                                               ; preds = %67
   %70 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
@@ -414,7 +416,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #12
+  call void @__clang_call_terminate(ptr %73) #13
   unreachable
 
 _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit121: ; preds = %67, %69
@@ -424,16 +426,16 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   store i64 0, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr @_ZN3gmx19InsertMoleculesInfo6createEv, ptr %10, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %77, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %78, align 8
+  store ptr @_ZN3gmx19InsertMoleculesInfo6createEv, ptr %10, align 8, !tbaa !4
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %77, align 8, !tbaa !8
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %78, align 8, !tbaa !11
   invoke void @_ZN3gmx25ICommandLineOptionsModule21registerModuleFactoryEPNS_24CommandLineModuleManagerEPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(ptr noundef nonnull %0, ptr noundef %74, ptr noundef %75, ptr noundef nonnull %10)
           to label %79 unwind label %202
 
 79:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit121
-  %80 = load ptr, ptr %78, align 8
-  %.not.i.i122 = icmp eq ptr %80, null
-  br i1 %.not.i.i122, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit125, label %81
+  %80 = load ptr, ptr %78, align 8, !tbaa !11
+  %.not.i122 = icmp eq ptr %80, null
+  br i1 %.not.i122, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit125, label %81
 
 81:                                               ; preds = %79
   %82 = invoke noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
@@ -443,7 +445,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #12
+  call void @__clang_call_terminate(ptr %85) #13
   unreachable
 
 _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit125: ; preds = %79, %81
@@ -451,16 +453,16 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   store i64 0, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr @_ZN3gmx17ReportMethodsInfo6createEv, ptr %11, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %87, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %88, align 8
+  store ptr @_ZN3gmx17ReportMethodsInfo6createEv, ptr %11, align 8, !tbaa !4
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %87, align 8, !tbaa !8
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %88, align 8, !tbaa !11
   invoke void @_ZN3gmx25ICommandLineOptionsModule21registerModuleFactoryEPNS_24CommandLineModuleManagerEPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3gmx17ReportMethodsInfo4nameE, ptr noundef nonnull @_ZN3gmx17ReportMethodsInfo16shortDescriptionE, ptr noundef nonnull %11)
           to label %89 unwind label %210
 
 89:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit125
-  %90 = load ptr, ptr %88, align 8
-  %.not.i.i126 = icmp eq ptr %90, null
-  br i1 %.not.i.i126, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit129, label %91
+  %90 = load ptr, ptr %88, align 8, !tbaa !11
+  %.not.i126 = icmp eq ptr %90, null
+  br i1 %.not.i126, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit129, label %91
 
 91:                                               ; preds = %89
   %92 = invoke noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
@@ -470,7 +472,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #12
+  call void @__clang_call_terminate(ptr %95) #13
   unreachable
 
 _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit129: ; preds = %89, %91
@@ -478,58 +480,58 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
   store i64 0, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr @_ZN3gmx11pdb2gmxInfo6createEv, ptr %12, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %97, align 8
-  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %98, align 8
+  store ptr @_ZN3gmx11pdb2gmxInfo6createEv, ptr %12, align 8, !tbaa !4
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %97, align 8, !tbaa !8
+  store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %98, align 8, !tbaa !11
   invoke void @_ZN3gmx25ICommandLineOptionsModule21registerModuleFactoryEPNS_24CommandLineModuleManagerEPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(ptr noundef nonnull %0, ptr noundef nonnull @_ZN3gmx11pdb2gmxInfo4nameE, ptr noundef nonnull @_ZN3gmx11pdb2gmxInfo16shortDescriptionE, ptr noundef nonnull %12)
           to label %99 unwind label %218
 
 99:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit129
-  %100 = load ptr, ptr %98, align 8
-  %.not.i.i130 = icmp eq ptr %100, null
-  br i1 %.not.i.i130, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit131, label %101
+  %100 = load ptr, ptr %98, align 8, !tbaa !11
+  %.not.i130 = icmp eq ptr %100, null
+  br i1 %.not.i130, label %_ZNSt14_Function_baseD2Ev.exit131, label %101
 
 101:                                              ; preds = %99
   %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
-          to label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit131 unwind label %103
+          to label %_ZNSt14_Function_baseD2Ev.exit131 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #12
+  call void @__clang_call_terminate(ptr %105) #13
   unreachable
 
-_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit131: ; preds = %99, %101
+_ZNSt14_Function_baseD2Ev.exit131:                ; preds = %99, %101
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @_Z12gmx_editconfiPPc)
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @_Z11gmx_eneconviPPc)
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @_Z11gmx_solvateiPPc)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %106 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %106, align 8
+  %106 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %106, align 8, !tbaa !12
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store ptr @.str.15, ptr %107, align 8
+  store ptr @.str.15, ptr %107, align 8, !tbaa !14
   %108 = ptrtoint ptr %106 to i64
-  store i64 %108, ptr %5, align 8
+  store i64 %108, ptr %5, align 8, !tbaa !18
   invoke void @_ZN3gmx24CommandLineModuleManager9addModuleESt10unique_ptrINS_18ICommandLineModuleESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5)
           to label %109 unwind label %114
 
-109:                                              ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit131
-  %110 = load ptr, ptr %5, align 8
+109:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit131
+  %110 = load ptr, ptr %5, align 8, !tbaa !18
   %.not.i.i135 = icmp eq ptr %110, null
   br i1 %.not.i.i135, label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit137, label %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i136
 
 _ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i136: ; preds = %109
-  %111 = load ptr, ptr %110, align 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !12
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(8) %110) #14
+  call void %113(ptr noundef nonnull align 8 dereferenceable(8) %110) #15
   br label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit137
 
-114:                                              ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit131
+114:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit131
   %115 = landingpad { ptr, i32 }
           cleanup
-  %116 = load ptr, ptr %5, align 8
+  %116 = load ptr, ptr %5, align 8, !tbaa !18
   %.not.i6.i132 = icmp eq ptr %116, null
   br i1 %.not.i6.i132, label %common.resume, label %common.resume.sink.split
 
@@ -551,124 +553,124 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull @_Z7gmx_awhiPPc)
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @_Z7gmx_bariPPc)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %117 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %117, align 8
+  %117 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %117, align 8, !tbaa !12
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store ptr @.str.46, ptr %118, align 8
+  store ptr @.str.46, ptr %118, align 8, !tbaa !14
   %119 = ptrtoint ptr %117 to i64
-  store i64 %119, ptr %4, align 8
+  store i64 %119, ptr %4, align 8, !tbaa !18
   invoke void @_ZN3gmx24CommandLineModuleManager9addModuleESt10unique_ptrINS_18ICommandLineModuleESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4)
           to label %120 unwind label %125
 
 120:                                              ; preds = %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit137
-  %121 = load ptr, ptr %4, align 8
+  %121 = load ptr, ptr %4, align 8, !tbaa !18
   %.not.i.i141 = icmp eq ptr %121, null
   br i1 %.not.i.i141, label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit143, label %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i142
 
 _ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i142: ; preds = %120
-  %122 = load ptr, ptr %121, align 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !12
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
-  call void %124(ptr noundef nonnull align 8 dereferenceable(8) %121) #14
+  call void %124(ptr noundef nonnull align 8 dereferenceable(8) %121) #15
   br label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit143
 
 125:                                              ; preds = %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit137
   %126 = landingpad { ptr, i32 }
           cleanup
-  %127 = load ptr, ptr %4, align 8
+  %127 = load ptr, ptr %4, align 8, !tbaa !18
   %.not.i6.i138 = icmp eq ptr %127, null
   br i1 %.not.i6.i138, label %common.resume, label %common.resume.sink.split
 
 _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit143: ; preds = %120, %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i142
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %128 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %128, align 8
+  %128 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %128, align 8, !tbaa !12
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  store ptr @.str.47, ptr %129, align 8
+  store ptr @.str.47, ptr %129, align 8, !tbaa !14
   %130 = ptrtoint ptr %128 to i64
-  store i64 %130, ptr %3, align 8
+  store i64 %130, ptr %3, align 8, !tbaa !18
   invoke void @_ZN3gmx24CommandLineModuleManager9addModuleESt10unique_ptrINS_18ICommandLineModuleESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3)
           to label %131 unwind label %136
 
 131:                                              ; preds = %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit143
-  %132 = load ptr, ptr %3, align 8
+  %132 = load ptr, ptr %3, align 8, !tbaa !18
   %.not.i.i147 = icmp eq ptr %132, null
   br i1 %.not.i.i147, label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit149, label %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i148
 
 _ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i148: ; preds = %131
-  %133 = load ptr, ptr %132, align 8
+  %133 = load ptr, ptr %132, align 8, !tbaa !12
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
-  call void %135(ptr noundef nonnull align 8 dereferenceable(8) %132) #14
+  call void %135(ptr noundef nonnull align 8 dereferenceable(8) %132) #15
   br label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit149
 
 136:                                              ; preds = %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit143
   %137 = landingpad { ptr, i32 }
           cleanup
-  %138 = load ptr, ptr %3, align 8
+  %138 = load ptr, ptr %3, align 8, !tbaa !18
   %.not.i6.i144 = icmp eq ptr %138, null
   br i1 %.not.i6.i144, label %common.resume, label %common.resume.sink.split
 
 _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit149: ; preds = %131, %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i148
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %139 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %139, align 8
+  %139 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %139, align 8, !tbaa !12
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  store ptr @.str.48, ptr %140, align 8
+  store ptr @.str.48, ptr %140, align 8, !tbaa !14
   %141 = ptrtoint ptr %139 to i64
-  store i64 %141, ptr %2, align 8
+  store i64 %141, ptr %2, align 8, !tbaa !18
   invoke void @_ZN3gmx24CommandLineModuleManager9addModuleESt10unique_ptrINS_18ICommandLineModuleESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2)
           to label %142 unwind label %147
 
 142:                                              ; preds = %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit149
-  %143 = load ptr, ptr %2, align 8
+  %143 = load ptr, ptr %2, align 8, !tbaa !18
   %.not.i.i153 = icmp eq ptr %143, null
   br i1 %.not.i.i153, label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit155, label %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i154
 
 _ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i154: ; preds = %142
-  %144 = load ptr, ptr %143, align 8
+  %144 = load ptr, ptr %143, align 8, !tbaa !12
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8
-  call void %146(ptr noundef nonnull align 8 dereferenceable(8) %143) #14
+  call void %146(ptr noundef nonnull align 8 dereferenceable(8) %143) #15
   br label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit155
 
 147:                                              ; preds = %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit149
   %148 = landingpad { ptr, i32 }
           cleanup
-  %149 = load ptr, ptr %2, align 8
+  %149 = load ptr, ptr %2, align 8, !tbaa !18
   %.not.i6.i150 = icmp eq ptr %149, null
   br i1 %.not.i6.i150, label %common.resume, label %common.resume.sink.split
 
 _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit155: ; preds = %142, %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i154
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  %150 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %150, align 8
+  %150 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_118ObsoleteToolModuleE, i64 16), ptr %150, align 8, !tbaa !12
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store ptr @.str.49, ptr %151, align 8
+  store ptr @.str.49, ptr %151, align 8, !tbaa !14
   %152 = ptrtoint ptr %150 to i64
-  store i64 %152, ptr %1, align 8
+  store i64 %152, ptr %1, align 8, !tbaa !18
   invoke void @_ZN3gmx24CommandLineModuleManager9addModuleESt10unique_ptrINS_18ICommandLineModuleESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)
           to label %153 unwind label %158
 
 153:                                              ; preds = %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit155
-  %154 = load ptr, ptr %1, align 8
+  %154 = load ptr, ptr %1, align 8, !tbaa !18
   %.not.i.i159 = icmp eq ptr %154, null
   br i1 %.not.i.i159, label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit161, label %_ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i160
 
 _ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i160: ; preds = %153
-  %155 = load ptr, ptr %154, align 8
+  %155 = load ptr, ptr %154, align 8, !tbaa !12
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
-  call void %157(ptr noundef nonnull align 8 dereferenceable(8) %154) #14
+  call void %157(ptr noundef nonnull align 8 dereferenceable(8) %154) #15
   br label %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit161
 
 158:                                              ; preds = %_ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exit155
   %159 = landingpad { ptr, i32 }
           cleanup
-  %160 = load ptr, ptr %1, align 8
+  %160 = load ptr, ptr %1, align 8, !tbaa !18
   %.not.i6.i156 = icmp eq ptr %160, null
   br i1 %.not.i6.i156, label %common.resume, label %common.resume.sink.split
 
@@ -731,6 +733,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.159, ptr noundef nonnull @_Z10gmx_velacciPPc)
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.161, ptr noundef nonnull @_Z8gmx_whamiPPc)
   call void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163, ptr noundef nonnull @_Z9gmx_wheeliPPc)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
   %161 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.164)
   store ptr %161, ptr %13, align 8
   call void @_ZN3gmx22CommandLineModuleGroup24addModuleWithDescriptionEPKcS2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.165)
@@ -741,19 +744,27 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.18)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.20)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.167)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
   %162 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.168)
   store ptr %162, ptr %14, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.2)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.7)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.169)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
   %163 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.170)
   store ptr %163, ptr %15, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.110)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
   %164 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.171)
   store ptr %164, ptr %16, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.80)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.82)
   call void @_ZN3gmx22CommandLineModuleGroup24addModuleWithDescriptionEPKcS2_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.172)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
   %165 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.173)
   store ptr %165, ptr %17, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.9)
@@ -762,6 +773,8 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.28)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.30)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.34)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #15
   %166 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.174)
   store ptr %166, ptr %18, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.38)
@@ -781,18 +794,24 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.32)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.34)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.176)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #15
   %167 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.177)
   store ptr %167, ptr %19, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.54)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.58)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.124)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.128)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #15
   %168 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.178)
   store ptr %168, ptr %20, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.102)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.100)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.116)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.126)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #15
   %169 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.179)
   store ptr %169, ptr %21, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.86)
@@ -804,10 +823,14 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.138)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.152)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.156)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #15
   %170 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.181)
   store ptr %170, ptr %22, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.40)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #15
   %171 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.182)
   store ptr %171, ptr %23, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.50)
@@ -820,6 +843,8 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.134)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.144)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.148)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #15
   %172 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.183)
   store ptr %172, ptr %24, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.44)
@@ -831,6 +856,8 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.152)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.156)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.158)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #15
   %173 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.184)
   store ptr %173, ptr %25, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.62)
@@ -839,6 +866,8 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.118)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.148)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #15
   %174 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.185)
   store ptr %174, ptr %26, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.52)
@@ -846,6 +875,8 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.94)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.122)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.162)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #15
   %175 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.186)
   store ptr %175, ptr %27, align 8
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.50)
@@ -856,11 +887,15 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.96)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.112)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.118)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #15
   %176 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.187)
   store ptr %176, ptr %28, align 8
   call void @_ZN3gmx22CommandLineModuleGroup24addModuleWithDescriptionEPKcS2_(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.188)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.60)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.22)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #15
   %177 = call ptr @_ZN3gmx24CommandLineModuleManager14addModuleGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.189)
   store ptr %177, ptr %29, align 8
   call void @_ZN3gmx22CommandLineModuleGroup24addModuleWithDescriptionEPKcS2_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.190)
@@ -869,14 +904,15 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.106)
   call void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.2)
   call void @_ZN3gmx22CommandLineModuleGroup24addModuleWithDescriptionEPKcS2_(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.191)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #15
   ret void
 
 178:                                              ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit
   %179 = landingpad { ptr, i32 }
           cleanup
-  %180 = load ptr, ptr %32, align 8
-  %.not.i.i162 = icmp eq ptr %180, null
-  br i1 %.not.i.i162, label %common.resume, label %181
+  %180 = load ptr, ptr %32, align 8, !tbaa !11
+  %.not.i162 = icmp eq ptr %180, null
+  br i1 %.not.i162, label %common.resume, label %181
 
 181:                                              ; preds = %178
   %182 = invoke noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
@@ -886,15 +922,15 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   %184 = landingpad { ptr, i32 }
           catch ptr null
   %185 = extractvalue { ptr, i32 } %184, 0
-  call void @__clang_call_terminate(ptr %185) #12
+  call void @__clang_call_terminate(ptr %185) #13
   unreachable
 
-186:                                              ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit112
+186:                                              ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit113
   %187 = landingpad { ptr, i32 }
           cleanup
-  %188 = load ptr, ptr %42, align 8
-  %.not.i.i164 = icmp eq ptr %188, null
-  br i1 %.not.i.i164, label %common.resume, label %189
+  %188 = load ptr, ptr %42, align 8, !tbaa !11
+  %.not.i164 = icmp eq ptr %188, null
+  br i1 %.not.i164, label %common.resume, label %189
 
 189:                                              ; preds = %186
   %190 = invoke noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
@@ -904,15 +940,15 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   %192 = landingpad { ptr, i32 }
           catch ptr null
   %193 = extractvalue { ptr, i32 } %192, 0
-  call void @__clang_call_terminate(ptr %193) #12
+  call void @__clang_call_terminate(ptr %193) #13
   unreachable
 
 194:                                              ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit117
   %195 = landingpad { ptr, i32 }
           cleanup
-  %196 = load ptr, ptr %66, align 8
-  %.not.i.i166 = icmp eq ptr %196, null
-  br i1 %.not.i.i166, label %common.resume, label %197
+  %196 = load ptr, ptr %66, align 8, !tbaa !11
+  %.not.i166 = icmp eq ptr %196, null
+  br i1 %.not.i166, label %common.resume, label %197
 
 197:                                              ; preds = %194
   %198 = invoke noundef zeroext i1 %196(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
@@ -922,15 +958,15 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   %200 = landingpad { ptr, i32 }
           catch ptr null
   %201 = extractvalue { ptr, i32 } %200, 0
-  call void @__clang_call_terminate(ptr %201) #12
+  call void @__clang_call_terminate(ptr %201) #13
   unreachable
 
 202:                                              ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit121
   %203 = landingpad { ptr, i32 }
           cleanup
-  %204 = load ptr, ptr %78, align 8
-  %.not.i.i168 = icmp eq ptr %204, null
-  br i1 %.not.i.i168, label %common.resume, label %205
+  %204 = load ptr, ptr %78, align 8, !tbaa !11
+  %.not.i168 = icmp eq ptr %204, null
+  br i1 %.not.i168, label %common.resume, label %205
 
 205:                                              ; preds = %202
   %206 = invoke noundef zeroext i1 %204(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
@@ -940,15 +976,15 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   %208 = landingpad { ptr, i32 }
           catch ptr null
   %209 = extractvalue { ptr, i32 } %208, 0
-  call void @__clang_call_terminate(ptr %209) #12
+  call void @__clang_call_terminate(ptr %209) #13
   unreachable
 
 210:                                              ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit125
   %211 = landingpad { ptr, i32 }
           cleanup
-  %212 = load ptr, ptr %88, align 8
-  %.not.i.i170 = icmp eq ptr %212, null
-  br i1 %.not.i.i170, label %common.resume, label %213
+  %212 = load ptr, ptr %88, align 8, !tbaa !11
+  %.not.i170 = icmp eq ptr %212, null
+  br i1 %.not.i170, label %common.resume, label %213
 
 213:                                              ; preds = %210
   %214 = invoke noundef zeroext i1 %212(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
@@ -958,15 +994,15 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   %216 = landingpad { ptr, i32 }
           catch ptr null
   %217 = extractvalue { ptr, i32 } %216, 0
-  call void @__clang_call_terminate(ptr %217) #12
+  call void @__clang_call_terminate(ptr %217) #13
   unreachable
 
 218:                                              ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2IPS6_vEEOT_.exit129
   %219 = landingpad { ptr, i32 }
           cleanup
-  %220 = load ptr, ptr %98, align 8
-  %.not.i.i172 = icmp eq ptr %220, null
-  br i1 %.not.i.i172, label %common.resume, label %221
+  %220 = load ptr, ptr %98, align 8, !tbaa !11
+  %.not.i172 = icmp eq ptr %220, null
+  br i1 %.not.i172, label %common.resume, label %221
 
 221:                                              ; preds = %218
   %222 = invoke noundef zeroext i1 %220(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
@@ -976,7 +1012,7 @@ _ZN12_GLOBAL__N_120registerObsoleteToolEPN3gmx24CommandLineModuleManagerEPKc.exi
   %224 = landingpad { ptr, i32 }
           catch ptr null
   %225 = extractvalue { ptr, i32 } %224, 0
-  call void @__clang_call_terminate(ptr %225) #12
+  call void @__clang_call_terminate(ptr %225) #13
   unreachable
 }
 
@@ -984,9 +1020,15 @@ declare noundef i32 @_Z9gmx_checkiPPc(i32 noundef, ptr noundef) #1
 
 declare void @_ZN3gmx25ICommandLineOptionsModule21registerModuleFactoryEPNS_24CommandLineModuleManagerEPKcS4_St8functionIFSt10unique_ptrIS0_St14default_deleteIS0_EEvEE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 declare void @_ZN3gmx8DumpInfo6createEv(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8) #1
 
 declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare noundef i32 @_Z10gmx_gromppiPPc(i32 noundef, ptr noundef) #1
 
@@ -1166,65 +1208,65 @@ declare void @_ZN3gmx22CommandLineModuleGroup9addModuleEPKc(ptr noundef nonnull 
 
 declare void @_ZN3gmx24CommandLineModuleManager14addModuleCMainEPKcS2_PFiiPPcE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #12
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #3
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 declare void @_ZN3gmx24CommandLineModuleManager9addModuleESt10unique_ptrINS_18ICommandLineModuleESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_118ObsoleteToolModuleD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN3gmx18ICommandLineModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118ObsoleteToolModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_118ObsoleteToolModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 align 2 {
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule4nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #8 align 2 {
+define internal noundef ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule4nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !14
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule16shortDescriptionEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
+define internal noalias noundef ptr @_ZNK12_GLOBAL__N_118ObsoleteToolModule16shortDescriptionEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_118ObsoleteToolModule4initEPN3gmx25CommandLineModuleSettingsE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #6 align 2 {
+define internal void @_ZN12_GLOBAL__N_118ObsoleteToolModule4initEPN3gmx25CommandLineModuleSettingsE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_118ObsoleteToolModule3runEiPPc(ptr nonnull readnone align 8 captures(none) %0, i32 %1, ptr readnone captures(none) %2) unnamed_addr #9 align 2 {
-  %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.192, i64 208, i64 1, ptr %4) #16
+define internal noundef i32 @_ZN12_GLOBAL__N_118ObsoleteToolModule3runEiPPc(ptr nonnull readnone align 8 captures(none) %0, i32 %1, ptr readnone captures(none) %2) unnamed_addr #11 align 2 {
+  %4 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.192, i64 208, i64 1, ptr %4) #17
   ret i32 0
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_118ObsoleteToolModule9writeHelpERKN3gmx22CommandLineHelpContextE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #9 align 2 {
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.192, i64 208, i64 1, ptr %3) #16
+define internal void @_ZNK12_GLOBAL__N_118ObsoleteToolModule9writeHelpERKN3gmx22CommandLineHelpContextE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #11 align 2 {
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.192, i64 208, i64 1, ptr %3) #17
   ret void
 }
 
@@ -1240,7 +1282,7 @@ declare void @_ZN3gmx25CommandLineModuleSettings19setDefaultNiceLevelEi(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
-  %3 = load ptr, ptr %1, align 8, !noalias !5
+  %3 = load ptr, ptr %1, align 8, !tbaa !4, !noalias !22
   tail call void %3(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0)
   ret void
 }
@@ -1257,12 +1299,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFSt10
   br label %_ZNSt14_Function_base13_Base_managerIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS3_EEvEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split
 
 .sink.split.i:                                    ; preds = %3
-  %5 = load ptr, ptr %1, align 8
+  %5 = load ptr, ptr %1, align 8, !tbaa !4
   br label %_ZNSt14_Function_base13_Base_managerIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS3_EEvEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split
 
 _ZNSt14_Function_base13_Base_managerIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS3_EEvEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split: ; preds = %3, %4, %.sink.split.i
   %.sink = phi ptr [ %5, %.sink.split.i ], [ %1, %4 ], [ @_ZTIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS1_EEvE, %3 ]
-  store ptr %.sink, ptr %0, align 8
+  store ptr %.sink, ptr %0, align 8, !tbaa !4
   br label %_ZNSt14_Function_base13_Base_managerIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS3_EEvEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 _ZNSt14_Function_base13_Base_managerIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS3_EEvEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit: ; preds = %_ZNSt14_Function_base13_Base_managerIPFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS3_EEvEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split, %3
@@ -1270,41 +1312,53 @@ _ZNSt14_Function_base13_Base_managerIPFSt10unique_ptrIN3gmx25ICommandLineOptions
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { nounwind }
+attributes #16 = { builtin nounwind }
+attributes #17 = { cold }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn }
-attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { nounwind }
-attributes #15 = { builtin nounwind }
-attributes #16 = { cold }
-
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!6, !8}
-!6 = distinct !{!6, !7, !"_ZSt13__invoke_implISt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EERPFS5_vEJEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!7 = distinct !{!7, !"_ZSt13__invoke_implISt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EERPFS5_vEJEET_St14__invoke_otherOT0_DpOT1_"}
-!8 = distinct !{!8, !9, !"_ZSt10__invoke_rISt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EERPFS5_vEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_: argument 0"}
-!9 = distinct !{!9, !"_ZSt10__invoke_rISt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EERPFS5_vEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !5, i64 24}
+!9 = !{!"_ZTSSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEE", !10, i64 0, !5, i64 24}
+!10 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
+!11 = !{!10, !5, i64 16}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"vtable pointer", !7, i64 0}
+!14 = !{!15, !17, i64 8}
+!15 = !{!"_ZTSN12_GLOBAL__N_118ObsoleteToolModuleE", !16, i64 0, !17, i64 8}
+!16 = !{!"_ZTSN3gmx18ICommandLineModuleE"}
+!17 = !{!"p1 omnipotent char", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN3gmx18ICommandLineModuleE", !5, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!22 = !{!23, !25}
+!23 = distinct !{!23, !24, !"_ZSt13__invoke_implISt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EERPFS5_vEJEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!24 = distinct !{!24, !"_ZSt13__invoke_implISt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EERPFS5_vEJEET_St14__invoke_otherOT0_DpOT1_"}
+!25 = distinct !{!25, !26, !"_ZSt10__invoke_rISt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EERPFS5_vEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_: argument 0"}
+!26 = distinct !{!26, !"_ZSt10__invoke_rISt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EERPFS5_vEJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_"}

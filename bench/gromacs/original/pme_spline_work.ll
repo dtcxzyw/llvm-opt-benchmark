@@ -38,10 +38,10 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull align 16 dereferenceab
   %18 = alloca %"class.gmx::Simd4FBool", align 16
   %19 = alloca %"class.gmx::Simd4Float", align 16
   %20 = alloca %"class.gmx::Simd4Float", align 16
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !9
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %struct.pme_spline_work, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.pme_spline_work, ptr %21, i32 0, i32 0
   %23 = getelementptr inbounds [6 x %"class.gmx::Simd4FBool"], ptr %22, i32 0, i32 0
   %24 = getelementptr inbounds %"class.gmx::Simd4FBool", ptr %23, i64 6
   br label %25
@@ -54,7 +54,7 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull align 16 dereferenceab
   br i1 %28, label %29, label %25
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds %struct.pme_spline_work, ptr %21, i32 0, i32 1
+  %30 = getelementptr inbounds nuw %struct.pme_spline_work, ptr %21, i32 0, i32 1
   %31 = getelementptr inbounds [6 x %"class.gmx::Simd4FBool"], ptr %30, i32 0, i32 0
   %32 = getelementptr inbounds %"class.gmx::Simd4FBool", ptr %31, i64 6
   br label %33
@@ -67,44 +67,54 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull align 16 dereferenceab
   br i1 %36, label %37, label %33
 
 37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %6) #8
   call void @_ZN3gmx10Simd4FloatC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #8
   call void @_ZN3gmx10Simd4FloatC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %7)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #8
   call void @_ZN3gmx10Simd4FloatC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #8
   call x86_vectorcallcc void @_ZN3gmxL7setZeroEv()
   %38 = call <4 x float> @_ZNK3gmx16SimdSetZeroProxycvNS_10Simd4FloatEEv(ptr noundef nonnull align 1 dereferenceable(1) %12)
-  %39 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %11, i32 0, i32 0
+  %39 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %11, i32 0, i32 0
   store <4 x float> %38, ptr %39, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %6, ptr align 16 %11, i64 16, i1 false)
-  store i32 0, ptr %9, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %6, ptr align 16 %11, i64 16, i1 false), !tbaa.struct !11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #8
+  store i32 0, ptr %9, align 4, !tbaa !9
   br label %40
 
 40:                                               ; preds = %98, %37
-  %41 = load i32, ptr %9, align 4
-  %42 = load i32, ptr %4, align 4
+  %41 = load i32, ptr %9, align 4, !tbaa !9
+  %42 = load i32, ptr %4, align 4, !tbaa !9
   %43 = sub nsw i32 %42, 1
   %44 = sub nsw i32 8, %43
   %45 = icmp slt i32 %41, %44
   br i1 %45, label %46, label %101
 
 46:                                               ; preds = %40
-  store i32 0, ptr %10, align 4
+  store i32 0, ptr %10, align 4, !tbaa !9
   br label %47
 
 47:                                               ; preds = %67, %46
-  %48 = load i32, ptr %10, align 4
+  %48 = load i32, ptr %10, align 4, !tbaa !9
   %49 = icmp slt i32 %48, 8
   br i1 %49, label %50, label %70
 
 50:                                               ; preds = %47
-  %51 = load i32, ptr %10, align 4
-  %52 = load i32, ptr %9, align 4
+  %51 = load i32, ptr %10, align 4, !tbaa !9
+  %52 = load i32, ptr %9, align 4, !tbaa !9
   %53 = icmp sge i32 %51, %52
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %50
-  %55 = load i32, ptr %10, align 4
-  %56 = load i32, ptr %9, align 4
-  %57 = load i32, ptr %4, align 4
+  %55 = load i32, ptr %10, align 4, !tbaa !9
+  %56 = load i32, ptr %9, align 4, !tbaa !9
+  %57 = load i32, ptr %4, align 4, !tbaa !9
   %58 = add nsw i32 %56, %57
   %59 = icmp slt i32 %55, %58
   br label %60
@@ -113,86 +123,103 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull align 16 dereferenceab
   %61 = phi i1 [ false, %50 ], [ %59, %54 ]
   %62 = select i1 %61, double -1.000000e+00, double 1.000000e+00
   %63 = fptrunc double %62 to float
-  %64 = load i32, ptr %10, align 4
+  %64 = load i32, ptr %10, align 4, !tbaa !9
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds [8 x float], ptr %5, i64 0, i64 %65
-  store float %63, ptr %66, align 4
+  store float %63, ptr %66, align 4, !tbaa !13
   br label %67
 
 67:                                               ; preds = %60
-  %68 = load i32, ptr %10, align 4
+  %68 = load i32, ptr %10, align 4, !tbaa !9
   %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %10, align 4
-  br label %47, !llvm.loop !5
+  store i32 %69, ptr %10, align 4, !tbaa !9
+  br label %47, !llvm.loop !15
 
 70:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #8
   %71 = getelementptr inbounds [8 x float], ptr %5, i64 0, i64 0
   %72 = call x86_vectorcallcc <4 x float> @_ZN3gmxL5load4EPKf(ptr noundef %71)
-  %73 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %13, i32 0, i32 0
+  %73 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %13, i32 0, i32 0
   store <4 x float> %72, ptr %73, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %7, ptr align 16 %13, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %7, ptr align 16 %13, i64 16, i1 false), !tbaa.struct !11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #8
   %74 = getelementptr inbounds [8 x float], ptr %5, i64 0, i64 0
   %75 = getelementptr inbounds float, ptr %74, i64 4
   %76 = call x86_vectorcallcc <4 x float> @_ZN3gmxL5load4EPKf(ptr noundef %75)
-  %77 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %14, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %14, i32 0, i32 0
   store <4 x float> %76, ptr %77, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %8, ptr align 16 %14, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %16, ptr align 16 %7, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %17, ptr align 16 %6, i64 16, i1 false)
-  %78 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %16, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %8, ptr align 16 %14, i64 16, i1 false), !tbaa.struct !11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %16, ptr align 16 %7, i64 16, i1 false), !tbaa.struct !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %17, ptr align 16 %6, i64 16, i1 false), !tbaa.struct !11
+  %78 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %16, i32 0, i32 0
   %79 = load <4 x float>, ptr %78, align 16
-  %80 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %17, i32 0, i32 0
+  %80 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %17, i32 0, i32 0
   %81 = load <4 x float>, ptr %80, align 16
   %82 = call x86_vectorcallcc <4 x float> @_ZN3gmxltENS_10Simd4FloatES0_(<4 x float> %79, <4 x float> %81)
-  %83 = getelementptr inbounds %"class.gmx::Simd4FBool", ptr %15, i32 0, i32 0
+  %83 = getelementptr inbounds nuw %"class.gmx::Simd4FBool", ptr %15, i32 0, i32 0
   store <4 x float> %82, ptr %83, align 16
-  %84 = getelementptr inbounds %struct.pme_spline_work, ptr %21, i32 0, i32 0
-  %85 = load i32, ptr %9, align 4
+  %84 = getelementptr inbounds nuw %struct.pme_spline_work, ptr %21, i32 0, i32 0
+  %85 = load i32, ptr %9, align 4, !tbaa !9
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds [6 x %"class.gmx::Simd4FBool"], ptr %84, i64 0, i64 %86
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %87, ptr align 16 %15, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %19, ptr align 16 %8, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %20, ptr align 16 %6, i64 16, i1 false)
-  %88 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %19, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %87, ptr align 16 %15, i64 16, i1 false), !tbaa.struct !11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %19, ptr align 16 %8, i64 16, i1 false), !tbaa.struct !11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %20, ptr align 16 %6, i64 16, i1 false), !tbaa.struct !11
+  %88 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %19, i32 0, i32 0
   %89 = load <4 x float>, ptr %88, align 16
-  %90 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %20, i32 0, i32 0
+  %90 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %20, i32 0, i32 0
   %91 = load <4 x float>, ptr %90, align 16
   %92 = call x86_vectorcallcc <4 x float> @_ZN3gmxltENS_10Simd4FloatES0_(<4 x float> %89, <4 x float> %91)
-  %93 = getelementptr inbounds %"class.gmx::Simd4FBool", ptr %18, i32 0, i32 0
+  %93 = getelementptr inbounds nuw %"class.gmx::Simd4FBool", ptr %18, i32 0, i32 0
   store <4 x float> %92, ptr %93, align 16
-  %94 = getelementptr inbounds %struct.pme_spline_work, ptr %21, i32 0, i32 1
-  %95 = load i32, ptr %9, align 4
+  %94 = getelementptr inbounds nuw %struct.pme_spline_work, ptr %21, i32 0, i32 1
+  %95 = load i32, ptr %9, align 4, !tbaa !9
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds [6 x %"class.gmx::Simd4FBool"], ptr %94, i64 0, i64 %96
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %97, ptr align 16 %18, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %97, ptr align 16 %18, i64 16, i1 false), !tbaa.struct !11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #8
   br label %98
 
 98:                                               ; preds = %70
-  %99 = load i32, ptr %9, align 4
+  %99 = load i32, ptr %9, align 4, !tbaa !9
   %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %9, align 4
-  br label %40, !llvm.loop !7
+  store i32 %100, ptr %9, align 4, !tbaa !9
+  br label %40, !llvm.loop !17
 
 101:                                              ; preds = %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx10Simd4FBoolC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx10Simd4FloatC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal x86_vectorcallcc void @_ZN3gmxL7setZeroEv() #1 {
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define internal x86_vectorcallcc void @_ZN3gmxL7setZeroEv() #3 {
   ret void
 }
 
@@ -200,106 +227,144 @@ define internal x86_vectorcallcc void @_ZN3gmxL7setZeroEv() #1 {
 define linkonce_odr <4 x float> @_ZNK3gmx16SimdSetZeroProxycvNS_10Simd4FloatEEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
   %2 = alloca %"class.gmx::Simd4Float", align 16
   %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !22
   %4 = call x86_vectorcallcc <4 x float> @_ZN3gmxL13simd4SetZeroFEv()
-  %5 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %2, i32 0, i32 0
   store <4 x float> %4, ptr %5, align 16
-  %6 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %2, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %2, i32 0, i32 0
   %7 = load <4 x float>, ptr %6, align 16
   ret <4 x float> %7
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN3gmxL5load4EPKf(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca %"class.gmx::Simd4Float", align 16
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %2, align 8
-  %6 = load ptr, ptr %2, align 8
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: inlinehint mustprogress uwtable
+define internal x86_vectorcallcc <4 x float> @_ZN3gmxL5load4EPKf(ptr noundef %0) #5 {
+  %2 = alloca %"class.gmx::Simd4Float", align 16
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
+  %5 = call noundef <4 x float> @_ZL11_mm_load_psPKf(ptr noundef %4)
+  call void @_ZN3gmx10Simd4FloatC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %2, <4 x float> noundef %5)
+  %6 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %2, i32 0, i32 0
   %7 = load <4 x float>, ptr %6, align 16
-  call void @_ZN3gmx10Simd4FloatC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %3, <4 x float> noundef %7)
-  %8 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %3, i32 0, i32 0
-  %9 = load <4 x float>, ptr %8, align 16
-  ret <4 x float> %9
+  ret <4 x float> %7
 }
 
-; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN3gmxltENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal x86_vectorcallcc <4 x float> @_ZN3gmxltENS_10Simd4FloatES0_(<4 x float> %0, <4 x float> %1) #5 {
   %3 = alloca %"class.gmx::Simd4FBool", align 16
   %4 = alloca %"class.gmx::Simd4Float", align 16
   %5 = alloca %"class.gmx::Simd4Float", align 16
-  %6 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %4, i32 0, i32 0
   store <4 x float> %0, ptr %6, align 16
-  %7 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %5, i32 0, i32 0
   store <4 x float> %1, ptr %7, align 16
-  %8 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %4, i32 0, i32 0
-  %9 = load <4 x float>, ptr %8, align 16
-  %10 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %5, i32 0, i32 0
-  %11 = load <4 x float>, ptr %10, align 16
+  %8 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %4, i32 0, i32 0
+  %9 = load <4 x float>, ptr %8, align 16, !tbaa !12
+  %10 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %5, i32 0, i32 0
+  %11 = load <4 x float>, ptr %10, align 16, !tbaa !12
   %12 = fcmp olt <4 x float> %9, %11
   %13 = sext <4 x i1> %12 to <4 x i32>
   %14 = bitcast <4 x i32> %13 to <4 x float>
   call void @_ZN3gmx10Simd4FBoolC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %3, <4 x float> noundef %14)
-  %15 = getelementptr inbounds %"class.gmx::Simd4FBool", ptr %3, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"class.gmx::Simd4FBool", ptr %3, i32 0, i32 0
   %16 = load <4 x float>, ptr %15, align 16
   ret <4 x float> %16
 }
 
-; Function Attrs: mustprogress uwtable
-define internal x86_vectorcallcc <4 x float> @_ZN3gmxL13simd4SetZeroFEv() #0 {
+; Function Attrs: inlinehint mustprogress uwtable
+define internal x86_vectorcallcc <4 x float> @_ZN3gmxL13simd4SetZeroFEv() #5 {
+  %1 = alloca %"class.gmx::Simd4Float", align 16
+  %2 = call noundef <4 x float> @_ZL14_mm_setzero_psv()
+  call void @_ZN3gmx10Simd4FloatC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %1, <4 x float> noundef %2)
+  %3 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %1, i32 0, i32 0
+  %4 = load <4 x float>, ptr %3, align 16
+  ret <4 x float> %4
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL14_mm_setzero_psv() #6 {
   %1 = alloca <4 x float>, align 16
-  %2 = alloca %"class.gmx::Simd4Float", align 16
-  store <4 x float> zeroinitializer, ptr %1, align 16
-  %3 = load <4 x float>, ptr %1, align 16
-  call void @_ZN3gmx10Simd4FloatC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %2, <4 x float> noundef %3)
-  %4 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %2, i32 0, i32 0
-  %5 = load <4 x float>, ptr %4, align 16
-  ret <4 x float> %5
+  store <4 x float> zeroinitializer, ptr %1, align 16, !tbaa !12
+  %2 = load <4 x float>, ptr %1, align 16, !tbaa !12
+  ret <4 x float> %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx10Simd4FloatC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %0, <4 x float> noundef %1) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10Simd4FloatC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %0, <4 x float> noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca <4 x float>, align 16
-  store ptr %0, ptr %3, align 8
-  store <4 x float> %1, ptr %4, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !20
+  store <4 x float> %1, ptr %4, align 16, !tbaa !12
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.gmx::Simd4Float", ptr %5, i32 0, i32 0
-  %7 = load <4 x float>, ptr %4, align 16
-  store <4 x float> %7, ptr %6, align 16
+  %6 = getelementptr inbounds nuw %"class.gmx::Simd4Float", ptr %5, i32 0, i32 0
+  %7 = load <4 x float>, ptr %4, align 16, !tbaa !12
+  store <4 x float> %7, ptr %6, align 16, !tbaa !12
   ret void
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind uwtable
+define internal noundef <4 x float> @_ZL11_mm_load_psPKf(ptr noundef %0) #6 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %4 = load <4 x float>, ptr %3, align 16, !tbaa !12
+  ret <4 x float> %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx10Simd4FBoolC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %0, <4 x float> noundef %1) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN3gmx10Simd4FBoolC2EDv4_f(ptr noundef nonnull align 16 dereferenceable(16) %0, <4 x float> noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca <4 x float>, align 16
-  store ptr %0, ptr %3, align 8
-  store <4 x float> %1, ptr %4, align 16
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store <4 x float> %1, ptr %4, align 16, !tbaa !12
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.gmx::Simd4FBool", ptr %5, i32 0, i32 0
-  %7 = load <4 x float>, ptr %4, align 16
-  store <4 x float> %7, ptr %6, align 16
+  %6 = getelementptr inbounds nuw %"class.gmx::Simd4FBool", ptr %5, i32 0, i32 0
+  %7 = load <4 x float>, ptr %4, align 16, !tbaa !12
+  store <4 x float> %7, ptr %6, align 16, !tbaa !12
   ret void
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS15pme_spline_work", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{i64 0, i64 16, !12}
+!12 = !{!7, !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"float", !7, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = distinct !{!17, !16}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN3gmx10Simd4FBoolE", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTSN3gmx10Simd4FloatE", !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTSN3gmx16SimdSetZeroProxyE", !6, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 float", !6, i64 0}

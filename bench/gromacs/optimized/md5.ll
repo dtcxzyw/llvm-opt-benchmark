@@ -10,47 +10,47 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z12gmx_md5_initP11md5_state_s(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %2, align 4
-  store i32 0, ptr %0, align 4
+  store i32 0, ptr %2, align 4, !tbaa !4
+  store i32 0, ptr %0, align 4, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1732584193, ptr %3, align 4
+  store i32 1732584193, ptr %3, align 4, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 -271733879, ptr %4, align 4
+  store i32 -271733879, ptr %4, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -1732584194, ptr %5, align 4
+  store i32 -1732584194, ptr %5, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 271733878, ptr %6, align 4
+  store i32 271733878, ptr %6, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_Z14gmx_md5_appendP11md5_state_sPKhi(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %0, align 4, !tbaa !4
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 63
   %7 = icmp slt i32 %2, 1
-  br i1 %7, label %41, label %8
+  br i1 %7, label %40, label %8
 
 8:                                                ; preds = %3
   %9 = shl i32 %2, 3
   %10 = lshr i32 %2, 29
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = add i32 %12, %10
-  store i32 %13, ptr %11, align 4
+  store i32 %13, ptr %11, align 4, !tbaa !4
   %14 = add i32 %4, %9
-  store i32 %14, ptr %0, align 4
+  store i32 %14, ptr %0, align 4, !tbaa !4
   %15 = icmp ult i32 %14, %9
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %8
   %17 = add i32 %13, 1
-  store i32 %17, ptr %11, align 4
+  store i32 %17, ptr %11, align 4, !tbaa !4
   br label %18
 
 18:                                               ; preds = %16, %8
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %33, label %19
+  br i1 %.not, label %32, label %19
 
 19:                                               ; preds = %18
   %20 = add nuw nsw i32 %6, %2
@@ -63,59 +63,62 @@ define void @_Z14gmx_md5_appendP11md5_state_sPKhi(ptr noundef %0, ptr noundef %1
   %27 = zext nneg i32 %23 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %1, i64 %27, i1 false)
   %28 = add nuw nsw i32 %23, %6
-  %29 = icmp samesign ult i32 %28, 64
-  br i1 %29, label %41, label %30
+  %29 = icmp samesign ugt i32 %28, 63
+  br i1 %29, label %.thread, label %40
 
-30:                                               ; preds = %19
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %27
-  %32 = sub nsw i32 %2, %23
+.thread:                                          ; preds = %19
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %27
+  %31 = sub nsw i32 %2, %23
   tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef nonnull %24)
-  br label %33
+  br label %32
 
-33:                                               ; preds = %30, %18
-  %.037 = phi i32 [ %32, %30 ], [ %2, %18 ]
-  %.0 = phi ptr [ %31, %30 ], [ %1, %18 ]
-  %34 = icmp sgt i32 %.037, 63
-  br i1 %34, label %.lr.ph, label %._crit_edge
+32:                                               ; preds = %.thread, %18
+  %.039 = phi i32 [ %2, %18 ], [ %31, %.thread ]
+  %.0 = phi ptr [ %1, %18 ], [ %30, %.thread ]
+  %33 = icmp sgt i32 %.039, 63
+  br i1 %33, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %33, %.lr.ph
-  %.143 = phi ptr [ %35, %.lr.ph ], [ %.0, %33 ]
-  %.13842 = phi i32 [ %36, %.lr.ph ], [ %.037, %33 ]
-  tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef %.143)
-  %35 = getelementptr inbounds nuw i8, ptr %.143, i64 64
-  %36 = add nsw i32 %.13842, -64
-  %37 = icmp samesign ugt i32 %.13842, 127
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+.lr.ph:                                           ; preds = %32, %.lr.ph
+  %.248 = phi ptr [ %34, %.lr.ph ], [ %.0, %32 ]
+  %.24147 = phi i32 [ %35, %.lr.ph ], [ %.039, %32 ]
+  tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef %.248)
+  %34 = getelementptr inbounds nuw i8, ptr %.248, i64 64
+  %35 = add nsw i32 %.24147, -64
+  %36 = icmp samesign ugt i32 %.24147, 127
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %33
-  %.138.lcssa = phi i32 [ %.037, %33 ], [ %36, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %.0, %33 ], [ %35, %.lr.ph ]
-  %.not41 = icmp eq i32 %.138.lcssa, 0
-  br i1 %.not41, label %41, label %38
+._crit_edge:                                      ; preds = %.lr.ph, %32
+  %.241.lcssa = phi i32 [ %.039, %32 ], [ %35, %.lr.ph ]
+  %.2.lcssa = phi ptr [ %.0, %32 ], [ %34, %.lr.ph ]
+  %.not44 = icmp eq i32 %.241.lcssa, 0
+  br i1 %.not44, label %40, label %37
 
-38:                                               ; preds = %._crit_edge
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = sext i32 %.138.lcssa to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr align 1 %.1.lcssa, i64 %40, i1 false)
-  br label %41
+37:                                               ; preds = %._crit_edge
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %39 = sext i32 %.241.lcssa to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr align 1 %.2.lcssa, i64 %39, i1 false)
+  br label %40
 
-41:                                               ; preds = %19, %3, %38, %._crit_edge
+40:                                               ; preds = %19, %._crit_edge, %37, %3
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !4
   %.0.sroa.gep600 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %.0.sroa.phi598.sroa.speculated = load i32, ptr %.0.sroa.gep600, align 1
   %.0.sroa.gep597 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -672,21 +675,25 @@ define internal fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef captu
   %541 = add i32 %540, %538
   %542 = tail call i32 @llvm.fshl.i32(i32 %541, i32 %541, i32 21)
   %543 = add i32 %519, %4
-  store i32 %543, ptr %3, align 4
+  store i32 %543, ptr %3, align 4, !tbaa !4
   %544 = add i32 %535, %6
   %545 = add i32 %544, %542
-  store i32 %545, ptr %5, align 4
+  store i32 %545, ptr %5, align 4, !tbaa !4
   %546 = add i32 %535, %8
-  store i32 %546, ptr %7, align 4
+  store i32 %546, ptr %7, align 4, !tbaa !4
   %547 = add i32 %527, %10
-  store i32 %547, ptr %9, align 4
+  store i32 %547, ptr %9, align 4, !tbaa !4
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %"struct.std::array", align 8
   %3 = alloca [8 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   br label %4
 
 4:                                                ; preds = %1, %4
@@ -694,20 +701,20 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
   %5 = lshr i64 %indvars.iv, 2
   %6 = and i64 %5, 1073741823
   %7 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %6
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %9 = shl i32 %indvars.iv.tr, 3
   %10 = and i32 %9, 24
   %11 = lshr i32 %8, %10
   %12 = trunc i32 %11 to i8
   %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv
-  store i8 %12, ptr %13, align 1
+  store i8 %12, ptr %13, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %14, label %4, !llvm.loop !7
+  br i1 %exitcond.not, label %14, label %4, !llvm.loop !11
 
 14:                                               ; preds = %4
-  %15 = load i32, ptr %0, align 4
+  %15 = load i32, ptr %0, align 4, !tbaa !4
   %16 = lshr i32 %15, 3
   %17 = sub nsw i32 55, %16
   %18 = and i32 %17, 63
@@ -715,15 +722,15 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
   %20 = and i32 %16, 63
   %21 = shl nuw nsw i32 %19, 3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = add i32 %21, %15
-  store i32 %24, ptr %0, align 4
+  store i32 %24, ptr %0, align 4, !tbaa !4
   %25 = icmp ult i32 %24, %21
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %14
   %27 = add i32 %23, 1
-  store i32 %27, ptr %22, align 4
+  store i32 %27, ptr %22, align 4, !tbaa !4
   br label %28
 
 28:                                               ; preds = %26, %14
@@ -741,42 +748,42 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
   %37 = zext nneg i32 %33 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 16 dereferenceable(1) @_ZZ14gmx_md5_finishP11md5_state_sE3pad, i64 %37, i1 false)
   %38 = add nuw nsw i32 %33, %20
-  %39 = icmp samesign ult i32 %38, 64
-  br i1 %39, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit, label %.thread
+  %39 = icmp samesign ugt i32 %38, 63
+  br i1 %39, label %.thread, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
 
 .thread:                                          ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr @_ZZ14gmx_md5_finishP11md5_state_sE3pad, i64 %37
   %41 = sub nsw i32 %19, %33
   tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef nonnull %34)
-  %.not41.i = icmp eq i32 %41, 0
-  br i1 %.not41.i, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit, label %._crit_edge.i.thread
+  %.not44.i = icmp eq i32 %41, 0
+  br i1 %.not44.i, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit, label %._crit_edge.i.thread
 
 ._crit_edge.i.thread:                             ; preds = %28, %.thread
-  %.1.lcssa.i32 = phi ptr [ %40, %.thread ], [ @_ZZ14gmx_md5_finishP11md5_state_sE3pad, %28 ]
-  %.138.lcssa.i31 = phi i32 [ %41, %.thread ], [ %19, %28 ]
+  %.2.lcssa.i33 = phi ptr [ %40, %.thread ], [ @_ZZ14gmx_md5_finishP11md5_state_sE3pad, %28 ]
+  %.241.lcssa.i32 = phi i32 [ %41, %.thread ], [ %19, %28 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %43 = sext i32 %.138.lcssa.i31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %42, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i32, i64 %43, i1 false)
+  %43 = sext i32 %.241.lcssa.i32 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %42, ptr noundef nonnull align 1 dereferenceable(1) %.2.lcssa.i33, i64 %43, i1 false)
   br label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
 
 _Z14gmx_md5_appendP11md5_state_sPKhi.exit:        ; preds = %29, %.thread, %._crit_edge.i.thread
-  %44 = load i32, ptr %0, align 4
+  %44 = load i32, ptr %0, align 4, !tbaa !4
   %45 = lshr i32 %44, 3
   %46 = and i32 %45, 63
-  %47 = load i32, ptr %22, align 4
+  %47 = load i32, ptr %22, align 4, !tbaa !4
   %48 = add i32 %44, 64
-  store i32 %48, ptr %0, align 4
+  store i32 %48, ptr %0, align 4, !tbaa !4
   %49 = icmp ugt i32 %44, -65
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
   %51 = add i32 %47, 1
-  store i32 %51, ptr %22, align 4
+  store i32 %51, ptr %22, align 4, !tbaa !4
   br label %52
 
 52:                                               ; preds = %50, %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
   %.not.i15 = icmp eq i32 %46, 0
-  br i1 %.not.i15, label %._crit_edge.i18.thread, label %53
+  br i1 %.not.i15, label %._crit_edge.i19.thread, label %53
 
 53:                                               ; preds = %52
   %54 = icmp samesign ugt i32 %46, 56
@@ -788,70 +795,77 @@ _Z14gmx_md5_appendP11md5_state_sPKhi.exit:        ; preds = %29, %.thread, %._cr
   %60 = zext nneg i32 %56 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %59, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %60, i1 false)
   %61 = add nuw nsw i32 %56, %46
-  %62 = icmp samesign ult i32 %61, 64
-  br i1 %62, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, label %._crit_edge.i18
+  %62 = icmp samesign ugt i32 %61, 63
+  br i1 %62, label %._crit_edge.i19, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit26
 
-._crit_edge.i18:                                  ; preds = %53
+._crit_edge.i19:                                  ; preds = %53
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 %60
   %64 = sub nsw i32 8, %56
   tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef nonnull %57)
-  %.not41.i21 = icmp eq i32 %56, 8
-  br i1 %.not41.i21, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, label %._crit_edge.i18.thread
+  %.not44.i22 = icmp eq i32 %56, 8
+  br i1 %.not44.i22, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit26, label %._crit_edge.i19.thread
 
-._crit_edge.i18.thread:                           ; preds = %52, %._crit_edge.i18
-  %.1.lcssa.i2037 = phi ptr [ %63, %._crit_edge.i18 ], [ %3, %52 ]
-  %.138.lcssa.i1936 = phi i32 [ %64, %._crit_edge.i18 ], [ 8, %52 ]
+._crit_edge.i19.thread:                           ; preds = %52, %._crit_edge.i19
+  %.2.lcssa.i2138 = phi ptr [ %63, %._crit_edge.i19 ], [ %3, %52 ]
+  %.241.lcssa.i2037 = phi i32 [ %64, %._crit_edge.i19 ], [ 8, %52 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = sext i32 %.138.lcssa.i1936 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr nonnull align 1 %.1.lcssa.i2037, i64 %66, i1 false)
-  br label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25
+  %66 = sext i32 %.241.lcssa.i2037 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr nonnull align 1 %.2.lcssa.i2138, i64 %66, i1 false)
+  br label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit26
 
-_Z14gmx_md5_appendP11md5_state_sPKhi.exit25:      ; preds = %53, %._crit_edge.i18, %._crit_edge.i18.thread
+_Z14gmx_md5_appendP11md5_state_sPKhi.exit26:      ; preds = %53, %._crit_edge.i19, %._crit_edge.i19.thread
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %68
+  br label %69
 
-68:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, %68
-  %.039 = phi i64 [ 0, %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25 ], [ %77, %68 ]
-  %69 = lshr i64 %.039, 2
-  %70 = getelementptr inbounds nuw [4 x i32], ptr %67, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4
-  %.0.tr = trunc nuw i64 %.039 to i32
-  %72 = shl nuw nsw i32 %.0.tr, 3
-  %73 = and i32 %72, 24
-  %74 = lshr i32 %71, %73
-  %75 = trunc i32 %74 to i8
-  %76 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %.039
-  store i8 %75, ptr %76, align 1
-  %77 = add nuw nsw i64 %.039, 1
-  %exitcond41.not = icmp eq i64 %77, 16
-  br i1 %exitcond41.not, label %78, label %68, !llvm.loop !8
-
-78:                                               ; preds = %68
+68:                                               ; preds = %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   %.fca.0.load = load i64, ptr %2, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
+
+69:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit26, %69
+  %.040 = phi i64 [ 0, %_Z14gmx_md5_appendP11md5_state_sPKhi.exit26 ], [ %78, %69 ]
+  %70 = lshr i64 %.040, 2
+  %71 = getelementptr inbounds nuw [4 x i32], ptr %67, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !4
+  %.0.tr = trunc nuw i64 %.040 to i32
+  %73 = shl nuw nsw i32 %.0.tr, 3
+  %74 = and i32 %73, 24
+  %75 = lshr i32 %72, %74
+  %76 = trunc i32 %75 to i8
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %.040
+  store i8 %76, ptr %77, align 1, !tbaa !10
+  %78 = add nuw nsw i64 %.040, 1
+  %exitcond42.not = icmp eq i64 %78, 16
+  br i1 %exitcond42.not, label %68, label %69, !llvm.loop !12
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #4
+declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"openmp", i32 51}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

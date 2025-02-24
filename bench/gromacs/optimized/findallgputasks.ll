@@ -18,9 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
-%"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
-%"class.std::basic_string_view" = type { i64, ptr }
-%"class.std::allocator.0" = type { i8 }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<std::vector<gmx::GpuTask>, std::allocator<std::vector<gmx::GpuTask>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<gmx::GpuTask>, std::allocator<std::vector<gmx::GpuTask>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<gmx::GpuTask>, std::allocator<std::vector<gmx::GpuTask>>>::_Vector_impl_data" }
@@ -32,7 +29,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 
 $_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EED2Ev = comdat any
 
-$_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_ = comdat any
+$_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_ = comdat any
 
 @.str = private unnamed_addr constant [140 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/gromacs/gromacs/src/gromacs/taskassignment/findallgputasks.cpp\00", align 1
 @.str.1 = private unnamed_addr constant [84 x i8] c"Cannot run short-ranged nonbonded interactions on a GPU because no GPU is detected.\00", align 1
@@ -55,973 +52,1119 @@ define void @_ZN3gmx22findGpuTasksOnThisRankEbNS_10TaskTargetES0_S0_S0_bbbb(ptr 
   br i1 %brmerge.demorgan, label %15, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit
 
 15:                                               ; preds = %10
-  br i1 %1, label %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, label %21
+  br i1 %1, label %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, label %20
 
 _ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #14
-  store i32 0, ptr %18, align 4
+  store i32 0, ptr %18, align 4, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store ptr %18, ptr %0, align 8
-  store ptr %19, ptr %16, align 8
-  store ptr %19, ptr %17, align 8
-  %20 = ptrtoint ptr %19 to i64
-  %brmerge17.demorgan36 = and i1 %7, %9
-  br i1 %brmerge17.demorgan36, label %.thread37, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit28
+  store ptr %18, ptr %0, align 8, !tbaa !7
+  store ptr %19, ptr %16, align 8, !tbaa !10
+  store ptr %19, ptr %17, align 8, !tbaa !11
+  %brmerge29.demorgan48 = and i1 %7, %9
+  br i1 %brmerge29.demorgan48, label %.thread49, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit40
 
-21:                                               ; preds = %15
-  %22 = icmp eq i32 %2, 2
-  br i1 %22, label %23, label %27
+20:                                               ; preds = %15
+  %21 = icmp eq i32 %2, 2
+  br i1 %21, label %22, label %30
 
-23:                                               ; preds = %21
-  call void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 1 dereferenceable(140) @.str, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 85, ptr noundef nonnull @.str.1) #15
-          to label %24 unwind label %25
+22:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #15
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 1 dereferenceable(140) @.str, i8 noundef zeroext 2)
+          to label %23 unwind label %25
+
+23:                                               ; preds = %22
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 88, ptr noundef nonnull @.str.1) #16
+          to label %24 unwind label %27
 
 24:                                               ; preds = %23
   unreachable
 
-25:                                               ; preds = %23
+25:                                               ; preds = %22
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #16
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
+  br label %29
 
-27:                                               ; preds = %21
-  %28 = icmp eq i32 %4, 2
-  br i1 %28, label %29, label %33
-
-29:                                               ; preds = %27
-  call void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(140) @.str, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 91, ptr noundef nonnull @.str.2) #15
-          to label %30 unwind label %31
-
-30:                                               ; preds = %29
-  unreachable
-
-31:                                               ; preds = %29
-  %32 = landingpad { ptr, i32 }
+27:                                               ; preds = %23
+  %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #16
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #15
+  br label %29
+
+29:                                               ; preds = %27, %25
+  %.pn20 = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #15
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
 
-33:                                               ; preds = %27
-  %34 = icmp eq i32 %5, 2
-  br i1 %34, label %35, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit.thread
+30:                                               ; preds = %20
+  %31 = icmp eq i32 %4, 2
+  br i1 %31, label %32, label %40
 
-35:                                               ; preds = %33
-  call void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 1 dereferenceable(140) @.str, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 96, ptr noundef nonnull @.str.3) #15
-          to label %36 unwind label %37
+32:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #15
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(140) @.str, i8 noundef zeroext 2)
+          to label %33 unwind label %35
 
-36:                                               ; preds = %35
+33:                                               ; preds = %32
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 94, ptr noundef nonnull @.str.2) #16
+          to label %34 unwind label %37
+
+34:                                               ; preds = %33
   unreachable
 
-37:                                               ; preds = %35
+35:                                               ; preds = %32
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  br label %39
+
+37:                                               ; preds = %33
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #16
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #15
+  br label %39
+
+39:                                               ; preds = %37, %35
+  %.pn18 = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #15
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
+
+40:                                               ; preds = %30
+  %41 = icmp eq i32 %5, 2
+  br i1 %41, label %42, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit.thread
+
+42:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #15
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 1 dereferenceable(140) @.str, i8 noundef zeroext 2)
+          to label %43 unwind label %45
+
+43:                                               ; preds = %42
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 99, ptr noundef nonnull @.str.3) #16
+          to label %44 unwind label %47
+
+44:                                               ; preds = %43
+  unreachable
+
+45:                                               ; preds = %42
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  br label %49
+
+47:                                               ; preds = %43
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #15
+  br label %49
+
+49:                                               ; preds = %47, %45
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #15
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit: ; preds = %10
-  %brmerge17.demorgan = and i1 %7, %9
-  br i1 %brmerge17.demorgan, label %41, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit28
+  %brmerge29.demorgan = and i1 %7, %9
+  br i1 %brmerge29.demorgan, label %52, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit40
 
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %33
-  %39 = icmp eq i32 %3, 2
-  %40 = and i1 %39, %7
-  %or.cond = and i1 %40, %9
-  br i1 %or.cond, label %63, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit28
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %40
+  %50 = icmp eq i32 %3, 2
+  %51 = and i1 %50, %7
+  %or.cond = and i1 %51, %9
+  br i1 %or.cond, label %75, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit40
 
-41:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit
-  br i1 %1, label %.thread37, label %.thread
+52:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit
+  br i1 %1, label %.thread49, label %.thread
 
-.thread37:                                        ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %41
-  %42 = phi ptr [ null, %41 ], [ %18, %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %43 = phi i64 [ 0, %41 ], [ %20, %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = ptrtoint ptr %42 to i64
-  %47 = sub i64 %43, %46
-  %48 = icmp eq i64 %47, 9223372036854775804
-  br i1 %48, label %49, label %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i20
+.thread49:                                        ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %52
+  %53 = phi ptr [ null, %52 ], [ %18, %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %54 = phi ptr [ null, %52 ], [ %19, %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %57 = ptrtoint ptr %54 to i64
+  %58 = ptrtoint ptr %53 to i64
+  %59 = sub i64 %57, %58
+  %60 = icmp eq i64 %59, 9223372036854775804
+  br i1 %60, label %61, label %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i32
 
-49:                                               ; preds = %.thread37
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #15
-          to label %.noexc26 unwind label %67
+61:                                               ; preds = %.thread49
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #16
+          to label %.noexc38 unwind label %83
 
-.noexc26:                                         ; preds = %49
+.noexc38:                                         ; preds = %61
   unreachable
 
-_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i20: ; preds = %.thread37
-  %50 = ashr exact i64 %47, 2
-  %.sroa.speculated.i.i.i.i21 = tail call i64 @llvm.umax.i64(i64 %50, i64 1)
-  %51 = add nsw i64 %.sroa.speculated.i.i.i.i21, %50
-  %52 = icmp ult i64 %51, %50
-  %53 = tail call i64 @llvm.umin.i64(i64 %51, i64 2305843009213693951)
-  %54 = select i1 %52, i64 2305843009213693951, i64 %53
-  %.not.i.i.i.i22 = icmp ne i64 %54, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i22)
-  %55 = shl nuw nsw i64 %54, 2
-  %56 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #14
-          to label %.noexc27 unwind label %67
+_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i32: ; preds = %.thread49
+  %62 = ashr exact i64 %59, 2
+  %.sroa.speculated.i.i.i.i33 = tail call i64 @llvm.umax.i64(i64 %62, i64 1)
+  %63 = add nsw i64 %.sroa.speculated.i.i.i.i33, %62
+  %64 = icmp ult i64 %63, %62
+  %65 = tail call i64 @llvm.umin.i64(i64 %63, i64 2305843009213693951)
+  %66 = select i1 %64, i64 2305843009213693951, i64 %65
+  %.not.i.i.i.i34 = icmp ne i64 %66, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i34)
+  %67 = shl nuw nsw i64 %66, 2
+  %68 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %67) #14
+          to label %.noexc39 unwind label %83
 
-.noexc27:                                         ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i20
-  %57 = getelementptr inbounds i8, ptr %56, i64 %47
-  store i32 1, ptr %57, align 4
-  %58 = icmp sgt i64 %47, 0
-  br i1 %58, label %59, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i23
+.noexc39:                                         ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i32
+  %69 = getelementptr inbounds i8, ptr %68, i64 %59
+  store i32 1, ptr %69, align 4, !tbaa !3
+  %70 = icmp sgt i64 %59, 0
+  br i1 %70, label %71, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i35
 
-59:                                               ; preds = %.noexc27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %56, ptr align 4 %42, i64 %47, i1 false)
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i23
+71:                                               ; preds = %.noexc39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr align 4 %53, i64 %59, i1 false)
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i35
 
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i23: ; preds = %59, %.noexc27
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %.not.i17.i.i.i24 = icmp eq ptr %42, null
-  br i1 %.not.i17.i.i.i24, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i25, label %61
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i35: ; preds = %71, %.noexc39
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %.not.i17.i.i.i36 = icmp eq ptr %53, null
+  br i1 %.not.i17.i.i.i36, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37, label %73
 
-61:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i23
-  tail call void @_ZdlPv(ptr noundef nonnull %42) #17
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i25
+73:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i35
+  tail call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %59) #17
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37
 
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i25: ; preds = %61, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i23
-  store ptr %56, ptr %0, align 8
-  store ptr %60, ptr %44, align 8
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %54
-  store ptr %62, ptr %45, align 8
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit28
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37: ; preds = %73, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i35
+  store ptr %68, ptr %0, align 8, !tbaa !7
+  store ptr %72, ptr %55, align 8, !tbaa !10
+  %74 = getelementptr inbounds nuw i32, ptr %68, i64 %66
+  store ptr %74, ptr %56, align 8, !tbaa !11
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit40
 
-.thread:                                          ; preds = %41
+.thread:                                          ; preds = %52
   %.old = icmp eq i32 %3, 2
-  br i1 %.old, label %63, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit28
+  br i1 %.old, label %75, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit40
 
-63:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit.thread, %.thread
-  call void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(140) @.str, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 111, ptr noundef nonnull @.str.4) #15
-          to label %64 unwind label %65
+75:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit.thread, %.thread
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #15
+  invoke void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(140) @.str, i8 noundef zeroext 2)
+          to label %76 unwind label %78
 
-64:                                               ; preds = %63
+76:                                               ; preds = %75
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 114, ptr noundef nonnull @.str.4) #16
+          to label %77 unwind label %80
+
+77:                                               ; preds = %76
   unreachable
 
-65:                                               ; preds = %63
-  %66 = landingpad { ptr, i32 }
+78:                                               ; preds = %75
+  %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #16
+  br label %82
+
+80:                                               ; preds = %76
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #15
+  br label %82
+
+82:                                               ; preds = %80, %78
+  %.pn22 = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #15
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit28: ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i25, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit.thread, %.thread, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit40: ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i37, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit.thread, %.thread, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit
   ret void
 
-67:                                               ; preds = %49, %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i20
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+83:                                               ; preds = %61, %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i32
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit, label %68
+  %.not.i.i.i = icmp eq ptr %53, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit, label %85
 
-68:                                               ; preds = %67
-  tail call void @_ZdlPv(ptr noundef nonnull %42) #17
+85:                                               ; preds = %83
+  %86 = ptrtoint ptr %54 to i64
+  %87 = ptrtoint ptr %53 to i64
+  %88 = sub i64 %86, %87
+  tail call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %88) #17
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit:     ; preds = %37, %31, %25, %65, %67, %68
-  %.pn41 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %67 ], [ %lpad.thr_comm.split-lp, %68 ], [ %38, %37 ], [ %32, %31 ], [ %26, %25 ], [ %66, %65 ]
-  resume { ptr, i32 } %.pn41
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit:     ; preds = %49, %39, %29, %82, %83, %85
+  %.pn2454 = phi { ptr, i32 } [ %84, %83 ], [ %84, %85 ], [ %.pn, %49 ], [ %.pn18, %39 ], [ %.pn20, %29 ], [ %.pn22, %82 ]
+  resume { ptr, i32 } %.pn2454
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: noreturn
-declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA140_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(140) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
-  %5 = alloca %"class.std::allocator.0", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(140) %1) #16
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #16
-  %8 = extractvalue { i64, ptr } %7, 0
-  %9 = extractvalue { i64, ptr } %7, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #16
-  %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load ptr, ptr %11, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %13 unwind label %17
+  %4 = alloca i64, align 8
+  %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(140) %1) #15
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %6, ptr %0, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  store i64 %5, ptr %4, align 8, !tbaa !15
+  %7 = icmp ugt i64 %5, 15
+  br i1 %7, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
-13:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %15 unwind label %19
+.noexc.i.i.i:                                     ; preds = %3
+  %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
+  store ptr %8, ptr %0, align 8, !tbaa !17
+  %9 = load i64, ptr %4, align 8, !tbaa !15
+  store i64 %9, ptr %6, align 8, !tbaa !19
+  br label %._crit_edge.i.i.i.i
 
-15:                                               ; preds = %13
+._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %3
+  %10 = phi ptr [ %8, %.noexc.i.i.i ], [ %6, %3 ]
+  switch i64 %5, label %13 [
+    i64 1, label %11
+    i64 0, label %14
+  ]
+
+11:                                               ; preds = %._crit_edge.i.i.i.i
+  %12 = load i8, ptr %1, align 1, !tbaa !19
+  store i8 %12, ptr %10, align 1, !tbaa !19
+  br label %14
+
+13:                                               ; preds = %._crit_edge.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr nonnull align 1 %1, i64 %5, i1 false)
+  br label %14
+
+14:                                               ; preds = %13, %11, %._crit_edge.i.i.i.i
+  %15 = load i64, ptr %4, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %15, ptr %16, align 8, !tbaa !20
+  %17 = load ptr, ptr %0, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %15
+  store i8 0, ptr %18, align 1, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %20 unwind label %22
+
+20:                                               ; preds = %14
   invoke void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %16 unwind label %21
+          to label %21 unwind label %24
 
-16:                                               ; preds = %15
+21:                                               ; preds = %20
   ret void
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+22:                                               ; preds = %14
+  %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  br label %26
+  br label %28
 
-19:                                               ; preds = %13
-  %20 = landingpad { ptr, i32 }
+24:                                               ; preds = %20
+  %25 = landingpad { ptr, i32 }
           cleanup
-  br label %25
+  %26 = load ptr, ptr %19, align 8, !tbaa !21
+  %.not.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %27
 
-21:                                               ; preds = %15
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = load ptr, ptr %14, align 8
-  %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
-
-24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #16
+27:                                               ; preds = %24
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %26) #15
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
-_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
-  store ptr null, ptr %14, align 8
-  br label %25
+_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %24, %27
+  store ptr null, ptr %19, align 8, !tbaa !21
+  br label %28
 
-25:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %19
-  %.pn = phi { ptr, i32 } [ %22, %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit ], [ %20, %19 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  br label %26
+28:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %22
+  %.pn = phi { ptr, i32 } [ %25, %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit ], [ %23, %22 ]
+  %29 = load ptr, ptr %0, align 8, !tbaa !17
+  %30 = icmp eq ptr %29, %6
+  br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-26:                                               ; preds = %25, %17
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %25 ], [ %18, %17 ]
-  resume { ptr, i32 } %.pn.pn
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %28
+  %31 = load i64, ptr %16, align 8, !tbaa !20
+  %32 = icmp ult i64 %31, 16
+  call void @llvm.assume(i1 %32)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %28
+  %33 = load i64, ptr %6, align 8, !tbaa !19
+  %34 = add i64 %33, 1
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #17
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+  resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #16
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #15
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
-  store ptr null, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  store ptr null, ptr %2, align 8, !tbaa !21
+  %5 = load ptr, ptr %0, align 8, !tbaa !17
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !tbaa !20
+  %10 = icmp ult i64 %9, 16
+  tail call void @llvm.assume(i1 %10)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
+  %11 = load i64, ptr %6, align 8, !tbaa !19
+  %12 = add i64 %11, 1
+  tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %12) #17
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25findAllGpuTasksOnThisNodeENS_8ArrayRefIKNS_7GpuTaskEEERKNS_24PhysicalNodeCommunicatorE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.5") align 8 %0, ptr %1, ptr %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
-  %6 = alloca %"class.std::vector", align 8
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i32, ptr %7, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = ptrtoint ptr %2 to i64
-  %11 = ptrtoint ptr %1 to i64
-  %12 = sub i64 %10, %11
-  %13 = lshr exact i64 %12, 2
-  %14 = trunc i64 %13 to i32
-  store i32 %14, ptr %5, align 4
-  %15 = icmp slt i32 %8, 0
-  br i1 %15, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = load i32, ptr %6, align 8, !tbaa !23
+  %8 = load ptr, ptr %3, align 8, !tbaa !35
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  %9 = ptrtoint ptr %2 to i64
+  %10 = ptrtoint ptr %1 to i64
+  %11 = sub i64 %9, %10
+  %12 = lshr exact i64 %11, 2
+  %13 = trunc i64 %12 to i32
+  store i32 %13, ptr %5, align 4, !tbaa !36
+  %14 = icmp slt i32 %7, 0
+  br i1 %14, label %.noexc.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 .noexc.i:                                         ; preds = %4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #15, !noalias !4
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #16, !noalias !37
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
-  %16 = zext nneg i32 %8 to i64
-  %.not.i.i.i.i.i = icmp ne i32 %8, 0
+  %15 = zext nneg i32 %7 to i64
+  %.not.i.i.i.i.i = icmp ne i32 %7, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
-  %17 = shl nuw nsw i64 %16, 2
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #14, !noalias !4
-  %19 = getelementptr i32, ptr %18, i64 %16
-  store i32 0, ptr %18, align 4, !noalias !4
-  %20 = getelementptr i8, ptr %18, i64 4
-  %21 = icmp eq i32 %8, 1
-  br i1 %21, label %28, label %22
+  %16 = shl nuw nsw i64 %15, 2
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #14, !noalias !37
+  %18 = getelementptr i32, ptr %17, i64 %15
+  store i32 0, ptr %17, align 4, !tbaa !36, !noalias !37
+  %19 = getelementptr i8, ptr %17, i64 4
+  %20 = icmp eq i32 %7, 1
+  br i1 %20, label %27, label %21
 
-22:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %23 = add nsw i64 %17, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %23, i1 false), !noalias !4
-  %24 = load ptr, ptr @TMPI_INT, align 8, !noalias !4
-  %25 = invoke noundef i32 @_Z11tMPI_GatherPKviP14tmpi_datatype_PviS2_iP10tmpi_comm_(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1, ptr noundef %24, ptr noundef nonnull %18, i32 noundef 1, ptr noundef %24, i32 noundef 0, ptr noundef %9)
-          to label %26 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, !noalias !4
+21:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %22 = add nsw i64 %16, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %19, i8 0, i64 %22, i1 false), !tbaa !36, !noalias !37
+  %23 = load ptr, ptr @TMPI_INT, align 8, !tbaa !40, !noalias !37
+  %24 = invoke noundef i32 @_Z11tMPI_GatherPKviP14tmpi_datatype_PviS2_iP10tmpi_comm_(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1, ptr noundef %23, ptr noundef nonnull %17, i32 noundef 1, ptr noundef %23, i32 noundef 0, ptr noundef %8)
+          to label %25 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, !noalias !37
 
-26:                                               ; preds = %22
-  %27 = invoke noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef nonnull %18, i32 noundef %8, ptr noundef %24, i32 noundef 0, ptr noundef %9)
-          to label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, !noalias !4
+25:                                               ; preds = %21
+  %26 = invoke noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef nonnull %17, i32 noundef %7, ptr noundef %23, i32 noundef 0, ptr noundef %8)
+          to label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, !noalias !37
 
-28:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  store i32 %14, ptr %18, align 4, !noalias !4
+27:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
+  store i32 %13, ptr %17, align 4, !tbaa !36, !noalias !37
   br label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19
 
-common.resume:                                    ; preds = %148, %_ZNSt6vectorIiSaIiEED2Ev.exit41, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %29, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit41 ], [ %149, %148 ]
-  call void @_ZdlPv(ptr noundef nonnull %18) #17
+common.resume:                                    ; preds = %119, %_ZNSt6vectorIiSaIiEED2Ev.exit38, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
+  %common.resume.op = phi { ptr, i32 } [ %28, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ %.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit38 ], [ %120, %119 ]
+  call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %16) #17
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %26, %22
-  %29 = landingpad { ptr, i32 }
+_ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %25, %21
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19: ; preds = %28, %26
-  %.sroa.577.0 = phi ptr [ %20, %28 ], [ %19, %26 ]
-  %30 = ptrtoint ptr %.sroa.577.0 to i64
-  %31 = ptrtoint ptr %18 to i64
-  %32 = sub i64 %30, %31
-  %33 = add nuw nsw i32 %8, 1
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl nuw nsw i64 %34, 2
-  %36 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #14
-          to label %37 unwind label %148
+_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19: ; preds = %27, %25
+  %.sroa.876.0 = phi ptr [ %19, %27 ], [ %18, %25 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  %29 = ptrtoint ptr %.sroa.876.0 to i64
+  %30 = ptrtoint ptr %17 to i64
+  %31 = sub i64 %29, %30
+  %32 = add nuw nsw i32 %7, 1
+  %33 = zext nneg i32 %32 to i64
+  %34 = shl nuw nsw i64 %33, 2
+  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #14
+          to label %36 unwind label %119
 
-37:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19
-  %38 = getelementptr i32, ptr %36, i64 %34
-  %39 = getelementptr i8, ptr %36, i64 4
-  %40 = add nsw i64 %35, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %39, i8 0, i64 %40, i1 false), !noalias !7
-  store i32 0, ptr %36, align 4, !noalias !7
-  %41 = icmp eq ptr %18, %.sroa.577.0
-  br i1 %41, label %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit, label %42
+36:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19
+  %37 = getelementptr i32, ptr %35, i64 %33
+  %38 = getelementptr i8, ptr %35, i64 4
+  %39 = add nsw i64 %34, -4
+  call void @llvm.memset.p0.i64(ptr align 4 %38, i8 0, i64 %39, i1 false), !tbaa !36, !noalias !42
+  store i32 0, ptr %35, align 4, !tbaa !36, !noalias !42
+  %40 = icmp eq ptr %17, %.sroa.876.0
+  br i1 %40, label %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit, label %41
 
-42:                                               ; preds = %37
-  %43 = load i32, ptr %18, align 4, !noalias !7
-  store i32 %43, ptr %39, align 4, !noalias !7
-  %.not15.i.i = icmp eq ptr %20, %.sroa.577.0
+41:                                               ; preds = %36
+  %42 = load i32, ptr %17, align 4, !tbaa !36, !noalias !42
+  store i32 %42, ptr %38, align 4, !tbaa !36, !noalias !42
+  %.not15.i.i = icmp eq ptr %19, %.sroa.876.0
   br i1 %.not15.i.i, label %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %42, %.lr.ph.i.i
-  %44 = phi ptr [ %48, %.lr.ph.i.i ], [ %20, %42 ]
-  %.017.i.i = phi i32 [ %46, %.lr.ph.i.i ], [ %43, %42 ]
-  %.sroa.0.116.i.i = phi ptr [ %47, %.lr.ph.i.i ], [ %39, %42 ]
-  %45 = load i32, ptr %44, align 4, !noalias !7
-  %46 = add nsw i32 %45, %.017.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.116.i.i, i64 4
-  store i32 %46, ptr %47, align 4, !noalias !7
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %.not.i.i = icmp eq ptr %48, %.sroa.577.0
-  br i1 %.not.i.i, label %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit, label %.lr.ph.i.i, !llvm.loop !10
+.lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
+  %43 = phi ptr [ %47, %.lr.ph.i.i ], [ %19, %41 ]
+  %.017.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ %42, %41 ]
+  %.sroa.0.116.i.i = phi ptr [ %46, %.lr.ph.i.i ], [ %38, %41 ]
+  %44 = load i32, ptr %43, align 4, !tbaa !36, !noalias !42
+  %45 = add nsw i32 %44, %.017.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.116.i.i, i64 4
+  store i32 %45, ptr %46, align 4, !tbaa !36, !noalias !42
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %.not.i.i = icmp eq ptr %47, %.sroa.876.0
+  br i1 %.not.i.i, label %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit, label %.lr.ph.i.i, !llvm.loop !45
 
-_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit: ; preds = %.lr.ph.i.i, %42, %37
-  %49 = getelementptr inbounds nuw i8, ptr %36, i64 %35
-  %50 = getelementptr i8, ptr %49, i64 -4
-  %.val18.val = load i32, ptr %50, align 4
-  %51 = sext i32 %.val18.val to i64
-  %52 = icmp slt i32 %.val18.val, 0
-  br i1 %52, label %.invoke.i, label %54
+_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit: ; preds = %.lr.ph.i.i, %41, %36
+  %48 = getelementptr inbounds nuw i8, ptr %35, i64 %34
+  %49 = getelementptr i8, ptr %48, i64 -4
+  %.val18.val = load i32, ptr %49, align 4, !tbaa !36
+  %50 = sext i32 %.val18.val to i64
+  %51 = icmp slt i32 %.val18.val, 0
+  br i1 %51, label %52, label %53
 
-.invoke.i:                                        ; preds = %77, %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit
-  %.sroa.057.4 = phi ptr [ null, %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit ], [ %.sroa.057.2, %77 ]
-  %53 = phi ptr [ @.str.6, %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit ], [ @.str.8, %77 ]
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %53) #15
-          to label %.cont.i unwind label %.loopexit.split-lp.i, !noalias !12
+52:                                               ; preds = %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #16
+          to label %.noexc.i24 unwind label %.thread110, !noalias !47
 
-.cont.i:                                          ; preds = %.invoke.i
+.noexc.i24:                                       ; preds = %52
   unreachable
 
-54:                                               ; preds = %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit
-  %.not10.i = icmp eq i32 %.val18.val, 0
-  br i1 %.not10.i, label %.preheader.i, label %_ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i
+53:                                               ; preds = %_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi.exit
+  %.not9.i = icmp eq i32 %.val18.val, 0
+  br i1 %.not9.i, label %.preheader.i, label %_ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %54
-  %55 = shl nuw nsw i64 %51, 2
-  %56 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #14
-          to label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i unwind label %.loopexit.split-lp.i, !noalias !12
+_ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %53
+  %54 = shl nuw nsw i64 %50, 2
+  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #14
+          to label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i unwind label %.thread110, !noalias !47
 
 _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i
-  %57 = getelementptr i32, ptr %56, i64 %51
-  %58 = icmp ugt i64 %32, 4
-  br i1 %58, label %59, label %.preheader.i
+  %56 = getelementptr i32, ptr %55, i64 %50
+  %57 = icmp ugt i64 %31, 4
+  br i1 %57, label %58, label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i, %54
-  %.sroa.20.0 = phi ptr [ null, %54 ], [ %57, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i ]
-  %.sroa.12.0 = phi ptr [ null, %54 ], [ %56, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i ]
+.preheader.i:                                     ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i, %53
+  %.sroa.21.2 = phi ptr [ null, %53 ], [ %56, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i ]
+  %.sroa.054.2 = phi ptr [ null, %53 ], [ %55, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i ]
   %.not5.i = icmp eq ptr %1, %2
   br i1 %.not5.i, label %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit, label %.lr.ph.i
 
-59:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i
-  store i32 0, ptr %56, align 4
-  %60 = getelementptr i8, ptr %56, i64 4
-  %61 = icmp eq i32 %.val18.val, 1
-  br i1 %61, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
+58:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i
+  store i32 0, ptr %55, align 4, !tbaa !3
+  %59 = getelementptr i8, ptr %55, i64 4
+  %60 = icmp eq i32 %.val18.val, 1
+  br i1 %60, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %59
-  %62 = add nsw i64 %55, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %60, i8 0, i64 %62, i1 false)
+.lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %58
+  %61 = add nsw i64 %54, -4
+  call void @llvm.memset.p0.i64(ptr align 4 %59, i8 0, i64 %61, i1 false), !tbaa !3
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i
 
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i: ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i, %59
-  %.sroa.12.3 = phi ptr [ %60, %59 ], [ %57, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
-  %63 = load ptr, ptr @TMPI_INT, align 8, !noalias !12
-  %64 = invoke noundef i32 @_Z12tMPI_GathervPKviP14tmpi_datatype_PvPiS4_S2_iP10tmpi_comm_(ptr noundef %1, i32 noundef %14, ptr noundef %63, ptr noundef nonnull %56, ptr noundef nonnull %18, ptr noundef nonnull %36, ptr noundef %63, i32 noundef 0, ptr noundef %9)
-          to label %65 unwind label %.loopexit.split-lp.i
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i: ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i, %58
+  %.sroa.14.0 = phi ptr [ %59, %58 ], [ %56, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %62 = load ptr, ptr @TMPI_INT, align 8, !tbaa !40, !noalias !47
+  %63 = invoke noundef i32 @_Z12tMPI_GathervPKviP14tmpi_datatype_PvPKiS5_S2_iP10tmpi_comm_(ptr noundef %1, i32 noundef %13, ptr noundef %62, ptr noundef nonnull %55, ptr noundef nonnull %17, ptr noundef nonnull %35, ptr noundef %62, i32 noundef 0, ptr noundef %8)
+          to label %64 unwind label %.thread
 
-65:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i
-  %66 = ptrtoint ptr %.sroa.12.3 to i64
-  %67 = ptrtoint ptr %56 to i64
-  %68 = sub i64 %66, %67
-  %69 = lshr exact i64 %68, 2
-  %70 = trunc i64 %69 to i32
-  %71 = invoke noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef nonnull %56, i32 noundef %70, ptr noundef %63, i32 noundef 0, ptr noundef %9)
-          to label %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit unwind label %.loopexit.split-lp.i
+64:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i
+  %65 = ptrtoint ptr %.sroa.14.0 to i64
+  %66 = ptrtoint ptr %55 to i64
+  %67 = sub i64 %65, %66
+  %68 = lshr exact i64 %67, 2
+  %69 = trunc i64 %68 to i32
+  %70 = invoke noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef nonnull %55, i32 noundef %69, ptr noundef %62, i32 noundef 0, ptr noundef %8)
+          to label %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit unwind label %.thread
+
+.thread110:                                       ; preds = %52, %_ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit38
+
+.thread:                                          ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i, %64
+  %72 = landingpad { ptr, i32 }
+          cleanup
+  br label %102
+
+.lr.ph.i:                                         ; preds = %.preheader.i, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i
+  %.sroa.21.3 = phi ptr [ %.sroa.21.4, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.21.2, %.preheader.i ]
+  %.sroa.054.3 = phi ptr [ %.sroa.054.4, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.054.2, %.preheader.i ]
+  %73 = phi ptr [ %97, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.054.2, %.preheader.i ]
+  %74 = phi ptr [ %98, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.21.2, %.preheader.i ]
+  %75 = phi ptr [ %99, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.054.2, %.preheader.i ]
+  %.sroa.0.06.i = phi ptr [ %100, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %1, %.preheader.i ]
+  %.not.i.i23 = icmp eq ptr %75, %74
+  br i1 %.not.i.i23, label %78, label %76
+
+76:                                               ; preds = %.lr.ph.i
+  %77 = load i32, ptr %.sroa.0.06.i, align 4, !tbaa !3, !noalias !47
+  store i32 %77, ptr %75, align 4, !tbaa !3, !noalias !47
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i
+
+78:                                               ; preds = %.lr.ph.i
+  %79 = ptrtoint ptr %74 to i64
+  %80 = ptrtoint ptr %73 to i64
+  %81 = sub i64 %79, %80
+  %82 = icmp eq i64 %81, 9223372036854775804
+  br i1 %82, label %83, label %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+
+83:                                               ; preds = %78
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #16
+          to label %.noexc23.i unwind label %.loopexit.split-lp.i, !noalias !47
+
+.noexc23.i:                                       ; preds = %83
+  unreachable
+
+_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %78
+  %84 = ashr exact i64 %81, 2
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %84, i64 1)
+  %85 = add nsw i64 %.sroa.speculated.i.i.i.i, %84
+  %86 = icmp ult i64 %85, %84
+  %87 = call i64 @llvm.umin.i64(i64 %85, i64 2305843009213693951)
+  %88 = select i1 %86, i64 2305843009213693951, i64 %87
+  %.not.i.i.i.i = icmp ne i64 %88, 0
+  call void @llvm.assume(i1 %.not.i.i.i.i)
+  %89 = shl nuw nsw i64 %88, 2
+  %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %89) #14
+          to label %.noexc24.i unwind label %.loopexit4.i, !noalias !47
+
+.noexc24.i:                                       ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %91 = getelementptr inbounds i8, ptr %90, i64 %81
+  %92 = load i32, ptr %.sroa.0.06.i, align 4, !tbaa !3, !noalias !47
+  store i32 %92, ptr %91, align 4, !tbaa !3, !noalias !47
+  %93 = icmp sgt i64 %81, 0
+  br i1 %93, label %94, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+
+94:                                               ; preds = %.noexc24.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %90, ptr align 4 %73, i64 %81, i1 false), !noalias !47
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %94, %.noexc24.i
+  %.not.i17.i.i.i = icmp eq ptr %73, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %95
+
+95:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %81) #17, !noalias !47
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
+
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %95, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  %96 = getelementptr inbounds nuw i32, ptr %90, i64 %88
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i
+
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %76
+  %.sroa.21.4 = phi ptr [ %96, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.21.3, %76 ]
+  %.sroa.054.4 = phi ptr [ %90, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.054.3, %76 ]
+  %97 = phi ptr [ %90, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %73, %76 ]
+  %98 = phi ptr [ %96, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %74, %76 ]
+  %.pn90 = phi ptr [ %91, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %75, %76 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.pn90, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 4
+  %.not.i = icmp eq ptr %100, %2
+  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit, label %.lr.ph.i
 
 .loopexit4.i:                                     ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %101
 
-.loopexit.split-lp.i:                             ; preds = %65, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i, %_ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i, %.invoke.i
-  %.sroa.057.0 = phi ptr [ %.sroa.057.4, %.invoke.i ], [ %56, %65 ], [ %56, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE6resizeEm.exit.i ], [ null, %_ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i ]
+.loopexit.split-lp.i:                             ; preds = %83
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %101
 
-72:                                               ; preds = %.loopexit.split-lp.i, %.loopexit4.i
-  %73 = phi ptr [ %.sroa.057.2, %.loopexit4.i ], [ %.sroa.057.0, %.loopexit.split-lp.i ]
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit4.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  %.not.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit41, label %_ZNSt6vectorIiSaIiEED2Ev.exit41.sink.split
+101:                                              ; preds = %.loopexit.split-lp.i, %.loopexit4.i
+  %.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit4.i ]
+  %.not.i.i.i25.i = icmp eq ptr %.sroa.054.3, null
+  br i1 %.not.i.i.i25.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit38, label %102
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i
-  %.sroa.20.1 = phi ptr [ %.sroa.20.2, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.20.0, %.preheader.i ]
-  %.sroa.057.2 = phi ptr [ %.sroa.057.3, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.12.0, %.preheader.i ]
-  %74 = phi ptr [ %.sroa.12.2, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %.sroa.12.0, %.preheader.i ]
-  %.sroa.0.06.i = phi ptr [ %95, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ], [ %1, %.preheader.i ]
-  %.not.i.i23 = icmp eq ptr %74, %.sroa.20.1
-  br i1 %.not.i.i23, label %77, label %75
+102:                                              ; preds = %.thread, %101
+  %.pn.i87 = phi { ptr, i32 } [ %72, %.thread ], [ %.pn.i, %101 ]
+  %.sroa.054.186 = phi ptr [ %55, %.thread ], [ %.sroa.054.3, %101 ]
+  %.sroa.21.185 = phi ptr [ %56, %.thread ], [ %.sroa.21.3, %101 ]
+  %103 = ptrtoint ptr %.sroa.21.185 to i64
+  %104 = ptrtoint ptr %.sroa.054.186 to i64
+  %105 = sub i64 %103, %104
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.054.186, i64 noundef %105) #17
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit38
 
-75:                                               ; preds = %.lr.ph.i
-  %76 = load i32, ptr %.sroa.0.06.i, align 4, !noalias !12
-  store i32 %76, ptr %74, align 4, !noalias !12
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i
-
-77:                                               ; preds = %.lr.ph.i
-  %78 = ptrtoint ptr %.sroa.20.1 to i64
-  %79 = ptrtoint ptr %.sroa.057.2 to i64
-  %80 = sub i64 %78, %79
-  %81 = icmp eq i64 %80, 9223372036854775804
-  br i1 %81, label %.invoke.i, label %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-
-_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %77
-  %82 = ashr exact i64 %80, 2
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %82, i64 1)
-  %83 = add nsw i64 %.sroa.speculated.i.i.i.i, %82
-  %84 = icmp ult i64 %83, %82
-  %85 = call i64 @llvm.umin.i64(i64 %83, i64 2305843009213693951)
-  %86 = select i1 %84, i64 2305843009213693951, i64 %85
-  %.not.i.i.i21.i = icmp ne i64 %86, 0
-  call void @llvm.assume(i1 %.not.i.i.i21.i)
-  %87 = shl nuw nsw i64 %86, 2
-  %88 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %87) #14
-          to label %.noexc23.i unwind label %.loopexit4.i, !noalias !12
-
-.noexc23.i:                                       ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %89 = getelementptr inbounds i8, ptr %88, i64 %80
-  %90 = load i32, ptr %.sroa.0.06.i, align 4, !noalias !12
-  store i32 %90, ptr %89, align 4, !noalias !12
-  %91 = icmp sgt i64 %80, 0
-  br i1 %91, label %92, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-
-92:                                               ; preds = %.noexc23.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %88, ptr align 4 %.sroa.057.2, i64 %80, i1 false), !noalias !12
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %92, %.noexc23.i
-  %.not.i17.i.i.i = icmp eq ptr %.sroa.057.2, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %93
-
-93:                                               ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.057.2) #17, !noalias !12
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %93, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %94 = getelementptr inbounds nuw i32, ptr %88, i64 %86
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i
-
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %75
-  %.sroa.20.2 = phi ptr [ %94, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.20.1, %75 ]
-  %.pn82 = phi ptr [ %89, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %74, %75 ]
-  %.sroa.057.3 = phi ptr [ %88, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.057.2, %75 ]
-  %.sroa.12.2 = getelementptr inbounds nuw i8, ptr %.pn82, i64 4
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 4
-  %.not.i = icmp eq ptr %95, %2
-  br i1 %.not.i, label %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit, label %.lr.ph.i
-
-_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit: ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i, %65, %.preheader.i
-  %.sroa.057.5 = phi ptr [ %.sroa.12.0, %.preheader.i ], [ %56, %65 ], [ %.sroa.057.3, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ]
+_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit: ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i, %64, %.preheader.i
+  %.sroa.21.5 = phi ptr [ %.sroa.21.2, %.preheader.i ], [ %56, %64 ], [ %.sroa.21.4, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ]
+  %.sroa.054.5 = phi ptr [ %.sroa.054.2, %.preheader.i ], [ %55, %64 ], [ %.sroa.054.4, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br label %100
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %108
 
-100:                                              ; preds = %._crit_edge, %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit
-  %.sroa.050.0 = phi ptr [ %36, %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit ], [ %.sroa.047.0, %._crit_edge ]
-  %.sroa.047.0 = phi ptr [ %39, %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit ], [ %154, %._crit_edge ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %101 = load ptr, ptr %96, align 8
-  %102 = load ptr, ptr %97, align 8
-  %.not.i24 = icmp eq ptr %101, %102
-  br i1 %.not.i24, label %109, label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.thread
+108:                                              ; preds = %._crit_edge, %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit
+  %.sroa.047.0 = phi ptr [ %35, %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit ], [ %.sroa.044.0, %._crit_edge ]
+  %.sroa.044.0 = phi ptr [ %38, %_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_.exit ], [ %118, %._crit_edge ]
+  %109 = load ptr, ptr %106, align 8, !tbaa !50
+  %110 = load ptr, ptr %107, align 8, !tbaa !53
+  %.not.i25 = icmp eq ptr %109, %110
+  br i1 %.not.i25, label %114, label %111
 
-_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.thread: ; preds = %100
-  store ptr null, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %104 = load ptr, ptr %98, align 8
-  store ptr %104, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %106 = load ptr, ptr %99, align 8
-  store ptr %106, ptr %105, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %107 = load ptr, ptr %96, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store ptr %108, ptr %96, align 8
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
+111:                                              ; preds = %108
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false)
+  %112 = load ptr, ptr %106, align 8, !tbaa !50
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  store ptr %113, ptr %106, align 8, !tbaa !50
+  br label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
-109:                                              ; preds = %100
-  invoke void @_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %101, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit unwind label %150
+114:                                              ; preds = %108
+  invoke void @_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %109)
+          to label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit unwind label %121
 
-_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit: ; preds = %109
-  %.pr = load ptr, ptr %6, align 8
-  %.not.i.i.i = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit, label %110
+_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit: ; preds = %114, %111
+  %115 = load i32, ptr %.sroa.047.0, align 4, !tbaa !36
+  %116 = load i32, ptr %.sroa.044.0, align 4, !tbaa !36
+  %.not100 = icmp eq i32 %115, %116
+  br i1 %.not100, label %._crit_edge, label %.lr.ph.preheader
 
-110:                                              ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
-  call void @_ZdlPv(ptr noundef nonnull %.pr) #17
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
-
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit:     ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.thread, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit, %110
-  %111 = load i32, ptr %.sroa.050.0, align 4
-  %112 = load i32, ptr %.sroa.047.0, align 4
-  %.not86 = icmp eq i32 %111, %112
-  br i1 %.not86, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
-  %113 = sext i32 %111 to i64
+.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
+  %117 = sext i32 %115 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit
-  %indvars.iv = phi i64 [ %113, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit ]
-  %114 = load ptr, ptr %96, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 -24
-  %116 = getelementptr inbounds i32, ptr %.sroa.057.5, i64 %indvars.iv
-  %117 = getelementptr inbounds i8, ptr %114, i64 -16
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %114, i64 -8
-  %120 = load ptr, ptr %119, align 8
-  %.not.i27 = icmp eq ptr %118, %120
-  br i1 %.not.i27, label %125, label %121
+._crit_edge:                                      ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.044.0, i64 4
+  %.not91 = icmp eq ptr %118, %37
+  br i1 %.not91, label %157, label %108, !llvm.loop !54
 
-121:                                              ; preds = %.lr.ph
-  %122 = load i32, ptr %116, align 4
-  store i32 %122, ptr %118, align 4
-  %123 = load ptr, ptr %117, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  store ptr %124, ptr %117, align 8
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit
-
-125:                                              ; preds = %.lr.ph
-  %126 = load ptr, ptr %115, align 8
-  %127 = ptrtoint ptr %118 to i64
-  %128 = ptrtoint ptr %126 to i64
-  %129 = sub i64 %127, %128
-  %130 = icmp eq i64 %129, 9223372036854775804
-  br i1 %130, label %131, label %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-
-131:                                              ; preds = %125
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #15
-          to label %.noexc29 unwind label %.loopexit.split-lp
-
-.noexc29:                                         ; preds = %131
-  unreachable
-
-_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %125
-  %132 = ashr exact i64 %129, 2
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %132, i64 1)
-  %133 = add nsw i64 %.sroa.speculated.i.i.i, %132
-  %134 = icmp ult i64 %133, %132
-  %135 = call i64 @llvm.umin.i64(i64 %133, i64 2305843009213693951)
-  %136 = select i1 %134, i64 2305843009213693951, i64 %135
-  %.not.i.i.i28 = icmp ne i64 %136, 0
-  call void @llvm.assume(i1 %.not.i.i.i28)
-  %137 = shl nuw nsw i64 %136, 2
-  %138 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %137) #14
-          to label %.noexc30 unwind label %.loopexit
-
-.noexc30:                                         ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %139 = getelementptr inbounds i8, ptr %138, i64 %129
-  %140 = load i32, ptr %116, align 4
-  store i32 %140, ptr %139, align 4
-  %141 = icmp sgt i64 %129, 0
-  br i1 %141, label %142, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-
-142:                                              ; preds = %.noexc30
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %138, ptr align 4 %126, i64 %129, i1 false)
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %142, %.noexc30
-  %143 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  %.not.i17.i.i = icmp eq ptr %126, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %144
-
-144:                                              ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  call void @_ZdlPv(ptr noundef nonnull %126) #17
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %144, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %138, ptr %115, align 8
-  store ptr %143, ptr %117, align 8
-  %145 = getelementptr inbounds nuw i32, ptr %138, i64 %136
-  store ptr %145, ptr %119, align 8
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit
-
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %121
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %146 = load i32, ptr %.sroa.047.0, align 4
-  %147 = trunc nsw i64 %indvars.iv.next to i32
-  %.not = icmp eq i32 %146, %147
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
-
-148:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19
-  %149 = landingpad { ptr, i32 }
+119:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i19
+  %120 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-150:                                              ; preds = %109
-  %151 = landingpad { ptr, i32 }
+121:                                              ; preds = %114
+  %122 = landingpad { ptr, i32 }
           cleanup
-  %152 = load ptr, ptr %6, align 8
-  %.not.i.i.i31 = icmp eq ptr %152, null
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32, label %153
+  br label %162
 
-153:                                              ; preds = %150
-  call void @_ZdlPv(ptr noundef nonnull %152) #17
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit
+  %.pre107 = phi i32 [ %116, %.lr.ph.preheader ], [ %.pre108, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit ]
+  %123 = phi i32 [ %116, %.lr.ph.preheader ], [ %155, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit ]
+  %indvars.iv = phi i64 [ %117, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit ]
+  %124 = load ptr, ptr %106, align 8, !tbaa !55
+  %125 = getelementptr inbounds i8, ptr %124, i64 -24
+  %126 = getelementptr inbounds nuw i32, ptr %.sroa.054.5, i64 %indvars.iv
+  %127 = getelementptr inbounds i8, ptr %124, i64 -16
+  %128 = load ptr, ptr %127, align 8, !tbaa !10
+  %129 = getelementptr inbounds i8, ptr %124, i64 -8
+  %130 = load ptr, ptr %129, align 8, !tbaa !11
+  %.not.i28 = icmp eq ptr %128, %130
+  br i1 %.not.i28, label %134, label %131
+
+131:                                              ; preds = %.lr.ph
+  %132 = load i32, ptr %126, align 4, !tbaa !3
+  store i32 %132, ptr %128, align 4, !tbaa !3
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  store ptr %133, ptr %127, align 8, !tbaa !10
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit
+
+134:                                              ; preds = %.lr.ph
+  %135 = load ptr, ptr %125, align 8, !tbaa !7
+  %136 = ptrtoint ptr %128 to i64
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %136, %137
+  %139 = icmp eq i64 %138, 9223372036854775804
+  br i1 %139, label %140, label %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+
+140:                                              ; preds = %134
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #16
+          to label %.noexc29 unwind label %.loopexit.split-lp
+
+.noexc29:                                         ; preds = %140
+  unreachable
+
+_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %134
+  %141 = ashr exact i64 %138, 2
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %141, i64 1)
+  %142 = add nsw i64 %.sroa.speculated.i.i.i, %141
+  %143 = icmp ult i64 %142, %141
+  %144 = call i64 @llvm.umin.i64(i64 %142, i64 2305843009213693951)
+  %145 = select i1 %143, i64 2305843009213693951, i64 %144
+  %.not.i.i.i = icmp ne i64 %145, 0
+  call void @llvm.assume(i1 %.not.i.i.i)
+  %146 = shl nuw nsw i64 %145, 2
+  %147 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #14
+          to label %.noexc30 unwind label %.loopexit
+
+.noexc30:                                         ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %148 = getelementptr inbounds i8, ptr %147, i64 %138
+  %149 = load i32, ptr %126, align 4, !tbaa !3
+  store i32 %149, ptr %148, align 4, !tbaa !3
+  %150 = icmp sgt i64 %138, 0
+  br i1 %150, label %151, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+
+151:                                              ; preds = %.noexc30
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %147, ptr align 4 %135, i64 %138, i1 false)
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %151, %.noexc30
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  %.not.i17.i.i = icmp eq ptr %135, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %153
+
+153:                                              ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %135, i64 noundef %138) #17
+  %.pre.pre = load i32, ptr %.sroa.044.0, align 4, !tbaa !36
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
+
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %153, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  %.pre = phi i32 [ %.pre.pre, %153 ], [ %.pre107, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i ]
+  store ptr %147, ptr %125, align 8, !tbaa !7
+  store ptr %152, ptr %127, align 8, !tbaa !10
+  %154 = getelementptr inbounds nuw i32, ptr %147, i64 %145
+  store ptr %154, ptr %129, align 8, !tbaa !11
+  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit
+
+_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %131
+  %.pre108 = phi i32 [ %.pre, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.pre107, %131 ]
+  %155 = phi i32 [ %.pre, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %123, %131 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %156 = trunc nsw i64 %indvars.iv.next to i32
+  %.not = icmp eq i32 %155, %156
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN3gmx7GpuTaskESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32
+  br label %162
 
-.loopexit.split-lp:                               ; preds = %131
+.loopexit.split-lp:                               ; preds = %140
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32
+  br label %162
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit
-  %154 = getelementptr inbounds nuw i8, ptr %.sroa.047.0, i64 4
-  %.not83 = icmp eq ptr %154, %38
-  br i1 %.not83, label %155, label %100, !llvm.loop !16
+157:                                              ; preds = %._crit_edge
+  %.not.i.i.i31 = icmp eq ptr %.sroa.054.5, null
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIiSaIiEED2Ev.exit34, label %158
 
-155:                                              ; preds = %._crit_edge
-  %.not.i.i.i33 = icmp eq ptr %.sroa.057.5, null
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIiSaIiEED2Ev.exit37, label %156
+158:                                              ; preds = %157
+  %159 = ptrtoint ptr %.sroa.21.5 to i64
+  %160 = ptrtoint ptr %.sroa.054.5 to i64
+  %161 = sub i64 %159, %160
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.054.5, i64 noundef %161) #17
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit34
 
-156:                                              ; preds = %155
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.057.5) #17
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit37
-
-_ZNSt6vectorIiSaIiEED2Ev.exit37:                  ; preds = %155, %156
-  call void @_ZdlPv(ptr noundef nonnull %36) #17
-  call void @_ZdlPv(ptr noundef nonnull %18) #17
+_ZNSt6vectorIiSaIiEED2Ev.exit34:                  ; preds = %157, %158
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %34) #17
+  call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %16) #17
   ret void
 
-_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32:   ; preds = %.loopexit, %.loopexit.split-lp, %153, %150
-  %.pn = phi { ptr, i32 } [ %151, %150 ], [ %151, %153 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
-  %.not.i.i.i38 = icmp eq ptr %.sroa.057.5, null
-  br i1 %.not.i.i.i38, label %_ZNSt6vectorIiSaIiEED2Ev.exit41, label %_ZNSt6vectorIiSaIiEED2Ev.exit41.sink.split
+162:                                              ; preds = %.loopexit, %.loopexit.split-lp, %121
+  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
+  %.not.i.i.i35 = icmp eq ptr %.sroa.054.5, null
+  br i1 %.not.i.i.i35, label %_ZNSt6vectorIiSaIiEED2Ev.exit38, label %163
 
-_ZNSt6vectorIiSaIiEED2Ev.exit41.sink.split:       ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32, %72
-  %.sroa.057.5.sink = phi ptr [ %73, %72 ], [ %.sroa.057.5, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32 ]
-  %.pn.pn.ph = phi { ptr, i32 } [ %lpad.phi.i, %72 ], [ %.pn, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.057.5.sink) #17
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit41
+163:                                              ; preds = %162
+  %164 = ptrtoint ptr %.sroa.21.5 to i64
+  %165 = ptrtoint ptr %.sroa.054.5 to i64
+  %166 = sub i64 %164, %165
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.054.5, i64 noundef %166) #17
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit38
 
-_ZNSt6vectorIiSaIiEED2Ev.exit41:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit41.sink.split, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32, %72
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi.i, %72 ], [ %.pn, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EED2Ev.exit32 ], [ %.pn.pn.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit41.sink.split ]
-  call void @_ZdlPv(ptr noundef nonnull %36) #17
+_ZNSt6vectorIiSaIiEED2Ev.exit38:                  ; preds = %.thread110, %163, %162, %102, %101
+  %.pn.pn = phi { ptr, i32 } [ %.pn.i87, %102 ], [ %.pn.i, %101 ], [ %.pn, %162 ], [ %.pn, %163 ], [ %71, %.thread110 ]
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %34) #17
   br label %common.resume
 }
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8
+define linkonce_odr void @_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !57
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !50
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt6vectorIN3gmx7GpuTaskESaIS2_EEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %7, %_ZSt8_DestroyISt6vectorIN3gmx7GpuTaskESaIS2_EEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = load ptr, ptr %.05.i.i.i, align 8
+  %.05.i.i.i = phi ptr [ %12, %_ZSt8_DestroyISt6vectorIN3gmx7GpuTaskESaIS2_EEEvPT_.exit.i.i.i ], [ %2, %1 ]
+  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !7
   %.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt6vectorIN3gmx7GpuTaskESaIS2_EEEvPT_.exit.i.i.i, label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #17
+  %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  %8 = load ptr, ptr %7, align 8, !tbaa !11
+  %9 = ptrtoint ptr %8 to i64
+  %10 = ptrtoint ptr %5 to i64
+  %11 = sub i64 %9, %10
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %11) #17
   br label %_ZSt8_DestroyISt6vectorIN3gmx7GpuTaskESaIS2_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt6vectorIN3gmx7GpuTaskESaIS2_EEEvPT_.exit.i.i.i: ; preds = %6, %.lr.ph.i.i.i
-  %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %7, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !17
+  %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %12, %4
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !58
 
 _ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt6vectorIN3gmx7GpuTaskESaIS2_EEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8
+  %.pr = load ptr, ptr %0, align 8, !tbaa !57
   br label %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
-  %8 = phi ptr [ %.pr, %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
-  %.not.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EED2Ev.exit, label %9
+  %13 = phi ptr [ %.pr, %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
+  %.not.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EED2Ev.exit, label %14
 
-9:                                                ; preds = %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #17
+14:                                               ; preds = %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exit
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !53
+  %17 = ptrtoint ptr %16 to i64
+  %18 = ptrtoint ptr %13 to i64
+  %19 = sub i64 %17, %18
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %19) #17
   br label %_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EED2Ev.exit
 
-_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exit, %9
+_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN3gmx7GpuTaskESaIS2_EES4_EvT_S6_RSaIT0_E.exit, %14
   ret void
 }
-
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #5
 
-declare noundef i32 @_Z11tMPI_GatherPKviP14tmpi_datatype_PviS2_iP10tmpi_comm_(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @_Z11tMPI_GatherPKviP14tmpi_datatype_PviS2_iP10tmpi_comm_(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+
+declare noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #1
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
-
-declare noundef i32 @_Z12tMPI_GathervPKviP14tmpi_datatype_PvPiS4_S2_iP10tmpi_comm_(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @_Z12tMPI_GathervPKviP14tmpi_datatype_PvPKiS5_S2_iP10tmpi_comm_(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
+declare void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
-; Function Attrs: nounwind
-declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
-
-declare void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
-
-declare void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #6
+declare void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
-; Function Attrs: nounwind
-declare { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64, ptr) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) unnamed_addr #5
-
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %0, align 8
+define linkonce_odr void @_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !50
+  %5 = load ptr, ptr %0, align 8, !tbaa !57
+  %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
-  %8 = ptrtoint ptr %6 to i64
-  %9 = sub i64 %7, %8
-  %10 = icmp eq i64 %9, 9223372036854775800
-  br i1 %10, label %11, label %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit
+  %8 = sub i64 %6, %7
+  %9 = icmp eq i64 %8, 9223372036854775800
+  br i1 %9, label %10, label %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit
 
-11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #15
+10:                                               ; preds = %2
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #16
   unreachable
 
-_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %3
-  %12 = sdiv exact i64 %9, 24
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = add nsw i64 %.sroa.speculated.i, %12
-  %14 = icmp ult i64 %13, %12
-  %15 = tail call i64 @llvm.umin.i64(i64 %13, i64 384307168202282325)
-  %16 = select i1 %14, i64 384307168202282325, i64 %15
-  %17 = ptrtoint ptr %1 to i64
-  %18 = sub i64 %17, %8
-  %.not.i = icmp ne i64 %16, 0
+_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %2
+  %11 = sdiv exact i64 %8, 24
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
+  %12 = add nsw i64 %.sroa.speculated.i, %11
+  %13 = icmp ult i64 %12, %11
+  %14 = tail call i64 @llvm.umin.i64(i64 %12, i64 384307168202282325)
+  %15 = select i1 %13, i64 384307168202282325, i64 %14
+  %16 = ptrtoint ptr %1 to i64
+  %17 = sub i64 %16, %7
+  %.not.i = icmp ne i64 %15, 0
   tail call void @llvm.assume(i1 %.not.i)
-  %19 = mul nuw nsw i64 %16, 24
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #14
-  %21 = getelementptr inbounds i8, ptr %20, i64 %18
-  %22 = load ptr, ptr %2, align 8
-  store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %23, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %26, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %.not10.i.i.i = icmp eq ptr %6, %1
+  %18 = mul nuw nsw i64 %15, 24
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #14
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  %.not10.i.i.i = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %20, %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %.0911.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %29 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !21, !noalias !18
-  store ptr %29, ptr %.012.i.i.i, align 8, !alias.scope !18, !noalias !21
-  %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !21, !noalias !18
-  store ptr %32, ptr %30, align 8, !alias.scope !18, !noalias !21
-  %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %35 = load ptr, ptr %34, align 8, !alias.scope !21, !noalias !18
-  store ptr %35, ptr %33, align 8, !alias.scope !18, !noalias !21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !21, !noalias !18
-  %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
-  %.not.i.i.i = icmp eq ptr %36, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !23
+  %.012.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %19, %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %.0911.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i ], [ %5, %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  %21 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !7, !alias.scope !62, !noalias !59
+  store ptr %21, ptr %.012.i.i.i, align 8, !tbaa !7, !alias.scope !59, !noalias !62
+  %22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !10, !alias.scope !62, !noalias !59
+  store ptr %24, ptr %22, align 8, !tbaa !10, !alias.scope !59, !noalias !62
+  %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !11, !alias.scope !62, !noalias !59
+  store ptr %27, ptr %25, align 8, !tbaa !11, !alias.scope !59, !noalias !62
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !62, !noalias !59
+  %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %.not.i.i.i = icmp eq ptr %28, %1
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !64
 
 _ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit
-  %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit ], [ %37, %.lr.ph.i.i.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
-  %.not10.i.i.i16 = icmp eq ptr %1, %5
-  br i1 %.not10.i.i.i16, label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17
+  %.0.lcssa.i.i.i = phi ptr [ %19, %_ZNKSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12_M_check_lenEmPKc.exit ], [ %29, %.lr.ph.i.i.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 24
+  %.not10.i.i.i15 = icmp eq ptr %1, %4
+  br i1 %.not10.i.i.i15, label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %.lr.ph.i.i.i16
 
-.lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %47, %.lr.ph.i.i.i17 ], [ %38, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %46, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %39 = load ptr, ptr %.0911.i.i.i19, align 8, !alias.scope !27, !noalias !24
-  store ptr %39, ptr %.012.i.i.i18, align 8, !alias.scope !24, !noalias !27
-  %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %42 = load ptr, ptr %41, align 8, !alias.scope !27, !noalias !24
-  store ptr %42, ptr %40, align 8, !alias.scope !24, !noalias !27
-  %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %45 = load ptr, ptr %44, align 8, !alias.scope !27, !noalias !24
-  store ptr %45, ptr %43, align 8, !alias.scope !24, !noalias !27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i19, i8 0, i64 24, i1 false), !alias.scope !27, !noalias !24
-  %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
-  %.not.i.i.i20 = icmp eq ptr %46, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !23
+.lr.ph.i.i.i16:                                   ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i16
+  %.012.i.i.i17 = phi ptr [ %39, %.lr.ph.i.i.i16 ], [ %30, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.0911.i.i.i18 = phi ptr [ %38, %.lr.ph.i.i.i16 ], [ %1, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  %31 = load ptr, ptr %.0911.i.i.i18, align 8, !tbaa !7, !alias.scope !68, !noalias !65
+  store ptr %31, ptr %.012.i.i.i17, align 8, !tbaa !7, !alias.scope !65, !noalias !68
+  %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !10, !alias.scope !68, !noalias !65
+  store ptr %34, ptr %32, align 8, !tbaa !10, !alias.scope !65, !noalias !68
+  %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !11, !alias.scope !68, !noalias !65
+  store ptr %37, ptr %35, align 8, !tbaa !11, !alias.scope !65, !noalias !68
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !68, !noalias !65
+  %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 24
+  %.not.i.i.i19 = icmp eq ptr %38, %4
+  br i1 %.not.i.i.i19, label %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %.lr.ph.i.i.i16, !llvm.loop !64
 
-_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %.0.lcssa.i.i.i21 = phi ptr [ %38, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %47, %.lr.ph.i.i.i17 ]
-  %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit, label %48
+_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21: ; preds = %.lr.ph.i.i.i16, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
+  %.0.lcssa.i.i.i20 = phi ptr [ %30, %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %39, %.lr.ph.i.i.i16 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.not.i22 = icmp eq ptr %5, null
+  br i1 %.not.i22, label %_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit, label %41
 
-48:                                               ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #17
+41:                                               ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21
+  %42 = load ptr, ptr %40, align 8, !tbaa !53
+  %43 = ptrtoint ptr %42 to i64
+  %44 = sub i64 %43, %7
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %44) #17
   br label %_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit
 
-_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %0, align 8
-  store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %50 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
-  store ptr %50, ptr %49, align 8
+_ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, %41
+  store ptr %19, ptr %0, align 8, !tbaa !57
+  store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !50
+  %45 = getelementptr inbounds nuw %"class.std::vector", ptr %19, i64 %15
+  store ptr %45, ptr %40, align 8, !tbaa !53
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { builtin allocsize(0) }
-attributes #15 = { noreturn }
-attributes #16 = { nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn }
 attributes #17 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN3gmx12_GLOBAL__N_19allgatherERKiiP10tmpi_comm_: argument 0"}
-!6 = distinct !{!6, !"_ZN3gmx12_GLOBAL__N_19allgatherERKiiP10tmpi_comm_"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi: argument 0"}
-!9 = distinct !{!9, !"_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi"}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_: argument 0"}
-!14 = distinct !{!14, !"_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_"}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!20 = distinct !{!20, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_"}
-!21 = !{!22}
-!22 = distinct !{!22, !20, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!23 = distinct !{!23, !11}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!26 = distinct !{!26, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_"}
-!27 = !{!28}
-!28 = distinct !{!28, !26, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"_ZTSN3gmx7GpuTaskE", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"_ZTSNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!8, !9, i64 8}
+!11 = !{!8, !9, i64 16}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
+!14 = !{!"p1 omnipotent char", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = !{!18, !14, i64 0}
+!18 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !13, i64 0, !16, i64 8, !5, i64 16}
+!19 = !{!5, !5, i64 0}
+!20 = !{!18, !16, i64 8}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !9, i64 0}
+!23 = !{!24, !26, i64 8}
+!24 = !{!"_ZTSN3gmx24PhysicalNodeCommunicatorE", !25, i64 0, !26, i64 8, !26, i64 12, !27, i64 16}
+!25 = !{!"p1 _ZTS10tmpi_comm_", !9, i64 0}
+!26 = !{!"int", !5, i64 0}
+!27 = !{!"_ZTSSt10unique_ptrIP10tmpi_comm_N3gmx15functor_wrapperIS1_XadL_ZNS2_21MPI_Comm_free_wrapperEPS1_EEEEE", !28, i64 0}
+!28 = !{!"_ZTSSt15__uniq_ptr_dataIP10tmpi_comm_N3gmx15functor_wrapperIS1_XadL_ZNS2_21MPI_Comm_free_wrapperEPS1_EEEELb1ELb1EE", !29, i64 0}
+!29 = !{!"_ZTSSt15__uniq_ptr_implIP10tmpi_comm_N3gmx15functor_wrapperIS1_XadL_ZNS2_21MPI_Comm_free_wrapperEPS1_EEEEE", !30, i64 0}
+!30 = !{!"_ZTSSt5tupleIJPP10tmpi_comm_N3gmx15functor_wrapperIS1_XadL_ZNS3_21MPI_Comm_free_wrapperES2_EEEEEE", !31, i64 0}
+!31 = !{!"_ZTSSt11_Tuple_implILm0EJPP10tmpi_comm_N3gmx15functor_wrapperIS1_XadL_ZNS3_21MPI_Comm_free_wrapperES2_EEEEEE", !32, i64 0}
+!32 = !{!"_ZTSSt10_Head_baseILm0EPP10tmpi_comm_Lb0EE", !33, i64 0}
+!33 = !{!"p2 _ZTS10tmpi_comm_", !34, i64 0}
+!34 = !{!"any p2 pointer", !9, i64 0}
+!35 = !{!24, !25, i64 0}
+!36 = !{!26, !26, i64 0}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN3gmx12_GLOBAL__N_19allgatherERKiiP10tmpi_comm_: argument 0"}
+!39 = distinct !{!39, !"_ZN3gmx12_GLOBAL__N_19allgatherERKiiP10tmpi_comm_"}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS14tmpi_datatype_", !9, i64 0}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi: argument 0"}
+!44 = distinct !{!44, !"_ZN3gmx12_GLOBAL__N_120computeDisplacementsENS_8ArrayRefIKiEEi"}
+!45 = distinct !{!45, !46}
+!46 = !{!"llvm.loop.mustprogress"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_: argument 0"}
+!49 = distinct !{!49, !"_ZN3gmx12_GLOBAL__N_110allgathervENS_8ArrayRefIKNS_7GpuTaskEEENS1_IKiEES6_P10tmpi_comm_"}
+!50 = !{!51, !52, i64 8}
+!51 = !{!"_ZTSNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EE17_Vector_impl_dataE", !52, i64 0, !52, i64 8, !52, i64 16}
+!52 = !{!"p1 _ZTSSt6vectorIN3gmx7GpuTaskESaIS1_EE", !9, i64 0}
+!53 = !{!51, !52, i64 16}
+!54 = distinct !{!54, !46}
+!55 = !{!52, !52, i64 0}
+!56 = distinct !{!56, !46}
+!57 = !{!51, !52, i64 0}
+!58 = distinct !{!58, !46}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!61 = distinct !{!61, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_"}
+!62 = !{!63}
+!63 = distinct !{!63, !61, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!64 = distinct !{!64, !46}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!67 = distinct !{!67, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_"}
+!68 = !{!69}
+!69 = distinct !{!69, !67, !"_ZSt19__relocate_object_aISt6vectorIN3gmx7GpuTaskESaIS2_EES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}

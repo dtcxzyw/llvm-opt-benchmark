@@ -22,7 +22,7 @@ define noundef i32 @_Z11tMPI_Comm_NP10tmpi_comm_(ptr noundef readonly %0) local_
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !3
   br label %4
 
 4:                                                ; preds = %1, %2
@@ -49,147 +49,145 @@ declare noundef i32 @_Z15tMPI_Group_rankP11tmpi_group_Pi(ptr noundef, ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_Z17tMPI_Comm_compareP10tmpi_comm_S0_Pi(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %.loopexit36.sink.split, label %5
+  br i1 %4, label %.loopexit.sink.split, label %5
 
 5:                                                ; preds = %3
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
-  br i1 %or.cond, label %8, label %.loopexit36.sink.split
+  br i1 %or.cond, label %8, label %.loopexit.sink.split
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %0, align 8
-  %10 = load i32, ptr %1, align 8
+  %9 = load i32, ptr %0, align 8, !tbaa !3
+  %10 = load i32, ptr %1, align 8, !tbaa !3
   %.not = icmp eq i32 %9, %10
-  br i1 %.not, label %11, label %.loopexit36.sink.split
+  br i1 %.not, label %11, label %.loopexit.sink.split
 
 11:                                               ; preds = %8
-  store i32 1, ptr %2, align 4
-  %12 = load i32, ptr %0, align 8
+  store i32 1, ptr %2, align 4, !tbaa !28
+  %12 = load i32, ptr %0, align 8, !tbaa !3
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph41, label %.loopexit36
+  br i1 %13, label %.lr.ph45, label %.loopexit
 
-.lr.ph41:                                         ; preds = %11
+.lr.ph45:                                         ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load ptr, ptr %14, align 8
-  %.pre47 = load ptr, ptr %15, align 8
-  br label %16
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !29
+  br label %18
 
-16:                                               ; preds = %.lr.ph41, %.loopexit
-  %17 = phi i32 [ %12, %.lr.ph41 ], [ %35, %.loopexit ]
-  %18 = phi ptr [ %.pre47, %.lr.ph41 ], [ %36, %.loopexit ]
-  %19 = phi ptr [ %.pre, %.lr.ph41 ], [ %37, %.loopexit ]
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next45, %.loopexit ]
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv44
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv44
-  %23 = load ptr, ptr %22, align 8
-  %.not33 = icmp eq ptr %21, %23
-  br i1 %.not33, label %.loopexit, label %24
+18:                                               ; preds = %.lr.ph45, %.critedge39
+  %19 = phi i32 [ %12, %.lr.ph45 ], [ %30, %.critedge39 ]
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next49, %.critedge39 ]
+  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv48
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
+  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv48
+  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %.not35 = icmp eq ptr %21, %23
+  br i1 %.not35, label %.critedge39, label %24
 
-24:                                               ; preds = %16
-  store i32 2, ptr %2, align 4
-  %25 = load i32, ptr %1, align 8
-  %.not3537 = icmp sgt i32 %25, 0
-  br i1 %.not3537, label %.lr.ph, label %.loopexit36.sink.split
+24:                                               ; preds = %18
+  store i32 2, ptr %2, align 4, !tbaa !28
+  %25 = load i32, ptr %1, align 8, !tbaa !3
+  %.not3741 = icmp sgt i32 %25, 0
+  br i1 %.not3741, label %.lr.ph.preheader, label %.loopexit.sink.split
 
-.lr.ph:                                           ; preds = %24
-  %26 = load ptr, ptr %14, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv44
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %15, align 8
+.lr.ph.preheader:                                 ; preds = %24
   %wide.trip.count = zext nneg i32 %25 to i64
-  br label %31
+  br label %.lr.ph
 
-30:                                               ; preds = %31
+26:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit36.sink.split, label %31, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !32
 
-31:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %28, %33
-  br i1 %34, label %.loopexit.loopexit, label %30
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
+  %29 = icmp eq ptr %21, %28
+  br i1 %29, label %.critedge39.loopexit, label %26
 
-.loopexit.loopexit:                               ; preds = %31
-  %.pre48 = load i32, ptr %0, align 8
+.critedge39.loopexit:                             ; preds = %.lr.ph
+  %.pre = load i32, ptr %0, align 8, !tbaa !3
+  br label %.critedge39
+
+.critedge39:                                      ; preds = %.critedge39.loopexit, %18
+  %30 = phi i32 [ %.pre, %.critedge39.loopexit ], [ %19, %18 ]
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next49, %31
+  br i1 %32, label %18, label %.loopexit, !llvm.loop !34
+
+.loopexit.sink.split:                             ; preds = %24, %26, %8, %5, %3
+  %.sink = phi i32 [ 0, %3 ], [ 3, %5 ], [ 3, %8 ], [ 3, %26 ], [ 3, %24 ]
+  store i32 %.sink, ptr %2, align 4, !tbaa !28
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %16
-  %35 = phi i32 [ %.pre48, %.loopexit.loopexit ], [ %17, %16 ]
-  %36 = phi ptr [ %29, %.loopexit.loopexit ], [ %18, %16 ]
-  %37 = phi ptr [ %26, %.loopexit.loopexit ], [ %19, %16 ]
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %38 = sext i32 %35 to i64
-  %39 = icmp slt i64 %indvars.iv.next45, %38
-  br i1 %39, label %16, label %.loopexit36, !llvm.loop !6
-
-.loopexit36.sink.split:                           ; preds = %24, %30, %8, %5, %3
-  %.sink = phi i32 [ 0, %3 ], [ 3, %5 ], [ 3, %8 ], [ 3, %30 ], [ 3, %24 ]
-  store i32 %.sink, ptr %2, align 4
-  br label %.loopexit36
-
-.loopexit36:                                      ; preds = %.loopexit, %.loopexit36.sink.split, %11
+.loopexit:                                        ; preds = %.critedge39, %.loopexit.sink.split, %11
   ret i32 0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef 536)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.loopexit, label %6
+  br i1 %5, label %.critedge116, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr @Nthreads, align 4
+  %7 = load i32, ptr @Nthreads, align 4, !tbaa !28
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
   %10 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %10, ptr %11, align 8
+  store ptr %10, ptr %11, align 8, !tbaa !29
   %12 = icmp eq ptr %10, null
-  br i1 %12, label %.loopexit, label %13
+  br i1 %12, label %.critedge116, label %13
 
 13:                                               ; preds = %6
-  store i32 %2, ptr %4, align 8
+  store i32 %2, ptr %4, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %15 = tail call noundef i32 @_Z22tMPI_Thread_mutex_initP19tMPI_Thread_mutex_t(ptr noundef nonnull %14)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr @TMPI_COMM_WORLD, align 8
+  %17 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
   %18 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %17, i32 noundef 2)
-  br label %.loopexit
+  br label %.critedge116
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %21 = tail call noundef i32 @_Z21tMPI_Thread_cond_initP18tMPI_Thread_cond_t(ptr noundef nonnull %20)
-  %.not101 = icmp eq i32 %21, 0
-  br i1 %.not101, label %25, label %22
+  %.not107 = icmp eq i32 %21, 0
+  br i1 %.not107, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr @TMPI_COMM_WORLD, align 8
+  %23 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
   %24 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %23, i32 noundef 2)
-  br label %.loopexit
+  br label %.critedge116
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %27 = tail call noundef i32 @_Z21tMPI_Thread_cond_initP18tMPI_Thread_cond_t(ptr noundef nonnull %26)
-  %.not102 = icmp eq i32 %27, 0
-  br i1 %.not102, label %31, label %28
+  %.not108 = icmp eq i32 %27, 0
+  br i1 %.not108, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr @TMPI_COMM_WORLD, align 8
+  %29 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
   %30 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %29, i32 noundef 2)
-  br label %.loopexit
+  br label %.critedge116
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 424
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 472
-  store i32 0, ptr %33, align 8
+  store i32 0, ptr %33, align 8, !tbaa !36
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   tail call void @_Z17tMPI_Barrier_initP14tMPI_Barrier_ti(ptr noundef nonnull %34, i32 noundef %2)
@@ -197,217 +195,214 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %31, %.lr.ph
-  %.089116 = phi i32 [ %38, %.lr.ph ], [ %2, %31 ]
-  %.090115 = phi i32 [ %39, %.lr.ph ], [ 0, %31 ]
-  %36 = lshr i32 %.089116, 1
-  %37 = and i32 %.089116, 1
+  %.092124 = phi i32 [ %38, %.lr.ph ], [ %2, %31 ]
+  %.093123 = phi i32 [ %39, %.lr.ph ], [ 0, %31 ]
+  %36 = lshr i32 %.092124, 1
+  %37 = and i32 %.092124, 1
   %38 = add nuw nsw i32 %36, %37
-  %39 = add nuw nsw i32 %.090115, 1
+  %39 = add nuw nsw i32 %.093123, 1
   %40 = icmp samesign ugt i32 %38, 1
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31
-  %.090.lcssa = phi i32 [ 0, %31 ], [ %39, %.lr.ph ]
+  %.093.lcssa = phi i32 [ 0, %31 ], [ %39, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  store i32 %.090.lcssa, ptr %41, align 8
-  %42 = add nuw nsw i32 %.090.lcssa, 1
+  store i32 %.093.lcssa, ptr %41, align 8, !tbaa !38
+  %42 = add nuw nsw i32 %.093.lcssa, 1
   %43 = zext nneg i32 %42 to i64
   %44 = shl nuw nsw i64 %43, 3
   %45 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %44)
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  store ptr %45, ptr %46, align 8
+  store ptr %45, ptr %46, align 8, !tbaa !39
   %47 = icmp eq ptr %45, null
-  br i1 %47, label %.loopexit, label %48
+  br i1 %47, label %.critedge116, label %48
 
 48:                                               ; preds = %._crit_edge
   %49 = shl nuw nsw i64 %43, 2
   %50 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %49)
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  store ptr %50, ptr %51, align 8
+  store ptr %50, ptr %51, align 8, !tbaa !40
   %52 = icmp eq ptr %50, null
-  br i1 %52, label %.loopexit, label %.preheader112
+  br i1 %52, label %.critedge116, label %.preheader120
 
-.preheader112:                                    ; preds = %48
-  %.not128 = icmp eq i32 %.090.lcssa, 0
-  br i1 %.not128, label %._crit_edge123, label %.lr.ph122.preheader
+.preheader120:                                    ; preds = %48
+  %.not135 = icmp eq i32 %.093.lcssa, 0
+  br i1 %.not135, label %.critedge, label %.lr.ph130.preheader
 
-.lr.ph122.preheader:                              ; preds = %.preheader112
-  %wide.trip.count139 = zext i32 %.090.lcssa to i64
-  br label %.lr.ph122
+.lr.ph130.preheader:                              ; preds = %.preheader120
+  %wide.trip.count146 = zext i32 %.093.lcssa to i64
+  br label %.lr.ph130
 
-.lr.ph122:                                        ; preds = %.lr.ph122.preheader, %._crit_edge119
-  %indvars.iv136 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next137, %._crit_edge119 ]
-  %.1121 = phi i32 [ %2, %.lr.ph122.preheader ], [ %55, %._crit_edge119 ]
-  %53 = sdiv i32 %.1121, 2
-  %54 = srem i32 %.1121, 2
+.lr.ph130:                                        ; preds = %.lr.ph130.preheader, %._crit_edge127
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph130.preheader ], [ %indvars.iv.next144, %._crit_edge127 ]
+  %.1129 = phi i32 [ %2, %.lr.ph130.preheader ], [ %55, %._crit_edge127 ]
+  %53 = sdiv i32 %.1129, 2
+  %54 = srem i32 %.1129, 2
   %55 = add nsw i32 %53, %54
-  %56 = load ptr, ptr %51, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv136
-  store i32 %55, ptr %57, align 4
+  %56 = load ptr, ptr %51, align 8, !tbaa !40
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv143
+  store i32 %55, ptr %57, align 4, !tbaa !28
   %58 = sext i32 %55 to i64
   %59 = mul nsw i64 %58, 132
   %60 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %59)
-  %61 = load ptr, ptr %46, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv136
-  store ptr %60, ptr %62, align 8
-  %63 = load ptr, ptr %46, align 8
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv136
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit, label %.preheader111
+  %61 = load ptr, ptr %46, align 8, !tbaa !39
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv143
+  store ptr %60, ptr %62, align 8, !tbaa !41
+  %.not109 = icmp eq ptr %60, null
+  br i1 %.not109, label %.critedge116, label %.preheader119
 
-.preheader111:                                    ; preds = %.lr.ph122
-  %67 = icmp sgt i32 %55, 0
-  br i1 %67, label %.lr.ph118.preheader, label %._crit_edge119
+.preheader119:                                    ; preds = %.lr.ph130
+  %63 = icmp sgt i32 %55, 0
+  br i1 %63, label %.lr.ph126.preheader, label %._crit_edge127
 
-.lr.ph118.preheader:                              ; preds = %.preheader111
+.lr.ph126.preheader:                              ; preds = %.preheader119
   %wide.trip.count = zext nneg i32 %55 to i64
-  br label %.lr.ph118
-
-.lr.ph118:                                        ; preds = %.lr.ph118.preheader, %.lr.ph118
-  %indvars.iv = phi i64 [ 0, %.lr.ph118.preheader ], [ %indvars.iv.next, %.lr.ph118 ]
-  %68 = load ptr, ptr %46, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv136
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw %struct.tMPI_Barrier_t, ptr %70, i64 %indvars.iv
-  tail call void @_Z17tMPI_Barrier_initP14tMPI_Barrier_ti(ptr noundef %71, i32 noundef 2)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge119, label %.lr.ph118, !llvm.loop !8
-
-._crit_edge119:                                   ; preds = %.lr.ph118, %.preheader111
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge123, label %.lr.ph122, !llvm.loop !9
-
-._crit_edge123:                                   ; preds = %._crit_edge119, %.preheader112
-  %72 = load i32, ptr @Nthreads, align 4
-  %73 = sext i32 %72 to i64
-  %74 = shl nsw i64 %73, 6
-  %75 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %74)
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  store ptr %75, ptr %76, align 8
-  %77 = icmp eq ptr %75, null
-  br i1 %77, label %.loopexit, label %78
-
-78:                                               ; preds = %._crit_edge123
-  %79 = load i32, ptr @Nthreads, align 4
-  %80 = sext i32 %79 to i64
-  %81 = shl nsw i64 %80, 6
-  %82 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %81)
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  store ptr %82, ptr %83, align 8
-  %84 = icmp eq ptr %82, null
-  br i1 %84, label %.loopexit, label %85
-
-85:                                               ; preds = %78
-  %.not103 = icmp eq ptr %1, null
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %spec.select = select i1 %.not103, ptr @TMPI_ERRORS_ARE_FATAL, ptr %86
-  %.sink = load ptr, ptr %spec.select, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %4, i64 448
-  store ptr %.sink, ptr %87, align 8
-  %88 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef 304)
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  store ptr %88, ptr %89, align 8
-  %90 = icmp eq ptr %88, null
-  br i1 %90, label %.loopexit, label %.preheader109
-
-91:                                               ; preds = %.preheader109
-  br i1 %92, label %.preheader109, label %96, !llvm.loop !10
-
-.preheader109:                                    ; preds = %85, %91
-  %92 = phi i1 [ false, %91 ], [ true, %85 ]
-  %indvars.iv141 = phi i64 [ 1, %91 ], [ 0, %85 ]
-  %93 = load ptr, ptr %89, align 8
-  %94 = getelementptr inbounds nuw %struct.coll_env, ptr %93, i64 %indvars.iv141
-  %95 = tail call noundef i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr noundef %94, i32 noundef %2)
-  %.not108 = icmp eq i32 %95, 0
-  br i1 %.not108, label %91, label %.loopexit
-
-96:                                               ; preds = %91
-  %97 = sext i32 %2 to i64
-  %98 = mul nsw i64 %97, 24
-  %99 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %98)
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store ptr %99, ptr %100, align 8
-  %101 = icmp eq ptr %99, null
-  br i1 %101, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %96
-  %102 = icmp sgt i32 %2, 0
-  br i1 %102, label %.lr.ph126.preheader, label %._crit_edge127
-
-.lr.ph126.preheader:                              ; preds = %.preheader
-  %wide.trip.count147 = zext nneg i32 %2 to i64
   br label %.lr.ph126
 
-103:                                              ; preds = %.lr.ph126
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %._crit_edge127, label %.lr.ph126, !llvm.loop !11
+.lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
+  %indvars.iv = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next, %.lr.ph126 ]
+  %64 = load ptr, ptr %46, align 8, !tbaa !39
+  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv143
+  %66 = load ptr, ptr %65, align 8, !tbaa !41
+  %67 = getelementptr inbounds nuw %struct.tMPI_Barrier_t, ptr %66, i64 %indvars.iv
+  tail call void @_Z17tMPI_Barrier_initP14tMPI_Barrier_ti(ptr noundef %67, i32 noundef 2)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge127, label %.lr.ph126, !llvm.loop !43
 
-.lr.ph126:                                        ; preds = %.lr.ph126.preheader, %103
-  %indvars.iv144 = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next145, %103 ]
-  %104 = load ptr, ptr %100, align 8
-  %105 = getelementptr inbounds nuw %struct.coll_sync, ptr %104, i64 %indvars.iv144
-  %106 = tail call noundef i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noundef %105, i32 noundef %2)
-  %.not107 = icmp eq i32 %106, 0
-  br i1 %.not107, label %103, label %.loopexit
+._crit_edge127:                                   ; preds = %.lr.ph126, %.preheader119
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
+  br i1 %exitcond147.not, label %.critedge, label %.lr.ph130, !llvm.loop !44
 
-._crit_edge127:                                   ; preds = %103, %.preheader
-  %107 = load ptr, ptr @tmpi_global, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 80
-  %109 = tail call noundef i32 @_Z22tMPI_Thread_mutex_lockP19tMPI_Thread_mutex_t(ptr noundef nonnull %108)
-  %.not104 = icmp eq i32 %109, 0
-  %110 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  br i1 %.not104, label %113, label %111
+.critedge:                                        ; preds = %._crit_edge127, %.preheader120
+  %68 = load i32, ptr @Nthreads, align 4, !tbaa !28
+  %69 = sext i32 %68 to i64
+  %70 = shl nsw i64 %69, 6
+  %71 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %70)
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 192
+  store ptr %71, ptr %72, align 8, !tbaa !45
+  %73 = icmp eq ptr %71, null
+  br i1 %73, label %.critedge116, label %74
 
-111:                                              ; preds = %._crit_edge127
-  %112 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %110, i32 noundef 2)
-  br label %.loopexit
+74:                                               ; preds = %.critedge
+  %75 = load i32, ptr @Nthreads, align 4, !tbaa !28
+  %76 = sext i32 %75 to i64
+  %77 = shl nsw i64 %76, 6
+  %78 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %77)
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  store ptr %78, ptr %79, align 8, !tbaa !46
+  %80 = icmp eq ptr %78, null
+  br i1 %80, label %.critedge116, label %81
 
-113:                                              ; preds = %._crit_edge127
-  %.not105 = icmp eq ptr %110, null
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 456
-  br i1 %.not105, label %120, label %115
+81:                                               ; preds = %74
+  %.not110 = icmp eq ptr %1, null
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %spec.select = select i1 %.not110, ptr @TMPI_ERRORS_ARE_FATAL, ptr %82
+  %.sink = load ptr, ptr %spec.select, align 8, !tbaa !47
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 448
+  store ptr %.sink, ptr %83, align 8, !tbaa !48
+  %84 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef 304)
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  store ptr %84, ptr %85, align 8, !tbaa !49
+  %86 = icmp eq ptr %84, null
+  br i1 %86, label %.critedge116, label %.preheader117
 
-115:                                              ; preds = %113
-  store ptr %110, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %110, i64 464
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 464
-  store ptr %117, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 456
-  store ptr %4, ptr %119, align 8
-  store ptr %4, ptr %116, align 8
-  br label %122
+87:                                               ; preds = %.preheader117
+  br i1 %88, label %.preheader117, label %92, !llvm.loop !50
 
-120:                                              ; preds = %113
-  store ptr %4, ptr %114, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 464
-  store ptr %4, ptr %121, align 8
-  br label %122
+.preheader117:                                    ; preds = %81, %87
+  %88 = phi i1 [ false, %87 ], [ true, %81 ]
+  %indvars.iv148 = phi i64 [ 1, %87 ], [ 0, %81 ]
+  %89 = load ptr, ptr %85, align 8, !tbaa !49
+  %90 = getelementptr inbounds nuw %struct.coll_env, ptr %89, i64 %indvars.iv148
+  %91 = tail call noundef i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr noundef %90, i32 noundef %2)
+  %.not115 = icmp eq i32 %91, 0
+  br i1 %.not115, label %87, label %.critedge116
 
-122:                                              ; preds = %120, %115
-  %123 = load ptr, ptr @tmpi_global, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 80
-  %125 = tail call noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noundef nonnull %124)
-  %.not106 = icmp eq i32 %125, 0
-  br i1 %.not106, label %129, label %126
+92:                                               ; preds = %87
+  %93 = sext i32 %2 to i64
+  %94 = mul nsw i64 %93, 24
+  %95 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %94)
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 184
+  store ptr %95, ptr %96, align 8, !tbaa !51
+  %97 = icmp eq ptr %95, null
+  br i1 %97, label %.critedge116, label %.preheader
 
-126:                                              ; preds = %122
-  %127 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  %128 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %127, i32 noundef 2)
-  br label %.loopexit
+.preheader:                                       ; preds = %92
+  %98 = icmp sgt i32 %2, 0
+  br i1 %98, label %.lr.ph133.preheader, label %._crit_edge134
 
-129:                                              ; preds = %122
-  store ptr %4, ptr %0, align 8
-  br label %.loopexit
+.lr.ph133.preheader:                              ; preds = %.preheader
+  %wide.trip.count154 = zext nneg i32 %2 to i64
+  br label %.lr.ph133
 
-.loopexit:                                        ; preds = %.lr.ph122, %.preheader109, %.lr.ph126, %96, %85, %78, %._crit_edge123, %48, %._crit_edge, %6, %3, %129, %126, %111, %28, %22, %16
-  %.093 = phi i32 [ %18, %16 ], [ %24, %22 ], [ %30, %28 ], [ %112, %111 ], [ %128, %126 ], [ 0, %129 ], [ 1, %3 ], [ 1, %6 ], [ 1, %._crit_edge ], [ 1, %48 ], [ 1, %._crit_edge123 ], [ 1, %78 ], [ 1, %85 ], [ 1, %96 ], [ %106, %.lr.ph126 ], [ %95, %.preheader109 ], [ 1, %.lr.ph122 ]
-  ret i32 %.093
+99:                                               ; preds = %.lr.ph133
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
+  br i1 %exitcond155.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !52
+
+.lr.ph133:                                        ; preds = %.lr.ph133.preheader, %99
+  %indvars.iv151 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next152, %99 ]
+  %100 = load ptr, ptr %96, align 8, !tbaa !51
+  %101 = getelementptr inbounds nuw %struct.coll_sync, ptr %100, i64 %indvars.iv151
+  %102 = tail call noundef i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noundef %101, i32 noundef %2)
+  %.not114 = icmp eq i32 %102, 0
+  br i1 %.not114, label %99, label %.critedge116
+
+._crit_edge134:                                   ; preds = %99, %.preheader
+  %103 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 80
+  %105 = tail call noundef i32 @_Z22tMPI_Thread_mutex_lockP19tMPI_Thread_mutex_t(ptr noundef nonnull %104)
+  %.not111 = icmp eq i32 %105, 0
+  %106 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
+  br i1 %.not111, label %109, label %107
+
+107:                                              ; preds = %._crit_edge134
+  %108 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %106, i32 noundef 2)
+  br label %.critedge116
+
+109:                                              ; preds = %._crit_edge134
+  %.not112 = icmp eq ptr %106, null
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 456
+  br i1 %.not112, label %116, label %111
+
+111:                                              ; preds = %109
+  store ptr %106, ptr %110, align 8, !tbaa !55
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 464
+  %113 = load ptr, ptr %112, align 8, !tbaa !56
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 464
+  store ptr %113, ptr %114, align 8, !tbaa !56
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 456
+  store ptr %4, ptr %115, align 8, !tbaa !55
+  store ptr %4, ptr %112, align 8, !tbaa !56
+  br label %118
+
+116:                                              ; preds = %109
+  store ptr %4, ptr %110, align 8, !tbaa !55
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 464
+  store ptr %4, ptr %117, align 8, !tbaa !56
+  br label %118
+
+118:                                              ; preds = %116, %111
+  %119 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 80
+  %121 = tail call noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noundef nonnull %120)
+  %.not113 = icmp eq i32 %121, 0
+  br i1 %.not113, label %125, label %122
+
+122:                                              ; preds = %118
+  %123 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
+  %124 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %123, i32 noundef 2)
+  br label %.critedge116
+
+125:                                              ; preds = %118
+  store ptr %4, ptr %0, align 8, !tbaa !35
+  br label %.critedge116
+
+.critedge116:                                     ; preds = %.lr.ph130, %.preheader117, %.lr.ph133, %._crit_edge, %48, %92, %81, %74, %.critedge, %6, %3, %125, %122, %107, %28, %22, %16
+  %.098 = phi i32 [ %18, %16 ], [ %24, %22 ], [ %30, %28 ], [ %108, %107 ], [ %124, %122 ], [ 0, %125 ], [ 1, %3 ], [ 1, %6 ], [ 1, %.critedge ], [ 1, %74 ], [ 1, %81 ], [ 1, %92 ], [ 1, %48 ], [ 1, %._crit_edge ], [ %102, %.lr.ph133 ], [ %91, %.preheader117 ], [ 1, %.lr.ph130 ]
+  ret i32 %.098
 }
 
 declare noundef ptr @_Z11tMPI_Mallocm(i64 noundef) local_unnamed_addr #2
@@ -431,10 +426,10 @@ declare noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noun
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   tail call void @free(ptr noundef %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !38
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -444,30 +439,30 @@ define noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %0, i32 noun
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %8, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   tail call void @free(ptr noundef %12) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = load i32, ptr %5, align 8
+  %13 = load i32, ptr %5, align 8, !tbaa !38
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %9, label %._crit_edge, !llvm.loop !12
+  br i1 %15, label %9, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %9, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !39
   tail call void @free(ptr noundef %17) #8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !40
   tail call void @free(ptr noundef %19) #8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !49
   tail call void @_Z21tMPI_Coll_env_destroyP8coll_env(ptr noundef %21)
-  %22 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %20, align 8, !tbaa !49
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 152
   tail call void @_Z21tMPI_Coll_env_destroyP8coll_env(ptr noundef nonnull %23)
-  %24 = load i32, ptr %0, align 8
+  %24 = load i32, ptr %0, align 8, !tbaa !3
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph56, label %._crit_edge57
 
@@ -477,20 +472,20 @@ define noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %0, i32 noun
 
 27:                                               ; preds = %.lr.ph56, %27
   %indvars.iv62 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next63, %27 ]
-  %28 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %26, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw %struct.coll_sync, ptr %28, i64 %indvars.iv62
   tail call void @_Z22tMPI_Coll_sync_destroyP9coll_sync(ptr noundef %29)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %30 = load i32, ptr %0, align 8
+  %30 = load i32, ptr %0, align 8, !tbaa !3
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next63, %31
-  br i1 %32, label %27, label %._crit_edge57, !llvm.loop !13
+  br i1 %32, label %27, label %._crit_edge57, !llvm.loop !58
 
 ._crit_edge57:                                    ; preds = %27, %._crit_edge
-  %33 = load ptr, ptr %20, align 8
+  %33 = load ptr, ptr %20, align 8, !tbaa !49
   tail call void @free(ptr noundef %33) #8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !51
   tail call void @free(ptr noundef %35) #8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %37 = tail call noundef i32 @_Z25tMPI_Thread_mutex_destroyP19tMPI_Thread_mutex_t(ptr noundef nonnull %36)
@@ -511,19 +506,19 @@ define noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %0, i32 noun
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %46 = load ptr, ptr %45, align 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !45
   tail call void @free(ptr noundef %46) #8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !46
   tail call void @free(ptr noundef %48) #8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %50 = load ptr, ptr %49, align 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !59
   %.not47 = icmp eq ptr %50, null
   br i1 %.not47, label %53, label %51
 
 51:                                               ; preds = %44
   tail call void @_Z17tMPI_Cart_destroyP10cart_topol(ptr noundef nonnull %50)
-  %52 = load ptr, ptr %49, align 8
+  %52 = load ptr, ptr %49, align 8, !tbaa !59
   tail call void @free(ptr noundef %52) #8
   br label %53
 
@@ -532,7 +527,7 @@ define noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %0, i32 noun
   br i1 %.not48, label %58, label %54
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr @tmpi_global, align 8
+  %55 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 80
   %57 = tail call noundef i32 @_Z22tMPI_Thread_mutex_lockP19tMPI_Thread_mutex_t(ptr noundef nonnull %56)
   %.not49 = icmp eq i32 %57, 0
@@ -540,50 +535,49 @@ define noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %0, i32 noun
 
 58:                                               ; preds = %54, %53
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !55
   %.not50 = icmp eq ptr %60, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !56
   br i1 %.not50, label %._crit_edge65, label %61
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 464
-  store ptr %.pre, ptr %62, align 8
+  store ptr %.pre, ptr %62, align 8, !tbaa !56
   br label %._crit_edge65
 
 ._crit_edge65:                                    ; preds = %58, %61
   %.not51 = icmp eq ptr %.pre, null
-  br i1 %.not51, label %66, label %63
+  br i1 %.not51, label %65, label %63
 
 63:                                               ; preds = %._crit_edge65
-  %64 = load ptr, ptr %59, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %.pre, i64 456
-  store ptr %64, ptr %65, align 8
-  br label %66
+  %64 = getelementptr inbounds nuw i8, ptr %.pre, i64 456
+  store ptr %60, ptr %64, align 8, !tbaa !55
+  br label %65
 
-66:                                               ; preds = %63, %._crit_edge65
+65:                                               ; preds = %63, %._crit_edge65
   tail call void @free(ptr noundef nonnull %0) #8
-  br i1 %.not48, label %73, label %67
+  br i1 %.not48, label %72, label %66
 
-67:                                               ; preds = %66
-  %68 = load ptr, ptr @tmpi_global, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 80
-  %70 = tail call noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noundef nonnull %69)
-  %.not52 = icmp eq i32 %70, 0
-  br i1 %.not52, label %73, label %.sink.split
+66:                                               ; preds = %65
+  %67 = load ptr, ptr @tmpi_global, align 8, !tbaa !53
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 80
+  %69 = tail call noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noundef nonnull %68)
+  %.not52 = icmp eq i32 %69, 0
+  br i1 %.not52, label %72, label %.sink.split
 
-.sink.split:                                      ; preds = %67, %54, %41, %38, %._crit_edge57
-  %71 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  %72 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %71, i32 noundef 2)
-  br label %73
+.sink.split:                                      ; preds = %66, %54, %41, %38, %._crit_edge57
+  %70 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
+  %71 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %70, i32 noundef 2)
+  br label %72
 
-73:                                               ; preds = %.sink.split, %66, %67
-  %.041 = phi i32 [ 0, %67 ], [ 0, %66 ], [ %72, %.sink.split ]
+72:                                               ; preds = %.sink.split, %65, %66
+  %.041 = phi i32 [ 0, %66 ], [ 0, %65 ], [ %71, %.sink.split ]
   ret i32 %.041
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_Z21tMPI_Coll_env_destroyP8coll_env(ptr noundef) local_unnamed_addr #2
 
@@ -598,16 +592,16 @@ declare void @_Z17tMPI_Cart_destroyP10cart_topol(ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z14tMPI_Comm_freePP10tmpi_comm_(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
-  %3 = load ptr, ptr %0, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !35
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr %3, align 8
+  %5 = load i32, ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 472
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  store volatile i32 1, ptr %2, align 4
-  %.0..0..0..0..0..0..i = load volatile i32, ptr %2, align 4
+  store volatile i32 1, ptr %2, align 4, !tbaa !28
+  %.0..0..0..0..0..0..i = load volatile i32, ptr %2, align 4, !tbaa !28
   %7 = atomicrmw add ptr %6, i32 %.0..0..0..0..0..0..i seq_cst, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %8 = add nsw i32 %7, 1
@@ -615,7 +609,7 @@ define noundef i32 @_Z14tMPI_Comm_freePP10tmpi_comm_(ptr noundef readonly captur
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
-  %11 = load ptr, ptr %0, align 8
+  %11 = load ptr, ptr %0, align 8, !tbaa !35
   %12 = tail call noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %11, i32 noundef 1)
   %.not10 = icmp eq i32 %12, 0
   br i1 %.not10, label %13, label %14
@@ -635,27 +629,27 @@ define noundef i32 @_Z13tMPI_Comm_dupP10tmpi_comm_PS0_(ptr noundef %0, ptr nound
   br i1 %.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = load i32, ptr %0, align 8
+  %4 = load i32, ptr %0, align 8, !tbaa !3
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   %wide.trip.count.i = zext nneg i32 %4 to i64
   br label %8
 
 8:                                                ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = icmp eq ptr %10, %3
   br i1 %11, label %.loopexit.loopexit.split.loop.exit14.i, label %12
 
 12:                                               ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit, label %8, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit, label %8, !llvm.loop !60
 
 .loopexit.loopexit.split.loop.exit14.i:           ; preds = %8
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -677,543 +671,555 @@ define noundef i32 @_Z15tMPI_Comm_splitP10tmpi_comm_iiPS0_(ptr noundef %0, i32 n
   br i1 %.not.i, label %_Z11tMPI_Comm_NP10tmpi_comm_.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr %0, align 8
+  %10 = load i32, ptr %0, align 8, !tbaa !3
   br label %_Z11tMPI_Comm_NP10tmpi_comm_.exit
 
 _Z11tMPI_Comm_NP10tmpi_comm_.exit:                ; preds = %4, %9
   %.0.i = phi i32 [ %10, %9 ], [ 0, %4 ]
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %5, i8 0, i64 256, i1 true)
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #8
   %11 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   br i1 %.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_Z11tMPI_Comm_NP10tmpi_comm_.exit
-  %12 = load i32, ptr %0, align 8
+  %12 = load i32, ptr %0, align 8, !tbaa !3
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157
+  br i1 %13, label %.lr.ph.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
   %wide.trip.count.i = zext nneg i32 %12 to i64
   br label %16
 
 16:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
   %19 = icmp eq ptr %18, %11
-  br i1 %19, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157.loopexit, label %20
+  br i1 %19, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162.loopexit, label %20
 
 20:                                               ; preds = %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157.loopexit, label %16, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162.loopexit, label %16, !llvm.loop !60
 
 _Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread: ; preds = %_Z11tMPI_Comm_NP10tmpi_comm_.exit
-  store ptr null, ptr %3, align 8
-  %21 = load ptr, ptr @TMPI_COMM_WORLD, align 8
+  store ptr null, ptr %3, align 8, !tbaa !35
+  %21 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
   %22 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %21, i32 noundef 6)
-  br label %.loopexit167
+  br label %214
 
-_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157.loopexit: ; preds = %16, %20
-  %.08.i159.ph = phi i64 [ -1, %20 ], [ %indvars.iv.i, %16 ]
-  %23 = shl i64 %.08.i159.ph, 32
+_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162.loopexit: ; preds = %16, %20
+  %.08.i164.ph = phi i64 [ -1, %20 ], [ %indvars.iv.i, %16 ]
+  %23 = shl i64 %.08.i164.ph, 32
   %24 = ashr exact i64 %23, 32
-  br label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157
+  br label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162
 
-_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157: ; preds = %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157.loopexit, %.preheader.i
-  %.08.i159 = phi i64 [ -1, %.preheader.i ], [ %24, %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157.loopexit ]
+_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162: ; preds = %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162.loopexit, %.preheader.i
+  %.08.i164 = phi i64 [ -1, %.preheader.i ], [ %24, %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162.loopexit ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %26 = tail call noundef i32 @_Z22tMPI_Thread_mutex_lockP19tMPI_Thread_mutex_t(ptr noundef nonnull %25)
-  %.not126 = icmp eq i32 %26, 0
-  br i1 %.not126, label %30, label %27
+  %.not131 = icmp eq i32 %26, 0
+  br i1 %.not131, label %30, label %27
 
-27:                                               ; preds = %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157
-  %28 = load ptr, ptr @TMPI_COMM_WORLD, align 8
+27:                                               ; preds = %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162
+  %28 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
   %29 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %28, i32 noundef 2)
-  br label %.loopexit167
+  br label %214
 
-30:                                               ; preds = %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread157
+30:                                               ; preds = %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %32 = load ptr, ptr %31, align 8
-  %.not127.not = icmp eq ptr %32, null
-  br i1 %.not127.not, label %33, label %55
+  %32 = load ptr, ptr %31, align 8, !tbaa !61
+  %.not132.not = icmp eq ptr %32, null
+  br i1 %.not132.not, label %33, label %._crit_edge227
+
+._crit_edge227:                                   ; preds = %30
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %.pre228 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !62
+  br label %53
 
 33:                                               ; preds = %30
   %34 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef 32)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr %34, ptr %35, align 8
+  store ptr %34, ptr %35, align 8, !tbaa !62
   %36 = sext i32 %.0.i to i64
   %37 = shl nsw i64 %36, 3
   %38 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %37)
-  store ptr %38, ptr %31, align 8
+  store ptr %38, ptr %31, align 8, !tbaa !61
   %39 = icmp slt i32 %.0.i, 65
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %33
-  %41 = load ptr, ptr %35, align 8
+  %41 = load ptr, ptr %35, align 8, !tbaa !62
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %5, ptr %42, align 8
-  br label %_Z11tMPI_Comm_NP10tmpi_comm_.exit139
+  store ptr %5, ptr %42, align 8, !tbaa !63
+  br label %_Z11tMPI_Comm_NP10tmpi_comm_.exit144
 
 43:                                               ; preds = %33
   %44 = shl nuw nsw i64 %36, 2
   %45 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %44)
-  %46 = load ptr, ptr %35, align 8
+  %46 = load ptr, ptr %35, align 8, !tbaa !62
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store ptr %45, ptr %47, align 8
+  store ptr %45, ptr %47, align 8, !tbaa !63
   %48 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %44)
-  br label %_Z11tMPI_Comm_NP10tmpi_comm_.exit139
+  %49 = load ptr, ptr %35, align 8, !tbaa !62
+  br label %_Z11tMPI_Comm_NP10tmpi_comm_.exit144
 
-_Z11tMPI_Comm_NP10tmpi_comm_.exit139:             ; preds = %43, %40
+_Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
+  %.sink242 = phi ptr [ %49, %43 ], [ %41, %40 ]
   %.sink = phi ptr [ %48, %43 ], [ %6, %40 ]
-  %49 = load ptr, ptr %35, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr %.sink, ptr %50, align 8
-  %51 = load i32, ptr %0, align 8
-  %52 = load ptr, ptr %35, align 8
-  store volatile i32 %51, ptr %52, align 8
-  %53 = load ptr, ptr %35, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store volatile i32 0, ptr %54, align 8
-  %.pre = load ptr, ptr %31, align 8
-  br label %55
+  %50 = getelementptr inbounds nuw i8, ptr %.sink242, i64 24
+  store ptr %.sink, ptr %50, align 8, !tbaa !65
+  %51 = load i32, ptr %0, align 8, !tbaa !3
+  store volatile i32 %51, ptr %.sink242, align 8, !tbaa !66
+  %52 = getelementptr inbounds nuw i8, ptr %.sink242, i64 8
+  store volatile i32 0, ptr %52, align 8, !tbaa !67
+  %.pre = load ptr, ptr %31, align 8, !tbaa !61
+  br label %53
 
-55:                                               ; preds = %_Z11tMPI_Comm_NP10tmpi_comm_.exit139, %30
-  %56 = phi ptr [ %.pre, %_Z11tMPI_Comm_NP10tmpi_comm_.exit139 ], [ %32, %30 ]
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i32, ptr %60, i64 %.08.i159
-  store volatile i32 %1, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i32, ptr %63, i64 %.08.i159
-  store volatile i32 %2, ptr %64, align 4
-  %65 = load volatile i32, ptr %58, align 8
-  %66 = add nsw i32 %65, -1
-  store volatile i32 %66, ptr %58, align 8
-  %67 = load volatile i32, ptr %58, align 8
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %75
+53:                                               ; preds = %._crit_edge227, %_Z11tMPI_Comm_NP10tmpi_comm_.exit144
+  %54 = phi ptr [ %.sink242, %_Z11tMPI_Comm_NP10tmpi_comm_.exit144 ], [ %.pre228, %._crit_edge227 ]
+  %55 = phi ptr [ %.pre, %_Z11tMPI_Comm_NP10tmpi_comm_.exit144 ], [ %32, %._crit_edge227 ]
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %57 = load ptr, ptr %56, align 8, !tbaa !63
+  %58 = getelementptr inbounds i32, ptr %57, i64 %.08.i164
+  store volatile i32 %1, ptr %58, align 4, !tbaa !28
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %60 = load ptr, ptr %59, align 8, !tbaa !65
+  %61 = getelementptr inbounds i32, ptr %60, i64 %.08.i164
+  store volatile i32 %2, ptr %61, align 4, !tbaa !28
+  %62 = load volatile i32, ptr %54, align 8, !tbaa !66
+  %63 = add nsw i32 %62, -1
+  store volatile i32 %63, ptr %54, align 8, !tbaa !66
+  %64 = load volatile i32, ptr %54, align 8, !tbaa !66
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %72
 
-69:                                               ; preds = %55
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %71 = call noundef i32 @_Z23tMPI_Thread_cond_signalP18tMPI_Thread_cond_t(ptr noundef nonnull %70)
-  %.not128 = icmp eq i32 %71, 0
-  br i1 %.not128, label %75, label %72
+66:                                               ; preds = %53
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %68 = call noundef i32 @_Z23tMPI_Thread_cond_signalP18tMPI_Thread_cond_t(ptr noundef nonnull %67)
+  %.not133 = icmp eq i32 %68, 0
+  br i1 %.not133, label %72, label %69
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  %74 = call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %73, i32 noundef 2)
-  br label %.loopexit167
+69:                                               ; preds = %66
+  %70 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
+  %71 = call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %70, i32 noundef 2)
+  br label %214
 
-75:                                               ; preds = %69, %55
-  br i1 %.not127.not, label %.preheader168, label %.preheader169
+72:                                               ; preds = %66, %53
+  br i1 %.not132.not, label %82, label %.preheader175
 
-.preheader169:                                    ; preds = %75
-  %76 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  br label %79
+.preheader175:                                    ; preds = %72
+  %73 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  br label %75
 
-.preheader168:                                    ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  br label %86
+75:                                               ; preds = %.preheader175, %77
+  %76 = load volatile i32, ptr %73, align 8, !tbaa !67
+  %.not135 = icmp eq i32 %76, 0
+  br i1 %.not135, label %77, label %.loopexit176
 
-79:                                               ; preds = %.preheader169, %81
-  %80 = load volatile i32, ptr %76, align 8
-  %.not130 = icmp eq i32 %80, 0
-  br i1 %.not130, label %81, label %.loopexit170
+77:                                               ; preds = %75
+  %78 = call noundef i32 @_Z21tMPI_Thread_cond_waitP18tMPI_Thread_cond_tP19tMPI_Thread_mutex_t(ptr noundef nonnull %74, ptr noundef nonnull %25)
+  %.not136 = icmp eq i32 %78, 0
+  br i1 %.not136, label %75, label %79, !llvm.loop !68
 
-81:                                               ; preds = %79
-  %82 = call noundef i32 @_Z21tMPI_Thread_cond_waitP18tMPI_Thread_cond_tP19tMPI_Thread_mutex_t(ptr noundef nonnull %77, ptr noundef nonnull %25)
-  %.not131 = icmp eq i32 %82, 0
-  br i1 %.not131, label %79, label %83, !llvm.loop !15
+79:                                               ; preds = %77
+  %80 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
+  %81 = call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %80, i32 noundef 2)
+  br label %214
 
-83:                                               ; preds = %81
-  %84 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  %85 = call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %84, i32 noundef 2)
-  br label %.loopexit167
+82:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  br label %84
 
-86:                                               ; preds = %.preheader168, %89
-  %87 = load volatile i32, ptr %58, align 8
-  %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %89, label %94
+84:                                               ; preds = %87, %82
+  %85 = load volatile i32, ptr %54, align 8, !tbaa !66
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %87, label %89
 
-89:                                               ; preds = %86
-  %90 = call noundef i32 @_Z21tMPI_Thread_cond_waitP18tMPI_Thread_cond_tP19tMPI_Thread_mutex_t(ptr noundef nonnull %78, ptr noundef nonnull %25)
-  %.not135 = icmp eq i32 %90, 0
-  br i1 %.not135, label %86, label %91, !llvm.loop !16
+87:                                               ; preds = %84
+  %88 = call noundef i32 @_Z21tMPI_Thread_cond_waitP18tMPI_Thread_cond_tP19tMPI_Thread_mutex_t(ptr noundef nonnull %83, ptr noundef nonnull %25)
+  %.not139 = icmp eq i32 %88, 0
+  br i1 %.not139, label %84, label %.thread171.sink.split, !llvm.loop !69
 
-91:                                               ; preds = %89
-  %92 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  %93 = call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %92, i32 noundef 2)
-  br label %.loopexit167
-
-94:                                               ; preds = %86
-  %95 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store volatile i32 %.0.i, ptr %95, align 4
-  %96 = mul nsw i32 %.0.i, %.0.i
-  %97 = zext nneg i32 %96 to i64
-  %98 = shl nuw nsw i64 %97, 2
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store volatile i32 %.0.i, ptr %90, align 4, !tbaa !70
+  %91 = mul nsw i32 %.0.i, %.0.i
+  %92 = zext nneg i32 %91 to i64
+  %93 = shl nuw nsw i64 %92, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  %99 = call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %98)
-  %100 = icmp sgt i32 %.0.i, 64
-  br i1 %100, label %.thread, label %105
+  %94 = call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %93)
+  %95 = icmp sgt i32 %.0.i, 64
+  br i1 %95, label %.thread, label %100
 
-.thread:                                          ; preds = %94
-  %101 = zext nneg i32 %.0.i to i64
-  %102 = shl nuw nsw i64 %101, 2
-  %103 = call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %102)
-  %104 = call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %102)
+.thread:                                          ; preds = %89
+  %96 = zext nneg i32 %.0.i to i64
+  %97 = shl nuw nsw i64 %96, 2
+  %98 = call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %97)
+  %99 = call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %97)
   br label %.lr.ph73.preheader.i
 
-105:                                              ; preds = %94
-  %106 = icmp sgt i32 %.0.i, 0
-  br i1 %106, label %..lr.ph73.preheader.i_crit_edge, label %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit
+100:                                              ; preds = %89
+  %101 = icmp sgt i32 %.0.i, 0
+  br i1 %101, label %..lr.ph73.preheader.i_crit_edge, label %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit
 
-..lr.ph73.preheader.i_crit_edge:                  ; preds = %105
-  %.pre219 = zext nneg i32 %.0.i to i64
-  %.pre220 = shl nuw nsw i64 %.pre219, 2
+..lr.ph73.preheader.i_crit_edge:                  ; preds = %100
+  %.pre229 = zext nneg i32 %.0.i to i64
+  %.pre230 = shl nuw nsw i64 %.pre229, 2
   br label %.lr.ph73.preheader.i
 
 .lr.ph73.preheader.i:                             ; preds = %..lr.ph73.preheader.i_crit_edge, %.thread
-  %.pre-phi221 = phi i64 [ %.pre220, %..lr.ph73.preheader.i_crit_edge ], [ %102, %.thread ]
-  %.pre-phi = phi i64 [ %.pre219, %..lr.ph73.preheader.i_crit_edge ], [ %101, %.thread ]
-  %.0118165 = phi ptr [ %8, %..lr.ph73.preheader.i_crit_edge ], [ %104, %.thread ]
-  %.0119163 = phi ptr [ %7, %..lr.ph73.preheader.i_crit_edge ], [ %103, %.thread ]
-  %107 = load ptr, ptr %59, align 8
-  %108 = load ptr, ptr %62, align 8
-  call void @llvm.memset.p0.i64(ptr align 4 %.0118165, i8 0, i64 %.pre-phi221, i1 false)
+  %.pre-phi231 = phi i64 [ %.pre230, %..lr.ph73.preheader.i_crit_edge ], [ %97, %.thread ]
+  %.pre-phi = phi i64 [ %.pre229, %..lr.ph73.preheader.i_crit_edge ], [ %96, %.thread ]
+  %.0122170 = phi ptr [ %8, %..lr.ph73.preheader.i_crit_edge ], [ %99, %.thread ]
+  %.0123168 = phi ptr [ %7, %..lr.ph73.preheader.i_crit_edge ], [ %98, %.thread ]
+  %102 = load ptr, ptr %56, align 8, !tbaa !63
+  %103 = load ptr, ptr %59, align 8, !tbaa !65
+  call void @llvm.memset.p0.i64(ptr align 4 %.0122170, i8 0, i64 %.pre-phi231, i1 false), !tbaa !28
   br label %.lr.ph73.i
 
 .lr.ph73.i:                                       ; preds = %._crit_edge.thread90.i, %.lr.ph73.preheader.i
-  %.0153 = phi i32 [ 0, %.lr.ph73.preheader.i ], [ %.1154, %._crit_edge.thread90.i ]
+  %.0158 = phi i32 [ 0, %.lr.ph73.preheader.i ], [ %.1159, %._crit_edge.thread90.i ]
   %indvars.iv81.i = phi i64 [ 0, %.lr.ph73.preheader.i ], [ %indvars.iv.next82.i, %._crit_edge.thread90.i ]
-  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv81.i
-  %110 = load i32, ptr %109, align 4
-  %.not.i140 = icmp eq i32 %110, -1
-  br i1 %.not.i140, label %._crit_edge.thread90.i, label %.preheader.i141
+  %104 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv81.i
+  %105 = load i32, ptr %104, align 4, !tbaa !28
+  %.not.i145 = icmp eq i32 %105, -1
+  br i1 %.not.i145, label %._crit_edge.thread90.i, label %.preheader.i146
 
-.preheader.i141:                                  ; preds = %.lr.ph73.i
-  %111 = icmp sgt i32 %.0153, 0
-  br i1 %111, label %.lr.ph69.i, label %.preheader.i141.._crit_edge.thread.i_crit_edge
+.preheader.i146:                                  ; preds = %.lr.ph73.i
+  %106 = icmp sgt i32 %.0158, 0
+  br i1 %106, label %.lr.ph69.i, label %.preheader.i146.._crit_edge.thread.i_crit_edge
 
-.preheader.i141.._crit_edge.thread.i_crit_edge:   ; preds = %.preheader.i141
-  %.pre222 = trunc nuw nsw i64 %indvars.iv81.i to i32
+.preheader.i146.._crit_edge.thread.i_crit_edge:   ; preds = %.preheader.i146
+  %.pre232 = trunc nuw nsw i64 %indvars.iv81.i to i32
   br label %._crit_edge.thread.i
 
-.lr.ph69.i:                                       ; preds = %.preheader.i141
-  %112 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv81.i
-  %113 = trunc nuw nsw i64 %indvars.iv81.i to i32
-  %114 = zext nneg i32 %.0153 to i64
+.lr.ph69.i:                                       ; preds = %.preheader.i146
+  %107 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv81.i
+  %108 = trunc nuw nsw i64 %indvars.iv81.i to i32
+  %109 = zext nneg i32 %.0158 to i64
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread.i, %.lr.ph69.i
   %indvars.iv78.ph.i = phi i64 [ %indvars.iv.next7988.i, %.thread.i ], [ 0, %.lr.ph69.i ]
-  %115 = phi i1 [ false, %.thread.i ], [ true, %.lr.ph69.i ]
-  %116 = load i32, ptr %109, align 4
-  br label %117
+  %110 = phi i1 [ false, %.thread.i ], [ true, %.lr.ph69.i ]
+  %111 = load i32, ptr %104, align 4, !tbaa !28
+  br label %112
 
-117:                                              ; preds = %136, %.outer.i
-  %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %136 ], [ %indvars.iv78.ph.i, %.outer.i ]
-  %118 = getelementptr inbounds nuw i32, ptr %.0119163, i64 %indvars.iv78.i
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp eq i32 %119, %116
-  br i1 %120, label %121, label %136
+112:                                              ; preds = %131, %.outer.i
+  %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %131 ], [ %indvars.iv78.ph.i, %.outer.i ]
+  %113 = getelementptr inbounds nuw i32, ptr %.0123168, i64 %indvars.iv78.i
+  %114 = load i32, ptr %113, align 4, !tbaa !28
+  %115 = icmp eq i32 %114, %111
+  br i1 %115, label %116, label %131
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i32, ptr %.0118165, i64 %indvars.iv78.i
-  %123 = load i32, ptr %122, align 4
-  %124 = mul nuw nsw i64 %indvars.iv78.i, %.pre-phi
-  %125 = icmp sgt i32 %123, 0
-  br i1 %125, label %.lr.ph64.preheader.i, label %.thread.i
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds nuw i32, ptr %.0122170, i64 %indvars.iv78.i
+  %118 = load i32, ptr %117, align 4, !tbaa !28
+  %119 = mul nuw nsw i64 %indvars.iv78.i, %.pre-phi
+  %120 = icmp sgt i32 %118, 0
+  br i1 %120, label %.lr.ph64.preheader.i, label %.thread.i
 
-.lr.ph64.preheader.i:                             ; preds = %121
-  %126 = zext nneg i32 %123 to i64
-  %invariant.gep.i = getelementptr i32, ptr %99, i64 %124
+.lr.ph64.preheader.i:                             ; preds = %116
+  %121 = zext nneg i32 %118 to i64
+  %invariant.gep.i = getelementptr i32, ptr %94, i64 %119
   br label %.lr.ph64.i
 
-.lr.ph64.i:                                       ; preds = %134, %.lr.ph64.preheader.i
-  %indvars.iv.i143 = phi i64 [ %126, %.lr.ph64.preheader.i ], [ %indvars.iv.next.i144, %134 ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i143
-  %127 = getelementptr i8, ptr %gep.i, i64 -4
-  %128 = load i32, ptr %127, align 4
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i32, ptr %108, i64 %129
-  %131 = load i32, ptr %130, align 4
-  %132 = load i32, ptr %112, align 4
-  %133 = icmp sgt i32 %131, %132
-  br i1 %133, label %134, label %.thread.loopexit.split.loop.exit.i
+.lr.ph64.i:                                       ; preds = %129, %.lr.ph64.preheader.i
+  %indvars.iv.i148 = phi i64 [ %121, %.lr.ph64.preheader.i ], [ %indvars.iv.next.i149, %129 ]
+  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i148
+  %122 = getelementptr i8, ptr %gep.i, i64 -4
+  %123 = load i32, ptr %122, align 4, !tbaa !28
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds i32, ptr %103, i64 %124
+  %126 = load i32, ptr %125, align 4, !tbaa !28
+  %127 = load i32, ptr %107, align 4, !tbaa !28
+  %128 = icmp sgt i32 %126, %127
+  br i1 %128, label %129, label %.thread.loopexit.split.loop.exit.i
 
-134:                                              ; preds = %.lr.ph64.i
-  store i32 %128, ptr %gep.i, align 4
-  %indvars.iv.next.i144 = add nsw i64 %indvars.iv.i143, -1
-  %135 = icmp sgt i64 %indvars.iv.i143, 1
-  br i1 %135, label %.lr.ph64.i, label %.thread.i, !llvm.loop !17
+129:                                              ; preds = %.lr.ph64.i
+  store i32 %123, ptr %gep.i, align 4, !tbaa !28
+  %indvars.iv.next.i149 = add nsw i64 %indvars.iv.i148, -1
+  %130 = icmp sgt i64 %indvars.iv.i148, 1
+  br i1 %130, label %.lr.ph64.i, label %.thread.i, !llvm.loop !71
 
-136:                                              ; preds = %117
+131:                                              ; preds = %112
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
-  %137 = icmp slt i64 %indvars.iv.next79.i, %114
-  br i1 %137, label %117, label %._crit_edge.i, !llvm.loop !18
+  %132 = icmp slt i64 %indvars.iv.next79.i, %109
+  br i1 %132, label %112, label %._crit_edge.i, !llvm.loop !72
 
 .thread.loopexit.split.loop.exit.i:               ; preds = %.lr.ph64.i
-  %138 = trunc nuw nsw i64 %indvars.iv.i143 to i32
+  %133 = trunc nuw nsw i64 %indvars.iv.i148 to i32
   br label %.thread.i
 
-.thread.i:                                        ; preds = %134, %.thread.loopexit.split.loop.exit.i, %121
-  %.0.lcssa.i = phi i32 [ %123, %121 ], [ %138, %.thread.loopexit.split.loop.exit.i ], [ 0, %134 ]
-  %139 = trunc nuw i64 %124 to i32
-  %140 = add nsw i32 %.0.lcssa.i, %139
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %99, i64 %141
-  store i32 %113, ptr %142, align 4
-  %143 = load i32, ptr %122, align 4
-  %144 = add nsw i32 %143, 1
-  store i32 %144, ptr %122, align 4
+.thread.i:                                        ; preds = %129, %.thread.loopexit.split.loop.exit.i, %116
+  %.0.lcssa.i = phi i32 [ %118, %116 ], [ %133, %.thread.loopexit.split.loop.exit.i ], [ 0, %129 ]
+  %134 = trunc nuw i64 %119 to i32
+  %135 = add nsw i32 %.0.lcssa.i, %134
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr inbounds i32, ptr %94, i64 %136
+  store i32 %108, ptr %137, align 4, !tbaa !28
+  %138 = load i32, ptr %117, align 4, !tbaa !28
+  %139 = add nsw i32 %138, 1
+  store i32 %139, ptr %117, align 4, !tbaa !28
   %indvars.iv.next7988.i = add nuw nsw i64 %indvars.iv78.i, 1
-  %145 = icmp slt i64 %indvars.iv.next7988.i, %114
-  br i1 %145, label %.outer.i, label %._crit_edge.thread90.i, !llvm.loop !18
+  %140 = icmp slt i64 %indvars.iv.next7988.i, %109
+  br i1 %140, label %.outer.i, label %._crit_edge.thread90.i, !llvm.loop !72
 
-._crit_edge.i:                                    ; preds = %136
-  br i1 %115, label %._crit_edge.thread.i, label %._crit_edge.thread90.i
+._crit_edge.i:                                    ; preds = %131
+  br i1 %110, label %._crit_edge.thread.i, label %._crit_edge.thread90.i
 
-._crit_edge.thread.i:                             ; preds = %.preheader.i141.._crit_edge.thread.i_crit_edge, %._crit_edge.i
-  %.pre-phi223 = phi i32 [ %.pre222, %.preheader.i141.._crit_edge.thread.i_crit_edge ], [ %113, %._crit_edge.i ]
-  %146 = sext i32 %.0153 to i64
-  %147 = getelementptr inbounds i32, ptr %.0118165, i64 %146
-  store i32 1, ptr %147, align 4
-  %148 = load i32, ptr %109, align 4
-  %149 = getelementptr inbounds i32, ptr %.0119163, i64 %146
-  store i32 %148, ptr %149, align 4
-  %150 = mul nsw i32 %.0153, %.0.i
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i32, ptr %99, i64 %151
-  store i32 %.pre-phi223, ptr %152, align 4
-  %153 = add i32 %.0153, 1
+._crit_edge.thread.i:                             ; preds = %.preheader.i146.._crit_edge.thread.i_crit_edge, %._crit_edge.i
+  %.pre-phi233 = phi i32 [ %.pre232, %.preheader.i146.._crit_edge.thread.i_crit_edge ], [ %108, %._crit_edge.i ]
+  %141 = sext i32 %.0158 to i64
+  %142 = getelementptr inbounds i32, ptr %.0122170, i64 %141
+  store i32 1, ptr %142, align 4, !tbaa !28
+  %143 = load i32, ptr %104, align 4, !tbaa !28
+  %144 = getelementptr inbounds i32, ptr %.0123168, i64 %141
+  store i32 %143, ptr %144, align 4, !tbaa !28
+  %145 = mul nsw i32 %.0158, %.0.i
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds i32, ptr %94, i64 %146
+  store i32 %.pre-phi233, ptr %147, align 4, !tbaa !28
+  %148 = add i32 %.0158, 1
   br label %._crit_edge.thread90.i
 
 ._crit_edge.thread90.i:                           ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i, %.lr.ph73.i
-  %.1154 = phi i32 [ %.0153, %.lr.ph73.i ], [ %153, %._crit_edge.thread.i ], [ %.0153, %._crit_edge.i ], [ %.0153, %.thread.i ]
+  %.1159 = phi i32 [ %.0158, %.lr.ph73.i ], [ %148, %._crit_edge.thread.i ], [ %.0158, %._crit_edge.i ], [ %.0158, %.thread.i ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
-  %exitcond.not.i142 = icmp eq i64 %indvars.iv.next82.i, %.pre-phi
-  br i1 %exitcond.not.i142, label %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit, label %.lr.ph73.i, !llvm.loop !19
+  %exitcond.not.i147 = icmp eq i64 %indvars.iv.next82.i, %.pre-phi
+  br i1 %exitcond.not.i147, label %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit, label %.lr.ph73.i, !llvm.loop !73
 
-_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread90.i, %105
-  %.0118164 = phi ptr [ %8, %105 ], [ %.0118165, %._crit_edge.thread90.i ]
-  %.0119162 = phi ptr [ %7, %105 ], [ %.0119163, %._crit_edge.thread90.i ]
-  %.2155 = phi i32 [ 0, %105 ], [ %.1154, %._crit_edge.thread90.i ]
-  %154 = sext i32 %.2155 to i64
-  %155 = shl nsw i64 %154, 3
-  %156 = call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %155)
-  %157 = icmp sgt i32 %.2155, 0
-  br i1 %157, label %.lr.ph.preheader, label %.preheader
+_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread90.i, %100
+  %.0122169 = phi ptr [ %8, %100 ], [ %.0122170, %._crit_edge.thread90.i ]
+  %.0123167 = phi ptr [ %7, %100 ], [ %.0123168, %._crit_edge.thread90.i ]
+  %.2160 = phi i32 [ 0, %100 ], [ %.1159, %._crit_edge.thread90.i ]
+  %149 = sext i32 %.2160 to i64
+  %150 = shl nsw i64 %149, 3
+  %151 = call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %150)
+  %152 = icmp sgt i32 %.2160, 0
+  br i1 %152, label %.lr.ph.preheader, label %.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit
-  %wide.trip.count = zext nneg i32 %.2155 to i64
+  %wide.trip.count = zext nneg i32 %.2160 to i64
   br label %.lr.ph
 
-158:                                              ; preds = %.lr.ph
+153:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph180, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.lr.ph186, label %.lr.ph, !llvm.loop !74
 
-.lr.ph180:                                        ; preds = %158
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %wide.trip.count202 = zext nneg i32 %.2155 to i64
-  br label %177
+.lr.ph186:                                        ; preds = %153
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %wide.trip.count210 = zext nneg i32 %.2160 to i64
+  br label %172
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %158
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %158 ]
-  %160 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv
-  %161 = getelementptr inbounds nuw i32, ptr %.0118164, i64 %indvars.iv
-  %162 = load i32, ptr %161, align 4
-  %163 = call noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef %160, ptr noundef nonnull %0, i32 noundef %162)
-  %.not134 = icmp eq i32 %163, 0
-  br i1 %.not134, label %158, label %.loopexit167
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %153
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %153 ]
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw i32, ptr %.0122169, i64 %indvars.iv
+  %157 = load i32, ptr %156, align 4, !tbaa !28
+  %158 = call noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef %155, ptr noundef nonnull %0, i32 noundef %157)
+  %.not138 = icmp eq i32 %158, 0
+  br i1 %.not138, label %153, label %.thread171
 
 .preheader:                                       ; preds = %._crit_edge, %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit
-  %164 = icmp sgt i32 %.0.i, 0
-  br i1 %164, label %.lr.ph185, label %._crit_edge186.thread
+  %159 = icmp sgt i32 %.0.i, 0
+  br i1 %159, label %.lr.ph191, label %._crit_edge192.thread
 
-.lr.ph185:                                        ; preds = %.preheader
-  %wide.trip.count217 = zext nneg i32 %.0.i to i64
-  br i1 %157, label %.lr.ph183.us.preheader, label %.loopexit
+.lr.ph191:                                        ; preds = %.preheader
+  %wide.trip.count225 = zext nneg i32 %.0.i to i64
+  br i1 %152, label %.lr.ph189.us.preheader, label %.loopexit
 
-.lr.ph183.us.preheader:                           ; preds = %.lr.ph185
-  %wide.trip.count212 = zext nneg i32 %.2155 to i64
-  br label %.lr.ph183.us
+.lr.ph189.us.preheader:                           ; preds = %.lr.ph191
+  %wide.trip.count220 = zext nneg i32 %.2160 to i64
+  br label %.lr.ph189.us
 
-.lr.ph183.us:                                     ; preds = %.lr.ph183.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv214 = phi i64 [ 0, %.lr.ph183.us.preheader ], [ %indvars.iv.next215, %..loopexit_crit_edge.us ]
-  %165 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv214
-  store volatile ptr null, ptr %165, align 8
-  %166 = load ptr, ptr %59, align 8
-  %167 = getelementptr inbounds nuw i32, ptr %166, i64 %indvars.iv214
-  br label %169
+.lr.ph189.us:                                     ; preds = %.lr.ph189.us.preheader, %..loopexit_crit_edge.us
+  %indvars.iv222 = phi i64 [ 0, %.lr.ph189.us.preheader ], [ %indvars.iv.next223, %..loopexit_crit_edge.us ]
+  %160 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv222
+  store volatile ptr null, ptr %160, align 8, !tbaa !35
+  %161 = load ptr, ptr %56, align 8, !tbaa !63
+  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %indvars.iv222
+  br label %164
 
-168:                                              ; preds = %169
-  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
-  %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
-  br i1 %exitcond213.not, label %..loopexit_crit_edge.us, label %169, !llvm.loop !21
+163:                                              ; preds = %164
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
+  %exitcond221.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count220
+  br i1 %exitcond221.not, label %..loopexit_crit_edge.us, label %164, !llvm.loop !75
 
-169:                                              ; preds = %.lr.ph183.us, %168
-  %indvars.iv209 = phi i64 [ 0, %.lr.ph183.us ], [ %indvars.iv.next210, %168 ]
-  %170 = load volatile i32, ptr %167, align 4
-  %171 = getelementptr inbounds nuw i32, ptr %.0119162, i64 %indvars.iv209
-  %172 = load i32, ptr %171, align 4
-  %173 = icmp eq i32 %170, %172
-  br i1 %173, label %174, label %168
+164:                                              ; preds = %.lr.ph189.us, %163
+  %indvars.iv217 = phi i64 [ 0, %.lr.ph189.us ], [ %indvars.iv.next218, %163 ]
+  %165 = load volatile i32, ptr %162, align 4, !tbaa !28
+  %166 = getelementptr inbounds nuw i32, ptr %.0123167, i64 %indvars.iv217
+  %167 = load i32, ptr %166, align 4, !tbaa !28
+  %168 = icmp eq i32 %165, %167
+  br i1 %168, label %169, label %163
 
-174:                                              ; preds = %169
-  %175 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv209
-  %176 = load ptr, ptr %175, align 8
-  store volatile ptr %176, ptr %165, align 8
+169:                                              ; preds = %164
+  %170 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv217
+  %171 = load ptr, ptr %170, align 8, !tbaa !35
+  store volatile ptr %171, ptr %160, align 8, !tbaa !35
   br label %..loopexit_crit_edge.us
 
-..loopexit_crit_edge.us:                          ; preds = %168, %174
-  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
-  br i1 %exitcond218.not, label %._crit_edge186, label %.lr.ph183.us, !llvm.loop !22
+..loopexit_crit_edge.us:                          ; preds = %163, %169
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count225
+  br i1 %exitcond226.not, label %._crit_edge192, label %.lr.ph189.us, !llvm.loop !76
 
-177:                                              ; preds = %.lr.ph180, %._crit_edge
-  %indvars.iv199 = phi i64 [ 0, %.lr.ph180 ], [ %indvars.iv.next200, %._crit_edge ]
-  %178 = getelementptr inbounds nuw i32, ptr %.0118164, i64 %indvars.iv199
-  %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv199
-  %181 = load ptr, ptr %180, align 8
-  store i32 %179, ptr %181, align 8
-  %182 = icmp sgt i32 %179, 0
-  br i1 %182, label %.lr.ph178.preheader, label %._crit_edge
+172:                                              ; preds = %.lr.ph186, %._crit_edge
+  %indvars.iv207 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next208, %._crit_edge ]
+  %173 = getelementptr inbounds nuw i32, ptr %.0122169, i64 %indvars.iv207
+  %174 = load i32, ptr %173, align 4, !tbaa !28
+  %175 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv207
+  %176 = load ptr, ptr %175, align 8, !tbaa !35
+  store i32 %174, ptr %176, align 8, !tbaa !3
+  %177 = icmp sgt i32 %174, 0
+  br i1 %177, label %.lr.ph184, label %._crit_edge
 
-.lr.ph178.preheader:                              ; preds = %177
-  %183 = trunc nuw nsw i64 %indvars.iv199 to i32
-  br label %.lr.ph178
+.lr.ph184:                                        ; preds = %172
+  %178 = load ptr, ptr %154, align 8, !tbaa !29
+  %179 = load i32, ptr %0, align 8, !tbaa !3
+  %180 = trunc nuw nsw i64 %indvars.iv207 to i32
+  %181 = mul nsw i32 %179, %180
+  %182 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  %183 = load ptr, ptr %182, align 8, !tbaa !29
+  %184 = sext i32 %181 to i64
+  %wide.trip.count205 = zext nneg i32 %174 to i64
+  %invariant.gep = getelementptr i32, ptr %94, i64 %184
+  br label %185
 
-.lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
-  %indvars.iv196 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next197, %.lr.ph178 ]
-  %184 = load ptr, ptr %159, align 8
-  %185 = load i32, ptr %0, align 8
-  %186 = mul nsw i32 %185, %183
-  %187 = trunc nuw nsw i64 %indvars.iv196 to i32
-  %188 = add nsw i32 %186, %187
-  %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds i32, ptr %99, i64 %189
-  %191 = load i32, ptr %190, align 4
-  %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds ptr, ptr %184, i64 %192
-  %194 = load ptr, ptr %193, align 8
-  %195 = load ptr, ptr %180, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv196
-  store ptr %194, ptr %198, align 8
-  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %199 = load i32, ptr %178, align 4
-  %200 = sext i32 %199 to i64
-  %201 = icmp slt i64 %indvars.iv.next197, %200
-  br i1 %201, label %.lr.ph178, label %._crit_edge, !llvm.loop !23
+185:                                              ; preds = %.lr.ph184, %185
+  %indvars.iv202 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next203, %185 ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv202
+  %186 = load i32, ptr %gep, align 4, !tbaa !28
+  %187 = sext i32 %186 to i64
+  %188 = getelementptr inbounds ptr, ptr %178, i64 %187
+  %189 = load ptr, ptr %188, align 8, !tbaa !30
+  %190 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv202
+  store ptr %189, ptr %190, align 8, !tbaa !30
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
+  %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
+  br i1 %exitcond206.not, label %._crit_edge, label %185, !llvm.loop !77
 
-._crit_edge:                                      ; preds = %.lr.ph178, %177
-  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
-  %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
-  br i1 %exitcond203.not, label %.preheader, label %177, !llvm.loop !24
+._crit_edge:                                      ; preds = %185, %172
+  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
+  %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
+  br i1 %exitcond211.not, label %.preheader, label %172, !llvm.loop !78
 
-.loopexit:                                        ; preds = %.lr.ph185, %.loopexit
-  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.loopexit ], [ 0, %.lr.ph185 ]
-  %202 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv204
-  store volatile ptr null, ptr %202, align 8
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count217
-  br i1 %exitcond208.not, label %._crit_edge186, label %.loopexit, !llvm.loop !22
+.loopexit:                                        ; preds = %.lr.ph191, %.loopexit
+  %indvars.iv212 = phi i64 [ %indvars.iv.next213, %.loopexit ], [ 0, %.lr.ph191 ]
+  %191 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv212
+  store volatile ptr null, ptr %191, align 8, !tbaa !35
+  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
+  %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count225
+  br i1 %exitcond216.not, label %._crit_edge192, label %.loopexit, !llvm.loop !76
 
-._crit_edge186:                                   ; preds = %.loopexit, %..loopexit_crit_edge.us
-  br i1 %100, label %203, label %._crit_edge186.thread
+._crit_edge192:                                   ; preds = %.loopexit, %..loopexit_crit_edge.us
+  br i1 %95, label %192, label %._crit_edge192.thread
 
-203:                                              ; preds = %._crit_edge186
-  %204 = load ptr, ptr %59, align 8
-  call void @free(ptr noundef %204) #8
-  %205 = load ptr, ptr %62, align 8
-  call void @free(ptr noundef %205) #8
-  call void @free(ptr noundef %.0119162) #8
-  call void @free(ptr noundef %.0118164) #8
-  br label %._crit_edge186.thread
+192:                                              ; preds = %._crit_edge192
+  %193 = load ptr, ptr %56, align 8, !tbaa !63
+  call void @free(ptr noundef %193) #8
+  %194 = load ptr, ptr %59, align 8, !tbaa !65
+  call void @free(ptr noundef %194) #8
+  call void @free(ptr noundef %.0123167) #8
+  call void @free(ptr noundef %.0122169) #8
+  br label %._crit_edge192.thread
 
-._crit_edge186.thread:                            ; preds = %.preheader, %203, %._crit_edge186
-  call void @free(ptr noundef %99) #8
-  call void @free(ptr noundef %156) #8
-  %206 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store volatile i32 1, ptr %206, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %208 = call noundef i32 @_Z26tMPI_Thread_cond_broadcastP18tMPI_Thread_cond_t(ptr noundef nonnull %207)
-  %.not132 = icmp eq i32 %208, 0
-  br i1 %.not132, label %.loopexit170, label %209
+._crit_edge192.thread:                            ; preds = %.preheader, %192, %._crit_edge192
+  call void @free(ptr noundef %94) #8
+  call void @free(ptr noundef %151) #8
+  %195 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store volatile i32 1, ptr %195, align 8, !tbaa !67
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %197 = call noundef i32 @_Z26tMPI_Thread_cond_broadcastP18tMPI_Thread_cond_t(ptr noundef nonnull %196)
+  %.not137 = icmp eq i32 %197, 0
+  br i1 %.not137, label %200, label %.thread171.sink.split
 
-209:                                              ; preds = %._crit_edge186.thread
-  %210 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  %211 = call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %210, i32 noundef 2)
-  br label %.loopexit167
+.thread171.sink.split:                            ; preds = %87, %._crit_edge192.thread
+  %198 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
+  %199 = call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %198, i32 noundef 2)
+  br label %.thread171
 
-.loopexit170:                                     ; preds = %79, %._crit_edge186.thread
-  %212 = getelementptr inbounds ptr, ptr %56, i64 %.08.i159
-  %213 = load volatile ptr, ptr %212, align 8
-  store ptr %213, ptr %3, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %215 = load volatile i32, ptr %214, align 4
-  %216 = add nsw i32 %215, -1
-  store volatile i32 %216, ptr %214, align 4
-  %217 = load volatile i32, ptr %214, align 4
-  %218 = icmp eq i32 %217, 0
-  br i1 %218, label %219, label %220
+.thread171:                                       ; preds = %.lr.ph, %.thread171.sink.split
+  %.1.ph = phi i32 [ %199, %.thread171.sink.split ], [ %158, %.lr.ph ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
+  br label %214
 
-219:                                              ; preds = %.loopexit170
-  call void @free(ptr noundef nonnull %56) #8
-  call void @free(ptr noundef nonnull %58) #8
-  br label %220
+200:                                              ; preds = %._crit_edge192.thread
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
+  br label %.loopexit176
 
-220:                                              ; preds = %219, %.loopexit170
-  %221 = call noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noundef nonnull %25)
-  %.not133 = icmp eq i32 %221, 0
-  br i1 %.not133, label %.loopexit167, label %222
+.loopexit176:                                     ; preds = %75, %200
+  %201 = getelementptr inbounds ptr, ptr %55, i64 %.08.i164
+  %202 = load volatile ptr, ptr %201, align 8, !tbaa !35
+  store ptr %202, ptr %3, align 8, !tbaa !35
+  %203 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %204 = load volatile i32, ptr %203, align 4, !tbaa !70
+  %205 = add nsw i32 %204, -1
+  store volatile i32 %205, ptr %203, align 4, !tbaa !70
+  %206 = load volatile i32, ptr %203, align 4, !tbaa !70
+  %207 = icmp eq i32 %206, 0
+  br i1 %207, label %208, label %209
 
-222:                                              ; preds = %220
-  %223 = load ptr, ptr @TMPI_COMM_WORLD, align 8
-  %224 = call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %223, i32 noundef 2)
-  br label %.loopexit167
+208:                                              ; preds = %.loopexit176
+  call void @free(ptr noundef nonnull %55) #8
+  call void @free(ptr noundef nonnull %54) #8
+  br label %209
 
-.loopexit167:                                     ; preds = %.lr.ph, %220, %222, %209, %91, %83, %72, %27, %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread
-  %.0 = phi i32 [ %29, %27 ], [ %74, %72 ], [ %93, %91 ], [ %211, %209 ], [ %224, %222 ], [ %85, %83 ], [ %22, %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread ], [ 0, %220 ], [ %163, %.lr.ph ]
+209:                                              ; preds = %208, %.loopexit176
+  %210 = call noundef i32 @_Z24tMPI_Thread_mutex_unlockP19tMPI_Thread_mutex_t(ptr noundef nonnull %25)
+  %.not140 = icmp eq i32 %210, 0
+  br i1 %.not140, label %214, label %211
+
+211:                                              ; preds = %209
+  %212 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !35
+  %213 = call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %212, i32 noundef 2)
+  br label %214
+
+214:                                              ; preds = %.thread171, %209, %211, %79, %69, %27, %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread
+  %.0 = phi i32 [ %29, %27 ], [ %71, %69 ], [ %213, %211 ], [ %81, %79 ], [ %22, %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread ], [ 0, %209 ], [ %.1.ph, %.thread171 ]
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #8
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %3 = load i32, ptr %0, align 8
+  %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
 
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %.loopexit.loopexit.split.loop.exit14, label %11
 
 11:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !60
 
 .loopexit.loopexit.split.loop.exit14:             ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1233,27 +1239,27 @@ define noundef i32 @_Z16tMPI_Comm_createP10tmpi_comm_P11tmpi_group_PS0_(ptr noun
   br i1 %.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %5 = load i32, ptr %0, align 8
+  %5 = load i32, ptr %0, align 8, !tbaa !3
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %9
 
 9:                                                ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
   %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = icmp eq ptr %11, %4
   br i1 %12, label %.loopexit.loopexit.split.loop.exit14.i, label %13
 
 13:                                               ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit, label %9, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit, label %9, !llvm.loop !60
 
 .loopexit.loopexit.split.loop.exit14.i:           ; preds = %9
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1271,7 +1277,7 @@ _Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit: ; preds = %13, %3, %.pr
 declare noundef i32 @_Z13tMPI_In_groupP11tmpi_group_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef i32 @_Z23tMPI_Thread_cond_signalP18tMPI_Thread_cond_t(ptr noundef) local_unnamed_addr #2
 
@@ -1279,46 +1285,94 @@ declare noundef i32 @_Z21tMPI_Thread_cond_waitP18tMPI_Thread_cond_tP19tMPI_Threa
 
 declare noundef i32 @_Z26tMPI_Thread_cond_broadcastP18tMPI_Thread_cond_t(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
+!3 = !{!4, !6, i64 0}
+!4 = !{!"_ZTS10tmpi_comm_", !5, i64 0, !12, i64 16, !14, i64 152, !15, i64 160, !6, i64 168, !16, i64 176, !17, i64 184, !18, i64 192, !18, i64 200, !19, i64 208, !21, i64 280, !21, i64 352, !23, i64 424, !24, i64 432, !25, i64 440, !26, i64 448, !27, i64 456, !27, i64 464, !13, i64 472}
+!5 = !{!"_ZTS11tmpi_group_", !6, i64 0, !9, i64 8}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p2 _ZTS11tmpi_thread", !10, i64 0}
+!10 = !{!"any p2 pointer", !11, i64 0}
+!11 = !{!"any pointer", !7, i64 0}
+!12 = !{!"_ZTS14tMPI_Barrier_t", !13, i64 0, !6, i64 64, !13, i64 68}
+!13 = !{!"_ZTS11tMPI_Atomic", !6, i64 0, !7, i64 4}
+!14 = !{!"p2 _ZTS14tMPI_Barrier_t", !10, i64 0}
+!15 = !{!"p1 int", !11, i64 0}
+!16 = !{!"p1 _ZTS8coll_env", !11, i64 0}
+!17 = !{!"p1 _ZTS9coll_sync", !11, i64 0}
+!18 = !{!"p1 _ZTS15tMPI_Atomic_ptr", !11, i64 0}
+!19 = !{!"_ZTS19tMPI_Thread_mutex_t", !13, i64 0, !20, i64 64}
+!20 = !{!"p1 _ZTS10tMPI_Mutex", !11, i64 0}
+!21 = !{!"_ZTS18tMPI_Thread_cond_t", !13, i64 0, !22, i64 64}
+!22 = !{!"p1 _ZTS16tMPI_Thread_cond", !11, i64 0}
+!23 = !{!"p2 _ZTS10tmpi_comm_", !10, i64 0}
+!24 = !{!"p1 _ZTS10tmpi_split", !11, i64 0}
+!25 = !{!"p1 _ZTS10cart_topol", !11, i64 0}
+!26 = !{!"p1 _ZTS16tmpi_errhandler_", !11, i64 0}
+!27 = !{!"p1 _ZTS10tmpi_comm_", !11, i64 0}
+!28 = !{!6, !6, i64 0}
+!29 = !{!4, !9, i64 8}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTS11tmpi_thread", !11, i64 0}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.mustprogress"}
+!34 = distinct !{!34, !33}
+!35 = !{!27, !27, i64 0}
+!36 = !{!4, !6, i64 472}
+!37 = distinct !{!37, !33}
+!38 = !{!4, !6, i64 168}
+!39 = !{!4, !14, i64 152}
+!40 = !{!4, !15, i64 160}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS14tMPI_Barrier_t", !11, i64 0}
+!43 = distinct !{!43, !33}
+!44 = distinct !{!44, !33}
+!45 = !{!4, !18, i64 192}
+!46 = !{!4, !18, i64 200}
+!47 = !{!26, !26, i64 0}
+!48 = !{!4, !26, i64 448}
+!49 = !{!4, !16, i64 176}
+!50 = distinct !{!50, !33}
+!51 = !{!4, !17, i64 184}
+!52 = distinct !{!52, !33}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS11tmpi_global", !11, i64 0}
+!55 = !{!4, !27, i64 456}
+!56 = !{!4, !27, i64 464}
+!57 = distinct !{!57, !33}
+!58 = distinct !{!58, !33}
+!59 = !{!4, !25, i64 440}
+!60 = distinct !{!60, !33}
+!61 = !{!4, !23, i64 424}
+!62 = !{!4, !24, i64 432}
+!63 = !{!64, !15, i64 16}
+!64 = !{!"_ZTS10tmpi_split", !6, i64 0, !6, i64 4, !6, i64 8, !15, i64 16, !15, i64 24}
+!65 = !{!64, !15, i64 24}
+!66 = !{!64, !6, i64 0}
+!67 = !{!64, !6, i64 8}
+!68 = distinct !{!68, !33}
+!69 = distinct !{!69, !33}
+!70 = !{!64, !6, i64 4}
+!71 = distinct !{!71, !33}
+!72 = distinct !{!72, !33}
+!73 = distinct !{!73, !33}
+!74 = distinct !{!74, !33}
+!75 = distinct !{!75, !33}
+!76 = distinct !{!76, !33}
+!77 = distinct !{!77, !33}
+!78 = distinct !{!78, !33}
