@@ -104,6 +104,7 @@ supported_project = [
     "lief",
     "lightgbm",
     "llama.cpp",
+    "lodepng",
 ]
 
 modify_only = [
